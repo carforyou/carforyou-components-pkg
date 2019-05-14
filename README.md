@@ -5,6 +5,10 @@
 npm install @carforyou/components
 ```
 
+```
+import Pagination from "@carforyou/components"
+```
+
 ## Development
 To work on the components locally in Storybook:
 ```
