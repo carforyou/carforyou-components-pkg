@@ -1,0 +1,115 @@
+.pagination {
+  list-style-type: none;
+  @apply mb-20 h-40 text-center flex justify-center items-center;
+}
+
+.page,
+.break-me {
+  line-height: normal;
+  @apply text-grey-3 text-base inline-flex justify-center items-center mr-20 hidden;
+}
+
+.page a {
+  min-width: 30px;
+  height: 30px;
+  @apply p-5 w-auto;
+}
+
+.previous a {
+  @apply pl-30;
+}
+
+.next a {
+  @apply pr-30;
+}
+
+.page:not(.active):hover {
+  @apply text-black bg-grey-2 rounded-20 cursor-pointer;
+}
+
+.page.active {
+  @apply text-white bg-teal rounded-20 outline-none text-center;
+
+}
+
+.previous {
+  @apply absolute pin-l ml-15;
+}
+
+.next a, .previous a {
+  @apply text-teal font-bold text-sm;
+}
+
+.disabled a,
+.disabled a:hover {
+  @apply text-grey-3 font-regular cursor-default opacity-60;
+}
+
+.page.active a {
+  @apply cursor-default opacity-100;
+}
+
+.page a:link, .page a:visited {
+  @apply text-grey-dark;
+}
+
+.page a:focus,
+.page.active a:focus,
+.previous:not(.disabled) a:focus,
+.next:not(.disabled) a:focus {
+  @apply outline-none;
+}
+
+.next, .previous {
+  @apply mt-10;
+}
+
+.next {
+  @apply absolute pin-r mr-15;
+}
+
+.previous:not(.disabled) {
+  @apply icon-arrowLeftTealM-left;
+}
+
+.next:not(.disabled) {
+  @apply icon-arrowRightTealM-right;
+}
+
+.previous.disabled {
+  @apply icon-arrowLeftGreyS-left;
+}
+
+.next.disabled {
+  @apply icon-arrowRightGreyS-right;
+}
+
+.next:not(.disabled):hover, .previous:not(.disabled):hover {
+  @apply opacity-80;
+}
+
+@screen lg {
+  .pagination {
+    @apply h-auto;
+  }
+
+  .next, .previous {
+    @apply mt-0;
+  }
+
+  .next a, .previous a {
+    @apply text-base;
+  }
+
+  .previous {
+    @apply ml-0;
+  }
+
+  .next {
+    @apply mr-20;
+  }
+
+  .page, .break-me {
+    @apply inline-flex;
+  }
+}
