@@ -6,6 +6,12 @@ npm install @carforyou/components
 ```
 
 ## Development
+To work on the components locally in Storybook:
+```
+npm run dev
+```
+
+To build the package and Storybook as static assets:
 ```
 npm run build
 ```
