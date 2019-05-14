@@ -1,8 +1,8 @@
 // import styles from "./pagination.css"
-
-import React, { StatelessComponent } from "react"
+import * as React from 'react';
+import { StatelessComponent } from "react"
 import ReactPaginate from "react-paginate"
-import Head from "next/head"
+// import Head from "next/head"
 
 interface Props {
   pageCount: number
@@ -14,18 +14,18 @@ interface Props {
   pageLinkBuilder: (page: number, params: object) => string
 }
 
-const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
-  if (forcePage === 0) {
-    return <link href={linkBuilder(forcePage + 2, query)} rel="next" />
-  } else if (forcePage === pageCount - 1) {
-    return <link href={linkBuilder(forcePage, query)} rel="prev" />
-  } else {
-    return [
-      <link href={linkBuilder(forcePage + 2, query)} rel="next" key="next" />,
-      <link href={linkBuilder(forcePage, query)} rel="prev" key="prev" />
-    ]
-  }
-}
+// const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
+//   if (forcePage === 0) {
+//     return <link href={linkBuilder(forcePage + 2, query)} rel="next" />
+//   } else if (forcePage === pageCount - 1) {
+//     return <link href={linkBuilder(forcePage, query)} rel="prev" />
+//   } else {
+//     return [
+//       <link href={linkBuilder(forcePage + 2, query)} rel="next" key="next" />,
+//       <link href={linkBuilder(forcePage, query)} rel="prev" key="prev" />
+//     ]
+//   }
+// }
 
 const Pagination: StatelessComponent<Props> = ({
   pageCount,
@@ -38,9 +38,9 @@ const Pagination: StatelessComponent<Props> = ({
 }) => {
   return (
     pageCount > 1 ? (<>
-      <Head>{getRelLinks(forcePage, query, pageCount, pageLinkBuilder)}</Head>
+      {/* <Head>{getRelLinks(forcePage, query, pageCount, pageLinkBuilder)}</Head> */}
       <ReactPaginate
-        hrefBuilder={page => pageLinkBuilder(page, query)}
+        hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
         pageCount={pageCount}
         previousLabel={previousLabel}
         nextLabel={nextLabel}
@@ -51,7 +51,7 @@ const Pagination: StatelessComponent<Props> = ({
         onPageChange={onPageChange}
         containerClassName="pagination"
         pageClassName="page"
-        subContainerClassName="pages pagination"
+        // subContainerClassName="pages pagination"
         activeClassName="active"
         forcePage={forcePage}
       />
