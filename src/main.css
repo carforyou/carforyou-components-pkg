@@ -1,0 +1,11 @@
+@tailwind preflight;
+
+body {
+  @apply font-sans;
+}
+
+a {
+  @apply no-underline;
+}
+
+@tailwind utilities;

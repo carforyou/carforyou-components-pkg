@@ -15,36 +15,45 @@
   },
   "author": "CAR FOR YOU",
   "homepage": "https://github.com/autoricardo/components-pkg#readme",
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "tailwindccss": "^6.0.0"
+  },
   "dependencies": {
-    "react-paginate": "^5.2.4"
+    "react-paginate": "^5.2.4",
+    "tailwindcss-gradients": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@pika/pack": "^0.3.7",
     "@pika/plugin-build-web": "^0.3.16",
     "@pika/plugin-ts-standard-pkg": "^0.3.16",
-    "@zeit/next-typescript": "^1.1.1",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-info": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
+    "@svgr/webpack": "^4.2.0",
     "@types/jest": "^24.0.13",
     "@types/react": "^16.8.17",
-    "@types/react-paginate": "^5.2.3",
     "@types/storybook__react": "^4.0.1",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
     "jest": "^24.8.0",
+    "postcss-loader": "^3.0.0",
     "react": "^16.8.6",
     "react-docgen-typescript-loader": "^3.1.0",
+    "svgo": "^1.2.2",
+    "tailwindcss": "^0.6.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
   },
   "@pika/pack": {
     "pipeline": [
       [
-        "@pika/plugin-ts-standard-pkg", {"tsconfig": "./tsconfig.pika.json"}
+        "@pika/plugin-ts-standard-pkg",
+        {
+          "tsconfig": "./tsconfig.pika.json"
+        }
       ],
       [
         "@pika/plugin-build-web"
