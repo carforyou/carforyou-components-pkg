@@ -1,2 +1,4 @@
 import Pagination from './components/pagination'
-export {Pagination}
+import ImageAsset from './components/imageAsset'
+
+export {Pagination, ImageAsset}
