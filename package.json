@@ -1,6 +1,6 @@
 {
   "name": "@carforyou/components",
-  "version": "1.0.5",
+  "version": "0.0.1",
   "description": "CAR FOR YOU React components",
   "scripts": {
     "release": "pack publish && git push --tags",
