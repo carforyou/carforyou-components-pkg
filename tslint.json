@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@carforyou/tslint-rules"
+  ],
+  "rules": {
+    "no-implicit-dependencies": [true, ["react"]]
+  }
+}
+

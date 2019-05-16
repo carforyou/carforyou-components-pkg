@@ -1,5 +1,6 @@
+<<<<<<< HEAD
 import * as React from 'react';
-import { StatelessComponent } from "react"
+import React, { StatelessComponent } from "react"
 import ReactPaginate from "react-paginate"
 import ArrowRightM from "./icons/ArrowRightMCrop"
 
@@ -37,8 +38,8 @@ const Pagination: StatelessComponent<Props> = ({
   query,
   pageLinkBuilder
 }) => {
-  return (
-    pageCount > 1 ? (<>
+  return pageCount > 1 ? (
+    <>
       {/* <Head>{getRelLinks(forcePage, query, pageCount, pageLinkBuilder)}</Head> */}
       <ReactPaginate
         hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
@@ -56,8 +57,8 @@ const Pagination: StatelessComponent<Props> = ({
         activeClassName="active"
         forcePage={forcePage}
       />
-    </>) : null
-  )
+    </>
+  ) : null
 }
 
 export default Pagination
