@@ -1,5 +1,4 @@
-import * as React from "react"
-import { StatelessComponent, ImgHTMLAttributes } from "react"
+import React, { StatelessComponent, ImgHTMLAttributes } from "react"
 
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
   path: string
