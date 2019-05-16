@@ -36,7 +36,7 @@ npm run build
 
 ### SVG files
 * Minimize SVG files with `npx svgo`
-* Generate React components from the SVGs with `npx @svgr/cli` and use them inline as components unless you have good reasons not to do so
+* Generate React components from the SVGs with `npx @svgr/cli --template lib/svgrTypescriptTemplate.js --ext .ts` and use them inline as components unless you have good reasons not to do so
 * Make sure your SVG has a `viewBox`, prefer cropped icons
 * Prefer rotating an arrow over having multiple SVGs per direction
 * Prefer setting the size over having multiple SVGs per size
