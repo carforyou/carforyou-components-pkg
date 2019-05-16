@@ -1,6 +1,6 @@
 {
   "name": "@carforyou/components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CAR FOR YOU React components",
   "scripts": {
     "release": "pack publish && git push --tags",
@@ -44,7 +44,10 @@
   "@pika/pack": {
     "pipeline": [
       [
-        "@pika/plugin-ts-standard-pkg", {"tsconfig": "./tsconfig.pika.json"}
+        "@pika/plugin-ts-standard-pkg",
+        {
+          "tsconfig": "./tsconfig.pika.json"
+        }
       ],
       [
         "@pika/plugin-build-web"
