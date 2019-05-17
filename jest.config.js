@@ -1,7 +1,13 @@
+/* tslint:disable:object-literal-sort-keys */
 module.exports = {
-  moduleFileExtensions: ["ts", "js", "node"],
-  testMatch: ["**/__tests__/**/*.test.ts"],
+  moduleFileExtensions: ["js", "ts", "tsx", "node"],
+  moduleNameMapper: {
+    "assets/(.*).(jpe?g|png|gif|ico|svg)$":
+      "<rootDir>/src/__mocks__/fileMock.js",
+    "^~/(.*)": "<rootDir>/$1"
+  },
+  testMatch: ["**/__tests__/**/*.test.ts?(x)"],
   transform: {
-    "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    "\\.tsx?$": "ts-jest"
   }
 }

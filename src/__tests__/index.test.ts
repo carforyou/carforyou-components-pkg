@@ -1,4 +1,4 @@
-import { withDefaultConfig, defaultConfig } from "../src/tailwind"
+import { withDefaultConfig, defaultConfig } from "../tailwind"
 
 describe("tailwind", () => {
   describe("defaultConfig", () => {

@@ -54,6 +54,7 @@
     "prettier": "^1.17.1",
     "react": "^16.8.6",
     "react-docgen-typescript-loader": "^3.1.0",
+    "react-testing-library": "^7.0.0",
     "svgo": "^1.2.2",
     "tailwindcss": "^0.6.1",
     "ts-jest": "^24.0.2",
