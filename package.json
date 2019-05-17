@@ -1,6 +1,6 @@
 {
   "name": "@carforyou/components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CAR FOR YOU React components",
   "scripts": {
     "release": "pack publish && git push --tags",
@@ -70,9 +70,6 @@
       ],
       [
         "@pika/plugin-build-web"
-      ],
-      [
-        "@pika/plugin-build-node"
       ]
     ]
   }
