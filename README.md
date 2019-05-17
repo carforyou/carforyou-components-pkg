@@ -15,8 +15,8 @@ tailwind.withDefaultConfig({ colors: { "tuna": "#4E5154" } })
 
 You can also access the base config directly if you need to:
 ```
-import { defaultConfig } from "../src/tailwind"
-defaultConfig.colors.salmon
+import { tailwind } from "@carforyou/components"
+tailwind.defaultConfig.colors.salmon
 ```
 
 Then, you can start using the shared React components:
