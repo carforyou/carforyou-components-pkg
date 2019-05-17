@@ -1,6 +1,6 @@
 # CAR FOR YOU components
 
-[https://img.shields.io/badge/Storybook-deployed-F73B47.svg](https://autoricardo.github.io/carforyou-components-pkg)
+[![alt text](https://img.shields.io/badge/Storybook-deployed-F73B47.svg)](https://autoricardo.github.io/carforyou-components-pkg)
 
 ## Usage
 ```
@@ -9,8 +9,8 @@ npm install @carforyou/components
 
 In your tailwind.js, merge your custom configs with the base configuration:
 ```
-const { withDefaultConfig } = require("@carforyou/components").tailwind
-export default withDefaultConfig({ colors: { "tuna": "#4E5154" } })
+const { tailwind } = require("@carforyou/components").default
+tailwind.withDefaultConfig({ colors: { "tuna": "#4E5154" } })
 ```
 
 You can also access the base config directly if you need to:
