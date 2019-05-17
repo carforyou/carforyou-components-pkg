@@ -12,4 +12,4 @@ const tailwindPositionPlugin = ({ addUtilities, config }) => {
   })
 }
 
-module.exports = { default: tailwindPositionPlugin }
+export default tailwindPositionPlugin

@@ -4,12 +4,14 @@
   "description": "CAR FOR YOU React components",
   "scripts": {
     "release": "pack publish && git push --tags",
-    "dev": "start-storybook -p 6006",
+    "dev": "npm run build:tailwind && start-storybook -p 6006",
+    "test": "jest",
     "lint": "tslint --project tsconfig.json",
     "format": "tslint --project tsconfig.json --fix",
     "build": "npm run build:package && npm run build:storybook",
     "build:package": "pack build",
-    "build:storybook": "build-storybook"
+    "build:tailwind": "tsc --project tsconfig.tailwind.json",
+    "build:storybook": "npm run build:tailwind && build-storybook"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "tailwindccss": "^6.0.0"
   },
   "dependencies": {
+    "merge-deep": "^3.0.2",
     "react-paginate": "^5.2.4",
     "tailwindcss-gradients": "^1.1.0"
   },
@@ -38,7 +41,9 @@
     "@storybook/react": "^5.0.11",
     "@svgr/webpack": "^4.2.0",
     "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.2",
     "@types/react": "^16.8.17",
+    "@types/react-paginate": "^6.2.1",
     "@types/storybook__react": "^4.0.1",
     "@zeit/next-typescript": "^1.1.1",
     "awesome-typescript-loader": "^5.2.1",

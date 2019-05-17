@@ -1,8 +1,5 @@
-const tailwindConfig = require("../src/tailwind.config.js")
+const tailwindConfig = require("./tailwind/defaultConfig").default
 
 module.exports = {
-  plugins: [
-    require("tailwindcss")(tailwindConfig),
-    require("autoprefixer")
-  ]
+  plugins: [require("tailwindcss")(tailwindConfig), require("autoprefixer")]
 }

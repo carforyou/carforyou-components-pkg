@@ -3,7 +3,8 @@
     "@carforyou/tslint-rules"
   ],
   "rules": {
-    "no-implicit-dependencies": [true, ["react"]]
+    "no-implicit-dependencies": [true, ["react"]],
+    "no-duplicate-imports": false
   }
 }
 

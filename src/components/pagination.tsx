@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-import * as React from 'react';
-import React, { StatelessComponent } from "react"
+import * as React from "react"
+import { StatelessComponent } from "react"
 import ReactPaginate from "react-paginate"
 import ArrowRightM from "./icons/ArrowRightMCrop"
 
@@ -44,8 +43,26 @@ const Pagination: StatelessComponent<Props> = ({
       <ReactPaginate
         hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
         pageCount={pageCount}
-        previousLabel={<><ArrowRightM height="10" width="10" className="inline-block align-middle rotate-180" /> {previousLabel}</>}
-        nextLabel={<>{nextLabel} <ArrowRightM height="10" width="10" className="inline-block align-middle" /></>}
+        previousLabel={
+          <>
+            <ArrowRightM
+              height="10"
+              width="10"
+              className="inline-block align-middle rotate-180"
+            />{" "}
+            {previousLabel}
+          </>
+        }
+        nextLabel={
+          <>
+            {nextLabel}{" "}
+            <ArrowRightM
+              height="10"
+              width="10"
+              className="inline-block align-middle"
+            />
+          </>
+        }
         breakLabel={<span>...</span>}
         breakClassName="break-me"
         marginPagesDisplayed={1}
@@ -53,7 +70,6 @@ const Pagination: StatelessComponent<Props> = ({
         onPageChange={onPageChange}
         containerClassName="pagination"
         pageClassName="page"
-        subContainerClassName="pages pagination"
         activeClassName="active"
         forcePage={forcePage}
       />

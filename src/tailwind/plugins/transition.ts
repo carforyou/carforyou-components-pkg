@@ -10,4 +10,4 @@ const tailwindTransitionPlugin = ({ addUtilities, config }) => {
   addUtilities(transitionsUtilities)
 }
 
-module.exports = { default: tailwindTransitionPlugin }
+export default tailwindTransitionPlugin

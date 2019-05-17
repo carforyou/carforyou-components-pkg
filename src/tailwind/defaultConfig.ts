@@ -1,7 +1,6 @@
 /* tslint:disable:object-literal-sort-keys */
 
 /*
-
 Tailwind - The Utility-First CSS Framework
 
 A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
@@ -13,12 +12,30 @@ length of this file. It's really just a big JavaScript object and
 we've done our very best to explain each section.
 
 View the full documentation at https://tailwindcss.com.
-
 */
-const path = require("path")
-const colors = require("./tailwind/colors")
 
-const tailwindConfig = {
+const colors = {
+  black: "#000000",
+  white: "#FFFFFF",
+  transparent: "transparent",
+  salmon: "#F73B47",
+  "salmon-dark": "#ED202D",
+  teal: "#3696B9",
+  "teal-dark": "#227D9E",
+  "grey-dark": "#232A36",
+  "grey-dark-opaque": "#A7AAAF",
+  "grey-4": "#54575C",
+  "grey-3": "#A0A7AB",
+  "grey-2": "#D7DBDF",
+  "grey-1": "#EBEFF1",
+  "grey-bright": "#F9F9FB",
+  "green-light": "#74CC74",
+  facebook: "#4267B2",
+  twitter: "#1EA0F2",
+  whatsapp: "#0DC143"
+}
+
+export default {
   /*
   |-----------------------------------------------------------------------------
   | Colors                                  https://tailwindcss.com/docs/colors
@@ -26,8 +43,29 @@ const tailwindConfig = {
   | .error { color: config('colors.red') }
   |
   */
+  colors,
 
-  colors: colors,
+  /*
+  |-----------------------------------------------------------------------------
+  | Text colors                         https://tailwindcss.com/docs/text-color
+  |-----------------------------------------------------------------------------
+  |
+  | Class name: .text-{color}
+  |
+  */
+
+  textColors: colors,
+
+  /*
+ |-----------------------------------------------------------------------------
+ | Background colors             https://tailwindcss.com/docs/background-color
+ |-----------------------------------------------------------------------------
+ |
+ | Class name: .bg-{color}
+ |
+ */
+
+  backgroundColors: colors,
 
   /*
   |-----------------------------------------------------------------------------
@@ -76,9 +114,7 @@ const tailwindConfig = {
     xl: "24px",
     "2xl": "32px",
     "3xl": "48px",
-    "4xl": "72px",
-    icon: "19px",
-    favourites: "11px"
+    "4xl": "72px"
   },
 
   /*
@@ -132,28 +168,6 @@ const tailwindConfig = {
 
   /*
   |-----------------------------------------------------------------------------
-  | Text colors                         https://tailwindcss.com/docs/text-color
-  |-----------------------------------------------------------------------------
-  |
-  | Class name: .text-{color}
-  |
-  */
-
-  textColors: colors,
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Background colors             https://tailwindcss.com/docs/background-color
-  |-----------------------------------------------------------------------------
-  |
-  | Class name: .bg-{color}
-  |
-  */
-
-  backgroundColors: colors,
-
-  /*
-  |-----------------------------------------------------------------------------
   | Background sizes               https://tailwindcss.com/docs/background-size
   |-----------------------------------------------------------------------------
   |
@@ -164,17 +178,7 @@ const tailwindConfig = {
   backgroundSize: {
     auto: "auto",
     cover: "cover",
-    contain: "contain",
-    "12": "12px",
-    "18": "18px",
-    "24": "24px",
-    "32": "32px",
-    "36": "36px",
-    "42": "42px",
-    "40": "40px",
-    "47": "47px",
-    "57": "57px",
-    "60": "60px"
+    contain: "contain"
   },
 
   /*
@@ -202,7 +206,10 @@ const tailwindConfig = {
   |
   */
 
-  borderColors: global.Object.assign({ default: colors["grey-light"] }, colors),
+  borderColors: {
+    default: colors["grey-light"],
+    ...colors
+  },
 
   /*
   |-----------------------------------------------------------------------------
@@ -215,12 +222,6 @@ const tailwindConfig = {
 
   borderRadius: {
     none: "0",
-    default: ".25rem",
-    "2": "2px",
-    "4": "4px",
-    "6": "6px",
-    "10": "10px",
-    "14": "14px",
     "20": "20px",
     full: "9999px",
     half: "50%"
@@ -250,37 +251,7 @@ const tailwindConfig = {
     "10/12": "83.33333%",
     "11/12": "91.66666667",
     "12/12": "100%",
-    screen: "100vw",
-    "19": "19px",
-    "16": "16px",
-    "20": "20px",
-    "32": "32px",
-    "36": "36px",
-    "42": "42px",
-    "96": "96px",
-    "110": "110px",
-    "140": "140px",
-    "145": "145px",
-    "167": "167px",
-    "200": "200px",
-    "250": "250px",
-    "340": "340px",
-    "370": "370px",
-    "400": "400px",
-    "450": "450px",
-    "485": "485px",
-    "560": "560px",
-    brandIcon: "48px",
-    brandIconMD: "64px",
-    bodyColor: "48px",
-    scrollbar: "14px",
-    moneybackLogoM: "47px",
-    axaLogo: "24px",
-    goodDealInfo: "720px",
-    logoBig: "170px",
-    logoSmall: "25px",
-    heartSmall: "24px",
-    heartBig: "50px"
+    screen: "100vw"
   },
 
   /*
@@ -292,42 +263,11 @@ const tailwindConfig = {
   */
 
   height: {
-    auto: "auto",
-    px: "1px",
-    full: "100%",
-    screen: "100vh",
-    "19": "19px",
-    "20": "20px",
-    "23": "23px",
-    "25": "25px",
-    "30": "30px",
-    "32": "32px",
-    "36": "36px",
+    "0": "0",
     "40": "40px",
-    "42": "42px",
-    "45": "45px",
-    "48": "48px",
-    "50": "50px",
-    "56": "56px",
-    "60": "60px",
-    "64": "64px",
-    "96": "96px",
-    "148": "148px",
-    headerImage: "350px",
-    listingSM: "214px",
-    listingMD: "260px",
-    carouselCard: "180px",
-    carouselCardWithFooter: "220px",
-    brandIcon: "48px",
-    brandIconMD: "64px",
-    brandContainer: "80px",
-    bodyColor: "48px",
-    checkIcon: "36px",
-    scrollbar: "70px",
-    moneybackLogoM: "47px",
-    axaLogo: "24px",
-    naGradient: "120px",
-    favourites: "14px"
+    auto: "auto",
+    full: "100%",
+    screen: "100vh"
   },
 
   /*
@@ -341,8 +281,9 @@ const tailwindConfig = {
 
   minWidth: {
     "0": "0",
+    auto: "auto",
     full: "100%",
-    "180": "180px"
+    screen: "100vw"
   },
 
   /*
@@ -356,11 +297,9 @@ const tailwindConfig = {
 
   minHeight: {
     "0": "0",
-    "40": "40px",
     auto: "auto",
     full: "100%",
-    screen: "100vh",
-    imagePlaceholder: "250px"
+    screen: "100vh"
   },
 
   /*
@@ -373,12 +312,7 @@ const tailwindConfig = {
   */
 
   maxWidth: {
-    full: "100%",
-    smallCard: "350px",
-    container: "1200px",
-    searchContainer: "1680px",
-    staticPages: "780px",
-    needsAssessment: "1060px"
+    full: "100%"
   },
 
   /*
@@ -391,14 +325,7 @@ const tailwindConfig = {
   */
 
   maxHeight: {
-    full: "100%",
-    "200": "200px",
-    dropdown: "240px",
-    dropdownSM: "190px",
-    screen: "100vh",
-    listingSM: "214px",
-    listingMD: "260px",
-    carouselCard: "180px"
+    full: "100%"
   },
 
   /*
@@ -414,30 +341,12 @@ const tailwindConfig = {
     auto: "auto",
     px: "1px",
     "0": "0",
-    "2": "2px",
-    "3": "3px",
     "5": "5px",
-    "8": "8px",
     "10": "10px",
-    "12": "12px",
-    "14": "14px",
     "15": "15px",
-    "16": "16px",
-    "18": "18px",
     "20": "20px",
     "25": "25px",
-    "30": "30px",
-    "33": "33px",
-    "35": "35px",
-    "40": "40px",
-    "50": "50px",
-    "60": "60px",
-    "68": "68px",
-    "70": "70px",
-    "80": "80px",
-    "90": "90px",
-    "110": "110px",
-    "130": "130px"
+    "30": "30px"
   },
 
   /*
@@ -453,20 +362,12 @@ const tailwindConfig = {
     auto: "auto",
     px: "1px",
     "0": "0",
-    "2": "2px",
-    "3": "3px",
     "5": "5px",
-    "8": "8px",
     "10": "10px",
-    "12": "12px",
     "15": "15px",
     "20": "20px",
-    "30": "30px",
-    "40": "40px",
-    "50": "50px",
-    "60": "60px",
-    "80": "80px",
-    "90": "90px"
+    "25": "25px",
+    "30": "30px"
   },
 
   /*
@@ -480,21 +381,7 @@ const tailwindConfig = {
 
   negativeMargin: {
     px: "1px",
-    "0": "0",
-    "3": "3px",
-    "5": "5px",
-    "10": "10px",
-    "12": "12px",
-    "15": "15px",
-    "20": "20px",
-    "30": "30px",
-    "40": "40px",
-    "45": "45px",
-    "50": "50px",
-    "60": "60px",
-    "96": "96px",
-    checkmarkIcon: "16px",
-    dropdownMenu: "11px"
+    "0": "0"
   },
 
   /*
@@ -529,12 +416,7 @@ const tailwindConfig = {
 
   zIndex: {
     auto: "auto",
-    negative: -1,
-    "0": 0,
-    "1": 1,
-    "10": 10,
-    "20": 20,
-    "30": 30
+    negative: -1
   },
 
   /*
@@ -663,80 +545,20 @@ const tailwindConfig = {
   |
   */
 
-  content: {
-    after: {
-      slash: "/"
-    }
-  },
-
-  position: {
-    top: {
-      "-160": "-160px",
-      "-65": "-65px",
-      "-13": "-13px",
-      "3": "3px",
-      "8": "8px",
-      "28": "28px",
-      "30": "30px",
-      "35": "35px",
-      "200": "200px",
-      half: "50%"
-    },
-    bottom: {
-      "-65": "-65px",
-      "-20": "-20px",
-      "5": "5px",
-      "10": "10px",
-      "15": "15px",
-      "28": "28px",
-      "35": "35px",
-      "40": "40px",
-      "50": "50px",
-      "60": "60px",
-      "100": "100px"
-    },
-    left: {
-      auto: "auto",
-      "-75": "-75px",
-      "8": "8px",
-      "13": "13px",
-      "25": "25px",
-      half: "50%"
-    },
-    right: {
-      "-75": "-75px",
-      "-35": "-35px",
-      "-15": "-15px",
-      "-5": "-5px",
-      "10": "10px",
-      "20": "20px",
-      "30": "30px"
-    }
-  },
-
-  transition: {
-    "2": "0.2s",
-    "3": "all .3s"
-  },
-
   rotate: {
-    "180": "180deg",
+    "180": "180deg"
   },
 
   plugins: [
     // require("./tailwind/plugins/icons").default,
-    require("./tailwind/plugins/content").default,
-    require("./tailwind/plugins/position").default,
-    require("./tailwind/plugins/transition").default,
-    require("./tailwind/plugins/transform").default,
-    require("tailwindcss/plugins/container")(),
+    require("./plugins/transform").default,
     require("tailwindcss-gradients")({
       gradients: {
         fade: ["rgba(255,255,255,0) 0%", "rgba(255,255,255,1) 100%"],
         grey: ["#F9F9FB 0%", "#FFFFFF 20%"],
         black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"]
       }
-    }),
+    })
   ],
 
   /*
@@ -755,5 +577,3 @@ const tailwindConfig = {
     separator: ":"
   }
 }
-
-module.exports = tailwindConfig

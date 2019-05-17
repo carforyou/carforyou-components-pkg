@@ -12,4 +12,4 @@ const tailwindContentPlugin = ({ addUtilities, config }) => {
   })
 }
 
-module.exports = { default: tailwindContentPlugin }
+export default tailwindContentPlugin

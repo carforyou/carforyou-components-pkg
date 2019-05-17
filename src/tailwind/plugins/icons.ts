@@ -45,4 +45,4 @@ const tailwindIconsPlugin = ({ addUtilities, config }) => {
   addUtilities(iconUtilities)
 }
 
-module.exports = { default: tailwindIconsPlugin }
+export default tailwindIconsPlugin

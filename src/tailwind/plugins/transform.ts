@@ -10,4 +10,4 @@ const tailwindTransformPlugin = ({ addUtilities, config }) => {
   addUtilities(transformUtilities)
 }
 
-module.exports = { default: tailwindTransformPlugin }
+export default tailwindTransformPlugin

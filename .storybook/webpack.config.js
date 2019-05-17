@@ -5,31 +5,31 @@ module.exports = ({ config }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve('awesome-typescript-loader'),
+        loader: require.resolve("awesome-typescript-loader")
       },
       {
-        loader: require.resolve('react-docgen-typescript-loader'),
-      },
-    ],
-  });
-  config.resolve.extensions.push('.ts', '.tsx');
+        loader: require.resolve("react-docgen-typescript-loader")
+      }
+    ]
+  })
+  config.resolve.extensions.push(".ts", ".tsx")
 
   // Storybook does not yet allow customizing the postcss config, so we push our own
   // https://github.com/storybooks/storybook/blob/a52efc786172527b51b455f82cc5a7ed73246385/lib/core/src/server/preview/base-webpack.config.js
   config.module.rules.push({
+    include: path.resolve(__dirname, "../"),
     test: /\.css$/,
-    loaders: [
+    use: [
       {
-        loader: 'postcss-loader',
+        loader: "postcss-loader",
         options: {
           config: {
-            path: '.storybook/',
-          },
-        },
-      },
-    ],
-    include: path.resolve(__dirname, '../'),
-  });
+            path: ".storybook/"
+          }
+        }
+      }
+    ]
+  })
 
-  return config;
-};
+  return config
+}
