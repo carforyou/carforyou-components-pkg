@@ -1,5 +1,7 @@
-import merge from "merge-deep"
+import * as merge_ from "merge-deep"
 import defaultConfig from "./defaultConfig"
+
+const mergeDeep = merge_
 
 export interface TailwindConfig {
   colors?: { [key: string]: string }
@@ -36,7 +38,7 @@ export interface TailwindConfig {
 }
 
 const withDefaultConfig = (customConfig: TailwindConfig) => {
-  return merge(defaultConfig, customConfig || {})
+  return mergeDeep(defaultConfig, customConfig || {})
 }
 
 export { withDefaultConfig, defaultConfig }
