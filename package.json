@@ -8,8 +8,7 @@
     "test": "jest",
     "lint": "tslint --project tsconfig.json",
     "format": "tslint --project tsconfig.json --fix",
-    "build": "npm run build:package && npm run build:storybook",
-    "build:package": "pack build",
+    "build": "npm run build:tailwind && pack build",
     "build:tailwind": "tsc --project tsconfig.tailwind.json",
     "build:storybook": "npm run build:tailwind && build-storybook",
     "deploy": "storybook-to-ghpages"
@@ -33,6 +32,7 @@
     "@babel/core": "^7.4.4",
     "@carforyou/tslint-rules": "^1.0.0",
     "@pika/pack": "^0.3.7",
+    "@pika/plugin-build-node": "^0.3.16",
     "@pika/plugin-build-web": "^0.3.16",
     "@pika/plugin-ts-standard-pkg": "^0.3.16",
     "@storybook/addon-actions": "^5.0.11",
@@ -70,6 +70,9 @@
       ],
       [
         "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-node"
       ]
     ]
   }

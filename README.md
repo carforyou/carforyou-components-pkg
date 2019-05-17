@@ -1,6 +1,6 @@
 # CAR FOR YOU components
 
-[![alt text](https://img.shields.io/badge/Storybook-deployed-F73B47.svg)](https://autoricardo.github.io/carforyou-components-pkg)
+[![Storybook](https://img.shields.io/badge/Storybook-UI-3696B9.svg)](https://autoricardo.github.io/carforyou-components-pkg)
 
 ## Usage
 ```

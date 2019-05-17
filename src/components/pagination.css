@@ -69,7 +69,7 @@
   @apply absolute pin-r mr-15;
 }
 
-.previous:not(.disabled) {
+/* .previous:not(.disabled) {
   @apply icon-arrowLeftTealM-left;
 }
 
@@ -83,7 +83,7 @@
 
 .next.disabled {
   @apply icon-arrowRightGreyS-right;
-}
+} */
 
 .next:not(.disabled):hover, .previous:not(.disabled):hover {
   @apply opacity-80;

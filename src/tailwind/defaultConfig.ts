@@ -1,5 +1,5 @@
 /* tslint:disable:object-literal-sort-keys */
-
+import TransformPlugin from "./plugins/transform"
 /*
 Tailwind - The Utility-First CSS Framework
 
@@ -550,8 +550,7 @@ export default {
   },
 
   plugins: [
-    // require("./tailwind/plugins/icons").default,
-    require("./plugins/transform").default,
+    TransformPlugin,
     require("tailwindcss-gradients")({
       gradients: {
         fade: ["rgba(255,255,255,0) 0%", "rgba(255,255,255,1) 100%"],

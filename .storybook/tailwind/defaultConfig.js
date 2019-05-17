@@ -1,5 +1,4 @@
 "use strict";
-/* tslint:disable:object-literal-sort-keys */
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -12,6 +11,8 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* tslint:disable:object-literal-sort-keys */
+var transform_1 = require("./plugins/transform");
 /*
 Tailwind - The Utility-First CSS Framework
 
@@ -500,8 +501,7 @@ exports.default = {
         "180": "180deg"
     },
     plugins: [
-        // require("./tailwind/plugins/icons").default,
-        require("./plugins/transform").default,
+        transform_1.default,
         require("tailwindcss-gradients")({
             gradients: {
                 fade: ["rgba(255,255,255,0) 0%", "rgba(255,255,255,1) 100%"],
