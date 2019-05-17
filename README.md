@@ -5,6 +5,19 @@
 npm install @carforyou/components
 ```
 
+In your tailwind.js, merge your custom configs with the base configuration:
+```
+const { withDefaultConfig } = require("@carforyou/components").tailwind
+export default withDefaultConfig({ colors: { "tuna": "#4E5154" } })
+```
+
+You can also access the base config directly if you need to:
+```
+import { defaultConfig } from "../src/tailwind"
+defaultConfig.colors.salmon
+```
+
+Then, you can start using the shared React components:
 ```
 import Pagination from "@carforyou/components"
 ```
