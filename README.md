@@ -1,5 +1,7 @@
 # CAR FOR YOU components
 
+[https://img.shields.io/badge/Storybook-deployed-F73B47.svg](https://autoricardo.github.io/carforyou-components-pkg)
+
 ## Usage
 ```
 npm install @carforyou/components
