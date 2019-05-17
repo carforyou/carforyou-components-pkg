@@ -8,4 +8,11 @@ describe("ImageAsset", () => {
     const { container } = render(<ImageAsset path="kitten.jpg" />)
     expect(container).toMatchSnapshot()
   })
+
+  it("accepts imageProps", () => {
+    const { container } = render(
+      <ImageAsset path="kitten.jpg" width={20} height={20} alt="Kittens" />
+    )
+    expect(container).toMatchSnapshot()
+  })
 })
