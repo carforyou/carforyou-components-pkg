@@ -22,7 +22,7 @@
   "homepage": "https://github.com/autoricardo/components-pkg#readme",
   "peerDependencies": {
     "react": ">=16.0.0",
-    "tailwindccss": "^6.0.0"
+    "tailwindcss": "~0.6.1"
   },
   "dependencies": {
     "merge-deep": "^3.0.2",

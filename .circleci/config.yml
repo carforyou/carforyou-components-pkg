@@ -34,7 +34,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run test:unit
+      - run: npm run test
 
   lint:
     <<: *DOCKER_NODE
@@ -46,7 +46,8 @@ jobs:
   deploy:
     <<: *DOCKER_NODE
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/
       - run: npm run deploy-storybook -- --ci
 
 workflows:
