@@ -27,7 +27,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm ls
-      - run: npm run build:package
+      - run: npm run build
 
   unit:
     <<: *DOCKER_NODE
