@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageAsset accepts imageProps 1`] = `
+<div>
+  <img
+    alt="Kittens"
+    height="20"
+    src="test-file-stub"
+    width="20"
+  />
+</div>
+`;
+
+exports[`ImageAsset renders image 1`] = `
+<div>
+  <img
+    src="test-file-stub"
+  />
+</div>
+`;

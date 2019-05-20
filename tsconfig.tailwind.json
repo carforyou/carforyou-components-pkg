@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./.storybook/tailwind/"
+  },
+  "include": ["src/tailwind/**/*.ts"],
+  "exclude": ["node_modules"],
+}

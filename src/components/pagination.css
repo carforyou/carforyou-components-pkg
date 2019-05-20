@@ -12,7 +12,8 @@
 .page a {
   min-width: 30px;
   height: 30px;
-  @apply p-5 w-auto;
+  padding: 3px;
+  @apply w-auto;
 }
 
 .previous a {
@@ -68,7 +69,7 @@
   @apply absolute pin-r mr-15;
 }
 
-.previous:not(.disabled) {
+/* .previous:not(.disabled) {
   @apply icon-arrowLeftTealM-left;
 }
 
@@ -82,7 +83,7 @@
 
 .next.disabled {
   @apply icon-arrowRightGreyS-right;
-}
+} */
 
 .next:not(.disabled):hover, .previous:not(.disabled):hover {
   @apply opacity-80;
