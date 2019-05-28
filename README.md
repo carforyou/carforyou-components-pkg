@@ -10,7 +10,7 @@ npm install @carforyou/components
 In your tailwind.js, merge your custom configs with the base configuration:
 ```
 const { tailwind } = require("@carforyou/components").default
-tailwind.withDefaultConfig({ colors: { "tuna": "#4E5154" } })
+module.exports = tailwind.withDefaultConfig({ colors: { "tuna": "#4E5154" } })
 ```
 
 You can also access the base config directly if you need to:
@@ -23,6 +23,40 @@ Then, you can start using the shared React components:
 ```
 import Pagination from "@carforyou/components"
 ```
+
+## Setup tailwind in a next.js project
+The following describes the very minimal setup required in a vanilla next.js project with **tailwindcss@0.6.1**
+
+```
+npm install tailwindcss@0.6.1 postcss-easy-import @zeit/next-css --save-dev
+```
+
+`tailwind.css`:
+```
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+```
+
+Import this CSS file in `_app`:
+```
+import "../tailwind.css";
+```
+
+`next.config.js`:
+```
+const withCSS = require("@zeit/next-css");
+module.exports = withCSS();
+```
+
+`postcss.config.js`
+```
+const tailwindConfig = require("./tailwind")
+module.exports = {
+  plugins: [require("postcss-easy-import"), require("tailwindcss")(tailwindConfig), require("autoprefixer")]
+};
+```
+
+Set up a `tailwind.js` as described above.
 
 ## Development
 To work on the components locally in Storybook:
