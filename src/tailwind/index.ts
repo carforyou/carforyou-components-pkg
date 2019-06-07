@@ -3,7 +3,7 @@ import defaultConfig from "./defaultConfig"
 
 const mergeDeep = merge_
 
-export interface TailwindConfig {
+export interface TailwindTheme {
   colors?: { [key: string]: string }
   textColors?: { [key: string]: string }
   borderColors?: { [key: string]: string }
@@ -32,6 +32,10 @@ export interface TailwindConfig {
   svgFill?: { [key: string]: string }
   svgStroke?: { [key: string]: string }
   rotate?: { [key: string]: string }
+}
+
+export interface TailwindConfig {
+  theme?: TailwindTheme
   options?: { [key: string]: string | number | boolean }
   modules?: { [key: string]: string[] }
   plugins?: any[]

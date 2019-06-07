@@ -278,7 +278,6 @@ export default {
     |
     | Class name: .max-h-{size}
     |
-    */
     maxHeight: {
       full: "100%"
     },
