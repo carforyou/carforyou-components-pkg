@@ -34,7 +34,7 @@
 }
 
 .previous {
-  @apply absolute pin-l ml-15;
+  @apply absolute left-0 ml-15;
 }
 
 .next a, .previous a {
@@ -66,7 +66,7 @@
 }
 
 .next {
-  @apply absolute pin-r mr-15;
+  @apply absolute right-0 mr-15;
 }
 
 /* .previous:not(.disabled) {

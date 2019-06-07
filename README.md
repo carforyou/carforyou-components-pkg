@@ -33,7 +33,7 @@ npm install tailwindcss@0.6.1 postcss-easy-import @zeit/next-css --save-dev
 
 `tailwind.css`:
 ```
-@import "tailwindcss/preflight";
+@import "tailwindcss/base";
 @import "tailwindcss/utilities";
 ```
 
