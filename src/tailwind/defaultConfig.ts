@@ -27,6 +27,7 @@ export default {
       lg: "992px",
       xl: "1200px"
     },
+
     colors: {
       black: "#000000",
       white: "#FFFFFF",
@@ -211,7 +212,8 @@ export default {
     height: {
       auto: "auto",
       full: "100%",
-      screen: "100vh"
+      screen: "100vh",
+      "40": "40px"
     },
 
     /*

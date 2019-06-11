@@ -4,34 +4,34 @@ import defaultConfig from "./defaultConfig"
 const mergeDeep = merge_
 
 export interface TailwindTheme {
-  colors?: { [key: string]: string }
-  textColors?: { [key: string]: string }
-  borderColors?: { [key: string]: string }
-  backgroundColors?: { [key: string]: string }
-  backgroundSize?: { [key: string]: string }
   screens?: { [key: string]: string }
-  fonts?: { [key: string]: string }
-  textSizes?: { [key: string]: string }
-  fontWeights?: { [key: string]: string | number }
-  leading?: { [key: string]: string | number }
-  tracking?: { [key: string]: string }
+  colors?: { [key: string]: string }
+  backgroundColor?: { [key: string]: string }
+  backgroundPosition?: { [key: string]: string }
+  backgroundSize?: { [key: string]: string }
+  borderColor?: { [key: string]: string }
   borderRadius?: { [key: string]: string }
-  borderWidths?: { [key: string]: string }
-  width?: { [key: string]: string }
+  borderWidth?: { [key: string]: string }
+  boxShadow?: { [key: string]: string }
+  fontFamily?: { [key: string]: string }
+  fontSize?: { [key: string]: string }
+  fontWeight?: { [key: string]: string }
+  height?: { [key: string]: string }
+  letterSpacing?: { [key: string]: string }
+  lineHeight?: { [key: string]: string }
+  margin?: { [key: string]: string }
   minWidth?: { [key: string]: string }
   maxWidth?: { [key: string]: string }
-  height?: { [key: string]: string }
   minHeight?: { [key: string]: string }
   maxHeight?: { [key: string]: string }
-  padding?: { [key: string]: string }
-  margin?: { [key: string]: string }
-  negativeMargin?: { [key: string]: string }
-  shadows?: { [key: string]: string }
-  zIndex?: { [key: string]: string | number }
   opacity?: { [key: string]: string }
+  padding?: { [key: string]: string }
+  rotate?: { [key: string]: string }
+  textColors?: { [key: string]: string }
+  width?: { [key: string]: string }
+  zIndex?: { [key: string]: string | number }
   svgFill?: { [key: string]: string }
   svgStroke?: { [key: string]: string }
-  rotate?: { [key: string]: string }
 }
 
 export interface TailwindConfig {
@@ -41,8 +41,30 @@ export interface TailwindConfig {
   plugins?: any[]
 }
 
-const withDefaultConfig = (customConfig: TailwindConfig) => {
-  return mergeDeep(defaultConfig, customConfig || {})
+const getKey = key => {
+  return defaultConfig.theme[key]
 }
 
-export { withDefaultConfig, defaultConfig }
+const getConfigWithValues = config => {
+  const configWithValues = {}
+  for (const conf in config.theme) {
+    if (typeof config.theme[conf] === "function") {
+      configWithValues[conf] = config.theme[conf](getKey)
+    } else {
+      configWithValues[conf] = config.theme[conf]
+    }
+  }
+
+  return { ...config, theme: configWithValues }
+}
+
+const defaultConfigWithValues: TailwindConfig = getConfigWithValues(
+  defaultConfig
+)
+
+const withDefaultConfig = (customConfig: TailwindConfig) => {
+  const customConfigWithValues = getConfigWithValues(customConfig)
+  return mergeDeep(defaultConfigWithValues, customConfigWithValues || {})
+}
+
+export { withDefaultConfig, defaultConfigWithValues as defaultConfig }

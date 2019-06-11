@@ -208,7 +208,8 @@ exports.default = {
         height: {
             auto: "auto",
             full: "100%",
-            screen: "100vh"
+            screen: "100vh",
+            "40": "40px"
         },
         /*
         |-----------------------------------------------------------------------------
@@ -270,10 +271,10 @@ exports.default = {
         |
         | Class name: .max-h-{size}
         |
-        */
         maxHeight: {
-            full: "100%"
+          full: "100%"
         },
+    
         /*
         |-----------------------------------------------------------------------------
         | Maximum width                        https://tailwindcss.com/docs/max-width
