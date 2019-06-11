@@ -48,11 +48,10 @@ const getKey = key => {
 const getConfigWithValues = config => {
   const configWithValues = {}
   for (const conf in config.theme) {
-    if (typeof config.theme[conf] === "function") {
-      configWithValues[conf] = config.theme[conf](getKey)
-    } else {
-      configWithValues[conf] = config.theme[conf]
-    }
+    configWithValues[conf] =
+      typeof config.theme[conf] === "function"
+        ? config.theme[conf](getKey)
+        : config.theme[conf]
   }
 
   return { ...config, theme: configWithValues }

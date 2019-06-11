@@ -157,6 +157,9 @@ Object {
       "auto": "auto",
       "px": "1px",
     },
+    "maxHeight": Object {
+      "full": "100%",
+    },
     "maxWidth": Object {
       "full": "100%",
     },
