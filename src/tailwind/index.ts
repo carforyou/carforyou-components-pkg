@@ -47,7 +47,7 @@ const getKey = key => {
 
 const getConfigWithValues = config => {
   const configWithValues = {}
-  for (const conf in config.theme) {
+  for (const conf of Object.keys(config.theme)) {
     configWithValues[conf] =
       typeof config.theme[conf] === "function"
         ? config.theme[conf](getKey)
