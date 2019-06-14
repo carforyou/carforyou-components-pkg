@@ -6,8 +6,8 @@ describe("tailwind", () => {
       expect(defaultConfig).toMatchSnapshot()
     })
     it("returns colors", () => {
-      expect(Object.keys(defaultConfig.colors)).toHaveLength(18)
-      expect(defaultConfig.colors.salmon).toEqual("#F73B47")
+      expect(Object.keys(defaultConfig.theme.colors)).toHaveLength(18)
+      expect(defaultConfig.theme.colors.salmon).toEqual("#F73B47")
     })
   })
 
@@ -19,17 +19,35 @@ describe("tailwind", () => {
 
     it("can override full objects", () => {
       const mergedConfig = withDefaultConfig({})
-      mergedConfig.colors = { tuna: "#4E5154" }
-      expect(mergedConfig.colors).toEqual({ tuna: "#4E5154" })
+      mergedConfig.theme.colors = { tuna: "#4E5154" }
+      expect(mergedConfig.theme.colors).toEqual({ tuna: "#4E5154" })
+    })
+    it("can extend objects", () => {
+      const colorCount = Object.keys(defaultConfig.theme.colors).length
+      const mergedConfig = withDefaultConfig({
+        theme: { colors: { tuna: "#4E5154" } }
+      })
+
+      expect(Object.keys(mergedConfig.theme.colors)).toHaveLength(
+        colorCount + 1
+      )
+      expect(mergedConfig.theme.colors.tuna).toEqual("#4E5154")
+      expect(mergedConfig.theme.colors.salmon).toEqual("#F73B47")
     })
 
-    it("can extend objects", () => {
-      const colorCount = Object.keys(defaultConfig.colors).length
-      const mergedConfig = withDefaultConfig({ colors: { tuna: "#4E5154" } })
+    it("can extend objects for properties that extends colors", () => {
+      const borderColorCount = Object.keys(defaultConfig.theme.borderColor)
+        .length
+      const mergedConfig = withDefaultConfig({
+        theme: { borderColor: { tuna: "#4E5154" } }
+      })
 
-      expect(Object.keys(mergedConfig.colors)).toHaveLength(colorCount + 1)
-      expect(mergedConfig.colors.tuna).toEqual("#4E5154")
-      expect(mergedConfig.colors.salmon).toEqual("#F73B47")
+      expect(Object.keys(mergedConfig.theme.borderColor)).toHaveLength(
+        borderColorCount + 1
+      )
+
+      expect(mergedConfig.theme.borderColor.tuna).toEqual("#4E5154")
+      expect(mergedConfig.theme.borderColor.salmon).toEqual("#F73B47")
     })
 
     it("can extend arrays", () => {
