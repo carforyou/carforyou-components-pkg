@@ -41,31 +41,30 @@ export interface TailwindConfig {
   plugins?: any[]
 }
 
-const getKey = key => {
-  return defaultConfig.theme[key]
-}
+const resolveConfig = config => {
+  const theme = {}
 
-const getConfigWithValues = config => {
-  const configWithValues = {}
+  const getKey = key => {
+    return defaultConfig.theme[key]
+  }
+
   for (const conf in config.theme) {
     if (config.theme.hasOwnProperty(conf)) {
-      configWithValues[conf] =
+      theme[conf] =
         typeof config.theme[conf] === "function"
           ? config.theme[conf](getKey)
           : config.theme[conf]
     }
   }
 
-  return { ...config, theme: configWithValues }
+  return { ...config, theme }
 }
 
-const defaultConfigWithValues: TailwindConfig = getConfigWithValues(
-  defaultConfig
-)
+const resolvedConfig: TailwindConfig = resolveConfig(defaultConfig)
 
 const withDefaultConfig = (customConfig: TailwindConfig) => {
-  const customConfigWithValues = getConfigWithValues(customConfig)
-  return mergeDeep(defaultConfigWithValues, customConfigWithValues || {})
+  const customTheme = resolveConfig(customConfig)
+  return mergeDeep(resolvedConfig, customTheme || {})
 }
 
-export { withDefaultConfig, defaultConfigWithValues as defaultConfig }
+export { withDefaultConfig, resolvedConfig as defaultConfig }
