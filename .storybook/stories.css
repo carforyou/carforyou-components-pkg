@@ -8,4 +8,8 @@ a {
   @apply no-underline;
 }
 
+img, svg {
+    @apply inline;
+}
+
 @tailwind utilities;

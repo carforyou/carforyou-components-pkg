@@ -26,7 +26,8 @@
   "dependencies": {
     "merge-deep": "^3.0.2",
     "react-paginate": "^5.2.4",
-    "tailwindcss-gradients": "^1.1.0"
+    "tailwindcss-gradients": "^1.1.0",
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -36,7 +37,7 @@
     "@pika/plugin-build-web": "^0.3.16",
     "@pika/plugin-ts-standard-pkg": "^0.3.16",
     "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-info": "^5.0.11",
+    "@storybook/addon-info": "^5.1.11",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
