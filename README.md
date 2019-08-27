@@ -21,7 +21,7 @@ tailwind.defaultConfig.colors.salmon
 
 Then, you can start using the shared React components:
 ```
-import Pagination from "@carforyou/components"
+import  { Pagination } from "@carforyou/components"
 ```
 
 ## Setup tailwind in a next.js project
