@@ -1,3 +1,9 @@
+# static
 pkg
 storybook-static
-node_modules
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
