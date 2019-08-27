@@ -6,6 +6,7 @@ Object {
   "plugins": Array [
     [Function],
     [Function],
+    [Function],
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -128,6 +129,8 @@ Object {
     },
     "height": Object {
       "40": "40px",
+      "50": "50px",
+      "56": "56px",
       "auto": "auto",
       "full": "100%",
       "screen": "100vh",
@@ -146,6 +149,7 @@ Object {
       "xxs": 0.9,
     },
     "margin": Object {
+      "-3": "-3px",
       "0": "0",
       "10": "10px",
       "15": "15px",
@@ -188,6 +192,7 @@ Object {
       "0": "0",
       "10": "10px",
       "15": "15px",
+      "18": "18px",
       "20": "20px",
       "25": "25px",
       "30": "30px",
@@ -226,12 +231,17 @@ Object {
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
     },
+    "transition": Object {
+      "2": "0.2s",
+      "3": "all .3s",
+    },
     "width": Object {
       "0": "0",
       "1/12": "8.33333333%",
       "10/12": "83.33333%",
       "11/12": "91.66666667",
       "12/12": "100%",
+      "167": "167px",
       "2/12": "16.66667%",
       "3/12": "25%",
       "4/12": "33.33333%",
