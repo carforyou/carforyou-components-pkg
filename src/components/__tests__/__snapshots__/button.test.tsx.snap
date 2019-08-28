@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button> variations renders a disabled button 1`] = `
+<div>
+  <button
+    class="flex w-12/12 px-10 py-16 justify-center items-center rounded text-white font-bold leading-xs transition-2 cursor-pointer appearance-none leading-none outline-none h-50 bg-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed bg-grey-3 hover:bg-grey-3"
+    disabled=""
+    formnovalidate=""
+    type="submit"
+  >
+    Label
+  </button>
+</div>
+`;

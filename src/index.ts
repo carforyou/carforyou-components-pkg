@@ -1,10 +1,9 @@
 // import Components
 import ImageAsset from "./components/imageAsset"
-import BaseButton from "./components/baseButton"
+import Button from "./components/button"
 import { withDefaultConfig, defaultConfig } from "./tailwind/index"
 
-// export { Components }
-export { ImageAsset, BaseButton }
+export { ImageAsset, Button }
 export default {
   tailwind: { withDefaultConfig, defaultConfig }
 }
