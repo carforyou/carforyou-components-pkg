@@ -1,9 +1,10 @@
-// import Pagination from "./components/pagination"
+// import Components
 import ImageAsset from "./components/imageAsset"
+import BaseButton from "./components/baseButton"
 import { withDefaultConfig, defaultConfig } from "./tailwind/index"
 
-// export { Pagination, ImageAsset }
-export { ImageAsset }
+// export { Components }
+export { ImageAsset, BaseButton }
 export default {
   tailwind: { withDefaultConfig, defaultConfig }
 }

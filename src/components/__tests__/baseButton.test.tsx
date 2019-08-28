@@ -1,7 +1,7 @@
 import * as React from "react"
 import { render } from "react-testing-library"
 
-import BaseButton from "../base"
+import BaseButton from "../baseButton"
 
 describe("<BaseButton>", () => {
   const props = {

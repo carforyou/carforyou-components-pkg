@@ -9,7 +9,7 @@ a {
 }
 
 img, svg {
-    @apply inline;
+  @apply inline;
 }
 
 @tailwind utilities;

@@ -2,7 +2,7 @@ import * as React from "react"
 import { FC } from "react"
 import classNames from "classnames"
 
-import "../css/spinner.css"
+// import "../css/spinner.css"
 
 interface Props {
   className?: string

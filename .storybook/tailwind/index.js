@@ -14,23 +14,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var merge_ = require("merge-deep");
 var defaultConfig_1 = require("./defaultConfig");
 var mergeDeep = merge_;
-var getKey = function (key) {
-    return defaultConfig_1.default.theme[key];
-};
-var getConfigWithValues = function (config) {
-    var configWithValues = {};
+var resolveConfig = function (config) {
+    var theme = {};
+    var getKey = function (key) {
+        return defaultConfig_1.default.theme[key];
+    };
     for (var conf in config.theme) {
-        configWithValues[conf] =
-            typeof config.theme[conf] === "function"
-                ? config.theme[conf](getKey)
-                : config.theme[conf];
+        if (config.theme.hasOwnProperty(conf)) {
+            theme[conf] =
+                typeof config.theme[conf] === "function"
+                    ? config.theme[conf](getKey)
+                    : config.theme[conf];
+        }
     }
-    return __assign({}, config, { theme: configWithValues });
+    return __assign({}, config, { theme: theme });
 };
-var defaultConfigWithValues = getConfigWithValues(defaultConfig_1.default);
-exports.defaultConfig = defaultConfigWithValues;
+var resolvedConfig = resolveConfig(defaultConfig_1.default);
+exports.defaultConfig = resolvedConfig;
 var withDefaultConfig = function (customConfig) {
-    var customConfigWithValues = getConfigWithValues(customConfig);
-    return mergeDeep(defaultConfigWithValues, customConfigWithValues || {});
+    var customTheme = resolveConfig(customConfig);
+    return mergeDeep(resolvedConfig, customTheme || {});
 };
 exports.withDefaultConfig = withDefaultConfig;

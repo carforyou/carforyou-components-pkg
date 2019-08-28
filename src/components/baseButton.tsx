@@ -1,7 +1,6 @@
 import * as React from "react"
 import { FC, ReactNode } from "react"
 
-import "../css/button.css"
 import Spinner from "./spinner"
 
 interface Props {
