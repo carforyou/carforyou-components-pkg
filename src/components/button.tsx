@@ -7,17 +7,30 @@ interface Props {
   teal?: boolean
   large?: boolean
   disabled?: boolean
+  smallText?: boolean
+  fontBold?: boolean
+  fontRegular?: boolean
   onClick?: () => void
 }
 
-const Button: FC<Props> = ({ children, teal, large, disabled, onClick }) => {
+const Button: FC<Props> = ({
+  children,
+  teal,
+  large,
+  disabled,
+  smallText,
+  fontRegular,
+  onClick
+}) => {
   return (
     <button
       type="submit"
       formNoValidate
       className={classnames(
-        "flex w-12/12 px-10 py-16 justify-center items-center rounded text-white font-bold leading-xs transition-2 cursor-pointer appearance-none leading-none outline-none",
+        "flex w-12/12 px-10 justify-center items-center rounded text-white leading-xs transition-2 cursor-pointer appearance-none leading-none focus:outline-none",
         large ? "h-56" : "h-50",
+        smallText ? "text-sm" : "text-base",
+        fontRegular ? "font-regular" : "font-bold",
         teal
           ? "bg-teal hover:bg-teal-dark focus:bg-teal"
           : "bg-salmon hover:bg-salmon-dark focus:bg-salmon",

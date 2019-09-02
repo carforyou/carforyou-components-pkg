@@ -19,9 +19,29 @@ describe("<Button>", () => {
     expect(onClick).toHaveBeenCalled()
   })
 
-  describe("variations", () => {
-    it("renders a disabled button", () => {
+  describe("button variations", () => {
+    it("renders button size", () => {
+      const { container } = render(<Button large>Label</Button>)
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders button color", () => {
+      const { container } = render(<Button teal>Label</Button>)
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders disabled button", () => {
       const { container } = render(<Button disabled>Label</Button>)
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders button font-size", () => {
+      const { container } = render(<Button smallText>Label</Button>)
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders button font-weight", () => {
+      const { container } = render(<Button fontRegular>Label</Button>)
       expect(container).toMatchSnapshot()
     })
   })
