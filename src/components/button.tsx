@@ -8,7 +8,6 @@ interface Props {
   large?: boolean
   disabled?: boolean
   smallText?: boolean
-  fontBold?: boolean
   fontRegular?: boolean
   className?: string
   onClick?: () => void
