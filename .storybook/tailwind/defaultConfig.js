@@ -13,7 +13,6 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable:object-literal-sort-keys */
 var transform_1 = require("./plugins/transform");
-var transition_1 = require("./plugins/transition");
 /*
 Tailwind - The Utility-First CSS Framework
 A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
@@ -476,7 +475,6 @@ exports.default = {
     corePlugins: {},
     plugins: [
         transform_1.default,
-        transition_1.default,
         require("tailwindcss-gradients")({
             gradients: {
                 fade: ["rgba(255,255,255,0) 0%", "rgba(255,255,255,1) 100%"],

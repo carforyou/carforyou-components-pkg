@@ -1,6 +1,5 @@
 /* tslint:disable:object-literal-sort-keys */
 import TransformPlugin from "./plugins/transform"
-import TransitionPlugin from "./plugins/transition"
 /*
 Tailwind - The Utility-First CSS Framework
 A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
@@ -496,7 +495,6 @@ export default {
   corePlugins: {},
   plugins: [
     TransformPlugin,
-    TransitionPlugin,
     require("tailwindcss-gradients")({
       gradients: {
         fade: ["rgba(255,255,255,0) 0%", "rgba(255,255,255,1) 100%"],
