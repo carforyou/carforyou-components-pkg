@@ -109,7 +109,7 @@ exports.default = {
         | Class name: .border-{color}
         |
         */
-        borderColor: function (theme) { return (__assign({}, theme("colors"), { default: theme("colors.grey-light", "currentColor") })); },
+        borderColor: function (theme) { return (__assign(__assign({}, theme("colors")), { default: theme("colors.grey-light", "currentColor") })); },
         /*
         |-----------------------------------------------------------------------------
         | Border radius                    https://tailwindcss.com/docs/border-radius

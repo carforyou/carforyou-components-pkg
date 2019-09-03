@@ -27,7 +27,7 @@ const Button: FC<Props> = ({
     <button
       type="submit"
       className={classnames(
-        "flex w-12/12 px-10 justify-center items-center rounded text-white leading-xs transition-2 cursor-pointer",
+        "flex w-12/12 px-10 justify-center items-center rounded text-white leading-xs transition-2 cursor-pointer focus:outline-none",
         large ? "h-56 py-18" : "h-50",
         smallText ? "text-sm" : "text-base",
         fontRegular ? "font-regular" : "font-bold",

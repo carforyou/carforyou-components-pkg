@@ -27,7 +27,7 @@ var resolveConfig = function (config) {
                     : config.theme[conf];
         }
     }
-    return __assign({}, config, { theme: theme });
+    return __assign(__assign({}, config), { theme: theme });
 };
 var resolvedConfig = resolveConfig(defaultConfig_1.default);
 exports.defaultConfig = resolvedConfig;
