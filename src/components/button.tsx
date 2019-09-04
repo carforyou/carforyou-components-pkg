@@ -9,7 +9,6 @@ interface Props {
   disabled?: boolean
   smallText?: boolean
   fontRegular?: boolean
-  className?: string
   onClick?: () => void
 }
 
@@ -20,7 +19,6 @@ const Button: FC<Props> = ({
   disabled,
   smallText,
   fontRegular,
-  className,
   onClick
 }) => {
   return (
@@ -34,8 +32,7 @@ const Button: FC<Props> = ({
         teal
           ? "bg-teal hover:bg-teal-dark focus:bg-teal"
           : "bg-salmon hover:bg-salmon-dark focus:bg-salmon",
-        disabled ? "cursor-not-allowed bg-grey-3 hover:bg-grey-3" : null,
-        className
+        disabled ? "cursor-not-allowed bg-grey-3 hover:bg-grey-3" : null
       )}
       onClick={onClick}
       disabled={disabled}
