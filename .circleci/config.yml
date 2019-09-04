@@ -2,7 +2,7 @@ version: 2.1
 
 docker: &DOCKER_NODE
   docker:
-    - image: circleci/node:10.15
+    - image: circleci/node:10.16
 
 jobs:
   install:
