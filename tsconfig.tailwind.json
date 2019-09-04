@@ -4,5 +4,5 @@
     "outDir": "./.storybook/tailwind/"
   },
   "include": ["src/tailwind/**/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }
