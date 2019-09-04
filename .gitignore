@@ -1,3 +1,4 @@
 pkg
 storybook-static
 node_modules
+.storybook/tailwind
