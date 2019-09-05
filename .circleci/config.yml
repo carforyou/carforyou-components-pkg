@@ -28,6 +28,7 @@ jobs:
           at: ~/
       - run: npm ls
       - run: npm run build
+      - run: npx build-storybook
 
   unit:
     <<: *DOCKER_NODE
