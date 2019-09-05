@@ -3,12 +3,12 @@
   "version": "1.0.1",
   "description": "CAR FOR YOU React components",
   "scripts": {
-    "release": "pack publish && git push --tags",
+    "release": "pika publish && git push --tags",
     "dev": "npm run build:tailwind && start-storybook -p 6006",
     "test": "jest",
     "lint": "tslint --project tsconfig.json",
     "format": "tslint --project tsconfig.json --fix",
-    "build": "npm run build:tailwind && pack build",
+    "build": "npm run build:tailwind && pika build",
     "build:tailwind": "tsc --project tsconfig.tailwind.json",
     "build:storybook": "npm run build:tailwind && build-storybook",
     "deploy": "storybook-to-ghpages"
