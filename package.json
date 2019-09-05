@@ -1,24 +1,25 @@
 {
   "name": "@carforyou/components",
-  "version": "1.0.1",
+  "version": "1.0.2-0",
   "description": "CAR FOR YOU React components",
   "scripts": {
-    "release": "pack publish && git push --tags",
+    "version": "npm run build",
+    "release": "np --any-branch --contents pkg/",
     "dev": "npm run build:tailwind && start-storybook -p 6006",
     "test": "jest",
     "lint": "tslint --project tsconfig.json",
     "format": "tslint --project tsconfig.json --fix",
-    "build": "npm run build:tailwind && pack build",
+    "build": "npm run build:tailwind && pika build",
     "build:tailwind": "tsc --project tsconfig.tailwind.json",
     "build:storybook": "npm run build:tailwind && build-storybook",
     "deploy": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/autoricardo/components-pkg.git"
+    "url": "git+https://github.com/autoricardo/carforyou-components-pkg.git"
   },
   "author": "CAR FOR YOU",
-  "homepage": "https://github.com/autoricardo/components-pkg#readme",
+  "homepage": "https://github.com/autoricardo/carforyou-components-pkg#readme",
   "peerDependencies": {
     "react": ">=16.0.0",
     "tailwindcss": "^1.0.0"
@@ -32,7 +33,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@carforyou/tslint-rules": "^1.0.0",
-    "@pika/pack": "^0.3.7",
+    "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.6.0",
     "@pika/plugin-build-web": "^0.6.0",
     "@pika/plugin-ts-standard-pkg": "^0.6.0",
@@ -51,6 +52,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "awesome-typescript-loader": "^5.2.1",
     "jest": "^24.8.0",
+    "np": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.1",
     "react": "^16.8.6",
