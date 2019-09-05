@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/autoricardo/components-pkg.git"
+    "url": "git+https://github.com/autoricardo/carforyou-components-pkg.git"
   },
   "author": "CAR FOR YOU",
-  "homepage": "https://github.com/autoricardo/components-pkg#readme",
+  "homepage": "https://github.com/autoricardo/carforyou-components-pkg#readme",
   "peerDependencies": {
     "react": ">=16.0.0",
     "tailwindcss": "^1.0.0"
