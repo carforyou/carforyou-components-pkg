@@ -28,7 +28,7 @@
     "babel-loader": "^8.0.6",
     "merge-deep": "^3.0.2",
     "react-paginate": "^6.0.0",
-    "tailwindcss-gradients": "^1.1.0"
+    "tailwindcss-gradients": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
