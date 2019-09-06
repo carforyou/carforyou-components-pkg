@@ -417,8 +417,31 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1
-    }
+    },
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Gradients                  https://github.com/benface/tailwindcss-gradients
+    |-----------------------------------------------------------------------------
+    |
+    | Class name: .bg-gradient-{direction}-{color}
+    |
+    */
+    linearGradients: theme => ({
+      directions: {
+        "to-top": "to top",
+        "to-right": "to right",
+        "to-bottom": "to bottom",
+        "to-left": "to left"
+      },
+      colors: {
+        fade: ["rgba(255,255,255,0) 90%", "rgba(255,255,255,1) 100%"],
+        grey: [theme("colors")["grey-bright"], `${theme("colors").white} 20%`],
+        black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"]
+      }
+    })
   },
+
   variants: {
     alignContent: ["responsive"],
     alignItems: ["responsive"],
@@ -486,14 +509,5 @@ export default {
     zIndex: ["responsive"]
   },
   corePlugins: {},
-  plugins: [
-    TransformPlugin,
-    require("tailwindcss-gradients")({
-      gradients: {
-        fade: ["rgba(255,255,255,0) 0%", "rgba(255,255,255,1) 100%"],
-        grey: ["#F9F9FB 0%", "#FFFFFF 20%"],
-        black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"]
-      }
-    })
-  ]
+  plugins: [TransformPlugin, require("tailwindcss-gradients")()]
 }

@@ -145,6 +145,27 @@ Object {
       "xs": 1.25,
       "xxs": 0.9,
     },
+    "linearGradients": Object {
+      "colors": Object {
+        "black": Array [
+          "rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)",
+        ],
+        "fade": Array [
+          "rgba(255,255,255,0) 90%",
+          "rgba(255,255,255,1) 100%",
+        ],
+        "grey": Array [
+          "#F9F9FB",
+          "#FFFFFF 20%",
+        ],
+      },
+      "directions": Object {
+        "to-bottom": "to bottom",
+        "to-left": "to left",
+        "to-right": "to right",
+        "to-top": "to top",
+      },
+    },
     "margin": Object {
       "0": "0",
       "10": "10px",
