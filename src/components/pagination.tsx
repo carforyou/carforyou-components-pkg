@@ -3,8 +3,6 @@ import { StatelessComponent } from "react"
 import ReactPaginate from "react-paginate"
 import ArrowRightM from "./icons/ArrowRightMCrop"
 
-import "./pagination.css"
-
 interface Props {
   pageCount: number
   previousLabel: string

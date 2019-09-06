@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions"
 import Pagination from "../src/components/pagination"
 
 import "../.storybook/stories.css"
+import "../assets/index.css"
 
 storiesOf("Pagination", module)
   .add("on first page", () => (
