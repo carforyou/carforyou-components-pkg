@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "tslint --project tsconfig.json",
     "format": "tslint --project tsconfig.json --fix",
-    "build": "npm run build:tailwind && pack build",
+    "build": "npm run build:tailwind && pika build",
     "build:tailwind": "tsc --project tsconfig.tailwind.json",
     "build:storybook": "npm run build:tailwind && build-storybook",
     "deploy": "storybook-to-ghpages"

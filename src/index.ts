@@ -2,7 +2,7 @@
 import Button from "./components/button"
 import { withDefaultConfig, defaultConfig } from "./tailwind/index"
 
-// export { Component }
+// export { Pagination, ImageAsset }
 export { Button }
 
 export default {
