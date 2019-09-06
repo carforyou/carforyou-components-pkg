@@ -24,6 +24,11 @@ Then, you can start using the shared React components:
 import  { Pagination } from "@carforyou/components"
 ```
 
+You can also import styles and assets:
+```
+@import '@carforyou/components/assets/index.css';
+```
+
 ## Setup tailwind in a next.js project
 The following describes the very minimal setup required in a vanilla next.js project with **tailwindcss@0.6.1**
 
