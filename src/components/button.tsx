@@ -15,7 +15,7 @@ const Button: FC<Props> = ({ children, teal, small, disabled, onClick }) => {
     <button
       type="submit"
       className={classnames(
-        "flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded-4 focus:outline-none",
+        "flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none",
         small ? "h-36" : "h-52",
         teal
           ? "bg-teal hover:bg-teal-dark focus:bg-teal"

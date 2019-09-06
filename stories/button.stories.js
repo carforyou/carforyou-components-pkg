@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions"
 
 import Button from "../src/components/button"
 
-const containerButtons = "flex justify-center items-center rounded-4 border border-grey-2 w-7/12 bg-grey-bright p-10"
+const containerButtons = "flex justify-center items-center rounded border border-grey-2 w-7/12 bg-grey-bright p-10"
 
 const description = (title, description) => {
   return(

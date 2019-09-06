@@ -67,8 +67,7 @@ Object {
     },
     "borderRadius": Object {
       "20": "20px",
-      "4": "4px",
-      "default": ".25rem",
+      "default": "4px",
       "full": "9999px",
       "half": "50%",
       "none": "0",

@@ -120,10 +120,9 @@ exports.default = {
         */
         borderRadius: {
             none: "0",
-            default: ".25rem",
+            default: "4px",
             full: "9999px",
             half: "50%",
-            "4": "4px",
             "20": "20px"
         },
         /*

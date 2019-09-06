@@ -1,4 +1,4 @@
-// import Components
+// import Pagination from "./components/pagination"
 import Button from "./components/button"
 import { withDefaultConfig, defaultConfig } from "./tailwind/index"
 

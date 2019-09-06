@@ -33,30 +33,33 @@
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@carforyou/tslint-rules": "^1.0.0",
-    "@pika/pack": "^0.3.7",
-    "@pika/plugin-build-node": "^0.3.16",
-    "@pika/plugin-build-web": "^0.3.16",
-    "@pika/plugin-ts-standard-pkg": "^0.3.16",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.0",
+    "@pika/plugin-build-web": "^0.6.0",
+    "@pika/plugin-copy-assets": "^0.6.0",
+    "@pika/plugin-ts-standard-pkg": "^0.6.0",
     "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-info": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "@storybook/storybook-deployer": "^2.8.1",
     "@svgr/webpack": "^4.2.0",
     "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.2",
+    "@types/node": "^12.7.4",
     "@types/react": "^16.8.17",
     "@types/react-paginate": "^6.2.1",
     "@types/storybook__react": "^4.0.1",
     "@zeit/next-typescript": "^1.1.1",
     "awesome-typescript-loader": "^5.2.1",
     "jest": "^24.8.0",
+    "np": "^5.0.3",
+    "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.1",
     "react": "^16.8.6",
     "react-docgen-typescript-loader": "^3.1.0",
-    "react-testing-library": "^7.0.0",
+    "react-testing-library": "^8.0.0",
     "svgo": "^1.2.2",
     "tailwindcss": "^1.0.0",
     "ts-jest": "^24.0.2",
@@ -76,6 +79,9 @@
       ],
       [
         "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-copy-assets"
       ]
     ]
   }
