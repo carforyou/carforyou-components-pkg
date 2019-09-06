@@ -435,7 +435,7 @@ export default {
         "to-left": "to left"
       },
       colors: {
-        fade: ["rgba(255,255,255,0) 0%", "rgba(255,255,255,1) 100%"],
+        fade: ["rgba(255,255,255,0) 90%", "rgba(255,255,255,1) 100%"],
         grey: [theme("colors")["grey-bright"], `${theme("colors").white} 20%`],
         black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"]
       }
