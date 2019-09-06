@@ -21,7 +21,7 @@ describe("<Button>", () => {
 
   describe("button variations", () => {
     it("renders button size", () => {
-      const { container } = render(<Button large>Label</Button>)
+      const { container } = render(<Button small>Label</Button>)
       expect(container).toMatchSnapshot()
     })
 
@@ -32,16 +32,6 @@ describe("<Button>", () => {
 
     it("renders disabled button", () => {
       const { container } = render(<Button disabled>Label</Button>)
-      expect(container).toMatchSnapshot()
-    })
-
-    it("renders button font-size", () => {
-      const { container } = render(<Button smallText>Label</Button>)
-      expect(container).toMatchSnapshot()
-    })
-
-    it("renders button font-weight", () => {
-      const { container } = render(<Button fontRegular>Label</Button>)
       expect(container).toMatchSnapshot()
     })
   })

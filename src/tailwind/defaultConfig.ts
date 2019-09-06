@@ -120,6 +120,7 @@ export default {
       default: ".25rem",
       full: "9999px",
       half: "50%",
+      "4": "4px",
       "20": "20px"
     },
 
@@ -213,9 +214,9 @@ export default {
       auto: "auto",
       full: "100%",
       screen: "100vh",
+      "36": "36px",
       "40": "40px",
-      "50": "50px",
-      "56": "56px"
+      "52": "52px"
     },
 
     /*

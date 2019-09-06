@@ -67,6 +67,7 @@ Object {
     },
     "borderRadius": Object {
       "20": "20px",
+      "4": "4px",
       "default": ".25rem",
       "full": "9999px",
       "half": "50%",
@@ -127,9 +128,9 @@ Object {
       "regular": 400,
     },
     "height": Object {
+      "36": "36px",
       "40": "40px",
-      "50": "50px",
-      "56": "56px",
+      "52": "52px",
       "auto": "auto",
       "full": "100%",
       "screen": "100vh",

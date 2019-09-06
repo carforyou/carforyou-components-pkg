@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions"
 
 import Button from "../src/components/button"
 
-const containerButtons = "flex justify-center items-center rounded border border-grey-2 w-7/12 bg-grey-bright p-10"
+const containerButtons = "flex justify-center items-center rounded-4 border border-grey-2 w-7/12 bg-grey-bright p-10"
 
 const description = (title, description) => {
   return(
@@ -20,16 +20,13 @@ storiesOf("Buttons", module)
     <div className="m-40">
       <div className="text-2xl mb-40">Examples</div>
       <div className="flex mb-40">
-        {description("Size", "Button supports 3 sizes – large with w-12/12 h-56, medium with w-200 h-50 and small with w-145 h-50.")}
+        {description("Size", "Button supports 2 sizes – large with h-52 and small with h-36.")}
         <div className={containerButtons}>
           <div className="w-4/12 pr-10">
-            <Button large>large</Button>
+            <Button>large</Button>
           </div>
-          <div className="w-3/12 pr-10">
-            <Button>medium</Button>
-          </div>
-          <div className="w-2/12">
-            <Button>small</Button>
+          <div className="w-4/12">
+            <Button small>small</Button>
           </div>
         </div>
       </div>
@@ -64,34 +61,6 @@ storiesOf("Buttons", module)
             </Button>
           </div>
         </div> 
-      </div>
-    </div>
-  ))
-
-  .add("Text Variations", () => (
-    <div className="m-40">
-      <div className="text-2xl mb-40">Examples</div>
-      <div className="flex mb-40">
-        {description("Size", "TextButton supports 2 sizes - small and base.")}
-        <div className={containerButtons}>
-            <div className="pr-40 w-4/12">
-              <Button smallText>small</Button>
-            </div>
-            <div className="w-4/12">
-              <Button>base</Button>
-            </div>
-        </div>
-      </div>
-      <div className="flex mb-40">
-        {description("Weight", "TextButton supports 2 text weights - bold and regular.")}
-        <div className={containerButtons}>
-          <div className="flex">
-            <div className="pr-40">
-              <Button>bold</Button>
-            </div>  
-            <Button fontRegular>regular</Button>
-          </div>
-        </div>
       </div>
     </div>
   ))

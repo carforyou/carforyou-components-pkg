@@ -5,30 +5,18 @@ import classnames from "classnames"
 interface Props {
   children: ReactNode
   teal?: boolean
-  large?: boolean
+  small?: boolean
   disabled?: boolean
-  smallText?: boolean
-  fontRegular?: boolean
   onClick?: () => void
 }
 
-const Button: FC<Props> = ({
-  children,
-  teal,
-  large,
-  disabled,
-  smallText,
-  fontRegular,
-  onClick
-}) => {
+const Button: FC<Props> = ({ children, teal, small, disabled, onClick }) => {
   return (
     <button
       type="submit"
       className={classnames(
-        "flex w-12/12 px-10 justify-center items-center rounded text-white leading-xs transition-2 cursor-pointer focus:outline-none",
-        large ? "h-56 py-18" : "h-50",
-        smallText ? "text-sm" : "text-base",
-        fontRegular ? "font-regular" : "font-bold",
+        "flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded-4 focus:outline-none",
+        small ? "h-36" : "h-52",
         teal
           ? "bg-teal hover:bg-teal-dark focus:bg-teal"
           : "bg-salmon hover:bg-salmon-dark focus:bg-salmon",
