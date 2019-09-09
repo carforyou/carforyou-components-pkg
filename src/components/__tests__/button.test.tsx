@@ -19,8 +19,13 @@ describe("<Button>", () => {
     expect(onClick).toHaveBeenCalled()
   })
 
+  it("renders correctly", () => {
+    const { container } = render(<Button>Label</Button>)
+    expect(container).toMatchSnapshot()
+  })
+
   describe("button variations", () => {
-    it("renders button size", () => {
+    it("renders small button", () => {
       const { container } = render(<Button small>Label</Button>)
       expect(container).toMatchSnapshot()
     })
@@ -32,6 +37,24 @@ describe("<Button>", () => {
 
     it("renders disabled button", () => {
       const { container } = render(<Button disabled>Label</Button>)
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders small disabled button", () => {
+      const { container } = render(
+        <Button disabled small>
+          Label
+        </Button>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders small teal button", () => {
+      const { container } = render(
+        <Button small teal>
+          Label
+        </Button>
+      )
       expect(container).toMatchSnapshot()
     })
   })

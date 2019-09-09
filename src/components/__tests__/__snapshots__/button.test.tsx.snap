@@ -3,18 +3,7 @@
 exports[`<Button> button variations renders button color 1`] = `
 <div>
   <button
-    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none h-52 bg-teal hover:bg-teal-dark focus:bg-teal"
-    type="submit"
-  >
-    Label
-  </button>
-</div>
-`;
-
-exports[`<Button> button variations renders button size 1`] = `
-<div>
-  <button
-    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none h-36 bg-salmon hover:bg-salmon-dark focus:bg-salmon"
+    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-16 bg-teal hover:bg-teal-dark focus:bg-teal"
     type="submit"
   >
     Label
@@ -25,8 +14,53 @@ exports[`<Button> button variations renders button size 1`] = `
 exports[`<Button> button variations renders disabled button 1`] = `
 <div>
   <button
-    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none h-52 bg-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed bg-grey-3 hover:bg-grey-3"
+    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-16 bg-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed bg-grey-3 hover:bg-grey-3"
     disabled=""
+    type="submit"
+  >
+    Label
+  </button>
+</div>
+`;
+
+exports[`<Button> button variations renders small button 1`] = `
+<div>
+  <button
+    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-8 bg-salmon hover:bg-salmon-dark focus:bg-salmon"
+    type="submit"
+  >
+    Label
+  </button>
+</div>
+`;
+
+exports[`<Button> button variations renders small disabled button 1`] = `
+<div>
+  <button
+    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-8 bg-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed bg-grey-3 hover:bg-grey-3"
+    disabled=""
+    type="submit"
+  >
+    Label
+  </button>
+</div>
+`;
+
+exports[`<Button> button variations renders small teal button 1`] = `
+<div>
+  <button
+    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-8 bg-teal hover:bg-teal-dark focus:bg-teal"
+    type="submit"
+  >
+    Label
+  </button>
+</div>
+`;
+
+exports[`<Button> renders correctly 1`] = `
+<div>
+  <button
+    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-16 bg-salmon hover:bg-salmon-dark focus:bg-salmon"
     type="submit"
   >
     Label
