@@ -67,7 +67,7 @@ Object {
     },
     "borderRadius": Object {
       "20": "20px",
-      "default": ".25rem",
+      "default": "4px",
       "full": "9999px",
       "half": "50%",
       "none": "0",
@@ -209,11 +209,13 @@ Object {
       "0": "0",
       "10": "10px",
       "15": "15px",
+      "16": "16px",
       "20": "20px",
       "25": "25px",
       "30": "30px",
       "40": "40px",
       "5": "5px",
+      "8": "8px",
       "auto": "auto",
       "px": "1px",
     },
@@ -246,6 +248,10 @@ Object {
       "twitter": "#1EA0F2",
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
+    },
+    "transition": Object {
+      "2": "0.2s",
+      "3": "all .3s",
     },
     "width": Object {
       "0": "0",

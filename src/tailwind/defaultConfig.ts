@@ -117,7 +117,7 @@ export default {
     */
     borderRadius: {
       none: "0",
-      default: ".25rem",
+      default: "4px",
       full: "9999px",
       half: "50%",
       "20": "20px"
@@ -358,8 +358,10 @@ export default {
       px: "1px",
       "0": "0",
       "5": "5px",
+      "8": "8px",
       "10": "10px",
       "15": "15px",
+      "16": "16px",
       "20": "20px",
       "25": "25px",
       "30": "30px",
@@ -404,6 +406,11 @@ export default {
       "11/12": "91.66666667",
       "12/12": "100%",
       screen: "100vw"
+    },
+
+    transition: {
+      "2": "0.2s",
+      "3": "all .3s"
     },
 
     /*

@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6",
     "merge-deep": "^3.0.2",
     "react-paginate": "^6.0.0",
     "tailwindcss-gradients": "^2.0.0"
