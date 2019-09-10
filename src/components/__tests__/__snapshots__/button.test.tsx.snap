@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button> button variations renders button color 1`] = `
-<div>
-  <button
-    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-16 bg-teal hover:bg-teal-dark focus:bg-teal"
-    type="submit"
-  >
-    Label
-  </button>
-</div>
-`;
-
 exports[`<Button> button variations renders disabled button 1`] = `
 <div>
   <button
@@ -57,7 +46,18 @@ exports[`<Button> button variations renders small teal button 1`] = `
 </div>
 `;
 
-exports[`<Button> renders correctly 1`] = `
+exports[`<Button> button variations renders teal button 1`] = `
+<div>
+  <button
+    class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-16 bg-teal hover:bg-teal-dark focus:bg-teal"
+    type="submit"
+  >
+    Label
+  </button>
+</div>
+`;
+
+exports[`<Button> renders default button correctly 1`] = `
 <div>
   <button
     class="flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none py-16 bg-salmon hover:bg-salmon-dark focus:bg-salmon"

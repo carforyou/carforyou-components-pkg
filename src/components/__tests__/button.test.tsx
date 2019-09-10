@@ -19,7 +19,7 @@ describe("<Button>", () => {
     expect(onClick).toHaveBeenCalled()
   })
 
-  it("renders correctly", () => {
+  it("renders default button correctly", () => {
     const { container } = render(<Button>Label</Button>)
     expect(container).toMatchSnapshot()
   })
@@ -30,7 +30,7 @@ describe("<Button>", () => {
       expect(container).toMatchSnapshot()
     })
 
-    it("renders button color", () => {
+    it("renders teal button", () => {
       const { container } = render(<Button teal>Label</Button>)
       expect(container).toMatchSnapshot()
     })
