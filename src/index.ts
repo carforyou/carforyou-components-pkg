@@ -1,10 +1,15 @@
-// import Pagination from "./components/pagination"
-import Button from "./components/button"
-import { withDefaultConfig, defaultConfig } from "./tailwind/index"
+import { resolve } from "path"
+import { sync } from "glob"
 
-// export { Pagination, ImageAsset }
+import { withDefaultConfig, defaultConfig } from "./tailwind/index"
+import Button from "./components/button"
+
 export { Button }
 
 export default {
-  tailwind: { withDefaultConfig, defaultConfig }
+  tailwind: { withDefaultConfig, defaultConfig },
+  getComponentPaths: () =>
+    sync(resolve(__dirname, "../dist-src/components/**/*"), {
+      nodir: true
+    })
 }
