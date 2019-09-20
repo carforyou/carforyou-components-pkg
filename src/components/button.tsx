@@ -7,7 +7,7 @@ interface Props {
   teal?: boolean
   small?: boolean
   disabled?: boolean
-  onClick?: () => void
+  onClick?: (event: any) => void
 }
 
 const Button: FC<Props> = ({ children, teal, small, disabled, onClick }) => {
