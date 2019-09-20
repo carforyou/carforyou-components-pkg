@@ -8,7 +8,6 @@ describe("tailwind", () => {
       expect(defaultConfig).toMatchSnapshot()
     })
     it("returns colors", () => {
-      expect(Object.keys(defaultConfig.theme.colors)).toHaveLength(19)
       expect(defaultConfig.theme.colors.salmon).toEqual("#F73B47")
     })
   })
