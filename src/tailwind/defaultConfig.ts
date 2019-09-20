@@ -35,6 +35,7 @@ export default {
       salmon: "#F73B47",
       "salmon-dark": "#ED202D",
       teal: "#3696B9",
+      "teal-light": "#D7EAF1",
       "teal-dark": "#227D9E",
       "grey-dark": "#232A36",
       "grey-dark-opaque": "#A7AAAF",
