@@ -1,5 +1,5 @@
 import * as React from "react"
-import { FC, ReactNode } from "react"
+import { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   teal?: boolean
   small?: boolean
   disabled?: boolean
-  onClick?: (event: any) => void
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 const Button: FC<Props> = ({ children, teal, small, disabled, onClick }) => {
