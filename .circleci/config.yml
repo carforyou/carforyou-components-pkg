@@ -80,6 +80,6 @@ workflows:
           requires:
             - unit
             - build
-          filters:
-            branches:
+          # filters:
+          #   branches:
           #     only: master
