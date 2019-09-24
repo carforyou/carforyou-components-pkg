@@ -53,7 +53,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "c6:46:3f:31:ef:e0:3b:f8:dc:29:97:2b:f5:2a:44:98"
+            - "12:ea:da:84:2f:32:22:4b:43:50:a1:23:0d:f1:62:d2"
       - attach_workspace:
           at: ~/
       - run: npm run deploy -- --existing-output-dir=~/storybook-static
