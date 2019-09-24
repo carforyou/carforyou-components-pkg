@@ -49,7 +49,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run deploy-storybook -- --ci
+      - run: npm run deploy -- --ci
 
 workflows:
   version: 2
