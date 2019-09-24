@@ -26,7 +26,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8
+            - "SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8"
       - attach_workspace:
           at: ~/
       - run: npm ls
