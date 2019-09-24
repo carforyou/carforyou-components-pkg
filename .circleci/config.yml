@@ -53,7 +53,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run deploy -- --existing-output-dir=storybook-static
+      - run: npm run deploy -- --existing-output-dir=~/project/storybook-static
 
 workflows:
   version: 2
@@ -75,8 +75,8 @@ workflows:
 
       - deploy:
           requires:
-            - build
             - unit
+            - build
           # filters:
           #   branches:
           #     only: master
