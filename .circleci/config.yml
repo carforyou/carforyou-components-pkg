@@ -51,7 +51,8 @@ jobs:
   deploy:
     <<: *DOCKER_NODE
     steps:
-      - add_ssh_keys
+      - add_ssh_keys:
+            - "c6:46:3f:31:ef:e0:3b:f8:dc:29:97:2b:f5:2a:44:98"
       - attach_workspace:
           at: ~/
       - run: npm run deploy -- --existing-output-dir=~/storybook-static
