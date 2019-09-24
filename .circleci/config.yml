@@ -24,9 +24,6 @@ jobs:
   build:
     <<: *DOCKER_NODE
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8"
       - attach_workspace:
           at: ~/
       - run: npm ls
@@ -54,6 +51,9 @@ jobs:
   deploy:
     <<: *DOCKER_NODE
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8"
       - attach_workspace:
           at: ~/
       - run: npm run deploy -- --existing-output-dir=~/storybook-static
