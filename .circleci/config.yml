@@ -28,7 +28,11 @@ jobs:
           at: ~/
       - run: npm ls
       - run: npm run build
-      - run: npx build-storybook
+      - run: npm run build:storybook
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - storybook-static
 
   unit:
     <<: *DOCKER_NODE
@@ -49,7 +53,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run deploy -- --ci
+      - run: npm run deploy -- --existing-output-dir=~/storybook-static --ci
 
 workflows:
   version: 2
@@ -71,8 +75,8 @@ workflows:
 
       - deploy:
           requires:
-            - build
             - unit
+            - build
           filters:
             branches:
               only: master
