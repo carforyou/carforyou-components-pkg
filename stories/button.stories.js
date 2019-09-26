@@ -1,12 +1,19 @@
 import React from "react"
 import { storiesOf } from "@storybook/react"
+import {wInfo} from "./utils"
 import { action } from "@storybook/addon-actions"
 
 import Button from "../src/components/button"
 import Description from "../.storybook/components/description"
 
 storiesOf("Buttons", module)
-  .add("Button Variations", () => (
+  .add("Button Variations",
+  wInfo(`
+    description
+    ~~~
+    <Button></Button>
+    `,
+    )(() => (
     <div className="m-40">
       <div className="text-2xl mb-40">Examples</div>
       <div className="flex mb-40">
@@ -15,7 +22,7 @@ storiesOf("Buttons", module)
           description="Button supports 2 sizes – large with h-52 and small with h-36."
           children={
             <>
-              <div className="w-4/12 pr-10">
+              <div className="w-4/12 pr-40">
                 <Button>large</Button>
               </div>
               <div className="w-4/12">
@@ -71,4 +78,4 @@ storiesOf("Buttons", module)
         />
       </div>
     </div>
-  ))
+)))
