@@ -2,7 +2,8 @@ import * as React from "react"
 import { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
 
-interface Props {
+export interface Props {
+  /** Any element */
   children: ReactNode
   teal?: boolean
   small?: boolean
@@ -10,7 +11,13 @@ interface Props {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
-const Button: FC<Props> = ({ children, teal, small, disabled, onClick }) => {
+export const Button: FC<Props> = ({
+  children,
+  teal,
+  small,
+  disabled,
+  onClick
+}) => {
   return (
     <button
       type="submit"
