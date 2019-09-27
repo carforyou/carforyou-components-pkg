@@ -11,7 +11,7 @@ storiesOf("Buttons", module)
   wInfo(`
     Description
     ~~~
-    <Button></Button>
+    <Button>CarForYou</Button>
     `,
     )(() => (
     <div className="ml-40 mb-40">

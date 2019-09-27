@@ -3,15 +3,11 @@ import { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
 
 export interface Props {
-  /** Button text */
+  /** Any element */
   children: ReactNode
-  /** Button color */
   teal?: boolean
-  /** Height 36px */
   small?: boolean
-  /** Is button disabled */
   disabled?: boolean
-  /** Click callback */
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
