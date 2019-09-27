@@ -9,12 +9,12 @@ import Description from "../.storybook/components/description"
 storiesOf("Buttons", module)
   .add("Button Variations",
   wInfo(`
-    description
+    Description
     ~~~
     <Button></Button>
     `,
     )(() => (
-    <div className="m-40">
+    <div className="mx-40 mb-40">
       <div className="text-2xl mb-40">Examples</div>
       <div className="flex mb-40">
         <Description 

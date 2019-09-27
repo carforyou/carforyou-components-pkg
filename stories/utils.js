@@ -10,4 +10,4 @@ const withInfoStyle = {
     }
 }
 
-export const wInfo = text => withInfo({ inline: true, source: true, styles: withInfoStyle, text: text })
+export const wInfo = text => withInfo({ inline: true, source: false, styles: withInfoStyle, text: text })

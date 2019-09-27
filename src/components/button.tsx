@@ -1,5 +1,5 @@
 import * as React from "react"
-import { MouseEvent, ReactNode } from "react"
+import { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
 
 export interface Props {
@@ -10,8 +10,13 @@ export interface Props {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
-export const Button = (props: Props) => {
-  const { children, teal, small, disabled, onClick } = props
+export const Button: FC<Props> = ({
+  children,
+  teal,
+  small,
+  disabled,
+  onClick
+}) => {
   return (
     <button
       type="submit"
