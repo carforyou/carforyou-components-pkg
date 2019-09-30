@@ -3,8 +3,9 @@ import { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
 
 export interface Props {
-  /** Any element */
+  /** - */
   children: ReactNode
+  dataTestid?: string
   teal?: boolean
   small?: boolean
   disabled?: boolean
@@ -13,6 +14,7 @@ export interface Props {
 
 export const Button: FC<Props> = ({
   children,
+  dataTestid,
   teal,
   small,
   disabled,
@@ -31,6 +33,7 @@ export const Button: FC<Props> = ({
       )}
       onClick={onClick}
       disabled={disabled}
+      data-testid={dataTestid}
     >
       {children}
     </button>
