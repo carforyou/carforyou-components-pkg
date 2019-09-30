@@ -5,25 +5,24 @@ import classnames from "classnames"
 export interface Props {
   /** - */
   children: ReactNode
+  dataTestid?: string
   teal?: boolean
   small?: boolean
-  dataTestid?: string
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Button: FC<Props> = ({
   children,
+  dataTestid,
   teal,
   small,
-  dataTestid,
   disabled,
   onClick
 }) => {
   return (
     <button
       type="submit"
-      data-testid={dataTestid}
       className={classnames(
         "flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none",
         small ? "py-8" : "py-16",
@@ -34,6 +33,7 @@ export const Button: FC<Props> = ({
       )}
       onClick={onClick}
       disabled={disabled}
+      data-testid={dataTestid}
     >
       {children}
     </button>
