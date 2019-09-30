@@ -3,7 +3,7 @@ import { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
 
 export interface Props {
-  /** Any element */
+  /** - */
   children: ReactNode
   teal?: boolean
   small?: boolean

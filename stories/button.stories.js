@@ -2,9 +2,13 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
 import { text, boolean } from '@storybook/addon-knobs'
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks'
 
 import { wInfo } from "./utils"
 import Button from "../src/components/button"
+
+<Meta title="Demo/Button" component={Button} />
+
 
 storiesOf("Buttons", module)
   .add("Button Variations",
