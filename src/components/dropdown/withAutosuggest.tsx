@@ -1,10 +1,10 @@
 import React, {
-  Component,
+  FC,
   ReactChild,
   FormEvent,
   KeyboardEvent,
   RefObject,
-  createRef,
+  useRef,
   InputHTMLAttributes
 } from "react"
 import classNames from "classnames"
@@ -58,42 +58,52 @@ interface Props<T> {
   onTypeAhead?: (value: string) => void
 }
 
-class DropdownWithAutosuggest<T> extends Component<Props<T>> {
-  menuRef: RefObject<HTMLUListElement> = createRef()
-  hasCustomValues = this.props.allowCustomValues || false
-
-  filterOptions = (options, text) => {
-    if (!text) {
-      return options
-    }
-
-    const regex = new RegExp(text, "i")
-
-    const matching = options
-      .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
-      .map(el => {
-        const copy = { ...el }
-        const matchData = regex.exec(el.name)
-
-        if (matchData) {
-          copy.preMatch = copy.name.substring(0, matchData.index)
-          copy.match = copy.name.substring(
-            matchData.index,
-            matchData.index + text.length
-          )
-          copy.postMatch = copy.name.substring(matchData.index + text.length)
-        }
-        return copy
-      })
-
-    const notMatching = options.filter(
-      el => !el.name.toLowerCase().includes(text.toLowerCase())
-    )
-
-    return matching.concat(notMatching)
+const filterOptions = (options, text) => {
+  if (!text) {
+    return options
   }
 
-  equalWrapper = (a, b) => {
+  const regex = new RegExp(text, "i")
+
+  const matching = options
+    .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
+    .map(el => {
+      const copy = { ...el }
+      const matchData = regex.exec(el.name)
+
+      if (matchData) {
+        copy.preMatch = copy.name.substring(0, matchData.index)
+        copy.match = copy.name.substring(
+          matchData.index,
+          matchData.index + text.length
+        )
+        copy.postMatch = copy.name.substring(matchData.index + text.length)
+      }
+      return copy
+    })
+
+  const notMatching = options.filter(
+    el => !el.name.toLowerCase().includes(text.toLowerCase())
+  )
+
+  return matching.concat(notMatching)
+}
+
+type DropdownWithAutosuggestType<T = any> = FC<Props<T>>
+
+const DropdownWithAutosuggest: DropdownWithAutosuggestType = ({
+  options,
+  selected,
+  onSelect,
+  equal,
+  input,
+  onTypeAhead,
+  trimInput,
+  allowCustomValues = false
+}) => {
+  const menuRef: RefObject<HTMLUListElement> = useRef()
+
+  const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
 
     if (
@@ -105,20 +115,16 @@ class DropdownWithAutosuggest<T> extends Component<Props<T>> {
     ) {
       return a.customValue === b.customValue
     } else {
-      return (this.props.equal || defaultEqual)(a, b)
+      return (equal || defaultEqual)(a, b)
     }
   }
 
-  renderToggle = downshift => {
+  const renderToggle = downshift => {
     const { getInputProps, isOpen, highlightedIndex, selectedItem } = downshift
-    const { input, options, onSelect } = this.props
 
     const propGetter = userProps => {
       const { className, name, ...rest } = userProps
-      const isDisabled =
-        !this.props.onTypeAhead &&
-        !this.hasCustomValues &&
-        !this.props.options.length
+      const isDisabled = !onTypeAhead && !allowCustomValues && !options.length
 
       return getInputProps({
         "data-testid": name,
@@ -179,17 +185,17 @@ class DropdownWithAutosuggest<T> extends Component<Props<T>> {
           const target = event.target as HTMLInputElement
           let value = target.value
 
-          if (this.props.trimInput) {
+          if (trimInput) {
             value = value.trimLeft()
             target.value = value
           }
 
-          if (this.props.onTypeAhead) {
-            this.props.onTypeAhead(value)
+          if (onTypeAhead) {
+            onTypeAhead(value)
           }
 
-          if (this.menuRef.current && this.menuRef.current.scrollTo) {
-            this.menuRef.current.scrollTo(0, 0)
+          if (menuRef.current && menuRef.current.scrollTo) {
+            menuRef.current.scrollTo(0, 0)
           }
 
           if (value) {
@@ -211,33 +217,29 @@ class DropdownWithAutosuggest<T> extends Component<Props<T>> {
     return input({ getInputProps: propGetter, isOpen })
   }
 
-  render = () => {
-    const { options, selected, onSelect } = this.props
-
-    return (
-      <BaseDownshift
-        selected={selected}
-        options={options}
-        equal={this.equalWrapper}
-        onSelect={onSelect}
-        filterOptions={this.filterOptions}
-        toggle={this.renderToggle}
-        menu={(downshift, filteredOptions) => {
-          return (
-            <Menu
-              {...{
-                ...downshift,
-                innerRef: this.menuRef,
-                options: filteredOptions,
-                className: "shadow-soft rounded-4 -mt-dropdownMenu",
-                equal: this.equalWrapper
-              }}
-            />
-          )
-        }}
-      />
-    )
-  }
+  return (
+    <BaseDownshift
+      selected={selected}
+      options={options}
+      equal={equalWrapper}
+      onSelect={onSelect}
+      filterOptions={filterOptions}
+      toggle={renderToggle}
+      menu={(downshift, filteredOptions) => {
+        return (
+          <Menu
+            {...{
+              ...downshift,
+              innerRef: menuRef,
+              options: filteredOptions,
+              className: "shadow-soft rounded-4 -mt-dropdownMenu",
+              equal: equalWrapper
+            }}
+          />
+        )
+      }}
+    />
+  )
 }
 
 export default DropdownWithAutosuggest

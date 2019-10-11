@@ -1,4 +1,4 @@
-import React, { Component, ReactChild } from "react"
+import React, { FC, ReactChild } from "react"
 
 import classNames from "classnames"
 
@@ -47,57 +47,55 @@ interface Props<T> {
   equal?: (a: T, b: T) => boolean
 }
 
-class Dropdown<T> extends Component<Props<T>> {
-  render = () => {
-    const {
-      options,
-      selected,
-      placeholder,
-      equal,
-      onSelect,
-      toggle,
-      menu,
-      disabled
-    } = this.props
+type DropdownType<T = any> = FC<Props<T>>
 
-    return (
-      <BaseDownshift
-        selected={selected}
-        options={options}
-        equal={equal}
-        onSelect={onSelect}
-        filterOptions={(a, _) => a}
-        toggle={downshift => (
-          <ButtonToggle
-            {...{
-              ...downshift,
-              placeholder,
-              disabled,
-              className: classNames(
-                "w-12/12 cursor-pointer transition-2 focus:outline-none",
-                { "button-filter-input_disabled": disabled }
-              )
-            }}
-          >
-            {toggle}
-          </ButtonToggle>
-        )}
-        menu={(downshift, filteredOptions) => {
-          const propsGetter = (props = {}) => ({
+const Dropdown: DropdownType = ({
+  options,
+  selected,
+  placeholder,
+  equal,
+  onSelect,
+  toggle,
+  menu,
+  disabled
+}) => {
+  return (
+    <BaseDownshift
+      selected={selected}
+      options={options}
+      equal={equal}
+      onSelect={onSelect}
+      filterOptions={(a, _) => a}
+      toggle={downshift => (
+        <ButtonToggle
+          {...{
             ...downshift,
-            options: [
-              ...(placeholder
-                ? [{ name: placeholder, value: null, placeholder: true }]
-                : []),
-              ...filteredOptions
-            ],
-            ...props
-          })
-          return menu({ getMenuProps: propsGetter })
-        }}
-      />
-    )
-  }
+            placeholder,
+            disabled,
+            className: classNames(
+              "w-12/12 cursor-pointer transition-2 focus:outline-none",
+              { "button-filter-input_disabled": disabled }
+            )
+          }}
+        >
+          {toggle}
+        </ButtonToggle>
+      )}
+      menu={(downshift, filteredOptions) => {
+        const propsGetter = (props = {}) => ({
+          ...downshift,
+          options: [
+            ...(placeholder
+              ? [{ name: placeholder, value: null, placeholder: true }]
+              : []),
+            ...filteredOptions
+          ],
+          ...props
+        })
+        return menu({ getMenuProps: propsGetter })
+      }}
+    />
+  )
 }
 
 export default Dropdown
