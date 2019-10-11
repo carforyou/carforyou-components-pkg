@@ -1,4 +1,4 @@
-import React, { ReactChild, FC } from "react"
+import React, { ReactChild, FC, ReactElement } from "react"
 
 interface Props<T> {
   placeholder?: string
@@ -13,9 +13,7 @@ interface Props<T> {
   ) => ReactChild
 }
 
-type ButtonToggleType<T = any> = FC<Props<T>>
-
-const ButtonToggle: ButtonToggleType = ({
+function ButtonToggle<T>({
   placeholder,
   getToggleButtonProps,
   isOpen,
@@ -23,7 +21,7 @@ const ButtonToggle: ButtonToggleType = ({
   className,
   children,
   disabled
-}) => {
+}: Props<T>): ReactElement {
   const selected = selectedItem
     ? selectedItem
     : { value: null, name: placeholder, placeholder: true }

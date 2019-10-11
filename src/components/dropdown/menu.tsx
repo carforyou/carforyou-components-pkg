@@ -1,4 +1,4 @@
-import React, { RefObject, ComponentType, FC, ElementType } from "react"
+import React, { RefObject, ReactElement } from "react"
 import classNames from "classnames"
 
 interface Item<T> {
@@ -45,9 +45,7 @@ const hightlightItem = <T extends {}>({
   )
 }
 
-type MenuType<T = any> = FC<Props<T>>
-
-const Menu: MenuType = ({
+function Menu<T>({
   getItemProps,
   getMenuProps,
   setHighlightedIndex,
@@ -57,7 +55,7 @@ const Menu: MenuType = ({
   className,
   innerRef,
   equal
-}) => {
+}: Props<T>): ReactElement {
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
     return (equal || defaultEqual)(a, b)

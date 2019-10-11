@@ -1,4 +1,4 @@
-import React, { FC, ReactChild } from "react"
+import React, { ReactChild, ReactElement } from "react"
 
 import classNames from "classnames"
 
@@ -47,9 +47,7 @@ interface Props<T> {
   equal?: (a: T, b: T) => boolean
 }
 
-type DropdownType<T = any> = FC<Props<T>>
-
-const Dropdown: DropdownType = ({
+function Dropdown<T>({
   options,
   selected,
   placeholder,
@@ -58,7 +56,7 @@ const Dropdown: DropdownType = ({
   toggle,
   menu,
   disabled
-}) => {
+}: Props<T>): ReactElement {
   return (
     <BaseDownshift
       selected={selected}

@@ -1,11 +1,11 @@
 import React, {
-  FC,
   ReactChild,
   FormEvent,
   KeyboardEvent,
   RefObject,
   useRef,
-  InputHTMLAttributes
+  InputHTMLAttributes,
+  ReactElement
 } from "react"
 import classNames from "classnames"
 
@@ -89,9 +89,7 @@ const filterOptions = (options, text) => {
   return matching.concat(notMatching)
 }
 
-type DropdownWithAutosuggestType<T = any> = FC<Props<T>>
-
-const DropdownWithAutosuggest: DropdownWithAutosuggestType = ({
+function DropdownWithAutosuggest<T>({
   options,
   selected,
   onSelect,
@@ -100,7 +98,7 @@ const DropdownWithAutosuggest: DropdownWithAutosuggestType = ({
   onTypeAhead,
   trimInput,
   allowCustomValues = false
-}) => {
+}: Props<T>): ReactElement {
   const menuRef: RefObject<HTMLUListElement> = useRef()
 
   const equalWrapper = (a, b) => {
