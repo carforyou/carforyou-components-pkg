@@ -15,7 +15,7 @@ storiesOf("Button", module)
     <Button>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
-        <div className="text-2xl mb-20">Examples</div>
+        <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
           <Button
             teal={boolean("Teal", false)}
@@ -34,7 +34,7 @@ storiesOf("Button", module)
     wInfo(`
     Description
     ~~~
-    <Button small={true}>CarForYou</Button>
+    <Button small>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Small button</div>
@@ -49,7 +49,7 @@ storiesOf("Button", module)
     wInfo(`
     Description
     ~~~
-    <Button teal={true}>CarForYou</Button>
+    <Button teal>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Teal button</div>
@@ -60,11 +60,26 @@ storiesOf("Button", module)
     ))
   )
   .add(
+    "White Teal",
+    wInfo(`
+    Description
+    ~~~~
+    <Button whiteTeal>CarForYou</Button>
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">White Teal button</div>
+        <div className="w-12/12 md:w-3/12">
+          <Button whiteTeal>White Teal button</Button>
+        </div>
+      </div>  
+    ))
+  )
+  .add(
     "Disabled",
     wInfo(`
     Description
     ~~~
-    <Button disabled={true}>CarForYou</Button>
+    <Button disabled>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Disabled button</div>
