@@ -105,7 +105,7 @@ function DropdownWithAutosuggest<T>({
     const defaultEqual = (x, y) => x === y
 
     if (
-      this.hasCustomValues &&
+      allowCustomValues &&
       a instanceof Object &&
       a.customValue &&
       b instanceof Object &&
@@ -168,7 +168,7 @@ function DropdownWithAutosuggest<T>({
             return
           }
 
-          if (this.hasCustomValues) {
+          if (allowCustomValues) {
             downshift.selectItem({
               name: target.value,
               value: {
