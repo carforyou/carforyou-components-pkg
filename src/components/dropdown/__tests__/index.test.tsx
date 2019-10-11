@@ -1,6 +1,3 @@
-// COPIED form listings-web
-// Refactored to @testing-library/react
-
 import React from "react"
 import { render, cleanup, fireEvent, within } from "@testing-library/react"
 
