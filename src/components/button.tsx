@@ -7,7 +7,7 @@ export interface Props {
   children: ReactNode
   dataTestid?: string
   teal?: boolean
-  whiteTeal?: boolean
+  tealBorder?: boolean
   small?: boolean
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
@@ -17,7 +17,7 @@ export const Button: FC<Props> = ({
   children,
   dataTestid,
   teal,
-  whiteTeal,
+  tealBorder,
   small,
   disabled,
   onClick
@@ -30,7 +30,7 @@ export const Button: FC<Props> = ({
         small ? "py-8" : "py-16",
         teal
           ? "bg-teal hover:bg-teal-dark focus:bg-teal"
-          : whiteTeal
+          : tealBorder
           ? "bg-white border border-teal text-teal hover:opacity-60"
           : "bg-salmon hover:bg-salmon-dark focus:bg-salmon",
         disabled ? "cursor-not-allowed bg-grey-3 hover:bg-grey-3" : null

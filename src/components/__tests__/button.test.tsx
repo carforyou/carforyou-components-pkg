@@ -59,13 +59,13 @@ describe("<Button>", () => {
     })
 
     it("renders white Teal button", () => {
-      const { container } = render(<Button whiteTeal>Label</Button>)
+      const { container } = render(<Button tealBorder>Label</Button>)
       expect(container).toMatchSnapshot()
     })
 
     it("renders white Teal small button", () => {
       const { container } = render(
-        <Button whiteTeal small>
+        <Button tealBorder small>
           Label
         </Button>
       )

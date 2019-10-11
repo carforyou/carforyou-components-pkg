@@ -21,6 +21,7 @@ storiesOf("Button", module)
             teal={boolean("Teal", false)}
             small={boolean("Small", false)}
             disabled={boolean("Disabled", false)}
+            tealBorder={boolean("Teal Border", false)}
             onClick={action("on Click")}
           >
             {text("Label", "Storybook")}
@@ -39,7 +40,7 @@ storiesOf("Button", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Small button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button small={true}>Small button</Button>
+          <Button small>Small button</Button>
         </div>
       </div>
     ))
@@ -54,22 +55,22 @@ storiesOf("Button", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Teal button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button teal={true}>Teal button</Button>
+          <Button teal>Teal button</Button>
         </div>
       </div>
     ))
   )
   .add(
-    "White Teal",
+    "Teal Border",
     wInfo(`
     Description
     ~~~~
-    <Button whiteTeal>CarForYou</Button>
+    <Button tealBorder>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
-        <div className="text-2xl mb-20">White Teal button</div>
+        <div className="text-2xl mb-20">Teal Border button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button whiteTeal>White Teal button</Button>
+          <Button tealBorder>Teal Border button</Button>
         </div>
       </div>  
     ))
@@ -84,7 +85,7 @@ storiesOf("Button", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Disabled button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button disabled={true}>Disabled button</Button>
+          <Button disabled>Disabled button</Button>
         </div>
       </div>
     ))
