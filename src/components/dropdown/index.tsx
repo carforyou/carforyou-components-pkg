@@ -6,17 +6,45 @@ import BaseDownshift from "./base"
 import ButtonToggle from "./buttonToggle"
 
 interface Props<T> {
-  selected?: T
-  placeholder?: string
+  /**
+   * An array of options to render
+   */
   options: Array<{ value: T; name: string }>
-  disabled?: boolean
-  onSelect: (selection: T) => void
-  equal?: (a: T, b: T) => boolean
+  /**
+   * Render prop to render togggle
+   *   - selected is currently selected option or placeholder
+   *   - isOpen tells you if the dropdown is opened. Useful if you wnat to render any opened indicators
+   */
   toggle: (
     selected: { name: string; value: T; placeholder?: boolean },
     isOpen: boolean
   ) => ReactChild
+  /**
+   * Render prop to render items menu
+   * You can use DropdonwMenu component for that
+   */
   menu: (propsGetter: any) => ReactChild
+  /**
+   * Selection handler
+   */
+  onSelect: (selection: T) => void
+  /**
+   * Currently selected option
+   */
+  selected?: T
+  /**
+   * Placeholder to show when no option is selected
+   */
+  placeholder?: string
+  /**
+   * To disable the dropdown
+   */
+  disabled?: boolean
+  /**
+   * Equality checker for options
+   *  Defaults to ===
+   */
+  equal?: (a: T, b: T) => boolean
 }
 
 class Dropdown<T> extends Component<Props<T>> {
