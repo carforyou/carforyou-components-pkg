@@ -19,13 +19,39 @@ interface InputProps {
 }
 
 interface Props<T> {
-  selected?: T
+  /**
+   * An array of options
+   */
   options: Array<{ value: T; name: string }>
-  onSelect: (selection: T | { customValue: string }) => void
-  equal?: (a: T, b: T) => boolean
+  /**
+   * Render prop to render the text input
+   */
   input: (propGetter: InputProps) => ReactChild
+  /**
+   * Selection event handler
+   */
+  onSelect: (selection: T | { customValue: string }) => void
+  /**
+   * Initially selected value
+   */
+  selected?: T
+  /**
+   * Equality check on option values.
+   * Defaults to ===
+   */
+  equal?: (a: T, b: T) => boolean
+  /**
+   * Wheteher custom values should be allowed
+   * If set to true user input would be passed as a value to the event handler if no matching option is found
+   */
   allowCustomValues?: boolean
+  /**
+   * If set to true input value will be trimmed before processing
+   */
   trimInput?: boolean
+  /**
+   * An event handler to dynamically generate suggestion list
+   */
   onTypeAhead?: (value: string) => void
 }
 
