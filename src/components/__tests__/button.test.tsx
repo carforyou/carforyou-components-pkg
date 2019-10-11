@@ -57,5 +57,19 @@ describe("<Button>", () => {
       )
       expect(container).toMatchSnapshot()
     })
+
+    it("renders white Teal button", () => {
+      const { container } = render(<Button tealBorder>Label</Button>)
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders white Teal small button", () => {
+      const { container } = render(
+        <Button tealBorder small>
+          Label
+        </Button>
+      )
+      expect(container).toMatchSnapshot()
+    })
   })
 })
