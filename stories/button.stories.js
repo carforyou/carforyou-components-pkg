@@ -15,12 +15,13 @@ storiesOf("Button", module)
     <Button>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
-        <div className="text-2xl mb-20">Examples</div>
+        <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
           <Button
             teal={boolean("Teal", false)}
             small={boolean("Small", false)}
             disabled={boolean("Disabled", false)}
+            tealBorder={boolean("Teal Border", false)}
             onClick={action("on Click")}
           >
             {text("Label", "Storybook")}
@@ -34,12 +35,12 @@ storiesOf("Button", module)
     wInfo(`
     Description
     ~~~
-    <Button small={true}>CarForYou</Button>
+    <Button small>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Small button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button small={true}>Small button</Button>
+          <Button small>Small button</Button>
         </div>
       </div>
     ))
@@ -49,14 +50,29 @@ storiesOf("Button", module)
     wInfo(`
     Description
     ~~~
-    <Button teal={true}>CarForYou</Button>
+    <Button teal>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Teal button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button teal={true}>Teal button</Button>
+          <Button teal>Teal button</Button>
         </div>
       </div>
+    ))
+  )
+  .add(
+    "Teal Border",
+    wInfo(`
+    Description
+    ~~~~
+    <Button tealBorder>CarForYou</Button>
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Teal Border button</div>
+        <div className="w-12/12 md:w-3/12">
+          <Button tealBorder>Teal Border button</Button>
+        </div>
+      </div>  
     ))
   )
   .add(
@@ -64,12 +80,12 @@ storiesOf("Button", module)
     wInfo(`
     Description
     ~~~
-    <Button disabled={true}>CarForYou</Button>
+    <Button disabled>CarForYou</Button>
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Disabled button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button disabled={true}>Disabled button</Button>
+          <Button disabled>Disabled button</Button>
         </div>
       </div>
     ))
