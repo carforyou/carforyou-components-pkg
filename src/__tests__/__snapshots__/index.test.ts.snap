@@ -6,6 +6,7 @@ Object {
   "plugins": Array [
     [Function],
     [Function],
+    [Function],
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -68,6 +69,7 @@ Object {
       "white": "#FFFFFF",
     },
     "borderRadius": Object {
+      "10": "10px",
       "20": "20px",
       "default": "4px",
       "full": "9999px",
@@ -134,6 +136,7 @@ Object {
       "auto": "auto",
       "full": "100%",
       "screen": "100vh",
+      "scrollbar": "70px",
     },
     "letterSpacing": Object {
       "normal": "0",
@@ -182,6 +185,8 @@ Object {
       "px": "1px",
     },
     "maxHeight": Object {
+      "dropdown": "240px",
+      "dropdownSM": "190px",
       "full": "100%",
     },
     "maxWidth": Object {
@@ -273,6 +278,7 @@ Object {
       "9/12": "75%",
       "auto": "auto",
       "screen": "100vw",
+      "scrollbar": "14px",
     },
     "zIndex": Object {
       "auto": "auto",
