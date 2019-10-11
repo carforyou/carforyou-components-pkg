@@ -424,7 +424,8 @@ export default {
     */
     zIndex: {
       auto: "auto",
-      negative: -1
+      negative: -1,
+      dropdownMenu: 20
     },
 
     /*

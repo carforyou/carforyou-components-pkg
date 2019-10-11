@@ -276,6 +276,7 @@ Object {
     },
     "zIndex": Object {
       "auto": "auto",
+      "dropdownMenu": 20,
       "negative": -1,
     },
   },
