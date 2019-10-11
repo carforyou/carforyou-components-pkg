@@ -1,5 +1,4 @@
-import * as React from "react"
-import { FC, MouseEvent, ReactNode } from "react"
+import React, { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
 
 export interface Props {
