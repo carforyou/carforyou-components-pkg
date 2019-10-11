@@ -127,10 +127,9 @@ class DropdownWithAutosuggest<T> extends Component<Props<T>> {
             return
           }
 
-          const matchingOption = options.find(
-            option => option.name === target.value
+          const matchingOption = options.find(option =>
+            option.name.toLowerCase().startsWith(target.value.toLowerCase())
           )
-
           if (matchingOption) {
             downshift.selectItem(matchingOption)
             return
