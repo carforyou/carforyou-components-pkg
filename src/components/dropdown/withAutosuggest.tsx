@@ -4,7 +4,8 @@ import React, {
   FormEvent,
   KeyboardEvent,
   RefObject,
-  createRef
+  createRef,
+  InputHTMLAttributes
 } from "react"
 import classNames from "classnames"
 
@@ -14,7 +15,9 @@ import BaseDownshift from "./base"
 import Menu from "./menu"
 
 interface InputProps {
-  getInputProps: <O>(options?: O) => O & GetInputPropsOptions
+  getInputProps: <O extends GetInputPropsOptions>(
+    options?: O
+  ) => InputHTMLAttributes<HTMLInputElement>
   isOpen: boolean
 }
 
@@ -126,7 +129,7 @@ class DropdownWithAutosuggest<T> extends Component<Props<T>> {
         disabled: isDisabled,
         className: classNames(
           className,
-          "cursor-default w-12/12 overflow-hidden",
+          "cursor-text w-12/12 overflow-hidden",
           {
             dropdown_disabled: isDisabled
           }
