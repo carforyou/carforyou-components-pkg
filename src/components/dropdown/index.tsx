@@ -79,7 +79,7 @@ function Dropdown<T>({
           ...downshift,
           ...downshift.getMenuProps({
             className:
-              "mt-15 text-left rounded-none shadow-hard md:position-left-auto md:mt-0 md:shadow-soft md:rounded-4"
+              "mt-0 text-left rounded-none shadow-hard md:position-left-auto md:shadow-soft md:rounded-4"
           }),
           options: [
             ...(placeholder
