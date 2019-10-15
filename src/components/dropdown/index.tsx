@@ -11,7 +11,7 @@ interface Props<T> {
    */
   options: Array<{ value: T; name: string }>
   /**
-   * Render prop to render togggle
+   * Render prop to render toggle
    *   - selected is currently selected option or placeholder
    *   - isOpen tells you if the dropdown is opened. Useful if you wnat to render any opened indicators
    */

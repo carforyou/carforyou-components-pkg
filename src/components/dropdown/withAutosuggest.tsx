@@ -47,7 +47,7 @@ interface Props<T> {
    */
   equal?: (a: T, b: T) => boolean
   /**
-   * Wheteher custom values should be allowed
+   * Whether custom values should be allowed
    * If set to true user input would be passed as a value to the event handler if no matching option is found
    */
   allowCustomValues?: boolean
