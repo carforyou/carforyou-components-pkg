@@ -11,6 +11,9 @@ module.exports = {
       "<rootDir>/src/__mocks__/fileMock.js",
     "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
   },
+  setupFiles: [
+    "<rootDir>/src/__tests__/setup/setupGlobalMocks.ts"
+  ],
   testMatch: ["**/__tests__/**/*.test.ts?(x)"],
   transform: {
     "\\.tsx?$": "ts-jest"
