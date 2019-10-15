@@ -9,20 +9,22 @@ npm install @carforyou/components
 
 In your `tailwind.js`, merge your custom configs with the base configuration:
 ```
-const { tailwind } = require("@carforyou/components").default
-module.exports = tailwind.withDefaultConfig({ colors: { "tuna": "#4E5154" } })
+const { withDefaultConfig } = require("@carforyou/components")
+module.exports = withDefaultConfig({ colors: { "tuna": "#4E5154" } })
 ```
+
+TODO
 
 In your `next.config.js`, add the components paths to the purgecss paths, so the component libraries classnames don't get stripped:
 ```
-const components = require("@carforyou/components").default
-purgeCssPaths.concat(components.getComponentPaths())
+const { getComponentPaths } = require("@carforyou/components")
+purgeCssPaths.concat(getComponentPaths())
 ```
 
 You can also access the base config directly if you need to:
 ```
-import { tailwind } from "@carforyou/components"
-tailwind.defaultConfig.colors.salmon
+import { defaultConfig } from "@carforyou/components"
+defaultConfig.colors.salmon
 ```
 
 Then, you can start using the shared React components:

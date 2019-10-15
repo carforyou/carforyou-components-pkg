@@ -1,3 +1,5 @@
+import { resolve } from "path"
+import { sync } from "glob"
 import merge_ from "merge-deep"
 import defaultConfig from "./defaultConfig"
 
@@ -67,4 +69,9 @@ const withDefaultConfig = (customConfig: TailwindConfig) => {
   return mergeDeep(resolvedConfig, customTheme || {})
 }
 
-export { withDefaultConfig, resolvedConfig as defaultConfig }
+const getComponentPaths = () =>
+  sync(resolve(__dirname, "../dist-src/components/**/*"), {
+    nodir: true
+  })
+
+export { withDefaultConfig, resolvedConfig as defaultConfig, getComponentPaths }
