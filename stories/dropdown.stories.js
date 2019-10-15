@@ -6,9 +6,6 @@ import { object, number, boolean, text } from "@storybook/addon-knobs"
 import { wInfo } from "./utils"
 
 import Dropdown from "../src/components/dropdown"
-import Menu from "../src/components/dropdown/menu"
-
-const renderMenu = ({ getMenuProps }) => <Menu {...getMenuProps()} />
 
 const options = () => object("options", [
   { value: 1, name: "One" },
@@ -42,7 +39,6 @@ storiesOf("Dropdown", module)
             <span className={placeholder ? "font-regular" : "font-bold"}>{name}</span>
           </div>
         )}
-        menu={({ getMenuProps }) => <Menu {...getMenuProps()} />}
         placeholder={"Select number"}
       />
     </div>
@@ -57,7 +53,6 @@ storiesOf("Dropdown", module)
                 <span className={placeholder ? "font-regular" : "font-bold"}>{name}</span>
               </div>
             )}
-            menu={renderMenu}
             selected={selected()}
             disabled={disabled()}
             placeholder={placeholder()}
@@ -85,7 +80,6 @@ storiesOf("Dropdown", module)
             <span className={placeholder ? "font-regular" : "font-bold"}>{name || "-"}</span>
           </div>
         )}
-        menu={({ getMenuProps }) => <Menu {...getMenuProps()} />}
       />
     </div>
     `)(() => (
@@ -100,7 +94,6 @@ storiesOf("Dropdown", module)
                 <span className={placeholder ? "font-regular" : "font-bold"}>{name || "-"}</span>
               </div>
             )}
-            menu={renderMenu}
             selected={selected()}
             disabled={disabled()}
           />
