@@ -47,7 +47,7 @@ const Pagination: StatelessComponent<Props> = ({
               height="10"
               width="10"
               className="inline-block align-middle rotate-180"
-            />{" "}
+            />
             {previousLabel}
           </>
         }
