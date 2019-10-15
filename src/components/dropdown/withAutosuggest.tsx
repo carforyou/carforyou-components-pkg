@@ -53,7 +53,7 @@ interface Props<T> {
   allowCustomValues?: boolean
   /**
    * If set to true input value will be trimmed before processing
-   */Ŕ¬
+   */
   trimInput?: boolean
   /**
    * An event handler to dynamically generate suggestion list
