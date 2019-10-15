@@ -8,8 +8,11 @@ import React, {
   ReactElement
 } from "react"
 import classNames from "classnames"
-
 import { GetInputPropsOptions } from "downshift"
+
+import { getClosestElement } from "../../lib/elementsHelper"
+import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
+
 import BaseDownshift from "./base"
 
 import Menu from "./menu"
@@ -50,7 +53,7 @@ interface Props<T> {
   allowCustomValues?: boolean
   /**
    * If set to true input value will be trimmed before processing
-   */
+   */Ŕ¬
   trimInput?: boolean
   /**
    * An event handler to dynamically generate suggestion list
@@ -140,7 +143,16 @@ function DropdownWithAutosuggest<T>({
         ),
         name,
         id: name,
-        onFocus: () => downshift.openMenu(),
+        onFocus: e => {
+          e.persist()
+          downshift.openMenu(() => {
+            const closestSection = getClosestElement(
+              e.target,
+              "[data-closestpoint]"
+            )
+            scrollIntoViewIfMobile(closestSection)
+          })
+        },
         onClick: () => downshift.openMenu(),
         onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => {
           const target = event.target as HTMLInputElement
