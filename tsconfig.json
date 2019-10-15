@@ -5,7 +5,8 @@
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "jsx": "react",
     "rootDirs": ["src", "stories"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "esModuleInterop": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build"]

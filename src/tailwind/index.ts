@@ -1,4 +1,4 @@
-import * as merge_ from "merge-deep"
+import merge_ from "merge-deep"
 import defaultConfig from "./defaultConfig"
 
 const mergeDeep = merge_

@@ -1,5 +1,6 @@
 /* tslint:disable:object-literal-sort-keys */
 import TransformPlugin from "./plugins/transform"
+import TransitionPlugin from "./plugins/transition"
 /*
 Tailwind - The Utility-First CSS Framework
 A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
@@ -121,6 +122,7 @@ export default {
       default: "4px",
       full: "9999px",
       half: "50%",
+      "10": "10px",
       "20": "20px"
     },
 
@@ -214,7 +216,8 @@ export default {
       auto: "auto",
       full: "100%",
       screen: "100vh",
-      "40": "40px"
+      "40": "40px",
+      scrollbar: "70px"
     },
 
     /*
@@ -283,7 +286,9 @@ export default {
     |*/
 
     maxHeight: {
-      full: "100%"
+      full: "100%",
+      dropdown: "240px",
+      dropdownSM: "190px"
     },
 
     /*
@@ -406,7 +411,8 @@ export default {
       "10/12": "83.33333%",
       "11/12": "91.66666667",
       "12/12": "100%",
-      screen: "100vw"
+      screen: "100vw",
+      scrollbar: "14px"
     },
 
     transition: {
@@ -424,7 +430,8 @@ export default {
     */
     zIndex: {
       auto: "auto",
-      negative: -1
+      negative: -1,
+      dropdownMenu: 20
     },
 
     /*
@@ -517,5 +524,9 @@ export default {
     zIndex: ["responsive"]
   },
   corePlugins: {},
-  plugins: [TransformPlugin, require("tailwindcss-gradients")()]
+  plugins: [
+    TransformPlugin,
+    TransitionPlugin,
+    require("tailwindcss-gradients")()
+  ]
 }

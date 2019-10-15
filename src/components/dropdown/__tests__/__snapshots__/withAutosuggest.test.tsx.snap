@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownWithAutosuggest> when closed renders the input 1`] = `
+<input
+  aria-autocomplete="list"
+  aria-labelledby=""
+  autocomplete="off"
+  autocorrect="off"
+  class="cursor-text w-12/12 overflow-hidden"
+  data-testid="nodejsFrom"
+  id="nodejsFrom"
+  name="nodejsFrom"
+  placeholder="Select number"
+  spellcheck="false"
+  value=""
+/>
+`;
+
+exports[`<DropdownWithAutosuggest> when opened highlights elements on exact match when typing 1`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  data-testid="One"
+  id="downshift-3-item-0"
+  role="option"
+>
+  
+  <span
+    class="font-bold underline"
+  >
+    One
+  </span>
+  
+</li>
+`;
+
+exports[`<DropdownWithAutosuggest> when opened marks the partial match when typing 1`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  data-testid="One"
+  id="downshift-2-item-0"
+  role="option"
+>
+  
+  <span
+    class="font-bold underline"
+  >
+    On
+  </span>
+  e
+</li>
+`;
+
+exports[`<DropdownWithAutosuggest> when opened renders all suggestions 1`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  data-testid="One"
+  id="downshift-1-item-0"
+  role="option"
+>
+  One
+</li>
+`;
+
+exports[`<DropdownWithAutosuggest> when opened renders all suggestions 2`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  data-testid="Two"
+  id="downshift-1-item-1"
+  role="option"
+>
+  Two
+</li>
+`;
+
+exports[`<DropdownWithAutosuggest> when opened renders all suggestions 3`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  data-testid="Three"
+  id="downshift-1-item-2"
+  role="option"
+>
+  Three
+</li>
+`;

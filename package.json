@@ -1,6 +1,6 @@
 {
   "name": "@carforyou/components",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "CAR FOR YOU React components",
   "scripts": {
     "version": "npm run build",
@@ -17,10 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/autoricardo/carforyou-components-pkg.git"
+    "url": "git+https://github.com/carforyou/carforyou-components-pkg.git"
   },
   "author": "CAR FOR YOU",
-  "homepage": "https://github.com/autoricardo/carforyou-components-pkg#readme",
+  "license": "MIT",
+  "homepage": "https://github.com/carforyou/carforyou-components-pkg#readme",
   "peerDependencies": {
     "react": ">=16.0.0",
     "tailwindcss": "^1.0.0"
@@ -28,6 +29,7 @@
   "dependencies": {
     "babel-loader": "^8.0.6",
     "classnames": "^2.2.6",
+    "downshift": "^3.3.4",
     "glob": "^7.1.3",
     "merge-deep": "^3.0.2",
     "react-paginate": "^6.0.0",

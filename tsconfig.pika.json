@@ -3,7 +3,8 @@
     "target": "es2019",
     "module": "esnext",
     "jsx": "react",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
   "include": ["src/index.ts"],
   "exclude": ["node_modules", "**/__tests__/*"]

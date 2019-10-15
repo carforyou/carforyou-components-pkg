@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dropdown> correct markup when closed renders selected option 1`] = `
+<span
+  class="font-bold"
+>
+  One
+</span>
+`;
+
+exports[`<Dropdown> correct markup when closed renders title 1`] = `
+<span
+  class="font-bold lg:font-regular"
+>
+  Select number
+</span>
+`;
+
+exports[`<Dropdown> correct markup when opened renders all options 1`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer font-bold text-teal"
+  data-testid="One"
+  id="downshift-4-item-0"
+  role="option"
+>
+  One
+</li>
+`;
+
+exports[`<Dropdown> correct markup when opened renders all options 2`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  data-testid="Two"
+  id="downshift-4-item-1"
+  role="option"
+>
+  Two
+</li>
+`;
+
+exports[`<Dropdown> correct markup when opened renders all options 3`] = `
+<li
+  aria-selected="false"
+  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  data-testid="Three"
+  id="downshift-4-item-2"
+  role="option"
+>
+  Three
+</li>
+`;
+
+exports[`<Dropdown> correct markup when opened renders selected option 1`] = `
+<span
+  class="font-bold"
+>
+  One
+</span>
+`;
+
+exports[`<Dropdown> correct markup when opened renders title 1`] = `
+<span
+  class="font-bold lg:font-regular"
+>
+  Select number
+</span>
+`;
