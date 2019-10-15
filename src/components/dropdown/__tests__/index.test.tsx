@@ -2,7 +2,6 @@ import React from "react"
 import { render, cleanup, fireEvent, within } from "@testing-library/react"
 
 import Dropdown from "../index"
-import Menu from "../menu"
 
 describe("<Dropdown>", () => {
   const mockedOnSelect = jest.fn()
@@ -27,7 +26,6 @@ describe("<Dropdown>", () => {
             <span className="font-bold">{name}</span>
           </div>
         )}
-        menu={({ getMenuProps }) => <Menu {...getMenuProps()} />}
       />
     )
 

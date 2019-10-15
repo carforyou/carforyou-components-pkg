@@ -3,6 +3,7 @@ import React, { ReactChild, ReactElement } from "react"
 import classNames from "classnames"
 
 import BaseDownshift from "./base"
+import Menu from "./menu"
 import ButtonToggle from "./buttonToggle"
 
 interface Props<T> {
@@ -19,11 +20,6 @@ interface Props<T> {
     selected: { name: string; value: T; placeholder?: boolean },
     isOpen: boolean
   ) => ReactChild
-  /**
-   * Render prop to render items menu
-   * You can use DropdonwMenu component for that
-   */
-  menu: (propsGetter: any) => ReactChild
   /**
    * Selection handler
    */
@@ -54,7 +50,6 @@ function Dropdown<T>({
   equal,
   onSelect,
   toggle,
-  menu,
   disabled
 }: Props<T>): ReactElement {
   return (
@@ -80,17 +75,21 @@ function Dropdown<T>({
         </ButtonToggle>
       )}
       menu={(downshift, filteredOptions) => {
-        const propsGetter = (props = {}) => ({
+        const props = {
           ...downshift,
+          ...downshift.getMenuProps({
+            className:
+              "mt-15 text-left rounded-none shadow-hard md:position-left-auto md:mt-0 md:shadow-soft md:rounded-4"
+          }),
           options: [
             ...(placeholder
               ? [{ name: placeholder, value: null, placeholder: true }]
               : []),
             ...filteredOptions
-          ],
-          ...props
-        })
-        return menu({ getMenuProps: propsGetter })
+          ]
+        }
+
+        return <Menu {...props} />
       }}
     />
   )
