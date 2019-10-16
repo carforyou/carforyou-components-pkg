@@ -46,6 +46,35 @@ storiesOf("SegmentedControl", module)
     ))
   )
   .add(
+    "With two buttons",
+    wInfo(`
+    Description
+    ~~~
+    <SegmentedControl
+      options={[
+        { value: 1, name: "One" },
+        { value: 2, name: "Two" }
+      ]
+      onSelect={/* select handler */}
+    />
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="w-12/12 md:w-4/12">
+          <SegmentedControl
+            options={object("options", [
+              { value: 1, name: "Button 1" },
+              { value: 2, name: "Button 2" }
+            ])}
+            onSelect={onSelect()}
+            initialSelection={initialSelection()}
+            small={small()}
+            disabled={disabled()}
+          />
+        </div>
+      </div>
+    ))
+  )
+  .add(
     "With initial selection",
     wInfo(`
     Description
@@ -123,6 +152,34 @@ storiesOf("SegmentedControl", module)
             onSelect={onSelect()}
             initialSelection={initialSelection()}
             small={small()}
+            disabled={disabled(true)}
+          />
+        </div>
+      </div>
+    ))
+  )
+  .add(
+    "Disabled small",
+    wInfo(`
+    Description
+    ~~~
+    <SegmentedControl
+      options={[
+        { value: 1, name: "One" },
+        { value: 2, name: "Two" },
+        { value: 3, name: "Three" }
+      ]
+      onSelect={/* select handler */}
+      disabled
+    />
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="w-12/12 md:w-4/12">
+          <SegmentedControl
+            options={options()}
+            onSelect={onSelect()}
+            initialSelection={initialSelection()}
+            small={small(true)}
             disabled={disabled(true)}
           />
         </div>
