@@ -27,13 +27,12 @@ export const Button: FC<Props> = ({
         selected ? "bg-teal" : "bg-white text-teal",
         disabled
           ? "cursor-not-allowed border-grey-3 bg-grey-1 text-grey-3 hover:border-grey-3 hover:bg-grey-1"
-          : "border-teal",
+          : "border-teal focus:shadow-focus",
         {
           "rounded-none": position === "middle",
           "rounded-l border-l-2": position === "left",
           "rounded-r": position === "right",
-          "hover:bg-teal-light active:bg-teal-bright focus:shadow-segmentedControlFocus":
-            !selected && !disabled,
+          "hover:bg-teal-light active:bg-teal-bright": !selected && !disabled,
           "hover:bg-teal-dark hover:border-teal-dark active:bg-teal-dark active:bg-teal-dark focus:bg-teal-dark focus:border-teal-dark":
             selected && !disabled
         }

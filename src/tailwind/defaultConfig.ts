@@ -160,7 +160,7 @@ export default {
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
       harder: "0 0 18px 0 rgba(35,42,54,0.8)",
-      segmentedControlFocus: "0px 0px 12px 0px rgb(54, 150, 185)"
+      focus: "0px 0px 12px 0px rgb(54, 150, 185)"
     },
 
     /*
