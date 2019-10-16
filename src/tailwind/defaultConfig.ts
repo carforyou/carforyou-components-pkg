@@ -37,6 +37,7 @@ export default {
       "salmon-dark": "#ED202D",
       teal: "#3696B9",
       "teal-light": "#D7EAF1",
+      "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
       "grey-dark": "#232A36",
       "grey-dark-opaque": "#A7AAAF",
@@ -158,7 +159,8 @@ export default {
       small: "0 2px 6px 0 rgba(35,42,54,0.1)",
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
-      harder: "0 0 18px 0 rgba(35,42,54,0.8)"
+      harder: "0 0 18px 0 rgba(35,42,54,0.8)",
+      segmentedControlFocus: "0px 0px 12px 0px rgb(54, 150, 185)"
     },
 
     /*
@@ -463,7 +465,7 @@ export default {
     alignSelf: ["responsive"],
     appearance: ["responsive"],
     backgroundAttachment: ["responsive"],
-    backgroundColor: ["responsive", "hover", "focus"],
+    backgroundColor: ["responsive", "hover", "focus", "active"],
     backgroundPosition: ["responsive"],
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
