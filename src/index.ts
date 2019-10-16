@@ -7,7 +7,9 @@ import Button from "./components/button"
 import Dropdown from "./components/dropdown/index"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 
-export { Button, Dropdown, DropdownWithAutosuggest }
+import SegmentedControl from "./components/segmentedControl/index"
+
+export { Button, Dropdown, DropdownWithAutosuggest, SegmentedControl }
 
 export default {
   tailwind: { withDefaultConfig, defaultConfig },
