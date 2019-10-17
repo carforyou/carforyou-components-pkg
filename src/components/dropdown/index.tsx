@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactElement } from "react"
+import React, { ReactChild, ReactElement, ReactNode } from "react"
 
 import classNames from "classnames"
 
@@ -23,7 +23,16 @@ interface Props<T> {
   /**
    * Selection handler
    */
-  onSelect: (selection: T) => void
+  onSelect?: (selection: T) => void
+  /**
+   * A render prop to customize single option rendering
+   * default: ({ name }) => name
+   */
+  renderOption?: (option: {
+    value: T
+    name: string | ReactNode
+    isSelected: boolean
+  }) => ReactNode
   /**
    * Currently selected option
    */
@@ -50,7 +59,8 @@ function Dropdown<T>({
   equal,
   onSelect,
   toggle,
-  disabled
+  disabled,
+  renderOption
 }: Props<T>): ReactElement {
   return (
     <BaseDownshift
@@ -86,7 +96,8 @@ function Dropdown<T>({
               ? [{ name: placeholder, value: null, placeholder: true }]
               : []),
             ...filteredOptions
-          ]
+          ],
+          renderOption
         }
 
         return <Menu {...props} />

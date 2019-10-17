@@ -1,4 +1,4 @@
-import React, { RefObject, ReactElement } from "react"
+import React, { RefObject, ReactElement, ReactNode } from "react"
 import classNames from "classnames"
 
 interface Item<T> {
@@ -22,6 +22,11 @@ interface Props<T> {
   className?: string
   equal?: (a: T, b: T) => boolean
   innerRef?: RefObject<HTMLUListElement>
+  renderOption?: (option: {
+    name: string | ReactNode
+    value: T
+    isSelected: boolean
+  }) => ReactNode
 }
 
 const isObject = value => {
@@ -33,7 +38,7 @@ const hightlightItem = <T extends {}>({
   preMatch,
   match,
   postMatch
-}: Item<T>) => {
+}: Item<T>): ReactNode => {
   return match ? (
     <>
       {preMatch}
@@ -54,7 +59,8 @@ function Menu<T>({
   options,
   className,
   innerRef,
-  equal
+  equal,
+  renderOption = ({ name }) => name
 }: Props<T>): ReactElement {
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -78,27 +84,34 @@ function Menu<T>({
       ref={innerRef}
       data-testid="dropdown-options"
     >
-      {options.map((item, index) => (
-        // tslint:disable-next-line:jsx-key
-        <li
-          {...getItemProps({
-            "data-testid": item.name,
-            key: item.key || item.value || `item-${index}`,
-            item,
-            className: classNames(
-              "hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer",
-              {
-                "font-bold text-teal":
-                  selectedItem && equalWrapper(selectedItem.value, item.value),
-                "bg-grey-bright": index === highlightedIndex,
-                "text-grey-3": item.placeholder
-              }
-            )
-          })}
-        >
-          {hightlightItem(item)}
-        </li>
-      ))}
+      {options.map((item, index) => {
+        const isSelected =
+          selectedItem && equalWrapper(selectedItem.value, item.value)
+        return (
+          // tslint:disable-next-line:jsx-key
+          <li
+            {...getItemProps({
+              "data-testid": item.name,
+              key: item.key || item.value || `item-${index}`,
+              item,
+              className: classNames(
+                "hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer",
+                {
+                  "font-bold text-teal": isSelected,
+                  "bg-grey-bright": index === highlightedIndex,
+                  "text-grey-3": item.placeholder
+                }
+              )
+            })}
+          >
+            {renderOption({
+              value: item.value,
+              name: hightlightItem(item),
+              isSelected
+            })}
+          </li>
+        )
+      })}
     </ul>
   ) : null
 }
