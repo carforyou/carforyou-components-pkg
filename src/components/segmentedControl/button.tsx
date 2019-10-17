@@ -22,9 +22,9 @@ export const Button: FC<Props> = ({
     <button
       type="submit"
       className={classnames(
-        "flex w-12/12 px-8 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none",
+        "flex w-12/12 px-8 justify-center items-center leading-xs transition-2 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none",
         small ? "py-8" : "py-16",
-        selected ? "bg-teal" : "bg-white text-teal",
+        selected ? "bg-teal text-white" : "bg-transparent text-teal",
         disabled
           ? "cursor-not-allowed border-grey-3 bg-grey-1 text-grey-3 hover:border-grey-3 hover:bg-grey-1"
           : "border-teal focus:shadow-focus",
