@@ -57,7 +57,7 @@ function Dropdown<T>({
   selected,
   placeholder,
   equal,
-  onSelect,
+  onSelect = () => null,
   toggle,
   disabled,
   renderOption

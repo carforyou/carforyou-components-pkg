@@ -75,6 +75,31 @@ storiesOf("SegmentedControl", module)
     ))
   )
   .add(
+    "Without selection handler",
+    wInfo(`
+    Description
+    ~~~
+    <SegmentedControl
+      options={[
+        { value: 1, name: "Button 1" },
+        { value: 2, name: "Button 2" },
+        { value: 3, name: "Button 3" }
+      ]
+    />
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="w-12/12 md:w-4/12">
+          <SegmentedControl
+            options={options()}
+            initialSelection={initialSelection(2)}
+            small={small()}
+            disabled={disabled()}
+          />
+        </div>
+      </div>
+    ))
+  )
+  .add(
     "With initial selection",
     wInfo(`
     Description

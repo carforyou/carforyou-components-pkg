@@ -35,7 +35,7 @@ interface Props<T> {
 function SegmentedControl<T>({
   options,
   initialSelection,
-  onSelect,
+  onSelect = () => null,
   renderOption = ({ name }) => name,
   small = false,
   disabled = false
