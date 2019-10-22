@@ -12,8 +12,16 @@ describe("<SegmentedControl>", () => {
     { value: 3, name: "Three" }
   ]
 
-  const renderWrapper = () =>
-    render(<SegmentedControl options={options} onSelect={mockedOnSelect} />)
+  const renderWrapper = (data = {}) => {
+    const { renderOption } = { renderOption: undefined, ...data }
+    return render(
+      <SegmentedControl
+        options={options}
+        onSelect={mockedOnSelect}
+        renderOption={renderOption}
+      />
+    )
+  }
 
   beforeEach(mockedOnSelect.mockClear)
 
@@ -42,5 +50,19 @@ describe("<SegmentedControl>", () => {
     fireEvent.click(button)
 
     expect(mockedOnSelect).not.toHaveBeenCalled()
+  })
+
+  it("accepts custom render for options", () => {
+    const { getByText } = renderWrapper({
+      renderOption: ({ name, value }) => (
+        <div>
+          {name} ({value})
+        </div>
+      )
+    })
+
+    options.forEach(({ value, name }) =>
+      expect(getByText(`${name} (${value})`))
+    )
   })
 })

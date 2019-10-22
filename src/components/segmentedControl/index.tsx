@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react"
+import React, { ReactElement, useState, ReactNode } from "react"
 
 import Button from "./button"
 
@@ -15,7 +15,16 @@ interface Props<T> {
   /**
    * Selection handler
    */
-  onSelect: (selection: T) => void
+  onSelect?: (selection: T) => void
+  /**
+   * A render prop to customize single option rendering
+   * default: ({ name }) => name
+   */
+  renderOption?: (option: {
+    value: T
+    name: string
+    isSelected: boolean
+  }) => ReactNode
   /**
    * `small` variant has 8px vertical padding, default has 16px
    */
@@ -26,7 +35,8 @@ interface Props<T> {
 function SegmentedControl<T>({
   options,
   initialSelection,
-  onSelect,
+  onSelect = () => null,
+  renderOption = ({ name }) => name,
   small = false,
   disabled = false
 }: Props<T>): ReactElement {
@@ -57,7 +67,7 @@ function SegmentedControl<T>({
               onSelect(value)
             }}
           >
-            {name}
+            {renderOption({ name, value, isSelected: selected })}
           </Button>
         )
       })}
