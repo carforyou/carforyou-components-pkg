@@ -1,4 +1,10 @@
-import React, { FC, ReactNode } from "react"
+import React, {
+  FC,
+  ReactNode,
+  isValidElement,
+  cloneElement,
+  ReactElement
+} from "react"
 import classnames from "classnames"
 
 interface Props {
@@ -18,17 +24,28 @@ export const Button: FC<Props> = ({
   onClick,
   position
 }) => {
+  const isChildElement = isValidElement(children)
+  const padding = small ? "py-8" : "py-16"
+  const clone = isChildElement
+    ? cloneElement(children as ReactElement, {
+        className: classnames(
+          (children as ReactElement).props.className,
+          padding
+        )
+      })
+    : children
+
   return (
     <button
       type="submit"
       className={classnames(
         "flex w-12/12 px-8 justify-center items-center leading-xs transition-2 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none",
-        small ? "py-8" : "py-16",
         selected ? "bg-teal text-white" : "bg-transparent text-teal",
         disabled
           ? "cursor-not-allowed border-grey-3 bg-grey-1 text-grey-3 hover:border-grey-3 hover:bg-grey-1"
           : "border-teal focus:shadow-focus",
         {
+          [padding]: !isChildElement,
           "rounded-none": position === "middle",
           "rounded-l border-l-2": position === "left",
           "rounded-r": position === "right",
@@ -40,7 +57,7 @@ export const Button: FC<Props> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {children}
+      {clone}
     </button>
   )
 }
