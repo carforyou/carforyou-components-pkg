@@ -66,7 +66,7 @@ describe("<SegmentedControl>", () => {
     )
   })
 
-  it("has correct padding without the custom rendered", () => {
+  it("has correct padding without the custom renderer", () => {
     const { getByText } = renderWrapper()
     const button = getByText("Two")
 
