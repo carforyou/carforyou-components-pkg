@@ -1,11 +1,7 @@
-import React, {
-  FC,
-  ReactNode,
-  isValidElement,
-  cloneElement,
-  ReactElement
-} from "react"
+import React, { FC, ReactNode } from "react"
 import classnames from "classnames"
+
+import { wrapLink } from "../../lib/buttonHelper"
 
 interface Props {
   children: ReactNode
@@ -24,16 +20,8 @@ export const Button: FC<Props> = ({
   onClick,
   position
 }) => {
-  const isChildElement = isValidElement(children)
   const padding = classnames("px-8", small ? "py-8" : "py-16")
-  const clonedChildren = isChildElement
-    ? cloneElement(children as ReactElement, {
-        className: classnames(
-          (children as ReactElement).props.className,
-          padding
-        )
-      })
-    : children
+  const { clonedElement, isWrapped } = wrapLink(children, padding)
 
   return (
     <button
@@ -45,7 +33,7 @@ export const Button: FC<Props> = ({
           ? "cursor-not-allowed border-grey-3 bg-grey-1 text-grey-3 hover:border-grey-3 hover:bg-grey-1"
           : "border-teal focus:shadow-focus",
         {
-          [padding]: !isChildElement,
+          [padding]: !isWrapped,
           "rounded-none": position === "middle",
           "rounded-l border-l-2": position === "left",
           "rounded-r": position === "right",
@@ -57,7 +45,7 @@ export const Button: FC<Props> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {clonedChildren}
+      {clonedElement}
     </button>
   )
 }
