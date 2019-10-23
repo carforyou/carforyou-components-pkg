@@ -19,7 +19,7 @@ exports[`<Dropdown> correct markup when closed renders title 1`] = `
 exports[`<Dropdown> correct markup when opened renders all options 1`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer font-bold text-teal"
+  class="hover:bg-grey-bright transition-2 cursor-pointer font-bold text-teal px-20 py-10"
   data-testid="One"
   id="downshift-4-item-0"
   role="option"
@@ -31,7 +31,7 @@ exports[`<Dropdown> correct markup when opened renders all options 1`] = `
 exports[`<Dropdown> correct markup when opened renders all options 2`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  class="hover:bg-grey-bright transition-2 cursor-pointer px-20 py-10"
   data-testid="Two"
   id="downshift-4-item-1"
   role="option"
@@ -43,7 +43,7 @@ exports[`<Dropdown> correct markup when opened renders all options 2`] = `
 exports[`<Dropdown> correct markup when opened renders all options 3`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer"
+  class="hover:bg-grey-bright transition-2 cursor-pointer px-20 py-10"
   data-testid="Three"
   id="downshift-4-item-2"
   role="option"
