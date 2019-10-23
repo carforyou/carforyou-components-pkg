@@ -65,4 +65,22 @@ describe("<SegmentedControl>", () => {
       expect(getByText(`${name} (${value})`))
     )
   })
+
+  it("has correct padding without the custom renderer", () => {
+    const { getByText } = renderWrapper()
+    const button = getByText("Two")
+
+    expect(button.classList).toContain("py-16")
+    expect(button.classList).toContain("px-8")
+  })
+
+  it("passes correct padding to the custom renderer with a link", () => {
+    const { getByText } = renderWrapper({
+      renderOption: ({ name }) => <a>{name}</a>
+    })
+
+    const option = getByText("Two")
+    expect(option.classList).toContain("py-16")
+    expect(option.classList).toContain("px-8")
+  })
 })
