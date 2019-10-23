@@ -26,7 +26,7 @@ export const Button: FC<Props> = ({
 }) => {
   const isChildElement = isValidElement(children)
   const padding = classnames("px-8", small ? "py-8" : "py-16")
-  const clone = isChildElement
+  const clonedChildren = isChildElement
     ? cloneElement(children as ReactElement, {
         className: classnames(
           (children as ReactElement).props.className,
@@ -57,7 +57,7 @@ export const Button: FC<Props> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {clone}
+      {clonedChildren}
     </button>
   )
 }
