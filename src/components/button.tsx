@@ -31,7 +31,7 @@ export const Button: FC<Props> = ({
       type="submit"
       className={classnames(
         "flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none",
-        [padding]: !isWrapped,
+        { [padding]: !isWrapped },
         teal
           ? "bg-teal hover:bg-teal-dark focus:bg-teal"
           : tealBorder
