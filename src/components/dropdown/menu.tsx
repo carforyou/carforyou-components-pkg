@@ -1,6 +1,8 @@
 import React, { RefObject, ReactElement, ReactNode } from "react"
 import classNames from "classnames"
 
+import { wrapLink } from "../../lib/buttonHelper"
+
 interface Item<T> {
   value: T
   name: string
@@ -62,6 +64,7 @@ function Menu<T>({
   equal,
   renderOption = ({ name }) => name
 }: Props<T>): ReactElement {
+  const padding = "px-20 py-10"
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
     return (equal || defaultEqual)(a, b)
@@ -87,6 +90,16 @@ function Menu<T>({
       {options.map((item, index) => {
         const isSelected =
           selectedItem && equalWrapper(selectedItem.value, item.value)
+
+        const { clonedElement, isWrapped } = wrapLink(
+          renderOption({
+            value: item.value,
+            name: hightlightItem(item),
+            isSelected
+          }),
+          padding
+        )
+
         return (
           // tslint:disable-next-line:jsx-key
           <li
@@ -95,20 +108,17 @@ function Menu<T>({
               key: item.key || item.value || `item-${index}`,
               item,
               className: classNames(
-                "hover:bg-grey-bright transition-2 px-20 py-10 cursor-pointer",
+                "hover:bg-grey-bright transition-2 cursor-pointer",
                 {
                   "font-bold text-teal": isSelected,
                   "bg-grey-bright": index === highlightedIndex,
-                  "text-grey-3": item.placeholder
+                  "text-grey-3": item.placeholder,
+                  [padding]: !isWrapped
                 }
               )
             })}
           >
-            {renderOption({
-              value: item.value,
-              name: hightlightItem(item),
-              isSelected
-            })}
+            {clonedElement}
           </li>
         )
       })}
