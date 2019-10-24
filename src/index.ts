@@ -5,7 +5,12 @@ import { withDefaultConfig, defaultConfig } from "./tailwind/index"
 import Button from "./components/button"
 import Pagination from "./components/pagination"
 
-export { Button, Pagination }
+import Dropdown from "./components/dropdown/index"
+import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
+
+import SegmentedControl from "./components/segmentedControl/index"
+
+export { Button, Dropdown, DropdownWithAutosuggest, SegmentedControl }
 
 export default {
   tailwind: { withDefaultConfig, defaultConfig },

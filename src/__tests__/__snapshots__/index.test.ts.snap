@@ -6,6 +6,7 @@ Object {
   "plugins": Array [
     [Function],
     [Function],
+    [Function],
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -22,6 +23,7 @@ Object {
       "salmon": "#F73B47",
       "salmon-dark": "#ED202D",
       "teal": "#3696B9",
+      "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
       "teal-light": "#D7EAF1",
       "transparent": "transparent",
@@ -60,6 +62,7 @@ Object {
       "salmon": "#F73B47",
       "salmon-dark": "#ED202D",
       "teal": "#3696B9",
+      "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
       "teal-light": "#D7EAF1",
       "transparent": "transparent",
@@ -68,6 +71,7 @@ Object {
       "white": "#FFFFFF",
     },
     "borderRadius": Object {
+      "10": "10px",
       "20": "20px",
       "default": "4px",
       "full": "9999px",
@@ -82,6 +86,7 @@ Object {
     },
     "boxShadow": Object {
       "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
+      "focus": "0px 0px 1px 2px rgba(54, 150, 185, 0.6)",
       "hard": "0 4px 18px 0 rgba(35,42,54,0.4)",
       "harder": "0 0 18px 0 rgba(35,42,54,0.8)",
       "none": "none",
@@ -102,6 +107,7 @@ Object {
       "salmon": "#F73B47",
       "salmon-dark": "#ED202D",
       "teal": "#3696B9",
+      "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
       "teal-light": "#D7EAF1",
       "transparent": "transparent",
@@ -134,6 +140,7 @@ Object {
       "auto": "auto",
       "full": "100%",
       "screen": "100vh",
+      "scrollbar": "70px",
     },
     "letterSpacing": Object {
       "normal": "0",
@@ -182,6 +189,8 @@ Object {
       "px": "1px",
     },
     "maxHeight": Object {
+      "dropdown": "240px",
+      "dropdownSM": "190px",
       "full": "100%",
     },
     "maxWidth": Object {
@@ -246,6 +255,7 @@ Object {
       "salmon": "#F73B47",
       "salmon-dark": "#ED202D",
       "teal": "#3696B9",
+      "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
       "teal-light": "#D7EAF1",
       "transparent": "transparent",
@@ -273,9 +283,11 @@ Object {
       "9/12": "75%",
       "auto": "auto",
       "screen": "100vw",
+      "scrollbar": "14px",
     },
     "zIndex": Object {
       "auto": "auto",
+      "dropdownMenu": 20,
       "negative": -1,
     },
   },
@@ -299,6 +311,7 @@ Object {
       "responsive",
       "hover",
       "focus",
+      "active",
     ],
     "backgroundPosition": Array [
       "responsive",

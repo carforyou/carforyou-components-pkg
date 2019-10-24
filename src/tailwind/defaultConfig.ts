@@ -1,5 +1,6 @@
 /* tslint:disable:object-literal-sort-keys */
 import TransformPlugin from "./plugins/transform"
+import TransitionPlugin from "./plugins/transition"
 /*
 Tailwind - The Utility-First CSS Framework
 A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
@@ -36,6 +37,7 @@ export default {
       "salmon-dark": "#ED202D",
       teal: "#3696B9",
       "teal-light": "#D7EAF1",
+      "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
       "grey-dark": "#232A36",
       "grey-dark-opaque": "#A7AAAF",
@@ -121,6 +123,7 @@ export default {
       default: "4px",
       full: "9999px",
       half: "50%",
+      "10": "10px",
       "20": "20px"
     },
 
@@ -156,7 +159,8 @@ export default {
       small: "0 2px 6px 0 rgba(35,42,54,0.1)",
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
-      harder: "0 0 18px 0 rgba(35,42,54,0.8)"
+      harder: "0 0 18px 0 rgba(35,42,54,0.8)",
+      focus: "0px 0px 1px 2px rgba(54, 150, 185, 0.6)"
     },
 
     /*
@@ -214,7 +218,8 @@ export default {
       auto: "auto",
       full: "100%",
       screen: "100vh",
-      "40": "40px"
+      "40": "40px",
+      scrollbar: "70px"
     },
 
     /*
@@ -283,7 +288,9 @@ export default {
     |*/
 
     maxHeight: {
-      full: "100%"
+      full: "100%",
+      dropdown: "240px",
+      dropdownSM: "190px"
     },
 
     /*
@@ -406,7 +413,8 @@ export default {
       "10/12": "83.33333%",
       "11/12": "91.66666667",
       "12/12": "100%",
-      screen: "100vw"
+      screen: "100vw",
+      scrollbar: "14px"
     },
 
     transition: {
@@ -424,7 +432,8 @@ export default {
     */
     zIndex: {
       auto: "auto",
-      negative: -1
+      negative: -1,
+      dropdownMenu: 20
     },
 
     /*
@@ -456,7 +465,7 @@ export default {
     alignSelf: ["responsive"],
     appearance: ["responsive"],
     backgroundAttachment: ["responsive"],
-    backgroundColor: ["responsive", "hover", "focus"],
+    backgroundColor: ["responsive", "hover", "focus", "active"],
     backgroundPosition: ["responsive"],
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
@@ -517,5 +526,9 @@ export default {
     zIndex: ["responsive"]
   },
   corePlugins: {},
-  plugins: [TransformPlugin, require("tailwindcss-gradients")()]
+  plugins: [
+    TransformPlugin,
+    TransitionPlugin,
+    require("tailwindcss-gradients")()
+  ]
 }

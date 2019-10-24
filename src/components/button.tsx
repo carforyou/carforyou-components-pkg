@@ -1,6 +1,7 @@
-import * as React from "react"
-import { FC, MouseEvent, ReactNode } from "react"
+import React, { FC, MouseEvent, ReactNode } from "react"
 import classnames from "classnames"
+
+import { wrapLink } from "../lib/buttonHelper"
 
 export interface Props {
   /** - */
@@ -22,12 +23,15 @@ export const Button: FC<Props> = ({
   disabled,
   onClick
 }) => {
+  const padding = classnames("px-10", small ? "py-8" : "py-16")
+  const { clonedElement, isWrapped } = wrapLink(children, padding)
+
   return (
     <button
       type="submit"
       className={classnames(
-        "flex w-12/12 px-10 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none",
-        small ? "py-8" : "py-16",
+        "flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none",
+        { [padding]: !isWrapped },
         teal
           ? "bg-teal hover:bg-teal-dark focus:bg-teal"
           : tealBorder
@@ -39,7 +43,7 @@ export const Button: FC<Props> = ({
       disabled={disabled}
       data-testid={dataTestid}
     >
-      {children}
+      {clonedElement}
     </button>
   )
 }
