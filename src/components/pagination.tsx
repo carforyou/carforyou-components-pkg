@@ -25,7 +25,7 @@ interface Props {
 //   }
 // }
 
-const Pagination: StatelessComponent<Props> = ({
+export const Pagination: StatelessComponent<Props> = ({
   pageCount,
   previousLabel,
   nextLabel,
@@ -52,7 +52,7 @@ const Pagination: StatelessComponent<Props> = ({
         }
         nextLabel={
           <>
-            {nextLabel}{" "}
+            {nextLabel}
             <ArrowRightM
               height="10"
               width="10"

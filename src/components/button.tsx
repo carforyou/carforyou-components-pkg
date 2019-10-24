@@ -3,7 +3,7 @@ import classnames from "classnames"
 
 import { wrapLink } from "../lib/buttonHelper"
 
-export interface Props {
+interface Props {
   /** - */
   children: ReactNode
   dataTestid?: string
