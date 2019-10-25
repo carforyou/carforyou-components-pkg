@@ -5,7 +5,7 @@ exports[`<Button> button variations renders disabled button 1`] = `
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-16 bg-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed bg-grey-3 hover:bg-grey-3"
     disabled=""
-    type="submit"
+    type="button"
   >
     Label
   </button>
@@ -16,7 +16,7 @@ exports[`<Button> button variations renders small button 1`] = `
 <div>
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-8 bg-salmon hover:bg-salmon-dark focus:bg-salmon"
-    type="submit"
+    type="button"
   >
     Label
   </button>
@@ -28,7 +28,7 @@ exports[`<Button> button variations renders small disabled button 1`] = `
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-8 bg-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed bg-grey-3 hover:bg-grey-3"
     disabled=""
-    type="submit"
+    type="button"
   >
     Label
   </button>
@@ -39,7 +39,7 @@ exports[`<Button> button variations renders small teal button 1`] = `
 <div>
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-8 bg-teal hover:bg-teal-dark focus:bg-teal"
-    type="submit"
+    type="button"
   >
     Label
   </button>
@@ -50,7 +50,7 @@ exports[`<Button> button variations renders teal button 1`] = `
 <div>
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-16 bg-teal hover:bg-teal-dark focus:bg-teal"
-    type="submit"
+    type="button"
   >
     Label
   </button>
@@ -61,7 +61,7 @@ exports[`<Button> button variations renders white Teal button 1`] = `
 <div>
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-16 bg-white border border-teal text-teal hover:opacity-60"
-    type="submit"
+    type="button"
   >
     Label
   </button>
@@ -72,7 +72,7 @@ exports[`<Button> button variations renders white Teal small button 1`] = `
 <div>
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-8 bg-white border border-teal text-teal hover:opacity-60"
-    type="submit"
+    type="button"
   >
     Label
   </button>
@@ -83,7 +83,7 @@ exports[`<Button> renders default button correctly 1`] = `
 <div>
   <button
     class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-16 bg-salmon hover:bg-salmon-dark focus:bg-salmon"
-    type="submit"
+    type="button"
   >
     Label
   </button>
