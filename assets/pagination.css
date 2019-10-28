@@ -5,14 +5,13 @@
 
 .page,
 .break-me {
-  line-height: normal;
+  line-height: 1.9;
   @apply text-grey-3 text-base inline-flex justify-center items-center mr-20 hidden;
 }
 
 .page a {
   min-width: 30px;
   height: 30px;
-  padding: 3px;
   @apply w-auto;
 }
 
@@ -68,22 +67,6 @@
 .next {
   @apply absolute right-0 mr-15;
 }
-
-/* .previous:not(.disabled) {
-  @apply icon-arrowLeftTealM-left;
-}
-
-.next:not(.disabled) {
-  @apply icon-arrowRightTealM-right;
-}
-
-.previous.disabled {
-  @apply icon-arrowLeftGreyS-left;
-}
-
-.next.disabled {
-  @apply icon-arrowRightGreyS-right;
-} */
 
 .next:not(.disabled):hover, .previous:not(.disabled):hover {
   @apply opacity-80;

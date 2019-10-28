@@ -46,19 +46,19 @@ export const Pagination: StatelessComponent<Props> = ({
         previousLabel={
           <>
             <ArrowRightM
-              height="10"
-              width="10"
+              height="17"
+              width="17"
               className="inline-block align-middle rotate-180"
             />
-            {previousLabel}
+            <span className="pl-10">{previousLabel}</span>
           </>
         }
         nextLabel={
           <>
-            {nextLabel}
+            <span className="pr-10">{nextLabel}</span>
             <ArrowRightM
-              height="10"
-              width="10"
+              height="17"
+              width="17"
               className="inline-block align-middle"
             />
           </>
