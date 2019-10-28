@@ -13,7 +13,17 @@ storiesOf("Pagination", module)
     wInfo(`
     Description
     ~~~~
-    <Pagination></Pagination>
+    <Pagination>
+      pageCount={9}
+      forcePage={0}
+      previousLabel="Previous"
+      nextLabel="Next"
+      onPageChange={action("page changed")}
+      query={{ foo: "bar" }}
+      pageLinkBuilder={(page, queryParams) => {
+        return pathFor("mbg/search", { ...queryParams, page })
+      }}
+    </Pagination>
     `)(() => (
       <Pagination
         pageCount={9}
@@ -32,7 +42,17 @@ storiesOf("Pagination", module)
   wInfo(`
   Description
   ~~~~
-  <Pagination></Pagination>
+  <Pagination>
+    pageCount={9}
+    forcePage={8}
+    previousLabel="Previous"
+    nextLabel="Next"
+    onPageChange={action("page changed")}
+    query={{ foo: "bar" }}
+    pageLinkBuilder={(page, queryParams) => {
+      return pathFor("mbg/search", { ...queryParams, page })
+    }}
+  </Pagination>
   `)(() => (
       <Pagination
         pageCount={9}
@@ -51,11 +71,21 @@ storiesOf("Pagination", module)
   wInfo(`
   Description
   ~~~~
-  <Pagination></Pagination>
+  <Pagination>
+    pageCount={9}
+    forcePage={2}
+    previousLabel="Previous"
+    nextLabel="Next"
+    onPageChange={action("page changed")}
+    query={{ foo: "bar" }}
+    pageLinkBuilder={(page, queryParams) => {
+      return pathFor("mbg/search", { ...queryParams, page })
+    }}
+  </Pagination>
   `)(() => (
       <Pagination
         pageCount={9}
-        forcePage={3}
+        forcePage={2}
         previousLabel="Previous"
         nextLabel="Next"
         onPageChange={action("page changed")}
