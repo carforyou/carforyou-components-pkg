@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from "react"
+import React, { StatelessComponent, ReactNode } from "react"
 import ReactPaginate from "react-paginate"
 import ArrowRightM from "./icons/ArrowRightMCrop"
 
@@ -10,20 +10,21 @@ interface Props {
   forcePage: number
   query: object
   pageLinkBuilder: (page: number, params: object) => string
+  renderHead?: ReactNode
 }
 
-// const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
-//   if (forcePage === 0) {
-//     return <link href={linkBuilder(forcePage + 2, query)} rel="next" />
-//   } else if (forcePage === pageCount - 1) {
-//     return <link href={linkBuilder(forcePage, query)} rel="prev" />
-//   } else {
-//     return [
-//       <link href={linkBuilder(forcePage + 2, query)} rel="next" key="next" />,
-//       <link href={linkBuilder(forcePage, query)} rel="prev" key="prev" />
-//     ]
-//   }
-// }
+const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
+  if (forcePage === 0) {
+    return <link href={linkBuilder(forcePage + 2, query)} rel="next" />
+  } else if (forcePage === pageCount - 1) {
+    return <link href={linkBuilder(forcePage, query)} rel="prev" />
+  } else {
+    return [
+      <link href={linkBuilder(forcePage + 2, query)} rel="next" key="next" />,
+      <link href={linkBuilder(forcePage, query)} rel="prev" key="prev" />
+    ]
+  }
+}
 
 export const Pagination: StatelessComponent<Props> = ({
   pageCount,
@@ -34,10 +35,12 @@ export const Pagination: StatelessComponent<Props> = ({
   query,
   pageLinkBuilder
 }) => {
+  const renderHead = getRelLinks(forcePage, query, pageCount, pageLinkBuilder)
+
   return pageCount > 1 ? (
     <>
-      {/* <Head>{getRelLinks(forcePage, query, pageCount, pageLinkBuilder)}</Head> */}
       <ReactPaginate
+        children={renderHead}
         hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
         pageCount={pageCount}
         previousLabel={
