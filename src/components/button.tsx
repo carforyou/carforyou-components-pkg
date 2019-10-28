@@ -12,6 +12,7 @@ interface Props {
   small?: boolean
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
+  submit?: boolean
 }
 
 export const Button: FC<Props> = ({
@@ -21,14 +22,15 @@ export const Button: FC<Props> = ({
   tealBorder,
   small,
   disabled,
-  onClick
+  onClick,
+  submit
 }) => {
   const padding = classnames("px-10", small ? "py-8" : "py-16")
   const { clonedElement, isWrapped } = wrapLink(children, padding)
 
   return (
     <button
-      type="submit"
+      type={submit ? "submit" : "button"}
       className={classnames(
         "flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none",
         { [padding]: !isWrapped },
