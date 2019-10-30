@@ -28,6 +28,7 @@ storiesOf("Pagination", module)
       <Pagination
         pageCount={9}
         forcePage={0}
+        renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
         onPageChange={action("page changed")}
@@ -57,6 +58,7 @@ storiesOf("Pagination", module)
       <Pagination
         pageCount={9}
         forcePage={8}
+        renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
         onPageChange={action("page changed")}
@@ -86,6 +88,7 @@ storiesOf("Pagination", module)
       <Pagination
         pageCount={9}
         forcePage={2}
+        renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
         onPageChange={action("page changed")}

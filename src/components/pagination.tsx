@@ -1,4 +1,4 @@
-import React, { StatelessComponent, ReactNode } from "react"
+import React, { StatelessComponent } from "react"
 import ReactPaginate from "react-paginate"
 import ArrowRightM from "./icons/ArrowRightMCrop"
 
@@ -10,7 +10,7 @@ interface Props {
   forcePage: number
   query: object
   pageLinkBuilder: (page: number, params: object) => string
-  renderHead?: ReactNode
+  renderHead?: (links) => void
 }
 
 const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
@@ -33,14 +33,15 @@ export const Pagination: StatelessComponent<Props> = ({
   onPageChange,
   forcePage,
   query,
-  pageLinkBuilder
+  pageLinkBuilder,
+  renderHead
 }) => {
-  const renderHead = getRelLinks(forcePage, query, pageCount, pageLinkBuilder)
+  const links = getRelLinks(forcePage, query, pageCount, pageLinkBuilder)
 
   return pageCount > 1 ? (
     <>
+      {renderHead(links)}
       <ReactPaginate
-        children={renderHead}
         hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
         pageCount={pageCount}
         previousLabel={
