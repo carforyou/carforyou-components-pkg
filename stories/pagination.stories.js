@@ -14,10 +14,11 @@ storiesOf("Pagination", module)
     Description
     ~~~~
     <Pagination>
-      pageCount={9}
+      pageCount={100}
       forcePage={0}
       previousLabel="Previous"
       nextLabel="Next"
+      rangePageLabel="of"
       onPageChange={action("page changed")}
       query={{ foo: "bar" }}
       pageLinkBuilder={(page, queryParams) => {
@@ -26,11 +27,12 @@ storiesOf("Pagination", module)
     </Pagination>
     `)(() => (
       <Pagination
-        pageCount={9}
+        pageCount={100}
         forcePage={0}
         renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
+        rangePageLabel="of"
         onPageChange={action("page changed")}
         query={{ foo: "bar" }}
         pageLinkBuilder={page => {
@@ -44,10 +46,11 @@ storiesOf("Pagination", module)
   Description
   ~~~~
   <Pagination>
-    pageCount={9}
-    forcePage={8}
+    pageCount={100}
+    forcePage={99}
     previousLabel="Previous"
     nextLabel="Next"
+    rangePageLabel="of"
     onPageChange={action("page changed")}
     query={{ foo: "bar" }}
     pageLinkBuilder={(page, queryParams) => {
@@ -56,11 +59,12 @@ storiesOf("Pagination", module)
   </Pagination>
   `)(() => (
       <Pagination
-        pageCount={9}
-        forcePage={8}
+        pageCount={100}
+        forcePage={99}
         renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
+        rangePageLabel="of"
         onPageChange={action("page changed")}
         query={{ foo: "bar" }}
         pageLinkBuilder={page => {
@@ -69,15 +73,16 @@ storiesOf("Pagination", module)
       />
     ))
   )
-  .add("on page 3",
+  .add("on page 50",
   wInfo(`
   Description
   ~~~~
   <Pagination>
-    pageCount={9}
-    forcePage={2}
+    pageCount={100}
+    forcePage={49}
     previousLabel="Previous"
     nextLabel="Next"
+    rangePageLabel="of"
     onPageChange={action("page changed")}
     query={{ foo: "bar" }}
     pageLinkBuilder={(page, queryParams) => {
@@ -86,11 +91,12 @@ storiesOf("Pagination", module)
   </Pagination>
   `)(() => (
       <Pagination
-        pageCount={9}
-        forcePage={2}
+        pageCount={100}
+        forcePage={49}
         renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
+        rangePageLabel="of"
         onPageChange={action("page changed")}
         query={{ foo: "bar" }}
         pageLinkBuilder={page => {

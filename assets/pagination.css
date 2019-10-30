@@ -5,14 +5,14 @@
 
 .page,
 .break-me {
-  line-height: 1.9;
+  line-height: normal;
   @apply text-grey-3 text-base inline-flex justify-center items-center mr-20 hidden;
 }
 
 .page a {
   min-width: 30px;
   height: 30px;
-  @apply w-auto;
+  @apply p-5 w-auto;
 }
 
 .previous a {

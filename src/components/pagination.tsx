@@ -6,6 +6,7 @@ interface Props {
   pageCount: number
   previousLabel: string
   nextLabel: string
+  rangePageLabel: string
   onPageChange: (data: any) => void
   forcePage: number
   query: object
@@ -30,6 +31,7 @@ export const Pagination: StatelessComponent<Props> = ({
   pageCount,
   previousLabel,
   nextLabel,
+  rangePageLabel,
   onPageChange,
   forcePage,
   query,
@@ -39,7 +41,7 @@ export const Pagination: StatelessComponent<Props> = ({
   const links = getRelLinks(forcePage, query, pageCount, pageLinkBuilder)
 
   return pageCount > 1 ? (
-    <>
+    <div className="flex justify-center">
       {renderHead(links)}
       <ReactPaginate
         hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
@@ -74,7 +76,13 @@ export const Pagination: StatelessComponent<Props> = ({
         activeClassName="active"
         forcePage={forcePage}
       />
-    </>
+      <div className="flex items-center lg:hidden">
+        <span>
+          <span className="font-bold">{`${forcePage + 1}` + " "}</span>
+          {`${rangePageLabel} ${pageCount}`}
+        </span>
+      </div>
+    </div>
   ) : null
 }
 
