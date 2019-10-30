@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  percy: percy/agent@0.1.3
+
 commands:
   notify_slack_failure:
     steps:
@@ -95,3 +98,6 @@ workflows:
           filters:
             branches:
               only: master
+      - percy/finalize_all:
+          requires:
+            - unit
