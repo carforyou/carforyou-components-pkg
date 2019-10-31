@@ -13,7 +13,8 @@
     "build:tailwind": "tsc --project tsconfig.tailwind.json",
     "build:storybook": "npm run build:tailwind && build-storybook",
     "snapshot": "build-storybook && percy-storybook --widths=480,1200",
-    "deploy": "storybook-to-ghpages"
+    "deploy": "storybook-to-ghpages",
+    "link": "./bin/link.sh"
   },
   "repository": {
     "type": "git",
