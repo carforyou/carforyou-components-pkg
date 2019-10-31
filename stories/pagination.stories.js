@@ -14,17 +14,15 @@ storiesOf("Pagination", module)
     Description
     ~~~~
     <Pagination>
-      pageCount={100}
-      forcePage={0}
-      previousLabel="Previous"
-      nextLabel="Next"
-      rangePageLabel="of"
+      pageCount={/* select page */}
+      forcePage={/* select total pages */}
+      previousLabel={/* select label */}
+      nextLabel={/* select label */}
+      rangePageLabel={/* select label */}
       renderHead={links => links}
-      onPageChange={action("page changed")}
+      onPageChange={data => data}
       query={{ foo: "bar" }}
-      pageLinkBuilder={(page, queryParams) => {
-        return pathFor("mbg/search", { ...queryParams, page })
-      }}
+      pageLinkBuilder={() => "search"}
     </Pagination>
     `)(() => (
       <Pagination
@@ -47,17 +45,15 @@ storiesOf("Pagination", module)
   Description
   ~~~~
   <Pagination>
-    pageCount={100}
-    forcePage={99}
-    previousLabel="Previous"
-    nextLabel="Next"
-    rangePageLabel="of"
+    pageCount={/* select page */}
+    forcePage={/* select total pages */}
+    previousLabel={/* select label */}
+    nextLabel={/* select label */}
+    rangePageLabel={/* select label */}
     renderHead={links => links}
-    onPageChange={action("page changed")}
+    onPageChange={data => data}
     query={{ foo: "bar" }}
-    pageLinkBuilder={(page, queryParams) => {
-      return pathFor("mbg/search", { ...queryParams, page })
-    }}
+    pageLinkBuilder={() => "search"}
   </Pagination>
   `)(() => (
       <Pagination
@@ -80,17 +76,15 @@ storiesOf("Pagination", module)
   Description
   ~~~~
   <Pagination>
-    pageCount={100}
-    forcePage={49}
-    previousLabel="Previous"
-    nextLabel="Next"
-    rangePageLabel="of"
+    pageCount={/* select page */}
+    forcePage={/* select total pages */}
+    previousLabel={/* select label */}
+    nextLabel={/* select label */}
+    rangePageLabel={/* select label */}
     renderHead={links => links}
-    onPageChange={action("page changed")}
+    onPageChange={data => data}
     query={{ foo: "bar" }}
-    pageLinkBuilder={(page, queryParams) => {
-      return pathFor("mbg/search", { ...queryParams, page })
-    }}
+    pageLinkBuilder={() => "search"}
   </Pagination>
   `)(() => (
       <Pagination
