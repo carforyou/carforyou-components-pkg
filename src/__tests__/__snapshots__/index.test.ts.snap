@@ -232,7 +232,8 @@ Object {
       "px": "1px",
     },
     "rotate": Object {
-      "180": "180deg",
+      "270": "270deg",
+      "90": "90deg",
     },
     "screens": Object {
       "lg": "992px",
