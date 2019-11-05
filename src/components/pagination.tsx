@@ -1,6 +1,6 @@
 import React, { StatelessComponent } from "react"
 import ReactPaginate from "react-paginate"
-import ArrowRightM from "./icons/ArrowRightMCrop"
+import ArrowDownM from "./icons/ArrowDownMCrop"
 
 interface Props {
   pageCount: number
@@ -9,9 +9,9 @@ interface Props {
   rangePageLabel: string
   onPageChange: (data: any) => void
   forcePage: number
-  query: object
-  pageLinkBuilder: (page: number, params: object) => string
-  renderHead: (links) => void
+  query?: object
+  pageLinkBuilder?: (page: number, params: object) => string
+  renderHead?: (links) => void
 }
 
 const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
@@ -42,16 +42,16 @@ export const Pagination: StatelessComponent<Props> = ({
 
   return pageCount > 1 ? (
     <div className="flex justify-center">
-      {renderHead(links)}
+      {renderHead && renderHead(links)}
       <ReactPaginate
         hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
         pageCount={pageCount}
         previousLabel={
           <>
-            <ArrowRightM
-              height="17"
-              width="17"
-              className="inline-block align-middle rotate-180"
+            <ArrowDownM
+              height="28"
+              width="28"
+              className="inline-block rotate-90"
             />
             <span className="pl-10">{previousLabel}</span>
           </>
@@ -59,10 +59,10 @@ export const Pagination: StatelessComponent<Props> = ({
         nextLabel={
           <>
             <span className="pr-10">{nextLabel}</span>
-            <ArrowRightM
-              height="17"
-              width="17"
-              className="inline-block align-middle"
+            <ArrowDownM
+              height="28"
+              width="28"
+              className="inline-block align-middle rotate-270"
             />
           </>
         }
@@ -78,7 +78,7 @@ export const Pagination: StatelessComponent<Props> = ({
       />
       <div className="flex items-center lg:hidden">
         <span>
-          <span className="font-bold">{`${forcePage + 1}` + " "}</span>
+          <span className="font-bold">{`${forcePage + 1} `}</span>
           {`${rangePageLabel} ${pageCount}`}
         </span>
       </div>
