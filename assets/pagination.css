@@ -36,7 +36,7 @@
 }
 
 .next a, .previous a {
-  @apply text-teal font-bold text-sm;
+  @apply flex items-center text-teal font-bold text-sm;
 }
 
 .disabled a,
