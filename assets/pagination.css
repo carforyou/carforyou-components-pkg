@@ -3,8 +3,7 @@
   @apply mb-20 h-40 text-center flex justify-center items-center;
 }
 
-.page,
-.break-me {
+.page, .break-me {
   line-height: normal;
   @apply text-grey-3 text-base inline-flex justify-center items-center mr-20 hidden;
 }
@@ -12,8 +11,7 @@
 .page a {
   min-width: 30px;
   height: 30px;
-  padding: 3px;
-  @apply w-auto;
+  @apply p-5 w-auto;
 }
 
 .previous a {
@@ -38,7 +36,7 @@
 }
 
 .next a, .previous a {
-  @apply text-teal font-bold text-sm;
+  @apply flex items-center text-teal font-bold text-sm;
 }
 
 .disabled a,
@@ -68,22 +66,6 @@
 .next {
   @apply absolute right-0 mr-15;
 }
-
-/* .previous:not(.disabled) {
-  @apply icon-arrowLeftTealM-left;
-}
-
-.next:not(.disabled) {
-  @apply icon-arrowRightTealM-right;
-}
-
-.previous.disabled {
-  @apply icon-arrowLeftGreyS-left;
-}
-
-.next.disabled {
-  @apply icon-arrowRightGreyS-right;
-} */
 
 .next:not(.disabled):hover, .previous:not(.disabled):hover {
   @apply opacity-80;
