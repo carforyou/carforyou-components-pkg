@@ -38,13 +38,16 @@ export const Pagination: StatelessComponent<Props> = ({
   pageLinkBuilder,
   renderHead
 }) => {
-  const links = getRelLinks(forcePage, query, pageCount, pageLinkBuilder)
-
   return pageCount > 1 ? (
     <div className="flex justify-center">
-      {renderHead && renderHead(links)}
+      {renderHead &&
+        renderHead(getRelLinks(forcePage, query, pageCount, pageLinkBuilder))}
       <ReactPaginate
-        hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
+        hrefBuilder={
+          pageLinkBuilder
+            ? (page: number) => pageLinkBuilder(page, query)
+            : null
+        }
         pageCount={pageCount}
         previousLabel={
           <>
