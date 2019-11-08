@@ -56,12 +56,12 @@ export const Pagination: StatelessComponent<Props> = ({
               width="28"
               className="inline-block rotate-90"
             />
-            <span className="pl-10">{previousLabel}</span>
+            {previousLabel}
           </>
         }
         nextLabel={
           <>
-            <span className="pr-10">{nextLabel}</span>
+            {nextLabel}
             <ArrowDownM
               height="28"
               width="28"
