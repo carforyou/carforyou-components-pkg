@@ -14,14 +14,6 @@
   @apply p-5 w-auto;
 }
 
-.previous a {
-  @apply pl-30;
-}
-
-.next a {
-  @apply pr-30;
-}
-
 .page:not(.active):hover {
   @apply text-black bg-grey-2 rounded-20 cursor-pointer;
 }
