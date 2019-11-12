@@ -18,11 +18,20 @@ const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
   if (forcePage === 0) {
     return <link href={linkBuilder(forcePage + 2, query)} rel="next" />
   } else if (forcePage === pageCount - 1) {
-    return <link href={linkBuilder(forcePage, query)} rel="prev" />
+    return (
+      <link
+        href={linkBuilder(forcePage === 1 ? null : forcePage, query)}
+        rel="prev"
+      />
+    )
   } else {
     return [
       <link href={linkBuilder(forcePage + 2, query)} rel="next" key="next" />,
-      <link href={linkBuilder(forcePage, query)} rel="prev" key="prev" />
+      <link
+        href={linkBuilder(forcePage === 1 ? null : forcePage, query)}
+        rel="prev"
+        key="prev"
+      />
     ]
   }
 }
