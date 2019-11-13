@@ -1,0 +1,33 @@
+html, body {
+  @apply h-full;
+  line-height: 1.15;
+}
+
+header {
+  @apply flex-shrink-0;
+}
+
+body {
+  @apply font-sans;
+}
+
+a {
+  @apply no-underline;
+}
+
+img, svg {
+  @apply inline;
+}
+
+.unstyledlink:hover {
+  @apply opacity-100;
+}
+
+@screen md {
+  a {
+    @apply opacity-100 transition-2;
+  }
+  a:hover {
+    @apply opacity-60;
+  }
+}
