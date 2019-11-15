@@ -19,8 +19,25 @@ img, svg {
   @apply inline;
 }
 
+input {
+  @apply shadow-none h-48;
+}
+
+input:focus,
+textarea:focus {
+  @apply border-grey-dark-opaque border-l outline-none;
+}
+
+h1, h2, h3, h4 {
+  @apply font-bold;
+}
+
 .unstyledlink:hover {
   @apply opacity-100;
+}
+
+.preventScrolling {
+  @apply fixed overflow-hidden;
 }
 
 @screen md {
@@ -29,5 +46,11 @@ img, svg {
   }
   a:hover {
     @apply opacity-60;
+  }
+}
+
+@screen lg {
+  .preventScrolling {
+    @apply relative;
   }
 }

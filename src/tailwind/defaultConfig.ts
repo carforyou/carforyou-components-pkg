@@ -123,6 +123,7 @@ export default {
       default: "4px",
       full: "9999px",
       half: "50%",
+      "2": "2px",
       "10": "10px",
       "20": "20px"
     },
@@ -218,7 +219,9 @@ export default {
       auto: "auto",
       full: "100%",
       screen: "100vh",
+      "20": "20px",
       "40": "40px",
+      "48": "48px",
       scrollbar: "70px"
     },
 
@@ -402,6 +405,7 @@ export default {
     width: {
       auto: "auto",
       "0": "0",
+      "20": "20px",
       "1/12": "8.33333333%",
       "2/12": "16.66667%",
       "3/12": "25%",
