@@ -2,6 +2,18 @@ input {
   @apply text-grey-dark 
 }
 
+input[type=text] {
+  @apply px-10 py-14 border border-grey-2 rounded-2;
+}
+
+input[type=text]:focus {
+  @apply border-grey-4 outline-none;
+}
+
+input[type=text]:hover {
+
+}
+
 input::-webkit-input-placeholder {
   opacity: 1;
 }
@@ -33,9 +45,4 @@ input[type=number]::-webkit-inner-spin-button {
 /* hide webkit specific input controls */
 ::-webkit-contacts-auto-fill-button {
   visibility: hidden;
-}
-
-input[type=checkbox],
-.inputCheckbox {
-  @apply flex-shrink-0 appearance-none outline-none text-white rounded-2 h-20 w-20 border border-grey-2 mr-10;
 }

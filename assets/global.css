@@ -19,10 +19,6 @@ img, svg {
   @apply inline;
 }
 
-input {
-  @apply shadow-none h-48;
-}
-
 input:focus,
 textarea:focus {
   @apply border-grey-dark-opaque border-l outline-none;
