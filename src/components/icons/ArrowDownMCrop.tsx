@@ -6,8 +6,8 @@ const SvgArrowDownMCrop = props => (
       d="M22 13l-6 6-6-6"
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-width="1.8"
+      strokeLinecap="round"
+      strokeWidth="1.8"
     />
   </svg>
 )
