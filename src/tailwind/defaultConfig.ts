@@ -123,6 +123,7 @@ export default {
       default: "4px",
       full: "9999px",
       half: "50%",
+      "2": "2px",
       "10": "10px",
       "20": "20px"
     },
@@ -218,8 +219,8 @@ export default {
       auto: "auto",
       full: "100%",
       screen: "100vh",
-      "40": "40px",
-      scrollbar: "70px"
+      scrollbar: "70px",
+      "40": "40px"
     },
 
     /*
@@ -368,6 +369,7 @@ export default {
       "5": "5px",
       "8": "8px",
       "10": "10px",
+      "14": "14px",
       "15": "15px",
       "16": "16px",
       "20": "20px",
