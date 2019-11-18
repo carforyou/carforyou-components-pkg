@@ -137,6 +137,7 @@ Object {
       "regular": 400,
     },
     "height": Object {
+      "40": "40px",
       "auto": "auto",
       "full": "100%",
       "screen": "100vh",
@@ -220,6 +221,7 @@ Object {
     "padding": Object {
       "0": "0",
       "10": "10px",
+      "14": "14px",
       "15": "15px",
       "16": "16px",
       "20": "20px",
