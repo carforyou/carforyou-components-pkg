@@ -4,7 +4,6 @@ import { action } from "@storybook/addon-actions"
 import { wInfo } from "./utils"
 import Pagination from "../src/components/pagination"
 
-import "../.storybook/stories.css"
 import "../assets/index.css"
 
 storiesOf("Pagination", module)

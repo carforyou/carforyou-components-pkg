@@ -1,0 +1,52 @@
+html, body {
+  @apply h-full;
+  line-height: 1.15;
+}
+
+header {
+  @apply flex-shrink-0;
+}
+
+body {
+  @apply font-sans;
+}
+
+a {
+  @apply no-underline;
+}
+
+img, svg {
+  @apply inline;
+}
+
+input:focus,
+textarea:focus {
+  @apply border-grey-dark-opaque border-l outline-none;
+}
+
+h1, h2, h3, h4 {
+  @apply font-bold;
+}
+
+.unstyledlink:hover {
+  @apply opacity-100;
+}
+
+.preventScrolling {
+  @apply fixed overflow-hidden;
+}
+
+@screen md {
+  a {
+    @apply opacity-100 transition-2;
+  }
+  a:hover {
+    @apply opacity-60;
+  }
+}
+
+@screen lg {
+  .preventScrolling {
+    @apply relative;
+  }
+}
