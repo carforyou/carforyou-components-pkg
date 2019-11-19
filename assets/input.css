@@ -11,7 +11,7 @@ input[type=text]:focus {
 }
 
 input[type=text]:hover {
-
+  @apply border-grey-3 transition-2;
 }
 
 input::-webkit-input-placeholder {

@@ -2,9 +2,8 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
 import { wInfo } from "./utils"
-import Pagination from "../src/components/pagination"
 
-import "../assets/index.css"
+import Pagination from "../src/components/pagination"
 
 storiesOf("Pagination", module)
   .add(
