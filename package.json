@@ -1,6 +1,6 @@
 {
   "name": "@carforyou/components",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "CAR FOR YOU React components",
   "scripts": {
     "version": "npm run build",
