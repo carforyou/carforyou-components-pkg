@@ -1,9 +1,5 @@
-@import "tailwindcss/base";
-
+@import "./global.css";
 @import "./customScrollbar.css";
 @import "./pagination.css";
 @import "./input.css";
 @import "./spinner.css";
-@import "./global.css";
-
-@import "tailwindcss/utilities";
