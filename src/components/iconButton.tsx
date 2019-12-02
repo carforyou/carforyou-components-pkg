@@ -10,13 +10,9 @@ interface Props {
   label?: string
 }
 
-const iconButton: FC<Props> = ({
-  icon,
-  label
-}) => {
-
+const iconButton: FC<Props> = ({ icon, label }) => {
   const displayIcon = icon => {
-    return(
+    return (
       <>
         {icon}
         {label}
@@ -25,17 +21,31 @@ const iconButton: FC<Props> = ({
   }
 
   const eventElement = () => {
-    switch(icon) {
-      case 'CtaCall': return displayIcon(<span className="pr-8"><CtaCall /></span>)
-      case 'CtaWrite': return displayIcon(<CtaWrite />)
-      case 'Filter': return displayIcon(<span className="pr-8"><Filter /></span>)
-      case 'Alert': return displayIcon(<span className="pr-10"><Alert /></span>)
+    switch (icon) {
+      case "CtaCall":
+        return displayIcon(
+          <span className="pr-8">
+            <CtaCall />
+          </span>
+        )
+      case "CtaWrite":
+        return displayIcon(<CtaWrite />)
+      case "Filter":
+        return displayIcon(
+          <span className="pr-8">
+            <Filter />
+          </span>
+        )
+      case "Alert":
+        return displayIcon(
+          <span className="pr-10">
+            <Alert />
+          </span>
+        )
     }
   }
 
-  return (
-    eventElement()
-  )
+  return eventElement()
 }
 
 export default iconButton
