@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
 import CtaCall from "./icons/CtaCall"
 import CtaWrite from "./icons/CtaWrite"
@@ -6,15 +6,15 @@ import Filter from "./icons/Filter"
 import Alert from "./icons/Alert"
 
 interface Props {
-  icon: ReactNode
+  icon: string
   label?: string
 }
 
 const iconButton: FC<Props> = ({ icon, label }) => {
-  const displayIcon = icon => {
+  const displayIcon = iconComponent => {
     return (
       <>
-        {icon}
+        {iconComponent}
         {label}
       </>
     )
