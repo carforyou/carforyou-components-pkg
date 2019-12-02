@@ -13,6 +13,8 @@ interface Props {
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   submit?: boolean
+  smallIconButton?: boolean
+  largeIconButton?: boolean
 }
 
 export const Button: FC<Props> = ({
@@ -23,9 +25,20 @@ export const Button: FC<Props> = ({
   small,
   disabled,
   onClick,
-  submit
+  submit,
+  smallIconButton,
+  largeIconButton
 }) => {
-  const padding = classnames("px-10", small ? "py-8" : "py-16")
+  const padding = classnames(
+    "px-10",
+    largeIconButton
+      ? "py-10"
+      : smallIconButton
+      ? "py-2"
+      : small
+      ? "py-8"
+      : "py-16"
+  )
   const { clonedElement, isWrapped } = wrapLink(children, padding)
 
   return (
