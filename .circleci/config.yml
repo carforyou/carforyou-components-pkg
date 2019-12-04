@@ -45,6 +45,7 @@ jobs:
           root: ~/project
           paths:
             - storybook-static
+            - pkg
       - notify_slack_failure
 
   unit:
@@ -68,6 +69,14 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run deploy -- --existing-output-dir=~/storybook-static --ci
+      - notify_slack_failure
+
+  release:
+    <<: *DOCKER_NODE
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npx semantic-release -d
       - notify_slack_failure
 
 workflows:
@@ -95,3 +104,12 @@ workflows:
           filters:
             branches:
               only: master
+
+      - release:
+          requires:
+            - lint
+            - unit
+            - build
+          filters:
+            branches:
+              only: CAR-3079-semantic-release
