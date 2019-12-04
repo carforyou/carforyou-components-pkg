@@ -97,4 +97,4 @@ This ensures that projects react is linked back to build package and prevents er
 
 ## Release a new version
 
-New versions are released on the ci using semantic-release.
+New versions are released on the ci using semantic-release (dry-run).
