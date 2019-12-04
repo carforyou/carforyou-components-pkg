@@ -42,10 +42,10 @@ jobs:
       - run: npm run build
       - run: npm run build:storybook
       - persist_to_workspace:
-          root: ~/project
+          root: ~/
           paths:
-            - storybook-static
-            - pkg
+            - project/pkg
+            - project/storybook-static
       - notify_slack_failure
 
   unit:
@@ -68,7 +68,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run deploy -- --existing-output-dir=~/storybook-static --ci
+      - run: npm run deploy -- --existing-output-dir=~/project/storybook-static --ci
       - notify_slack_failure
 
   release:
