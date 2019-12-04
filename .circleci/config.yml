@@ -76,7 +76,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npx semantic-release -d
+      - run: npx semantic-release
       - notify_slack_failure
 
 workflows:
@@ -112,4 +112,4 @@ workflows:
             - build
           filters:
             branches:
-              only: CAR-3079-semantic-release
+              only: master
