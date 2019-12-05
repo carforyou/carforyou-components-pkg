@@ -42,9 +42,10 @@ jobs:
       - run: npm run build
       - run: npm run build:storybook
       - persist_to_workspace:
-          root: ~/project
+          root: ~/
           paths:
-            - storybook-static
+            - project/pkg
+            - project/storybook-static
       - notify_slack_failure
 
   unit:
@@ -67,7 +68,15 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run deploy -- --existing-output-dir=~/storybook-static --ci
+      - run: npm run deploy -- --existing-output-dir=~/project/storybook-static --ci
+      - notify_slack_failure
+
+  release:
+    <<: *DOCKER_NODE
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npx semantic-release
       - notify_slack_failure
 
 workflows:
@@ -90,6 +99,15 @@ workflows:
 
       - deploy:
           requires:
+            - unit
+            - build
+          filters:
+            branches:
+              only: master
+
+      - release:
+          requires:
+            - lint
             - unit
             - build
           filters:
