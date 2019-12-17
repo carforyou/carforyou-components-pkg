@@ -1,2 +1,5 @@
-@import "./pagination.css";
+@import "./global.css";
 @import "./customScrollbar.css";
+@import "./pagination.css";
+@import "./input.css";
+@import "./spinner.css";

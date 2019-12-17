@@ -14,8 +14,13 @@ describe("<Dropdown>", () => {
   const title = "Select number"
   const selected = 1
 
-  const mountWrapper = () =>
-    render(
+  const mountWrapper = (data = {}) => {
+    const { renderOption } = {
+      renderOption: undefined,
+      ...data
+    }
+
+    return render(
       <Dropdown
         options={options}
         selected={selected}
@@ -26,8 +31,10 @@ describe("<Dropdown>", () => {
             <span className="font-bold">{name}</span>
           </div>
         )}
+        renderOption={renderOption}
       />
     )
+  }
 
   const openDropdown = wrapper => {
     const { getByText, getByTestId } = wrapper
@@ -106,5 +113,22 @@ describe("<Dropdown>", () => {
     fireEvent.click(optionNode)
 
     expect(queryAllByTestId("dropdown-options")).toEqual([])
+  })
+
+  it("accepts custom render for options", () => {
+    const wrapper = mountWrapper({
+      renderOption: ({ name, value }) => (
+        <div>
+          {name} ({value})
+        </div>
+      )
+    })
+
+    openDropdown(wrapper)
+    const { getByText } = wrapper
+
+    options.forEach(({ value, name }) =>
+      expect(getByText(`${name} (${value})`))
+    )
   })
 })

@@ -84,15 +84,9 @@ npm run build
 
 You can link your local npm package to integrate it with any local project:
 ```
-cd carforyou-components-pkg/pkg
-npm link
-
-cd carforyou-listings-web
-npm link @carforyou/components
-
-cd carforyou-components-pkg
-npm run build
+npm run link -- <relative_path_to_project>
 ```
+This ensures that projects react is linked back to build package and prevents errors due to duplicate react instances.
 
 ## Guidelines
 
@@ -104,6 +98,6 @@ npm run build
 * Prefer setting the size over having multiple SVGs per size
 
 ## Release a new version
-```
-npm run release
-```
+
+New versions are released on the ci using semantic-release as soon as you merge into master. Please
+make sure your merge commit message adheres to the corresponding conventions.

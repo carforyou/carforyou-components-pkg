@@ -1,62 +1,80 @@
 import React, { StatelessComponent } from "react"
 import ReactPaginate from "react-paginate"
-import ArrowRightM from "./icons/ArrowRightMCrop"
+import ArrowDownM from "./icons/ArrowDownMCrop"
 
 interface Props {
   pageCount: number
   previousLabel: string
   nextLabel: string
+  rangePageLabel: string
   onPageChange: (data: any) => void
   forcePage: number
-  query: object
-  pageLinkBuilder: (page: number, params: object) => string
+  query?: object
+  pageLinkBuilder?: (page: number, params: object) => string
+  renderHead?: (links) => void
 }
 
-// const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
-//   if (forcePage === 0) {
-//     return <link href={linkBuilder(forcePage + 2, query)} rel="next" />
-//   } else if (forcePage === pageCount - 1) {
-//     return <link href={linkBuilder(forcePage, query)} rel="prev" />
-//   } else {
-//     return [
-//       <link href={linkBuilder(forcePage + 2, query)} rel="next" key="next" />,
-//       <link href={linkBuilder(forcePage, query)} rel="prev" key="prev" />
-//     ]
-//   }
-// }
+const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
+  if (forcePage === 0) {
+    return <link href={linkBuilder(forcePage + 2, query)} rel="next" />
+  } else if (forcePage === pageCount - 1) {
+    return (
+      <link
+        href={linkBuilder(forcePage === 1 ? null : forcePage, query)}
+        rel="prev"
+      />
+    )
+  } else {
+    return [
+      <link href={linkBuilder(forcePage + 2, query)} rel="next" key="next" />,
+      <link
+        href={linkBuilder(forcePage === 1 ? null : forcePage, query)}
+        rel="prev"
+        key="prev"
+      />
+    ]
+  }
+}
 
-const Pagination: StatelessComponent<Props> = ({
+export const Pagination: StatelessComponent<Props> = ({
   pageCount,
   previousLabel,
   nextLabel,
+  rangePageLabel,
   onPageChange,
   forcePage,
   query,
-  pageLinkBuilder
+  pageLinkBuilder,
+  renderHead
 }) => {
   return pageCount > 1 ? (
-    <>
-      {/* <Head>{getRelLinks(forcePage, query, pageCount, pageLinkBuilder)}</Head> */}
+    <div className="flex justify-center">
+      {renderHead &&
+        renderHead(getRelLinks(forcePage, query, pageCount, pageLinkBuilder))}
       <ReactPaginate
-        hrefBuilder={(page: number) => pageLinkBuilder(page, query)}
+        hrefBuilder={
+          pageLinkBuilder
+            ? (page: number) => pageLinkBuilder(page, query)
+            : null
+        }
         pageCount={pageCount}
         previousLabel={
           <>
-            <ArrowRightM
-              height="10"
-              width="10"
-              className="inline-block align-middle rotate-180"
-            />{" "}
+            <ArrowDownM
+              height="28"
+              width="28"
+              className="inline-block rotate-90"
+            />
             {previousLabel}
           </>
         }
         nextLabel={
           <>
-            {nextLabel}{" "}
-            <ArrowRightM
-              height="10"
-              width="10"
-              className="inline-block align-middle"
+            {nextLabel}
+            <ArrowDownM
+              height="28"
+              width="28"
+              className="inline-block align-middle rotate-270"
             />
           </>
         }
@@ -70,7 +88,13 @@ const Pagination: StatelessComponent<Props> = ({
         activeClassName="active"
         forcePage={forcePage}
       />
-    </>
+      <div className="flex items-center lg:hidden">
+        <span>
+          <span className="font-bold">{`${forcePage + 1} `}</span>
+          {`${rangePageLabel} ${pageCount}`}
+        </span>
+      </div>
+    </div>
   ) : null
 }
 

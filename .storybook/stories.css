@@ -1,15 +1,2 @@
 @tailwind base;
-
-body {
-  @apply font-sans;
-}
-
-a {
-  @apply no-underline;
-}
-
-img, svg {
-  @apply inline;
-}
-
 @tailwind utilities;
