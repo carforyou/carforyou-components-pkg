@@ -83,7 +83,10 @@
         }
       ],
       [
-        "@pika/plugin-build-web"
+        "@pika/plugin-build-web",
+        {
+          "entrypoint": "module"
+        }
       ],
       [
         "@pika/plugin-build-node"
