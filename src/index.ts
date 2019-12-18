@@ -1,4 +1,8 @@
-import { withDefaultConfig, defaultConfig, getComponentPaths } from "./tailwind"
+import {
+  withDefaultConfig,
+  defaultConfig,
+  getComponentPaths
+} from "./tailwind/index"
 
 import Button from "./components/button"
 import Pagination from "./components/pagination"
