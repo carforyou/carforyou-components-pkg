@@ -1,8 +1,8 @@
-// import {
-//   withDefaultConfig,
-//   defaultConfig,
-//   getComponentPaths
-// } from "./tailwind/index"
+import {
+  withDefaultConfig,
+  defaultConfig,
+  getComponentPaths
+} from "./tailwind/index"
 
 import Button from "./components/button"
 import Pagination from "./components/pagination"
@@ -18,4 +18,4 @@ export {
   SegmentedControl
 }
 
-// export { withDefaultConfig, defaultConfig, getComponentPaths }
+export { withDefaultConfig, defaultConfig, getComponentPaths }
