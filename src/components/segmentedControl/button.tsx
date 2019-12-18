@@ -50,4 +50,4 @@ export const Button: FC<Props> = ({
   )
 }
 
-export default Button
+export { Button }
