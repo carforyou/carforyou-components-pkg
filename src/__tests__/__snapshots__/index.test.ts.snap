@@ -238,10 +238,10 @@ Object {
       "90": "90deg",
     },
     "screens": Object {
-      "lg": "992px",
+      "lg": "1024px",
       "md": "768px",
       "sm": "576px",
-      "xl": "1200px",
+      "xl": "1280px",
       "xs": "480px",
     },
     "textColor": Object {
