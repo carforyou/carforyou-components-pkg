@@ -15,7 +15,7 @@ interface Props {
   submit?: boolean
 }
 
-const Button: FC<Props> = ({
+export const Button: FC<Props> = ({
   children,
   dataTestid,
   teal,
@@ -50,4 +50,4 @@ const Button: FC<Props> = ({
   )
 }
 
-export { Button }
+export default Button

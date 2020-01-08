@@ -75,4 +75,4 @@ function SegmentedControl<T>({
   )
 }
 
-export { SegmentedControl }
+export default SegmentedControl

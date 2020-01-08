@@ -36,7 +36,7 @@ const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
   }
 }
 
-const Pagination: StatelessComponent<Props> = ({
+export const Pagination: StatelessComponent<Props> = ({
   pageCount,
   previousLabel,
   nextLabel,
@@ -98,4 +98,4 @@ const Pagination: StatelessComponent<Props> = ({
   ) : null
 }
 
-export { Pagination }
+export default Pagination
