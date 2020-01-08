@@ -11,6 +11,7 @@ PROJECT_REACT_PATH="../$PROJECT_PATH/node_modules/react"
 
 if [ ! -d $PROJECT_PATH ]; then
   echo "Looks like no project exists under `$PROJECT_PATH`. Aborting..."
+  exit 1
 fi
 
 echo "Linking package \`$PACKAGE_PATH\` to project \`$PROJECT_PATH\`"
