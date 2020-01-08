@@ -13,8 +13,8 @@ interface Props {
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   submit?: boolean
-  smallIconButton?: boolean
-  largeIconButton?: boolean
+  icon?: ReactNode
+  large?: boolean
 }
 
 export const Button: FC<Props> = ({
@@ -26,18 +26,12 @@ export const Button: FC<Props> = ({
   disabled,
   onClick,
   submit,
-  smallIconButton,
-  largeIconButton
+  icon,
+  large
 }) => {
   const padding = classnames(
     "px-10",
-    largeIconButton
-      ? "py-10"
-      : smallIconButton
-      ? "py-2"
-      : small
-      ? "py-8"
-      : "py-16"
+    large ? "py-10" : small ? "py-8" : "py-16"
   )
   const { clonedElement, isWrapped } = wrapLink(children, padding)
 
@@ -58,6 +52,7 @@ export const Button: FC<Props> = ({
       disabled={disabled}
       data-testid={dataTestid}
     >
+      {icon}
       {clonedElement}
     </button>
   )
