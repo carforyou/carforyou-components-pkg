@@ -96,6 +96,6 @@ This ensures that projects react is linked back to build package and prevents er
 * Prefer setting the size over having multiple SVGs per size
 
 ## Release a new version
-```
-npm run release
-```
+
+New versions are released on the ci using semantic-release as soon as you merge into master. Please
+make sure your merge commit message adheres to the corresponding conventions.
