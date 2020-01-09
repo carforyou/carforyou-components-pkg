@@ -13,8 +13,9 @@ interface Props {
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   submit?: boolean
-  icon?: ReactNode
+  icon?: string
   large?: boolean
+  paddingTextIcon?: boolean
 }
 
 export const Button: FC<Props> = ({
@@ -27,7 +28,8 @@ export const Button: FC<Props> = ({
   onClick,
   submit,
   icon,
-  large
+  large,
+  paddingTextIcon
 }) => {
   const padding = classnames(
     "px-10",
@@ -52,8 +54,12 @@ export const Button: FC<Props> = ({
       disabled={disabled}
       data-testid={dataTestid}
     >
-      {icon}
-      {clonedElement}
+      <img src={icon} />
+      {paddingTextIcon ? (
+        <span className="pl-8 pr-16">{clonedElement}</span>
+      ) : (
+        clonedElement
+      )}
     </button>
   )
 }
