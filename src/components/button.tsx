@@ -13,7 +13,8 @@ interface Props {
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   submit?: boolean
-  icon?: string
+  icon?: boolean
+  iconName?: string
   large?: boolean
   paddingTextIcon?: boolean
 }
@@ -28,6 +29,7 @@ export const Button: FC<Props> = ({
   onClick,
   submit,
   icon,
+  iconName,
   large,
   paddingTextIcon
 }) => {
@@ -54,7 +56,7 @@ export const Button: FC<Props> = ({
       disabled={disabled}
       data-testid={dataTestid}
     >
-      <img src={icon} />
+      {icon ? <img src={iconName} /> : null}
       {paddingTextIcon ? (
         <span className="pl-8 pr-16">{clonedElement}</span>
       ) : (

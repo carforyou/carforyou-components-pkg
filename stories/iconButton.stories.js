@@ -14,7 +14,7 @@ storiesOf("Icon Button", module)
     wInfo(`
     Description
     ~~~
-    <Button icon={CtaCall} large paddingTextIcon >
+    <Button icon icon={CtaCall} large paddingTextIcon >
       Anrufen
     </Button>
     `)(() => (
@@ -22,11 +22,12 @@ storiesOf("Icon Button", module)
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 md:w-3/12">
         <Button
+          icon
+          iconName={CtaCall}
           large
+          paddingTextIcon
           teal={boolean("Teal", false)}
           onClick={action("on Click")}
-          icon={CtaCall}
-          paddingTextIcon 
         >
           {text("Label", "Anrufen")}
         </Button>
