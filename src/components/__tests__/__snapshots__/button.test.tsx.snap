@@ -89,3 +89,21 @@ exports[`<Button> renders default button correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`<Button> renders icon, size, paddings and text 1`] = `
+<div>
+  <button
+    class="flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none px-10 py-10 bg-salmon hover:bg-salmon-dark focus:bg-salmon"
+    type="button"
+  >
+    <img
+      src="CtaCall"
+    />
+    <span
+      class="pl-8 pr-16"
+    >
+      Label
+    </span>
+  </button>
+</div>
+`;

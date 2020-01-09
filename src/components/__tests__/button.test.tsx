@@ -92,4 +92,13 @@ describe("<Button>", () => {
     expect(link.classList).toContain("py-16")
     expect(link.classList).toContain("px-10")
   })
+
+  it("renders icon, size, paddings and text", () => {
+    const { container } = render(
+      <Button icon iconName={"CtaCall"} large paddingTextIcon>
+        Label
+      </Button>
+    )
+    expect(container).toMatchSnapshot()
+  })
 })
