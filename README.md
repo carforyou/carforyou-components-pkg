@@ -82,9 +82,15 @@ npm run build
 
 You can link your local npm package to integrate it with any local project:
 ```
-npm run link -- <relative_path_to_project>
+cd carforyou-components-pkg
+npm run build
+
+cd carforyou-listings-web
+npm link ../carforyou-components-pkg/pkg
 ```
-This ensures that projects react is linked back to build package and prevents errors due to duplicate react instances.
+
+NPM resolves dependencies differently when npm-linked, which might result in an [`Invalid Hook Call`](https://fb.me/react-invalid-hook-call) error in your React app. To mitigate, you can [configure webpack to not resolve symlinks](https://github.com/carforyou/carforyou-listings-web/pull/1611/files#diff-5d0c276360a637d1b787a57760665fbeR43).
+
 
 ## Guidelines
 
