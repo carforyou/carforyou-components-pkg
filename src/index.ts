@@ -1,8 +1,3 @@
-import { resolve } from "path"
-import { sync } from "glob"
-
-import { withDefaultConfig, defaultConfig } from "./tailwind/index"
-
 import Button from "./components/button"
 import Pagination from "./components/pagination"
 import Dropdown from "./components/dropdown/index"
@@ -15,12 +10,4 @@ export {
   Dropdown,
   DropdownWithAutosuggest,
   SegmentedControl
-}
-
-export default {
-  tailwind: { withDefaultConfig, defaultConfig },
-  getComponentPaths: () =>
-    sync(resolve(__dirname, "../dist-src/components/**/*"), {
-      nodir: true
-    })
 }
