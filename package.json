@@ -37,10 +37,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
+    "@carforyou/pika-plugin-build-standalone-node": "^1.0.0",
     "@carforyou/tslint-rules": "^1.0.0",
     "@percy/storybook": "^3.2.0",
     "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-node": "^0.8.0",
     "@pika/plugin-build-web": "^0.8.0",
     "@pika/plugin-copy-assets": "^0.8.0",
     "@pika/plugin-standard-pkg": "^0.8.1",
@@ -66,7 +66,7 @@
     "prettier": "^1.17.1",
     "react": "^16.8.6",
     "react-docgen-typescript-loader": "^3.1.0",
-    "semantic-release": "^15.13.31",
+    "semantic-release": "^16.0.0",
     "svgo": "^1.2.2",
     "tailwindcss": "^1.0.0",
     "ts-jest": "^24.0.2",
@@ -88,7 +88,7 @@
         }
       ],
       [
-        "@pika/plugin-build-node"
+        "@carforyou/pika-plugin-build-standalone-node"
       ],
       [
         "@pika/plugin-copy-assets"
