@@ -6,7 +6,7 @@ import { text, boolean } from "@storybook/addon-knobs"
 import { wInfo } from "./utils"
 
 import Button from "../src/components/button"
-import CtaCall from "../.storybook/icons/cta-call.svg"
+import CtaCall from "../.storybook/icons/ctaCall"
 
 storiesOf("Icon Button", module)
   .add(
@@ -14,7 +14,7 @@ storiesOf("Icon Button", module)
     wInfo(`
     Description
     ~~~
-    <Button icon icon={CtaCall} large paddingTextIcon >
+    <Button icon={<CtaCall />} large paddingTextIcon>
       Anrufen
     </Button>
     `)(() => (
@@ -22,8 +22,7 @@ storiesOf("Icon Button", module)
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 md:w-3/12">
         <Button
-          icon
-          iconName={CtaCall}
+          icon={<CtaCall />}
           large
           paddingTextIcon
           teal={boolean("Teal", false)}

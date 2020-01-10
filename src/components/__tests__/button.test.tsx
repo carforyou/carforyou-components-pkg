@@ -2,6 +2,7 @@ import React from "react"
 import { render, fireEvent, cleanup } from "@testing-library/react"
 
 import Button from "../button"
+import CtaCall from "../../../.storybook/icons/ctaCall"
 
 describe("<Button>", () => {
   beforeEach(cleanup)
@@ -95,7 +96,7 @@ describe("<Button>", () => {
 
   it("renders icon, size, paddings and text", () => {
     const { container } = render(
-      <Button icon iconName={"CtaCall"} large paddingTextIcon>
+      <Button icon={<CtaCall />} large paddingTextIcon>
         Label
       </Button>
     )
