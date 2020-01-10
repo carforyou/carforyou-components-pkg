@@ -1,4 +1,4 @@
-import components from "../index"
+import components from "../node"
 
 const { withDefaultConfig, defaultConfig } = components.tailwind
 
