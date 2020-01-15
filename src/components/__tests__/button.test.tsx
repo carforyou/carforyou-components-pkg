@@ -96,9 +96,7 @@ describe("<Button>", () => {
 
   it("renders icon, size, paddings and text", () => {
     const { container } = render(
-      <Button icon={<CtaCall />} large paddingTextIcon>
-        Label
-      </Button>
+      <Button icon={() => <CtaCall />}>Label</Button>
     )
     expect(container).toMatchSnapshot()
   })
