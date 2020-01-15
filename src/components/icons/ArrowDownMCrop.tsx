@@ -1,6 +1,6 @@
 import React from "react"
 
-const SvgArrowDownMCrop = props => (
+const ArrowDownMCrop = props => (
   <svg viewBox="0 0 32 32" {...props}>
     <path
       d="M22 13l-6 6-6-6"
@@ -12,4 +12,4 @@ const SvgArrowDownMCrop = props => (
   </svg>
 )
 
-export default SvgArrowDownMCrop
+export default ArrowDownMCrop
