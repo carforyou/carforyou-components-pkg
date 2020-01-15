@@ -2,6 +2,7 @@ import React from "react"
 import { render, fireEvent, cleanup } from "@testing-library/react"
 
 import Button from "../button"
+import CtaCall from "../../../.storybook/icons/ctaCall"
 
 describe("<Button>", () => {
   beforeEach(cleanup)
@@ -91,5 +92,12 @@ describe("<Button>", () => {
     const link = getByText("Label")
     expect(link.classList).toContain("py-16")
     expect(link.classList).toContain("px-10")
+  })
+
+  it("renders icon, size, paddings and text", () => {
+    const { container } = render(
+      <Button icon={() => <CtaCall />}>Label</Button>
+    )
+    expect(container).toMatchSnapshot()
   })
 })
