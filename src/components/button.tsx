@@ -27,21 +27,26 @@ export const Button: FC<Props> = ({
   submit,
   icon
 }) => {
-  const padding = classnames("px-10", icon ? "py-10" : small ? "py-8" : "py-16")
+  const padding = classnames(
+    "px-px md:px-10",
+    icon ? "py-9" : small ? "py-7" : "py-15"
+  )
   const { clonedElement, isWrapped } = wrapLink(children, padding)
 
   return (
     <button
       type={submit ? "submit" : "button"}
       className={classnames(
-        "flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded focus:outline-none",
+        "flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded border focus:outline-none",
         { [padding]: !isWrapped },
         teal
-          ? "bg-teal hover:bg-teal-dark focus:bg-teal"
+          ? "bg-teal border-teal hover:bg-teal-dark focus:bg-teal"
           : tealBorder
-          ? "bg-white border border-teal text-teal hover:opacity-60"
-          : "bg-salmon hover:bg-salmon-dark focus:bg-salmon",
-        disabled ? "cursor-not-allowed bg-grey-3 hover:bg-grey-3" : null
+          ? "bg-white border-teal text-teal hover:opacity-60"
+          : "bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon",
+        disabled
+          ? "bg-grey-3 border-grey-3 cursor-not-allowed hover:bg-grey-3"
+          : null
       )}
       onClick={onClick}
       disabled={disabled}
@@ -50,7 +55,7 @@ export const Button: FC<Props> = ({
       {icon ? (
         <>
           {icon()}
-          <span className="pl-8 pr-16">{clonedElement}</span>
+          <span className="pl-5 pr-8">{clonedElement}</span>
         </>
       ) : (
         clonedElement
