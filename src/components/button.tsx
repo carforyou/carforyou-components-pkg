@@ -27,10 +27,7 @@ export const Button: FC<Props> = ({
   submit,
   icon
 }) => {
-  const padding = classnames(
-    "px-px md:px-10",
-    icon ? "py-9" : small ? "py-7" : "py-15"
-  )
+  const padding = classnames("px-10 py-5", small ? "min-h-36" : "min-h-52")
   const { clonedElement, isWrapped } = wrapLink(children, padding)
 
   return (

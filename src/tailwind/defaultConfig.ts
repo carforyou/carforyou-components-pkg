@@ -318,7 +318,9 @@ export default {
       "0": "0",
       auto: "auto",
       full: "100%",
-      screen: "100vh"
+      screen: "100vh",
+      "36": "36px",
+      "52": "52px"
     },
 
     /*
@@ -367,9 +369,7 @@ export default {
       px: "1px",
       "0": "0",
       "5": "5px",
-      "7": "7px",
       "8": "8px",
-      "9": "9px",
       "10": "10px",
       "14": "14px",
       "15": "15px",

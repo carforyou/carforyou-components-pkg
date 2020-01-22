@@ -199,6 +199,8 @@ Object {
     },
     "minHeight": Object {
       "0": "0",
+      "36": "36px",
+      "52": "52px",
       "auto": "auto",
       "full": "100%",
       "screen": "100vh",
@@ -229,9 +231,7 @@ Object {
       "30": "30px",
       "40": "40px",
       "5": "5px",
-      "7": "7px",
       "8": "8px",
-      "9": "9px",
       "auto": "auto",
       "px": "1px",
     },
