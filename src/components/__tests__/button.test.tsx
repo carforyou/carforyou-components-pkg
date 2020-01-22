@@ -78,8 +78,8 @@ describe("<Button>", () => {
     const { getByText } = render(<Button>Label</Button>)
     const button = getByText("Label")
 
-    expect(button.classList).toContain("py-16")
-    expect(button.classList).toContain("px-10")
+    expect(button.classList).toContain("py-15")
+    expect(button.classList).toContain("md:px-10")
   })
 
   it("sets correct padding within the link", () => {
@@ -90,8 +90,8 @@ describe("<Button>", () => {
     )
 
     const link = getByText("Label")
-    expect(link.classList).toContain("py-16")
-    expect(link.classList).toContain("px-10")
+    expect(link.classList).toContain("py-15")
+    expect(link.classList).toContain("md:px-10")
   })
 
   it("renders icon, size, paddings and text", () => {
