@@ -12,7 +12,7 @@ storiesOf("Intercom", module)
     wInfo(`
     Description
     ~~~
-    <Intercom appId="123" stage="dev" autoload={false} userInfo={{ user_id: "123" }}/>
+    <Intercom appId="123" stage="dev" label="Support" autoload={false} userInfo={{ user_id: "123" }}/>
     `)(() => (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
@@ -20,6 +20,7 @@ storiesOf("Intercom", module)
         <Intercom
           appId={text("appId (you need am actual app id to be able to load intercom)", "123")}
           stage={text("stage", "dev")}
+          label={text("label", "Support")}
           autoload={boolean("autoload", false)} />
       </div>
     </div>

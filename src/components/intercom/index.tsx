@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react"
 import useDeepCompareEffect from "use-deep-compare-effect"
 
 import { bootIntercom } from "./helper"
+import Ready from "./ready"
 
 interface Props {
   /**
@@ -12,6 +13,10 @@ interface Props {
    * Deployment stage
    */
   stage: string
+  /**
+   * Label to be shown on the button
+   */
+  label: string
   /**
    * Wether the script should be automatically loaded
    */
@@ -34,6 +39,7 @@ enum State {
 const Intercom: FC<Props> = ({
   appId,
   stage,
+  label,
   autoload = false,
   userInfo = {}
 }) => {
@@ -45,7 +51,7 @@ const Intercom: FC<Props> = ({
     hide_default_launcher: true,
     alignment: "right",
     horizontal_padding: 20,
-    vertical_padding: 110,
+    vertical_padding: 76,
     ...userInfo
   }
 
@@ -71,7 +77,7 @@ const Intercom: FC<Props> = ({
 
   return (
     <div
-      className="w-intercom h-intercom z-intercom bg-salmon fixed bottom-30 right-20 rounded-full cursor-pointer"
+      className="z-intercom bg-grey-4 text-white pl-intercomLeft pr-intercomRight py-2 fixed bottom-intercomSmall md:bottom-intercomBig right-intercomSmall md:right-intercomBig rounded-intercom cursor-pointer"
       id={intercomLauncherId}
       onClick={() => {
         if (!window.Intercom) {
@@ -80,7 +86,7 @@ const Intercom: FC<Props> = ({
         }
       }}
     >
-      {state}
+      <Ready label={label} />
     </div>
   )
 }

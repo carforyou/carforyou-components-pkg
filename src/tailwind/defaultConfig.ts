@@ -125,7 +125,8 @@ export default {
       half: "50%",
       "2": "2px",
       "10": "10px",
-      "20": "20px"
+      "20": "20px",
+      intercom: "18px"
     },
 
     /*
@@ -220,8 +221,7 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
-      "40": "40px",
-      intercom: "60px"
+      "40": "40px"
     },
 
     /*
@@ -238,9 +238,9 @@ export default {
 
     inset: {
       "0": 0,
-      "20": "20px",
-      "30": "30px",
-      auto: "auto"
+      auto: "auto",
+      intercomSmall: "6px",
+      intercomBig: "20px"
     },
 
     /*
@@ -386,6 +386,7 @@ export default {
       auto: "auto",
       px: "1px",
       "0": "0",
+      "2": "2px",
       "5": "5px",
       "7": "7px",
       "8": "8px",
@@ -397,7 +398,9 @@ export default {
       "20": "20px",
       "25": "25px",
       "30": "30px",
-      "40": "40px"
+      "40": "40px",
+      intercomLeft: "13px",
+      intercomRight: "18px"
     },
 
     rotate: {
