@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react"
+import React, { FC } from "react"
 
 import { loadIntercom } from "./helper"
 
@@ -20,19 +20,29 @@ declare global {
   }
 }
 
+const intercomLauncherId = "intercomLauncher"
+
 const Intercom: FC<Props> = ({ appId, stage }) => {
   const intercomSettings = {
     cfy: true,
     app_id: appId,
-    stage
+    stage,
+    custom_launcher_selector: `#${intercomLauncherId}`,
+    hide_default_launcher: true,
+    alignment: "right",
+    horizontal_padding: 20,
+    vertical_padding: 110
   }
-
-  useEffect(() => {
-    loadIntercom(intercomSettings)
-    window.Intercom("boot", intercomSettings)
-  })
-
-  return null
+  return (
+    <div
+      className="w-intercom h-intercom z-intercom bg-salmon fixed bottom-30 right-20 rounded-full cursor-pointer"
+      id={intercomLauncherId}
+      onClick={() => {
+        loadIntercom(intercomSettings)
+        window.Intercom("boot", intercomSettings)
+      }}
+    />
+  )
 }
 
 export default Intercom

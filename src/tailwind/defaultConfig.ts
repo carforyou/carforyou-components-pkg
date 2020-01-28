@@ -220,7 +220,27 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
-      "40": "40px"
+      "40": "40px",
+      intercom: "60px"
+    },
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Position                 https://tailwindcss.com/docs/top-right-bottom-left
+    |-----------------------------------------------------------------------------
+    |
+    | Here is where you define your values for positioning
+    |
+    |
+    | Class name: .{top|right|bottom|left|inset}-{size}
+    |
+    */
+
+    inset: {
+      "0": 0,
+      "20": "20px",
+      "30": "30px",
+      auto: "auto"
     },
 
     /*
@@ -419,7 +439,8 @@ export default {
       "11/12": "91.66666667%",
       "12/12": "100%",
       screen: "100vw",
-      scrollbar: "14px"
+      scrollbar: "14px",
+      intercom: "60px"
     },
 
     transition: {
@@ -438,7 +459,8 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1,
-      dropdownMenu: 20
+      dropdownMenu: 20,
+      intercom: 40
     },
 
     /*
