@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react"
+import React, { FC, useEffect, useState } from "react"
 import useDeepCompareEffect from "use-deep-compare-effect"
 
 import { bootIntercom } from "./helper"
@@ -24,6 +24,13 @@ interface Props {
 
 const intercomLauncherId = "intercomLauncher"
 
+enum State {
+  NotLoaded = "NotLoaded",
+  Loading = "Loading",
+  Ready = "Ready",
+  Open = "Open"
+}
+
 const Intercom: FC<Props> = ({
   appId,
   stage,
@@ -42,9 +49,17 @@ const Intercom: FC<Props> = ({
     ...userInfo
   }
 
+  const intercomEventHandlers = {
+    onLoad: () => setState(State.Ready),
+    onOpen: () => setState(State.Open),
+    onClose: () => setState(State.Ready)
+  }
+
+  const [state, setState] = useState<State>(State.NotLoaded)
+
   useEffect(() => {
     if (autoload) {
-      bootIntercom(intercomSettings)
+      bootIntercom(intercomSettings, intercomEventHandlers)
     }
   })
 
@@ -60,11 +75,13 @@ const Intercom: FC<Props> = ({
       id={intercomLauncherId}
       onClick={() => {
         if (!window.Intercom) {
-          bootIntercom(intercomSettings)
+          bootIntercom(intercomSettings, intercomEventHandlers)
           window.Intercom("show")
         }
       }}
-    />
+    >
+      {state}
+    </div>
   )
 }
 
