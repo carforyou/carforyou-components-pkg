@@ -61,6 +61,7 @@ const Intercom: FC<Props> = ({
       onClick={() => {
         if (!window.Intercom) {
           bootIntercom(intercomSettings)
+          window.Intercom("show")
         }
       }}
     />
