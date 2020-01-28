@@ -1,4 +1,5 @@
 import React, { FC, useEffect } from "react"
+import useDeepCompareEffect from "use-deep-compare-effect"
 
 import { bootIntercom } from "./helper"
 
@@ -15,11 +16,20 @@ interface Props {
    * Wether the script should be automatically loaded
    */
   autoload?: boolean
+  /**
+   * All user related information
+   */
+  userInfo?: object
 }
 
 const intercomLauncherId = "intercomLauncher"
 
-const Intercom: FC<Props> = ({ appId, stage, autoload = false }) => {
+const Intercom: FC<Props> = ({
+  appId,
+  stage,
+  autoload = false,
+  userInfo = {}
+}) => {
   const intercomSettings = {
     cfy: true,
     app_id: appId,
@@ -28,7 +38,8 @@ const Intercom: FC<Props> = ({ appId, stage, autoload = false }) => {
     hide_default_launcher: true,
     alignment: "right",
     horizontal_padding: 20,
-    vertical_padding: 110
+    vertical_padding: 110,
+    ...userInfo
   }
 
   useEffect(() => {
@@ -36,6 +47,12 @@ const Intercom: FC<Props> = ({ appId, stage, autoload = false }) => {
       bootIntercom(intercomSettings)
     }
   })
+
+  useDeepCompareEffect(() => {
+    if (window.Intercom) {
+      window.Intercom("update", userInfo)
+    }
+  }, [userInfo])
 
   return (
     <div
