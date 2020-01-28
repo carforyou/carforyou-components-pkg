@@ -1,4 +1,11 @@
-export const loadIntercom = settings => {
+declare global {
+  interface Window {
+    Intercom: (event: string, options?: object) => void
+    intercomSettings: object
+  }
+}
+
+const loadIntercom = settings => {
   if (!window.Intercom) {
     ;((w, d, id, s, _x) => {
       function i() {
@@ -17,4 +24,9 @@ export const loadIntercom = settings => {
   }
 
   window.intercomSettings = settings
+}
+
+export const bootIntercom = settings => {
+  loadIntercom(settings)
+  window.Intercom("boot", settings)
 }

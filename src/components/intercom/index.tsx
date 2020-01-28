@@ -1,6 +1,6 @@
-import React, { FC } from "react"
+import React, { FC, useEffect } from "react"
 
-import { loadIntercom } from "./helper"
+import { bootIntercom } from "./helper"
 
 interface Props {
   /**
@@ -11,18 +11,15 @@ interface Props {
    * Deployment stage
    */
   stage: string
-}
-
-declare global {
-  interface Window {
-    Intercom: (event: string, options?: object) => void
-    intercomSettings: object
-  }
+  /**
+   * Wether the script should be automatically loaded
+   */
+  autoload?: boolean
 }
 
 const intercomLauncherId = "intercomLauncher"
 
-const Intercom: FC<Props> = ({ appId, stage }) => {
+const Intercom: FC<Props> = ({ appId, stage, autoload = false }) => {
   const intercomSettings = {
     cfy: true,
     app_id: appId,
@@ -33,13 +30,21 @@ const Intercom: FC<Props> = ({ appId, stage }) => {
     horizontal_padding: 20,
     vertical_padding: 110
   }
+
+  useEffect(() => {
+    if (autoload) {
+      bootIntercom(intercomSettings)
+    }
+  })
+
   return (
     <div
       className="w-intercom h-intercom z-intercom bg-salmon fixed bottom-30 right-20 rounded-full cursor-pointer"
       id={intercomLauncherId}
       onClick={() => {
-        loadIntercom(intercomSettings)
-        window.Intercom("boot", intercomSettings)
+        if (!window.Intercom) {
+          bootIntercom(intercomSettings)
+        }
       }}
     />
   )
