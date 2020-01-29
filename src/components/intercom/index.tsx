@@ -51,11 +51,19 @@ const widgetBody = (state: State, label) => {
       )
     case "Loading":
       return (
-        <Spinner className="w-12/12 h-full flex items-center justify-center" />
+        <div
+          className="w-12/12 h-full flex items-center justify-center"
+          data-testid="intercom-spinner"
+        >
+          <Spinner />
+        </div>
       )
     case "Open": {
       return (
-        <div className="w-12/12 h-full flex items-center justify-center">
+        <div
+          className="w-12/12 h-full flex items-center justify-center"
+          data-testid="intercom-close"
+        >
           <Close />
         </div>
       )
