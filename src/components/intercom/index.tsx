@@ -3,8 +3,8 @@ import useDeepCompareEffect from "use-deep-compare-effect"
 import classNames from "classnames"
 
 import { bootIntercom } from "./helper"
-import ChatTinyFilled from "../icons/ChatTinyFilled"
-import Close from "../icons/Close"
+import ChatTinyFilled from "../icons/chatTinyFilled"
+import Close from "../icons/close"
 import Spinner from "../spinner"
 
 interface Props {
