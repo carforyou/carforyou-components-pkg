@@ -39,7 +39,7 @@ enum State {
   Open = "Open"
 }
 
-const widgetBody = (state: State, label) => {
+const renderLauncher = (state: State, label) => {
   switch (state) {
     case "NotLoaded":
     case "Ready":
@@ -124,7 +124,7 @@ const Intercom: FC<Props> = ({
         }
       }}
     >
-      {widgetBody(state, label)}
+      {renderLauncher(state, label)}
     </div>
   )
 }
