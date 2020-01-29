@@ -27,22 +27,10 @@ const loadIntercom = settings => {
   window.intercomSettings = settings
 }
 
-const waitForIntercomLoad = callback => {
-  const timeout = setTimeout(() => clearInterval(interval), 30000)
-  const interval = setInterval(() => {
-    if (window.Intercom.booted) {
-      clearInterval(interval)
-      clearTimeout(timeout)
-      callback()
-    }
-  }, 100)
-}
-
-export const bootIntercom = (settings, { onLoad, onOpen, onClose }) => {
+export const bootIntercom = (settings, { onOpen, onClose }) => {
   loadIntercom(settings)
   window.Intercom("boot", settings)
 
-  waitForIntercomLoad(onLoad)
   window.Intercom("onShow", onOpen)
   window.Intercom("onHide", onClose)
 }

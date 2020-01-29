@@ -83,7 +83,6 @@ const Intercom: FC<Props> = ({
   }
 
   const intercomEventHandlers = {
-    onLoad: () => setState(State.Ready),
     onOpen: () => setState(State.Open),
     onClose: () => setState(State.Ready)
   }
@@ -111,6 +110,7 @@ const Intercom: FC<Props> = ({
       id={intercomLauncherId}
       onClick={() => {
         if (state === State.NotLoaded) {
+          setState(State.Loading)
           bootIntercom(intercomSettings, intercomEventHandlers)
           window.Intercom("show")
         }
