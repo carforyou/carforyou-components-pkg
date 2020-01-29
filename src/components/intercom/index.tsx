@@ -110,22 +110,25 @@ const Intercom: FC<Props> = ({
   }, [userInfo])
 
   return (
-    <div
-      className={classNames(
-        "intercom-launcher text-white py-2 fixed cursor-pointer transition-3 hover:opacity-60",
-        state === State.Open ? "bg-intercom" : "bg-grey-4"
-      )}
-      id={intercomLauncherId}
-      onClick={() => {
-        if (state === State.NotLoaded) {
-          setState(State.Loading)
-          bootIntercom(intercomSettings, intercomEventHandlers)
-          window.Intercom("show")
-        }
-      }}
-    >
-      {renderLauncher(state, label)}
-    </div>
+    <>
+      <div className="intercom-launcher bg-grey-bright fixed" />
+      <div
+        className={classNames(
+          "intercom-launcher text-white py-2 fixed cursor-pointer transition-3 hover:opacity-60",
+          state === State.Open ? "bg-intercom" : "bg-grey-4"
+        )}
+        id={intercomLauncherId}
+        onClick={() => {
+          if (state === State.NotLoaded) {
+            setState(State.Loading)
+            bootIntercom(intercomSettings, intercomEventHandlers)
+            window.Intercom("show")
+          }
+        }}
+      >
+        {renderLauncher(state, label)}
+      </div>
+    </>
   )
 }
 
