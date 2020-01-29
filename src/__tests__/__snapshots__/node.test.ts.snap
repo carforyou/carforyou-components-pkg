@@ -310,7 +310,7 @@ Object {
     "zIndex": Object {
       "auto": "auto",
       "dropdownMenu": 20,
-      "intercom": 40,
+      "intercom": 15,
       "negative": -1,
     },
   },

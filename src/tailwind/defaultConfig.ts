@@ -466,7 +466,7 @@ export default {
       auto: "auto",
       negative: -1,
       dropdownMenu: 20,
-      intercom: 40
+      intercom: 15
     },
 
     /*
