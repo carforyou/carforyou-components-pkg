@@ -220,9 +220,7 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
-      "36": "36px",
-      "40": "40px",
-      "52": "52px"
+      "40": "40px"
     },
 
     /*
@@ -320,7 +318,9 @@ export default {
       "0": "0",
       auto: "auto",
       full: "100%",
-      screen: "100vh"
+      screen: "100vh",
+      "36": "36px",
+      "52": "52px"
     },
 
     /*
