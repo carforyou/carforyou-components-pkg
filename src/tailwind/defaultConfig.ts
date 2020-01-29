@@ -126,8 +126,7 @@ export default {
       half: "50%",
       "2": "2px",
       "10": "10px",
-      "20": "20px",
-      intercom: "18px"
+      "20": "20px"
     },
 
     /*
@@ -222,27 +221,7 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
-      intercom: "36px",
       "40": "40px"
-    },
-
-    /*
-    |-----------------------------------------------------------------------------
-    | Position                 https://tailwindcss.com/docs/top-right-bottom-left
-    |-----------------------------------------------------------------------------
-    |
-    | Here is where you define your values for positioning
-    |
-    |
-    | Class name: .{top|right|bottom|left|inset}-{size}
-    |
-    */
-
-    inset: {
-      "0": 0,
-      auto: "auto",
-      intercomSmall: "6px",
-      intercomBig: "20px"
     },
 
     /*
@@ -357,8 +336,7 @@ export default {
       "0": "0",
       auto: "auto",
       full: "100%",
-      screen: "100vw",
-      intercom: "123px"
+      screen: "100vw"
     },
 
     /*
@@ -401,9 +379,7 @@ export default {
       "20": "20px",
       "25": "25px",
       "30": "30px",
-      "40": "40px",
-      intercomLeft: "13px",
-      intercomRight: "18px"
+      "40": "40px"
     },
 
     rotate: {
@@ -445,8 +421,7 @@ export default {
       "11/12": "91.66666667%",
       "12/12": "100%",
       screen: "100vw",
-      scrollbar: "14px",
-      intercom: "60px"
+      scrollbar: "14px"
     },
 
     transition: {
@@ -465,8 +440,7 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1,
-      dropdownMenu: 20,
-      intercom: 15
+      dropdownMenu: 20
     },
 
     /*

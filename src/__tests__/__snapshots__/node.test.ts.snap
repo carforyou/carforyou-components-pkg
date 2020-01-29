@@ -79,7 +79,6 @@ Object {
       "default": "4px",
       "full": "9999px",
       "half": "50%",
-      "intercom": "18px",
       "none": "0",
     },
     "borderWidth": Object {
@@ -144,15 +143,8 @@ Object {
       "40": "40px",
       "auto": "auto",
       "full": "100%",
-      "intercom": "36px",
       "screen": "100vh",
       "scrollbar": "70px",
-    },
-    "inset": Object {
-      "0": 0,
-      "auto": "auto",
-      "intercomBig": "20px",
-      "intercomSmall": "6px",
     },
     "letterSpacing": Object {
       "normal": "0",
@@ -220,7 +212,6 @@ Object {
       "0": "0",
       "auto": "auto",
       "full": "100%",
-      "intercom": "123px",
       "screen": "100vw",
     },
     "opacity": Object {
@@ -246,8 +237,6 @@ Object {
       "5": "5px",
       "8": "8px",
       "auto": "auto",
-      "intercomLeft": "13px",
-      "intercomRight": "18px",
       "px": "1px",
     },
     "rotate": Object {
@@ -303,14 +292,12 @@ Object {
       "8/12": "66.66667%",
       "9/12": "75%",
       "auto": "auto",
-      "intercom": "60px",
       "screen": "100vw",
       "scrollbar": "14px",
     },
     "zIndex": Object {
       "auto": "auto",
       "dropdownMenu": 20,
-      "intercom": 15,
       "negative": -1,
     },
   },
