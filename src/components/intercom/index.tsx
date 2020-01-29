@@ -1,8 +1,11 @@
 import React, { FC, useEffect, useState } from "react"
 import useDeepCompareEffect from "use-deep-compare-effect"
+import classNames from "classnames"
 
 import { bootIntercom } from "./helper"
 import ChatTinyFilled from "../icons/ChatTinyFilled"
+import Close from "../icons/Close"
+import Spinner from "../spinner"
 
 interface Props {
   /**
@@ -34,6 +37,30 @@ enum State {
   Loading = "Loading",
   Ready = "Ready",
   Open = "Open"
+}
+
+const widgetBody = (state: State, label) => {
+  switch (state) {
+    case "NotLoaded":
+    case "Ready":
+      return (
+        <div className="flex items-center">
+          <ChatTinyFilled />
+          {label}
+        </div>
+      )
+    case "Loading":
+      return (
+        <Spinner className="w-12/12 h-full flex items-center justify-center" />
+      )
+    case "Open": {
+      return (
+        <div className="w-12/12 h-full flex items-center justify-center">
+          <Close />
+        </div>
+      )
+    }
+  }
 }
 
 const Intercom: FC<Props> = ({
@@ -77,19 +104,19 @@ const Intercom: FC<Props> = ({
 
   return (
     <div
-      className="z-intercom bg-grey-4 text-white pl-intercomLeft pr-intercomRight py-2 fixed bottom-intercomSmall md:bottom-intercomBig right-intercomSmall md:right-intercomBig rounded-intercom cursor-pointer"
+      className={classNames(
+        "z-intercom text-white pl-intercomLeft pr-intercomRight py-2 fixed bottom-intercomSmall md:bottom-intercomBig right-intercomSmall md:right-intercomBig rounded-intercom cursor-pointer h-intercom min-w-intercom transition-3",
+        state === State.Open ? "bg-intercom" : "bg-grey-4"
+      )}
       id={intercomLauncherId}
       onClick={() => {
-        if (!window.Intercom) {
+        if (state === State.NotLoaded) {
           bootIntercom(intercomSettings, intercomEventHandlers)
           window.Intercom("show")
         }
       }}
     >
-      <div className="flex items-center">
-        <ChatTinyFilled />
-        {label}
-      </div>
+      {widgetBody(state, label)}
     </div>
   )
 }

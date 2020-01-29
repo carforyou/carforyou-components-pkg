@@ -49,7 +49,8 @@ export default {
       "green-light": "#74CC74",
       facebook: "#4267B2",
       twitter: "#1EA0F2",
-      whatsapp: "#0DC143"
+      whatsapp: "#0DC143",
+      intercom: "#0097d9"
     },
 
     /*
@@ -221,6 +222,7 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
+      intercom: "36px",
       "40": "40px"
     },
 
@@ -353,7 +355,8 @@ export default {
       "0": "0",
       auto: "auto",
       full: "100%",
-      screen: "100vw"
+      screen: "100vw",
+      intercom: "123px"
     },
 
     /*
