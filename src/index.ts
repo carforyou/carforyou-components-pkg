@@ -4,6 +4,7 @@ import Dropdown from "./components/dropdown/index"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 import SegmentedControl from "./components/segmentedControl/index"
 import Spinner from "./components/spinner"
+import Intercom from "./components/intercom"
 
 export {
   Button,
@@ -11,5 +12,6 @@ export {
   Dropdown,
   DropdownWithAutosuggest,
   SegmentedControl,
-  Spinner
+  Spinner,
+  Intercom
 }
