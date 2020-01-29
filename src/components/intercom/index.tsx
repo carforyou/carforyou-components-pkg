@@ -112,7 +112,7 @@ const Intercom: FC<Props> = ({
   return (
     <div
       className={classNames(
-        "z-intercom text-white pl-intercomLeft pr-intercomRight py-2 fixed bottom-intercomSmall md:bottom-intercomBig right-intercomSmall md:right-intercomBig rounded-intercom cursor-pointer h-intercom min-w-intercom transition-3",
+        "z-intercom text-white pl-intercomLeft pr-intercomRight py-2 fixed bottom-intercomSmall md:bottom-intercomBig right-intercomSmall md:right-intercomBig rounded-intercom cursor-pointer h-intercom min-w-intercom transition-3 hover:opacity-60",
         state === State.Open ? "bg-intercom" : "bg-grey-4"
       )}
       id={intercomLauncherId}
