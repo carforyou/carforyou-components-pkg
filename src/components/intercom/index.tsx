@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react"
 import useDeepCompareEffect from "use-deep-compare-effect"
 
 import { bootIntercom } from "./helper"
-import Ready from "./ready"
+import ChatTinyFilled from "../icons/ChatTinyFilled"
 
 interface Props {
   /**
@@ -86,7 +86,10 @@ const Intercom: FC<Props> = ({
         }
       }}
     >
-      <Ready label={label} />
+      <div className="flex items-center">
+        <ChatTinyFilled />
+        {label}
+      </div>
     </div>
   )
 }
