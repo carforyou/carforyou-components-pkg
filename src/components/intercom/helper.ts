@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    Intercom: ((event: string, options?: object) => void) & { booted: boolean }
+    Intercom: (event: string, options?: object) => void
     intercomSettings: object
   }
 }
@@ -15,7 +15,6 @@ const loadIntercom = settings => {
       i.c = args => {
         i.q.push(args)
       }
-      i.booted = false
       w.Intercom = i
       s = d.createElement("script")
       s.async = 1
