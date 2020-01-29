@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-const ChatTinyFilled: FC<{}> = () => {
+const Chat: FC<{}> = () => {
   return (
     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
@@ -14,4 +14,4 @@ const ChatTinyFilled: FC<{}> = () => {
   )
 }
 
-export default ChatTinyFilled
+export default Chat

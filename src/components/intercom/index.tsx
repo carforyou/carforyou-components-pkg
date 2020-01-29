@@ -3,8 +3,8 @@ import useDeepCompareEffect from "use-deep-compare-effect"
 import classNames from "classnames"
 
 import { bootIntercom } from "./helper"
-import ChatTinyFilled from "../icons/chatTinyFilled"
-import Close from "../icons/close"
+import ChatIcon from "../icons/chat"
+import CloseIcon from "../icons/close"
 import Spinner from "../spinner"
 
 interface Props {
@@ -45,7 +45,7 @@ const widgetBody = (state: State, label) => {
     case "Ready":
       return (
         <div className="flex items-center">
-          <ChatTinyFilled />
+          <ChatIcon />
           {label}
         </div>
       )
@@ -64,7 +64,7 @@ const widgetBody = (state: State, label) => {
           className="w-12/12 h-full flex items-center justify-center"
           data-testid="intercom-close"
         >
-          <Close />
+          <CloseIcon />
         </div>
       )
     }
