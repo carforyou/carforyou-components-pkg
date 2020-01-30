@@ -49,7 +49,8 @@ export default {
       "green-light": "#74CC74",
       facebook: "#4267B2",
       twitter: "#1EA0F2",
-      whatsapp: "#0DC143"
+      whatsapp: "#0DC143",
+      intercom: "#0097d9"
     },
 
     /*
@@ -368,6 +369,7 @@ export default {
       auto: "auto",
       px: "1px",
       "0": "0",
+      "2": "2px",
       "5": "5px",
       "8": "8px",
       "10": "10px",
