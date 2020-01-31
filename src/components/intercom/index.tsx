@@ -20,6 +20,7 @@ interface Props {
    * Label to be shown on the button
    */
   label: string
+  language?: string
   /**
    * Wether the script should be automatically loaded
    */
@@ -75,6 +76,7 @@ const Intercom: FC<Props> = ({
   appId,
   stage,
   label,
+  language,
   autoload = false,
   userInfo = {}
 }) => {
@@ -87,6 +89,7 @@ const Intercom: FC<Props> = ({
     alignment: "right",
     horizontal_padding: 20,
     vertical_padding: 76,
+    language_override: language,
     ...userInfo
   }
 
