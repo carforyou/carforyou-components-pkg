@@ -27,14 +27,14 @@ export const Button: FC<Props> = ({
   submit,
   icon
 }) => {
-  const padding = classnames("px-10 py-5", small ? "min-h-36" : "min-h-52")
+  const padding = classnames("px-10", small ? "min-h-36" : "min-h-52")
   const { clonedElement, isWrapped } = wrapLink(children, padding)
 
   return (
     <button
       type={submit ? "submit" : "button"}
       className={classnames(
-        "flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded border focus:outline-none",
+        "w-12/12 text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded border focus:outline-none",
         { [padding]: !isWrapped },
         teal
           ? "bg-teal border-teal hover:bg-teal-dark focus:bg-teal"
@@ -49,14 +49,16 @@ export const Button: FC<Props> = ({
       disabled={disabled}
       data-testid={dataTestid}
     >
-      {icon ? (
-        <>
-          {icon()}
-          <span className="pl-5 pr-8">{clonedElement}</span>
-        </>
-      ) : (
-        clonedElement
-      )}
+      <div className="flex justify-center items-center">
+        {icon ? (
+          <>
+            {icon()}
+            <span className="pl-5 pr-8">{clonedElement}</span>
+          </>
+        ) : (
+          clonedElement
+        )}
+      </div>
     </button>
   )
 }
