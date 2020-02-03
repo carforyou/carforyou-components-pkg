@@ -74,26 +74,6 @@ describe("<Button>", () => {
     })
   })
 
-  it("has correct padding without the custom renderer", () => {
-    const { getByText } = render(<Button>Label</Button>)
-    const button = getByText("Label")
-
-    expect(button.classList).toContain("py-5")
-    expect(button.classList).toContain("px-10")
-  })
-
-  it("sets correct padding within the link", () => {
-    const { getByText } = render(
-      <Button>
-        <a>Label</a>
-      </Button>
-    )
-
-    const link = getByText("Label")
-    expect(link.classList).toContain("py-5")
-    expect(link.classList).toContain("px-10")
-  })
-
   it("renders icon, size, paddings and text", () => {
     const { container } = render(
       <Button icon={() => <CtaCall />}>Label</Button>
