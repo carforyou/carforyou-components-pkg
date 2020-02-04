@@ -49,8 +49,7 @@ export default {
       "green-light": "#74CC74",
       facebook: "#4267B2",
       twitter: "#1EA0F2",
-      whatsapp: "#0DC143",
-      intercom: "#0097d9"
+      whatsapp: "#0DC143"
     },
 
     /*
