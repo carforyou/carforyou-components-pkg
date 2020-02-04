@@ -31,12 +31,7 @@ interface Props {
   /**
    * All user related information
    */
-  userInfo?: object
-  /**
-   * Whether intercom should be reset
-   * You'd set it to true if user logged out
-   */
-  reset?: boolean
+  userInfo?: { [key: string]: number | string | boolean | undefined }
 }
 
 const intercomLauncherId = "intercomLauncher"
@@ -86,8 +81,7 @@ const Intercom: FC<Props> = ({
   label,
   language,
   autoload = false,
-  userInfo = {},
-  reset = false
+  userInfo = {}
 }) => {
   const intercomSettings = {
     cfy: true,
@@ -121,12 +115,14 @@ const Intercom: FC<Props> = ({
     }
   }, [userInfo])
 
+  const isLoggedIn = userInfo.user_id && userInfo.email
+
   useEffect(() => {
-    if (reset && window.Intercom) {
+    if (!isLoggedIn && window.Intercom) {
       window.Intercom("shutdown")
       bootIntercom(intercomSettings, intercomEventHandlers)
     }
-  }, [reset])
+  }, [isLoggedIn])
 
   return (
     <>
