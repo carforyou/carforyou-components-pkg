@@ -20,6 +20,9 @@ interface Props {
    * Label to be shown on the button
    */
   label: string
+  /**
+   * Language to override the browser language with
+   */
   language?: string
   /**
    * Wether the script should be automatically loaded
