@@ -12,6 +12,7 @@ storiesOf("Spinner", module)
     Description
     ~~~
     <Spinner />
+    ~~~
     `)(() => (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
