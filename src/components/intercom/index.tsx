@@ -20,6 +20,9 @@ interface Props {
    * Label to be shown on the button
    */
   label: string
+  /**
+   * Language to override the browser language with
+   */
   language?: string
   /**
    * Wether the script should be automatically loaded
@@ -28,7 +31,7 @@ interface Props {
   /**
    * All user related information
    */
-  userInfo?: object
+  userInfo?: { [key: string]: number | string | boolean | undefined }
 }
 
 const intercomLauncherId = "intercomLauncher"
@@ -112,13 +115,22 @@ export const Intercom: FC<Props> = ({
     }
   }, [userInfo])
 
+  const isLoggedIn = userInfo.user_id && userInfo.email
+
+  useEffect(() => {
+    if (!isLoggedIn && window.Intercom) {
+      window.Intercom("shutdown")
+      bootIntercom(intercomSettings, intercomEventHandlers)
+    }
+  }, [isLoggedIn])
+
   return (
     <>
       <div className="intercom-launcher bg-grey-bright fixed" />
       <div
         className={classNames(
           "intercom-launcher text-white py-2 fixed cursor-pointer transition-3 hover:opacity-60",
-          state === State.Open ? "bg-intercom" : "bg-grey-4"
+          state === State.Open ? "bg-salmon" : "bg-grey-4"
         )}
         id={intercomLauncherId}
         onClick={() => {
