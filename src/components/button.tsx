@@ -13,6 +13,7 @@ interface Props {
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   submit?: boolean
+  formNoValidate?: boolean
   icon?: () => ReactNode
 }
 
@@ -25,6 +26,7 @@ export const Button: FC<Props> = ({
   disabled,
   onClick,
   submit,
+  formNoValidate,
   icon
 }) => {
   const padding = classnames("px-10", small ? "min-h-36" : "min-h-52")
@@ -33,6 +35,7 @@ export const Button: FC<Props> = ({
   return (
     <div className="flex flex-col">
       <button
+        formNoValidate={formNoValidate}
         type={submit ? "submit" : "button"}
         className={classnames(
           "flex w-12/12 justify-center items-center text-white leading-xs transition-2 cursor-pointer font-bold text-base rounded border focus:outline-none",
