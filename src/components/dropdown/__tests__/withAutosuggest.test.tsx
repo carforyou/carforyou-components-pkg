@@ -96,7 +96,7 @@ describe("<DropdownWithAutosuggest>", () => {
       expect(node).toMatchSnapshot()
     })
 
-    it("escapes special regexp characters when enetered in the input", () => {
+    it("escapes special regexp characters when entered in the input", () => {
       const wrapper = mountWrapper()
       openAutosuggest(wrapper)
 
