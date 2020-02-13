@@ -124,10 +124,10 @@ workflows:
               only: master
 
       - pre_release:
-        requires:
-          - lint
-          - unit
-          - build
-        filters:
-          branches:
-            exclude: master
+          requires:
+            - lint
+            - unit
+            - build
+          filters:
+            branches:
+              exclude: master
