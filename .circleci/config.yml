@@ -76,7 +76,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npx semantic-release
+      - run: npx semantic-release --ci false
       - notify_slack_failure
 
 workflows:
