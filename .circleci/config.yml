@@ -110,6 +110,3 @@ workflows:
             - lint
             - unit
             - build
-          filters:
-            branches:
-              only: master
