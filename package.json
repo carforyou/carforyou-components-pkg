@@ -45,7 +45,7 @@
     "@pika/plugin-build-web": "^0.9.0",
     "@pika/plugin-copy-assets": "^0.9.0",
     "@pika/plugin-standard-pkg": "^0.8.1",
-    "@pika/plugin-ts-standard-pkg": "^0.8.1",
+    "@pika/plugin-ts-standard-pkg": "^0.9.0",
     "@storybook/addon-actions": "^5.3.6",
     "@storybook/addon-info": "^5.3.6",
     "@storybook/addon-knobs": "^5.3.6",
