@@ -96,6 +96,17 @@ describe("<DropdownWithAutosuggest>", () => {
       expect(node).toMatchSnapshot()
     })
 
+    it("escapes special regexp characters when entered in the input", () => {
+      const wrapper = mountWrapper()
+      openAutosuggest(wrapper)
+
+      const { getByPlaceholderText } = wrapper
+      const input = getByPlaceholderText(placeholder)
+      expect(() => {
+        fireEvent.change(input, { target: { value: "-/^$*+?.()|[]{}\\" } })
+      }).not.toThrow()
+    })
+
     it("select highlited option on blur", async () => {
       const wrapper = mountWrapper()
       openAutosuggest(wrapper)
