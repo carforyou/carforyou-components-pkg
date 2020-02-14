@@ -75,7 +75,7 @@ const renderLauncher = (state: State, label) => {
   }
 }
 
-const Intercom: FC<Props> = ({
+export const Intercom: FC<Props> = ({
   appId,
   stage,
   label,

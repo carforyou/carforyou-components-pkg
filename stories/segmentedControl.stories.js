@@ -31,6 +31,7 @@ storiesOf("SegmentedControl", module)
       ]
       onSelect={/* select handler */}
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
@@ -57,6 +58,7 @@ storiesOf("SegmentedControl", module)
       ]
       onSelect={/* select handler */}
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
@@ -86,6 +88,7 @@ storiesOf("SegmentedControl", module)
         { value: 3, name: "Button 3" }
       ]
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
@@ -113,6 +116,7 @@ storiesOf("SegmentedControl", module)
       onSelect={/* select handler */}
       initialSelection={2}
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
@@ -146,6 +150,7 @@ storiesOf("SegmentedControl", module)
         </div>
       )}
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
@@ -180,6 +185,7 @@ storiesOf("SegmentedControl", module)
       onSelect={/* select handler */}
       small
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
@@ -208,6 +214,7 @@ storiesOf("SegmentedControl", module)
       onSelect={/* select handler */}
       disabled
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
@@ -236,6 +243,7 @@ storiesOf("SegmentedControl", module)
       onSelect={/* select handler */}
       disabled
     />
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="w-12/12 md:w-4/12">
