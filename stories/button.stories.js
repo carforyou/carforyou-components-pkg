@@ -13,6 +13,7 @@ storiesOf("Button", module)
     Description
     ~~~
     <Button>CarForYou</Button>
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
@@ -36,6 +37,7 @@ storiesOf("Button", module)
     Description
     ~~~
     <Button small>CarForYou</Button>
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Small button</div>
@@ -51,6 +53,7 @@ storiesOf("Button", module)
     Description
     ~~~
     <Button teal>CarForYou</Button>
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Teal button</div>
@@ -66,6 +69,7 @@ storiesOf("Button", module)
     Description
     ~~~~
     <Button tealBorder>CarForYou</Button>
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Teal Border button</div>
@@ -81,6 +85,7 @@ storiesOf("Button", module)
     Description
     ~~~
     <Button disabled>CarForYou</Button>
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Disabled button</div>

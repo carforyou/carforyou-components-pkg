@@ -17,6 +17,7 @@ storiesOf("Icon Button", module)
     <Button icon={() <CtaCall />}>
       Anrufen
     </Button>
+    ~~~
     `)(() => (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
