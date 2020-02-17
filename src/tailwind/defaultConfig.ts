@@ -49,7 +49,12 @@ export default {
       "green-light": "#74CC74",
       facebook: "#4267B2",
       twitter: "#1EA0F2",
-      whatsapp: "#0DC143"
+      whatsapp: "#0DC143",
+      "high-deal": "#E34A15",
+      "fair-deal": "#EAA403",
+      "good-deal": "#81B040",
+      "great-deal": "#149246",
+      "not-defined": "#A0A7AB"
     },
 
     /*
