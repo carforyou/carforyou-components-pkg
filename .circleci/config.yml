@@ -1,15 +1,8 @@
 version: 2.1
 
-commands:
-  notify_slack_failure:
-    steps:
-      - run:
-          name: Notify Slack of failure if on master
-          command: |
-            if [ "$CIRCLE_BRANCH" = "master" ]; then
-              curl -X POST -H 'Content-type: application/json' --data "{\"text\":\":boom: ${CIRCLE_JOB} failed: ${CIRCLE_BUILD_URL}\"}" https://hooks.slack.com/services/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
-            fi
-          when: on_fail
+orbs:
+  aws-s3: circleci/aws-s3@1.0.15
+  slack: circleci/slack@3.4.2
 
 docker: &DOCKER_NODE
   docker:
@@ -31,7 +24,7 @@ jobs:
           root: ~/
           paths:
             - project
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   build:
     <<: *DOCKER_NODE
@@ -46,7 +39,7 @@ jobs:
           paths:
             - project/pkg
             - project/storybook-static
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   unit:
     <<: *DOCKER_NODE
@@ -54,7 +47,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run test
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   lint:
     <<: *DOCKER_NODE
@@ -69,7 +62,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run deploy -- --existing-output-dir=~/project/storybook-static --ci
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   release:
     <<: *DOCKER_NODE
@@ -77,7 +70,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npx semantic-release
-      - notify_slack_failure
+      - slack/notify-on-failure
 
 workflows:
   version: 2
