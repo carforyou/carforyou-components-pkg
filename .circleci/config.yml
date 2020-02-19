@@ -6,7 +6,7 @@ orbs:
 
 docker: &DOCKER_NODE
   docker:
-    - image: circleci/node:10.18
+    - image: circleci/node:10.19
 
 jobs:
   install:
@@ -72,6 +72,15 @@ jobs:
       - run: npx semantic-release
       - slack/notify-on-failure
 
+  pre_release:
+    <<: *DOCKER_NODE
+    steps:
+      - attach_workspace:
+          at: ~/
+      # manually set PR shell variables to empty to build pull request
+      - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
+      - slack/notify-on-failure
+
 workflows:
   version: 2
   test:
@@ -106,3 +115,12 @@ workflows:
           filters:
             branches:
               only: master
+
+      - pre_release:
+          requires:
+            - lint
+            - unit
+            - build
+          filters:
+            branches:
+              ignore: master

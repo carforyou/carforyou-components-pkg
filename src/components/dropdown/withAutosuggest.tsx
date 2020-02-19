@@ -66,7 +66,8 @@ const filterOptions = (options, text) => {
     return options
   }
 
-  const regex = new RegExp(text, "i")
+  const specialChars = /[-\/\\^$*+?.()|[\]{}]/g
+  const regex = new RegExp(text.replace(specialChars, "\\$&"), "i")
 
   const matching = options
     .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))

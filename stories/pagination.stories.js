@@ -22,6 +22,7 @@ storiesOf("Pagination", module)
       query={{ foo: "bar" }}
       pageLinkBuilder={() => "search"}
     </Pagination>
+    ~~~~
     `)(() => (
       <Pagination
         pageCount={100}
@@ -53,6 +54,7 @@ storiesOf("Pagination", module)
     query={{ foo: "bar" }}
     pageLinkBuilder={() => "search"}
   </Pagination>
+  ~~~~
   `)(() => (
       <Pagination
         pageCount={100}
@@ -84,6 +86,7 @@ storiesOf("Pagination", module)
     query={{ foo: "bar" }}
     pageLinkBuilder={() => "search"}
   </Pagination>
+  ~~~~
   `)(() => (
       <Pagination
         pageCount={100}

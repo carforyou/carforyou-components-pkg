@@ -75,6 +75,7 @@ storiesOf("DropdownWithAutosuggest", module)
         )}
       />
     </div>
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40 w-12/12 md:w-3/12">
         <div className="relative">
@@ -121,6 +122,7 @@ storiesOf("DropdownWithAutosuggest", module)
         allowCustomValues
       />
     </div>
+    ~~~
     `)(() => (
       <div className="mx-30 mb-40 w-12/12 md:w-3/12">
         <div className="relative">
@@ -174,6 +176,7 @@ storiesOf("DropdownWithAutosuggest", module)
         </div>
       )
     }
+    ~~~
     `)(() => (
       <TypeAheadWrapper />
     ))
