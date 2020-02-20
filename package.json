@@ -97,5 +97,8 @@
         "@pika/plugin-copy-assets"
       ]
     ]
+  },
+  "storybook-deployer": {
+    "commitMessage": "Deploy storybook [skip ci]"
   }
 }
