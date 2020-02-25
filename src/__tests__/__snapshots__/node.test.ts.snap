@@ -6,7 +6,6 @@ Object {
   "plugins": Array [
     [Function],
     [Function],
-    [Function],
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -289,9 +288,8 @@ Object {
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
     },
-    "transition": Object {
-      "2": "0.2s",
-      "3": "all .3s",
+    "transitionDuration": Object {
+      "200": "200ms",
     },
     "width": Object {
       "0": "0",
@@ -415,6 +413,36 @@ Object {
       "hover",
       "focus",
     ],
+    "gap": Array [
+      "responsive",
+    ],
+    "gridAutoFlow": Array [
+      "responsive",
+    ],
+    "gridColumn": Array [
+      "responsive",
+    ],
+    "gridColumnEnd": Array [
+      "responsive",
+    ],
+    "gridColumnStart": Array [
+      "responsive",
+    ],
+    "gridRow": Array [
+      "responsive",
+    ],
+    "gridRowEnd": Array [
+      "responsive",
+    ],
+    "gridRowStart": Array [
+      "responsive",
+    ],
+    "gridTemplateColumns": Array [
+      "responsive",
+    ],
+    "gridTemplateRows": Array [
+      "responsive",
+    ],
     "height": Array [
       "responsive",
     ],
@@ -483,6 +511,16 @@ Object {
     "resize": Array [
       "responsive",
     ],
+    "scale": Array [
+      "responsive",
+      "hover",
+      "focus",
+    ],
+    "skew": Array [
+      "responsive",
+      "hover",
+      "focus",
+    ],
     "stroke": Array [
       "responsive",
     ],
@@ -504,6 +542,20 @@ Object {
     ],
     "textTransform": Array [
       "responsive",
+    ],
+    "transitionDuration": Array [
+      "responsive",
+    ],
+    "transitionProperty": Array [
+      "responsive",
+    ],
+    "transitionTimingFunction": Array [
+      "responsive",
+    ],
+    "translate": Array [
+      "responsive",
+      "hover",
+      "focus",
     ],
     "userSelect": Array [
       "responsive",

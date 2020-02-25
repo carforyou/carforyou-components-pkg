@@ -1,6 +1,6 @@
 /* tslint:disable:object-literal-sort-keys */
 import TransformPlugin from "./plugins/transform"
-import TransitionPlugin from "./plugins/transition"
+
 /*
 Tailwind - The Utility-First CSS Framework
 A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
@@ -428,9 +428,8 @@ export default {
       scrollbar: "14px"
     },
 
-    transition: {
-      "2": "0.2s",
-      "3": "all .3s"
+    transitionDuration: {
+      "200": "200ms"
     },
 
     /*
@@ -534,12 +533,24 @@ export default {
     whitespace: ["responsive"],
     width: ["responsive"],
     wordBreak: ["responsive"],
-    zIndex: ["responsive"]
+    zIndex: ["responsive"],
+    gap: ["responsive"],
+    gridAutoFlow: ["responsive"],
+    gridTemplateColumns: ["responsive"],
+    gridColumn: ["responsive"],
+    gridColumnStart: ["responsive"],
+    gridColumnEnd: ["responsive"],
+    gridTemplateRows: ["responsive"],
+    gridRow: ["responsive"],
+    gridRowStart: ["responsive"],
+    gridRowEnd: ["responsive"],
+    scale: ["responsive", "hover", "focus"],
+    translate: ["responsive", "hover", "focus"],
+    skew: ["responsive", "hover", "focus"],
+    transitionProperty: ["responsive"],
+    transitionTimingFunction: ["responsive"],
+    transitionDuration: ["responsive"]
   },
   corePlugins: {},
-  plugins: [
-    TransformPlugin,
-    TransitionPlugin,
-    require("tailwindcss-gradients")()
-  ]
+  plugins: [TransformPlugin, require("tailwindcss-gradients")()]
 }
