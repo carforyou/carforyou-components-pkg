@@ -3,7 +3,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-transparent
+  @apply bg-transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -12,5 +12,5 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-teal opacity-100 transition-2
+  @apply bg-teal opacity-100 transition duration-200;
 }
