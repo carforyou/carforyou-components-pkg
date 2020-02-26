@@ -23,7 +23,7 @@ jobs:
           root: ~/
           paths:
             - project
-      - slack/notify-on-failure
+      - slack/notify-on-failure:
           only_for_branches: master
 
   build:
@@ -39,7 +39,7 @@ jobs:
           paths:
             - project/pkg
             - project/storybook-static
-      - slack/notify-on-failure
+      - slack/notify-on-failure:
           only_for_branches: master
 
   unit:
@@ -48,7 +48,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run test
-      - slack/notify-on-failure
+      - slack/notify-on-failure:
           only_for_branches: master
 
   lint:
@@ -64,7 +64,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run deploy -- --existing-output-dir=~/project/storybook-static --ci
-      - slack/notify-on-failure
+      - slack/notify-on-failure:
           only_for_branches: master
 
   release:
@@ -73,7 +73,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npx semantic-release
-      - slack/notify-on-failure
+      - slack/notify-on-failure:
           only_for_branches: master
 
   pre_release:
@@ -83,7 +83,7 @@ jobs:
           at: ~/
       # manually set PR shell variables to empty to build pull request
       - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
-      - slack/notify-on-failure
+      - slack/notify-on-failure:
           only_for_branches: master
 
 workflows:
