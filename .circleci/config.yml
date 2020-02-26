@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  slack: circleci/slack@3.4.1
+  slack: circleci/slack@3.4.2
 
 docker: &DOCKER_NODE
   docker:
@@ -24,6 +24,7 @@ jobs:
           paths:
             - project
       - slack/notify-on-failure
+          only_for_branches: master
 
   build:
     <<: *DOCKER_NODE
@@ -39,6 +40,7 @@ jobs:
             - project/pkg
             - project/storybook-static
       - slack/notify-on-failure
+          only_for_branches: master
 
   unit:
     <<: *DOCKER_NODE
@@ -47,6 +49,7 @@ jobs:
           at: ~/
       - run: npm run test
       - slack/notify-on-failure
+          only_for_branches: master
 
   lint:
     <<: *DOCKER_NODE
@@ -62,6 +65,7 @@ jobs:
           at: ~/
       - run: npm run deploy -- --existing-output-dir=~/project/storybook-static --ci
       - slack/notify-on-failure
+          only_for_branches: master
 
   release:
     <<: *DOCKER_NODE
@@ -70,6 +74,7 @@ jobs:
           at: ~/
       - run: npx semantic-release
       - slack/notify-on-failure
+          only_for_branches: master
 
   pre_release:
     <<: *DOCKER_NODE
@@ -79,6 +84,7 @@ jobs:
       # manually set PR shell variables to empty to build pull request
       - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
       - slack/notify-on-failure
+          only_for_branches: master
 
 workflows:
   version: 2
