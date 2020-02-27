@@ -385,7 +385,7 @@ export default {
       "40": "40px"
     },
 
-    rotate: {
+    customRotate: {
       "90": "90deg",
       "270": "270deg"
     },

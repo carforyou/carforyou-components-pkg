@@ -130,6 +130,10 @@ Object {
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
     },
+    "customRotate": Object {
+      "270": "270deg",
+      "90": "90deg",
+    },
     "fontFamily": Object {
       "sans": Array [
         "Muli, Century Gothic, Lucida Grande, Sans-Serif",
@@ -249,10 +253,6 @@ Object {
       "8": "8px",
       "auto": "auto",
       "px": "1px",
-    },
-    "rotate": Object {
-      "270": "270deg",
-      "90": "90deg",
     },
     "screens": Object {
       "lg": "1024px",

@@ -76,7 +76,7 @@ function Dropdown<T>({
             placeholder,
             disabled,
             className: classNames(
-              "w-12/12 cursor-pointer transition-2 focus:outline-none",
+              "w-12/12 cursor-pointer transition duration-200 focus:outline-none",
               { "button-filter-input_disabled": disabled }
             )
           }}
