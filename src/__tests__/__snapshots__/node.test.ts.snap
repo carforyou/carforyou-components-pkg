@@ -6,7 +6,6 @@ Object {
   "plugins": Array [
     [Function],
     [Function],
-    [Function],
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -415,6 +414,9 @@ Object {
       "hover",
       "focus",
     ],
+    "gap": Array [
+      "responsive",
+    ],
     "height": Array [
       "responsive",
     ],
@@ -483,6 +485,16 @@ Object {
     "resize": Array [
       "responsive",
     ],
+    "scale": Array [
+      "responsive",
+      "hover",
+      "focus",
+    ],
+    "skew": Array [
+      "responsive",
+      "hover",
+      "focus",
+    ],
     "stroke": Array [
       "responsive",
     ],
@@ -504,6 +516,20 @@ Object {
     ],
     "textTransform": Array [
       "responsive",
+    ],
+    "transitionDuration": Array [
+      "responsive",
+    ],
+    "transitionProperty": Array [
+      "responsive",
+    ],
+    "transitionTimingFunction": Array [
+      "responsive",
+    ],
+    "translate": Array [
+      "responsive",
+      "hover",
+      "focus",
     ],
     "userSelect": Array [
       "responsive",
