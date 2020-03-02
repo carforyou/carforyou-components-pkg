@@ -63,7 +63,7 @@ export const Pagination: StatelessComponent<Props> = ({
             <ArrowDownM
               height="28"
               width="28"
-              className="inline-block rotate-90"
+              className="inline-block custommRotate-90"
             />
             {previousLabel}
           </>
@@ -74,7 +74,7 @@ export const Pagination: StatelessComponent<Props> = ({
             <ArrowDownM
               height="28"
               width="28"
-              className="inline-block align-middle rotate-270"
+              className="inline-block align-middle custommRotate-270"
             />
           </>
         }

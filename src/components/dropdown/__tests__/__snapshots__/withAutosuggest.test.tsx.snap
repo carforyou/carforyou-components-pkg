@@ -19,7 +19,7 @@ exports[`<DropdownWithAutosuggest> when closed renders the input 1`] = `
 exports[`<DropdownWithAutosuggest> when opened highlights elements on exact match when typing 1`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 cursor-pointer px-20 py-10"
+  class="hover:bg-grey-bright transition duration-200 cursor-pointer px-20 py-10"
   data-testid="One"
   id="downshift-3-item-0"
   role="option"
@@ -37,7 +37,7 @@ exports[`<DropdownWithAutosuggest> when opened highlights elements on exact matc
 exports[`<DropdownWithAutosuggest> when opened marks the partial match when typing 1`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 cursor-pointer px-20 py-10"
+  class="hover:bg-grey-bright transition duration-200 cursor-pointer px-20 py-10"
   data-testid="One"
   id="downshift-2-item-0"
   role="option"
@@ -55,7 +55,7 @@ exports[`<DropdownWithAutosuggest> when opened marks the partial match when typi
 exports[`<DropdownWithAutosuggest> when opened renders all suggestions 1`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 cursor-pointer px-20 py-10"
+  class="hover:bg-grey-bright transition duration-200 cursor-pointer px-20 py-10"
   data-testid="One"
   id="downshift-1-item-0"
   role="option"
@@ -67,7 +67,7 @@ exports[`<DropdownWithAutosuggest> when opened renders all suggestions 1`] = `
 exports[`<DropdownWithAutosuggest> when opened renders all suggestions 2`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 cursor-pointer px-20 py-10"
+  class="hover:bg-grey-bright transition duration-200 cursor-pointer px-20 py-10"
   data-testid="Two"
   id="downshift-1-item-1"
   role="option"
@@ -79,7 +79,7 @@ exports[`<DropdownWithAutosuggest> when opened renders all suggestions 2`] = `
 exports[`<DropdownWithAutosuggest> when opened renders all suggestions 3`] = `
 <li
   aria-selected="false"
-  class="hover:bg-grey-bright transition-2 cursor-pointer px-20 py-10"
+  class="hover:bg-grey-bright transition duration-200 cursor-pointer px-20 py-10"
   data-testid="Three"
   id="downshift-1-item-2"
   role="option"

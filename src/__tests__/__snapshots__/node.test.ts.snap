@@ -6,7 +6,6 @@ Object {
   "plugins": Array [
     [Function],
     [Function],
-    [Function],
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -131,6 +130,10 @@ Object {
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
     },
+    "customRotate": Object {
+      "270": "270deg",
+      "90": "90deg",
+    },
     "fontFamily": Object {
       "sans": Array [
         "Muli, Century Gothic, Lucida Grande, Sans-Serif",
@@ -250,10 +253,6 @@ Object {
       "8": "8px",
       "auto": "auto",
       "px": "1px",
-    },
-    "rotate": Object {
-      "270": "270deg",
-      "90": "90deg",
     },
     "screens": Object {
       "lg": "1024px",
@@ -415,6 +414,9 @@ Object {
       "hover",
       "focus",
     ],
+    "gap": Array [
+      "responsive",
+    ],
     "height": Array [
       "responsive",
     ],
@@ -483,6 +485,16 @@ Object {
     "resize": Array [
       "responsive",
     ],
+    "scale": Array [
+      "responsive",
+      "hover",
+      "focus",
+    ],
+    "skew": Array [
+      "responsive",
+      "hover",
+      "focus",
+    ],
     "stroke": Array [
       "responsive",
     ],
@@ -504,6 +516,20 @@ Object {
     ],
     "textTransform": Array [
       "responsive",
+    ],
+    "transitionDuration": Array [
+      "responsive",
+    ],
+    "transitionProperty": Array [
+      "responsive",
+    ],
+    "transitionTimingFunction": Array [
+      "responsive",
+    ],
+    "translate": Array [
+      "responsive",
+      "hover",
+      "focus",
     ],
     "userSelect": Array [
       "responsive",
