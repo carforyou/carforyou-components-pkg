@@ -1,8 +1,9 @@
 const tailwindTransformPlugin = ({ addUtilities, config }) => {
-  const transform = config("theme.rotate")
+  const transform = config("theme.customRotate")
+
   const transformUtilities = Object.keys(transform).map(name => {
     return {
-      [`.rotate-${name}`]: {
+      [`.customcustommRotate-${name}`]: {
         transform: `rotate(${transform[name]})`
       }
     }
