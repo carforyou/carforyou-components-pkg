@@ -114,7 +114,7 @@ class Menu<T> extends Component<Props<T>> {
                 key: item.key || item.value || `item-${index}`,
                 item,
                 className: classNames(
-                  "hover:bg-grey-bright transition-2 cursor-pointer",
+                  "hover:bg-grey-bright transition duration-200 cursor-pointer",
                   {
                     "font-bold text-teal": isSelected,
                     "bg-grey-bright": index === highlightedIndex,

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   @apply h-full;
   line-height: 1.15;
 }
@@ -15,7 +16,8 @@ a {
   @apply no-underline;
 }
 
-img, svg {
+img,
+svg {
   @apply inline;
 }
 
@@ -24,7 +26,10 @@ textarea:focus {
   @apply border-grey-dark-opaque border-l outline-none;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   @apply font-bold;
 }
 
@@ -38,7 +43,7 @@ h1, h2, h3, h4 {
 
 @screen md {
   a {
-    @apply opacity-100 transition-2;
+    @apply opacity-100 transition duration-200;
   }
   a:hover {
     @apply opacity-60;
