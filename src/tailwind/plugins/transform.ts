@@ -4,7 +4,7 @@ const tailwindTransformPlugin = ({ addUtilities, config }) => {
   const transformUtilities = Object.keys(transform).map(name => {
     return {
       [`.customRotate-${name}`]: {
-        transform: `customRotate(${transform[name]})`
+        transform: `rotate(${transform[name]})`
       }
     }
   })
