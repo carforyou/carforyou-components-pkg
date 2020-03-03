@@ -131,7 +131,9 @@ Object {
       "white": "#FFFFFF",
     },
     "customRotate": Object {
+      "180": "180deg",
       "270": "270deg",
+      "360": "360deg",
       "90": "90deg",
     },
     "fontFamily": Object {
