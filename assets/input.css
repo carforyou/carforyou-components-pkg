@@ -1,17 +1,17 @@
 input {
-  @apply text-grey-dark 
+  @apply text-grey-dark;
 }
 
-input[type=text] {
+input[type="text"] {
   @apply px-10 py-14 border border-grey-2 rounded-2;
 }
 
-input[type=text]:focus {
+input[type="text"]:focus {
   @apply border-grey-4 outline-none;
 }
 
-input[type=text]:hover {
-  @apply border-grey-3 transition-2;
+input[type="text"]:hover {
+  @apply border-grey-3 transition duration-200;
 }
 
 input::-webkit-input-placeholder {
@@ -27,17 +27,17 @@ input:placeholder-shown {
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-reveal */
 ::-ms-clear,
 ::-ms-reveal {
-  width : 0;
+  width: 0;
   height: 0;
 }
 
 /* hide step arrows on number inputs */
-input[type=number] {
-  -moz-appearance:textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
