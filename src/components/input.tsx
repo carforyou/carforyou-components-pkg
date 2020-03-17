@@ -4,6 +4,7 @@ interface Props {
   name: string
   value: string | number
   placeholder?: string
+  disabled?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: ChangeEvent<any>) => void
   onBlur: (e: FocusEvent<any>) => void
@@ -55,30 +56,33 @@ function Input({
   name,
   value,
   placeholder,
+  disabled = false,
   mode,
   onChange,
   onBlur
 }: Props): ReactElement {
   return (
-    <input
-      id={name}
-      name={name}
-      type="text"
-      value={value || ""}
-      placeholder={placeholder || ""}
-      className="w-12/12"
-      inputMode={mode !== "text" ? mode : null}
-      onKeyDown={
-        mode === "numeric"
-          ? validateNumber
-          : mode === "decimal"
-          ? validateDecimal
-          : null
-      }
-      onChange={onChange}
-      onBlur={onBlur}
-      data-testid={name}
-    />
+        <input
+          // ref={error ? ref : null}
+          id={name}
+          name={name}
+          type="text"
+          value={value || ""}
+          placeholder={placeholder || ""}
+          className="w-12/12"
+          inputMode={mode !== "text" ? mode : null}
+          onKeyDown={
+            mode === "numeric"
+              ? validateNumber
+              : mode === "decimal"
+              ? validateDecimal
+              : null
+          }
+          onChange={onChange}
+          onBlur={onBlur}
+          data-testid={name}
+          disabled={disabled}
+        />
   )
 }
 

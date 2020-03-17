@@ -14,6 +14,12 @@ input[type="text"]:hover {
   @apply border-grey-dark transition duration-200;
 }
 
+input[type="text"]:disabled,
+input[type="text"]:disabled:hover {
+  @apply bg-grey-bright;
+  @apply border-grey-2 cursor-not-allowed;
+}
+
 input::-webkit-input-placeholder {
   opacity: 1;
 }
