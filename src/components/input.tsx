@@ -3,6 +3,7 @@ import React, { ChangeEvent, FocusEvent, ReactElement, RefObject } from "react"
 interface Props {
   name: string
   value: string | number
+  placeholder?: string
   mode: "text" | "numeric" | "decimal"
   onChange: (e: ChangeEvent<any>) => void
   onBlur: (e: FocusEvent<any>) => void
@@ -53,6 +54,7 @@ const validateDecimal = e => {
 function Input({
   name,
   value,
+  placeholder,
   mode,
   onChange,
   onBlur
@@ -63,6 +65,7 @@ function Input({
       name={name}
       type="text"
       value={value || ""}
+      placeholder={placeholder || ""}
       className="w-12/12"
       inputMode={mode !== "text" ? mode : null}
       onKeyDown={
