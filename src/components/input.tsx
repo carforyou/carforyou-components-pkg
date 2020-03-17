@@ -1,9 +1,11 @@
 import React, { ChangeEvent, FocusEvent, ReactElement, RefObject } from "react"
+import WithValidationError from "./fieldHelpers/withValidationError"
 
 interface Props {
   name: string
   value: string | number
   placeholder?: string
+  errors?: string[]
   disabled?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: ChangeEvent<any>) => void
@@ -56,12 +58,15 @@ function Input({
   name,
   value,
   placeholder,
+  errors,
   disabled = false,
   mode,
   onChange,
   onBlur
 }: Props): ReactElement {
   return (
+    <WithValidationError errors={errors || []}>
+      {error => (
         <input
           // ref={error ? ref : null}
           id={name}
@@ -81,8 +86,11 @@ function Input({
           onChange={onChange}
           onBlur={onBlur}
           data-testid={name}
+          data-valid={!error}
           disabled={disabled}
         />
+      )}
+    </WithValidationError>
   )
 }
 

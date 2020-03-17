@@ -20,6 +20,10 @@ input[type="text"]:disabled:hover {
   @apply border-grey-2 cursor-not-allowed;
 }
 
+input[type="text"][data-valid="false"] {
+  @apply border-salmon;
+}
+
 input::-webkit-input-placeholder {
   opacity: 1;
 }

@@ -93,3 +93,77 @@ storiesOf("Input / Appearance", module)
       )
     })
   )
+  .add(
+    "With error message",
+    wInfo(`
+    Description
+    ~~~
+    <Input
+      name="${name}"
+      value="${initialValue}"
+      placeholder="${placeholder}"
+      errors=["${errorMessage}"]
+      mode="text"
+      onChange={/* event handler */}
+      onBlur={/* event handler */}
+    />
+    ~~~
+    `)(({ value, setValue }) => {
+      return (
+        <div className="mx-30 mb-40">
+          <div className="text-2xl mb-20">Example</div>
+          <div className="w-12/12 md:w-3/12">
+            <Input
+              name={name}
+              mode="text"
+              placeholder={placeholder}
+              value={value}
+              errors={[errorMessage]}
+              onChange={e => {
+                setValue(e.target.value)
+                onChange(e)
+              }}
+              onBlur={onBlur}
+            />
+          </div>
+        </div>
+      )
+    })
+  )
+  .add(
+    "With multiple error messages",
+    wInfo(`
+    Description
+    ~~~
+    <Input
+      name="${name}"
+      value="${initialValue}"
+      placeholder="${placeholder}"
+      errors={${JSON.stringify(errorMessages)}}
+      mode="text"
+      onChange={/* event handler */}
+      onBlur={/* event handler */}
+    />
+    ~~~
+    `)(({ value, setValue }) => {
+      return (
+        <div className="mx-30 mb-40">
+          <div className="text-2xl mb-20">Example</div>
+          <div className="w-12/12 md:w-3/12">
+            <Input
+              name={name}
+              mode="text"
+              placeholder={placeholder}
+              value={value}
+              errors={errorMessages}
+              onChange={e => {
+                setValue(e.target.value)
+                onChange(e)
+              }}
+              onBlur={onBlur}
+            />
+          </div>
+        </div>
+      )
+    })
+  )
