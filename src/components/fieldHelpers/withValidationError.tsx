@@ -1,25 +1,28 @@
 import React, { FC, ReactChild } from "react"
+import classNames from "classnames"
 
 interface Props {
-  errors?: string[]
+  error?: string
   children: (error: boolean) => ReactChild
 }
 
-const WithValidationError: FC<Props> = ({ errors, children }) => {
+const WithValidationError: FC<Props> = ({ error, children }) => {
   return (
-    <>
-      {children(!!errors && errors.length > 0)}
-      <div className="text-sm text-salmon h-19">
-        {errors.length === 1 && errors[0]}
-        {errors.length > 1 ? (
-          <ul>
-            {errors.map((message, index) => (
-              <li key={`error-${index}`}>{message}</li>
-            ))}
-          </ul>
-        ) : null}
+    <div className="relative overflow-auto">
+      {error && (
+        <div className="text-sm text-salmon absolute bottom-validationError validation__errorMessage">
+          {error}
+        </div>
+      )}
+      <div
+        className={classNames("validation__inputContainer", {
+          "mb-20": !!error
+        })}
+      >
+        {children(!!error)}
       </div>
-    </>
+      <div />
+    </div>
   )
 }
 
