@@ -164,11 +164,18 @@ Object {
       "screen": "100vh",
       "scrollbar": "70px",
     },
+    "inset": Object {
+      "0": 0,
+      "auto": "auto",
+      "half": "50%",
+      "requiredIndicator": "5px",
+    },
     "letterSpacing": Object {
       "normal": "0",
       "wide": "1px",
     },
     "lineHeight": Object {
+      "label": "24px",
       "lg": 2.5,
       "md": 2,
       "none": 1,
