@@ -10,7 +10,8 @@ const generateDescription = ({
   name,
   value,
   placeholder,
-  label,
+  labelText,
+  renderLabelPopup,
   errors,
   disabled,
   hasClearButton,
@@ -26,7 +27,12 @@ ${name ? `    name="${name}"` : ""}
 ${value || value === "" ? `    value="${value}"` : ""}
 ${mode ? `    mode="${mode}"` : ""}
 ${placeholder ? `    placeholder="${placeholder}"` : ""}
-${label ? `    label={${JSON.stringify(label)}}` : ""}
+${labelText ? `    labelText="${labelText}"` : ""}
+${
+  renderLabelPopup
+    ? `    renderLabelPopup={/* render prop with popup content */}`
+    : ""
+}
 ${hint ? `    hint="${hint}"` : ""}
 ${errors ? `    errors={${JSON.stringify(errors)}}` : ""}
 ${disabled ? "    disabled" : ""}
@@ -42,7 +48,8 @@ ${required ? "    required" : ""}
 const generateStoryFunction = ({
   name,
   placeholder,
-  label,
+  labelText,
+  renderLabelPopup,
   errors,
   disabled,
   hasClearButton,
@@ -61,7 +68,8 @@ const generateStoryFunction = ({
           mode={mode as "text" | "numeric" | "decimal"}
           value={value}
           placeholder={placeholder}
-          label={label}
+          labelText={labelText}
+          renderLabelPopup={renderLabelPopup}
           errors={errors}
           disabled={disabled}
           hasClearButton={hasClearButton}
@@ -82,7 +90,8 @@ const generateStory = ({
   name = "testInput",
   value = null,
   placeholder = null,
-  label = null,
+  labelText = null,
+  renderLabelPopup = null,
   errors = null,
   disabled = null,
   hasClearButton = null,
@@ -96,7 +105,8 @@ const generateStory = ({
   const common = {
     name,
     placeholder,
-    label,
+    labelText,
+    renderLabelPopup,
     errors,
     disabled,
     required,

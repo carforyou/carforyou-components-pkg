@@ -9,7 +9,8 @@ interface Props {
   name: string
   value: string | number
   placeholder?: string
-  label?: { text: string; popup?: () => ReactElement }
+  labelText?: string
+  renderLabelPopup?: () => JSX.Element
   errors?: string[]
   hint?: string
   disabled?: boolean
@@ -68,7 +69,8 @@ function Input({
   name,
   value,
   placeholder,
-  label,
+  labelText,
+  renderLabelPopup: labelPopup,
   errors,
   hint,
   disabled = false,
@@ -140,12 +142,13 @@ function Input({
       <WithValidationError errors={errors || []}>
         {error => (
           <>
-            {label ? (
+            {labelText ? (
               <WithLabel
                 name={name}
                 error={error}
                 required={required}
-                {...label}
+                text={labelText}
+                rendePopup={labelPopup}
               >
                 {renderField(error)}
               </WithLabel>

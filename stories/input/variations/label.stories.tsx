@@ -13,7 +13,7 @@ storiesOf("Input / Variations / Label", module)
     "Standard",
     generateStory({
       value: initialValue,
-      label: { text: "Label" }
+      labelText: "Label"
     })
   )
   .add(
@@ -22,7 +22,7 @@ storiesOf("Input / Variations / Label", module)
       value: initialValue,
       hasClearButton: true,
       placeholder: "Type something",
-      label: { text: "Label" }
+      labelText: "Label"
     })
   )
   .add(
@@ -30,7 +30,7 @@ storiesOf("Input / Variations / Label", module)
     generateStory({
       value: initialValue,
       placeholder: "Placeholder",
-      label: { text: "Label" }
+      labelText: "Label"
     })
   )
   .add(
@@ -38,14 +38,14 @@ storiesOf("Input / Variations / Label", module)
     generateStory({
       value: initialValue,
       hint: "Hint text",
-      label: { text: "Label" }
+      labelText: "Label"
     })
   )
   .add(
     "Required indicator",
     generateStory({
       value: initialValue,
-      label: { text: "Label" },
+      labelText: "Label",
       required: true
     })
   )
@@ -53,7 +53,8 @@ storiesOf("Input / Variations / Label", module)
     "Popup",
     generateStory({
       value: initialValue,
-      label: { text: "Label", popup: () => <div>Popup Content</div> }
+      labelText: "Label",
+      renderLabelPopup: () => <div>Popup Content</div>
     })
   )
   .add(
@@ -61,6 +62,7 @@ storiesOf("Input / Variations / Label", module)
     generateStory({
       value: initialValue,
       required: true,
-      label: { text: "Label", popup: () => <div>Popup Content</div> }
+      labelText: "Label",
+      renderLabelPopup: () => <div>Popup Content</div>
     })
   )
