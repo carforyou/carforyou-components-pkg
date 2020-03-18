@@ -111,7 +111,7 @@ function Input({
       placeholder={placeholder || ""}
       className={classNames("w-12/12", {
         "input--withClearButton": hasClearButton,
-        "input--withFloatingLabel": labelProps.floating
+        floatingLabel__input: labelProps.floating
       })}
       inputMode={mode !== "text" ? mode : null}
       onKeyDown={

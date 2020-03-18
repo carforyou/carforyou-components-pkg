@@ -1,5 +1,4 @@
 import React, { FC } from "react"
-import classNames from "classnames"
 
 interface Props {
   name: string
@@ -16,13 +15,7 @@ const WithFloatingLabel: FC<Props> = ({
   return (
     <label className="floatingLabel relative" htmlFor={name}>
       {children}
-      <span
-        className={classNames("label--floating", {
-          "text-salmon": error
-        })}
-      >
-        {text}
-      </span>
+      <span className="floatingLabel__label">{text}</span>
     </label>
   )
 }

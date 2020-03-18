@@ -35,27 +35,31 @@ input[type="text"][data-valid="false"] {
   @apply border-salmon;
 }
 
-input.input--withFloatingLabel {
+input.floatingLabel__input {
   @apply bg-transparent;
 }
 
-input.input--withFloatingLabel:focus {
+input.floatingLabel__input:focus {
   @apply pb-floatingLabelInputFocused;
 }
 
-.label--floating {
+.floatingLabel__label {
   @apply absolute text-grey-3 top-0;
   @apply left-floatingLabel transition duration-200;
 }
 
-.input--withFloatingLabel[data-valid="false"] ~ .label--floating {
+input.floatingLabel__input:focus ~ .floatingLabel__label {
+  @apply text-teal
+}
+
+.floatingLabel__input[data-valid="false"] ~ .floatingLabel__label {
   @apply text-salmon
 }
 
-.input--withFloatingLabel:focus ~ .label--floating,
-.input--withFloatingLabel:disabled ~ .label--floating,
-.input--withFloatingLabel:valid ~ .label--floating,
-.validation__errorMessage ~ .validation__inputContainer > .floatingLabel >  .input--withFloatingLabel:invalid ~ .label--floating {
+.floatingLabel__input:focus ~ .floatingLabel__label,
+.floatingLabel__input:disabled ~ .floatingLabel__label,
+.floatingLabel__input:valid ~ .floatingLabel__label,
+.validation__errorMessage ~ .validation__inputContainer > .floatingLabel >  .floatingLabel__input:invalid ~ .floatingLabel__label {
   @apply text-xs -top-floatingLabel;
 }
 
