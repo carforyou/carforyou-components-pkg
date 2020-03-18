@@ -20,3 +20,10 @@ storiesOf("Input / Variations", module)
       placeholder: "Placeholder"
     })
   )
+  .add(
+    "With hint",
+    generateStory({
+      value: initialValue,
+      hint: "Hint text"
+    })
+  )

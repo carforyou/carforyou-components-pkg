@@ -12,7 +12,8 @@ const generateDescription = ({
   placeholder,
   errors,
   disabled,
-  mode
+  mode,
+  hint
 }) => {
   return `
   Description
@@ -22,6 +23,7 @@ ${name ? `    name="${name}"` : ""}
 ${value || value === "" ? `    value="${value}"` : ""}
 ${mode ? `    mode="${mode}"` : ""}
 ${placeholder ? `    placeholder="${placeholder}"` : ""}
+${hint ? `    hint="${hint}"` : ""}
 ${errors ? `    errors={${JSON.stringify(errors)}}` : ""}
 ${disabled ? "    disabled" : ""}
     onChange={/* event handler */}
@@ -37,6 +39,7 @@ const generateStoryFunction = ({
   errors,
   disabled,
   mode,
+  hint,
   onBlur,
   onChange
 }) => ({ value, setValue }) => {
@@ -51,6 +54,7 @@ const generateStoryFunction = ({
           placeholder={placeholder}
           errors={errors}
           disabled={disabled}
+          hint={hint}
           onChange={e => {
             setValue(e.target.value)
             onChange()(e)
@@ -68,6 +72,7 @@ const generateStory = ({
   placeholder = null,
   errors = null,
   disabled = null,
+  hint = null,
   mode = "text"
 }) => {
   const onBlur = () => action("onBlur")
@@ -80,7 +85,8 @@ const generateStory = ({
       placeholder,
       errors,
       disabled,
-      mode
+      mode,
+      hint
     })
   )(
     generateStoryFunction({
@@ -89,6 +95,7 @@ const generateStory = ({
       errors,
       disabled,
       mode,
+      hint,
       onBlur,
       onChange
     })

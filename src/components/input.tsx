@@ -1,4 +1,6 @@
 import React, { ChangeEvent, FocusEvent, ReactElement, RefObject } from "react"
+import classNames from "classnames"
+
 import WithValidationError from "./fieldHelpers/withValidationError"
 
 interface Props {
@@ -6,6 +8,7 @@ interface Props {
   value: string | number
   placeholder?: string
   errors?: string[]
+  hint?: string
   disabled?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: ChangeEvent<any>) => void
@@ -67,32 +70,45 @@ function Input({
   onBlur
 }: Props): ReactElement {
   return (
-    <WithValidationError errors={errors || []}>
-      {error => (
-        <input
-          ref={ref}
-          id={name}
-          name={name}
-          type="text"
-          value={value || ""}
-          placeholder={placeholder || ""}
-          className="w-12/12"
-          inputMode={mode !== "text" ? mode : null}
-          onKeyDown={
-            mode === "numeric"
-              ? validateNumber
-              : mode === "decimal"
-              ? validateDecimal
-              : null
-          }
-          onChange={onChange}
-          onBlur={onBlur}
-          data-testid={name}
-          data-valid={!error}
-          disabled={disabled}
-        />
-      )}
-    </WithValidationError>
+    <div className="w-12/12 focus-within:text-teal">
+      <WithValidationError errors={errors || []}>
+        {error => (
+          <>
+            <input
+              ref={ref}
+              id={name}
+              name={name}
+              type="text"
+              value={value || ""}
+              placeholder={placeholder || ""}
+              className="w-12/12"
+              inputMode={mode !== "text" ? mode : null}
+              onKeyDown={
+                mode === "numeric"
+                  ? validateNumber
+                  : mode === "decimal"
+                  ? validateDecimal
+                  : null
+              }
+              onChange={onChange}
+              onBlur={onBlur}
+              data-testid={name}
+              data-valid={!error}
+              disabled={disabled}
+            />
+            {hint ? (
+              <span
+                className={classNames("font-bold text-sm", {
+                  "text-salmon": error
+                })}
+              >
+                {hint}
+              </span>
+            ) : null}
+          </>
+        )}
+      </WithValidationError>
+    </div>
   )
 }
 
