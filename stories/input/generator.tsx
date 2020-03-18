@@ -10,6 +10,7 @@ const generateDescription = ({
   name,
   value,
   placeholder,
+  label,
   errors,
   disabled,
   hasClearButton,
@@ -24,6 +25,7 @@ ${name ? `    name="${name}"` : ""}
 ${value || value === "" ? `    value="${value}"` : ""}
 ${mode ? `    mode="${mode}"` : ""}
 ${placeholder ? `    placeholder="${placeholder}"` : ""}
+${label ? `    label="${label}"` : ""}
 ${hint ? `    hint="${hint}"` : ""}
 ${errors ? `    errors={${JSON.stringify(errors)}}` : ""}
 ${disabled ? "    disabled" : ""}
@@ -38,6 +40,7 @@ ${hasClearButton ? "    hasClearButton" : ""}
 const generateStoryFunction = ({
   name,
   placeholder,
+  label,
   errors,
   disabled,
   hasClearButton,
@@ -55,6 +58,7 @@ const generateStoryFunction = ({
           mode={mode as "text" | "numeric" | "decimal"}
           value={value}
           placeholder={placeholder}
+          label={label}
           errors={errors}
           disabled={disabled}
           hasClearButton={hasClearButton}
@@ -74,6 +78,7 @@ const generateStory = ({
   name = "testInput",
   value = null,
   placeholder = null,
+  label = null,
   errors = null,
   disabled = null,
   hasClearButton = null,
@@ -88,6 +93,7 @@ const generateStory = ({
       name,
       value,
       placeholder,
+      label,
       errors,
       disabled,
       hasClearButton,
@@ -98,6 +104,7 @@ const generateStory = ({
     generateStoryFunction({
       name,
       placeholder,
+      label,
       errors,
       disabled,
       hasClearButton,
