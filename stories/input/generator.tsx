@@ -26,7 +26,7 @@ ${name ? `    name="${name}"` : ""}
 ${value || value === "" ? `    value="${value}"` : ""}
 ${mode ? `    mode="${mode}"` : ""}
 ${placeholder ? `    placeholder="${placeholder}"` : ""}
-${label ? `    label="${label}"` : ""}
+${label ? `    label={${JSON.stringify(label)}}` : ""}
 ${hint ? `    hint="${hint}"` : ""}
 ${errors ? `    errors={${JSON.stringify(errors)}}` : ""}
 ${disabled ? "    disabled" : ""}

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FocusEvent, ReactElement, RefObject } from "react"
+import React, { FocusEvent, ReactElement, RefObject } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
@@ -9,7 +9,7 @@ interface Props {
   name: string
   value: string | number
   placeholder?: string
-  label?: string
+  label?: { text: string; popup?: () => ReactElement }
   errors?: string[]
   hint?: string
   disabled?: boolean
@@ -137,9 +137,9 @@ function Input({
             {label ? (
               <WithLabel
                 name={name}
-                text={label}
                 error={error}
                 required={required}
+                {...label}
               >
                 {renderField(error)}
               </WithLabel>
