@@ -168,6 +168,7 @@ Object {
       "0": 0,
       "auto": "auto",
       "half": "50%",
+      "modalClose": "10px",
       "requiredIndicator": "5px",
     },
     "letterSpacing": Object {
@@ -215,6 +216,7 @@ Object {
       "40": "40px",
       "5": "5px",
       "auto": "auto",
+      "labelPopupIcon": "3px",
       "px": "1px",
     },
     "maxHeight": Object {
@@ -318,6 +320,7 @@ Object {
       "9/12": "75%",
       "auto": "auto",
       "clearButton": "32px",
+      "modalLarge": "570px",
       "screen": "100vw",
       "scrollbar": "14px",
     },
@@ -325,6 +328,8 @@ Object {
       "auto": "auto",
       "clearButton": 10,
       "dropdownMenu": 20,
+      "modal": 98,
+      "modalClose": 10,
       "negative": -1,
     },
   },

@@ -1,5 +1,5 @@
 import React, { useState, ReactElement } from "react"
-import Modal from "../components/modal"
+import Modal from "../components/modal/index"
 
 const useModal = (modal: () => JSX.Element) => {
   const [isVisble, setVisible] = useState(false)
