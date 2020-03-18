@@ -11,7 +11,7 @@ interface Props {
   errors?: string[]
   hint?: string
   disabled?: boolean
-  clearable?: boolean
+  hasClearButton?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: { target: { value: string | number } }) => void
   onBlur: (e: FocusEvent<any>) => void
@@ -68,7 +68,7 @@ function Input({
   errors,
   hint,
   disabled = false,
-  clearable = false,
+  hasClearButton = false,
   mode,
   onChange,
   onBlur
@@ -81,7 +81,7 @@ function Input({
       type="text"
       value={value || ""}
       placeholder={placeholder || ""}
-      className={classNames("w-12/12", { withClearButton: clearable })}
+      className={classNames("w-12/12", { withClearButton: hasClearButton })}
       inputMode={mode !== "text" ? mode : null}
       onKeyDown={
         mode === "numeric"
@@ -103,7 +103,7 @@ function Input({
       <WithValidationError errors={errors || []}>
         {error => (
           <>
-            {clearable ? (
+            {hasClearButton ? (
               <WithClearButton
                 visible={!!value}
                 onClear={() => {
