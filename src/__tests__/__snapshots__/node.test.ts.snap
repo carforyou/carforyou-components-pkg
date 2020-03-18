@@ -159,6 +159,7 @@ Object {
     "height": Object {
       "40": "40px",
       "auto": "auto",
+      "clearButton": "32px",
       "full": "100%",
       "screen": "100vh",
       "scrollbar": "70px",
@@ -243,6 +244,7 @@ Object {
     "padding": Object {
       "0": "0",
       "10": "10px",
+      "13": "13px",
       "14": "14px",
       "15": "15px",
       "16": "16px",
@@ -308,11 +310,13 @@ Object {
       "8/12": "66.66667%",
       "9/12": "75%",
       "auto": "auto",
+      "clearButton": "32px",
       "screen": "100vw",
       "scrollbar": "14px",
     },
     "zIndex": Object {
       "auto": "auto",
+      "clearButton": 10,
       "dropdownMenu": 20,
       "negative": -1,
     },
@@ -509,6 +513,7 @@ Object {
       "responsive",
       "hover",
       "focus",
+      "focus-within",
     ],
     "textDecoration": Array [
       "responsive",
