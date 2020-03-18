@@ -259,7 +259,8 @@ export default {
       sm: 1.5,
       md: 2,
       lg: 2.5,
-      xl: 3
+      xl: 3,
+      label: "24px"
     },
 
     /*
