@@ -245,7 +245,8 @@ export default {
       auto: "auto",
       half: "50%",
       requiredIndicator: "5px",
-      modalClose: "10px"
+      modalClose: "10px",
+      validationError: "5px"
     },
 
     /*

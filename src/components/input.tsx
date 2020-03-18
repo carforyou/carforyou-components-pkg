@@ -11,7 +11,7 @@ interface Props {
   placeholder?: string
   labelText?: string
   renderLabelPopup?: () => JSX.Element
-  errors?: string[]
+  error?: string
   hint?: string
   disabled?: boolean
   hasClearButton?: boolean
@@ -71,7 +71,7 @@ function Input({
   placeholder,
   labelText,
   renderLabelPopup: labelPopup,
-  errors,
+  error,
   hint,
   disabled = false,
   hasClearButton = false,
@@ -80,7 +80,7 @@ function Input({
   onChange,
   onBlur
 }: Props): ReactElement {
-  const renderInput = error => (
+  const renderInput = hasError => (
     <input
       ref={ref}
       id={name}
@@ -102,13 +102,13 @@ function Input({
       onChange={onChange}
       onBlur={onBlur}
       data-testid={name}
-      data-valid={!error}
+      data-valid={!hasError}
       disabled={disabled}
       required={required}
     />
   )
 
-  const renderField = error =>
+  const renderField = hasError =>
     hasClearButton ? (
       <WithClearButton
         visible={!!value}
@@ -116,17 +116,17 @@ function Input({
           onChange({ target: { value: "" } })
         }}
       >
-        {renderInput(error)}
+        {renderInput(hasError)}
       </WithClearButton>
     ) : (
-      renderInput(error)
+      renderInput(hasError)
     )
 
-  const renderHint = error =>
+  const renderHint = hasError =>
     hint ? (
       <span
         className={classNames("font-bold text-sm", {
-          "text-salmon": error
+          "text-salmon": hasError
         })}
       >
         {hint}
@@ -135,23 +135,23 @@ function Input({
 
   return (
     <div className="w-12/12 focus-within:text-teal">
-      <WithValidationError errors={errors || []}>
-        {error => (
+      <WithValidationError error={error}>
+        {hasError => (
           <>
             {labelText ? (
               <WithLabel
                 name={name}
-                error={error}
+                error={hasError}
                 required={required}
                 text={labelText}
                 rendePopup={labelPopup}
               >
-                {renderField(error)}
+                {renderField(hasError)}
               </WithLabel>
             ) : (
-              renderField(error)
+              renderField(hasError)
             )}
-            {renderHint(error)}
+            {renderHint(hasError)}
           </>
         )}
       </WithValidationError>
