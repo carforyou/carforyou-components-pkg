@@ -170,6 +170,7 @@ Object {
       "half": "50%",
       "modalClose": "10px",
       "requiredIndicator": "5px",
+      "validationError": "5px",
     },
     "letterSpacing": Object {
       "normal": "0",
