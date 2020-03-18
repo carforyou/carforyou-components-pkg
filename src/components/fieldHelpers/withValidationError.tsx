@@ -8,7 +8,7 @@ interface Props {
 
 const WithValidationError: FC<Props> = ({ error, children }) => {
   return (
-    <div className="relative overflow-auto">
+    <div className="relative pb-px">
       {error && (
         <div className="text-sm text-salmon absolute bottom-validationError validation__errorMessage">
           {error}

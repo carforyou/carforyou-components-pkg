@@ -24,13 +24,6 @@ storiesOf("Input / Appearance", module)
     "With error message",
     generateStory({
       value: initialValue,
-      errors: ["Error message"]
-    })
-  )
-  .add(
-    "With multiple error messages",
-    generateStory({
-      value: initialValue,
-      errors: ["Error message 1", "Error message 2"]
+      error: "Error message"
     })
   )

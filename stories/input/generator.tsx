@@ -12,7 +12,7 @@ const generateDescription = ({
   placeholder,
   labelText,
   renderLabelPopup,
-  errors,
+  error,
   disabled,
   hasClearButton,
   required,
@@ -34,7 +34,7 @@ ${
     : ""
 }
 ${hint ? `    hint="${hint}"` : ""}
-${errors ? `    errors={${JSON.stringify(errors)}}` : ""}
+${error ? `    errors="${error}"` : ""}
 ${disabled ? "    disabled" : ""}
 ${hasClearButton ? "    hasClearButton" : ""}
 ${required ? "    required" : ""}
@@ -50,7 +50,7 @@ const generateStoryFunction = ({
   placeholder,
   labelText,
   renderLabelPopup,
-  errors,
+  error,
   disabled,
   hasClearButton,
   required,
@@ -70,7 +70,7 @@ const generateStoryFunction = ({
           placeholder={placeholder}
           labelText={labelText}
           renderLabelPopup={renderLabelPopup}
-          errors={errors}
+          error={error}
           disabled={disabled}
           hasClearButton={hasClearButton}
           required={required}
@@ -92,7 +92,7 @@ const generateStory = ({
   placeholder = null,
   labelText = null,
   renderLabelPopup = null,
-  errors = null,
+  error = null,
   disabled = null,
   hasClearButton = null,
   required = null,
@@ -107,7 +107,7 @@ const generateStory = ({
     placeholder,
     labelText,
     renderLabelPopup,
-    errors,
+    error,
     disabled,
     required,
     hasClearButton,
