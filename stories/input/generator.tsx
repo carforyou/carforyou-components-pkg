@@ -94,19 +94,20 @@ const generateStory = ({
     labelText,
     error,
     disabled,
-    required,
     hasClearButton,
     mode,
     hint
   }
 
-  const labelProps = renderLabelPopup
-    ? {
-        renderLabelPopup
-      }
-    : floatingLabel
-    ? { floatingLabel }
-    : {}
+  const labelProps =
+    renderLabelPopup || required
+      ? {
+          renderLabelPopup,
+          required
+        }
+      : floatingLabel
+      ? { floatingLabel }
+      : {}
 
   return wInfo(
     generateDescription({

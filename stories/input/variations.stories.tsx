@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/react"
 
 import InputDecorator from "./decorator"
 import generateStory from "./generator"
+import Input from "../../src/components/input"
 
 const initialValue = ""
 

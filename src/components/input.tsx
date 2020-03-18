@@ -14,7 +14,6 @@ interface InputProps {
   hint?: string
   disabled?: boolean
   hasClearButton?: boolean
-  required?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: { target: { value: string | number } }) => void
   onBlur: (e: FocusEvent<any>) => void
@@ -24,6 +23,7 @@ interface InputProps {
 interface PopupLabelProps extends InputProps {
   labelText?: string
   renderLabelPopup?: () => JSX.Element
+  required?: boolean
 }
 
 interface FloatingLabelProps extends InputProps {
@@ -85,17 +85,18 @@ function Input({
   hint,
   disabled = false,
   hasClearButton = false,
-  required = false,
   mode,
   onChange,
   onBlur,
   ...rest
 }: Props): ReactElement {
+  const required =
+    "floatingLabel" in rest || ("required" in rest ? rest.required : null)
   const labelProps =
-    "renderLabelPopup" in rest
-      ? { renderPopup: rest.renderLabelPopup, required }
-      : "floatingLabel" in rest
+    "floatingLabel" in rest
       ? { floating: rest.floatingLabel }
+      : "renderLabelPopup" in rest || "required" in rest
+      ? { renderPopup: rest.renderLabelPopup, required }
       : {}
 
   const LabelWrapper = labelProps.floating ? WithFloatingLabel : WithLabel
@@ -126,7 +127,7 @@ function Input({
       data-testid={name}
       data-valid={!hasError}
       disabled={disabled}
-      required={required || labelProps.floating}
+      required={required}
     />
   )
 
