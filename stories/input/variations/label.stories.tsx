@@ -1,3 +1,5 @@
+import React from "react"
+
 import { storiesOf } from "@storybook/react"
 
 import InputDecorator from "../decorator"
@@ -11,7 +13,7 @@ storiesOf("Input / Variations / Label", module)
     "Standard",
     generateStory({
       value: initialValue,
-      label: "Label"
+      labelText: "Label"
     })
   )
   .add(
@@ -20,7 +22,7 @@ storiesOf("Input / Variations / Label", module)
       value: initialValue,
       hasClearButton: true,
       placeholder: "Type something",
-      label: "Label"
+      labelText: "Label"
     })
   )
   .add(
@@ -28,7 +30,7 @@ storiesOf("Input / Variations / Label", module)
     generateStory({
       value: initialValue,
       placeholder: "Placeholder",
-      label: "Label"
+      labelText: "Label"
     })
   )
   .add(
@@ -36,14 +38,31 @@ storiesOf("Input / Variations / Label", module)
     generateStory({
       value: initialValue,
       hint: "Hint text",
-      label: "Label"
+      labelText: "Label"
     })
   )
   .add(
     "Required indicator",
     generateStory({
       value: initialValue,
-      label: "Label",
+      labelText: "Label",
       required: true
+    })
+  )
+  .add(
+    "Popup",
+    generateStory({
+      value: initialValue,
+      labelText: "Label",
+      renderLabelPopup: () => <div>Popup Content</div>
+    })
+  )
+  .add(
+    "Required with Popup",
+    generateStory({
+      value: initialValue,
+      required: true,
+      labelText: "Label",
+      renderLabelPopup: () => <div>Popup Content</div>
     })
   )

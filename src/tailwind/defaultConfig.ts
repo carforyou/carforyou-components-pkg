@@ -303,7 +303,8 @@ export default {
       "20": "20px",
       "25": "25px",
       "30": "30px",
-      "40": "40px"
+      "40": "40px",
+      labelPopupIcon: "3px"
     },
 
     /*

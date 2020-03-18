@@ -216,6 +216,7 @@ Object {
       "40": "40px",
       "5": "5px",
       "auto": "auto",
+      "labelPopupIcon": "3px",
       "px": "1px",
     },
     "maxHeight": Object {
