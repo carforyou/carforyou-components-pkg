@@ -224,6 +224,7 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
+      clearButton: "32px",
       "40": "40px"
     },
 
@@ -278,7 +279,8 @@ export default {
       sm: 1.5,
       md: 2,
       lg: 2.5,
-      xl: 3
+      xl: 3,
+      label: "24px"
     },
 
     /*
@@ -301,7 +303,8 @@ export default {
       "20": "20px",
       "25": "25px",
       "30": "30px",
-      "40": "40px"
+      "40": "40px",
+      labelPopupIcon: "3px"
     },
 
     /*
@@ -396,6 +399,7 @@ export default {
       "5": "5px",
       "8": "8px",
       "10": "10px",
+      "13": "13px",
       "14": "14px",
       "15": "15px",
       "16": "16px",
@@ -466,6 +470,7 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1,
+      clearButton: 10,
       modalClose: 10,
       dropdownMenu: 20,
       modal: 98
@@ -549,7 +554,7 @@ export default {
     stroke: ["responsive"],
     tableLayout: ["responsive"],
     textAlign: ["responsive"],
-    textColor: ["responsive", "hover", "focus"],
+    textColor: ["responsive", "hover", "focus", "focus-within"],
     textDecoration: ["responsive", "hover", "focus"],
     textTransform: ["responsive"],
     userSelect: ["responsive"],

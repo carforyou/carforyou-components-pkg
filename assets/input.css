@@ -2,16 +2,37 @@ input {
   @apply text-grey-dark;
 }
 
+input[type="number"],
 input[type="text"] {
-  @apply px-10 py-14 border border-grey-2 rounded-2;
+  @apply px-10 py-13 border border-grey-2 rounded-2 truncate leading-sm;
 }
 
+input[type="number"].input--withClearButton,
+input[type="text"].input--withClearButton {
+  @apply pr-30;
+}
+
+input[type="number"]:focus,
 input[type="text"]:focus {
-  @apply border-grey-4 outline-none;
+  @apply border-teal outline-none;
 }
 
+input[type="number"]:hover,
 input[type="text"]:hover {
-  @apply border-grey-3 transition duration-200;
+  @apply border-grey-dark transition duration-200;
+}
+
+input[type="number"]:disabled,
+input[type="number"]:disabled:hover,
+input[type="text"]:disabled,
+input[type="text"]:disabled:hover {
+  @apply bg-grey-bright;
+  @apply border-grey-2 cursor-not-allowed;
+}
+
+input[type="number"][data-valid="false"],
+input[type="text"][data-valid="false"] {
+  @apply border-salmon;
 }
 
 input::-webkit-input-placeholder {
