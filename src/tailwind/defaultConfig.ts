@@ -229,6 +229,26 @@ export default {
 
     /*
     |-----------------------------------------------------------------------------
+    | Position      https://tailwindcss.com/docs/top-right-bottom-left
+    |-----------------------------------------------------------------------------
+    |
+    | Here is where you define your values for positioning
+    |
+    |
+    | Class name: .{top|right|bottom|left|inset}-{size}
+    |
+    */
+
+    inset: {
+      "0": 0,
+      auto: "auto",
+      half: "50%",
+      requiredIndicator: "5px",
+      modalClose: "10px"
+    },
+
+    /*
+    |-----------------------------------------------------------------------------
     | Tracking (letter spacing)       https://tailwindcss.com/docs/letter-spacing
     |-----------------------------------------------------------------------------
     |
@@ -427,7 +447,9 @@ export default {
       "11/12": "91.66666667%",
       "12/12": "100%",
       screen: "100vw",
-      scrollbar: "14px"
+      scrollbar: "14px",
+      clearButton: "32px",
+      modalLarge: "570px"
     },
 
     transitionDuration: {
@@ -445,7 +467,9 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1,
-      dropdownMenu: 20
+      modalClose: 10,
+      dropdownMenu: 20,
+      modal: 98
     },
 
     /*

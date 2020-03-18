@@ -7,6 +7,8 @@ import Spinner from "./components/spinner"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input"
 
+import useModal from "./hooks/useModal"
+
 export {
   Button,
   Pagination,
@@ -15,5 +17,6 @@ export {
   SegmentedControl,
   Spinner,
   Intercom,
-  Input
+  Input,
+  useModal
 }
