@@ -15,10 +15,10 @@ storiesOf("Input / Variations / Label", module)
     })
   )
   .add(
-    "Clearable",
+    "With clear button",
     generateStory({
       value: initialValue,
-      clearable: true,
+      hasClearButton: true,
       placeholder: "Type something",
       label: "Label"
     })
