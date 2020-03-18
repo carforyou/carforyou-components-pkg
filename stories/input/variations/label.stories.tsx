@@ -39,3 +39,11 @@ storiesOf("Input / Variations / Label", module)
       label: "Label"
     })
   )
+  .add(
+    "Required indicator",
+    generateStory({
+      value: initialValue,
+      label: "Label",
+      required: true
+    })
+  )

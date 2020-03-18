@@ -230,6 +230,25 @@ export default {
 
     /*
     |-----------------------------------------------------------------------------
+    | Position      https://tailwindcss.com/docs/top-right-bottom-left
+    |-----------------------------------------------------------------------------
+    |
+    | Here is where you define your values for positioning
+    |
+    |
+    | Class name: .{top|right|bottom|left|inset}-{size}
+    |
+    */
+
+    inset: {
+      "0": 0,
+      auto: "auto",
+      half: "50%",
+      requiredIndicator: "5px"
+    },
+
+    /*
+    |-----------------------------------------------------------------------------
     | Tracking (letter spacing)       https://tailwindcss.com/docs/letter-spacing
     |-----------------------------------------------------------------------------
     |

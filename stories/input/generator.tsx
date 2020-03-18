@@ -14,6 +14,7 @@ const generateDescription = ({
   errors,
   clearable,
   disabled,
+  required,
   mode,
   hint
 }) => {
@@ -29,6 +30,7 @@ ${label ? `    label="${label}"` : ""}
 ${hint ? `    hint="${hint}"` : ""}
 ${errors ? `    errors={${JSON.stringify(errors)}}` : ""}
 ${disabled ? "    disabled" : ""}
+${required ? "    required" : ""}
 ${clearable ? "    clearable" : ""}
     onChange={/* event handler */}
     onBlur={/* event handler */}
@@ -44,6 +46,7 @@ const generateStoryFunction = ({
   errors,
   disabled,
   clearable,
+  required,
   mode,
   hint,
   onBlur,
@@ -62,6 +65,7 @@ const generateStoryFunction = ({
           errors={errors}
           disabled={disabled}
           clearable={clearable}
+          required={required}
           hint={hint}
           onChange={e => {
             setValue(e.target.value)
@@ -81,6 +85,7 @@ const generateStory = ({
   label = null,
   errors = null,
   disabled = null,
+  required = null,
   clearable = null,
   hint = null,
   mode = "text"
@@ -96,6 +101,7 @@ const generateStory = ({
       label,
       errors,
       disabled,
+      required,
       clearable,
       mode,
       hint
@@ -107,6 +113,7 @@ const generateStory = ({
       label,
       errors,
       disabled,
+      required,
       clearable,
       mode,
       hint,
