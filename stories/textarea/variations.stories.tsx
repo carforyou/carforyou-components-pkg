@@ -3,9 +3,9 @@ import { storiesOf } from "@storybook/react"
 import { ControlledInputDecorator } from "../utils"
 import generateStory from "./generator"
 
-const initialValue = "dsdadsa"
+const initialValue = ""
 
-storiesOf("Input / Appearance", module)
+storiesOf("Textarea / Variations", module)
   .addDecorator(ControlledInputDecorator(initialValue))
   .add(
     "Standard",
@@ -14,16 +14,16 @@ storiesOf("Input / Appearance", module)
     })
   )
   .add(
-    "Disabled",
+    "With placeholder",
     generateStory({
       value: initialValue,
-      disabled: true
+      placeholder: "Placeholder"
     })
   )
   .add(
-    "With error message",
+    "With hint",
     generateStory({
       value: initialValue,
-      error: "Error message"
+      hint: "Hint text"
     })
   )

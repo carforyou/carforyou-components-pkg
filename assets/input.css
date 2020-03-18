@@ -3,7 +3,8 @@ input {
 }
 
 input[type="number"],
-input[type="text"] {
+input[type="text"],
+textarea {
   @apply px-10 py-13 border border-grey-2 rounded-2 truncate leading-sm;
 }
 
@@ -13,25 +14,31 @@ input[type="text"].input--withClearButton {
 }
 
 input[type="number"]:focus,
-input[type="text"]:focus {
+input[type="text"]:focus,
+textarea:focus {
   @apply border-teal outline-none;
 }
 
+
 input[type="number"]:hover,
-input[type="text"]:hover {
+input[type="text"]:hover,
+textarea:hover {
   @apply border-grey-dark transition duration-200;
 }
 
 input[type="number"]:disabled,
 input[type="number"]:disabled:hover,
 input[type="text"]:disabled,
-input[type="text"]:disabled:hover {
-  @apply bg-grey-bright;
+input[type="text"]:disabled:hover,
+textarea:disabled,
+textarea:disabled:hover {
+  @apply bg-grey-bright text-grey-3;
   @apply border-grey-2 cursor-not-allowed;
 }
 
 input[type="number"][data-valid="false"],
-input[type="text"][data-valid="false"] {
+input[type="text"][data-valid="false"],
+textarea[data-valid="false"] {
   @apply border-salmon;
 }
 

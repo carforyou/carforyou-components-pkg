@@ -3,9 +3,9 @@ import { storiesOf } from "@storybook/react"
 import { ControlledInputDecorator } from "../utils"
 import generateStory from "./generator"
 
-const initialValue = "dsdadsa"
+const initialValue = ""
 
-storiesOf("Input / Appearance", module)
+storiesOf("Textarea / Appearance", module)
   .addDecorator(ControlledInputDecorator(initialValue))
   .add(
     "Standard",
