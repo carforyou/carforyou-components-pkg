@@ -35,6 +35,31 @@ input[type="text"][data-valid="false"] {
   @apply border-salmon;
 }
 
+input.input--withFloatingLabel {
+  @apply bg-transparent;
+}
+
+input.input--withFloatingLabel:focus {
+  @apply pb-floatingLabelInputFocused;
+}
+
+.label--floating {
+  @apply absolute text-grey-3 top-0;
+  @apply left-floatingLabel transition duration-200;
+}
+
+.input--withFloatingLabel[data-valid="false"] ~ .label--floating {
+  @apply text-salmon
+}
+
+.input--withFloatingLabel:focus ~ .label--floating,
+.input--withFloatingLabel:disabled ~ .label--floating,
+.input--withFloatingLabel:valid ~ .label--floating,
+.validationError ~ .floatingLabel > .input--withFloatingLabel:invalid ~ .label--floating {
+  @apply text-xs -top-floatingLabel;
+}
+
+
 input::-webkit-input-placeholder {
   opacity: 1;
 }

@@ -245,7 +245,10 @@ export default {
       auto: "auto",
       half: "50%",
       requiredIndicator: "5px",
-      modalClose: "10px"
+      validationError: "5px",
+      modalClose: "10px",
+      floatingLabel: "13px",
+      "-floatingLabel": "-13px"
     },
 
     /*
@@ -406,7 +409,8 @@ export default {
       "20": "20px",
       "25": "25px",
       "30": "30px",
-      "40": "40px"
+      "40": "40px",
+      floatingLabelInputFocused: "12px"
     },
 
     customRotate: {

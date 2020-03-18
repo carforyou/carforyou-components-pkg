@@ -1,25 +1,20 @@
 import React, { FC, ReactChild } from "react"
 
 interface Props {
-  errors?: string[]
+  error?: string
   children: (error: boolean) => ReactChild
 }
 
-const WithValidationError: FC<Props> = ({ errors, children }) => {
+const WithValidationError: FC<Props> = ({ error, children }) => {
   return (
-    <>
-      {children(!!errors && errors.length > 0)}
-      <div className="text-sm text-salmon h-19">
-        {errors.length === 1 && errors[0]}
-        {errors.length > 1 ? (
-          <ul>
-            {errors.map((message, index) => (
-              <li key={`error-${index}`}>{message}</li>
-            ))}
-          </ul>
-        ) : null}
-      </div>
-    </>
+    <div className="relative">
+      {error && (
+        <div className="text-sm text-salmon absolute bottom-validationError validationError">
+          {error}
+        </div>
+      )}
+      {children(!!error)}
+    </div>
   )
 }
 
