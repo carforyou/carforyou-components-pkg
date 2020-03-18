@@ -10,6 +10,7 @@ interface Props {
   mode: "text" | "numeric" | "decimal"
   onChange: (e: ChangeEvent<any>) => void
   onBlur: (e: FocusEvent<any>) => void
+  ref?: RefObject<HTMLInputElement>
 }
 
 const validateNumber = e => {
@@ -55,6 +56,7 @@ const validateDecimal = e => {
 }
 
 function Input({
+  ref,
   name,
   value,
   placeholder,
@@ -68,7 +70,7 @@ function Input({
     <WithValidationError errors={errors || []}>
       {error => (
         <input
-          // ref={error ? ref : null}
+          ref={ref}
           id={name}
           name={name}
           type="text"
