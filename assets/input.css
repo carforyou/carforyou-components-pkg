@@ -55,7 +55,7 @@ input.input--withFloatingLabel:focus {
 .input--withFloatingLabel:focus ~ .label--floating,
 .input--withFloatingLabel:disabled ~ .label--floating,
 .input--withFloatingLabel:valid ~ .label--floating,
-.validationError ~ .floatingLabel > .input--withFloatingLabel:invalid ~ .label--floating {
+.validation__errorMessage ~ .validation__inputContainer > .floatingLabel >  .input--withFloatingLabel:invalid ~ .label--floating {
   @apply text-xs -top-floatingLabel;
 }
 
