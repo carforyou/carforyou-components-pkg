@@ -2,16 +2,19 @@ import React, { ChangeEvent, FocusEvent, ReactElement, RefObject } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
+import WithLabel from "./fieldHelpers/withLabel"
 import WithClearButton from "./fieldHelpers/withClearButton"
 
 interface Props {
   name: string
   value: string | number
   placeholder?: string
+  label?: string
   errors?: string[]
   hint?: string
   disabled?: boolean
   hasClearButton?: boolean
+  required?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: { target: { value: string | number } }) => void
   onBlur: (e: FocusEvent<any>) => void
@@ -65,15 +68,17 @@ function Input({
   name,
   value,
   placeholder,
+  label,
   errors,
   hint,
   disabled = false,
   hasClearButton = false,
+  required = false,
   mode,
   onChange,
   onBlur
 }: Props): ReactElement {
-  const renderField = error => (
+  const renderInput = error => (
     <input
       ref={ref}
       id={name}
@@ -97,35 +102,57 @@ function Input({
       data-testid={name}
       data-valid={!error}
       disabled={disabled}
+      required={required}
     />
   )
+
+  const renderField = error =>
+    hasClearButton ? (
+      <WithClearButton
+        visible={!!value}
+        onClear={() => {
+          onChange({ target: { value: "" } })
+        }}
+      >
+        onClear=
+        {() => {
+          onChange({ target: { value: "" } })
+        }}
+        >{renderInput(error)}
+      </WithClearButton>
+    ) : (
+      renderInput(error)
+    )
+
+  const renderHint = error =>
+    hint ? (
+      <span
+        className={classNames("font-bold text-sm", {
+          "text-salmon": error
+        })}
+      >
+        {hint}
+      </span>
+    ) : null
 
   return (
     <div className="w-12/12 focus-within:text-teal">
       <WithValidationError errors={errors || []}>
         {error => (
           <>
-            {hasClearButton ? (
-              <WithClearButton
-                visible={!!value}
-                onClear={() => {
-                  onChange({ target: { value: "" } })
-                }}
+            {label ? (
+              <WithLabel
+                name={name}
+                text={label}
+                error={error}
+                required={required}
               >
                 {renderField(error)}
-              </WithClearButton>
+              </WithLabel>
             ) : (
               renderField(error)
             )}
-            {hint ? (
-              <span
-                className={classNames("font-bold text-sm", {
-                  "text-salmon": error
-                })}
-              >
-                {hint}
-              </span>
-            ) : null}
+            {renderHint(error)}
           </>
         )}
       </WithValidationError>

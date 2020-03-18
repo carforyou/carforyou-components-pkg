@@ -10,9 +10,11 @@ const generateDescription = ({
   name,
   value,
   placeholder,
+  label,
   errors,
   disabled,
   hasClearButton,
+  required,
   mode,
   hint
 }) => {
@@ -24,10 +26,12 @@ ${name ? `    name="${name}"` : ""}
 ${value || value === "" ? `    value="${value}"` : ""}
 ${mode ? `    mode="${mode}"` : ""}
 ${placeholder ? `    placeholder="${placeholder}"` : ""}
+${label ? `    label="${label}"` : ""}
 ${hint ? `    hint="${hint}"` : ""}
 ${errors ? `    errors={${JSON.stringify(errors)}}` : ""}
 ${disabled ? "    disabled" : ""}
 ${hasClearButton ? "    hasClearButton" : ""}
+${required ? "    required" : ""}
     onChange={/* event handler */}
     onBlur={/* event handler */}
   />
@@ -38,9 +42,11 @@ ${hasClearButton ? "    hasClearButton" : ""}
 const generateStoryFunction = ({
   name,
   placeholder,
+  label,
   errors,
   disabled,
   hasClearButton,
+  required,
   mode,
   hint,
   onBlur,
@@ -55,9 +61,11 @@ const generateStoryFunction = ({
           mode={mode as "text" | "numeric" | "decimal"}
           value={value}
           placeholder={placeholder}
+          label={label}
           errors={errors}
           disabled={disabled}
           hasClearButton={hasClearButton}
+          required={required}
           hint={hint}
           onChange={e => {
             setValue(e.target.value)
@@ -74,35 +82,37 @@ const generateStory = ({
   name = "testInput",
   value = null,
   placeholder = null,
+  label = null,
   errors = null,
   disabled = null,
   hasClearButton = null,
+  required = null,
   hint = null,
   mode = "text"
 }) => {
   const onBlur = () => action("onBlur")
   const onChange = () => action("onChange")
 
+  const common = {
+    name,
+    placeholder,
+    label,
+    errors,
+    disabled,
+    required,
+    hasClearButton,
+    mode,
+    hint
+  }
+
   return wInfo(
     generateDescription({
-      name,
       value,
-      placeholder,
-      errors,
-      disabled,
-      hasClearButton,
-      mode,
-      hint
+      ...common
     })
   )(
     generateStoryFunction({
-      name,
-      placeholder,
-      errors,
-      disabled,
-      hasClearButton,
-      mode,
-      hint,
+      ...common,
       onBlur,
       onChange
     })

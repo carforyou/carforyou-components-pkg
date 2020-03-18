@@ -176,6 +176,7 @@ Object {
       "wide": "1px",
     },
     "lineHeight": Object {
+      "label": "24px",
       "lg": 2.5,
       "md": 2,
       "none": 1,
