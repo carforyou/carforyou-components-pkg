@@ -93,30 +93,26 @@ const generateStory = ({
   const onBlur = () => action("onBlur")
   const onChange = () => action("onChange")
 
+  const common = {
+    name,
+    placeholder,
+    label,
+    errors,
+    disabled,
+    required,
+    clearable,
+    mode,
+    hint
+  }
+
   return wInfo(
     generateDescription({
-      name,
       value,
-      placeholder,
-      label,
-      errors,
-      disabled,
-      required,
-      clearable,
-      mode,
-      hint
+      ...common
     })
   )(
     generateStoryFunction({
-      name,
-      placeholder,
-      label,
-      errors,
-      disabled,
-      required,
-      clearable,
-      mode,
-      hint,
+      ...common,
       onBlur,
       onChange
     })
