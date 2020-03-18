@@ -14,6 +14,7 @@ interface Props {
   hint?: string
   disabled?: boolean
   hasClearButton?: boolean
+  required?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: { target: { value: string | number } }) => void
   onBlur: (e: FocusEvent<any>) => void
@@ -72,6 +73,7 @@ function Input({
   hint,
   disabled = false,
   hasClearButton = false,
+  required = false,
   mode,
   onChange,
   onBlur
@@ -100,6 +102,7 @@ function Input({
       data-testid={name}
       data-valid={!error}
       disabled={disabled}
+      required={required}
     />
   )
 
@@ -138,7 +141,12 @@ function Input({
         {error => (
           <>
             {label ? (
-              <WithLabel name={name} text={label} error={error}>
+              <WithLabel
+                name={name}
+                text={label}
+                error={error}
+                required={required}
+              >
                 {renderField(error)}
               </WithLabel>
             ) : (

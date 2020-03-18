@@ -5,9 +5,16 @@ interface Props {
   name: string
   text: string
   error?: boolean
+  required?: boolean
 }
 
-const WithLabel: FC<Props> = ({ name, children, text, error = false }) => {
+const WithLabel: FC<Props> = ({
+  name,
+  children,
+  text,
+  error = false,
+  required = false
+}) => {
   return (
     <>
       <label htmlFor={name}>
@@ -17,6 +24,11 @@ const WithLabel: FC<Props> = ({ name, children, text, error = false }) => {
           })}
         >
           <span className="text-base">{text}</span>
+          {required ? (
+            <span className="text-salmon leading-xxs relative top-requiredIndicator">
+              &nbsp;*
+            </span>
+          ) : null}
         </b>
       </label>
       <div className="relative w-12/12">{children}</div>

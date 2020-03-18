@@ -244,8 +244,12 @@ export default {
       "0": 0,
       auto: "auto",
       half: "50%",
+<<<<<<< HEAD
       requiredIndicator: "5px",
       modalClose: "10px"
+=======
+      requiredIndicator: "5px"
+>>>>>>> 1191221... feat: required indicator
     },
 
     /*
