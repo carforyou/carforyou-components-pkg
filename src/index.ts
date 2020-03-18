@@ -6,6 +6,8 @@ import SegmentedControl from "./components/segmentedControl/index"
 import Spinner from "./components/spinner"
 import Intercom from "./components/intercom/index"
 
+import useModal from "./hooks/useModal"
+
 export {
   Button,
   Pagination,
@@ -13,5 +15,6 @@ export {
   DropdownWithAutosuggest,
   SegmentedControl,
   Spinner,
-  Intercom
+  Intercom,
+  useModal
 }
