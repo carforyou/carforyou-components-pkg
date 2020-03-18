@@ -1,115 +1,30 @@
-import React from "react"
 import { storiesOf } from "@storybook/react"
-import { action } from "@storybook/addon-actions"
-import { text } from "@storybook/addon-knobs"
 
-import { wInfo } from "../utils"
 import InputDecorator from "./decorator"
-import Input from "../../src/components/input"
+import generateStory from "./generator"
 
-const initialValue = text("value", "")
-const name = text("name", "testInput")
-const onChange = action("onChange")
-const onBlur = action("onBlur")
+const initialValue = ""
 
 storiesOf("Input / Modes", module)
   .addDecorator(InputDecorator(initialValue))
   .add(
     "Text",
-    wInfo(`
-    Description
-    ~~~
-    <Input
-      name="${name}"
-      value="${initialValue}"
-      mode="text"
-      onChange={/* event handler */}
-      onBlur={/* event handler */}
-    />
-    ~~~
-    `)(({ value, setValue }) => {
-      return (
-        <div className="mx-30 mb-40">
-          <div className="text-2xl mb-20">Example</div>
-          <div className="w-12/12 md:w-3/12">
-            <Input
-              name={name}
-              mode="text"
-              value={value}
-              onChange={e => {
-                setValue(e.target.value)
-                onChange(e)
-              }}
-              onBlur={onBlur}
-            />
-          </div>
-        </div>
-      )
+    generateStory({
+      value: initialValue,
+      mode: "text"
     })
   )
   .add(
     "Numeric",
-    wInfo(`
-    Description
-    ~~~
-    <Input
-      name="${name}"
-      value="${initialValue}"
-      mode="numeric"
-      onChange={/* event handler */}
-      onBlur={/* event handler */}
-    />
-    ~~~
-    `)(({ value, setValue }) => {
-      return (
-        <div className="mx-30 mb-40">
-          <div className="text-2xl mb-20">Example</div>
-          <div className="w-12/12 md:w-3/12">
-            <Input
-              name={name}
-              mode="numeric"
-              value={value}
-              onChange={e => {
-                setValue(e.target.value)
-                onChange(e)
-              }}
-              onBlur={onBlur}
-            />
-          </div>
-        </div>
-      )
+    generateStory({
+      value: initialValue,
+      mode: "numeric"
     })
   )
   .add(
     "Decimal",
-    wInfo(`
-    Description
-    ~~~
-    <Input
-      name="${name}"
-      value="${initialValue}"
-      mode="decimal"
-      onChange={/* event handler */}
-      onBlur={/* event handler */}
-    />
-    ~~~
-    `)(({ value, setValue }) => {
-      return (
-        <div className="mx-30 mb-40">
-          <div className="text-2xl mb-20">Example</div>
-          <div className="w-12/12 md:w-3/12">
-            <Input
-              name={name}
-              mode="decimal"
-              value={value}
-              onChange={e => {
-                setValue(e.target.value)
-                onChange(e)
-              }}
-              onBlur={onBlur}
-            />
-          </div>
-        </div>
-      )
+    generateStory({
+      value: initialValue,
+      mode: "decimal"
     })
   )
