@@ -116,11 +116,7 @@ function Input({
           onChange({ target: { value: "" } })
         }}
       >
-        onClear=
-        {() => {
-          onChange({ target: { value: "" } })
-        }}
-        >{renderInput(error)}
+        {renderInput(error)}
       </WithClearButton>
     ) : (
       renderInput(error)
