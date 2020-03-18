@@ -9,18 +9,18 @@ interface Props {
   text: string
   error?: boolean
   required?: boolean
-  rendePopup?: () => JSX.Element
+  renderPopup?: () => JSX.Element
 }
 
 const WithLabel: FC<Props> = ({
   name,
   children,
   text,
-  rendePopup,
   error = false,
+  renderPopup = null,
   required = false
 }) => {
-  const { openModal, renderModal } = useModal(rendePopup)
+  const { openModal, renderModal } = useModal(renderPopup)
 
   return (
     <>
@@ -29,7 +29,7 @@ const WithLabel: FC<Props> = ({
         <b
           className={classNames("text-lg flex leading-label", {
             "text-salmon": error,
-            "mb-5": !rendePopup
+            "mb-5": !renderPopup
           })}
         >
           <span className="text-base">{text}</span>
@@ -38,7 +38,7 @@ const WithLabel: FC<Props> = ({
               &nbsp;*
             </span>
           ) : null}
-          {rendePopup && (
+          {!!renderPopup && (
             <a
               className="ml-labelPopupIcon mb-labelPopupIcon cursor-pointer opacity-60 hover:opacity-100 transition duration-200"
               onClick={e => {
