@@ -53,7 +53,10 @@ export default {
       "fair-deal": "#EAA403",
       "good-deal": "#81B040",
       "great-deal": "#149246",
-      "not-defined": "#A0A7AB"
+      "not-defined": "#A0A7AB",
+      yellow: "#FAE692",
+      "yellow-dark": "#E1CD79",
+      pink: "#F73B471A"
     },
 
     /*
