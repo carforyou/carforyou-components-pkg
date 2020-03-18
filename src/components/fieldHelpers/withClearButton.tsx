@@ -3,15 +3,15 @@ import React, { FC } from "react"
 import CloseSIcon from "../icons/closeS"
 
 interface Props {
-  display?: boolean
+  visible?: boolean
   onClear: () => void
 }
 
-const WithClearButton: FC<Props> = ({ children, display = false, onClear }) => {
+const WithClearButton: FC<Props> = ({ children, visible = false, onClear }) => {
   return (
     <div className="relative inline-flex w-12/12">
       {children}
-      {display ? (
+      {visible ? (
         <div
           tabIndex={-1}
           data-testid="clearButton"

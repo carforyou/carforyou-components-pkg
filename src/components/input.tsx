@@ -105,7 +105,7 @@ function Input({
           <>
             {clearable ? (
               <WithClearButton
-                display={!!value}
+                visible={!!value}
                 onClear={() => {
                   onChange({ target: { value: "" } })
                 }}
