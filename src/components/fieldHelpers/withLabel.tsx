@@ -2,25 +2,25 @@ import React, { FC } from "react"
 import classNames from "classnames"
 
 import useModal from "../../hooks/useModal"
-import Info from "../icons/info"
+import InfoIcon from "../icons/info"
 
 interface Props {
   name: string
   text: string
   error?: boolean
   required?: boolean
-  popup?: () => JSX.Element
+  rendePopup?: () => JSX.Element
 }
 
 const WithLabel: FC<Props> = ({
   name,
   children,
   text,
-  popup,
+  rendePopup,
   error = false,
   required = false
 }) => {
-  const { openModal, renderModal } = useModal(popup)
+  const { openModal, renderModal } = useModal(rendePopup)
 
   return (
     <>
@@ -29,7 +29,7 @@ const WithLabel: FC<Props> = ({
         <b
           className={classNames("text-lg flex leading-label", {
             "text-salmon": error,
-            "mb-5": !popup
+            "mb-5": !rendePopup
           })}
         >
           <span className="text-base">{text}</span>
@@ -38,16 +38,16 @@ const WithLabel: FC<Props> = ({
               &nbsp;*
             </span>
           ) : null}
-          {popup && (
-            <div
+          {rendePopup && (
+            <a
               className="ml-labelPopupIcon mb-labelPopupIcon cursor-pointer opacity-60 hover:opacity-100 transition duration-200"
               onClick={e => {
                 e.preventDefault()
                 openModal()
               }}
             >
-              <Info />
-            </div>
+              <InfoIcon />
+            </a>
           )}
         </b>
       </label>

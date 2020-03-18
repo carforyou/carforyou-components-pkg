@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useEffect } from "react"
 
 import Overlay from "./overlay"
-import CloseM from "../icons/closeM"
+import CloseMIcon from "../icons/closeM"
 
 interface Props {
   close: () => void
@@ -33,7 +33,7 @@ const Modal: FC<Props> = ({ close, children }) => {
           onClick={close}
           data-testid="modal-close"
         >
-          <CloseM />
+          <CloseMIcon />
         </div>
         <div className="bg-white z-modal w-12/12 md:w-modalLarge p-40 my-0 rounded-4">
           {children({ closeModal: close })}
