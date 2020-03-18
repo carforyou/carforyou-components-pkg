@@ -14,6 +14,14 @@ storiesOf("Input / Variations", module)
     })
   )
   .add(
+    "With clear button",
+    generateStory({
+      value: initialValue,
+      hasClearButton: true,
+      placeholder: "Type something"
+    })
+  )
+  .add(
     "With placeholder",
     generateStory({
       value: initialValue,

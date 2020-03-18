@@ -224,6 +224,7 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
+      clearButton: "32px",
       "40": "40px"
     },
 
@@ -467,6 +468,7 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1,
+      clearButton: 10,
       modalClose: 10,
       dropdownMenu: 20,
       modal: 98
