@@ -224,6 +224,7 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
+      clearButton: "32px",
       "40": "40px"
     },
 
@@ -427,7 +428,8 @@ export default {
       "11/12": "91.66666667%",
       "12/12": "100%",
       screen: "100vw",
-      scrollbar: "14px"
+      scrollbar: "14px",
+      clearButton: "32px"
     },
 
     transitionDuration: {
@@ -445,6 +447,7 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1,
+      clearButton: 10,
       dropdownMenu: 20
     },
 

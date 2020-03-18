@@ -2,6 +2,7 @@ import React, { ChangeEvent, FocusEvent, ReactElement, RefObject } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
+import WithClearButton from "./fieldHelpers/withClearButton"
 
 interface Props {
   name: string
@@ -10,8 +11,9 @@ interface Props {
   errors?: string[]
   hint?: string
   disabled?: boolean
+  clearable?: boolean
   mode: "text" | "numeric" | "decimal"
-  onChange: (e: ChangeEvent<any>) => void
+  onChange: (e: { target: { value: string | number } }) => void
   onBlur: (e: FocusEvent<any>) => void
   ref?: RefObject<HTMLInputElement>
 }
@@ -64,38 +66,55 @@ function Input({
   value,
   placeholder,
   errors,
+  hint,
   disabled = false,
+  clearable = false,
   mode,
   onChange,
   onBlur
 }: Props): ReactElement {
+  const renderField = error => (
+    <input
+      ref={ref}
+      id={name}
+      name={name}
+      type="text"
+      value={value || ""}
+      placeholder={placeholder || ""}
+      className={classNames("w-12/12", { withClearButton: clearable })}
+      inputMode={mode !== "text" ? mode : null}
+      onKeyDown={
+        mode === "numeric"
+          ? validateNumber
+          : mode === "decimal"
+          ? validateDecimal
+          : null
+      }
+      onChange={onChange}
+      onBlur={onBlur}
+      data-testid={name}
+      data-valid={!error}
+      disabled={disabled}
+    />
+  )
+
   return (
     <div className="w-12/12 focus-within:text-teal">
       <WithValidationError errors={errors || []}>
         {error => (
           <>
-            <input
-              ref={ref}
-              id={name}
-              name={name}
-              type="text"
-              value={value || ""}
-              placeholder={placeholder || ""}
-              className="w-12/12"
-              inputMode={mode !== "text" ? mode : null}
-              onKeyDown={
-                mode === "numeric"
-                  ? validateNumber
-                  : mode === "decimal"
-                  ? validateDecimal
-                  : null
-              }
-              onChange={onChange}
-              onBlur={onBlur}
-              data-testid={name}
-              data-valid={!error}
-              disabled={disabled}
-            />
+            {clearable ? (
+              <WithClearButton
+                display={!!value}
+                onClear={() => {
+                  onChange({ target: { value: "" } })
+                }}
+              >
+                {renderField(error)}
+              </WithClearButton>
+            ) : (
+              renderField(error)
+            )}
             {hint ? (
               <span
                 className={classNames("font-bold text-sm", {

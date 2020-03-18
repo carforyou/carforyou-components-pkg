@@ -14,6 +14,14 @@ storiesOf("Input / Variations", module)
     })
   )
   .add(
+    "Clearable",
+    generateStory({
+      value: initialValue,
+      clearable: true,
+      placeholder: "Type something"
+    })
+  )
+  .add(
     "With placeholder",
     generateStory({
       value: initialValue,
