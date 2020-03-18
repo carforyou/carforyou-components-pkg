@@ -7,8 +7,8 @@ input[type="text"] {
   @apply px-10 py-13 border border-grey-2 rounded-2 truncate leading-sm;
 }
 
-input[type="number"].withClearButton,
-input[type="text"].withClearButton {
+input[type="number"].input--withClearButton,
+input[type="text"].input--withClearButton {
   @apply pr-30;
 }
 

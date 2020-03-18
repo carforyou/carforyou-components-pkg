@@ -81,7 +81,9 @@ function Input({
       type="text"
       value={value || ""}
       placeholder={placeholder || ""}
-      className={classNames("w-12/12", { withClearButton: hasClearButton })}
+      className={classNames("w-12/12", {
+        "input--withClearButton": hasClearButton
+      })}
       inputMode={mode !== "text" ? mode : null}
       onKeyDown={
         mode === "numeric"
