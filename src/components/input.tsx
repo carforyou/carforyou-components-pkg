@@ -65,6 +65,7 @@ function Input({
   placeholder,
   errors,
   disabled = false,
+  hint,
   mode,
   onChange,
   onBlur
