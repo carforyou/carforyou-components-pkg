@@ -165,11 +165,14 @@ Object {
       "scrollbar": "70px",
     },
     "inset": Object {
+      "-floatingLabel": "-13px",
       "0": 0,
       "auto": "auto",
+      "floatingLabel": "13px",
       "half": "50%",
       "modalClose": "10px",
       "requiredIndicator": "5px",
+      "validationError": "5px",
     },
     "letterSpacing": Object {
       "normal": "0",
@@ -265,6 +268,7 @@ Object {
       "5": "5px",
       "8": "8px",
       "auto": "auto",
+      "floatingLabelInputFocused": "12px",
       "px": "1px",
     },
     "screens": Object {
