@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import CloseS from "../icons/closeS"
+import CloseSIcon from "../icons/closeS"
 
 interface Props {
   display?: boolean
@@ -19,7 +19,7 @@ const WithClearButton: FC<Props> = ({ children, display = false, onClear }) => {
           onClick={onClear}
         >
           <div className="items-center justify-center flex h-full w-full">
-            <CloseS />
+            <CloseSIcon />
           </div>
         </div>
       ) : null}
