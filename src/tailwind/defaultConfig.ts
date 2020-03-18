@@ -244,7 +244,8 @@ export default {
       "0": 0,
       auto: "auto",
       half: "50%",
-      requiredIndicator: "5px"
+      requiredIndicator: "5px",
+      modalClose: "10px"
     },
 
     /*
@@ -449,7 +450,8 @@ export default {
       "12/12": "100%",
       screen: "100vw",
       scrollbar: "14px",
-      clearButton: "32px"
+      clearButton: "32px",
+      modalLarge: "570px"
     },
 
     transitionDuration: {
@@ -468,7 +470,9 @@ export default {
       auto: "auto",
       negative: -1,
       clearButton: 10,
-      dropdownMenu: 20
+      modalClose: 10,
+      dropdownMenu: 20,
+      modal: 98
     },
 
     /*
