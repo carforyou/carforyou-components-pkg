@@ -5,7 +5,7 @@ import generateStory from "./generator"
 
 const initialValue = ""
 
-storiesOf("Input / Variations", module)
+storiesOf("Textarea / Appearance", module)
   .addDecorator(ControlledInputDecorator(initialValue))
   .add(
     "Standard",
@@ -14,11 +14,17 @@ storiesOf("Input / Variations", module)
     })
   )
   .add(
-    "With clear button",
+    "Disabled",
     generateStory({
       value: initialValue,
-      hasClearButton: true,
-      placeholder: "Type something"
+      disabled: true
+    })
+  )
+  .add(
+    "With error message",
+    generateStory({
+      value: initialValue,
+      error: "Error message"
     })
   )
   .add(
