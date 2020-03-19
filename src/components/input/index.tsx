@@ -3,25 +3,36 @@ import classNames from "classnames"
 
 import WithValidationError from "../fieldHelpers/withValidationError"
 import WithLabel from "../fieldHelpers/withLabel"
+import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
 import InputField from "./inputField"
 
-interface Props {
+interface InputProps {
   name: string
   value: string | number
   placeholder?: string
-  labelText?: string
-  renderLabelPopup?: () => JSX.Element
   error?: string
   hint?: string
   disabled?: boolean
   hasClearButton?: boolean
-  required?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: { target: { value: string | number } }) => void
   onBlur: (e: FocusEvent<any>) => void
   ref?: RefObject<HTMLInputElement>
 }
+
+interface PopupLabelProps extends InputProps {
+  labelText?: string
+  renderLabelPopup?: () => JSX.Element
+  required?: boolean
+}
+
+interface FloatingLabelProps extends InputProps {
+  labelText?: string
+  floatingLabel?: boolean
+}
+
+type Props = PopupLabelProps | FloatingLabelProps
 
 function Input({
   ref,
@@ -29,16 +40,26 @@ function Input({
   value,
   placeholder,
   labelText,
-  renderLabelPopup: labelPopup,
   error,
   hint,
   disabled = false,
   hasClearButton = false,
-  required = false,
   mode,
   onChange,
-  onBlur
+  onBlur,
+  ...rest
 }: Props): ReactElement {
+  const required =
+    "floatingLabel" in rest || ("required" in rest ? rest.required : null)
+  const labelProps =
+    "floatingLabel" in rest
+      ? { floating: rest.floatingLabel }
+      : "renderLabelPopup" in rest || "required" in rest
+      ? { renderPopup: rest.renderLabelPopup, required }
+      : {}
+
+  const LabelWrapper = labelProps.floating ? WithFloatingLabel : WithLabel
+
   const renderInput = hasError => (
     <InputField
       ref={ref}
@@ -46,7 +67,8 @@ function Input({
       value={value || ""}
       placeholder={placeholder || ""}
       className={classNames("w-12/12", {
-        "input--withClearButton": hasClearButton
+        "input--withClearButton": hasClearButton,
+        floatingLabel__input: labelProps.floating
       })}
       mode={mode}
       hasError={hasError}
@@ -88,15 +110,14 @@ function Input({
         {hasError => (
           <>
             {labelText ? (
-              <WithLabel
+              <LabelWrapper
                 name={name}
                 error={hasError}
-                required={required}
                 text={labelText}
-                rendePopup={labelPopup}
+                {...labelProps}
               >
                 {renderField(hasError)}
-              </WithLabel>
+              </LabelWrapper>
             ) : (
               renderField(hasError)
             )}

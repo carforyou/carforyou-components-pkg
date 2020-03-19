@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react"
 
-import { ControlledInputDecorator } from "../../utils"
-import generateStory from "../generator"
+import { ControlledInputDecorator } from "../utils"
+import generateStory from "./generator"
 
 const initialValue = ""
 
