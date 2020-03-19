@@ -1,4 +1,4 @@
-import React, { FC, RefObject, FocusEvent } from "react"
+import React, { FC, RefObject, FocusEvent, InputHTMLAttributes } from "react"
 
 const validateNumber = e => {
   const key = e.which || e.keyCode
@@ -42,18 +42,18 @@ const validateDecimal = e => {
   validateNumber(e)
 }
 
-interface Props {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   ref?: RefObject<HTMLInputElement>
-  name: string
-  value: string | number
+  name?: string
+  value?: string | number | string[]
   placeholder?: string
   className?: string
   mode: "text" | "numeric" | "decimal"
   hasError?: string
   disabled?: boolean
   required?: boolean
-  onChange: (e: { target: { value: string | number } }) => void
-  onBlur: (e: FocusEvent<any>) => void
+  onChange?: (e: { target: { value: string | number } }) => void
+  onBlur?: (e: FocusEvent<any>) => void
 }
 
 const InputField: FC<Props> = ({
@@ -67,7 +67,8 @@ const InputField: FC<Props> = ({
   disabled = false,
   required = false,
   onChange,
-  onBlur
+  onBlur,
+  ...rest
 }) => (
   <input
     ref={ref}
@@ -91,6 +92,7 @@ const InputField: FC<Props> = ({
     data-valid={!hasError}
     disabled={disabled}
     required={required}
+    {...rest}
   />
 )
 
