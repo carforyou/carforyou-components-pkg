@@ -27,3 +27,17 @@ storiesOf("Textarea / Appearance", module)
       error: "Error message"
     })
   )
+  .add(
+    "With placeholder",
+    generateStory({
+      value: initialValue,
+      placeholder: "Placeholder"
+    })
+  )
+  .add(
+    "With hint",
+    generateStory({
+      value: initialValue,
+      hint: "Hint text"
+    })
+  )
