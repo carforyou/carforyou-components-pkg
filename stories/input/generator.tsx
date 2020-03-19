@@ -12,6 +12,7 @@ const generateDescription = ({
   placeholder,
   labelText,
   renderLabelPopup,
+  floatingLabel,
   error,
   disabled,
   hasClearButton,
@@ -34,10 +35,11 @@ ${
     : ""
 }
 ${hint ? `    hint="${hint}"` : ""}
-${error ? `    errors="${error}"` : ""}
+${error ? `    error="${error}"` : ""}
 ${disabled ? "    disabled" : ""}
 ${hasClearButton ? "    hasClearButton" : ""}
 ${required ? "    required" : ""}
+${floatingLabel ? "    floatingLabel" : ""}
     onChange={/* event handler */}
     onBlur={/* event handler */}
   />
@@ -45,41 +47,24 @@ ${required ? "    required" : ""}
   `.replace(/^\s*[\r\n]/gm, "")
 }
 
-const generateStoryFunction = ({
-  name,
-  placeholder,
-  labelText,
-  renderLabelPopup,
-  error,
-  disabled,
-  hasClearButton,
-  required,
-  mode,
-  hint,
-  onBlur,
-  onChange
-}) => ({ value, setValue }) => {
+const generateStoryFunction = ({ mode, onChange, onBlur, name, ...rest }) => ({
+  value,
+  setValue
+}) => {
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 md:w-3/12">
         <Input
           name={name}
-          mode={mode as "text" | "numeric" | "decimal"}
           value={value}
-          placeholder={placeholder}
-          labelText={labelText}
-          renderLabelPopup={renderLabelPopup}
-          error={error}
-          disabled={disabled}
-          hasClearButton={hasClearButton}
-          required={required}
-          hint={hint}
+          mode={mode as "text" | "numeric" | "decimal"}
           onChange={e => {
             setValue(e.target.value)
             onChange()(e)
           }}
           onBlur={onBlur()}
+          {...rest}
         />
       </div>
     </div>
@@ -92,6 +77,7 @@ const generateStory = ({
   placeholder = null,
   labelText = null,
   renderLabelPopup = null,
+  floatingLabel = null,
   error = null,
   disabled = null,
   hasClearButton = null,
@@ -106,23 +92,35 @@ const generateStory = ({
     name,
     placeholder,
     labelText,
-    renderLabelPopup,
     error,
     disabled,
-    required,
     hasClearButton,
     mode,
     hint
   }
 
+  const labelProps =
+    renderLabelPopup || required
+      ? {
+          renderLabelPopup,
+          required
+        }
+      : floatingLabel
+      ? { floatingLabel }
+      : {}
+
   return wInfo(
     generateDescription({
       value,
+      renderLabelPopup,
+      floatingLabel,
+      required,
       ...common
     })
   )(
     generateStoryFunction({
       ...common,
+      ...labelProps,
       onBlur,
       onChange
     })
