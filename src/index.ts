@@ -5,7 +5,9 @@ import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 import SegmentedControl from "./components/segmentedControl/index"
 import Spinner from "./components/spinner"
 import Intercom from "./components/intercom/index"
-import Input from "./components/input"
+import Input from "./components/input/index"
+import Textarea from "./components/textarea"
+import Select from "./components/select"
 
 import useModal from "./hooks/useModal"
 
@@ -18,5 +20,7 @@ export {
   Spinner,
   Intercom,
   Input,
+  Textarea,
+  Select,
   useModal
 }
