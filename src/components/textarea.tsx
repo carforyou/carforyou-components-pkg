@@ -84,7 +84,7 @@ function Textarea({
                 error={hasError}
                 required={required}
                 text={labelText}
-                rendePopup={labelPopup}
+                renderPopup={labelPopup}
               >
                 {renderField(hasError)}
               </WithLabel>
