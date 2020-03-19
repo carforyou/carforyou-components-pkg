@@ -19,7 +19,7 @@ const generateDescription = ({
   return `
   Description
   ~~~
-  <Input
+  <Textarea
 ${name ? `    name="${name}"` : ""}
 ${value || value === "" ? `    value="${value}"` : ""}
 ${placeholder ? `    placeholder="${placeholder}"` : ""}
