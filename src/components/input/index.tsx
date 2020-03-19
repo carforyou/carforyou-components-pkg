@@ -5,6 +5,7 @@ import WithValidationError from "../fieldHelpers/withValidationError"
 import WithLabel from "../fieldHelpers/withLabel"
 import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
+import HintText from "../fieldHelpers/hintText"
 import InputField from "./inputField"
 
 interface InputProps {
@@ -94,15 +95,7 @@ function Input({
     )
 
   const renderHint = hasError =>
-    hint ? (
-      <span
-        className={classNames("font-bold text-sm", {
-          "text-salmon": hasError
-        })}
-      >
-        {hint}
-      </span>
-    ) : null
+    hint ? <HintText text={hint} hasError={hasError} /> : null
 
   return (
     <div className="w-12/12 focus-within:text-teal">
