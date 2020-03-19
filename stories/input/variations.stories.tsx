@@ -1,13 +1,12 @@
 import { storiesOf } from "@storybook/react"
 
-import InputDecorator from "./decorator"
+import { ControlledInputDecorator } from "../utils"
 import generateStory from "./generator"
-import Input from "../../src/components/input"
 
 const initialValue = ""
 
 storiesOf("Input / Variations", module)
-  .addDecorator(InputDecorator(initialValue))
+  .addDecorator(ControlledInputDecorator(initialValue))
   .add(
     "Standard",
     generateStory({
