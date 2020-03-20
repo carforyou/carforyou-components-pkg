@@ -15,7 +15,7 @@ const WithFloatingLabel: FC<Props> = ({
   return (
     <label className="floatingLabel relative" htmlFor={name}>
       {children}
-      <span className="floatingLabel__label">{text}</span>
+      <span className="floatingLabel-label">{text}</span>
     </label>
   )
 }

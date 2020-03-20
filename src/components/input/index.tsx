@@ -1,10 +1,12 @@
 import React, { FocusEvent, ReactElement, RefObject } from "react"
 import classNames from "classnames"
 
-import WithValidationError from "./fieldHelpers/withValidationError"
-import WithLabel from "./fieldHelpers/withLabel"
-import WithFloatingLabel from "./fieldHelpers/withFloatingLabel"
-import WithClearButton from "./fieldHelpers/withClearButton"
+import WithValidationError from "../fieldHelpers/withValidationError"
+import WithLabel from "../fieldHelpers/withLabel"
+import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
+import WithClearButton from "../fieldHelpers/withClearButton"
+import HintText from "../fieldHelpers/hintText"
+import InputField from "./inputField"
 
 interface InputProps {
   name: string
@@ -33,48 +35,6 @@ interface FloatingLabelProps extends InputProps {
 
 type Props = PopupLabelProps | FloatingLabelProps
 
-const validateNumber = e => {
-  const key = e.which || e.keyCode
-
-  if (
-    (!e.shiftKey &&
-      !e.altKey &&
-      !e.ctrlKey &&
-      // numbers
-      key >= 48 &&
-      key <= 57) ||
-    // Numeric keypad
-    (key >= 96 && key <= 105) ||
-    // Backspace and Tab and Enter
-    key === 8 ||
-    key === 9 ||
-    key === 13 ||
-    // Home and End
-    key === 35 ||
-    key === 36 ||
-    // left and right arrows
-    key === 37 ||
-    key === 39 ||
-    // Del and Ins
-    key === 46 ||
-    key === 45
-  ) {
-    return
-  }
-
-  e.preventDefault()
-}
-
-const validateDecimal = e => {
-  const key = e.which || e.keyCode
-
-  // Period (decimal)
-  if (key === 190 && !e.target.value.includes(".")) {
-    return
-  }
-  validateNumber(e)
-}
-
 function Input({
   ref,
   name,
@@ -102,31 +62,21 @@ function Input({
   const LabelWrapper = labelProps.floating ? WithFloatingLabel : WithLabel
 
   const renderInput = hasError => (
-    <input
+    <InputField
       ref={ref}
-      id={name}
       name={name}
-      type="text"
       value={value || ""}
       placeholder={placeholder || ""}
       className={classNames("w-12/12", {
-        "input--withClearButton": hasClearButton,
-        floatingLabel__input: labelProps.floating
+        input_withClearButton: hasClearButton,
+        "floatingLabel-input": labelProps.floating
       })}
-      inputMode={mode !== "text" ? mode : null}
-      onKeyDown={
-        mode === "numeric"
-          ? validateNumber
-          : mode === "decimal"
-          ? validateDecimal
-          : null
-      }
-      onChange={onChange}
-      onBlur={onBlur}
-      data-testid={name}
-      data-valid={!hasError}
+      mode={mode}
+      hasError={hasError}
       disabled={disabled}
       required={required}
+      onChange={onChange}
+      onBlur={onBlur}
     />
   )
 
@@ -145,15 +95,7 @@ function Input({
     )
 
   const renderHint = hasError =>
-    hint ? (
-      <span
-        className={classNames("font-bold text-sm", {
-          "text-salmon": hasError
-        })}
-      >
-        {hint}
-      </span>
-    ) : null
+    hint ? <HintText text={hint} hasError={hasError} /> : null
 
   return (
     <div className="w-12/12 focus-within:text-teal">

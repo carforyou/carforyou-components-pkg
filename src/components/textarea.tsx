@@ -3,6 +3,7 @@ import classNames from "classnames"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
 import WithLabel from "./fieldHelpers/withLabel"
+import HintText from "./fieldHelpers/hintText"
 
 interface Props {
   name: string
@@ -63,15 +64,7 @@ function Textarea({
   )
 
   const renderHint = hasError =>
-    hint ? (
-      <span
-        className={classNames("font-bold text-sm", {
-          "text-salmon": hasError
-        })}
-      >
-        {hint}
-      </span>
-    ) : null
+    hint ? <HintText hasError={hasError} text={hint} /> : null
 
   return (
     <div className="w-12/12 focus-within:text-teal">
