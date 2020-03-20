@@ -68,8 +68,8 @@ function Input({
       value={value || ""}
       placeholder={placeholder || ""}
       className={classNames("w-12/12", {
-        "input--withClearButton": hasClearButton,
-        floatingLabel__input: labelProps.floating
+        input_withClearButton: hasClearButton,
+        "floatingLabel-input": labelProps.floating
       })}
       mode={mode}
       hasError={hasError}

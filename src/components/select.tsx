@@ -54,10 +54,10 @@ function Select<T>({
       input={({ getInputProps, isOpen }) => {
         const props = getInputProps({
           ref,
-          className: classNames("input--withClearButton", "select", {
-            "select--open": isOpen && options.length && !selected,
-            "select--closed": !isOpen && !selected,
-            "select--withSearchIcon":
+          className: classNames("input_withClearButton", "select", {
+            select_open: isOpen && options.length && !selected,
+            select_closed: !isOpen && !selected,
+            select_withSearchIcon:
               isOpen && options.length && !selected && showSearchIcon
           }),
           name,
