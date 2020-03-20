@@ -12,14 +12,12 @@ storiesOf("Select / Label", module)
   .add(
     "Standard",
     generateStory({
-      selected: initialValue,
       labelText: "Label"
     })
   )
   .add(
     "With placeholder",
     generateStory({
-      selected: initialValue,
       placeholder: "Placeholder",
       labelText: "Label"
     })
@@ -27,7 +25,6 @@ storiesOf("Select / Label", module)
   .add(
     "With hint",
     generateStory({
-      selected: initialValue,
       hint: "Hint text",
       labelText: "Label"
     })
@@ -35,7 +32,6 @@ storiesOf("Select / Label", module)
   .add(
     "Required indicator",
     generateStory({
-      selected: initialValue,
       labelText: "Label",
       required: true
     })
@@ -43,7 +39,6 @@ storiesOf("Select / Label", module)
   .add(
     "Popup",
     generateStory({
-      selected: initialValue,
       labelText: "Label",
       renderLabelPopup: () => <div>Popup Content</div>
     })
@@ -51,7 +46,6 @@ storiesOf("Select / Label", module)
   .add(
     "Required with Popup",
     generateStory({
-      selected: initialValue,
       required: true,
       labelText: "Label",
       renderLabelPopup: () => <div>Popup Content</div>
