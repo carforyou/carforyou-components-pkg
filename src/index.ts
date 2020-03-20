@@ -8,6 +8,8 @@ import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
 import Textarea from "./components/textarea"
 import Select from "./components/select"
+import Checkbox from "./components/checkbox"
+import RadioButton from "./components/radioButton"
 
 import useModal from "./hooks/useModal"
 
@@ -22,5 +24,7 @@ export {
   Input,
   Textarea,
   Select,
+  Checkbox,
+  RadioButton,
   useModal
 }

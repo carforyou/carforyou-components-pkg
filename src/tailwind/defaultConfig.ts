@@ -35,6 +35,7 @@ export default {
       salmon: "#F73B47",
       "salmon-dark": "#ED202D",
       teal: "#3696B9",
+      "teal-opaque": "#5EABC7",
       "teal-light": "#D7EAF1",
       "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
@@ -128,6 +129,7 @@ export default {
       full: "9999px",
       half: "50%",
       "2": "2px",
+      "4": "4px",
       "10": "10px",
       "20": "20px"
     },
@@ -225,6 +227,8 @@ export default {
       screen: "100vh",
       scrollbar: "70px",
       clearButton: "32px",
+      checkbox: "24px",
+      radioIndicator: "12px",
       "40": "40px"
     },
 
@@ -248,7 +252,8 @@ export default {
       validationError: "5px",
       modalClose: "10px",
       floatingLabel: "13px",
-      "-floatingLabel": "-13px"
+      "-floatingLabel": "-13px",
+      radioIndicator: "5px"
     },
 
     /*
@@ -456,7 +461,9 @@ export default {
       screen: "100vw",
       scrollbar: "14px",
       clearButton: "32px",
-      modalLarge: "570px"
+      modalLarge: "570px",
+      checkbox: "24px",
+      radioIndicator: "12px"
     },
 
     transitionDuration: {
@@ -514,7 +521,7 @@ export default {
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
     borderCollapse: ["responsive"],
-    borderColor: ["responsive", "hover", "focus"],
+    borderColor: ["responsive", "hover", "focus", "focus-within"],
     borderRadius: ["responsive"],
     borderStyle: ["responsive"],
     borderWidth: ["responsive", "hover"],
