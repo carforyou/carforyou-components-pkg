@@ -1,4 +1,4 @@
-import React, { ReactElement, RefObject } from "react"
+import React, { ReactElement, Ref } from "react"
 import classNames from "classnames"
 
 import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
@@ -10,7 +10,7 @@ import HintText from "./fieldHelpers/hintText"
 import InputField from "./input/inputField"
 
 interface Props<T> {
-  ref?: RefObject<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
   name: string
   options: Array<{ name: string; value: T | { customValue: T } }>
   allowCustomValues?: boolean

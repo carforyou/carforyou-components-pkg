@@ -1,4 +1,4 @@
-import React, { FocusEvent, ReactElement, RefObject } from "react"
+import React, { FocusEvent, ReactElement, Ref } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
@@ -17,7 +17,7 @@ interface Props {
   required?: boolean
   onChange: (e: { target: { value: string } }) => void
   onBlur: (e: FocusEvent<any>) => void
-  ref?: RefObject<HTMLTextAreaElement>
+  ref?: Ref<HTMLTextAreaElement>
   rows?: number
   cols?: number
   maxLength?: number

@@ -1,4 +1,4 @@
-import React, { FC, RefObject, FocusEvent, InputHTMLAttributes } from "react"
+import React, { FC, Ref, FocusEvent, InputHTMLAttributes } from "react"
 
 const validateNumber = e => {
   const key = e.which || e.keyCode
@@ -43,7 +43,7 @@ const validateDecimal = e => {
 }
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  ref?: RefObject<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
   name?: string
   value?: string | number | string[]
   placeholder?: string

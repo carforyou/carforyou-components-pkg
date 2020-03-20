@@ -1,4 +1,4 @@
-import React, { FocusEvent, ReactElement, RefObject } from "react"
+import React, { FocusEvent, ReactElement, Ref } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "../fieldHelpers/withValidationError"
@@ -19,7 +19,7 @@ interface InputProps {
   mode: "text" | "numeric" | "decimal"
   onChange: (e: { target: { name: string; value: string | number } }) => void
   onBlur?: (e: FocusEvent<any>) => void
-  ref?: RefObject<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
 }
 
 interface PopupLabelProps extends InputProps {

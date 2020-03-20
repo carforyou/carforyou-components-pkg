@@ -1,4 +1,4 @@
-import React, { RefObject, Component, ReactNode } from "react"
+import React, { Ref, Component, ReactNode } from "react"
 import classNames from "classnames"
 
 import { wrapLink } from "../../lib/buttonHelper"
@@ -23,7 +23,7 @@ interface Props<T> {
   options: Array<Item<T>>
   className?: string
   equal?: (a: T, b: T) => boolean
-  innerRef?: RefObject<HTMLUListElement>
+  innerRef?: Ref<HTMLUListElement>
   renderOption?: (option: {
     name: string | ReactNode
     value: T

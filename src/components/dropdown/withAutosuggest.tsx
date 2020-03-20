@@ -2,7 +2,7 @@ import React, {
   ReactChild,
   FormEvent,
   KeyboardEvent,
-  RefObject,
+  Ref,
   useRef,
   InputHTMLAttributes,
   ReactElement
@@ -103,7 +103,7 @@ function DropdownWithAutosuggest<T>({
   trimInput,
   allowCustomValues = false
 }: Props<T>): ReactElement {
-  const menuRef: RefObject<HTMLUListElement> = useRef()
+  const menuRef: Ref<HTMLUListElement> = useRef()
 
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
