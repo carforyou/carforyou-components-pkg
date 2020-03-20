@@ -15,7 +15,7 @@ const WithClearButton: FC<Props> = ({ children, visible = false, onClear }) => {
         <div
           tabIndex={-1}
           data-testid="clearButton"
-          className="absolute top-0 right-0 bottom-0 cursor-pointer z-clearButton outline-none w-clearButton focus:outline-none -mr-20"
+          className="absolute top-0 right-0 bottom-0 cursor-pointer z-clearButton outline-none w-clearButton focus:outline-none"
           onClick={onClear}
         >
           <div className="items-center justify-center flex h-full w-full">
