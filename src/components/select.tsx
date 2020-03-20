@@ -23,7 +23,7 @@ interface Props<T> {
   required?: boolean
   placeholder?: string
   hint?: string
-  showSearchIcon: boolean
+  showSearchIcon?: boolean
 }
 
 function Select<T>({
@@ -39,7 +39,7 @@ function Select<T>({
   renderLabelPopup,
   required = false,
   placeholder,
-  showSearchIcon,
+  showSearchIcon = false,
   hint
 }: Props<T>): ReactElement {
   const renderHint = hasError =>
