@@ -18,7 +18,7 @@ interface InputProps {
   hasClearButton?: boolean
   mode: "text" | "numeric" | "decimal"
   onChange: (e: { target: { value: string | number } }) => void
-  onBlur: (e: FocusEvent<any>) => void
+  onBlur?: (e: FocusEvent<any>) => void
   ref?: RefObject<HTMLInputElement>
 }
 
