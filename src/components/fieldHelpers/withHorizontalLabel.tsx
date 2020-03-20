@@ -14,14 +14,11 @@ const WithHorizontalLabel: FC<Props> = ({
   children
 }) => (
   <div
-    className={classNames(
-      "flex items-center leading-sm font-normal",
-      {
-        "text-salmon": error,
-        "justify-between flex-row-reverse": position === "left",
-        "flex-row": position === "right"
-      }
-    )}
+    className={classNames("flex items-center leading-sm font-normal", {
+      "text-salmon": error,
+      "justify-between flex-row-reverse": position === "left",
+      "flex-row": position === "right"
+    })}
   >
     <span
       className={classNames("flex items-center", {
