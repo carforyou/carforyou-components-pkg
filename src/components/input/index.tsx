@@ -17,7 +17,7 @@ interface InputProps {
   disabled?: boolean
   hasClearButton?: boolean
   mode: "text" | "numeric" | "decimal"
-  onChange: (e: { target: { value: string | number } }) => void
+  onChange: (e: { target: { name: string; value: string | number } }) => void
   onBlur?: (e: FocusEvent<any>) => void
   ref?: RefObject<HTMLInputElement>
 }
@@ -85,7 +85,7 @@ function Input({
       <WithClearButton
         visible={!!value}
         onClear={() => {
-          onChange({ target: { value: "" } })
+          onChange({ target: { name, value: "" } })
         }}
       >
         {renderInput(hasError)}
