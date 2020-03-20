@@ -228,6 +228,7 @@ export default {
       scrollbar: "70px",
       clearButton: "32px",
       checkbox: "24px",
+      radioIndicator: "12px",
       "40": "40px"
     },
 
@@ -251,7 +252,8 @@ export default {
       validationError: "5px",
       modalClose: "10px",
       floatingLabel: "13px",
-      "-floatingLabel": "-13px"
+      "-floatingLabel": "-13px",
+      radioIndicator: "5px"
     },
 
     /*
@@ -460,7 +462,8 @@ export default {
       scrollbar: "14px",
       clearButton: "32px",
       modalLarge: "570px",
-      checkbox: "24px"
+      checkbox: "24px",
+      radioIndicator: "12px"
     },
 
     transitionDuration: {
