@@ -1,7 +1,7 @@
 .intercom-launcher {
   border-radius: 18px;
   height: 36px;
-  bottom: 6px;
+  bottom: 182px;
   right: 6px;
   min-width: 123px;
   padding-left: 13px;
@@ -11,7 +11,14 @@
 
 @screen md {
   .intercom-launcher {
-    bottom: 20px;
+    bottom: 132px;
+    right: 20px;
+  }
+}
+
+@screen lg {
+  .intercom-launcher {
+    bottom: 104px;
     right: 20px;
   }
 }
