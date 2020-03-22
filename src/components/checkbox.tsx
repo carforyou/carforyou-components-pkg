@@ -60,30 +60,34 @@ function Checkbox({
   )
 
   return (
-    <label
-      className={classNames(
-        "block w-12/12",
-        disabled ? "cursor-not-allowed text-grey-3" : "cursor-pointer ",
-        {
-          "focus-within:text-teal": !buttonStyle,
-          "p-13 border border-grey-2 hover:border-grey-dark focus-within:border-teal rounded-4 ": buttonStyle,
-          "hover:border-grey-2 bg-grey-bright text-grey-2 cursor-not-allowed":
-            buttonStyle && disabled
-        }
-      )}
-    >
-      <WithValidationError error={error}>
-        {hasError =>
-          renderLabel ? (
+    <WithValidationError error={error}>
+      {hasError => (
+        <label
+          className={classNames(
+            "block w-12/12",
+            disabled ? "cursor-not-allowed text-grey-3" : "cursor-pointer ",
+            {
+              "focus-within:text-teal": !buttonStyle,
+              "p-13 border rounded-4 ": buttonStyle,
+              "hover:border-grey-2 bg-grey-bright text-grey-2 cursor-not-allowed":
+                buttonStyle && disabled,
+              "border-salmon": buttonStyle && hasError,
+              "border-grey-2 hover:border-grey-dark focus-within:border-teal":
+                buttonStyle && !hasError,
+              "text-salmon": hasError
+            }
+          )}
+        >
+          {renderLabel ? (
             <WithHorizontalLabel {...labelProps}>
               {renderInput(hasError)}
             </WithHorizontalLabel>
           ) : (
             renderInput(hasError)
-          )
-        }
-      </WithValidationError>
-    </label>
+          )}
+        </label>
+      )}
+    </WithValidationError>
   )
 }
 

@@ -60,3 +60,12 @@ storiesOf("Checkbox / Unchecked", module)
       label: "Label"
     })
   )
+  .add(
+    "Button style with error message",
+    generateStory({
+      value: initialValue,
+      buttonStyle: true,
+      label: "Label",
+      error: "Error message"
+    })
+  )

@@ -65,7 +65,7 @@ textarea:disabled:hover {
 
 input[type="number"][data-valid="false"],
 input[type="text"][data-valid="false"],
-input[type="checkbox"][data-valid="false"],
+input[type="checkbox"][data-valid="false"]:not(.checkbox-buttonStyle),
 textarea[data-valid="false"] {
   @apply border-salmon text-salmon;
 }
