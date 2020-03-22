@@ -6,6 +6,7 @@ import WithHorizontalLabel from "./fieldHelpers/withHorizontalLabel"
 
 interface CheckboxProps {
   name: string
+  value?: string
   checked?: boolean
   disabled?: boolean
   error?: string
@@ -25,6 +26,7 @@ type Props = PositionedLabelProps | ButtonStyleProps
 
 function Checkbox({
   name,
+  value,
   checked = false,
   disabled = false,
   error,
@@ -52,6 +54,7 @@ function Checkbox({
       name={name}
       type="checkbox"
       checked={checked}
+      value={value}
       disabled={disabled}
       onChange={onChange}
       data-valid={!hasError}
