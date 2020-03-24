@@ -1,7 +1,9 @@
 import React, { useState, ReactElement } from "react"
 import Modal from "../components/modal/index"
 
-const useModal = (modal: () => JSX.Element) => {
+const useModal = (
+  modal: (modalProps: { closeModal: () => void }) => JSX.Element
+) => {
   const [isVisble, setVisible] = useState(false)
 
   const openModal = () => {
