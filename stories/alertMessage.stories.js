@@ -102,7 +102,7 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-6/12">
-          <AlertMessage warning icon={() => <MailSent fill="#E1CD79" />}>
+          <AlertMessage warning icon={() => <MailSent fill="#fcb001" />}>
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  

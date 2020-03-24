@@ -35,8 +35,8 @@ Object {
       "twitter": "#1EA0F2",
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
-      "yellow": "#FAE692",
-      "yellow-dark": "#E1CD79",
+      "yellow": "#fcb001",
+      "yellow-light": "#fcb00126",
     },
     "backgroundPosition": Object {
       "bottom": "bottom",
@@ -82,8 +82,8 @@ Object {
       "twitter": "#1EA0F2",
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
-      "yellow": "#FAE692",
-      "yellow-dark": "#E1CD79",
+      "yellow": "#fcb001",
+      "yellow-light": "#fcb00126",
     },
     "borderRadius": Object {
       "10": "10px",
@@ -136,8 +136,8 @@ Object {
       "twitter": "#1EA0F2",
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
-      "yellow": "#FAE692",
-      "yellow-dark": "#E1CD79",
+      "yellow": "#fcb001",
+      "yellow-light": "#fcb00126",
     },
     "customRotate": Object {
       "180": "180deg",
@@ -299,8 +299,8 @@ Object {
       "twitter": "#1EA0F2",
       "whatsapp": "#0DC143",
       "white": "#FFFFFF",
-      "yellow": "#FAE692",
-      "yellow-dark": "#E1CD79",
+      "yellow": "#fcb001",
+      "yellow-light": "#fcb00126",
     },
     "transitionDuration": Object {
       "200": "200ms",

@@ -54,8 +54,8 @@ export default {
       "good-deal": "#81B040",
       "great-deal": "#149246",
       "not-defined": "#A0A7AB",
-      yellow: "#FAE692",
-      "yellow-dark": "#E1CD79",
+      yellow: "#fcb001",
+      "yellow-light": "#fcb00126",
       pink: "#F73B471A"
     },
 

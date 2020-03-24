@@ -161,7 +161,7 @@ exports[`<AlertMessage> AlertMessage variations renders information alert messag
 exports[`<AlertMessage> AlertMessage variations renders warning alert message 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-yellow-dark bg-yellow"
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-yellow bg-yellow-light text-grey-dark"
   >
     Label
   </div>
@@ -171,7 +171,7 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message 1`
 exports[`<AlertMessage> AlertMessage variations renders warning alert message with borders on the top and bottom 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-yellow-dark bg-yellow"
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-yellow bg-yellow-light text-grey-dark"
   >
     Label
   </div>
@@ -181,7 +181,7 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
 exports[`<AlertMessage> AlertMessage variations renders warning alert message with icon 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-yellow-dark bg-yellow"
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-yellow bg-yellow-light text-grey-dark"
   >
     <div
       class="flex items-center"
@@ -213,7 +213,7 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
 exports[`<AlertMessage> AlertMessage variations renders warning alert message with icon and borders on the top and bottom 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-yellow-dark bg-yellow"
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-yellow bg-yellow-light text-grey-dark"
   >
     <div
       class="flex items-center"

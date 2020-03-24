@@ -23,7 +23,7 @@ const alertMessage: FC<Props> = ({
         "flex w-12/12 leading-sm font-base px-20 py-20",
         parallelBorder ? "border-t border-b" : "border rounded",
         warning
-          ? "border-yellow-dark bg-yellow"
+          ? "border-yellow bg-yellow-light text-grey-dark"
           : information
           ? "border-teal bg-teal-light text-grey-dark"
           : "border-salmon bg-pink text-salmon"
