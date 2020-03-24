@@ -11,7 +11,7 @@ import Select from "./components/select"
 import Checkbox from "./components/checkbox"
 import RadioButton from "./components/radioButton"
 import WithLabel from "./components/fieldHelpers/withLabel"
-import WithValdationError from "./components/fieldHelpers/withValidationError"
+import WithValidationError from "./components/fieldHelpers/withValidationError"
 
 import useModal from "./hooks/useModal"
 
@@ -29,6 +29,6 @@ export {
   Checkbox,
   RadioButton,
   WithLabel,
-  WithValdationError,
+  WithValidationError,
   useModal
 }
