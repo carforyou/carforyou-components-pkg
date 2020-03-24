@@ -1,4 +1,4 @@
-import React, { ReactElement, Ref } from "react"
+import React, { forwardRef } from "react"
 import classNames from "classnames"
 
 import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
@@ -10,7 +10,6 @@ import HintText from "./fieldHelpers/hintText"
 import InputField from "./input/inputField"
 
 interface Props<T> {
-  ref?: Ref<HTMLInputElement>
   name: string
   options: Array<{ name: string; value: T | { customValue: T } }>
   allowCustomValues?: boolean
@@ -26,80 +25,84 @@ interface Props<T> {
   showSearchIcon?: boolean
 }
 
-function Select<T>({
-  ref,
-  name,
-  options,
-  allowCustomValues = false,
-  handleChange,
-  selected,
-  error,
-  disabled = false,
-  labelText,
-  renderLabelPopup,
-  required = false,
-  placeholder,
-  showSearchIcon = false,
-  hint
-}: Props<T>): ReactElement {
-  const renderHint = hasError =>
-    hint ? <HintText text={hint} hasError={hasError} /> : null
+const Select = forwardRef<HTMLInputElement, Props<any>>(
+  (
+    {
+      name,
+      options,
+      allowCustomValues = false,
+      handleChange,
+      selected,
+      error,
+      disabled = false,
+      labelText,
+      renderLabelPopup,
+      required = false,
+      placeholder,
+      showSearchIcon = false,
+      hint
+    },
+    ref
+  ) => {
+    const renderHint = hasError =>
+      hint ? <HintText text={hint} hasError={hasError} /> : null
 
-  const renderDropdown = hasError => (
-    <DropdownWithAutosuggest
-      options={options}
-      onSelect={handleChange}
-      selected={selected}
-      allowCustomValues={allowCustomValues}
-      input={({ getInputProps, isOpen }) => {
-        const props = getInputProps({
-          ref,
-          className: classNames("input_withClearButton", "select", {
-            select_open: isOpen && options.length && !selected,
-            select_closed: !isOpen && !selected,
-            select_withSearchIcon:
-              isOpen && options.length && !selected && showSearchIcon
-          }),
-          name,
-          placeholder,
-          disabled,
-          required
-        })
+    const renderDropdown = hasError => (
+      <DropdownWithAutosuggest
+        options={options}
+        onSelect={handleChange}
+        selected={selected}
+        allowCustomValues={allowCustomValues}
+        input={({ getInputProps, isOpen }) => {
+          const props = getInputProps({
+            ref,
+            className: classNames("input_withClearButton", "select", {
+              select_open: isOpen && options.length && !selected,
+              select_closed: !isOpen && !selected,
+              select_withSearchIcon:
+                isOpen && options.length && !selected && showSearchIcon
+            }),
+            name,
+            placeholder,
+            disabled,
+            required
+          })
 
-        return (
-          <WithClearButton
-            visible={!!selected}
-            onClear={() => handleChange(null)}
-          >
-            <InputField mode="text" hasError={hasError} {...props} />
-          </WithClearButton>
-        )
-      }}
-    />
-  )
-
-  return (
-    <WithValidationError error={error}>
-      {hasError => (
-        <>
-          {labelText ? (
-            <WithLabel
-              name={name}
-              error={hasError}
-              required={required}
-              text={labelText}
-              renderPopup={renderLabelPopup}
+          return (
+            <WithClearButton
+              visible={!!selected}
+              onClear={() => handleChange(null)}
             >
-              {renderDropdown(hasError)}
-            </WithLabel>
-          ) : (
-            renderDropdown(hasError)
-          )}
-          {renderHint(hasError)}
-        </>
-      )}
-    </WithValidationError>
-  )
-}
+              <InputField mode="text" hasError={hasError} {...props} />
+            </WithClearButton>
+          )
+        }}
+      />
+    )
+
+    return (
+      <WithValidationError error={error}>
+        {hasError => (
+          <>
+            {labelText ? (
+              <WithLabel
+                name={name}
+                error={hasError}
+                required={required}
+                text={labelText}
+                renderPopup={renderLabelPopup}
+              >
+                {renderDropdown(hasError)}
+              </WithLabel>
+            ) : (
+              renderDropdown(hasError)
+            )}
+            {renderHint(hasError)}
+          </>
+        )}
+      </WithValidationError>
+    )
+  }
+)
 
 export default Select

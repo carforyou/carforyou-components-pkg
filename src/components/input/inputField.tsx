@@ -1,4 +1,4 @@
-import React, { FC, Ref, FocusEvent, InputHTMLAttributes } from "react"
+import React, { forwardRef, FocusEvent, InputHTMLAttributes } from "react"
 
 const validateNumber = e => {
   const key = e.which || e.keyCode
@@ -43,7 +43,6 @@ const validateDecimal = e => {
 }
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  ref?: Ref<HTMLInputElement>
   name?: string
   value?: string | number | string[]
   placeholder?: string
@@ -56,44 +55,47 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   onBlur?: (e: FocusEvent<any>) => void
 }
 
-const InputField: FC<Props> = ({
-  ref,
-  name,
-  value,
-  placeholder,
-  className,
-  mode,
-  hasError = false,
-  disabled = false,
-  required = false,
-  onChange,
-  onBlur,
-  ...rest
-}) => (
-  <input
-    ref={ref}
-    id={name}
-    name={name}
-    type="text"
-    value={value || ""}
-    placeholder={placeholder || ""}
-    className={className}
-    inputMode={mode !== "text" ? mode : null}
-    onKeyDown={
-      mode === "numeric"
-        ? validateNumber
-        : mode === "decimal"
-        ? validateDecimal
-        : null
-    }
-    onChange={onChange}
-    onBlur={onBlur}
-    data-testid={name}
-    data-valid={!hasError}
-    disabled={disabled}
-    required={required}
-    {...rest}
-  />
+const InputField = forwardRef<HTMLInputElement, Props>(
+  (
+    {
+      name,
+      value,
+      placeholder,
+      className,
+      mode,
+      hasError = false,
+      disabled = false,
+      required = false,
+      onChange,
+      onBlur,
+      ...rest
+    },
+    ref
+  ) => (
+    <input
+      ref={ref}
+      id={name}
+      name={name}
+      type="text"
+      value={value || ""}
+      placeholder={placeholder || ""}
+      className={className}
+      inputMode={mode !== "text" ? mode : null}
+      onKeyDown={
+        mode === "numeric"
+          ? validateNumber
+          : mode === "decimal"
+          ? validateDecimal
+          : null
+      }
+      onChange={onChange}
+      onBlur={onBlur}
+      data-testid={name}
+      data-valid={!hasError}
+      disabled={disabled}
+      required={required}
+      {...rest}
+    />
+  )
 )
-
 export default InputField
