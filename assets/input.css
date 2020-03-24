@@ -205,14 +205,6 @@ input:placeholder-shown {
 }
 
 /* hide ie specific input controls */
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear */
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-reveal */
-::-ms-clear,
-::-ms-reveal {
-  width: 0;
-  height: 0;
-}
-
 /* hide step arrows on number inputs */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -225,6 +217,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* hide webkit specific input controls */
-::-webkit-contacts-auto-fill-button {
+input::-webkit-contacts-auto-fill-button {
   visibility: hidden;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-reveal */
+input::-ms-clear,
+input::-ms-reveal {
+  width: 0;
+  height: 0;
 }
