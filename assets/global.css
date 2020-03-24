@@ -41,6 +41,13 @@ h4 {
   @apply fixed overflow-hidden;
 }
 
+input[type="file"] {
+  @apply opacity-0 overflow-hidden absolute z-negative;
+  width: 0.1px;
+  height: 0.1px;
+}
+
+
 @screen md {
   a {
     @apply opacity-100 transition duration-200;
