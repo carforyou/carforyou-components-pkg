@@ -25,6 +25,7 @@ interface InputProps {
   step?: number
   min?: number
   max?: number
+  className?: string
 }
 
 interface PopupLabelProps extends InputProps {
@@ -60,6 +61,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       step,
       min,
       max,
+      className,
       ...rest
     },
     ref
@@ -81,7 +83,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         name={name}
         value={value || ""}
         placeholder={placeholder || ""}
-        className={classNames("w-12/12", {
+        className={classNames("w-12/12", className, {
           input_withClearButton: hasClearButton,
           "floatingLabel-input": labelProps.floating
         })}
