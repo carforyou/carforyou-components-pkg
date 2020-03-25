@@ -26,9 +26,11 @@ exports[`<AlertMessage> AlertMessage variations renders error alert message with
     class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-salmon bg-salmon-light text-salmon"
   >
     <div
-      class="flex items-center"
+      class="flex"
     >
-      <div>
+      <div
+        class="items-baseline"
+      >
         <svg
           fill="#F73B47"
           height="72"
@@ -42,11 +44,7 @@ exports[`<AlertMessage> AlertMessage variations renders error alert message with
           />
         </svg>
       </div>
-      <span
-        class="pl-15"
-      >
-        Label
-      </span>
+      Label
     </div>
   </div>
 </div>
@@ -58,9 +56,11 @@ exports[`<AlertMessage> AlertMessage variations renders error alert message with
     class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-salmon bg-salmon-light text-salmon"
   >
     <div
-      class="flex items-center"
+      class="flex"
     >
-      <div>
+      <div
+        class="items-baseline"
+      >
         <svg
           fill="#F73B47"
           height="72"
@@ -74,11 +74,7 @@ exports[`<AlertMessage> AlertMessage variations renders error alert message with
           />
         </svg>
       </div>
-      <span
-        class="pl-15"
-      >
-        Label
-      </span>
+      Label
     </div>
   </div>
 </div>
@@ -110,9 +106,11 @@ exports[`<AlertMessage> AlertMessage variations renders information alert messag
     class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-teal bg-teal-light text-grey-dark"
   >
     <div
-      class="flex items-center"
+      class="flex"
     >
-      <div>
+      <div
+        class="items-baseline"
+      >
         <svg
           fill="#3696B9"
           height="72"
@@ -126,11 +124,7 @@ exports[`<AlertMessage> AlertMessage variations renders information alert messag
           />
         </svg>
       </div>
-      <span
-        class="pl-15"
-      >
-        Label
-      </span>
+      Label
     </div>
   </div>
 </div>
@@ -142,9 +136,11 @@ exports[`<AlertMessage> AlertMessage variations renders information alert messag
     class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-teal bg-teal-light text-grey-dark"
   >
     <div
-      class="flex items-center"
+      class="flex"
     >
-      <div>
+      <div
+        class="items-baseline"
+      >
         <svg
           fill="#3696B9"
           height="72"
@@ -158,11 +154,7 @@ exports[`<AlertMessage> AlertMessage variations renders information alert messag
           />
         </svg>
       </div>
-      <span
-        class="pl-15"
-      >
-        Label
-      </span>
+      Label
     </div>
   </div>
 </div>
@@ -194,9 +186,11 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
     class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-yellow bg-yellow-light text-grey-dark"
   >
     <div
-      class="flex items-center"
+      class="flex"
     >
-      <div>
+      <div
+        class="items-baseline"
+      >
         <svg
           fill="#fcb001"
           height="72"
@@ -210,11 +204,7 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
           />
         </svg>
       </div>
-      <span
-        class="pl-15"
-      >
-        Label
-      </span>
+      Label
     </div>
   </div>
 </div>
@@ -226,9 +216,11 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
     class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-yellow bg-yellow-light text-grey-dark"
   >
     <div
-      class="flex items-center"
+      class="flex"
     >
-      <div>
+      <div
+        class="items-baseline"
+      >
         <svg
           fill="#fcb001"
           height="72"
@@ -242,11 +234,7 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
           />
         </svg>
       </div>
-      <span
-        class="pl-15"
-      >
-        Label
-      </span>
+      Label
     </div>
   </div>
 </div>

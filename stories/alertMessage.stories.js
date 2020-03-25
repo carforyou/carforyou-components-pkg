@@ -16,13 +16,13 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage state={"error"}>Error Message</AlertMessage>
+    <AlertMessage type="error">Error Message</AlertMessage>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
-          <AlertMessage state={select("State alert", options, deafultValue)} parallelBorder={boolean("Parallel Border", false)}>
+          <AlertMessage type={select("State alert", options, deafultValue)} parallelBorder={boolean("Parallel Border", false)}>
             {text("Label", "Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.")}
           </AlertMessage>
         </div>  
@@ -34,13 +34,13 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage state={"error"}>Error Message</AlertMessage>
+    <AlertMessage type="error">Error Message</AlertMessage>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
-          <AlertMessage state={"error"}>
+          <AlertMessage type="error">
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
@@ -52,13 +52,13 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage state={"warning"}>Warning Message</AlertMessage>
+    <AlertMessage type="warning">Warning Message</AlertMessage>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
-          <AlertMessage state={"warning"}>
+          <AlertMessage type="warning">
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
@@ -70,13 +70,13 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage state={"information"}>Information Message</AlertMessage>
+    <AlertMessage type="information">Information Message</AlertMessage>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
-          <AlertMessage state={"information"}>
+          <AlertMessage type="information">
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
@@ -88,7 +88,7 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage state={"error"} icon={() => <MailSent fill="#F73B47"/>>
+    <AlertMessage type="error" icon={() => <MailSent fill="#F73B47"/>>
       Error Message
     </AlertMessage>
     ~~~
@@ -96,8 +96,10 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-6/12">
-          <AlertMessage state={"error"} icon={() => <MailSent fill="#F73B47"/>}>
-            Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+          <AlertMessage type="error" icon={() => <MailSent fill="#F73B47"/>}>
+            <span className="pl-16 pt-8">
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>
           </AlertMessage>
         </div>  
       </div>  
@@ -109,7 +111,7 @@ storiesOf("Alert Message", module)
     Description
     ~~~~
     <AlertMessage
-      state={"warning"}
+      type="warning"
       icon={() => <MailSent fill="#E1CD79" />
     >
       Warning Message
@@ -119,8 +121,10 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-6/12">
-          <AlertMessage state={"warning"} icon={() => <MailSent fill="#fcb001" />}>
-            Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+          <AlertMessage type="warning" icon={() => <MailSent fill="#fcb001" />}>
+            <span className="pl-16 pt-8">
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
         </div>  
       </div>  
@@ -132,7 +136,7 @@ storiesOf("Alert Message", module)
     Description
     ~~~~
     <AlertMessage
-      state={"information"}
+      type="information"
       icon={() => <MailSent fill="#3696B9" />
     >
       Information Message
@@ -142,8 +146,10 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-6/12">
-          <AlertMessage state={"information"} icon={() => <MailSent fill="#3696B9" />}>
-            Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+          <AlertMessage type="information" icon={() => <MailSent fill="#3696B9" />}>
+            <span className="pl-16 pt-8">
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
         </div>  
       </div>  

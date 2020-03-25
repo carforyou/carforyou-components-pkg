@@ -17,26 +17,26 @@ interface Props {
   /**
    * Type of alert we want to display
    */
-  state: "error" | "warning" | "information"
+  type: "error" | "warning" | "information"
 }
 
-const alertMessage: FC<Props> = ({ children, icon, parallelBorder, state }) => {
+const alertMessage: FC<Props> = ({ children, icon, parallelBorder, type }) => {
   return (
     <div
       className={classnames(
         "flex w-12/12 leading-sm font-base px-20 py-20",
         parallelBorder ? "border-t border-b" : "border rounded",
         {
-          "border-yellow bg-yellow-light text-grey-dark": state === "warning",
-          "border-teal bg-teal-light text-grey-dark": state === "information",
-          "border-salmon bg-salmon-light text-salmon": state === "error"
+          "border-yellow bg-yellow-light text-grey-dark": type === "warning",
+          "border-teal bg-teal-light text-grey-dark": type === "information",
+          "border-salmon bg-salmon-light text-salmon": type === "error"
         }
       )}
     >
       {icon ? (
-        <div className="flex items-center">
-          <div>{icon()}</div>
-          <span className="pl-15">{children}</span>
+        <div className="flex">
+          <div className="items-baseline">{icon()}</div>
+          {children}
         </div>
       ) : (
         children
