@@ -1,4 +1,4 @@
-import React, { FocusEvent, forwardRef } from "react"
+import React, { FocusEvent, KeyboardEvent, forwardRef } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "../fieldHelpers/withValidationError"
@@ -15,10 +15,16 @@ interface InputProps {
   error?: string
   hint?: string
   disabled?: boolean
+  autoFocus?: boolean
   hasClearButton?: boolean
   mode: "text" | "numeric" | "decimal" | "tel" | "email"
   onChange: (e: { target: { name: string; value: string | number } }) => void
   onBlur?: (e: FocusEvent<any>) => void
+  onKeyDown?: (e: KeyboardEvent<any>) => void
+  onFocus?: (e: FocusEvent<any>) => void
+  step?: number
+  min?: number
+  max?: number
 }
 
 interface PopupLabelProps extends InputProps {
@@ -45,9 +51,15 @@ const Input = forwardRef<HTMLInputElement, Props>(
       hint,
       disabled = false,
       hasClearButton = false,
+      autoFocus = false,
       mode,
       onChange,
       onBlur,
+      onFocus,
+      onKeyDown,
+      step,
+      min,
+      max,
       ...rest
     },
     ref
@@ -79,6 +91,12 @@ const Input = forwardRef<HTMLInputElement, Props>(
         required={required}
         onChange={onChange}
         onBlur={onBlur}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        autoFocus={autoFocus}
+        step={step}
+        min={min}
+        max={max}
       />
     )
 

@@ -19,9 +19,12 @@ const validateNumber = e => {
     // Home and End
     key === 35 ||
     key === 36 ||
-    // left and right arrows
+    // Left and right arrows
     key === 37 ||
     key === 39 ||
+    // Up and down arrows
+    key === 38 ||
+    key === 40 ||
     // Del and Ins
     key === 46 ||
     key === 45
@@ -68,34 +71,43 @@ const InputField = forwardRef<HTMLInputElement, Props>(
       required = false,
       onChange,
       onBlur,
+      onKeyDown,
       ...rest
     },
     ref
-  ) => (
-    <input
-      ref={ref}
-      id={name}
-      name={name}
-      type="text"
-      value={value || ""}
-      placeholder={placeholder || ""}
-      className={className}
-      inputMode={mode !== "text" ? mode : null}
-      onKeyDown={
-        mode === "numeric"
-          ? validateNumber
-          : mode === "decimal"
-          ? validateDecimal
-          : null
-      }
-      onChange={onChange}
-      onBlur={onBlur}
-      data-testid={name}
-      data-valid={!hasError}
-      disabled={disabled}
-      required={required}
-      {...rest}
-    />
-  )
+  ) => {
+    const isNumber = mode === "numeric" || mode === "decimal"
+
+    return (
+      <input
+        ref={ref}
+        id={name}
+        name={name}
+        type={isNumber ? "number" : "text"}
+        value={value || ""}
+        placeholder={placeholder || ""}
+        className={className}
+        inputMode={mode !== "text" ? mode : null}
+        onKeyDown={e => {
+          // tslint:disable:no-unused-expression
+          mode === "numeric"
+            ? validateNumber(e)
+            : mode === "decimal"
+            ? validateDecimal(e)
+            : null
+
+          onKeyDown && onKeyDown(e)
+          // tslint:enable:no-unused-expression
+        }}
+        onChange={onChange}
+        onBlur={onBlur}
+        data-testid={name}
+        data-valid={!hasError}
+        disabled={disabled}
+        required={required}
+        {...rest}
+      />
+    )
+  }
 )
 export default InputField
