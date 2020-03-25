@@ -16,7 +16,7 @@ interface InputProps {
   hint?: string
   disabled?: boolean
   hasClearButton?: boolean
-  mode: "text" | "numeric" | "decimal"
+  mode: "text" | "numeric" | "decimal" | "tel" | "email"
   onChange: (e: { target: { name: string; value: string | number } }) => void
   onBlur?: (e: FocusEvent<any>) => void
 }

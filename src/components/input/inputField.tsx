@@ -47,7 +47,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   value?: string | number | string[]
   placeholder?: string
   className?: string
-  mode: "text" | "numeric" | "decimal"
+  mode: "text" | "numeric" | "decimal" | "tel" | "email"
   hasError?: string
   disabled?: boolean
   required?: boolean
