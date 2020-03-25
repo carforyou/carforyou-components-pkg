@@ -5,7 +5,7 @@ input {
 input[type="number"],
 input[type="text"],
 textarea {
-  @apply px-10 py-13 border border-grey-2 rounded-4 truncate leading-sm;
+  @apply bg-white px-10 py-13 border border-grey-2 rounded-4 truncate leading-sm;
 }
 
 input[type="number"],
@@ -92,7 +92,7 @@ textarea[data-valid="false"]:focus {
 }
 
 .inputRadio-checkmark {
-  @apply absolute top-0 left-0 h-checkbox w-checkbox border rounded-half border-grey-2;
+  @apply absolute top-0 left-0 h-checkbox w-checkbox border rounded-half border-grey-2 bg-white;
 }
 
 .inputRadio-input:hover ~ .inputRadio-checkmark {
@@ -139,10 +139,6 @@ textarea[data-valid="false"]:focus {
 .inputRadio-input:disabled:checked ~ .inputRadio-checkmark:after,
 .inputRadio-input:disabled:checked:hover ~ .inputRadio-checkmark:after {
   @apply bg-grey-3;
-}
-
-input.floatingLabel-input {
-  @apply bg-transparent;
 }
 
 input.floatingLabel-input:focus {
