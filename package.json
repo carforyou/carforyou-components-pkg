@@ -39,7 +39,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@carforyou/pika-plugin-build-standalone-node": "^1.0.0",
-    "@carforyou/tslint-rules": "^1.1.0",
+    "@carforyou/tslint-rules": "^2.0.0",
     "@percy/storybook": "^3.2.0",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-web": "^0.9.0",
@@ -62,7 +62,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "awesome-typescript-loader": "^5.2.1",
     "jest": "^25.1.0",
-    "marked": "0.8.0",
+    "marked": "^0.8.2",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
