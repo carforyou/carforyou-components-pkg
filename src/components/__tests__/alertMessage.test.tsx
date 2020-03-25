@@ -36,7 +36,7 @@ describe("<AlertMessage>", () => {
 
     it("renders error alert message with borders on the top and bottom", () => {
       const { container } = render(
-        <AlertMessage type="error" parallelBorder>
+        <AlertMessage type="error" fullWidth>
           Label
         </AlertMessage>
       )
@@ -45,7 +45,7 @@ describe("<AlertMessage>", () => {
 
     it("renders warning alert message with borders on the top and bottom", () => {
       const { container } = render(
-        <AlertMessage type="warning" parallelBorder>
+        <AlertMessage type="warning" fullWidth>
           Label
         </AlertMessage>
       )
@@ -54,7 +54,7 @@ describe("<AlertMessage>", () => {
 
     it("renders information alert message with borders on the top and bottom", () => {
       const { container } = render(
-        <AlertMessage type="information" parallelBorder>
+        <AlertMessage type="information" fullWidth>
           Label
         </AlertMessage>
       )
@@ -95,7 +95,7 @@ describe("<AlertMessage>", () => {
       const { container } = render(
         <AlertMessage
           type="error"
-          parallelBorder
+          fullWidth
           icon={() => <MailSent fill="#F73B47" />}
         >
           Label
@@ -108,7 +108,7 @@ describe("<AlertMessage>", () => {
       const { container } = render(
         <AlertMessage
           type="warning"
-          parallelBorder
+          fullWidth
           icon={() => <MailSent fill="#fcb001" />}
         >
           Label
@@ -121,7 +121,7 @@ describe("<AlertMessage>", () => {
       const { container } = render(
         <AlertMessage
           type="information"
-          parallelBorder
+          fullWidth
           icon={() => <MailSent fill="#3696B9" />}
         >
           Label

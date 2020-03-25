@@ -13,19 +13,19 @@ interface Props {
   /**
    * Top and bottom border of the alert message
    */
-  parallelBorder?: boolean
+  fullWidth?: boolean
   /**
    * Type of alert we want to display
    */
   type: "error" | "warning" | "information"
 }
 
-const alertMessage: FC<Props> = ({ children, icon, parallelBorder, type }) => {
+const alertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
   return (
     <div
       className={classnames(
         "flex w-12/12 leading-sm font-base px-20 py-20",
-        parallelBorder ? "border-t border-b" : "border rounded",
+        fullWidth ? "border-t border-b" : "border rounded",
         {
           "border-yellow bg-yellow-light text-grey-dark": type === "warning",
           "border-teal bg-teal-light text-grey-dark": type === "information",
