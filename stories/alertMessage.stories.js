@@ -97,7 +97,7 @@ storiesOf("Alert Message", module)
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
           <AlertMessage type="error" icon={() => <MailSent fill="#F73B47"/>}>
-            <span className="pl-16 pt-8">
+            <span className="pl-16">
               Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
             </span>
           </AlertMessage>
@@ -122,7 +122,7 @@ storiesOf("Alert Message", module)
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
           <AlertMessage type="warning" icon={() => <MailSent fill="#fcb001" />}>
-            <span className="pl-16 pt-8">
+            <span className="pl-16">
               Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
             </span>  
           </AlertMessage>
@@ -147,7 +147,7 @@ storiesOf("Alert Message", module)
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
           <AlertMessage type="information" icon={() => <MailSent fill="#3696B9" />}>
-            <span className="pl-16 pt-8">
+            <span className="pl-16">
               Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
             </span>  
           </AlertMessage>

@@ -34,8 +34,8 @@ const AlertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
       )}
     >
       {icon ? (
-        <div className="flex">
-          <div className="items-baseline">{icon()}</div>
+        <div className="flex items-center">
+          {icon()}
           {children}
         </div>
       ) : (
