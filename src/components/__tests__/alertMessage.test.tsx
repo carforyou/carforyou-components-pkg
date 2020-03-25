@@ -6,38 +6,46 @@ import MailSent from "../../../.storybook/icons/mailSent"
 
 describe("<AlertMessage>", () => {
   it("renders alert label", () => {
-    const { getByText } = render(<AlertMessage>Label</AlertMessage>)
+    const { getByText } = render(
+      <AlertMessage state={"error"}>Label</AlertMessage>
+    )
     getByText("Label")
   })
 
-  it("renders default alert message correctly", () => {
-    const { container } = render(<AlertMessage>Label</AlertMessage>)
-    expect(container).toMatchSnapshot()
-  })
-
   describe("AlertMessage variations", () => {
+    it("renders error alert message correctly", () => {
+      const { container } = render(
+        <AlertMessage state={"error"}>Label</AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
     it("renders warning alert message", () => {
-      const { container } = render(<AlertMessage warning>Label</AlertMessage>)
+      const { container } = render(
+        <AlertMessage state={"warning"}>Label</AlertMessage>
+      )
       expect(container).toMatchSnapshot()
     })
 
     it("renders information alert message", () => {
       const { container } = render(
-        <AlertMessage information>Label</AlertMessage>
+        <AlertMessage state={"information"}>Label</AlertMessage>
       )
       expect(container).toMatchSnapshot()
     })
 
-    it("renders default alert message with borders on the top and bottom", () => {
+    it("renders error alert message with borders on the top and bottom", () => {
       const { container } = render(
-        <AlertMessage parallelBorder>Label</AlertMessage>
+        <AlertMessage state={"error"} parallelBorder>
+          Label
+        </AlertMessage>
       )
       expect(container).toMatchSnapshot()
     })
 
     it("renders warning alert message with borders on the top and bottom", () => {
       const { container } = render(
-        <AlertMessage warning parallelBorder>
+        <AlertMessage state={"warning"} parallelBorder>
           Label
         </AlertMessage>
       )
@@ -46,16 +54,16 @@ describe("<AlertMessage>", () => {
 
     it("renders information alert message with borders on the top and bottom", () => {
       const { container } = render(
-        <AlertMessage information parallelBorder>
+        <AlertMessage state={"information"} parallelBorder>
           Label
         </AlertMessage>
       )
       expect(container).toMatchSnapshot()
     })
 
-    it("renders default alert message with icon", () => {
+    it("renders error alert message with icon", () => {
       const { container } = render(
-        <AlertMessage icon={() => <MailSent fill="#F73B47" />}>
+        <AlertMessage state={"error"} icon={() => <MailSent fill="#F73B47" />}>
           Label
         </AlertMessage>
       )
@@ -64,7 +72,10 @@ describe("<AlertMessage>", () => {
 
     it("renders warning alert message with icon", () => {
       const { container } = render(
-        <AlertMessage warning icon={() => <MailSent fill="#E1CD79" />}>
+        <AlertMessage
+          state={"warning"}
+          icon={() => <MailSent fill="#fcb001" />}
+        >
           Label
         </AlertMessage>
       )
@@ -73,16 +84,23 @@ describe("<AlertMessage>", () => {
 
     it("renders information alert message with icon", () => {
       const { container } = render(
-        <AlertMessage information icon={() => <MailSent fill="#3696B9" />}>
+        <AlertMessage
+          state={"information"}
+          icon={() => <MailSent fill="#3696B9" />}
+        >
           Label
         </AlertMessage>
       )
       expect(container).toMatchSnapshot()
     })
 
-    it("renders default alert message with icon and borders on the top and bottom", () => {
+    it("renders error alert message with icon and borders on the top and bottom", () => {
       const { container } = render(
-        <AlertMessage parallelBorder icon={() => <MailSent fill="#F73B47" />}>
+        <AlertMessage
+          state={"error"}
+          parallelBorder
+          icon={() => <MailSent fill="#F73B47" />}
+        >
           Label
         </AlertMessage>
       )
@@ -92,9 +110,9 @@ describe("<AlertMessage>", () => {
     it("renders warning alert message with icon and borders on the top and bottom", () => {
       const { container } = render(
         <AlertMessage
-          warning
+          state={"warning"}
           parallelBorder
-          icon={() => <MailSent fill="#E1CD79" />}
+          icon={() => <MailSent fill="#fcb001" />}
         >
           Label
         </AlertMessage>
@@ -105,7 +123,7 @@ describe("<AlertMessage>", () => {
     it("renders information alert message with icon and borders on the top and bottom", () => {
       const { container } = render(
         <AlertMessage
-          information
+          state={"information"}
           parallelBorder
           icon={() => <MailSent fill="#3696B9" />}
         >

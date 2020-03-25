@@ -34,6 +34,7 @@ export default {
       transparent: "transparent",
       salmon: "#F73B47",
       "salmon-dark": "#ED202D",
+      "salmon-light": "#F73B471A",
       teal: "#3696B9",
       "teal-light": "#D7EAF1",
       "teal-bright": "#AFD5E3",
@@ -55,8 +56,7 @@ export default {
       "great-deal": "#149246",
       "not-defined": "#A0A7AB",
       yellow: "#fcb001",
-      "yellow-light": "#fcb00126",
-      pink: "#F73B471A"
+      "yellow-light": "#fcb00126"
     },
 
     /*

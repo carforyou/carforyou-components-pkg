@@ -1,19 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AlertMessage> AlertMessage variations renders default alert message with borders on the top and bottom 1`] = `
+exports[`<AlertMessage> AlertMessage variations renders error alert message correctly 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-salmon bg-pink text-salmon"
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-salmon bg-salmon-light text-salmon"
   >
     Label
   </div>
 </div>
 `;
 
-exports[`<AlertMessage> AlertMessage variations renders default alert message with icon 1`] = `
+exports[`<AlertMessage> AlertMessage variations renders error alert message with borders on the top and bottom 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-salmon bg-pink text-salmon"
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-salmon bg-salmon-light text-salmon"
+  >
+    Label
+  </div>
+</div>
+`;
+
+exports[`<AlertMessage> AlertMessage variations renders error alert message with icon 1`] = `
+<div>
+  <div
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-salmon bg-salmon-light text-salmon"
   >
     <div
       class="flex items-center"
@@ -42,10 +52,10 @@ exports[`<AlertMessage> AlertMessage variations renders default alert message wi
 </div>
 `;
 
-exports[`<AlertMessage> AlertMessage variations renders default alert message with icon and borders on the top and bottom 1`] = `
+exports[`<AlertMessage> AlertMessage variations renders error alert message with icon and borders on the top and bottom 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-salmon bg-pink text-salmon"
+    class="flex w-12/12 leading-sm font-base px-20 py-20 border-t border-b border-salmon bg-salmon-light text-salmon"
   >
     <div
       class="flex items-center"
@@ -188,7 +198,7 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
     >
       <div>
         <svg
-          fill="#E1CD79"
+          fill="#fcb001"
           height="72"
           viewBox="0 0 72 72"
           width="72"
@@ -220,7 +230,7 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
     >
       <div>
         <svg
-          fill="#E1CD79"
+          fill="#fcb001"
           height="72"
           viewBox="0 0 72 72"
           width="72"
@@ -238,16 +248,6 @@ exports[`<AlertMessage> AlertMessage variations renders warning alert message wi
         Label
       </span>
     </div>
-  </div>
-</div>
-`;
-
-exports[`<AlertMessage> renders default alert message correctly 1`] = `
-<div>
-  <div
-    class="flex w-12/12 leading-sm font-base px-20 py-20 border rounded border-salmon bg-pink text-salmon"
-  >
-    Label
   </div>
 </div>
 `;

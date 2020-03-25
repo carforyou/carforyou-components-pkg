@@ -1,30 +1,47 @@
 import React from "react"
 import { storiesOf } from "@storybook/react"
-import { text, boolean } from "@storybook/addon-knobs"
+import { text, boolean, select } from "@storybook/addon-knobs"
 
 import MailSent from "../.storybook/icons/mailSent"
 
 import { wInfo } from "./utils"
 import AlertMessage from "../src/components/alertMessage"
 
+const options = ["error", "warning", "information"]
+const deafultValue= "error"
+
 storiesOf("Alert Message", module)
   .add(
-    "Default - Error",
+    "Default",
     wInfo(`
     Description
     ~~~~
-    <AlertMessage>Error Message</AlertMessage>
+    <AlertMessage state={"error"}>Error Message</AlertMessage>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
-          <AlertMessage
-            warning={boolean("warning", false)}
-            information={boolean("information", false)}
-            parallelBorder={boolean("Parallel Border", false)}
-          >
+          <AlertMessage state={select("State alert", options, deafultValue)} parallelBorder={boolean("Parallel Border", false)}>
             {text("Label", "Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.")}
+          </AlertMessage>
+        </div>  
+      </div>  
+    ))
+  )
+  .add(
+    "Error",
+    wInfo(`
+    Description
+    ~~~~
+    <AlertMessage state={"error"}>Error Message</AlertMessage>
+    ~~~
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Example</div>
+        <div className="w-12/12 md:w-3/12">
+          <AlertMessage state={"error"}>
+            Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
       </div>  
@@ -35,13 +52,13 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage warning>Warning Message</AlertMessage>
+    <AlertMessage state={"warning"}>Warning Message</AlertMessage>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
-          <AlertMessage warning>
+          <AlertMessage state={"warning"}>
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
@@ -53,13 +70,13 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage information>Information Message</AlertMessage>
+    <AlertMessage state={"information"}>Information Message</AlertMessage>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-3/12">
-          <AlertMessage information>
+          <AlertMessage state={"information"}>
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
@@ -71,7 +88,7 @@ storiesOf("Alert Message", module)
     wInfo(`
     Description
     ~~~~
-    <AlertMessage icon={() => <MailSent fill="#F73B47"/>>
+    <AlertMessage state={"error"} icon={() => <MailSent fill="#F73B47"/>>
       Error Message
     </AlertMessage>
     ~~~
@@ -79,7 +96,7 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-6/12">
-          <AlertMessage icon={() => <MailSent fill="#F73B47"/>}>
+          <AlertMessage state={"error"} icon={() => <MailSent fill="#F73B47"/>}>
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
@@ -92,7 +109,7 @@ storiesOf("Alert Message", module)
     Description
     ~~~~
     <AlertMessage
-      warning
+      state={"warning"}
       icon={() => <MailSent fill="#E1CD79" />
     >
       Warning Message
@@ -102,7 +119,7 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-6/12">
-          <AlertMessage warning icon={() => <MailSent fill="#fcb001" />}>
+          <AlertMessage state={"warning"} icon={() => <MailSent fill="#fcb001" />}>
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  
@@ -115,7 +132,7 @@ storiesOf("Alert Message", module)
     Description
     ~~~~
     <AlertMessage
-      information
+      state={"information"}
       icon={() => <MailSent fill="#3696B9" />
     >
       Information Message
@@ -125,7 +142,7 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12 md:w-6/12">
-          <AlertMessage information icon={() => <MailSent fill="#3696B9" />}>
+          <AlertMessage state={"information"} icon={() => <MailSent fill="#3696B9" />}>
             Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
           </AlertMessage>
         </div>  

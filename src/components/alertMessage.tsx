@@ -2,31 +2,35 @@ import React, { FC, ReactNode } from "react"
 import classnames from "classnames"
 
 interface Props {
-  /** - */
+  /**
+   * Any element to be displayed
+   */
   children: ReactNode
-  warning?: boolean
-  information?: boolean
+  /**
+   * Any icon to be displayed
+   */
   icon?: () => ReactNode
+  /**
+   * Top and bottom border of the alert message
+   */
   parallelBorder?: boolean
+  /**
+   * Type of alert we want to display
+   */
+  state: "error" | "warning" | "information"
 }
 
-const alertMessage: FC<Props> = ({
-  warning,
-  information,
-  children,
-  icon,
-  parallelBorder
-}) => {
+const alertMessage: FC<Props> = ({ children, icon, parallelBorder, state }) => {
   return (
     <div
       className={classnames(
         "flex w-12/12 leading-sm font-base px-20 py-20",
         parallelBorder ? "border-t border-b" : "border rounded",
-        warning
-          ? "border-yellow bg-yellow-light text-grey-dark"
-          : information
-          ? "border-teal bg-teal-light text-grey-dark"
-          : "border-salmon bg-pink text-salmon"
+        {
+          "border-yellow bg-yellow-light text-grey-dark": state === "warning",
+          "border-teal bg-teal-light text-grey-dark": state === "information",
+          "border-salmon bg-salmon-light text-salmon": state === "error"
+        }
       )}
     >
       {icon ? (
