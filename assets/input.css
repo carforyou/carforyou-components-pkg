@@ -8,6 +8,11 @@ textarea {
   @apply px-10 py-13 border border-grey-2 rounded-4 truncate leading-sm;
 }
 
+input[type="number"],
+input[type="text"] {
+  @apply h-input;
+}
+
 input[type="number"].input_withClearButton,
 input[type="text"].input_withClearButton {
   @apply pr-30;

@@ -74,3 +74,12 @@ storiesOf("Input / Label", module)
       floatingLabel: true
     })
   )
+  .add(
+    "Floating label and clear button",
+    generateStory({
+      value: initialValue,
+      labelText: "Label",
+      floatingLabel: true,
+      hasClearButton: true
+    })
+  )

@@ -6,14 +6,9 @@ interface Props {
   error?: boolean
 }
 
-const WithFloatingLabel: FC<Props> = ({
-  name,
-  children,
-  text,
-  error = false
-}) => {
+const WithFloatingLabel: FC<Props> = ({ name, children, text }) => {
   return (
-    <label className="floatingLabel relative" htmlFor={name}>
+    <label className="floatingLabel relative w-12/12" htmlFor={name}>
       {children}
       <span className="floatingLabel-label">{text}</span>
     </label>

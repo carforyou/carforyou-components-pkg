@@ -229,6 +229,7 @@ export default {
       clearButton: "32px",
       checkbox: "24px",
       radioIndicator: "12px",
+      input: "52px",
       "40": "40px"
     },
 
