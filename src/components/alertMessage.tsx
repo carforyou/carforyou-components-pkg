@@ -20,7 +20,7 @@ interface Props {
   type: "error" | "warning" | "information"
 }
 
-const alertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
+const AlertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
   return (
     <div
       className={classnames(
@@ -45,4 +45,4 @@ const alertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
   )
 }
 
-export default alertMessage
+export default AlertMessage
