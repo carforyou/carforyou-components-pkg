@@ -50,7 +50,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(
         value={value || ""}
         placeholder={placeholder || ""}
         className={classNames(
-          "w-12/12",
+          "w-12/12 whitespace-pre-wrap",
           hasError ? "text-salmon" : "text-grey-dark"
         )}
         onChange={onChange}
