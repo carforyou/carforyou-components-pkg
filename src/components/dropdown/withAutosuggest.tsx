@@ -68,9 +68,24 @@ const filterOptions = (options, text) => {
 
   const specialChars = /[-\/\\^$*+?.()|[\]{}]/g
   const regex = new RegExp(text.replace(specialChars, "\\$&"), "i")
-
+  const startsWith = new RegExp(`^${text}`, "i")
   const matching = options
     .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
+    .sort((a, b) => {
+      if (startsWith.test(a.name) && startsWith.test(b.name)) {
+        return 0
+      }
+
+      if (startsWith.test(a.name)) {
+        return -1
+      }
+
+      if (startsWith.test(b.name)) {
+        return 1
+      }
+
+      return 0
+    })
     .map(el => {
       const copy = { ...el }
       const matchData = regex.exec(el.name)
