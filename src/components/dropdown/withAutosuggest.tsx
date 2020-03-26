@@ -59,6 +59,7 @@ interface Props<T> {
    * An event handler to dynamically generate suggestion list
    */
   onTypeAhead?: (value: string) => void
+  menuClassName?: string
 }
 
 const filterOptions = (options, text) => {
@@ -101,7 +102,8 @@ function DropdownWithAutosuggest<T>({
   input,
   onTypeAhead,
   trimInput,
-  allowCustomValues = false
+  allowCustomValues = false,
+  menuClassName
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
 
@@ -243,7 +245,7 @@ function DropdownWithAutosuggest<T>({
               ...downshift,
               innerRef: menuRef,
               options: filteredOptions,
-              className: "shadow-soft rounded-4 mt-0",
+              className: classNames("shadow-soft rounded-4", menuClassName),
               equal: equalWrapper
             }}
           />
@@ -254,3 +256,4 @@ function DropdownWithAutosuggest<T>({
 }
 
 export default DropdownWithAutosuggest
+export { Props as DropdownWithAutosuggestProps }
