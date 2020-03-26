@@ -4,7 +4,7 @@ import classNames from "classnames"
 import DropdownWithAutosuggest, {
   DropdownWithAutosuggestProps
 } from "../components/dropdown/withAutosuggest"
-import Dropdown, { DropdownProps } from "./dropdown"
+import Dropdown, { DropdownProps } from "./dropdown/index"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
 import WithLabel from "./fieldHelpers/withLabel"
