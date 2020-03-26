@@ -17,31 +17,43 @@ const generateDescription = ({
   required,
   placeholder,
   hint,
-  showSearchIcon
+  showSearchIcon,
+  skipContainer,
+  extraDescription,
+  withAutosuggest
 }) => {
   return `
   Description
   ~~~
-  <Select
-${name ? `    name="${name}"` : ""}
-${options ? `    options={[${JSON.stringify(options)}]}` : ""}
-${selected ? `    selected={${selected}}` : ""}
-${placeholder ? `    placeholder="${placeholder}"` : ""}
-${labelText ? `    labelText="${labelText}"` : ""}
-${
-  renderLabelPopup
-    ? `    renderLabelPopup={/* render prop with popup content */}`
-    : ""
-}
-${hint ? `    hint="${hint}"` : ""}
-${error ? `    errors="${error}"` : ""}
-${disabled ? "    disabled" : ""}
-${showSearchIcon ? "    showSearchIcon" : ""}
-${allowCustomValues ? "    allowCustomValues" : ""}
-${required ? "    required" : ""}
-    handleChange={/* event handler */}
-  />
+${skipContainer ? '  <div className="relative">' : ""}
+${skipContainer ? "  " : ""}  <Select
+${skipContainer ? "  " : ""}${name ? `    name="${name}"` : ""}
+${skipContainer ? "  " : ""}${
+    options ? `    options={[${JSON.stringify(options)}]}` : ""
+  }
+${skipContainer ? "  " : ""}${selected ? `    selected={${selected}}` : ""}
+${skipContainer ? "  " : ""}${
+    placeholder ? `    placeholder="${placeholder}"` : ""
+  }
+${skipContainer ? "  " : ""}${labelText ? `    labelText="${labelText}"` : ""}
+${skipContainer ? "  " : ""}${
+    renderLabelPopup
+      ? `    renderLabelPopup={/* render prop with popup content */}`
+      : ""
+  }
+${skipContainer ? "  " : ""}${hint ? `    hint="${hint}"` : ""}
+${skipContainer ? "  " : ""}${error ? `    errors="${error}"` : ""}
+${skipContainer ? "  " : ""}${withAutosuggest ? "    withAutosuggest" : ""}
+${skipContainer ? "  " : ""}${disabled ? "    disabled" : ""}
+${skipContainer ? "  " : ""}${showSearchIcon ? "    showSearchIcon" : ""}
+${skipContainer ? "  " : ""}${allowCustomValues ? "    allowCustomValues" : ""}
+${skipContainer ? "  " : ""}${required ? "    required" : ""}
+${skipContainer ? "  " : ""}${skipContainer ? "    skipContainer" : ""}
+${skipContainer ? "  " : ""}    handleChange={/* event handler */}
+${skipContainer ? "  " : ""}  />
+${skipContainer ? "  </div>" : ""}
   ~~~
+  ${extraDescription ? extraDescription : ""}
   `.replace(/^\s*[\r\n]/gm, "")
 }
 
@@ -57,30 +69,44 @@ const generateStoryFunction = ({
   required,
   placeholder,
   hint,
-  showSearchIcon
+  showSearchIcon,
+  skipContainer,
+  withAutosuggest
 }) => ({ value, setValue }) => {
+  const renderSelect = () => (
+    <Select
+      name={name}
+      options={options}
+      allowCustomValues={allowCustomValues}
+      selected={value}
+      error={error}
+      disabled={disabled}
+      labelText={labelText}
+      renderLabelPopup={renderLabelPopup}
+      required={required}
+      placeholder={placeholder}
+      hint={hint}
+      showSearchIcon={showSearchIcon}
+      handleChange={v => {
+        setValue(v)
+        handleChange(v)
+      }}
+      skipContainer={skipContainer}
+      withAutosuggest={withAutosuggest}
+    />
+  )
+
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 md:w-3/12">
-        <Select
-          name={name}
-          options={options}
-          allowCustomValues={allowCustomValues}
-          selected={value}
-          error={error}
-          disabled={disabled}
-          labelText={labelText}
-          renderLabelPopup={renderLabelPopup}
-          required={required}
-          placeholder={placeholder}
-          hint={hint}
-          showSearchIcon={showSearchIcon}
-          handleChange={v => {
-            setValue(v)
-            handleChange(v)
-          }}
-        />
+        {skipContainer ? (
+          <div className="w-12/12 relative">
+            <div className="w-6/12">{renderSelect()}</div>
+          </div>
+        ) : (
+          renderSelect()
+        )}
       </div>
     </div>
   )
@@ -105,7 +131,10 @@ const generateStory = ({
   required = null,
   placeholder = null,
   hint = null,
-  showSearchIcon = null
+  showSearchIcon = null,
+  skipContainer = false,
+  extraDescription = null,
+  withAutosuggest = true
 }) => {
   const handleChange = () => action("handleChange")
 
@@ -121,10 +150,12 @@ const generateStory = ({
     error,
     disabled,
     required,
-    hint
+    hint,
+    withAutosuggest,
+    skipContainer
   }
 
-  return wInfo(generateDescription(common))(
+  return wInfo(generateDescription({ ...common, extraDescription }))(
     generateStoryFunction({
       ...common,
       handleChange: handleChange()

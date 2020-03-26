@@ -4,17 +4,20 @@ input {
 
 input[type="number"],
 input[type="text"],
+.select-toggle,
 textarea {
   @apply bg-white px-10 py-13 border border-grey-2 rounded-4 truncate leading-sm;
 }
 
 input[type="number"],
-input[type="text"] {
+input[type="text"],
+.select-toggle {
   @apply h-input;
 }
 
 input[type="number"].input_withClearButton,
-input[type="text"].input_withClearButton {
+input[type="text"].input_withClearButton,
+.select-toggle.input_withClearButton {
   @apply pr-30;
 }
 
@@ -52,6 +55,7 @@ textarea:focus {
 input[type="number"]:hover,
 input[type="text"]:hover,
 input[type="checkbox"]:hover:not(.checkbox-buttonStyle),
+.select-toggle:hover,
 textarea:hover {
   @apply border-grey-dark transition duration-200;
 }
@@ -62,6 +66,8 @@ input[type="text"]:disabled,
 input[type="text"]:disabled:hover,
 input[type="checkbox"]:disabled,
 input[type="checkbox"]:disabled:hover,
+.select-toggle.select-toggle_disabled,
+.select-toggle.select-toggle_disabled:hover,
 textarea:disabled,
 textarea:disabled:hover {
   @apply bg-grey-bright text-grey-3;
@@ -71,6 +77,7 @@ textarea:disabled:hover {
 input[type="number"][data-valid="false"],
 input[type="text"][data-valid="false"],
 input[type="checkbox"][data-valid="false"]:not(.checkbox-buttonStyle),
+.select-toggle[data-valid="false"],
 textarea[data-valid="false"] {
   @apply border-salmon text-salmon;
 }

@@ -2,12 +2,12 @@ import React from "react"
 
 import { storiesOf } from "@storybook/react"
 
-import { ControlledInputDecorator } from "../utils"
-import generateStory from "./generator"
+import { ControlledInputDecorator } from "../../utils"
+import generateStory from "../generator"
 
 const initialValue = null
 
-storiesOf("Select / Label", module)
+storiesOf("Select with autosuggest / Label", module)
   .addDecorator(ControlledInputDecorator(initialValue))
   .add(
     "Standard",

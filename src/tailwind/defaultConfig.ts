@@ -230,6 +230,7 @@ export default {
       checkbox: "24px",
       radioIndicator: "12px",
       input: "52px",
+      "20": "20px",
       "40": "40px"
     },
 
@@ -313,7 +314,9 @@ export default {
       "25": "25px",
       "30": "30px",
       "40": "40px",
-      labelPopupIcon: "3px"
+      labelPopupIcon: "3px",
+      "-selectMenu": "-21px",
+      "-selectWithHintMenu": "-43px"
     },
 
     /*

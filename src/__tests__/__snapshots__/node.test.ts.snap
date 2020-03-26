@@ -161,6 +161,7 @@ Object {
       "regular": 400,
     },
     "height": Object {
+      "20": "20px",
       "40": "40px",
       "auto": "auto",
       "checkbox": "24px",
@@ -218,6 +219,8 @@ Object {
       },
     },
     "margin": Object {
+      "-selectMenu": "-21px",
+      "-selectWithHintMenu": "-43px",
       "0": "0",
       "10": "10px",
       "15": "15px",

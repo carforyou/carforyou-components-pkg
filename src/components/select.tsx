@@ -1,7 +1,10 @@
 import React, { forwardRef } from "react"
 import classNames from "classnames"
 
-import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
+import DropdownWithAutosuggest, {
+  DropdownWithAutosuggestProps
+} from "../components/dropdown/withAutosuggest"
+import Dropdown, { DropdownProps } from "./dropdown"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
 import WithLabel from "./fieldHelpers/withLabel"
@@ -9,10 +12,9 @@ import WithClearButton from "./fieldHelpers/withClearButton"
 import HintText from "./fieldHelpers/hintText"
 import InputField from "./input/inputField"
 
-interface Props<T> {
+interface BaseProps<T> {
   name: string
   options: Array<{ name: string; value: T | { customValue: T } }>
-  allowCustomValues?: boolean
   handleChange: (value: T) => void
   selected?: T
   error?: string
@@ -22,15 +24,28 @@ interface Props<T> {
   required?: boolean
   placeholder?: string
   hint?: string
-  showSearchIcon?: boolean
+  className?: string
+  skipContainer?: boolean
 }
+
+interface AutosuggestSelect<T> extends BaseProps<T> {
+  onTypeAhead?: (value: string) => void
+  allowCustomValues?: boolean
+  showSearchIcon?: boolean
+  withAutosuggest: true
+}
+
+interface SimpleSelect<T> extends BaseProps<T> {
+  withAutosuggest: false
+}
+
+type Props<T> = AutosuggestSelect<T> | SimpleSelect<T>
 
 const Select = forwardRef<HTMLInputElement, Props<any>>(
   (
     {
       name,
       options,
-      allowCustomValues = false,
       handleChange,
       selected,
       error,
@@ -39,68 +54,161 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       renderLabelPopup,
       required = false,
       placeholder,
-      showSearchIcon = false,
-      hint
+      hint,
+      className,
+      skipContainer = false,
+      ...rest
     },
     ref
   ) => {
+    const baseProps = {
+      options,
+      onSelect: handleChange,
+      selected,
+      menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu"
+    }
+
+    const dropdownProps =
+      "withAutosuggest" in rest && rest.withAutosuggest
+        ? {
+            ...baseProps,
+            onTypeAhead: rest.onTypeAhead,
+            allowCustomValues: rest.allowCustomValues,
+            input: ({ getInputProps, isOpen }) => {
+              const props = getInputProps({
+                ref,
+                className: classNames(
+                  "input_withClearButton",
+                  className,
+                  "select",
+                  selectClasses(isOpen)
+                ),
+                name,
+                placeholder,
+                disabled,
+                required
+              })
+
+              return (
+                <WithValidationError error={error}>
+                  {hasError => (
+                    <>
+                      {labelText ? (
+                        <WithLabel
+                          name={name}
+                          error={hasError}
+                          required={required}
+                          text={labelText}
+                          renderPopup={renderLabelPopup}
+                        >
+                          {renderInput(hasError, props)}
+                        </WithLabel>
+                      ) : (
+                        renderInput(hasError, props)
+                      )}
+                      {renderHint(hasError)}
+                    </>
+                  )}
+                </WithValidationError>
+              )
+            }
+          }
+        : {
+            ...baseProps,
+            placeholder,
+            disabled,
+            toggle: (downshift, isOpen) => {
+              const toggleProps = {
+                className: classNames(
+                  "w-12/12 text-left select-toggle input_withClearButton",
+                  className,
+                  "select",
+                  selectClasses(isOpen),
+                  {
+                    "select-toggle_disabled": disabled,
+                    "text-grey-3": downshift.placeholder
+                  }
+                ),
+                children: downshift.name
+              }
+
+              return (
+                <WithValidationError error={error}>
+                  {hasError => (
+                    <>
+                      {labelText ? (
+                        <WithLabel
+                          name={name}
+                          error={hasError}
+                          required={required}
+                          text={labelText}
+                          renderPopup={renderLabelPopup}
+                        >
+                          {renderToggle(hasError, toggleProps)}
+                        </WithLabel>
+                      ) : (
+                        renderToggle(hasError, toggleProps)
+                      )}
+                      {renderHint(hasError)}
+                    </>
+                  )}
+                </WithValidationError>
+              )
+            }
+          }
+
+    const selectClasses = isOpen => {
+      const showSearchIcon =
+        "withAutosuggest" in rest && rest.withAutosuggest && rest.showSearchIcon
+      return {
+        select_open: isOpen && options.length && !selected,
+        select_closed: !isOpen && !selected,
+        select_withSearchIcon:
+          isOpen && options.length && !selected && showSearchIcon
+      }
+    }
+
     const renderHint = hasError =>
       hint ? <HintText text={hint} hasError={hasError} /> : null
 
-    const renderDropdown = hasError => (
-      <DropdownWithAutosuggest
-        options={options}
-        onSelect={handleChange}
-        selected={selected}
-        allowCustomValues={allowCustomValues}
-        input={({ getInputProps, isOpen }) => {
-          const props = getInputProps({
-            ref,
-            className: classNames("input_withClearButton", "select", {
-              select_open: isOpen && options.length && !selected,
-              select_closed: !isOpen && !selected,
-              select_withSearchIcon:
-                isOpen && options.length && !selected && showSearchIcon
-            }),
-            name,
-            placeholder,
-            disabled,
-            required
-          })
-
-          return (
-            <WithClearButton
-              visible={!!selected}
-              onClear={() => handleChange(null)}
-            >
-              <InputField mode="text" hasError={hasError} {...props} />
-            </WithClearButton>
-          )
-        }}
-      />
+    const renderInput = (hasError, props) => (
+      <>
+        <WithClearButton
+          visible={!!selected}
+          onClear={() => handleChange(null)}
+        >
+          <InputField mode="text" hasError={hasError} {...props} />
+        </WithClearButton>
+      </>
     )
 
-    return (
-      <WithValidationError error={error}>
-        {hasError => (
-          <>
-            {labelText ? (
-              <WithLabel
-                name={name}
-                error={hasError}
-                required={required}
-                text={labelText}
-                renderPopup={renderLabelPopup}
-              >
-                {renderDropdown(hasError)}
-              </WithLabel>
-            ) : (
-              renderDropdown(hasError)
-            )}
-            {renderHint(hasError)}
-          </>
+    const renderToggle = (hasError, props) => (
+      <>
+        <WithClearButton
+          onClear={() => handleChange(null)}
+          visible={!!selected}
+        >
+          <div {...props} data-valid={!hasError} />
+        </WithClearButton>
+      </>
+    )
+
+    const renderDropdown = () => (
+      <>
+        {"withAutosuggest" in rest && rest.withAutosuggest ? (
+          <DropdownWithAutosuggest
+            {...(dropdownProps as DropdownWithAutosuggestProps<any>)}
+          />
+        ) : (
+          <Dropdown {...(dropdownProps as DropdownProps<any>)} />
         )}
-      </WithValidationError>
+      </>
+    )
+
+    return skipContainer ? (
+      renderDropdown()
+    ) : (
+      <div className="w-12/12 relative">{renderDropdown()}</div>
     )
   }
 )
