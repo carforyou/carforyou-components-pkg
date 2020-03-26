@@ -8,9 +8,12 @@ interface Props {
 
 const HintText: FC<Props> = ({ text, hasError }) => (
   <span
-    className={classNames("font-bold text-sm", {
-      "text-salmon": hasError
-    })}
+    className={classNames(
+      "inline-block font-bold text-sm text-left h-20 w-12/12",
+      {
+        "text-salmon": hasError
+      }
+    )}
   >
     {text}
   </span>
