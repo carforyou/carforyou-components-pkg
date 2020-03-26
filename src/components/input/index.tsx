@@ -18,7 +18,9 @@ interface InputProps {
   autoFocus?: boolean
   hasClearButton?: boolean
   mode: "text" | "numeric" | "decimal" | "tel" | "email"
-  onChange: (e: { target: { name: string; value: string | number } }) => void
+  onChange: <T extends { target: { name: string; value: string | number } }>(
+    e: T
+  ) => void
   onBlur?: (e: FocusEvent<any>) => void
   onKeyDown?: (e: KeyboardEvent<any>) => void
   onFocus?: (e: FocusEvent<any>) => void
@@ -107,7 +109,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         <WithClearButton
           visible={!!value}
           onClear={() => {
-            onChange({ target: { name, value: "" } })
+            onChange({ target: { name, value: "", cleared: true } })
           }}
         >
           {renderInput(hasError)}
