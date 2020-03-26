@@ -13,7 +13,9 @@ const WithValidationError: FC<Props> = ({ error, children }) => {
           {error}
         </div>
       )}
-      <div className="validation-inputContainer mb-20">{children(!!error)}</div>
+      <div className="validation-inputContainer h-input mb-20">
+        {children(!!error)}
+      </div>
       <div />
     </div>
   )
