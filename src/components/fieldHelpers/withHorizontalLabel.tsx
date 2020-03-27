@@ -28,7 +28,7 @@ const WithHorizontalLabel: FC<Props> = ({
     >
       {children}
     </span>
-    <span>{renderContent && renderContent()}</span>
+    <span className="w-12/12">{renderContent && renderContent()}</span>
   </div>
 )
 
