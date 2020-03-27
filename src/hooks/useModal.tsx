@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, ReactElement } from "react"
 import Modal from "../components/modal/index"
 
 const useModal = (
@@ -21,8 +21,7 @@ const useModal = (
 
   return {
     openModal,
-    renderModal,
-    closeModal
+    renderModal
   }
 }
 
