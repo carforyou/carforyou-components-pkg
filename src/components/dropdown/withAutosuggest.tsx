@@ -5,7 +5,8 @@ import React, {
   RefObject,
   useRef,
   InputHTMLAttributes,
-  ReactElement
+  ReactElement,
+  ReactNode
 } from "react"
 import classNames from "classnames"
 import { GetInputPropsOptions } from "downshift"
@@ -59,6 +60,7 @@ interface Props<T> {
    * An event handler to dynamically generate suggestion list
    */
   onTypeAhead?: (value: string) => void
+  noResultsComponent: ReactNode
 }
 
 const filterOptions = (options, text) => {
@@ -101,11 +103,7 @@ const filterOptions = (options, text) => {
       return copy
     })
 
-  const notMatching = options.filter(
-    el => !el.name.toLowerCase().includes(text.toLowerCase())
-  )
-
-  return matching.concat(notMatching)
+  return matching
 }
 
 function DropdownWithAutosuggest<T>({
@@ -116,7 +114,8 @@ function DropdownWithAutosuggest<T>({
   input,
   onTypeAhead,
   trimInput,
-  allowCustomValues = false
+  allowCustomValues = false,
+  noResultsComponent
 }: Props<T>): ReactElement {
   const menuRef: RefObject<HTMLUListElement> = useRef()
 
@@ -259,7 +258,8 @@ function DropdownWithAutosuggest<T>({
               innerRef: menuRef,
               options: filteredOptions,
               className: "shadow-soft rounded-4 mt-0",
-              equal: equalWrapper
+              equal: equalWrapper,
+              noResultsComponent
             }}
           />
         )
