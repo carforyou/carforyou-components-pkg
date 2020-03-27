@@ -17,7 +17,7 @@ interface Props {
   /**
    * Type of alert we want to display
    */
-  type: "error" | "warning" | "information"
+  type: "error" | "warning" | "information" | "success"
 }
 
 const AlertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
@@ -29,7 +29,8 @@ const AlertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
         {
           "border-yellow bg-yellow-light text-grey-dark": type === "warning",
           "border-teal bg-teal-light text-grey-dark": type === "information",
-          "border-salmon bg-salmon-light text-salmon": type === "error"
+          "border-salmon bg-salmon-light text-salmon": type === "error",
+          "border-green-light bg-green-bright text-grey-dark": type === "success"
         }
       )}
     >

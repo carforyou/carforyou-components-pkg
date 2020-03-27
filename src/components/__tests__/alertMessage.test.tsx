@@ -34,6 +34,13 @@ describe("<AlertMessage>", () => {
       expect(container).toMatchSnapshot()
     })
 
+    it("renders success alert message", () => {
+      const { container } = render(
+        <AlertMessage type="success">Label</AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
     it("renders error alert message with borders on the top and bottom", () => {
       const { container } = render(
         <AlertMessage type="error" fullWidth>
@@ -55,6 +62,15 @@ describe("<AlertMessage>", () => {
     it("renders information alert message with borders on the top and bottom", () => {
       const { container } = render(
         <AlertMessage type="information" fullWidth>
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders success alert message with borders on the top and bottom", () => {
+      const { container } = render(
+        <AlertMessage type="success" fullWidth>
           Label
         </AlertMessage>
       )
@@ -85,6 +101,15 @@ describe("<AlertMessage>", () => {
           type="information"
           icon={() => <MailSent fill="#3696B9" />}
         >
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders success alert message with icon", () => {
+      const { container } = render(
+        <AlertMessage type="success" icon={() => <MailSent fill="#74CC74" />}>
           Label
         </AlertMessage>
       )
@@ -123,6 +148,19 @@ describe("<AlertMessage>", () => {
           type="information"
           fullWidth
           icon={() => <MailSent fill="#3696B9" />}
+        >
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders success alert message with icon and borders on the top and bottom", () => {
+      const { container } = render(
+        <AlertMessage
+          type="success"
+          fullWidth
+          icon={() => <MailSent fill="#74CC74" />}
         >
           Label
         </AlertMessage>

@@ -7,7 +7,7 @@ import MailSent from "../.storybook/icons/mailSent"
 import { wInfo } from "./utils"
 import AlertMessage from "../src/components/alertMessage"
 
-const options = ["error", "warning", "information"]
+const options = ["error", "warning", "information", "success"]
 const deafultValue= "error"
 
 storiesOf("Alert Message", module)
@@ -84,6 +84,24 @@ storiesOf("Alert Message", module)
     ))
   )
   .add(
+    "Success",
+    wInfo(`
+    Description
+    ~~~~
+    <AlertMessage type="success">Success Message</AlertMessage>
+    ~~~
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Example</div>
+        <div className="w-12/12">
+          <AlertMessage type="success">
+            Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+          </AlertMessage>
+        </div>  
+      </div>  
+    ))
+  )
+  .add(
     "Error with Icon",
     wInfo(`
     Description
@@ -147,6 +165,32 @@ storiesOf("Alert Message", module)
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
           <AlertMessage type="information" icon={() => <MailSent fill="#3696B9" />}>
+            <span className="pl-16">
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
+          </AlertMessage>
+        </div>  
+      </div>  
+    ))
+  )
+
+  .add(
+    "Success with Icon",
+    wInfo(`
+    Description
+    ~~~~
+    <AlertMessage
+      type="success"
+      icon={() => <MailSent fill="#3696B9" />
+    >
+      Success Message
+    </AlertMessage>
+    ~~~
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Example</div>
+        <div className="w-12/12">
+          <AlertMessage type="success" icon={() => <MailSent fill="#74CC74" />}>
             <span className="pl-16">
               Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
             </span>  
