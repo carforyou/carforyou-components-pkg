@@ -51,7 +51,7 @@ const WithLabel: FC<Props> = ({
           )}
         </b>
       </label>
-      <div className="relative w-12/12">{children}</div>
+      <div className="w-12/12">{children}</div>
     </>
   )
 }

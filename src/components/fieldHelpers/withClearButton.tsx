@@ -9,7 +9,7 @@ interface Props {
 
 const WithClearButton: FC<Props> = ({ children, visible = false, onClear }) => {
   return (
-    <div className="relative inline-flex w-12/12">
+    <div className="relative flex w-12/12">
       {children}
       {visible ? (
         <div

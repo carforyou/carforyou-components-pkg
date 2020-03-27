@@ -49,6 +49,14 @@ storiesOf("Select / Label", module)
     })
   )
   .add(
+    "With error message",
+    generateStory({
+      withAutosuggest: false,
+      labelText: "Label",
+      error: "Error message"
+    })
+  )
+  .add(
     "Required with Popup",
     generateStory({
       withAutosuggest: false,
