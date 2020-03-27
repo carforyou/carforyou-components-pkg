@@ -1,19 +1,24 @@
-import React, { useState } from "react"
+import React, { useState, RefObject } from "react"
+import { createPortal } from "react-dom"
+
 import classNames from "classnames"
 
-import Modal from "../components/modal/index"
+import Modal, { ModalSize } from "../components/modal/index"
 
 const useModal = (
   modal: (modalProps: { closeModal: () => void }) => JSX.Element,
   options?: {
-    size?: "small" | "medium" | "large" | "fullscreen"
+    size?: ModalSize
     alwaysRender?: boolean
+    container?: RefObject<HTMLDivElement>
   }
 ) => {
   const [isVisble, setVisible] = useState(false)
-  const { size, alwaysRender } = options || {
-    size: "medium",
-    alwaysRender: false
+  const { size, alwaysRender, container } = {
+    size: "medium" as ModalSize,
+    alwaysRender: false,
+    container: null,
+    ...options
   }
 
   const openModal = () => {
@@ -32,7 +37,7 @@ const useModal = (
     </Modal>
   )
 
-  const renderModal = () =>
+  const renderModalWrappper = () =>
     alwaysRender ? (
       <div className={classNames({ hidden: !isVisble })}>
         {renderModalComponent()}
@@ -40,6 +45,11 @@ const useModal = (
     ) : isVisble ? (
       renderModalComponent()
     ) : null
+
+  const renderModal = () =>
+    container?.current
+      ? createPortal(renderModalWrappper(), container.current)
+      : renderModalWrappper()
 
   return {
     openModal,

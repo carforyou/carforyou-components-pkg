@@ -4,10 +4,12 @@ import classNames from "classnames"
 import Overlay from "./overlay"
 import CloseMIcon from "../icons/closeM"
 
+export type ModalSize = "small" | "medium" | "large" | "fullscreen"
+
 interface Props {
   close: () => void
   children: (options: { closeModal: () => void }) => ReactNode
-  size: "small" | "medium" | "large" | "fullscreen"
+  size: ModalSize
 }
 
 const Modal: FC<Props> = ({ close, size, children }) => {
