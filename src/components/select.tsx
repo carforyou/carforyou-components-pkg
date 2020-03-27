@@ -33,6 +33,7 @@ interface AutosuggestSelect<T> extends BaseProps<T> {
   allowCustomValues?: boolean
   showSearchIcon?: boolean
   withAutosuggest: true
+  inputMode?: "text" | "numeric"
 }
 
 interface SimpleSelect<T> extends BaseProps<T> {
@@ -84,6 +85,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                   selectClasses(isOpen)
                 ),
                 name,
+                mode: rest.inputMode || "text",
                 placeholder,
                 disabled,
                 required
@@ -177,7 +179,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
           visible={!!selected}
           onClear={() => handleChange(null)}
         >
-          <InputField mode="text" hasError={hasError} {...props} />
+          <InputField hasError={hasError} {...props} />
         </WithClearButton>
       </>
     )
