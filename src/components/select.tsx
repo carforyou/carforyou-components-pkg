@@ -162,11 +162,17 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
     const selectClasses = isOpen => {
       const showSearchIcon =
         "withAutosuggest" in rest && rest.withAutosuggest && rest.showSearchIcon
+      const showOpenedIcon =
+        isOpen &&
+        (options.length ||
+          ("withAutosuggest" in rest &&
+            rest.withAutosuggest &&
+            rest.onTypeAhead))
+
       return {
-        select_open: isOpen && options.length && !selected,
+        select_open: showOpenedIcon && !selected,
         select_closed: !isOpen && !selected,
-        select_withSearchIcon:
-          isOpen && options.length && !selected && showSearchIcon
+        select_withSearchIcon: showOpenedIcon && !selected && showSearchIcon
       }
     }
 
