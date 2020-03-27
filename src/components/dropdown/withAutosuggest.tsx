@@ -69,8 +69,9 @@ const filterOptions = (options, text) => {
   }
 
   const specialChars = /[-\/\\^$*+?.()|[\]{}]/g
-  const regex = new RegExp(text.replace(specialChars, "\\$&"), "i")
-  const startsWith = new RegExp(`^${text}`, "i")
+  const cleanedText = text.replace(specialChars, "\\$&")
+  const regex = new RegExp(cleanedText, "i")
+  const startsWith = new RegExp(`^${cleanedText}`, "i")
   const matching = options
     .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
     .sort((a, b) => {
