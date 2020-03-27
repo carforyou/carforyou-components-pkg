@@ -1,4 +1,5 @@
 import React, { FC, ReactNode, useEffect } from "react"
+import classNames from "classnames"
 
 import Overlay from "./overlay"
 import CloseMIcon from "../icons/closeM"
@@ -6,9 +7,10 @@ import CloseMIcon from "../icons/closeM"
 interface Props {
   close: () => void
   children: (options: { closeModal: () => void }) => ReactNode
+  size: "small" | "medium" | "large" | "fullscreen"
 }
 
-const Modal: FC<Props> = ({ close, children }) => {
+const Modal: FC<Props> = ({ close, size, children }) => {
   const handleKeys = e => {
     if (e.keyCode === 27) {
       e.preventDefault()
@@ -25,7 +27,12 @@ const Modal: FC<Props> = ({ close, children }) => {
     <div className="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-screen transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto">
       <Overlay handleClick={close} />
       <div
-        className="max-h-full inset-x-0 scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:align-middle md:relative md:inset-auto"
+        className={classNames(
+          "max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
+          size === "fullscreen"
+            ? "inset-0 h-full"
+            : "inset-x-0 md:align-middle md:inset-auto"
+        )}
         role="dialog"
       >
         <div
@@ -35,7 +42,14 @@ const Modal: FC<Props> = ({ close, children }) => {
         >
           <CloseMIcon />
         </div>
-        <div className="bg-white z-modal w-12/12 md:w-modalLarge p-40 my-0 rounded-4">
+        <div
+          className={classNames("bg-white z-modal w-12/12 my-0 rounded-4", {
+            "p-40 md:w-modalLarge": size === "large",
+            "p-40 md:w-modal": size === "medium",
+            "p-40 md:w-modalSmall": size === "small",
+            "h-full": size === "fullscreen"
+          })}
+        >
           {children({ closeModal: close })}
         </div>
       </div>

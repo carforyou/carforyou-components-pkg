@@ -465,7 +465,9 @@ export default {
       screen: "100vw",
       scrollbar: "14px",
       clearButton: "32px",
-      modalLarge: "570px",
+      modal: "570px",
+      modalSmall: "370px",
+      modalLarge: "770px",
       checkbox: "24px",
       radioIndicator: "12px"
     },
