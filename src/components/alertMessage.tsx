@@ -30,7 +30,8 @@ const AlertMessage: FC<Props> = ({ children, icon, fullWidth, type }) => {
           "border-yellow bg-yellow-light text-grey-dark": type === "warning",
           "border-teal bg-teal-light text-grey-dark": type === "information",
           "border-salmon bg-salmon-light text-salmon": type === "error",
-          "border-green-light bg-green-bright text-grey-dark": type === "success"
+          "border-green-light bg-green-bright text-grey-dark":
+            type === "success"
         }
       )}
     >
