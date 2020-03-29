@@ -29,7 +29,7 @@ interface Props<T> {
     value: T
     isSelected: boolean
   }) => ReactNode
-  noResultsComponent: ReactNode
+  noResults?: string
 }
 
 const hightlightItem = <T extends {}>({
@@ -65,7 +65,7 @@ class Menu<T> extends Component<Props<T>> {
       options,
       className,
       innerRef,
-      noResultsComponent
+      noResults
     } = this.props
 
     let { renderOption } = this.props
@@ -131,7 +131,7 @@ class Menu<T> extends Component<Props<T>> {
             })}
           </ul>
         ) : (
-          <div>{noResultsComponent}</div>
+          <div className="p-20 text-grey-3">{noResults}</div>
         )}
       </div>
     )
