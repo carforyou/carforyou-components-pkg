@@ -32,7 +32,7 @@ describe("<DropdownWithAutosuggest>", () => {
           />
         )}
         allowCustomValues={allowCustomValues}
-        noResultsComponent={<div>No results</div>}
+        noResults="no results"
       />
     )
   }
