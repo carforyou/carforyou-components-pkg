@@ -17,6 +17,14 @@ storiesOf("Input / Label", module)
     })
   )
   .add(
+    "With error",
+    generateStory({
+      value: initialValue,
+      labelText: "Label",
+      error: "Error message"
+    })
+  )
+  .add(
     "With clear button",
     generateStory({
       value: initialValue,
@@ -64,22 +72,5 @@ storiesOf("Input / Label", module)
       required: true,
       labelText: "Label",
       renderLabelPopup: () => <div>Popup Content</div>
-    })
-  )
-  .add(
-    "Floating label",
-    generateStory({
-      value: initialValue,
-      labelText: "Label",
-      floatingLabel: true
-    })
-  )
-  .add(
-    "Floating label and clear button",
-    generateStory({
-      value: initialValue,
-      labelText: "Label",
-      floatingLabel: true,
-      hasClearButton: true
     })
   )
