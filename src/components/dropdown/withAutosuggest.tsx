@@ -5,7 +5,8 @@ import React, {
   Ref,
   useRef,
   InputHTMLAttributes,
-  ReactElement
+  ReactElement,
+  ReactNode
 } from "react"
 import classNames from "classnames"
 import { GetInputPropsOptions } from "downshift"
@@ -60,18 +61,36 @@ interface Props<T> {
    */
   onTypeAhead?: (value: string) => void
   menuClassName?: string
+  noResults?: string
 }
 
-const filterOptions = (options, text) => {
+const filterOptions = noResults => (allOptions, text) => {
   if (!text) {
-    return options
+    return allOptions
   }
 
   const specialChars = /[-\/\\^$*+?.()|[\]{}]/g
-  const regex = new RegExp(text.replace(specialChars, "\\$&"), "i")
+  const cleanedText = text.replace(specialChars, "\\$&")
+  const regex = new RegExp(cleanedText, "i")
+  const startsWith = new RegExp(`^${cleanedText}`, "i")
 
-  const matching = options
+  const matching = allOptions
     .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
+    .sort((a, b) => {
+      if (startsWith.test(a.name) && startsWith.test(b.name)) {
+        return 0
+      }
+
+      if (startsWith.test(a.name)) {
+        return -1
+      }
+
+      if (startsWith.test(b.name)) {
+        return 1
+      }
+
+      return 0
+    })
     .map(el => {
       const copy = { ...el }
       const matchData = regex.exec(el.name)
@@ -87,11 +106,7 @@ const filterOptions = (options, text) => {
       return copy
     })
 
-  const notMatching = options.filter(
-    el => !el.name.toLowerCase().includes(text.toLowerCase())
-  )
-
-  return matching.concat(notMatching)
+  return matching.length ? matching : noResults ? matching : allOptions
 }
 
 function DropdownWithAutosuggest<T>({
@@ -103,7 +118,8 @@ function DropdownWithAutosuggest<T>({
   onTypeAhead,
   trimInput,
   allowCustomValues = false,
-  menuClassName
+  menuClassName,
+  noResults
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
 
@@ -236,7 +252,7 @@ function DropdownWithAutosuggest<T>({
       options={options}
       equal={equalWrapper}
       onSelect={onSelect}
-      filterOptions={filterOptions}
+      filterOptions={filterOptions(noResults)}
       toggle={renderToggle}
       menu={(downshift, filteredOptions) => {
         return (
@@ -246,7 +262,8 @@ function DropdownWithAutosuggest<T>({
               innerRef: menuRef,
               options: filteredOptions,
               className: classNames("shadow-soft rounded-4", menuClassName),
-              equal: equalWrapper
+              equal: equalWrapper,
+              noResults
             }}
           />
         )

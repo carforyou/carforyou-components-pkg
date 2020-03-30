@@ -29,10 +29,7 @@ interface Props<T> {
     value: T
     isSelected: boolean
   }) => ReactNode
-}
-
-const isObject = value => {
-  return value instanceof Object
+  noResults?: string
 }
 
 const hightlightItem = <T extends {}>({
@@ -67,7 +64,8 @@ class Menu<T> extends Component<Props<T>> {
       selectedItem,
       options,
       className,
-      innerRef
+      innerRef,
+      noResults
     } = this.props
 
     let { renderOption } = this.props
@@ -76,60 +74,69 @@ class Menu<T> extends Component<Props<T>> {
     }
 
     const padding = "px-20 py-10"
-    return options.length ? (
-      <ul
-        {...getMenuProps(
-          {
-            className: classNames(
-              "border border-grey-2 list-reset absolute z-dropdownMenu bg-white py-10 cursor-normal max-h-dropdownSM md:max-h-dropdown scrolling-touch overflow-y-scroll custom-scrollbar inset-x-0",
-              className
-            ),
-            onMouseLeave: () => {
-              setHighlightedIndex(null)
-            }
-          },
-          { suppressRefError: true }
+    return (
+      <div
+        className={classNames(
+          className,
+          "border border-grey-2 absolute z-dropdownMenu bg-white py-10 cursor-normal inset-x-0 custom-scrollbar max-h-dropdownSM md:max-h-dropdown scrolling-touch overflow-y-scroll"
         )}
-        ref={innerRef}
-        data-testid="dropdown-options"
       >
-        {options.map((item, index) => {
-          const isSelected =
-            selectedItem && this.equalWrapper(selectedItem.value, item.value)
+        {options.length ? (
+          <ul
+            {...getMenuProps(
+              {
+                className: "list-reset",
+                onMouseLeave: () => {
+                  setHighlightedIndex(null)
+                }
+              },
+              { suppressRefError: true }
+            )}
+            ref={innerRef}
+            data-testid="dropdown-options"
+          >
+            {options.map((item, index) => {
+              const isSelected =
+                selectedItem &&
+                this.equalWrapper(selectedItem.value, item.value)
 
-          const { clonedElement, isWrapped } = wrapLink(
-            renderOption({
-              value: item.value,
-              name: hightlightItem(item),
-              isSelected
-            }),
-            padding
-          )
+              const { clonedElement, isWrapped } = wrapLink(
+                renderOption({
+                  value: item.value,
+                  name: hightlightItem(item),
+                  isSelected
+                }),
+                padding
+              )
 
-          return (
-            // tslint:disable-next-line:jsx-key
-            <li
-              {...getItemProps({
-                "data-testid": item.name,
-                key: item.key || item.value || `item-${index}`,
-                item,
-                className: classNames(
-                  "hover:bg-grey-bright transition duration-200 cursor-pointer",
-                  {
-                    "font-bold text-teal": isSelected,
-                    "bg-grey-bright": index === highlightedIndex,
-                    "text-grey-3": item.placeholder,
-                    [padding]: !isWrapped
-                  }
-                )
-              })}
-            >
-              {clonedElement}
-            </li>
-          )
-        })}
-      </ul>
-    ) : null
+              return (
+                // tslint:disable-next-line:jsx-key
+                <li
+                  {...getItemProps({
+                    "data-testid": item.name,
+                    key: item.key || item.value || `item-${index}`,
+                    item,
+                    className: classNames(
+                      "hover:bg-grey-bright transition duration-200 cursor-pointer",
+                      {
+                        "font-bold text-teal": isSelected,
+                        "bg-grey-bright": index === highlightedIndex,
+                        "text-grey-3": item.placeholder,
+                        [padding]: !isWrapped
+                      }
+                    )
+                  })}
+                >
+                  {clonedElement}
+                </li>
+              )
+            })}
+          </ul>
+        ) : (
+          <div className="p-20 text-grey-3">{noResults}</div>
+        )}
+      </div>
+    )
   }
 }
 export default Menu
