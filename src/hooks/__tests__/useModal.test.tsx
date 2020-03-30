@@ -6,7 +6,9 @@ import useModal from "../useModal"
 const modalText = "HERE BE DRAGONS"
 const buttonText = "Open modal"
 
-const Component: FC<{ modalContainer?: RefObject<HTMLDivElement }> = ({ modalContainer }) => {
+const Component: FC<{ modalContainer?: RefObject<HTMLDivElement> }> = ({
+  modalContainer
+}) => {
   const { renderModal, openModal } = useModal(() => <div>{modalText}</div>, {
     container: modalContainer
   })
