@@ -128,7 +128,7 @@ export const Intercom: FC<Props> = ({
     <>
       <div
         className={classNames(
-          "flex self-end intercom-launcher text-white py-2 sticky cursor-pointer transition-3 hover:opacity-60",
+          "intercom-launcher sticky fixed text-white py-2 cursor-pointer transition-3 hover:opacity-60",
           state === State.Open ? "bg-teal" : "bg-grey-4"
         )}
         id={intercomLauncherId}
