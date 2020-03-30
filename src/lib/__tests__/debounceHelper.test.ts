@@ -1,4 +1,4 @@
-import debounce from "~/lib/debounceHelper"
+import debounce from "../debounceHelper"
 
 describe("debounceHelper", () => {
   beforeEach(() => {
