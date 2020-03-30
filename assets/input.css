@@ -161,7 +161,8 @@ input.floatingLabel-input:focus ~ .floatingLabel-label {
   @apply text-teal
 }
 
-.floatingLabel-input[data-valid="false"] ~ .floatingLabel-label {
+.floatingLabel-input[data-valid="false"] ~ .floatingLabel-label,
+.floatingLabel-input[data-valid="false"]:focus ~ .floatingLabel-label {
   @apply text-salmon
 }
 
