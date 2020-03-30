@@ -32,6 +32,7 @@ describe("<DropdownWithAutosuggest>", () => {
           />
         )}
         allowCustomValues={allowCustomValues}
+        noResults="no results"
       />
     )
   }
