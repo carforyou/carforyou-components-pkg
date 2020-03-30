@@ -168,9 +168,18 @@ input.floatingLabel-input:focus ~ .floatingLabel-label {
 
 .floatingLabel-input:focus ~ .floatingLabel-label,
 .floatingLabel-input:disabled ~ .floatingLabel-label,
-.floatingLabel-input:valid ~ .floatingLabel-label,
-.validation-errorMessage ~ .validation-inputContainer > .floatingLabel >  .floatingLabel-input:invalid ~ .floatingLabel-label {
+.floatingLabel-input:valid ~ .floatingLabel-label {
   @apply text-xs -top-floatingLabel;
+}
+
+.clearButton-container > .floatingLabel > .floatingLabel-label {
+  top: 16px;
+}
+
+.clearButton-container > .floatingLabel > .floatingLabel-input:valid ~ .floatingLabel-label,
+.clearButton-container > .floatingLabel > .floatingLabel-input:disabled ~ .floatingLabel-label,
+.clearButton-container > .floatingLabel > .floatingLabel-input:focus ~ .floatingLabel-label {
+  top: 3px;
 }
 
 

@@ -76,8 +76,12 @@ const Input = forwardRef<HTMLInputElement, Props>(
         : "renderLabelPopup" in rest || "required" in rest
         ? { renderPopup: rest.renderLabelPopup, required }
         : {}
-
-    const LabelWrapper = labelProps.floating ? WithFloatingLabel : WithLabel
+    const clearButtonProps = {
+      visible: !!value,
+      onClear: () => {
+        onChange({ target: { name, value: "", cleared: true } })
+      }
+    }
 
     const renderInput = hasError => (
       <InputField
@@ -106,17 +110,38 @@ const Input = forwardRef<HTMLInputElement, Props>(
 
     const renderField = hasError =>
       hasClearButton ? (
-        <WithClearButton
-          visible={!!value}
-          onClear={() => {
-            onChange({ target: { name, value: "", cleared: true } })
-          }}
-        >
+        <WithClearButton {...clearButtonProps}>
           {renderInput(hasError)}
         </WithClearButton>
       ) : (
         renderInput(hasError)
       )
+
+    const renderFloatingLabelField = hasError => (
+      <WithFloatingLabel
+        name={name}
+        error={hasError}
+        text={labelText}
+        {...labelProps}
+      >
+        {renderInput(hasError)}
+      </WithFloatingLabel>
+    )
+
+    const renderWithfloatingLabel = hasError =>
+      hasClearButton ? (
+        <WithClearButton {...clearButtonProps}>
+          {renderFloatingLabelField(hasError)}
+        </WithClearButton>
+      ) : (
+        renderFloatingLabelField(hasError)
+      )
+
+    const renderWithLabel = hasError => (
+      <WithLabel name={name} error={hasError} text={labelText}>
+        {renderField(hasError)}
+      </WithLabel>
+    )
 
     const renderHint = hasError =>
       hint ? <HintText text={hint} hasError={hasError} /> : null
@@ -126,18 +151,11 @@ const Input = forwardRef<HTMLInputElement, Props>(
         <WithValidationError error={error}>
           {hasError => (
             <>
-              {labelText ? (
-                <LabelWrapper
-                  name={name}
-                  error={hasError}
-                  text={labelText}
-                  {...labelProps}
-                >
-                  {renderField(hasError)}
-                </LabelWrapper>
-              ) : (
-                renderField(hasError)
-              )}
+              {labelText
+                ? labelProps.floating
+                  ? renderWithfloatingLabel(hasError)
+                  : renderWithLabel(hasError)
+                : renderField(hasError)}
               {renderHint(hasError)}
             </>
           )}
