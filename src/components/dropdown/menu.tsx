@@ -75,13 +75,13 @@ class Menu<T> extends Component<Props<T>> {
 
     const padding = "px-20 py-10"
     return (
-      <div className="border border-grey-2 absolute z-dropdownMenu bg-white py-10 cursor-normal inset-x-0">
+      <div className="border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0">
         {options.length ? (
           <ul
             {...getMenuProps(
               {
                 className: classNames(
-                  "list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown",
+                  "list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10",
                   className
                 ),
                 onMouseLeave: () => {
