@@ -126,10 +126,9 @@ export const Intercom: FC<Props> = ({
 
   return (
     <>
-      <div className="intercom-launcher bg-grey-bright fixed" />
       <div
         className={classNames(
-          "intercom-launcher text-white py-2 fixed cursor-pointer transition-3 hover:opacity-60",
+          "intercom-launcher sticky fixed text-white py-2 cursor-pointer transition-3 hover:opacity-60",
           state === State.Open ? "bg-teal" : "bg-grey-4"
         )}
         id={intercomLauncherId}
