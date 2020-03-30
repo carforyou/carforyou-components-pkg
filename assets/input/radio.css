@@ -1,0 +1,59 @@
+.inputRadio {
+  @apply block relative cursor-pointer h-checkbox w-checkbox;
+}
+
+.inputRadio-input {
+  @apply absolute opacity-0 cursor-pointer;
+  height: 0;
+  width: 0;
+}
+
+.inputRadio-checkmark {
+  @apply absolute top-0 left-0 h-checkbox w-checkbox border rounded-half border-grey-2 bg-white;
+}
+
+.inputRadio-input:hover ~ .inputRadio-checkmark {
+  @apply border-grey-3;
+}
+
+.inputRadio-input:focus ~ .inputRadio-checkmark {
+  @apply border-teal;
+}
+
+.inputRadio-input:disabled ~ .inputRadio-checkmark,
+.inputRadio-input:disabled:hover ~ .inputRadio-checkmark,
+.inputRadio-input:disabled:checked ~ .inputRadio-checkmark,
+.inputRadio-input:disabled:checked:hover ~ .inputRadio-checkmark {
+  @apply bg-grey-bright text-grey-3 border-grey-2 cursor-not-allowed;
+}
+
+.inputRadio-input:checked ~ .inputRadio-checkmark {
+  @apply bg-teal border-teal;
+}
+
+.inputRadio-input:checked:hover ~ .inputRadio-checkmark {
+  @apply bg-teal-dark border-teal-dark;
+}
+
+.inputRadio-input:checked:focus ~ .inputRadio-checkmark {
+  @apply bg-teal-opaque border-teal-opaque;
+}
+
+
+.inputRadio-checkmark:after {
+  content: "";
+  @apply absolute hidden;
+}
+
+.inputRadio-input:checked ~ .inputRadio-checkmark:after {
+  @apply block;
+}
+
+.inputRadio .inputRadio-checkmark:after {
+  @apply top-radioIndicator left-radioIndicator w-radioIndicator h-radioIndicator rounded-half bg-white;
+}
+
+.inputRadio-input:disabled:checked ~ .inputRadio-checkmark:after,
+.inputRadio-input:disabled:checked:hover ~ .inputRadio-checkmark:after {
+  @apply bg-grey-3;
+}
