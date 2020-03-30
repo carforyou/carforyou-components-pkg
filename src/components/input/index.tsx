@@ -28,6 +28,7 @@ interface InputProps {
   min?: number
   max?: number
   className?: string
+  debounce?: number
 }
 
 interface PopupLabelProps extends InputProps {
@@ -64,6 +65,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       min,
       max,
       className,
+      debounce,
       ...rest
     },
     ref
@@ -106,6 +108,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         step={step}
         min={min}
         max={max}
+        debounce={debounce}
       />
     )
 

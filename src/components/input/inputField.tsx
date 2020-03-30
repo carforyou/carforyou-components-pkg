@@ -1,5 +1,7 @@
 import React, { forwardRef, FocusEvent, InputHTMLAttributes } from "react"
 
+import debounceCallback from "../../lib/debounceHelper"
+
 const validateNumber = e => {
   const key = e.which || e.keyCode
 
@@ -56,6 +58,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   required?: boolean
   onChange?: (e: { target: { value: string | number } }) => void
   onBlur?: (e: FocusEvent<any>) => void
+  debounce?: number
 }
 
 const InputField = forwardRef<HTMLInputElement, Props>(
@@ -72,6 +75,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
       onChange,
       onBlur,
       onKeyDown,
+      debounce,
       ...rest
     },
     ref
@@ -99,7 +103,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
           onKeyDown && onKeyDown(e)
           // tslint:enable:no-unused-expression
         }}
-        onChange={onChange}
+        onChange={debounceCallback(onChange, debounce)}
         onBlur={onBlur}
         data-testid={name}
         data-valid={!hasError}
