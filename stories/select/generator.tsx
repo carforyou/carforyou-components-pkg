@@ -20,7 +20,8 @@ const generateDescription = ({
   showSearchIcon,
   skipContainer,
   extraDescription,
-  withAutosuggest
+  withAutosuggest,
+  noResultsText
 }) => {
   return `
   Description
@@ -44,6 +45,9 @@ ${skipContainer ? "  " : ""}${
 ${skipContainer ? "  " : ""}${hint ? `    hint="${hint}"` : ""}
 ${skipContainer ? "  " : ""}${error ? `    errors="${error}"` : ""}
 ${skipContainer ? "  " : ""}${withAutosuggest ? "    withAutosuggest" : ""}
+${skipContainer ? "  " : ""}${
+    noResultsText ? `    noResultsText="${noResultsText}"` : ""
+  }
 ${skipContainer ? "  " : ""}${disabled ? "    disabled" : ""}
 ${skipContainer ? "  " : ""}${showSearchIcon ? "    showSearchIcon" : ""}
 ${skipContainer ? "  " : ""}${allowCustomValues ? "    allowCustomValues" : ""}
@@ -71,7 +75,8 @@ const generateStoryFunction = ({
   hint,
   showSearchIcon,
   skipContainer,
-  withAutosuggest
+  withAutosuggest,
+  noResultsText
 }) => ({ value, setValue }) => {
   const renderSelect = () => (
     <Select
@@ -93,6 +98,7 @@ const generateStoryFunction = ({
       }}
       skipContainer={skipContainer}
       withAutosuggest={withAutosuggest}
+      noResultsText={noResultsText}
     />
   )
 
@@ -134,7 +140,8 @@ const generateStory = ({
   showSearchIcon = null,
   skipContainer = false,
   extraDescription = null,
-  withAutosuggest = true
+  withAutosuggest = true,
+  noResultsText = null
 }) => {
   const handleChange = () => action("handleChange")
 
@@ -152,7 +159,8 @@ const generateStory = ({
     required,
     hint,
     withAutosuggest,
-    skipContainer
+    skipContainer,
+    noResultsText
   }
 
   return wInfo(generateDescription({ ...common, extraDescription }))(

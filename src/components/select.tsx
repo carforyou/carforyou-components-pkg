@@ -34,6 +34,7 @@ interface AutosuggestSelect<T> extends BaseProps<T> {
   showSearchIcon?: boolean
   withAutosuggest: true
   inputMode?: "text" | "numeric"
+  noResultsText?: string
 }
 
 interface SimpleSelect<T> extends BaseProps<T> {
@@ -75,6 +76,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
             ...baseProps,
             onTypeAhead: rest.onTypeAhead,
             allowCustomValues: rest.allowCustomValues,
+            noResults: rest.noResultsText,
             input: ({ getInputProps, isOpen }) => {
               const props = getInputProps({
                 ref,

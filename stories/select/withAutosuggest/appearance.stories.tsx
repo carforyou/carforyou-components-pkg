@@ -40,6 +40,13 @@ storiesOf("Select with autosuggest / Appearance", module)
     })
   )
   .add(
+    "With no results message",
+    generateStory({
+      selected: initialValue,
+      noResultsText: "Sorry no results"
+    })
+  )
+  .add(
     "With custom wrapper",
     generateStory({
       selected: initialValue,
