@@ -78,6 +78,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         : {}
     const clearButtonProps = {
       visible: !!value,
+      disabled,
       onClear: () => {
         onChange({ target: { name, value: "", cleared: true } })
       }
