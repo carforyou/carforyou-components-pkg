@@ -65,7 +65,8 @@ class Menu<T> extends Component<Props<T>> {
       options,
       className,
       innerRef,
-      noResults
+      noResults,
+      inputValue
     } = this.props
 
     let { renderOption } = this.props
@@ -74,67 +75,64 @@ class Menu<T> extends Component<Props<T>> {
     }
 
     const padding = "px-20 py-10"
-    return (
-      <div className="border border-grey-2 absolute z-dropdownMenu bg-white py-10 cursor-normal inset-x-0">
-        {options.length ? (
-          <ul
-            {...getMenuProps(
-              {
-                className: classNames(
-                  "list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown",
-                  className
-                ),
-                onMouseLeave: () => {
-                  setHighlightedIndex(null)
-                }
-              },
-              { suppressRefError: true }
-            )}
-            ref={innerRef}
-            data-testid="dropdown-options"
-          >
-            {options.map((item, index) => {
-              const isSelected =
-                selectedItem &&
-                this.equalWrapper(selectedItem.value, item.value)
-
-              const { clonedElement, isWrapped } = wrapLink(
-                renderOption({
-                  value: item.value,
-                  name: hightlightItem(item),
-                  isSelected
-                }),
-                padding
-              )
-
-              return (
-                // tslint:disable-next-line:jsx-key
-                <li
-                  {...getItemProps({
-                    "data-testid": item.name,
-                    key: item.key || item.value || `item-${index}`,
-                    item,
-                    className: classNames(
-                      "hover:bg-grey-bright transition duration-200 cursor-pointer",
-                      {
-                        "font-bold text-teal": isSelected,
-                        "bg-grey-bright": index === highlightedIndex,
-                        "text-grey-3": item.placeholder,
-                        [padding]: !isWrapped
-                      }
-                    )
-                  })}
-                >
-                  {clonedElement}
-                </li>
-              )
-            })}
-          </ul>
-        ) : (
-          <div className="p-20 text-grey-3">{noResults}</div>
+    return options.length ? (
+      <ul
+        {...getMenuProps(
+          {
+            className: classNames(
+              "border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10",
+              className
+            ),
+            onMouseLeave: () => {
+              setHighlightedIndex(null)
+            }
+          },
+          { suppressRefError: true }
         )}
+        ref={innerRef}
+        data-testid="dropdown-options"
+      >
+        {options.map((item, index) => {
+          const isSelected =
+            selectedItem && this.equalWrapper(selectedItem.value, item.value)
+
+          const { clonedElement, isWrapped } = wrapLink(
+            renderOption({
+              value: item.value,
+              name: hightlightItem(item),
+              isSelected
+            }),
+            padding
+          )
+
+          return (
+            // tslint:disable-next-line:jsx-key
+            <li
+              {...getItemProps({
+                "data-testid": item.name,
+                key: item.key || item.value || `item-${index}`,
+                item,
+                className: classNames(
+                  "hover:bg-grey-bright transition duration-200 cursor-pointer",
+                  {
+                    "font-bold text-teal": isSelected,
+                    "bg-grey-bright": index === highlightedIndex,
+                    "text-grey-3": item.placeholder,
+                    [padding]: !isWrapped
+                  }
+                )
+              })}
+            >
+              {clonedElement}
+            </li>
+          )
+        })}
+      </ul>
+    ) : inputValue && noResults ? (
+      <div className="p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0">
+        {noResults}
       </div>
-    )
+    ) : null
   }
 }
 export default Menu
