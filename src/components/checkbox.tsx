@@ -68,7 +68,7 @@ function Checkbox({
         <label
           className={classNames(
             "block w-12/12",
-            disabled ? "cursor-not-allowed text-grey-3" : "cursor-pointer ",
+            disabled ? "cursor-not-allowed text-grey-3" : "cursor-pointer",
             {
               "focus-within:text-teal": !buttonStyle,
               "p-13 border rounded-4 ": buttonStyle,
