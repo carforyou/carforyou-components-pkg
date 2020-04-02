@@ -52,6 +52,7 @@ function Checkbox({
   const renderInput = hasError => (
     <input
       name={name}
+      id={name}
       type="checkbox"
       checked={checked}
       value={value}
