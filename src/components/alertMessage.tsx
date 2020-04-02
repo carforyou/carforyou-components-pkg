@@ -41,7 +41,7 @@ export const AlertMessage: FC<Props> = ({
           "border-yellow bg-yellow-light text-grey-dark": type === "warning",
           "border-teal bg-teal-light text-grey-dark": type === "information",
           "border-salmon bg-salmon-light text-salmon": type === "error",
-          "border-green-light bg-green-bright text-grey-dark":
+          "border-green-light bg-green-opaque text-grey-dark":
             type === "success"
         }
       )}

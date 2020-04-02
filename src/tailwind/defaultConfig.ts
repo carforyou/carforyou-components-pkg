@@ -47,7 +47,7 @@ export default {
       "grey-1": "#EBEFF1",
       "grey-bright": "#F9F9FB",
       "green-light": "#74CC74",
-      "green-bright": "#74CC7433",
+      "green-opaque": "#74CC7433",
       facebook: "#4267B2",
       twitter: "#1EA0F2",
       whatsapp: "#0DC143",
