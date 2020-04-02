@@ -22,8 +22,8 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
-          <AlertMessage type={select("State alert", options, deafultValue)} fullWidth={boolean("Full width", false)} center={boolean("Center", false)}>
-            {text("Label", "Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.")}
+          <AlertMessage type={select("State alert", options, deafultValue)} fullWidth={boolean("Full width", false)} alignCenter={boolean("Align Center", false)}>
+            {text("Label", (<div className="py-10">Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.</div>))}
           </AlertMessage>
         </div>  
       </div>  

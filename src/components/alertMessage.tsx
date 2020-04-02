@@ -18,22 +18,25 @@ interface Props {
    * Type of alert we want to display
    */
   type: "error" | "warning" | "information" | "success"
-  center?: boolean
+  /**
+   * Any element is centered
+   */
+  alignCenter?: boolean
 }
 
-const AlertMessage: FC<Props> = ({
+export const AlertMessage: FC<Props> = ({
   children,
   icon,
   fullWidth,
   type,
-  center
+  alignCenter
 }) => {
   return (
     <div
       className={classnames(
         "flex w-12/12 leading-sm font-base px-10",
         fullWidth ? "border-t border-b" : "border rounded",
-        center ? "flex justify-center" : null,
+        alignCenter ? "justify-center" : null,
         {
           "border-yellow bg-yellow-light text-grey-dark": type === "warning",
           "border-teal bg-teal-light text-grey-dark": type === "information",
