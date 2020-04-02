@@ -41,6 +41,42 @@ describe("<AlertMessage>", () => {
       expect(container).toMatchSnapshot()
     })
 
+    it("renders error alert message centered", () => {
+      const { container } = render(
+        <AlertMessage type="error" alignCenter>
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders warning alert message centered", () => {
+      const { container } = render(
+        <AlertMessage type="warning" alignCenter>
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders information alert message centered", () => {
+      const { container } = render(
+        <AlertMessage type="information" alignCenter>
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders success alert message centered", () => {
+      const { container } = render(
+        <AlertMessage type="success" alignCenter>
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
     it("renders error alert message with borders on the top and bottom", () => {
       const { container } = render(
         <AlertMessage type="error" fullWidth>
@@ -77,9 +113,31 @@ describe("<AlertMessage>", () => {
       expect(container).toMatchSnapshot()
     })
 
+    it("renders error alert message centered with borders on the top and bottom", () => {
+      const { container } = render(
+        <AlertMessage type="error" alignCenter fullWidth>
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
     it("renders error alert message with icon", () => {
       const { container } = render(
         <AlertMessage type="error" icon={() => <MailSent fill="#F73B47" />}>
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders error alert message centered with icon", () => {
+      const { container } = render(
+        <AlertMessage
+          type="error"
+          alignCenter
+          icon={() => <MailSent fill="#F73B47" />}
+        >
           Label
         </AlertMessage>
       )
@@ -90,6 +148,20 @@ describe("<AlertMessage>", () => {
       const { container } = render(
         <AlertMessage
           type="error"
+          fullWidth
+          icon={() => <MailSent fill="#F73B47" />}
+        >
+          Label
+        </AlertMessage>
+      )
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders error alert message centered with icon and borders on the top and bottom", () => {
+      const { container } = render(
+        <AlertMessage
+          type="error"
+          alignCenter
           fullWidth
           icon={() => <MailSent fill="#F73B47" />}
         >
