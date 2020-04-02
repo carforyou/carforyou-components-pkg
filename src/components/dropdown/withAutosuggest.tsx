@@ -6,7 +6,7 @@ import React, {
   useRef,
   InputHTMLAttributes,
   ReactElement,
-  ReactNode
+  useState
 } from "react"
 import classNames from "classnames"
 import { GetInputPropsOptions } from "downshift"
@@ -64,7 +64,7 @@ interface Props<T> {
   noResults?: string
 }
 
-const filterOptions = noResults => (allOptions, text) => {
+const filterOptions = noResults =>  (allOptions, text) => {
   if (!text) {
     return allOptions
   }
@@ -122,6 +122,7 @@ function DropdownWithAutosuggest<T>({
   noResults
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
+  const [inputValue, setInputValue] = useState("")
 
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -218,7 +219,7 @@ function DropdownWithAutosuggest<T>({
             value = value.trimLeft()
             target.value = value
           }
-
+          setInputValue(value)
           if (onTypeAhead) {
             onTypeAhead(value)
           }
@@ -263,7 +264,8 @@ function DropdownWithAutosuggest<T>({
               options: filteredOptions,
               className: classNames("shadow-soft rounded-4", menuClassName),
               equal: equalWrapper,
-              noResults
+              noResults,
+              inputValue
             }}
           />
         )
