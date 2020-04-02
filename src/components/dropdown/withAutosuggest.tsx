@@ -64,7 +64,7 @@ interface Props<T> {
   noResults?: string
 }
 
-const filterOptions = noResults =>  (allOptions, text) => {
+const filterOptions = noResults => (allOptions, text) => {
   if (!text) {
     return allOptions
   }
