@@ -69,7 +69,7 @@ exports[`<AlertMessage> AlertMessage variations renders information alert messag
 exports[`<AlertMessage> AlertMessage variations renders success alert message 1`] = `
 <div>
   <div
-    class="flex w-12/12 leading-sm font-base px-10 border rounded border-green-light bg-green-bright text-grey-dark"
+    class="flex w-12/12 leading-sm font-base px-10 border rounded border-green-light bg-green-opaque text-grey-dark"
   >
     Label
   </div>
