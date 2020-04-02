@@ -47,6 +47,7 @@ function RadioButton<T>({
         "block w-12/12",
         disabled ? "cursor-not-allowed text-grey-3" : "cursor-pointer "
       )}
+      htmlFor={name}
     >
       <WithValidationError error={error}>
         {hasError =>
