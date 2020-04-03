@@ -142,7 +142,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       )
 
     const renderWithLabel = hasError => (
-      <WithLabel name={name} error={hasError} text={labelText}>
+      <WithLabel name={name} error={hasError} text={labelText} {...labelProps}>
         {renderField(hasError)}
       </WithLabel>
     )
