@@ -7,8 +7,14 @@ import { wInfo } from "./utils"
 import Button from "../src/components/button"
 
 storiesOf("Button", module)
+  .addParameters({
+    abstract: {
+      // Copy a collection or layer share url from Abstract
+      url: "https://share.goabstract.com/9f6fe2c5-8f0a-4684-89be-2ea2dbbf885d"
+    }
+  })
   .add(
-    "Default",
+    "Button / PrimaryCTA",
     wInfo(`
     Description
     ~~~
@@ -76,7 +82,7 @@ storiesOf("Button", module)
         <div className="w-12/12 md:w-3/12">
           <Button tealBorder>Teal Border button</Button>
         </div>
-      </div>  
+      </div>
     ))
   )
   .add(
