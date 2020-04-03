@@ -35,6 +35,7 @@ export default {
       salmon: "#F73B47",
       "salmon-dark": "#ED202D",
       teal: "#3696B9",
+      "teal-opaque": "#5EABC7",
       "teal-light": "#D7EAF1",
       "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
@@ -128,6 +129,7 @@ export default {
       full: "9999px",
       half: "50%",
       "2": "2px",
+      "4": "4px",
       "10": "10px",
       "20": "20px"
     },
@@ -224,7 +226,36 @@ export default {
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
+      clearButton: "32px",
+      checkbox: "24px",
+      radioIndicator: "12px",
+      input: "52px",
+      "20": "20px",
       "40": "40px"
+    },
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Position      https://tailwindcss.com/docs/top-right-bottom-left
+    |-----------------------------------------------------------------------------
+    |
+    | Here is where you define your values for positioning
+    |
+    |
+    | Class name: .{top|right|bottom|left|inset}-{size}
+    |
+    */
+
+    inset: {
+      "0": 0,
+      auto: "auto",
+      half: "50%",
+      requiredIndicator: "5px",
+      validationError: "5px",
+      modalClose: "10px",
+      floatingLabel: "13px",
+      "-floatingLabel": "-13px",
+      radioIndicator: "5px"
     },
 
     /*
@@ -258,7 +289,8 @@ export default {
       sm: 1.5,
       md: 2,
       lg: 2.5,
-      xl: 3
+      xl: 3,
+      label: "24px"
     },
 
     /*
@@ -281,7 +313,10 @@ export default {
       "20": "20px",
       "25": "25px",
       "30": "30px",
-      "40": "40px"
+      "40": "40px",
+      labelPopupIcon: "3px",
+      "-selectMenu": "-21px",
+      "-selectWithHintMenu": "-43px"
     },
 
     /*
@@ -376,13 +411,15 @@ export default {
       "5": "5px",
       "8": "8px",
       "10": "10px",
+      "13": "13px",
       "14": "14px",
       "15": "15px",
       "16": "16px",
       "20": "20px",
       "25": "25px",
       "30": "30px",
-      "40": "40px"
+      "40": "40px",
+      floatingLabelInputFocused: "12px"
     },
 
     customRotate: {
@@ -426,7 +463,13 @@ export default {
       "11/12": "91.66666667%",
       "12/12": "100%",
       screen: "100vw",
-      scrollbar: "14px"
+      scrollbar: "14px",
+      clearButton: "32px",
+      modal: "570px",
+      modalSmall: "370px",
+      modalLarge: "770px",
+      checkbox: "24px",
+      radioIndicator: "12px"
     },
 
     transitionDuration: {
@@ -444,7 +487,10 @@ export default {
     zIndex: {
       auto: "auto",
       negative: -1,
-      dropdownMenu: 20
+      clearButton: 10,
+      modalClose: 10,
+      dropdownMenu: 20,
+      modal: 98
     },
 
     /*
@@ -481,7 +527,7 @@ export default {
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
     borderCollapse: ["responsive"],
-    borderColor: ["responsive", "hover", "focus"],
+    borderColor: ["responsive", "hover", "focus", "focus-within"],
     borderRadius: ["responsive"],
     borderStyle: ["responsive"],
     borderWidth: ["responsive", "hover"],
@@ -525,7 +571,7 @@ export default {
     stroke: ["responsive"],
     tableLayout: ["responsive"],
     textAlign: ["responsive"],
-    textColor: ["responsive", "hover", "focus"],
+    textColor: ["responsive", "hover", "focus", "focus-within"],
     textDecoration: ["responsive", "hover", "focus"],
     textTransform: ["responsive"],
     userSelect: ["responsive"],

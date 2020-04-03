@@ -1,4 +1,4 @@
-import React, { RefObject, Component, ReactNode } from "react"
+import React, { Ref, Component, ReactNode } from "react"
 import classNames from "classnames"
 
 import { wrapLink } from "../../lib/buttonHelper"
@@ -23,7 +23,7 @@ interface Props<T> {
   options: Array<Item<T>>
   className?: string
   equal?: (a: T, b: T) => boolean
-  innerRef?: RefObject<HTMLUListElement>
+  innerRef?: Ref<HTMLUListElement>
   renderOption?: (option: {
     name: string | ReactNode
     value: T
@@ -129,7 +129,12 @@ class Menu<T> extends Component<Props<T>> {
         })}
       </ul>
     ) : inputValue && noResults ? (
-      <div className="p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0">
+      <div
+        className={classNames(
+          "p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0",
+          className
+        )}
+      >
         {noResults}
       </div>
     ) : null

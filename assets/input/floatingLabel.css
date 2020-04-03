@@ -1,0 +1,42 @@
+input.floatingLabel-input:focus {
+  @apply pb-floatingLabelInputFocused;
+}
+
+.floatingLabel-label {
+  @apply absolute text-grey-3 top-0;
+  @apply left-floatingLabel transition duration-200;
+}
+
+input.floatingLabel-input:focus ~ .floatingLabel-label {
+  @apply text-teal
+}
+
+.floatingLabel-input[data-valid="false"] ~ .floatingLabel-label,
+.floatingLabel-input[data-valid="false"]:focus ~ .floatingLabel-label {
+  @apply text-salmon
+}
+
+.floatingLabel-input:focus ~ .floatingLabel-label,
+.floatingLabel-input:disabled ~ .floatingLabel-label,
+.floatingLabel-input:valid ~ .floatingLabel-label {
+  @apply text-xs -top-floatingLabel;
+}
+
+.clearButton-container > .floatingLabel > .floatingLabel-label {
+  top: 16px;
+}
+
+.clearButton-container > .floatingLabel > .floatingLabel-input:valid ~ .floatingLabel-label,
+.clearButton-container > .floatingLabel > .floatingLabel-input:disabled ~ .floatingLabel-label,
+.clearButton-container > .floatingLabel > .floatingLabel-input:focus ~ .floatingLabel-label {
+  top: 3px;
+}
+
+
+input::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input:placeholder-shown {
+  @apply text-grey-3;
+}

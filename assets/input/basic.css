@@ -1,0 +1,114 @@
+input {
+  @apply text-grey-dark;
+}
+
+input[type="number"],
+input[type="text"],
+.select-toggle,
+textarea {
+  @apply bg-white px-10 py-13 border border-grey-2 rounded-4 truncate leading-sm;
+}
+
+input[type="number"],
+input[type="text"],
+.select-toggle {
+  @apply h-input;
+}
+
+input[type="number"].input_withClearButton,
+input[type="text"].input_withClearButton,
+.select-toggle.input_withClearButton {
+  @apply pr-30;
+}
+
+input[type="checkbox"] {
+  @apply flex-shrink-0 appearance-none outline-none text-white rounded-4 h-checkbox w-checkbox border border-grey-2 bg-white;
+}
+
+input[type="checkbox"]:checked {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FFF' stroke-width='2.2' d='M5 10.875L8.354 13.5l6.126-7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  @apply bg-teal border-teal;
+}
+
+input[type="checkbox"]:checked:disabled {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23D7DBDF' stroke-width='2.2' d='M5 10.875L8.354 13.5l6.126-7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+input[type="checkbox"]:checked:hover {
+  @apply bg-teal-dark border-teal-dark;
+}
+
+input[type="checkbox"]:checked:focus {
+  @apply bg-teal-opaque border-teal-opaque;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="checkbox"]:focus:not(.checkbox-buttonStyle),
+textarea:focus {
+  @apply border-teal outline-none;
+}
+
+
+input[type="number"]:hover,
+input[type="text"]:hover,
+input[type="checkbox"]:hover:not(.checkbox-buttonStyle),
+.select-toggle:hover,
+textarea:hover {
+  @apply border-grey-dark transition duration-200;
+}
+
+input[type="number"]:disabled,
+input[type="number"]:disabled:hover,
+input[type="text"]:disabled,
+input[type="text"]:disabled:hover,
+input[type="checkbox"]:disabled,
+input[type="checkbox"]:disabled:hover,
+.select-toggle.select-toggle_disabled,
+.select-toggle.select-toggle_disabled:hover,
+textarea:disabled,
+textarea:disabled:hover {
+  @apply bg-grey-bright text-grey-3;
+  @apply border-grey-2 cursor-not-allowed;
+}
+
+input[type="number"][data-valid="false"],
+input[type="text"][data-valid="false"],
+input[type="checkbox"][data-valid="false"]:not(.checkbox-buttonStyle),
+.select-toggle[data-valid="false"],
+textarea[data-valid="false"] {
+  @apply border-salmon text-salmon;
+}
+
+input[type="number"][data-valid="false"]:focus,
+input[type="text"][data-valid="false"]:focus,
+textarea[data-valid="false"]:focus {
+  @apply text-grey-dark;
+}
+
+/* hide ie specific input controls */
+/* hide step arrows on number inputs */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* hide webkit specific input controls */
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-reveal */
+input::-ms-clear,
+input::-ms-reveal {
+  width: 0;
+  height: 0;
+}

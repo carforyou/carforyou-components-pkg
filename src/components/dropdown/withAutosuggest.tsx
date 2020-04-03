@@ -2,7 +2,7 @@ import React, {
   ReactChild,
   FormEvent,
   KeyboardEvent,
-  RefObject,
+  Ref,
   useRef,
   InputHTMLAttributes,
   ReactElement,
@@ -60,7 +60,53 @@ interface Props<T> {
    * An event handler to dynamically generate suggestion list
    */
   onTypeAhead?: (value: string) => void
+  menuClassName?: string
   noResults?: string
+}
+
+const filterOptions = noResults => (allOptions, text) => {
+  if (!text) {
+    return allOptions
+  }
+
+  const specialChars = /[-\/\\^$*+?.()|[\]{}]/g
+  const cleanedText = text.replace(specialChars, "\\$&")
+  const regex = new RegExp(cleanedText, "i")
+  const startsWith = new RegExp(`^${cleanedText}`, "i")
+
+  const matching = allOptions
+    .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
+    .sort((a, b) => {
+      if (startsWith.test(a.name) && startsWith.test(b.name)) {
+        return 0
+      }
+
+      if (startsWith.test(a.name)) {
+        return -1
+      }
+
+      if (startsWith.test(b.name)) {
+        return 1
+      }
+
+      return 0
+    })
+    .map(el => {
+      const copy = { ...el }
+      const matchData = regex.exec(el.name)
+
+      if (matchData) {
+        copy.preMatch = copy.name.substring(0, matchData.index)
+        copy.match = copy.name.substring(
+          matchData.index,
+          matchData.index + text.length
+        )
+        copy.postMatch = copy.name.substring(matchData.index + text.length)
+      }
+      return copy
+    })
+
+  return matching.length ? matching : noResults ? matching : allOptions
 }
 
 function DropdownWithAutosuggest<T>({
@@ -72,54 +118,11 @@ function DropdownWithAutosuggest<T>({
   onTypeAhead,
   trimInput,
   allowCustomValues = false,
+  menuClassName,
   noResults
 }: Props<T>): ReactElement {
-  const menuRef: RefObject<HTMLUListElement> = useRef()
+  const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
-  const filterOptions = (allOptions, text) => {
-    if (!text) {
-      return allOptions
-    }
-
-    const specialChars = /[-\/\\^$*+?.()|[\]{}]/g
-    const cleanedText = text.replace(specialChars, "\\$&")
-    const regex = new RegExp(cleanedText, "i")
-    const startsWith = new RegExp(`^${cleanedText}`, "i")
-
-    const matching = allOptions
-      .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
-      .sort((a, b) => {
-        if (startsWith.test(a.name) && startsWith.test(b.name)) {
-          return 0
-        }
-
-        if (startsWith.test(a.name)) {
-          return -1
-        }
-
-        if (startsWith.test(b.name)) {
-          return 1
-        }
-
-        return 0
-      })
-      .map(el => {
-        const copy = { ...el }
-        const matchData = regex.exec(el.name)
-
-        if (matchData) {
-          copy.preMatch = copy.name.substring(0, matchData.index)
-          copy.match = copy.name.substring(
-            matchData.index,
-            matchData.index + text.length
-          )
-          copy.postMatch = copy.name.substring(matchData.index + text.length)
-        }
-        return copy
-      })
-
-    return matching.length ? matching : noResults ? matching : allOptions
-  }
 
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -250,7 +253,7 @@ function DropdownWithAutosuggest<T>({
       options={options}
       equal={equalWrapper}
       onSelect={onSelect}
-      filterOptions={filterOptions}
+      filterOptions={filterOptions(noResults)}
       toggle={renderToggle}
       menu={(downshift, filteredOptions) => {
         return (
@@ -259,7 +262,7 @@ function DropdownWithAutosuggest<T>({
               ...downshift,
               innerRef: menuRef,
               options: filteredOptions,
-              className: "shadow-soft rounded-4 mt-0",
+              className: classNames("shadow-soft rounded-4", menuClassName),
               equal: equalWrapper,
               noResults,
               inputValue
@@ -272,3 +275,4 @@ function DropdownWithAutosuggest<T>({
 }
 
 export default DropdownWithAutosuggest
+export { Props as DropdownWithAutosuggestProps }

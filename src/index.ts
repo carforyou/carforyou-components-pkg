@@ -5,6 +5,15 @@ import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 import SegmentedControl from "./components/segmentedControl/index"
 import Spinner from "./components/spinner"
 import Intercom from "./components/intercom/index"
+import Input from "./components/input/index"
+import Textarea from "./components/textarea"
+import Select from "./components/select"
+import Checkbox from "./components/checkbox"
+import RadioButton from "./components/radioButton"
+import WithLabel from "./components/fieldHelpers/withLabel"
+import WithValidationError from "./components/fieldHelpers/withValidationError"
+
+import useModal from "./hooks/useModal"
 
 export {
   Button,
@@ -13,5 +22,13 @@ export {
   DropdownWithAutosuggest,
   SegmentedControl,
   Spinner,
-  Intercom
+  Intercom,
+  Input,
+  Textarea,
+  Select,
+  Checkbox,
+  RadioButton,
+  WithLabel,
+  WithValidationError,
+  useModal
 }

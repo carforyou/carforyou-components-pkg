@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useModal with a portal renders the modal within the portal 1`] = `
+<div
+  data-testid="modal-wrapper"
+>
+  <div
+    class="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-screen transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto"
+  >
+    <div
+      class="absolute inset-0 bg-grey-dark opacity-40 transition duration-200"
+      data-testid="modal-overlay"
+    />
+    <div
+      class="max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative inset-x-0 md:align-middle md:inset-auto"
+      role="dialog"
+    >
+      <div
+        class="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
+        data-testid="modal-close"
+      >
+        <svg
+          height="48"
+          viewBox="0 0 24 24"
+          width="48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            stroke="#232A36"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.2"
+          >
+            <path
+              d="M7 7l10 10M17 7L7 17"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="bg-white z-modal w-12/12 my-0 rounded-4 p-40 md:w-modal"
+      >
+        <div>
+          HERE BE DRAGONS
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`useModal without portal closes the modal when pressing ESC 1`] = `
+<div>
+  <button>
+    Open modal
+  </button>
+</div>
+`;
+
+exports[`useModal without portal opens modal when clicking the button 1`] = `
+<div>
+  HERE BE DRAGONS
+</div>
+`;
+
+exports[`useModal without portal renders correct markup 1`] = `
+<div>
+  <button>
+    Open modal
+  </button>
+</div>
+`;
+
+exports[`useModal without portal renders the modal within the container 1`] = `
+<div>
+  <div>
+    <button>
+      Open modal
+    </button>
+    <div
+      class="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-screen transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto"
+    >
+      <div
+        class="absolute inset-0 bg-grey-dark opacity-40 transition duration-200"
+        data-testid="modal-overlay"
+      />
+      <div
+        class="max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative inset-x-0 md:align-middle md:inset-auto"
+        role="dialog"
+      >
+        <div
+          class="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
+          data-testid="modal-close"
+        >
+          <svg
+            height="48"
+            viewBox="0 0 24 24"
+            width="48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              stroke="#232A36"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.2"
+            >
+              <path
+                d="M7 7l10 10M17 7L7 17"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="bg-white z-modal w-12/12 my-0 rounded-4 p-40 md:w-modal"
+        >
+          <div>
+            HERE BE DRAGONS
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
