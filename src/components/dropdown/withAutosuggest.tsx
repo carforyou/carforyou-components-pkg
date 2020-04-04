@@ -62,6 +62,7 @@ interface Props<T> {
   onTypeAhead?: (value: string) => void
   menuClassName?: string
   noResults?: string
+  isFetching?: boolean
 }
 
 const filterOptions = noResults => (allOptions, text) => {
@@ -119,7 +120,8 @@ function DropdownWithAutosuggest<T>({
   trimInput,
   allowCustomValues = false,
   menuClassName,
-  noResults
+  noResults,
+  isFetching
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
@@ -265,7 +267,8 @@ function DropdownWithAutosuggest<T>({
               className: classNames("shadow-soft rounded-4", menuClassName),
               equal: equalWrapper,
               noResults,
-              inputValue
+              inputValue,
+              isFetching
             }}
           />
         )
