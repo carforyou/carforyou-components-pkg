@@ -34,7 +34,7 @@ export const AlertMessage: FC<Props> = ({
   return (
     <div
       className={classnames(
-        "flex w-12/12 leading-sm font-base px-10",
+        "flex w-12/12 leading-sm text-base px-10",
         fullWidth ? "border-t border-b" : "border rounded",
         alignCenter ? "justify-center" : null,
         {
