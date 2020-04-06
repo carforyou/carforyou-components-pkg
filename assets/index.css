@@ -1,6 +1,6 @@
 @import "./global.css";
 @import "./customScrollbar.css";
 @import "./pagination.css";
-@import "./input.css";
+@import "./input/index.css";
 @import "./spinner.css";
 @import "./intercom.css";

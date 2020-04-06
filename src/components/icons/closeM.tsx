@@ -1,0 +1,23 @@
+import React, { FC } from "react"
+
+const CloseM: FC<{}> = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      stroke="#232A36"
+      strokeWidth="1.2"
+      fill="none"
+      fillRule="evenodd"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M7 7l10 10M17 7L7 17" />
+    </g>
+  </svg>
+)
+
+export default CloseM

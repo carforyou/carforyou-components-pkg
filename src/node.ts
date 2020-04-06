@@ -8,7 +8,13 @@ export default {
   getComponentPaths: () =>
     sync(resolve(__dirname, "../dist-src/components/**/*"), {
       nodir: true
-    })
+    }),
+  getWhitelistPatterns: () => [
+    /^w-.*\/12$/,
+    /select_closed/,
+    /select_open/,
+    /select_withSearchIcon/
+  ]
 }
 
 // Export all components
