@@ -34,7 +34,7 @@ export default {
       transparent: "transparent",
       salmon: "#F73B47",
       "salmon-dark": "#ED202D",
-      "salmon-light": "#F73B471A",
+      "salmon-light": "#FDE8EA",
       teal: "#3696B9",
       "teal-light": "#D7EAF1",
       "teal-bright": "#AFD5E3",
@@ -47,7 +47,7 @@ export default {
       "grey-1": "#EBEFF1",
       "grey-bright": "#F9F9FB",
       "green-light": "#74CC74",
-      "green-opaque": "#74CC7433",
+      "green-opaque": "#E3F4E3",
       facebook: "#4267B2",
       twitter: "#1EA0F2",
       whatsapp: "#0DC143",
@@ -56,8 +56,8 @@ export default {
       "good-deal": "#81B040",
       "great-deal": "#149246",
       "not-defined": "#A0A7AB",
-      yellow: "#fcb001",
-      "yellow-light": "#fcb00126"
+      yellow: "#FCB001",
+      "yellow-light": "#FEEFCC"
     },
 
     /*
