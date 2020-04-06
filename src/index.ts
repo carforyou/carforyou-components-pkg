@@ -5,6 +5,7 @@ import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 import SegmentedControl from "./components/segmentedControl/index"
 import Spinner from "./components/spinner"
 import Intercom from "./components/intercom/index"
+import AlertMessage from "./components/alertMessage"
 import Input from "./components/input/index"
 import Textarea from "./components/textarea"
 import Select from "./components/select"
@@ -23,6 +24,7 @@ export {
   SegmentedControl,
   Spinner,
   Intercom,
+  AlertMessage,
   Input,
   Textarea,
   Select,
