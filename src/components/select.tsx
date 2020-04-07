@@ -75,7 +75,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       "withAutosuggest" in rest && rest.withAutosuggest
         ? {
             ...baseProps,
-            fetchSuggestions: rest.onTypeAhead,
+            onTypeAhead: rest.onTypeAhead,
             allowCustomValues: rest.allowCustomValues,
             noResults: rest.noResultsText,
             isFetching: rest.isFetching,
