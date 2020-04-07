@@ -59,10 +59,9 @@ interface Props<T> {
   /**
    * An event handler to dynamically generate suggestion list
    */
-  onTypeAhead?: (value: string) => void
+  fetchSuggestions?: (value: string) => void
   menuClassName?: string
   noResults?: string
-  isFetching?: boolean
 }
 
 const filterOptions = noResults => (allOptions, text) => {
@@ -116,15 +115,15 @@ function DropdownWithAutosuggest<T>({
   onSelect,
   equal,
   input,
-  onTypeAhead,
+  fetchSuggestions,
   trimInput,
   allowCustomValues = false,
   menuClassName,
-  noResults,
-  isFetching
+  noResults
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
+  const [isFetching, setIsFetching] = useState(false)
 
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -147,7 +146,8 @@ function DropdownWithAutosuggest<T>({
 
     const propGetter = userProps => {
       const { className, name, ...rest } = userProps
-      const isDisabled = !onTypeAhead && !allowCustomValues && !options.length
+      const isDisabled =
+        !fetchSuggestions && !allowCustomValues && !options.length
 
       return getInputProps({
         "data-testid": name,
@@ -213,7 +213,7 @@ function DropdownWithAutosuggest<T>({
             downshift.selectItem(selectedItem)
           }
         },
-        onChange: (event: FormEvent<HTMLInputElement>) => {
+        onChange: async (event: FormEvent<HTMLInputElement>) => {
           const target = event.target as HTMLInputElement
           let value = target.value
 
@@ -222,8 +222,10 @@ function DropdownWithAutosuggest<T>({
             target.value = value
           }
           setInputValue(value)
-          if (onTypeAhead) {
-            onTypeAhead(value)
+          if (fetchSuggestions) {
+            setIsFetching(true)
+            await fetchSuggestions(value)
+            setIsFetching(false)
           }
 
           if (menuRef.current && menuRef.current.scrollTo) {
