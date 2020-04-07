@@ -59,7 +59,7 @@ interface Props<T> {
   /**
    * An event handler to dynamically generate suggestion list
    */
-  fetchSuggestions?: (value: string) => void
+  onTypeAhead?: (value: string) => void
   menuClassName?: string
   noResults?: string
 }
@@ -115,7 +115,7 @@ function DropdownWithAutosuggest<T>({
   onSelect,
   equal,
   input,
-  fetchSuggestions,
+  onTypeAhead,
   trimInput,
   allowCustomValues = false,
   menuClassName,
@@ -146,8 +146,7 @@ function DropdownWithAutosuggest<T>({
 
     const propGetter = userProps => {
       const { className, name, ...rest } = userProps
-      const isDisabled =
-        !fetchSuggestions && !allowCustomValues && !options.length
+      const isDisabled = !onTypeAhead && !allowCustomValues && !options.length
 
       return getInputProps({
         "data-testid": name,
@@ -222,9 +221,9 @@ function DropdownWithAutosuggest<T>({
             target.value = value
           }
           setInputValue(value)
-          if (fetchSuggestions) {
+          if (onTypeAhead) {
             setIsFetching(true)
-            await fetchSuggestions(value)
+            await onTypeAhead(value)
             setIsFetching(false)
           }
 
