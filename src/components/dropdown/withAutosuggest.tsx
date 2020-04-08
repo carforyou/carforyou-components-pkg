@@ -123,6 +123,7 @@ function DropdownWithAutosuggest<T>({
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
+  const [isFetching, setIsFetching] = useState(false)
 
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -211,7 +212,7 @@ function DropdownWithAutosuggest<T>({
             downshift.selectItem(selectedItem)
           }
         },
-        onChange: (event: FormEvent<HTMLInputElement>) => {
+        onChange: async (event: FormEvent<HTMLInputElement>) => {
           const target = event.target as HTMLInputElement
           let value = target.value
 
@@ -221,7 +222,9 @@ function DropdownWithAutosuggest<T>({
           }
           setInputValue(value)
           if (onTypeAhead) {
-            onTypeAhead(value)
+            setIsFetching(true)
+            await onTypeAhead(value)
+            setIsFetching(false)
           }
 
           if (menuRef.current && menuRef.current.scrollTo) {
@@ -265,7 +268,8 @@ function DropdownWithAutosuggest<T>({
               className: classNames("shadow-soft rounded-4", menuClassName),
               equal: equalWrapper,
               noResults,
-              inputValue
+              inputValue,
+              isFetching
             }}
           />
         )
