@@ -152,7 +152,8 @@ function DropdownWithAutosuggest<T>({
 
     const propGetter = userProps => {
       const { className, name, ...rest } = userProps
-      const isDisabled = !fetchSuggestions && !allowCustomValues && !options.length
+      const isDisabled =
+        !fetchSuggestions && !allowCustomValues && !options.length
 
       return getInputProps({
         "data-testid": name,
