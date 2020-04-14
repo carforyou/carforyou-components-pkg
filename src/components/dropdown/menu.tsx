@@ -1,6 +1,6 @@
 import React, { Ref, Component, ReactNode } from "react"
 import classNames from "classnames"
-
+import Spinner from "../spinner"
 import { wrapLink } from "../../lib/buttonHelper"
 
 interface Item<T> {
@@ -30,6 +30,7 @@ interface Props<T> {
     isSelected: boolean
   }) => ReactNode
   noResults?: string
+  isFetching?: boolean
 }
 
 const hightlightItem = <T extends {}>({
@@ -66,7 +67,8 @@ class Menu<T> extends Component<Props<T>> {
       className,
       innerRef,
       noResults,
-      inputValue
+      inputValue,
+      isFetching
     } = this.props
 
     let { renderOption } = this.props
@@ -135,7 +137,13 @@ class Menu<T> extends Component<Props<T>> {
           className
         )}
       >
-        {noResults}
+        {isFetching ? (
+          <div className="text-salmon w-12/12 flex justify-center">
+            <Spinner />
+          </div>
+        ) : (
+          noResults
+        )}
       </div>
     ) : null
   }

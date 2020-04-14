@@ -35,6 +35,7 @@ interface AutosuggestSelect<T> extends BaseProps<T> {
   withAutosuggest: true
   inputMode?: "text" | "numeric"
   noResultsText?: string
+  isFetching?: boolean
 }
 
 interface SimpleSelect<T> extends BaseProps<T> {
@@ -77,6 +78,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
             onTypeAhead: rest.onTypeAhead,
             allowCustomValues: rest.allowCustomValues,
             noResults: rest.noResultsText,
+            isFetching: rest.isFetching,
             input: ({ getInputProps, isOpen }) => {
               const props = getInputProps({
                 ref,
