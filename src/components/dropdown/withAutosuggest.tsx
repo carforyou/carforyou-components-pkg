@@ -6,7 +6,8 @@ import React, {
   useRef,
   InputHTMLAttributes,
   ReactElement,
-  useState
+  useState,
+  useEffect
 } from "react"
 import classNames from "classnames"
 import { GetInputPropsOptions } from "downshift"
@@ -29,7 +30,7 @@ interface Props<T> {
   /**
    * An array of options
    */
-  options: Array<{ value: T; name: string }>
+  options?: Array<{ value: T; name: string }>
   /**
    * Render prop to render the text input
    */
@@ -59,7 +60,7 @@ interface Props<T> {
   /**
    * An event handler to dynamically generate suggestion list
    */
-  onTypeAhead?: (value: string) => void
+  fetchSuggestions?: (value: string) => Array<{ value: T; name: string }>
   menuClassName?: string
   noResults?: string
 }
@@ -110,12 +111,12 @@ const filterOptions = noResults => (allOptions, text) => {
 }
 
 function DropdownWithAutosuggest<T>({
-  options,
+  options = [],
   selected,
   onSelect,
   equal,
   input,
-  onTypeAhead,
+  fetchSuggestions,
   trimInput,
   allowCustomValues = false,
   menuClassName,
@@ -124,6 +125,11 @@ function DropdownWithAutosuggest<T>({
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
   const [isFetching, setIsFetching] = useState(false)
+  const [fetchedOptions, setFetchedOptions] = useState()
+
+  useEffect(() => {
+    setFetchedOptions(options)
+  }, [options])
 
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -146,7 +152,7 @@ function DropdownWithAutosuggest<T>({
 
     const propGetter = userProps => {
       const { className, name, ...rest } = userProps
-      const isDisabled = !onTypeAhead && !allowCustomValues && !options.length
+      const isDisabled = !fetchSuggestions && !allowCustomValues && !options.length
 
       return getInputProps({
         "data-testid": name,
@@ -221,9 +227,9 @@ function DropdownWithAutosuggest<T>({
             target.value = value
           }
           setInputValue(value)
-          if (onTypeAhead) {
+          if (fetchSuggestions) {
             setIsFetching(true)
-            await onTypeAhead(value)
+            setFetchedOptions(await fetchSuggestions(value))
             setIsFetching(false)
           }
 
@@ -253,7 +259,7 @@ function DropdownWithAutosuggest<T>({
   return (
     <BaseDownshift
       selected={selected}
-      options={options}
+      options={fetchedOptions}
       equal={equalWrapper}
       onSelect={onSelect}
       filterOptions={filterOptions(noResults)}

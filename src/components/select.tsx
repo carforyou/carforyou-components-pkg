@@ -14,7 +14,7 @@ import InputField from "./input/inputField"
 
 interface BaseProps<T> {
   name: string
-  options: Array<{ name: string; value: T | { customValue: T } }>
+  options?: Array<{ name: string; value: T | { customValue: T } }>
   handleChange: (value: T) => void
   selected?: T
   error?: string
@@ -29,7 +29,7 @@ interface BaseProps<T> {
 }
 
 interface AutosuggestSelect<T> extends BaseProps<T> {
-  onTypeAhead?: (value: string) => void
+  fetchSuggestions?: (value: string) => Array<{ value: T; name: string }>
   allowCustomValues?: boolean
   showSearchIcon?: boolean
   withAutosuggest: true
@@ -48,7 +48,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
   (
     {
       name,
-      options,
+      options = [],
       handleChange,
       selected,
       error,
@@ -75,7 +75,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       "withAutosuggest" in rest && rest.withAutosuggest
         ? {
             ...baseProps,
-            onTypeAhead: rest.onTypeAhead,
+            fetchSuggestions: rest.fetchSuggestions,
             allowCustomValues: rest.allowCustomValues,
             noResults: rest.noResultsText,
             isFetching: rest.isFetching,
@@ -171,7 +171,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
         (options.length ||
           ("withAutosuggest" in rest &&
             rest.withAutosuggest &&
-            rest.onTypeAhead))
+            rest.fetchSuggestions))
 
       return {
         select_open: showOpenedIcon && !selected,
