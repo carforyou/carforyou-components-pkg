@@ -83,4 +83,13 @@ describe("<SegmentedControl>", () => {
     expect(option.classList).toContain("py-16")
     expect(option.classList).toContain("px-8")
   })
+
+  it("renders a div tag for a custom renderer with link", () => {
+    const { getByText } = renderWrapper({
+      renderOption: ({ name }) => <a>{name}</a>
+    })
+
+    const option = getByText("Two")
+    expect(option.parentElement.parentElement).toMatchSnapshot()
+  })
 })

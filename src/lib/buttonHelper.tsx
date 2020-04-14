@@ -27,10 +27,10 @@ const wrapSingleChild = (
 
       const clone = cloneElement(
         element,
-        {},
+        { className: "w-12/12 hover:opacity-100" },
         <span
           className={classnames(
-            "block",
+            "flex items-center justify-center",
             filteredClasses.join(" "),
             paddingClasses
           )}

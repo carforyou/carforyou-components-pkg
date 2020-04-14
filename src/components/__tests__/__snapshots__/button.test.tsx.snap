@@ -107,6 +107,23 @@ exports[`<Button> button variations renders white Teal small button 1`] = `
 </div>
 `;
 
+exports[`<Button> renders a div with link as a child 1`] = `
+<div
+  class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
+  type="button"
+>
+  <a
+    class="w-12/12 hover:opacity-100"
+  >
+    <span
+      class="flex items-center justify-center px-10 min-h-52"
+    >
+      Label
+    </span>
+  </a>
+</div>
+`;
+
 exports[`<Button> renders default button correctly 1`] = `
 <div>
   <div

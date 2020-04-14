@@ -76,7 +76,7 @@ storiesOf("Button", module)
         <div className="w-12/12 md:w-3/12">
           <Button tealBorder>Teal Border button</Button>
         </div>
-      </div>  
+      </div>
     ))
   )
   .add(
