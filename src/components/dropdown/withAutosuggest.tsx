@@ -60,7 +60,9 @@ interface Props<T> {
   /**
    * An event handler to dynamically generate suggestion list
    */
-  fetchSuggestions?: (value: string) => Array<{ value: T; name: string }>
+  fetchSuggestions?: (
+    value: string
+  ) => Promise<Array<{ value: T; name: string }>>
   menuClassName?: string
   noResults?: string
 }

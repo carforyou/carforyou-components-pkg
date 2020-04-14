@@ -29,7 +29,9 @@ interface BaseProps<T> {
 }
 
 interface AutosuggestSelect<T> extends BaseProps<T> {
-  fetchSuggestions?: (value: string) => Array<{ value: T; name: string }>
+  fetchSuggestions?: (
+    value: string
+  ) => Promise<Array<{ value: T; name: string }>>
   allowCustomValues?: boolean
   showSearchIcon?: boolean
   withAutosuggest: true
