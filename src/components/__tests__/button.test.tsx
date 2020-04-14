@@ -92,6 +92,17 @@ describe("<Button>", () => {
     expect(link.classList).toContain("px-10")
   })
 
+  it("renders a div with link as a child", () => {
+    const { getByText } = render(
+      <Button>
+        <a>Label</a>
+      </Button>
+    )
+
+    const option = getByText("Label")
+    expect(option.parentElement.parentElement).toMatchSnapshot()
+  })
+
   it("renders icon, size, paddings and text", () => {
     const { container } = render(
       <Button icon={() => <CtaCall />}>Label</Button>

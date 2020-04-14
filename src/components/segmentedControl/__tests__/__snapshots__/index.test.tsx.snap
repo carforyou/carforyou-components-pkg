@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SegmentedControl> renders a div tag for a custom renderer with link 1`] = `
+<div
+  class="flex w-12/12 justify-center items-center leading-xs transition duration-200 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none bg-transparent text-teal border-teal focus:shadow-focus rounded-none hover:bg-teal-light active:bg-teal-bright"
+  type="button"
+>
+  <a
+    class="w-12/12 hover:opacity-100"
+  >
+    <span
+      class="flex items-center justify-center px-8 py-16"
+    >
+      Two
+    </span>
+  </a>
+</div>
+`;
