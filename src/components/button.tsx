@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, ReactNode } from "react"
+import React, { FC, MouseEvent, ReactNode, createElement } from "react"
 import classnames from "classnames"
 
 import { wrapLink } from "../lib/buttonHelper"
@@ -32,9 +32,9 @@ export const Button: FC<Props> = ({
 
   return (
     <div className="flex flex-col">
-      <button
-        type={submit ? "submit" : "button"}
-        className={classnames(
+      {createElement(isWrapped ? "div" : "button", {
+        type: submit ? "submit" : "button",
+        className: classnames(
           "flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none",
           { [padding]: !isWrapped },
           teal
@@ -45,20 +45,19 @@ export const Button: FC<Props> = ({
           disabled
             ? "bg-grey-3 border-grey-3 cursor-not-allowed hover:bg-grey-3"
             : null
-        )}
-        onClick={onClick}
-        disabled={disabled}
-        data-testid={dataTestid}
-      >
-        {icon ? (
+        ),
+        onClick: !disabled ? onClick : null,
+        disabled,
+        "data-testid": dataTestid,
+        children: icon ? (
           <>
             {icon()}
             <span className="pl-5 pr-8">{clonedElement}</span>
           </>
         ) : (
           clonedElement
-        )}
-      </button>
+        )
+      })}
     </div>
   )
 }
