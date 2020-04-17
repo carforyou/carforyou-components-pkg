@@ -30,7 +30,7 @@ interface Props<T> {
   /**
    * An array of options
    */
-  options?: Array<{ value: T; name: string }>
+  options: Array<{ value: T; name: string }>
   /**
    * Render prop to render the text input
    */
@@ -113,7 +113,7 @@ const filterOptions = noResults => (allOptions, text) => {
 }
 
 function DropdownWithAutosuggest<T>({
-  options = [],
+  options,
   selected,
   onSelect,
   equal,
