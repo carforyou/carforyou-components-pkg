@@ -14,7 +14,7 @@ import InputField from "./input/inputField"
 
 interface BaseProps<T> {
   name: string
-  options?: Array<{ name: string; value: T | { customValue: T } }>
+  options: Array<{ name: string; value: T | { customValue: T } }>
   handleChange: (value: T) => void
   selected?: T
   error?: string
@@ -50,7 +50,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
   (
     {
       name,
-      options = [],
+      options,
       handleChange,
       selected,
       error,

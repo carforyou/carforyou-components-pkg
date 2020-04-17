@@ -127,7 +127,7 @@ function DropdownWithAutosuggest<T>({
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
   const [isFetching, setIsFetching] = useState(false)
-  const [fetchedOptions, setFetchedOptions] = useState()
+  const [fetchedOptions, setFetchedOptions] = useState([])
 
   useEffect(() => {
     setFetchedOptions(options)
