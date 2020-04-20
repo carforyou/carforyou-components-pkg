@@ -24,7 +24,7 @@ export const Button: FC<Props> = ({
   const { clonedElement, isWrapped } = wrapLink(children, padding)
 
   return createElement(isWrapped ? "div" : "button", {
-    type: "button",
+    ...(!isWrapped ? { type: "button" } : {}),
     className: classnames(
       "flex w-12/12 justify-center items-center leading-xs transition duration-200 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none",
       selected ? "bg-teal text-white" : "bg-transparent text-teal",
