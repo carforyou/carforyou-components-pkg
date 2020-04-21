@@ -20,7 +20,7 @@ const useModal = (
     style = "white",
     alwaysRender = false,
     container = null
-  } = options
+  } = options || {}
 
   const openModal = () => {
     setVisible(true)
