@@ -3,23 +3,24 @@ import { createPortal } from "react-dom"
 
 import classNames from "classnames"
 
-import Modal, { ModalSize } from "../components/modal/index"
+import Modal, { ModalSize, ModalStyle } from "../components/modal/index"
 
 const useModal = (
   modal: (modalProps: { closeModal: () => void }) => JSX.Element,
   options?: {
     size?: ModalSize
+    style?: ModalStyle
     alwaysRender?: boolean
     container?: RefObject<HTMLDivElement>
   }
 ) => {
   const [isVisble, setVisible] = useState(false)
-  const { size, alwaysRender, container } = {
-    size: "medium" as ModalSize,
-    alwaysRender: false,
-    container: null,
-    ...options
-  }
+  const {
+    size = "medium",
+    style = "white",
+    alwaysRender = false,
+    container = null
+  } = options
 
   const openModal = () => {
     setVisible(true)
@@ -32,7 +33,7 @@ const useModal = (
   }
 
   const renderModalComponent = () => (
-    <Modal close={closeModal} size={size}>
+    <Modal close={closeModal} size={size} style={style}>
       {modal}
     </Modal>
   )
