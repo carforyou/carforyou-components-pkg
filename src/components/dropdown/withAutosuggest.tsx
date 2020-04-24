@@ -155,7 +155,7 @@ function DropdownWithAutosuggest<T>({
     const propGetter = userProps => {
       const { className, name, ...rest } = userProps
       const isDisabled =
-        !fetchSuggestions && !allowCustomValues && !options.length
+        !fetchSuggestions && !allowCustomValues && !fetchedOptions.length
 
       return getInputProps({
         "data-testid": name,
@@ -202,7 +202,7 @@ function DropdownWithAutosuggest<T>({
             return
           }
 
-          const matchingOption = options.find(option =>
+          const matchingOption = fetchedOptions.find(option =>
             option.name.toLowerCase().startsWith(target.value.toLowerCase())
           )
           if (matchingOption) {
@@ -241,7 +241,7 @@ function DropdownWithAutosuggest<T>({
           }
 
           if (value) {
-            const item = options.find(option =>
+            const item = fetchedOptions.find(option =>
               option.name.toLowerCase().startsWith(value.toLowerCase())
             )
             if (item) {
