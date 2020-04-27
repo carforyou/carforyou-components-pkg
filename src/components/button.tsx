@@ -33,7 +33,7 @@ export const Button: FC<Props> = ({
   return (
     <div className="flex flex-col">
       {createElement(isWrapped ? "div" : "button", {
-        type: submit ? "submit" : "button",
+        ...(!isWrapped ? { type: submit ? "submit" : "button" } : {}),
         className: classnames(
           "flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none",
           { [padding]: !isWrapped },
