@@ -29,7 +29,9 @@ interface BaseProps<T> {
 }
 
 interface AutosuggestSelect<T> extends BaseProps<T> {
-  onTypeAhead?: (value: string) => void
+  fetchSuggestions?: (
+    value: string
+  ) => Promise<Array<{ value: T; name: string }>>
   allowCustomValues?: boolean
   showSearchIcon?: boolean
   withAutosuggest: true
@@ -75,7 +77,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       "withAutosuggest" in rest && rest.withAutosuggest
         ? {
             ...baseProps,
-            onTypeAhead: rest.onTypeAhead,
+            fetchSuggestions: rest.fetchSuggestions,
             allowCustomValues: rest.allowCustomValues,
             noResults: rest.noResultsText,
             isFetching: rest.isFetching,
@@ -171,7 +173,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
         (options.length ||
           ("withAutosuggest" in rest &&
             rest.withAutosuggest &&
-            rest.onTypeAhead))
+            rest.fetchSuggestions))
 
       return {
         select_open: showOpenedIcon && !selected,

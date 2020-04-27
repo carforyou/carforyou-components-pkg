@@ -6,7 +6,8 @@ import React, {
   useRef,
   InputHTMLAttributes,
   ReactElement,
-  useState
+  useState,
+  useEffect
 } from "react"
 import classNames from "classnames"
 import { GetInputPropsOptions } from "downshift"
@@ -59,7 +60,9 @@ interface Props<T> {
   /**
    * An event handler to dynamically generate suggestion list
    */
-  onTypeAhead?: (value: string) => void
+  fetchSuggestions?: (
+    value: string
+  ) => Promise<Array<{ value: T; name: string }>>
   menuClassName?: string
   noResults?: string
 }
@@ -115,7 +118,7 @@ function DropdownWithAutosuggest<T>({
   onSelect,
   equal,
   input,
-  onTypeAhead,
+  fetchSuggestions,
   trimInput,
   allowCustomValues = false,
   menuClassName,
@@ -124,6 +127,11 @@ function DropdownWithAutosuggest<T>({
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
   const [isFetching, setIsFetching] = useState(false)
+  const [fetchedOptions, setFetchedOptions] = useState(options)
+
+  useEffect(() => {
+    setFetchedOptions(options)
+  }, [options])
 
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -146,7 +154,8 @@ function DropdownWithAutosuggest<T>({
 
     const propGetter = userProps => {
       const { className, name, ...rest } = userProps
-      const isDisabled = !onTypeAhead && !allowCustomValues && !options.length
+      const isDisabled =
+        !fetchSuggestions && !allowCustomValues && !fetchedOptions.length
 
       return getInputProps({
         "data-testid": name,
@@ -193,7 +202,7 @@ function DropdownWithAutosuggest<T>({
             return
           }
 
-          const matchingOption = options.find(option =>
+          const matchingOption = fetchedOptions.find(option =>
             option.name.toLowerCase().startsWith(target.value.toLowerCase())
           )
           if (matchingOption) {
@@ -221,9 +230,9 @@ function DropdownWithAutosuggest<T>({
             target.value = value
           }
           setInputValue(value)
-          if (onTypeAhead) {
+          if (fetchSuggestions) {
             setIsFetching(true)
-            await onTypeAhead(value)
+            setFetchedOptions(await fetchSuggestions(value))
             setIsFetching(false)
           }
 
@@ -232,7 +241,7 @@ function DropdownWithAutosuggest<T>({
           }
 
           if (value) {
-            const item = options.find(option =>
+            const item = fetchedOptions.find(option =>
               option.name.toLowerCase().startsWith(value.toLowerCase())
             )
             if (item) {
@@ -253,7 +262,7 @@ function DropdownWithAutosuggest<T>({
   return (
     <BaseDownshift
       selected={selected}
-      options={options}
+      options={fetchedOptions}
       equal={equalWrapper}
       onSelect={onSelect}
       filterOptions={filterOptions(noResults)}
