@@ -28,23 +28,29 @@ export const Button: FC<Props> = ({
   icon
 }) => {
   const padding = classnames("px-10", small ? "min-h-36" : "min-h-52")
-  const { clonedElement, isWrapped } = wrapLink(children, padding)
+  const style = classnames("rounded border", {
+    "bg-teal hover:bg-teal-dark focus:bg-teal": teal,
+    "bg-white text-teal hover:opacity-60": tealBorder,
+    "border-teal": teal || tealBorder,
+    "bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon":
+      !teal && !tealBorder,
+    "text-grey-3 hover:opacity-100": disabled && tealBorder,
+    "bg-grey-3 hover:bg-grey-3": disabled && !tealBorder,
+    "cursor-not-allowed border-grey-3": disabled
+  })
+  const buttonStyle = classnames(padding, style)
+
+  const { clonedElement, isWrapped } = wrapLink(children, buttonStyle)
 
   return (
     <div className="flex flex-col">
       {createElement(isWrapped ? "div" : "button", {
         ...(!isWrapped ? { type: submit ? "submit" : "button" } : {}),
         className: classnames(
-          "flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none",
-          { [padding]: !isWrapped },
-          teal
-            ? "bg-teal border-teal hover:bg-teal-dark focus:bg-teal"
-            : tealBorder
-            ? "bg-white border-teal text-teal hover:opacity-60"
-            : "bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon",
-          disabled
-            ? "bg-grey-3 border-grey-3 cursor-not-allowed hover:bg-grey-3"
-            : null
+          "flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none",
+          {
+            [buttonStyle]: !isWrapped
+          }
         ),
         onClick: !disabled ? onClick : null,
         disabled,
