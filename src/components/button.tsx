@@ -28,7 +28,7 @@ export const Button: FC<Props> = ({
   icon
 }) => {
   const padding = classnames("px-10", small ? "min-h-36" : "min-h-52")
-  const style = classnames("rounded border", {
+  const classes = classnames("rounded border", {
     "bg-teal hover:bg-teal-dark focus:bg-teal": teal,
     "bg-white text-teal hover:opacity-60": tealBorder,
     "border-teal": teal || tealBorder,
@@ -38,9 +38,9 @@ export const Button: FC<Props> = ({
     "bg-grey-3 hover:bg-grey-3": disabled && !tealBorder,
     "cursor-not-allowed border-grey-3": disabled
   })
-  const buttonStyle = classnames(padding, style)
+  const buttonClasses = classnames(padding, classes)
 
-  const { clonedElement, isWrapped } = wrapLink(children, buttonStyle)
+  const { clonedElement, isWrapped } = wrapLink(children, buttonClasses)
 
   return (
     <div className="flex flex-col">
@@ -49,7 +49,7 @@ export const Button: FC<Props> = ({
         className: classnames(
           "flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none",
           {
-            [buttonStyle]: !isWrapped
+            [buttonClasses]: !isWrapped
           }
         ),
         onClick: !disabled ? onClick : null,
