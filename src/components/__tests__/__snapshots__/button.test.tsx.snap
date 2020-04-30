@@ -6,7 +6,7 @@ exports[`<Button> button variations renders disabled button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-52 bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon bg-grey-3 border-grey-3 cursor-not-allowed hover:bg-grey-3"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon bg-grey-3 hover:bg-grey-3 cursor-not-allowed border-grey-3"
       disabled=""
       type="button"
     >
@@ -22,7 +22,7 @@ exports[`<Button> button variations renders small button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-36 bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-36 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
       type="button"
     >
       Label
@@ -37,7 +37,7 @@ exports[`<Button> button variations renders small disabled button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-36 bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon bg-grey-3 border-grey-3 cursor-not-allowed hover:bg-grey-3"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-36 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon bg-grey-3 hover:bg-grey-3 cursor-not-allowed border-grey-3"
       disabled=""
       type="button"
     >
@@ -53,7 +53,7 @@ exports[`<Button> button variations renders small teal button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-36 bg-teal border-teal hover:bg-teal-dark focus:bg-teal"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-36 rounded border bg-teal hover:bg-teal-dark focus:bg-teal border-teal"
       type="button"
     >
       Label
@@ -68,7 +68,7 @@ exports[`<Button> button variations renders teal button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-52 bg-teal border-teal hover:bg-teal-dark focus:bg-teal"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-teal hover:bg-teal-dark focus:bg-teal border-teal"
       type="button"
     >
       Label
@@ -83,7 +83,7 @@ exports[`<Button> button variations renders white Teal button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-52 bg-white border-teal text-teal hover:opacity-60"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-white text-teal hover:opacity-60 border-teal"
       type="button"
     >
       Label
@@ -98,7 +98,7 @@ exports[`<Button> button variations renders white Teal small button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-36 bg-white border-teal text-teal hover:opacity-60"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-36 rounded border bg-white text-teal hover:opacity-60 border-teal"
       type="button"
     >
       Label
@@ -109,13 +109,13 @@ exports[`<Button> button variations renders white Teal small button 1`] = `
 
 exports[`<Button> renders a div with link as a child 1`] = `
 <div
-  class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
+  class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none"
 >
   <a
     class="w-12/12 hover:opacity-100"
   >
     <span
-      class="flex items-center justify-center px-10 min-h-52"
+      class="flex items-center justify-center px-10 min-h-52 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
     >
       Label
     </span>
@@ -129,7 +129,7 @@ exports[`<Button> renders default button correctly 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-52 bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
       type="button"
     >
       Label
@@ -144,7 +144,7 @@ exports[`<Button> renders icon, size, paddings and text 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base rounded border focus:outline-none px-10 min-h-52 bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
+      class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
       type="button"
     >
       <svg
