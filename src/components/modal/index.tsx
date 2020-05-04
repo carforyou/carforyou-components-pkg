@@ -36,7 +36,8 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
           "max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
           size === "fullscreen"
             ? "inset-0 h-full"
-            : "inset-x-0 md:align-middle md:inset-auto"
+            : "inset-x-0 md:align-middle md:inset-auto h-full md:h-auto rounded-4",
+          style === "white" ? "bg-white" : "bg-grey-dark text-white"
         )}
         role="dialog"
       >
@@ -48,16 +49,12 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
           <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
         </div>
         <div
-          className={classNames(
-            "z-modal w-12/12 my-0 rounded-4",
-            style === "white" ? "bg-white" : "bg-grey-dark text-white",
-            {
-              "p-40 md:w-modalLarge": size === "large",
-              "p-40 md:w-modal": size === "medium",
-              "p-40 md:w-modalSmall": size === "small",
-              "h-full": size === "fullscreen"
-            }
-          )}
+          className={classNames("z-modal w-12/12 my-0", {
+            "p-40 md:w-modalLarge": size === "large",
+            "p-40 md:w-modal": size === "medium",
+            "p-40 md:w-modalSmall": size === "small",
+            "h-full": size === "fullscreen"
+          })}
         >
           {children({ closeModal: close })}
         </div>
