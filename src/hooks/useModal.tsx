@@ -19,7 +19,7 @@ const useModal = (
     size = "medium",
     style = "white",
     alwaysRender = false,
-    container = null
+    container = null,
   } = options || {}
 
   const openModal = () => {
@@ -55,7 +55,7 @@ const useModal = (
   return {
     openModal,
     renderModal,
-    modalVisible: isVisble
+    modalVisible: isVisble,
   }
 }
 

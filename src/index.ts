@@ -32,5 +32,5 @@ export {
   RadioButton,
   WithLabel,
   WithValidationError,
-  useModal
+  useModal,
 }

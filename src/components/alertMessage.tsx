@@ -29,7 +29,7 @@ export const AlertMessage: FC<Props> = ({
   icon,
   fullWidth,
   type,
-  alignCenter
+  alignCenter,
 }) => {
   return (
     <div
@@ -42,7 +42,7 @@ export const AlertMessage: FC<Props> = ({
           "border-teal bg-teal-light text-grey-dark": type === "information",
           "border-salmon bg-salmon-light text-salmon": type === "error",
           "border-green-light bg-green-opaque text-grey-dark":
-            type === "success"
+            type === "success",
         }
       )}
     >

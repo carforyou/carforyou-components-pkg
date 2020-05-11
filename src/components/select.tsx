@@ -2,7 +2,7 @@ import React, { forwardRef } from "react"
 import classNames from "classnames"
 
 import DropdownWithAutosuggest, {
-  DropdownWithAutosuggestProps
+  DropdownWithAutosuggestProps,
 } from "../components/dropdown/withAutosuggest"
 import Dropdown, { DropdownProps } from "./dropdown/index"
 
@@ -70,7 +70,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       options,
       onSelect: handleChange,
       selected,
-      menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu"
+      menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu",
     }
 
     const dropdownProps =
@@ -94,12 +94,12 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                 mode: rest.inputMode || "text",
                 placeholder,
                 disabled,
-                required
+                required,
               })
 
               return (
                 <WithValidationError error={error}>
-                  {hasError => (
+                  {(hasError) => (
                     <>
                       {labelText ? (
                         <WithLabel
@@ -119,7 +119,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                   )}
                 </WithValidationError>
               )
-            }
+            },
           }
         : {
             ...baseProps,
@@ -134,15 +134,15 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                   selectClasses(isOpen),
                   {
                     "select-toggle_disabled": disabled,
-                    "text-grey-3": downshift.placeholder
+                    "text-grey-3": downshift.placeholder,
                   }
                 ),
-                children: downshift.name
+                children: downshift.name,
               }
 
               return (
                 <WithValidationError error={error}>
-                  {hasError => (
+                  {(hasError) => (
                     <>
                       {labelText ? (
                         <WithLabel
@@ -162,10 +162,10 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                   )}
                 </WithValidationError>
               )
-            }
+            },
           }
 
-    const selectClasses = isOpen => {
+    const selectClasses = (isOpen) => {
       const showSearchIcon =
         "withAutosuggest" in rest && rest.withAutosuggest && rest.showSearchIcon
       const showOpenedIcon =
@@ -178,11 +178,11 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       return {
         select_open: showOpenedIcon && !selected,
         select_closed: !isOpen && !selected,
-        select_withSearchIcon: showOpenedIcon && !selected && showSearchIcon
+        select_withSearchIcon: showOpenedIcon && !selected && showSearchIcon,
       }
     }
 
-    const renderHint = hasError =>
+    const renderHint = (hasError) =>
       hint ? <HintText text={hint} hasError={hasError} /> : null
 
     const renderInput = (hasError, props) => (

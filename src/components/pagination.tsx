@@ -31,7 +31,7 @@ const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
         href={linkBuilder(forcePage === 1 ? null : forcePage, query)}
         rel="prev"
         key="prev"
-      />
+      />,
     ]
   }
 }
@@ -45,7 +45,7 @@ export const Pagination: StatelessComponent<Props> = ({
   forcePage,
   query,
   pageLinkBuilder,
-  renderHead
+  renderHead,
 }) => {
   return pageCount > 1 ? (
     <div className="flex justify-center">

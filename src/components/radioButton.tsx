@@ -23,9 +23,9 @@ function RadioButton<T>({
   error,
   renderLabel,
   labelPosition,
-  onChange
+  onChange,
 }: Props<T>): ReactElement {
-  const renderInput = hasError => (
+  const renderInput = (hasError) => (
     <div className="inputRadio">
       <input
         name={name}
@@ -51,7 +51,7 @@ function RadioButton<T>({
       htmlFor={name}
     >
       <WithValidationError error={error}>
-        {hasError =>
+        {(hasError) =>
           renderLabel ? (
             <WithHorizontalLabel
               renderContent={renderLabel}

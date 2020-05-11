@@ -9,7 +9,7 @@ describe("<SegmentedControl>", () => {
   const options = [
     { value: 1, name: "One" },
     { value: 2, name: "Two" },
-    { value: 3, name: "Three" }
+    { value: 3, name: "Three" },
   ]
 
   const renderWrapper = (data = {}) => {
@@ -58,7 +58,7 @@ describe("<SegmentedControl>", () => {
         <div>
           {name} ({value})
         </div>
-      )
+      ),
     })
 
     options.forEach(({ value, name }) =>
@@ -76,7 +76,7 @@ describe("<SegmentedControl>", () => {
 
   it("passes correct padding to the custom renderer with a link", () => {
     const { getByText } = renderWrapper({
-      renderOption: ({ name }) => <a>{name}</a>
+      renderOption: ({ name }) => <a>{name}</a>,
     })
 
     const option = getByText("Two")
@@ -86,7 +86,7 @@ describe("<SegmentedControl>", () => {
 
   it("renders a div tag for a custom renderer with link", () => {
     const { getByText } = renderWrapper({
-      renderOption: ({ name }) => <a>{name}</a>
+      renderOption: ({ name }) => <a>{name}</a>,
     })
 
     const option = getByText("Two")

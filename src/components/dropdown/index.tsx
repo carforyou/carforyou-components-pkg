@@ -62,7 +62,7 @@ function Dropdown<T>({
   toggle,
   disabled,
   renderOption,
-  menuClassName
+  menuClassName,
 }: Props<T>): ReactElement {
   return (
     <BaseDownshift
@@ -71,7 +71,7 @@ function Dropdown<T>({
       equal={equal}
       onSelect={onSelect}
       filterOptions={(a, _) => a}
-      toggle={downshift => (
+      toggle={(downshift) => (
         <ButtonToggle
           {...{
             ...downshift,
@@ -80,7 +80,7 @@ function Dropdown<T>({
             className: classNames(
               "w-12/12 cursor-pointer transition duration-200 focus:outline-none",
               { "button-filter-input_disabled": disabled }
-            )
+            ),
           }}
         >
           {toggle}
@@ -93,15 +93,15 @@ function Dropdown<T>({
             className: classNames(
               "text-left rounded-none shadow-hard md:position-left-auto md:shadow-soft md:rounded-4",
               menuClassName
-            )
+            ),
           }),
           options: [
             ...(placeholder
               ? [{ name: placeholder, value: null, placeholder: true }]
               : []),
-            ...filteredOptions
+            ...filteredOptions,
           ],
-          renderOption
+          renderOption,
         }
 
         return <Menu {...props} />

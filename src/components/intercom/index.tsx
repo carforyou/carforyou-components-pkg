@@ -40,7 +40,7 @@ enum State {
   NotLoaded = "NotLoaded",
   Loading = "Loading",
   Ready = "Ready",
-  Open = "Open"
+  Open = "Open",
 }
 
 const renderLauncher = (state: State, label) => {
@@ -81,7 +81,7 @@ export const Intercom: FC<Props> = ({
   label,
   language,
   autoload = false,
-  userInfo = {}
+  userInfo = {},
 }) => {
   const intercomSettings = {
     cfy: true,
@@ -93,12 +93,12 @@ export const Intercom: FC<Props> = ({
     horizontal_padding: 20,
     vertical_padding: 76,
     language_override: language,
-    ...userInfo
+    ...userInfo,
   }
 
   const intercomEventHandlers = {
     onOpen: () => setState(State.Open),
-    onClose: () => setState(State.Ready)
+    onClose: () => setState(State.Ready),
   }
 
   const [state, setState] = useState<State>(State.NotLoaded)

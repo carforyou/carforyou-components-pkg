@@ -7,14 +7,14 @@ export default {
   tailwind: { withDefaultConfig, defaultConfig },
   getComponentPaths: () =>
     sync(resolve(__dirname, "../dist-src/components/**/*"), {
-      nodir: true
+      nodir: true,
     }),
   getWhitelistPatterns: () => [
     /^w-.*\/12$/,
     /select_closed/,
     /select_open/,
-    /select_withSearchIcon/
-  ]
+    /select_withSearchIcon/,
+  ],
 }
 
 // Export all components
