@@ -7,10 +7,10 @@ const modalText = "HERE BE DRAGONS"
 const buttonText = "Open modal"
 
 const Component: FC<{ modalContainer?: RefObject<HTMLDivElement> }> = ({
-  modalContainer
+  modalContainer,
 }) => {
   const { renderModal, openModal } = useModal(() => <div>{modalText}</div>, {
-    container: modalContainer
+    container: modalContainer,
   })
 
   return (

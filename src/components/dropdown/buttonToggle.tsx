@@ -20,7 +20,7 @@ function ButtonToggle<T>({
   selectedItem,
   className,
   children,
-  disabled
+  disabled,
 }: Props<T>): ReactElement {
   const selected = selectedItem
     ? selectedItem

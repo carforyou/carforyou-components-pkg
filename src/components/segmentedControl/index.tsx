@@ -38,7 +38,7 @@ function SegmentedControl<T>({
   onSelect = () => null,
   renderOption = ({ name }) => name,
   small = false,
-  disabled = false
+  disabled = false,
 }: Props<T>): ReactElement {
   const [selectedValue, updateSelected] = useState(
     (options.find(({ value }) => value === initialSelection) || options[0])

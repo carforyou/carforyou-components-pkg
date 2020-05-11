@@ -25,7 +25,7 @@ export default {
       sm: "576px",
       md: "768px",
       lg: "1024px",
-      xl: "1280px"
+      xl: "1280px",
     },
 
     colors: {
@@ -58,7 +58,7 @@ export default {
       "great-deal": "#149246",
       "not-defined": "#A0A7AB",
       yellow: "#FCB001",
-      "yellow-light": "#FEEFCC"
+      "yellow-light": "#FEEFCC",
     },
 
     /*
@@ -69,7 +69,7 @@ export default {
    | Class name: .bg-{color}
    |
    */
-    backgroundColor: theme => theme("colors"),
+    backgroundColor: (theme) => theme("colors"),
 
     /*
    |-----------------------------------------------------------------------------
@@ -88,7 +88,7 @@ export default {
       right: "right",
       "right-bottom": "right bottom",
       "right-top": "right top",
-      top: "top"
+      top: "top",
     },
 
     /*
@@ -103,7 +103,7 @@ export default {
     backgroundSize: {
       auto: "auto",
       cover: "cover",
-      contain: "contain"
+      contain: "contain",
     },
 
     /*
@@ -114,9 +114,9 @@ export default {
     | Class name: .border-{color}
     |
     */
-    borderColor: theme => ({
+    borderColor: (theme) => ({
       ...theme("colors"),
-      default: theme("colors.grey-light", "currentColor")
+      default: theme("colors.grey-light", "currentColor"),
     }),
 
     /*
@@ -135,7 +135,7 @@ export default {
       "2": "2px",
       "4": "4px",
       "10": "10px",
-      "20": "20px"
+      "20": "20px",
     },
 
     /*
@@ -150,7 +150,7 @@ export default {
       default: "1px",
       "0": "0",
       "2": "2px",
-      "5": "5px"
+      "5": "5px",
     },
 
     /*
@@ -171,7 +171,7 @@ export default {
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
       harder: "0 0 18px 0 rgba(35,42,54,0.8)",
-      focus: "0px 0px 1px 2px rgba(54, 150, 185, 0.6)"
+      focus: "0px 0px 1px 2px rgba(54, 150, 185, 0.6)",
     },
 
     /*
@@ -183,7 +183,7 @@ export default {
     |
     */
     fontFamily: {
-      sans: ["Muli, Century Gothic, Lucida Grande, Sans-Serif"]
+      sans: ["Muli, Century Gothic, Lucida Grande, Sans-Serif"],
     },
 
     /*
@@ -202,7 +202,7 @@ export default {
       xl: "24px",
       "2xl": "32px",
       "3xl": "48px",
-      "4xl": "72px"
+      "4xl": "72px",
     },
 
     /*
@@ -214,7 +214,7 @@ export default {
     */
     fontWeight: {
       regular: 400,
-      bold: 700
+      bold: 700,
     },
 
     /*
@@ -235,7 +235,7 @@ export default {
       radioIndicator: "12px",
       input: "52px",
       "20": "20px",
-      "40": "40px"
+      "40": "40px",
     },
 
     /*
@@ -259,7 +259,7 @@ export default {
       modalClose: "10px",
       floatingLabel: "13px",
       "-floatingLabel": "-13px",
-      radioIndicator: "5px"
+      radioIndicator: "5px",
     },
 
     /*
@@ -275,7 +275,7 @@ export default {
     */
     letterSpacing: {
       normal: "0",
-      wide: "1px"
+      wide: "1px",
     },
 
     /*
@@ -294,7 +294,7 @@ export default {
       md: 2,
       lg: 2.5,
       xl: 3,
-      label: "24px"
+      label: "24px",
     },
 
     /*
@@ -320,7 +320,7 @@ export default {
       "40": "40px",
       labelPopupIcon: "3px",
       "-selectMenu": "-21px",
-      "-selectWithHintMenu": "-43px"
+      "-selectWithHintMenu": "-43px",
     },
 
     /*
@@ -334,7 +334,7 @@ export default {
     maxHeight: {
       full: "100%",
       dropdown: "240px",
-      dropdownSM: "190px"
+      dropdownSM: "190px",
     },
 
     /*
@@ -346,7 +346,7 @@ export default {
     |
     */
     maxWidth: {
-      full: "100%"
+      full: "100%",
     },
 
     /*
@@ -363,7 +363,7 @@ export default {
       full: "100%",
       screen: "100vh",
       "36": "36px",
-      "52": "52px"
+      "52": "52px",
     },
 
     /*
@@ -378,7 +378,7 @@ export default {
       "0": "0",
       auto: "auto",
       full: "100%",
-      screen: "100vw"
+      screen: "100vw",
     },
 
     /*
@@ -396,7 +396,7 @@ export default {
       "40": ".4",
       "60": ".6",
       "80": ".8",
-      "100": "1"
+      "100": "1",
     },
 
     /*
@@ -423,14 +423,14 @@ export default {
       "25": "25px",
       "30": "30px",
       "40": "40px",
-      floatingLabelInputFocused: "12px"
+      floatingLabelInputFocused: "12px",
     },
 
     customRotate: {
       "90": "90deg",
       "180": "180deg",
       "270": "270deg",
-      "360": "360deg"
+      "360": "360deg",
     },
     /*
     |-----------------------------------------------------------------------------
@@ -440,7 +440,7 @@ export default {
     | Class name: .text-{color}
     |
     */
-    textColor: theme => theme("colors"),
+    textColor: (theme) => theme("colors"),
 
     /*
     |-----------------------------------------------------------------------------
@@ -473,11 +473,11 @@ export default {
       modalSmall: "370px",
       modalLarge: "770px",
       checkbox: "24px",
-      radioIndicator: "12px"
+      radioIndicator: "12px",
     },
 
     transitionDuration: {
-      "200": "200ms"
+      "200": "200ms",
     },
 
     /*
@@ -494,7 +494,7 @@ export default {
       clearButton: 10,
       modalClose: 10,
       dropdownMenu: 20,
-      modal: 98
+      modal: 98,
     },
 
     /*
@@ -505,19 +505,19 @@ export default {
     | Class name: .bg-gradient-{direction}-{color}
     |
     */
-    linearGradients: theme => ({
+    linearGradients: (theme) => ({
       directions: {
         "to-top": "to top",
         "to-right": "to right",
         "to-bottom": "to bottom",
-        "to-left": "to left"
+        "to-left": "to left",
       },
       colors: {
         fade: ["rgba(255,255,255,0) 90%", "rgba(255,255,255,1) 100%"],
         grey: [theme("colors")["grey-bright"], `${theme("colors").white} 20%`],
-        black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"]
-      }
-    })
+        black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"],
+      },
+    }),
   },
 
   variants: {
@@ -591,8 +591,8 @@ export default {
     skew: ["responsive", "hover", "focus"],
     transitionProperty: ["responsive", "hover"],
     transitionTimingFunction: ["responsive", "hover"],
-    transitionDuration: ["responsive", "hover"]
+    transitionDuration: ["responsive", "hover"],
   },
   corePlugins: {},
-  plugins: [TransformPlugin, require("tailwindcss-gradients")()]
+  plugins: [TransformPlugin, require("tailwindcss-gradients")()],
 }

@@ -3,7 +3,7 @@ import { render, fireEvent, act } from "@testing-library/react"
 
 jest.mock("../helper", () => ({
   bootIntercom: jest.fn((settings, { onOpen, onClose }) => {
-    const i = jest.fn(event => {
+    const i = jest.fn((event) => {
       if (event === "show") {
         return onOpen()
       }
@@ -14,7 +14,7 @@ jest.mock("../helper", () => ({
     })
     window.Intercom = i
     window.intercomSettings = settings
-  })
+  }),
 }))
 
 import { bootIntercom } from "../helper"

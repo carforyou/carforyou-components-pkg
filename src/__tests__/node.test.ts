@@ -26,7 +26,7 @@ describe("tailwind", () => {
     it("can extend objects", () => {
       const colorCount = Object.keys(defaultConfig.theme.colors).length
       const mergedConfig = withDefaultConfig({
-        theme: { colors: { tuna: "#4E5154" } }
+        theme: { colors: { tuna: "#4E5154" } },
       })
 
       expect(Object.keys(mergedConfig.theme.colors)).toHaveLength(
@@ -40,7 +40,7 @@ describe("tailwind", () => {
       const borderColorCount = Object.keys(defaultConfig.theme.borderColor)
         .length
       const mergedConfig = withDefaultConfig({
-        theme: { borderColor: { tuna: "#4E5154" } }
+        theme: { borderColor: { tuna: "#4E5154" } },
       })
 
       expect(Object.keys(mergedConfig.theme.borderColor)).toHaveLength(

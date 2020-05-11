@@ -10,13 +10,13 @@ describe("<DropdownWithAutosuggest>", () => {
   const options = [
     { value: 1, name: "One" },
     { value: 2, name: "Two" },
-    { value: 3, name: "Three" }
+    { value: 3, name: "Three" },
   ]
 
   const mountWrapper = (dropdownOptions = {}) => {
     const { allowCustomValues } = {
       allowCustomValues: false,
-      ...dropdownOptions
+      ...dropdownOptions,
     }
 
     return render(
@@ -27,7 +27,7 @@ describe("<DropdownWithAutosuggest>", () => {
           <input
             {...getInputProps({
               name: `${name}From`,
-              placeholder
+              placeholder,
             })}
           />
         )}
@@ -37,7 +37,7 @@ describe("<DropdownWithAutosuggest>", () => {
     )
   }
 
-  const openAutosuggest = wrapper => {
+  const openAutosuggest = (wrapper) => {
     const { getByPlaceholderText, getByTestId } = wrapper
     const input = getByPlaceholderText(placeholder)
 
@@ -156,7 +156,7 @@ describe("<DropdownWithAutosuggest>", () => {
       fireEvent.change(input, { target: { value: "Two" } })
       fireEvent.keyDown(input, {
         keyCode: 13,
-        target: { blur: () => fireEvent.blur(input) }
+        target: { blur: () => fireEvent.blur(input) },
       })
 
       expect(mockedOnSelect).toBeCalledWith(2)

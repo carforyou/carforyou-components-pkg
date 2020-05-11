@@ -29,7 +29,7 @@ function BaseDropdown<T>({
   toggle,
   menu,
   filterOptions,
-  equal
+  equal,
 }: Props<T>): ReactElement {
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
@@ -37,17 +37,17 @@ function BaseDropdown<T>({
   }
 
   const selectedItem = selected
-    ? options.find(option => equalWrapper(option.value, selected))
+    ? options.find((option) => equalWrapper(option.value, selected))
     : null
 
   return (
     <Downshift
-      itemToString={item => (item ? item.name : "")}
+      itemToString={(item) => (item ? item.name : "")}
       initialSelectedItem={selectedItem}
-      onChange={item => onSelect(item && item.value)}
+      onChange={(item) => onSelect(item && item.value)}
       key={selectedItem && selectedItem.name}
     >
-      {downshift => {
+      {(downshift) => {
         const { isOpen, inputValue } = downshift
 
         return (

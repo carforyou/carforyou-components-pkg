@@ -38,18 +38,18 @@ function Checkbox({
     renderLabel && "labelPosition" in rest
       ? {
           renderContent: renderLabel,
-          position: rest.labelPosition
+          position: rest.labelPosition,
         }
       : renderLabel && "buttonStyle" in rest
       ? {
           renderContent: renderLabel,
-          position: "right" as "right" | "left"
+          position: "right" as "right" | "left",
         }
       : {}
 
   const buttonStyle = "buttonStyle" in rest && rest.buttonStyle
 
-  const renderInput = hasError => (
+  const renderInput = (hasError) => (
     <input
       name={name}
       id={name}
@@ -65,7 +65,7 @@ function Checkbox({
 
   return (
     <WithValidationError error={error}>
-      {hasError => (
+      {(hasError) => (
         <label
           htmlFor={name}
           className={classNames(
@@ -79,7 +79,7 @@ function Checkbox({
               "border-salmon": buttonStyle && hasError,
               "border-grey-2 hover:border-grey-dark focus-within:border-teal":
                 buttonStyle && !hasError,
-              "text-salmon": hasError
+              "text-salmon": hasError,
             }
           )}
         >

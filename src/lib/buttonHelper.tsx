@@ -3,7 +3,7 @@ import React, {
   isValidElement,
   cloneElement,
   ReactElement,
-  Children
+  Children,
 } from "react"
 import classnames from "classnames"
 
@@ -22,7 +22,7 @@ const wrapSingleChild = (
       // to preserve `flex` & `width` related behaviour etc.
       const originalClasses = (element.props.className || "").split(" ")
       const filteredClasses = originalClasses.filter(
-        cls => !cls.match(/^(p|m)(x|y|t|b|l|r)?-/)
+        (cls) => !cls.match(/^(p|m)(x|y|t|b|l|r)?-/)
       )
 
       const clone = cloneElement(
@@ -48,7 +48,7 @@ const wrapSingleChild = (
     )
     return {
       clonedElement: cloneElement(element, {}, clonedElement),
-      isWrapped
+      isWrapped,
     }
   }
 
@@ -59,13 +59,13 @@ const wrapMultipleChildren = (
   nodes: ReactNode[],
   paddingClasses: string
 ): { clonedElement: ReactNode; isWrapped: boolean } => {
-  const mappedNodes = nodes.map(element => wrapLink(element, paddingClasses))
+  const mappedNodes = nodes.map((element) => wrapLink(element, paddingClasses))
   return {
     clonedElement: <>{mappedNodes.map(({ clonedElement }) => clonedElement)}</>,
     isWrapped: mappedNodes.reduce(
       (acc, { isWrapped }) => acc || isWrapped,
       false
-    )
+    ),
   }
 }
 

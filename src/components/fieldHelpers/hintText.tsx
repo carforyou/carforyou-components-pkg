@@ -11,7 +11,7 @@ const HintText: FC<Props> = ({ text, hasError }) => (
     className={classNames(
       "inline-block font-bold text-sm text-left h-20 w-12/12",
       {
-        "text-salmon": hasError
+        "text-salmon": hasError,
       }
     )}
   >
