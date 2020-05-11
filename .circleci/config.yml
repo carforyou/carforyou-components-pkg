@@ -58,6 +58,18 @@ jobs:
           at: ~/
       - run: npm run lint
 
+  typecheck:
+    <<: *DOCKER_NODE
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          command: npm run typecheck
+          no_output_timeout: 1m
+      - slack/notify-on-failure:
+          only_for_branches: master
+
   deploy:
     <<: *DOCKER_NODE
     steps:
@@ -104,6 +116,10 @@ workflows:
           requires:
             - install
 
+      - typecheck:
+          requires:
+            - install
+
       - deploy:
           requires:
             - unit
@@ -117,6 +133,7 @@ workflows:
             - lint
             - unit
             - build
+            - typecheck
           filters:
             branches:
               only: master
@@ -126,6 +143,7 @@ workflows:
             - lint
             - unit
             - build
+            - typecheck
           filters:
             branches:
               ignore: master
