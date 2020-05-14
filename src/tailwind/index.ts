@@ -41,10 +41,10 @@ export interface TailwindConfig {
   plugins?: any[]
 }
 
-const resolveConfig = config => {
+const resolveConfig = (config) => {
   const theme = {}
 
-  const getKey = key => {
+  const getKey = (key) => {
     return defaultConfig.theme[key]
   }
 

@@ -38,11 +38,11 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(
       onBlur,
       rows,
       cols,
-      maxLength
+      maxLength,
     },
     ref
   ) => {
-    const renderField = hasError => (
+    const renderField = (hasError) => (
       <textarea
         ref={ref}
         id={name}
@@ -65,13 +65,13 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(
       />
     )
 
-    const renderHint = hasError =>
+    const renderHint = (hasError) =>
       hint ? <HintText hasError={hasError} text={hint} /> : null
 
     return (
       <div className="w-12/12 focus-within:text-teal">
         <WithValidationError error={error}>
-          {hasError => (
+          {(hasError) => (
             <>
               {labelText ? (
                 <WithLabel

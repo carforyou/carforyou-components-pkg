@@ -1,6 +1,6 @@
 import React from "react"
 
-const MailSent = props => (
+const MailSent = (props) => (
   <svg
     width="72"
     height="72"

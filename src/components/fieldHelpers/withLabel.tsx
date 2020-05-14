@@ -18,7 +18,7 @@ const WithLabel: FC<Props> = ({
   text,
   error = false,
   renderPopup = null,
-  required = false
+  required = false,
 }) => {
   const { openModal, renderModal } = useModal(renderPopup)
 
@@ -29,7 +29,7 @@ const WithLabel: FC<Props> = ({
         <b
           className={classNames("text-lg flex leading-label", {
             "text-salmon": error,
-            "mb-5": !renderPopup
+            "mb-5": !renderPopup,
           })}
         >
           <span className="text-base">{text}</span>
@@ -41,7 +41,7 @@ const WithLabel: FC<Props> = ({
           {!!renderPopup && (
             <a
               className="ml-labelPopupIcon mb-labelPopupIcon cursor-pointer opacity-60 hover:opacity-100 transition duration-200"
-              onClick={e => {
+              onClick={(e) => {
                 e.preventDefault()
                 openModal()
               }}

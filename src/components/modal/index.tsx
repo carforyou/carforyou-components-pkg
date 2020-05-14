@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Modal: FC<Props> = ({ close, size, style, children }) => {
-  const handleKeys = e => {
+  const handleKeys = (e) => {
     if (e.keyCode === 27) {
       e.preventDefault()
       close()
@@ -53,7 +53,7 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
             "p-40 md:w-modalLarge": size === "large",
             "p-40 md:w-modal": size === "medium",
             "p-40 md:w-modalSmall": size === "small",
-            "h-full": size === "fullscreen"
+            "h-full": size === "fullscreen",
           })}
         >
           {children({ closeModal: close })}

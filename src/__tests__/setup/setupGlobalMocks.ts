@@ -12,7 +12,7 @@ window.matchMedia =
       onchange: () => {}, // tslint:disable-line: no-empty
       addEventListener: () => {}, // tslint:disable-line: no-empty
       removeEventListener: () => {}, // tslint:disable-line: no-empty
-      dispatchEvent: () => true // tslint:disable-line: no-empty
+      dispatchEvent: () => true, // tslint:disable-line: no-empty
     }
   })
 

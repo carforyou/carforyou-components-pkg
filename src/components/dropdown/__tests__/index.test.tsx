@@ -9,7 +9,7 @@ describe("<Dropdown>", () => {
   const options = [
     { value: 1, name: "One" },
     { value: 2, name: "Two" },
-    { value: 3, name: "Three" }
+    { value: 3, name: "Three" },
   ]
   const title = "Select number"
   const selected = 1
@@ -17,7 +17,7 @@ describe("<Dropdown>", () => {
   const mountWrapper = (data = {}) => {
     const { renderOption } = {
       renderOption: undefined,
-      ...data
+      ...data,
     }
 
     return render(
@@ -36,7 +36,7 @@ describe("<Dropdown>", () => {
     )
   }
 
-  const openDropdown = wrapper => {
+  const openDropdown = (wrapper) => {
     const { getByText, getByTestId } = wrapper
     const titleNode = getByText(title)
 
@@ -121,7 +121,7 @@ describe("<Dropdown>", () => {
         <div>
           {name} ({value})
         </div>
-      )
+      ),
     })
 
     openDropdown(wrapper)

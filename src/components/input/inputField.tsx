@@ -2,7 +2,7 @@ import React, { forwardRef, FocusEvent, InputHTMLAttributes } from "react"
 
 import debounceCallback from "../../lib/debounceHelper"
 
-const validateNumber = e => {
+const validateNumber = (e) => {
   const key = e.which || e.keyCode
 
   if (
@@ -37,7 +37,7 @@ const validateNumber = e => {
   e.preventDefault()
 }
 
-const validateDecimal = e => {
+const validateDecimal = (e) => {
   const key = e.which || e.keyCode
 
   // Period (decimal)
@@ -92,7 +92,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         placeholder={placeholder || ""}
         className={className}
         inputMode={mode !== "text" ? mode : null}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           // tslint:disable:no-unused-expression
           mode === "numeric"
             ? validateNumber(e)

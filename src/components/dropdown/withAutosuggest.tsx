@@ -7,7 +7,7 @@ import React, {
   InputHTMLAttributes,
   ReactElement,
   useState,
-  useEffect
+  useEffect,
 } from "react"
 import classNames from "classnames"
 import { GetInputPropsOptions } from "downshift"
@@ -67,7 +67,7 @@ interface Props<T> {
   noResults?: string
 }
 
-const filterOptions = noResults => (allOptions, text) => {
+const filterOptions = (noResults) => (allOptions, text) => {
   if (!text) {
     return allOptions
   }
@@ -78,7 +78,7 @@ const filterOptions = noResults => (allOptions, text) => {
   const startsWith = new RegExp(`^${cleanedText}`, "i")
 
   const matching = allOptions
-    .filter(el => el.name.toLowerCase().includes(text.toLowerCase()))
+    .filter((el) => el.name.toLowerCase().includes(text.toLowerCase()))
     .sort((a, b) => {
       if (startsWith.test(a.name) && startsWith.test(b.name)) {
         return 0
@@ -94,7 +94,7 @@ const filterOptions = noResults => (allOptions, text) => {
 
       return 0
     })
-    .map(el => {
+    .map((el) => {
       const copy = { ...el }
       const matchData = regex.exec(el.name)
 
@@ -122,7 +122,7 @@ function DropdownWithAutosuggest<T>({
   trimInput,
   allowCustomValues = false,
   menuClassName,
-  noResults
+  noResults,
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
@@ -149,10 +149,10 @@ function DropdownWithAutosuggest<T>({
     }
   }
 
-  const renderToggle = downshift => {
+  const renderToggle = (downshift) => {
     const { getInputProps, isOpen, highlightedIndex, selectedItem } = downshift
 
-    const propGetter = userProps => {
+    const propGetter = (userProps) => {
       const { className, name, ...rest } = userProps
       const isDisabled =
         !fetchSuggestions && !allowCustomValues && !fetchedOptions.length
@@ -168,12 +168,12 @@ function DropdownWithAutosuggest<T>({
           className,
           "cursor-text w-12/12 overflow-hidden",
           {
-            dropdown_disabled: isDisabled
+            dropdown_disabled: isDisabled,
           }
         ),
         name,
         id: name,
-        onFocus: e => {
+        onFocus: (e) => {
           e.persist()
           downshift.openMenu(() => {
             const closestSection = getClosestElement(
@@ -202,7 +202,7 @@ function DropdownWithAutosuggest<T>({
             return
           }
 
-          const matchingOption = fetchedOptions.find(option =>
+          const matchingOption = fetchedOptions.find((option) =>
             option.name.toLowerCase().startsWith(target.value.toLowerCase())
           )
           if (matchingOption) {
@@ -214,8 +214,8 @@ function DropdownWithAutosuggest<T>({
             downshift.selectItem({
               name: target.value,
               value: {
-                customValue: target.value
-              }
+                customValue: target.value,
+              },
             })
           } else {
             downshift.selectItem(selectedItem)
@@ -241,7 +241,7 @@ function DropdownWithAutosuggest<T>({
           }
 
           if (value) {
-            const item = fetchedOptions.find(option =>
+            const item = fetchedOptions.find((option) =>
               option.name.toLowerCase().startsWith(value.toLowerCase())
             )
             if (item) {
@@ -252,7 +252,7 @@ function DropdownWithAutosuggest<T>({
 
           downshift.setState({ highlightedIndex: null })
         },
-        ...rest
+        ...rest,
       })
     }
 
@@ -278,7 +278,7 @@ function DropdownWithAutosuggest<T>({
               equal: equalWrapper,
               noResults,
               inputValue,
-              isFetching
+              isFetching,
             }}
           />
         )

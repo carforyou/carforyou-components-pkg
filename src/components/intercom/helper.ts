@@ -5,14 +5,14 @@ declare global {
   }
 }
 
-const loadIntercom = settings => {
+const loadIntercom = (settings) => {
   if (!window.Intercom) {
     ;((w, d, id, s, _x) => {
       function i() {
         i.c(arguments)
       }
       i.q = []
-      i.c = args => {
+      i.c = (args) => {
         i.q.push(args)
       }
       w.Intercom = i

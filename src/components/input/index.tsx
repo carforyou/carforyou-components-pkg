@@ -83,10 +83,10 @@ const Input = forwardRef<HTMLInputElement, Props>(
       disabled,
       onClear: () => {
         onChange({ target: { name, value: "", cleared: true } })
-      }
+      },
     }
 
-    const renderInput = hasError => (
+    const renderInput = (hasError) => (
       <InputField
         ref={ref}
         name={name}
@@ -94,7 +94,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         placeholder={placeholder || ""}
         className={classNames("w-12/12", className, {
           input_withClearButton: hasClearButton,
-          "floatingLabel-input": labelProps.floating
+          "floatingLabel-input": labelProps.floating,
         })}
         mode={mode}
         hasError={hasError}
@@ -112,7 +112,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       />
     )
 
-    const renderField = hasError =>
+    const renderField = (hasError) =>
       hasClearButton ? (
         <WithClearButton {...clearButtonProps}>
           {renderInput(hasError)}
@@ -121,7 +121,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         renderInput(hasError)
       )
 
-    const renderFloatingLabelField = hasError => (
+    const renderFloatingLabelField = (hasError) => (
       <WithFloatingLabel
         name={name}
         error={hasError}
@@ -132,7 +132,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       </WithFloatingLabel>
     )
 
-    const renderWithfloatingLabel = hasError =>
+    const renderWithfloatingLabel = (hasError) =>
       hasClearButton ? (
         <WithClearButton {...clearButtonProps}>
           {renderFloatingLabelField(hasError)}
@@ -141,19 +141,19 @@ const Input = forwardRef<HTMLInputElement, Props>(
         renderFloatingLabelField(hasError)
       )
 
-    const renderWithLabel = hasError => (
+    const renderWithLabel = (hasError) => (
       <WithLabel name={name} error={hasError} text={labelText} {...labelProps}>
         {renderField(hasError)}
       </WithLabel>
     )
 
-    const renderHint = hasError =>
+    const renderHint = (hasError) =>
       hint ? <HintText text={hint} hasError={hasError} /> : null
 
     return (
       <div className="w-12/12 focus-within:text-teal">
         <WithValidationError error={error}>
-          {hasError => (
+          {(hasError) => (
             <>
               {labelText
                 ? labelProps.floating

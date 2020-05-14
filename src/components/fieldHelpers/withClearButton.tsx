@@ -13,7 +13,7 @@ const WithClearButton: FC<Props> = ({
   children,
   visible = false,
   disabled = false,
-  onClear
+  onClear,
 }) => {
   return (
     <div className="relative flex w-12/12 clearButton-container">

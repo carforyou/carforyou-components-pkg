@@ -14,7 +14,7 @@ export const scrollIntoViewIfMobile = (
     setTimeout(() => {
       target.scrollIntoView({
         behavior: "smooth",
-        block: "start"
+        block: "start",
       })
     }, timeout)
   }

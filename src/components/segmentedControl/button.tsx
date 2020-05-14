@@ -18,7 +18,7 @@ export const Button: FC<Props> = ({
   disabled,
   selected,
   onClick,
-  position
+  position,
 }) => {
   const padding = classnames("px-8", small ? "py-8" : "py-16")
   const { clonedElement, isWrapped } = wrapLink(children, padding)
@@ -38,12 +38,12 @@ export const Button: FC<Props> = ({
         "rounded-r": position === "right",
         "hover:bg-teal-light active:bg-teal-bright": !selected && !disabled,
         "hover:bg-teal-dark hover:border-teal-dark active:bg-teal-dark active:bg-teal-dark focus:bg-teal-dark focus:border-teal-dark":
-          selected && !disabled
+          selected && !disabled,
       }
     ),
     onClick: !disabled ? onClick : null,
     disabled,
-    children: clonedElement
+    children: clonedElement,
   })
 }
 
