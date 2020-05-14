@@ -33,7 +33,7 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
       <Overlay handleClick={close} />
       <div
         className={classNames(
-          "max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
+          "min-h-screen md:min-h-auto max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
           size === "fullscreen"
             ? "inset-0 h-full"
             : "inset-x-0 md:align-middle md:inset-auto h-full md:h-auto rounded-4",
