@@ -63,7 +63,7 @@
     "@types/react-paginate": "^6.2.1",
     "@zeit/next-typescript": "^1.1.1",
     "awesome-typescript-loader": "^5.2.1",
-    "jest": "^25.1.0",
+    "jest": "^26.0.0",
     "marked": "^1.0.0",
     "marked-terminal": "^4.1.0",
     "postcss-easy-import": "^3.0.0",
