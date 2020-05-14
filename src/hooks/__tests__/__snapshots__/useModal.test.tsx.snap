@@ -12,7 +12,7 @@ exports[`useModal with a portal renders the modal within the portal 1`] = `
       data-testid="modal-overlay"
     />
     <div
-      class="max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative inset-x-0 md:align-middle md:inset-auto h-full md:h-auto rounded-4 bg-white"
+      class="min-h-screen md:max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative inset-x-0 md:align-middle md:inset-auto h-full md:h-auto rounded-4 bg-white"
       role="dialog"
     >
       <div
@@ -87,7 +87,7 @@ exports[`useModal without portal renders the modal within the container 1`] = `
         data-testid="modal-overlay"
       />
       <div
-        class="max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative inset-x-0 md:align-middle md:inset-auto h-full md:h-auto rounded-4 bg-white"
+        class="min-h-screen md:max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative inset-x-0 md:align-middle md:inset-auto h-full md:h-auto rounded-4 bg-white"
         role="dialog"
       >
         <div
