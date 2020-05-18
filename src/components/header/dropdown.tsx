@@ -1,8 +1,8 @@
-import React, { FC, useState, useEffect } from "react"
+import React, { FC, useState, useEffect, useContext } from "react"
 import classNames from "classnames"
 
 import ArrowDownM from "../icons/arrowDownMCrop"
-import { HeaderTheme } from "."
+import HeaderThemeContext, { HeaderTheme } from "./themeContext"
 
 interface Props {
   renderParent: () => JSX.Element
@@ -13,13 +13,11 @@ interface Props {
 
 const HeaderDropdown: FC<Props> = ({
   renderParent,
-  theme = HeaderTheme.WHITE,
   stickOut = "right",
   children
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-
-  // TODO: header theme bg
+  const theme = useContext(HeaderThemeContext)
 
   useEffect(() => {
     if (isOpen) {
@@ -39,27 +37,40 @@ const HeaderDropdown: FC<Props> = ({
     return (
       <div className="flex items-center cursor-pointer" onClick={toggle}>
         {renderParent()}
-        <ArrowDownM height="28" width="28" className="inline-block" />
+        <ArrowDownM
+          height="28"
+          width="28"
+          className={classNames("inline-block", {
+            "text-white":
+              theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT
+          })}
+        />
       </div>
     )
   }
 
   const renderOpenState = () => {
     return (
-      <div className="relative z-dropdownMenu  cursor-pointer">
+      <div className="relative z-dropdownMenu cursor-pointer">
         <div className="flex items-center" onClick={toggle}>
           {renderParent()}
           <ArrowDownM
             height="28"
             width="28"
-            className="inline-block customRotate-180"
+            className={classNames("inline-block, customRotate-180", {
+              "text-white":
+                theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT
+            })}
           />
         </div>
         <div
           className={classNames(
             "absolute border border-grey-2 bg-white rounded-4",
             {
-              "right-0": stickOut === "left"
+              "right-0": stickOut === "left",
+              "bg-white":
+                theme === HeaderTheme.LIGHT || theme === HeaderTheme.DARK,
+              "text-black": theme === HeaderTheme.DARK
             }
           )}
         >

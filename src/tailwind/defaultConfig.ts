@@ -234,6 +234,8 @@ export default {
       checkbox: "24px",
       radioIndicator: "12px",
       input: "52px",
+      header: "85px",
+      headerTransparent: "166px",
       "20": "20px",
       "40": "40px"
     },
@@ -363,8 +365,7 @@ export default {
       full: "100%",
       screen: "100vh",
       "36": "36px",
-      "52": "52px",
-      header: "85px"
+      "52": "52px"
     },
 
     /*
