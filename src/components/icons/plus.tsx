@@ -1,0 +1,19 @@
+import React, { FC } from "react"
+
+interface Props {
+  color?: string
+  width?: number
+  height?: number
+}
+
+const Plus: FC<Props> = ({ color = "#232A36", width = 32, height = 32 }) => (
+  <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16 7a9 9 0 018.996 8.735L25 16a9 9 0 01-8.735 8.996L16 25a9 9 0 01-9-9 9 9 0 018.735-8.996L16 7zm1 4h-2v4h-4v2h4v4h2v-4h4v-2h-4v-4z"
+      fill={color}
+      fill-rule="evenodd"
+    />
+  </svg>
+)
+
+export default Plus

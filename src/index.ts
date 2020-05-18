@@ -13,6 +13,7 @@ import Checkbox from "./components/checkbox"
 import RadioButton from "./components/radioButton"
 import WithLabel from "./components/fieldHelpers/withLabel"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
+import Header from "./components/header/index"
 
 import useModal from "./hooks/useModal"
 
@@ -33,4 +34,5 @@ export {
   WithLabel,
   WithValidationError,
   useModal,
+  Header
 }
