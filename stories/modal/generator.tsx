@@ -35,7 +35,7 @@ const generateStoryFunction = ({
   size,
   alwaysRender,
   container,
-  style
+  style,
 }) => () => {
   function ModalDemo() {
     const { openModal, renderModal } = useModal(
@@ -88,7 +88,7 @@ const generareStrory = ({
   size = "medium",
   alwaysRender = false,
   container = null,
-  style = "white"
+  style = "white",
 }) => {
   return wInfo(generateDescription({ size, alwaysRender, container, style }))(
     generateStoryFunction({ size, alwaysRender, container, style })

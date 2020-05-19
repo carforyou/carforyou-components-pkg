@@ -13,7 +13,7 @@ storiesOf("Input / Label", module)
     "Standard",
     generateStory({
       value: initialValue,
-      labelText: "Label"
+      labelText: "Label",
     })
   )
   .add(
@@ -21,7 +21,7 @@ storiesOf("Input / Label", module)
     generateStory({
       value: initialValue,
       labelText: "Label",
-      error: "Error message"
+      error: "Error message",
     })
   )
   .add(
@@ -30,7 +30,7 @@ storiesOf("Input / Label", module)
       value: initialValue,
       hasClearButton: true,
       placeholder: "Type something",
-      labelText: "Label"
+      labelText: "Label",
     })
   )
   .add(
@@ -38,7 +38,7 @@ storiesOf("Input / Label", module)
     generateStory({
       value: initialValue,
       placeholder: "Placeholder",
-      labelText: "Label"
+      labelText: "Label",
     })
   )
   .add(
@@ -46,7 +46,7 @@ storiesOf("Input / Label", module)
     generateStory({
       value: initialValue,
       hint: "Hint text",
-      labelText: "Label"
+      labelText: "Label",
     })
   )
   .add(
@@ -54,7 +54,7 @@ storiesOf("Input / Label", module)
     generateStory({
       value: initialValue,
       labelText: "Label",
-      required: true
+      required: true,
     })
   )
   .add(
@@ -62,7 +62,7 @@ storiesOf("Input / Label", module)
     generateStory({
       value: initialValue,
       labelText: "Label",
-      renderLabelPopup: () => <div>Popup Content</div>
+      renderLabelPopup: () => <div>Popup Content</div>,
     })
   )
   .add(
@@ -71,6 +71,6 @@ storiesOf("Input / Label", module)
       value: initialValue,
       required: true,
       labelText: "Label",
-      renderLabelPopup: () => <div>Popup Content</div>
+      renderLabelPopup: () => <div>Popup Content</div>,
     })
   )
