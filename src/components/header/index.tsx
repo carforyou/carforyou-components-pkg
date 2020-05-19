@@ -118,13 +118,11 @@ const Header: FC<Props> = ({
               </div>
             </div>
             {/* Right Section */}
-            <div className="flex items-center">
+            <div className="flex items-center cursor-pointer">
               {/* CTA Button */}
-              <div className="mr-headerMenu cursor-pointer">
-                {renderCTAButton()}
-              </div>
+              <div className="mr-headerMenu ">{renderCTAButton()}</div>
               {/* Icons Button */}
-              <div className="cursor-pointer">
+              <div>
                 {iconButtons.map((renderIconButton, index) => {
                   return (
                     <div
@@ -138,7 +136,7 @@ const Header: FC<Props> = ({
               </div>
               {/* Profile - LG / Desktop  */}
               <div
-                className={classNames("hidden lg:block cursor-pointer", {
+                className={classNames("hidden lg:block", {
                   "mr-headerMenu": languageNavigation,
                 })}
               >
