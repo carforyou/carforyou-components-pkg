@@ -34,5 +34,5 @@ export {
   WithLabel,
   WithValidationError,
   useModal,
-  Header
+  Header,
 }

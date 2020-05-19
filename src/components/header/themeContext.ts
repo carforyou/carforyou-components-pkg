@@ -3,7 +3,7 @@ import { createContext } from "react"
 export enum HeaderTheme {
   LIGHT = "light",
   DARK = "dark",
-  TRANSPARENT = "transparent"
+  TRANSPARENT = "transparent",
 }
 
 const HeaderThemeContext = createContext(HeaderTheme.LIGHT)

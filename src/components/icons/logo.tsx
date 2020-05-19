@@ -14,10 +14,10 @@ const Logo: FC<Props> = ({
   colors = {
     icon: "#F73B47",
     carFor: "#1D1D1B",
-    you: "#F73B47"
+    you: "#F73B47",
   },
   width = "auto",
-  height = "auto"
+  height = "auto",
 }) => {
   return (
     <svg
