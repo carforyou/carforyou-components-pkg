@@ -1,6 +1,13 @@
 import React, { FC } from "react"
 import classNames from "classnames"
 
+import { defaultConfig as tailwindConfig } from "../../tailwind/index"
+const {
+  theme: {
+    colors: { "grey-3": iconColorLight, white: iconColorDark },
+  },
+} = tailwindConfig
+
 import Logo from "../icons/logo"
 import Profile from "../icons/profile"
 
@@ -39,7 +46,7 @@ const Header: FC<Props> = ({
   renderLanguageNavigation = () => null,
   mobileMenuText = "MENU",
 }) => {
-  const iconColor = theme === HeaderTheme.LIGHT ? "#A0A7AB" : "#FFF"
+  const iconColor = theme === HeaderTheme.LIGHT ? iconColorLight : iconColorDark
   const { isLight, isDark, isTransparent } = getThemeCombinations(theme)
   const languageNavigation = renderLanguageNavigation()
 

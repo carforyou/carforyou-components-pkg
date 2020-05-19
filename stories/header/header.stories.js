@@ -3,6 +3,13 @@ import { storiesOf } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
 import { wInfo } from "../utils"
 
+import { defaultConfig as tailwindConfig } from "../../src/tailwind/index"
+const {
+  theme: {
+    colors: { salmon, white },
+  },
+} = tailwindConfig
+
 import Header from "../../src/components/header/index"
 import { HeaderTheme } from "../../src/components/header/themeContext"
 import HeaderDropdown from "../../src/components/header/dropdown"
@@ -99,9 +106,9 @@ storiesOf("Header", module)
     const renderLogo = () => (
         <Logo
             colors={{
-                icon: "#f73b47",
-                carFor: "#FFF",
-                you: "#f73b47"
+              icon: salmon,
+              carFor: white,
+              you: salmon,
             }}
         />
     )
@@ -111,9 +118,9 @@ storiesOf("Header", module)
       const renderLogo = () => (
         <Logo
           colors={{
-            icon: "#f73b47",
-            carFor: "#FFF",
-            you: "#f73b47",
+            icon: salmon,
+            carFor: white,
+            you: salmon,
           }}
         />
       )
@@ -132,9 +139,9 @@ storiesOf("Header", module)
     const renderLogo = () => (
         <Logo
             colors={{
-                icon: "#FFF",
-                carFor: "#FFF",
-                you: "#FFF"
+                icon: white,
+                carFor: white,
+                you: white,
             }}
         />
     )
@@ -145,9 +152,9 @@ storiesOf("Header", module)
       const renderLogo = () => (
         <Logo
           colors={{
-            icon: "#FFF",
-            carFor: "#FFF",
-            you: "#FFF",
+            icon: white,
+            carFor: white,
+            you: white,
           }}
         />
       )
@@ -223,7 +230,7 @@ storiesOf("Header", module)
     ]
     const renderCTAButton = () => (
         <div className="hidden md:block">
-          <Button icon={() => <Plus color="#FFF" />}>Kostenlos inserieren</Button>
+          <Button icon={() => <Plus color={white} />}>Kostenlos inserieren</Button>
         </div>
     )
     const iconButtons = [() => <Heart />]
@@ -275,7 +282,7 @@ storiesOf("Header", module)
       ]
       const renderCTAButton = () => (
         <div className="hidden md:block">
-          <Button icon={() => <Plus color="#FFF" />}>
+          <Button icon={() => <Plus color={white} />}>
             Kostenlos inserieren
           </Button>
         </div>
@@ -328,9 +335,9 @@ storiesOf("Header", module)
     const renderLogo = () => (
         <Logo
           colors={{
-            icon: "#f73b47",
-            carFor: "#FFF",
-            you: "#f73b47",
+            icon: salmon,
+            carFor: white,
+            you: "salmon",
           }}
         />
     )
@@ -352,7 +359,7 @@ storiesOf("Header", module)
         ),
     ]
     const renderCTAButton = () => (
-        <Button icon={() => <Plus color="#FFF" />}>
+        <Button icon={() => <Plus color={white} />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
     )
@@ -376,9 +383,9 @@ storiesOf("Header", module)
       const renderLogo = () => (
         <Logo
           colors={{
-            icon: "#f73b47",
-            carFor: "#FFF",
-            you: "#f73b47",
+            icon: salmon,
+            carFor: white,
+            you: salmon,
           }}
         />
       )
@@ -400,7 +407,7 @@ storiesOf("Header", module)
         ),
       ]
       const renderCTAButton = () => (
-        <Button icon={() => <Plus color="#FFF" />}>
+        <Button icon={() => <Plus color={white} />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
       )

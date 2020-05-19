@@ -1,6 +1,13 @@
 import React, { FC, useState, useEffect, useContext } from "react"
 import classNames from "classnames"
 
+import { defaultConfig as tailwindConfig } from "../../tailwind/index"
+const {
+  theme: {
+    colors: { black: colorDropdownArrow },
+  },
+} = tailwindConfig
+
 import ArrowDownM from "../icons/arrowDownMCrop"
 import HeaderThemeContext, { HeaderTheme } from "./themeContext"
 
@@ -51,7 +58,7 @@ const HeaderDropdown: FC<Props> = ({
         <ArrowDownM
           height="28"
           width="28"
-          color="#000"
+          color={colorDropdownArrow}
           className={classNames("inline-block", {
             "lg:text-white": isDarkOrTransparent,
           })}
