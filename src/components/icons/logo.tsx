@@ -6,8 +6,8 @@ interface Props {
     carFor: string
     you: string
   }
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
 }
 
 const Logo: FC<Props> = ({
@@ -16,8 +16,8 @@ const Logo: FC<Props> = ({
     carFor: "#1D1D1B",
     you: "#F73B47"
   },
-  width = 170,
-  height = 26
+  width = "auto",
+  height = "auto"
 }) => {
   return (
     <svg

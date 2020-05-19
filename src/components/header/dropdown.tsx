@@ -14,7 +14,7 @@ interface Props {
 const HeaderDropdown: FC<Props> = ({
   renderParent,
   stickOut = "right",
-  children
+  children,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const theme = useContext(HeaderThemeContext)
@@ -35,14 +35,23 @@ const HeaderDropdown: FC<Props> = ({
 
   const renderClosedState = () => {
     return (
-      <div className="flex items-center cursor-pointer" onClick={toggle}>
+      <div
+        className={classNames(
+          "flex items-center cursor-pointer text-black py-10 lg:py-0",
+          {
+            "lg:text-white":
+              theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT,
+          }
+        )}
+        onClick={toggle}
+      >
         {renderParent()}
         <ArrowDownM
           height="28"
           width="28"
           className={classNames("inline-block", {
-            "text-white":
-              theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT
+            "lg:text-white":
+              theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT,
           })}
         />
       </div>
@@ -51,26 +60,32 @@ const HeaderDropdown: FC<Props> = ({
 
   const renderOpenState = () => {
     return (
-      <div className="relative z-dropdownMenu cursor-pointer">
-        <div className="flex items-center" onClick={toggle}>
+      <div className="text-black bg-grey-1 lg:bg-transparent relative z-dropdownMenu cursor-pointer -mx-headerMenu lg:mx-0 px-15 lg:px-0 py-10 lg:py-0">
+        <div
+          className={classNames("flex items-center font-bold", {
+            "lg:text-white":
+              theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT,
+          })}
+          onClick={toggle}
+        >
           {renderParent()}
           <ArrowDownM
             height="28"
             width="28"
             className={classNames("inline-block, customRotate-180", {
-              "text-white":
-                theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT
+              "lg:text-white":
+                theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT,
             })}
           />
         </div>
         <div
           className={classNames(
-            "absolute border border-grey-2 bg-white rounded-4",
+            "bg-grey-1 lg:bg-white relative lg:absolute lg:border lg:border-grey-2 lg:rounded-4",
             {
               "right-0": stickOut === "left",
               "bg-white":
                 theme === HeaderTheme.LIGHT || theme === HeaderTheme.DARK,
-              "text-black": theme === HeaderTheme.DARK
+              "text-black": theme === HeaderTheme.DARK,
             }
           )}
         >
