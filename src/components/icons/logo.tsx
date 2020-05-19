@@ -1,4 +1,10 @@
 import React, { FC } from "react"
+import { defaultConfig as tailwindConfig } from "../../tailwind/index"
+const {
+  theme: {
+    colors: { salmon: defaultRed, "black-logo": defaultBlack },
+  },
+} = tailwindConfig
 
 interface Props {
   colors?: {
@@ -12,9 +18,9 @@ interface Props {
 
 const Logo: FC<Props> = ({
   colors = {
-    icon: "#F73B47",
-    carFor: "#1D1D1B",
-    you: "#F73B47",
+    icon: defaultRed,
+    carFor: defaultBlack,
+    you: defaultRed,
   },
   width = "auto",
   height = "auto",

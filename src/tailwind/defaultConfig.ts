@@ -30,6 +30,7 @@ export default {
 
     colors: {
       black: "#000000",
+      "black-logo": "#1D1D1B",
       white: "#FFFFFF",
       transparent: "transparent",
       salmon: "#F73B47",
@@ -231,6 +232,7 @@ export default {
       screen: "100vh",
       scrollbar: "70px",
       clearButton: "32px",
+      iconDefault: "32px",
       checkbox: "24px",
       radioIndicator: "12px",
       input: "52px",
@@ -484,6 +486,7 @@ export default {
       logoSmall: "140px",
       menuDropdown: "220px",
       profileDropdown: "320px",
+      iconDefault: "32px",
     },
 
     transitionDuration: {
