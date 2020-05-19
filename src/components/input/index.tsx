@@ -21,9 +21,9 @@ interface InputProps {
   onChange: <T extends { target: { name: string; value: string | number } }>(
     e: T
   ) => void
-  onBlur?: (e: FocusEvent<any>) => void
-  onKeyDown?: (e: KeyboardEvent<any>) => void
-  onFocus?: (e: FocusEvent<any>) => void
+  onBlur?: (e: FocusEvent) => void
+  onKeyDown?: (e: KeyboardEvent) => void
+  onFocus?: (e: FocusEvent) => void
   step?: number
   min?: number
   max?: number

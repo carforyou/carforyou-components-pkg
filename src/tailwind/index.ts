@@ -38,6 +38,7 @@ export interface TailwindConfig {
   theme?: TailwindTheme
   options?: { [key: string]: string | number | boolean }
   modules?: { [key: string]: string[] }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   plugins?: any[]
 }
 

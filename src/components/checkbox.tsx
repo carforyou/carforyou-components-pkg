@@ -11,7 +11,7 @@ interface CheckboxProps {
   disabled?: boolean
   error?: string
   renderLabel?: () => JSX.Element
-  onChange?: (e: ChangeEvent<any>) => void
+  onChange?: (e: ChangeEvent) => void
 }
 
 interface PositionedLabelProps extends CheckboxProps {
