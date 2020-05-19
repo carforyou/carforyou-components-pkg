@@ -47,7 +47,12 @@ const Header: FC<Props> = ({
   mobileMenuText = "MENU",
 }) => {
   const iconColor = theme === HeaderTheme.LIGHT ? iconColorLight : iconColorDark
-  const { isLight, isDark, isTransparent } = getThemeCombinations(theme)
+  const {
+    isLight,
+    isDark,
+    isTransparent,
+    isDarkOrTransparent,
+  } = getThemeCombinations(theme)
   const languageNavigation = renderLanguageNavigation()
 
   const renderMobileNavigation = () => {
@@ -80,7 +85,7 @@ const Header: FC<Props> = ({
     <HeaderThemeProvider theme={theme}>
       <div
         className={classNames({
-          "h-headerTransparent bg-header--transparent": isTransparent,
+          "h-headerTransparent bg-header_transparent": isTransparent,
         })}
       >
         <header
@@ -157,7 +162,7 @@ const Header: FC<Props> = ({
                   onClick={openModal}
                   className={classNames("cursor-pointer", {
                     "text-grey-3": isLight,
-                    "text-white": isDark,
+                    "text-white": isDarkOrTransparent,
                   })}
                 >
                   {mobileMenuText}
