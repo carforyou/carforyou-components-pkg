@@ -238,7 +238,8 @@ Object {
       },
     },
     "margin": Object {
-      "-headerMenu": "-15px",
+      "-headerMenu": "-14px",
+      "-headerMenuMore": "-28px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
       "0": "0",
@@ -251,7 +252,7 @@ Object {
       "40": "40px",
       "5": "5px",
       "auto": "auto",
-      "headerMenu": "15px",
+      "headerMenu": "14px",
       "labelPopupIcon": "3px",
       "px": "1px",
     },
