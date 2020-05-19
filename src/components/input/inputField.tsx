@@ -93,7 +93,6 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         className={className}
         inputMode={mode !== "text" ? mode : null}
         onKeyDown={(e) => {
-          // tslint:disable:no-unused-expression
           mode === "numeric"
             ? validateNumber(e)
             : mode === "decimal"
@@ -101,7 +100,6 @@ const InputField = forwardRef<HTMLInputElement, Props>(
             : null
 
           onKeyDown && onKeyDown(e)
-          // tslint:enable:no-unused-expression
         }}
         onChange={debounceCallback(onChange, debounce)}
         onBlur={onBlur}

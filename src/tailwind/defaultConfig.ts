@@ -1,4 +1,3 @@
-/* tslint:disable:object-literal-sort-keys */
 import TransformPlugin from "./plugins/transform"
 /*
 Tailwind - The Utility-First CSS Framework

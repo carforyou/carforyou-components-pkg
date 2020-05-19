@@ -12,7 +12,7 @@ window.matchMedia =
       onchange: jest.fn(),
       addEventListener: jest.fn(),
       removeEventListener: jest.fn(),
-      dispatchEvent: () => true, // tslint:disable-line: no-empty
+      dispatchEvent: () => true,
     }
   })
 
