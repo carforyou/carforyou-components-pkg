@@ -19,6 +19,7 @@ interface Props {
   }
   renderLanguageNavigation?: () => JSX.Element
   theme?: HeaderTheme
+  mobileMenuText?: string
 }
 
 const Header: FC<Props> = ({
@@ -32,6 +33,7 @@ const Header: FC<Props> = ({
     renderContent: () => null,
   },
   renderLanguageNavigation = () => null,
+  mobileMenuText = "MENU",
 }) => {
   let iconColor = "#A0A7AB"
   if (theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT) {
@@ -145,7 +147,16 @@ const Header: FC<Props> = ({
               <div className="hidden lg:block">{languageNavigation}</div>
               {/* Menu Block Groups for mobile */}
               <div className="block lg:hidden">
-                <a onClick={openModal}>MENÜ</a>
+                <a
+                  onClick={openModal}
+                  className={classNames("cursor-pointer", {
+                    "text-grey-3": theme === HeaderTheme.LIGHT,
+                    "text-white":
+                      theme === HeaderTheme.DARK || HeaderTheme.TRANSPARENT,
+                  })}
+                >
+                  {mobileMenuText}
+                </a>
                 {renderModal()}
               </div>
             </div>

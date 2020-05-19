@@ -39,6 +39,7 @@ const HeaderDropdown: FC<Props> = ({
         className={classNames(
           "flex items-center cursor-pointer text-black py-10 lg:py-0",
           {
+            "lg:text-black": theme === HeaderTheme.LIGHT,
             "lg:text-white":
               theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT,
           }
@@ -49,6 +50,7 @@ const HeaderDropdown: FC<Props> = ({
         <ArrowDownM
           height="28"
           width="28"
+          color="#000"
           className={classNames("inline-block", {
             "lg:text-white":
               theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT,
