@@ -72,8 +72,8 @@ const Header: FC<Props> = ({
     <HeaderThemeProvider value={theme}>
       <div
         className={classNames({
-          "h-headerTransparent": theme === HeaderTheme.TRANSPARENT,
-          "bg-header--transparent": theme === HeaderTheme.TRANSPARENT,
+          "h-headerTransparent bg-header--transparent":
+            theme === HeaderTheme.TRANSPARENT,
         })}
       >
         <header
@@ -81,8 +81,7 @@ const Header: FC<Props> = ({
             "h-headerSmall lg:h-header px-15 md:px-20 py-15 flex items-center",
             {
               "bg-white": theme === HeaderTheme.LIGHT,
-              "bg-grey-dark": theme === HeaderTheme.DARK,
-              "text-white": theme === HeaderTheme.DARK,
+              "bg-grey-dark text-white": theme === HeaderTheme.DARK,
             }
           )}
         >
