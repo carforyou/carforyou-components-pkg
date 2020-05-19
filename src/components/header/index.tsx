@@ -5,7 +5,11 @@ import Logo from "../icons/logo"
 import Profile from "../icons/profile"
 
 import HeaderDropdown from "./dropdown"
-import { HeaderTheme, HeaderThemeProvider } from "./themeContext"
+import {
+  HeaderTheme,
+  HeaderThemeProvider,
+  getThemeCombinations,
+} from "./themeContext"
 import useModal from "../../hooks/useModal"
 
 interface Props {
@@ -35,7 +39,8 @@ const Header: FC<Props> = ({
   renderLanguageNavigation = () => null,
   mobileMenuText = "MENU",
 }) => {
-  const iconColor = theme === HeaderTheme.DARK ? "#A0A7AB" : "#FFF"
+  const iconColor = theme === HeaderTheme.LIGHT ? "#A0A7AB" : "#FFF"
+  const { isLight, isDark, isTransparent } = getThemeCombinations(theme)
   const languageNavigation = renderLanguageNavigation()
 
   const renderMobileNavigation = () => {
@@ -65,19 +70,18 @@ const Header: FC<Props> = ({
   })
 
   return (
-    <HeaderThemeProvider value={theme}>
+    <HeaderThemeProvider theme={theme}>
       <div
         className={classNames({
-          "h-headerTransparent bg-header--transparent":
-            theme === HeaderTheme.TRANSPARENT,
+          "h-headerTransparent bg-header--transparent": isTransparent,
         })}
       >
         <header
           className={classNames(
             "h-headerSmall lg:h-header px-15 md:px-20 py-15 flex items-center",
             {
-              "bg-white": theme === HeaderTheme.LIGHT,
-              "bg-grey-dark text-white": theme === HeaderTheme.DARK,
+              "bg-white": isLight,
+              "bg-grey-dark text-white": isDark,
             }
           )}
         >
@@ -145,9 +149,8 @@ const Header: FC<Props> = ({
                 <a
                   onClick={openModal}
                   className={classNames("cursor-pointer", {
-                    "text-grey-3": theme === HeaderTheme.LIGHT,
-                    "text-white":
-                      theme === HeaderTheme.DARK || HeaderTheme.TRANSPARENT,
+                    "text-grey-3": isLight,
+                    "text-white": isDark,
                   })}
                 >
                   {mobileMenuText}
