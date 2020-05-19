@@ -1,4 +1,4 @@
-import React, { ReactChild, FC, ReactElement } from "react"
+import React, { ReactChild, ReactElement } from "react"
 
 interface Props<T> {
   placeholder?: string
