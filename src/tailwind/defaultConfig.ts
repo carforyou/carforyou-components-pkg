@@ -594,5 +594,6 @@ export default {
     transitionDuration: ["responsive", "hover"],
   },
   corePlugins: {},
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   plugins: [TransformPlugin, require("tailwindcss-gradients")()],
 }
