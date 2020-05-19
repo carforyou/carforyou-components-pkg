@@ -179,6 +179,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       return {
         select_open: showOpenedIcon && !selected,
         select_closed: !isOpen && !selected,
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         select_withSearchIcon: showOpenedIcon && !selected && showSearchIcon,
       }
     }

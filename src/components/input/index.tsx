@@ -93,6 +93,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         value={value || ""}
         placeholder={placeholder || ""}
         className={classNames("w-12/12", className, {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           input_withClearButton: hasClearButton,
           "floatingLabel-input": labelProps.floating,
         })}
