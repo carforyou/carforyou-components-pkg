@@ -35,11 +35,7 @@ const Header: FC<Props> = ({
   renderLanguageNavigation = () => null,
   mobileMenuText = "MENU",
 }) => {
-  let iconColor = "#A0A7AB"
-  if (theme === HeaderTheme.DARK || theme === HeaderTheme.TRANSPARENT) {
-    iconColor = "#FFF"
-  }
-
+  const iconColor = theme === HeaderTheme.DARK ? "#A0A7AB" : "#FFF"
   const languageNavigation = renderLanguageNavigation()
 
   const renderMobileNavigation = () => {
