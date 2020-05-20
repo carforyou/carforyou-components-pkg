@@ -24,7 +24,7 @@ const HeaderDropdown: FC<Props> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const { isLight, isDark, isDarkOrTransparent, isLightOrDark } = useContext(
+  const { isDark, isDarkOrTransparent, isLightOrDark } = useContext(
     HeaderThemeContext
   )
 
@@ -46,7 +46,7 @@ const HeaderDropdown: FC<Props> = ({
     return (
       <div
         className={classNames(
-          "flex items-center cursor-pointer py-10 lg:py-0",
+          "flex items-center cursor-pointer py-10 lg:py-0 hover:opacity-60",
           {
             "lg:text-white": isDarkOrTransparent,
           }
@@ -68,11 +68,14 @@ const HeaderDropdown: FC<Props> = ({
 
   const renderOpenState = () => {
     return (
-      <div className="bg-grey-1 lg:bg-transparent relative z-dropdownMenu cursor-pointer -mx-headerMenu lg:mx-0 px-15 lg:px-0 py-10 lg:py-0">
+      <div className="bg-grey-1 lg:bg-transparent relative z-dropdownMenu cursor-pointer -mx-headerMenu lg:mx-0 px-14 lg:px-0 py-10 lg:py-0">
         <div
-          className={classNames("flex items-center font-bold", {
-            "lg:text-white": isDarkOrTransparent,
-          })}
+          className={classNames(
+            "flex items-center font-bold lg:font-regular hover:opacity-60",
+            {
+              "lg:text-white": isDarkOrTransparent,
+            }
+          )}
           onClick={toggle}
         >
           {renderParent()}

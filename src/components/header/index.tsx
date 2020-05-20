@@ -126,7 +126,7 @@ const Header: FC<Props> = ({
                 {iconButtons.map((renderIconButton, index) => {
                   return (
                     <div
-                      className="mr-headerMenu"
+                      className="mr-headerMenu hover:opacity-60"
                       key={`navigationLink-${index}`}
                     >
                       {renderIconButton()}
