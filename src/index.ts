@@ -16,7 +16,12 @@ import WithValidationError from "./components/fieldHelpers/withValidationError"
 import Header from "./components/header/index"
 import { HeaderTheme } from "./components/header/themeContext"
 import HeaderDropdown from "./components/header/dropdown"
-
+import Profile from "./components/icons/profile"
+import Plus from "./components/icons/plus"
+import MyCars from "./components/icons/myCars"
+import Logout from "./components/icons/logout"
+import Logo from "./components/icons/logo"
+import Heart from "./components/icons/heart"
 import useModal from "./hooks/useModal"
 
 export {
@@ -39,4 +44,10 @@ export {
   Header,
   HeaderDropdown,
   HeaderTheme,
+  Profile,
+  Plus,
+  MyCars,
+  Logout,
+  Logo,
+  Heart,
 }
