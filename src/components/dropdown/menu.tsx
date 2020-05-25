@@ -75,7 +75,7 @@ class Menu<T> extends Component<Props<T>> {
     if (!renderOption) {
       renderOption = ({ name }) => name
     }
-
+    console.log('menu options', options)
     const padding = "px-20 py-10"
     return options.length ? (
       <ul
@@ -120,6 +120,7 @@ class Menu<T> extends Component<Props<T>> {
                     "font-bold text-teal": isSelected,
                     "bg-grey-bright": index === highlightedIndex,
                     "text-grey-3": item.placeholder,
+                    "text-teal": item.value.customValue,
                     [padding]: !isWrapped,
                   }
                 ),
