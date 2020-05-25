@@ -4,7 +4,7 @@ import Spinner from "../spinner"
 import { wrapLink } from "../../lib/buttonHelper"
 
 interface Item<T> {
-  value: T
+  value: any
   name: string
   key?: string
   placeholder?: boolean
