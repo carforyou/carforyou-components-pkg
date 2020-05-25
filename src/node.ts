@@ -14,6 +14,7 @@ export default {
     /select_closed/,
     /select_open/,
     /select_withSearchIcon/,
+    /select_withQuotes/,
   ],
 }
 

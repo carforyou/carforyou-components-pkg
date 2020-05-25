@@ -38,11 +38,18 @@ const hightlightItem = <T extends {}>({
   preMatch,
   match,
   postMatch,
+  value
 }: Item<T>): ReactNode => {
   return match ? (
     <>
       {preMatch}
-      <span className="font-bold underline">{match}</span>
+      <span
+        className={classNames("font-bold underline", {
+          select_withQuotes: value.customValue
+        })}
+      >
+        {match}
+      </span>
       {postMatch}
     </>
   ) : (
@@ -68,14 +75,14 @@ class Menu<T> extends Component<Props<T>> {
       innerRef,
       noResults,
       inputValue,
-      isFetching,
+      isFetching
     } = this.props
 
     let { renderOption } = this.props
     if (!renderOption) {
       renderOption = ({ name }) => name
     }
-    console.log('menu options', options)
+
     const padding = "px-20 py-10"
     return options.length ? (
       <ul
@@ -87,7 +94,7 @@ class Menu<T> extends Component<Props<T>> {
             ),
             onMouseLeave: () => {
               setHighlightedIndex(null)
-            },
+            }
           },
           { suppressRefError: true }
         )}
@@ -102,7 +109,7 @@ class Menu<T> extends Component<Props<T>> {
             renderOption({
               value: item.value,
               name: hightlightItem(item),
-              isSelected,
+              isSelected
             }),
             padding
           )
@@ -121,9 +128,9 @@ class Menu<T> extends Component<Props<T>> {
                     "bg-grey-bright": index === highlightedIndex,
                     "text-grey-3": item.placeholder,
                     "text-teal": item.value.customValue,
-                    [padding]: !isWrapped,
+                    [padding]: !isWrapped
                   }
-                ),
+                )
               })}
             >
               {clonedElement}
