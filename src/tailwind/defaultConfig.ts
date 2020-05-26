@@ -484,7 +484,6 @@ export default {
       radioIndicator: "12px",
       logoDefault: "170px",
       logoSmall: "140px",
-      menuDropdown: "280px",
       profileDropdown: "320px",
       iconDefault: "32px",
     },
@@ -506,7 +505,8 @@ export default {
       negative: -1,
       clearButton: 10,
       modalClose: 10,
-      dropdownMenu: 30,
+      dropdownMenu: 20,
+      headerDropdown: 30,
       modal: 98,
     },
 

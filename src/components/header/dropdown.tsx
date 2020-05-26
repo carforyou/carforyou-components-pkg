@@ -66,7 +66,7 @@ const HeaderDropdown: FC<Props> = ({
 
   const renderOpenState = () => {
     return (
-      <div className="bg-grey-1 lg:bg-transparent relative z-dropdownMenu cursor-pointer -mx-headerMenu lg:mx-0 px-14 lg:px-0 py-10 lg:py-0">
+      <div className="bg-grey-1 lg:bg-transparent relative z-headerDropdown cursor-pointer -mx-headerMenu lg:mx-0 px-14 lg:px-0 py-10 lg:py-0">
         <div
           className={classNames(
             "flex items-center font-bold lg:font-regular hover:opacity-60",
@@ -87,7 +87,7 @@ const HeaderDropdown: FC<Props> = ({
         </div>
         <div
           className={classNames(
-            "text-black text-left bg-grey-1 lg:bg-white relative lg:absolute lg:border lg:border-grey-2 lg:rounded-4 lg:shadow-hard",
+            "text-black text-left whitespace-no-wrap bg-grey-1 lg:bg-white relative lg:absolute lg:border lg:border-grey-2 lg:rounded-4 lg:shadow-hard",
             {
               "right-0": stickOut === "left",
               "bg-white": isLightOrDark,

@@ -101,7 +101,7 @@ const links = [
     // not lg
     <div className="lg:hidden xl:block">
       <HeaderDropdown renderParent={() => <span>Sich Informieren</span>}>
-        <ul className="w-menuDropdown">
+        <ul>
           <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
             <a href="#">Additional info one</a>
           </li>
@@ -119,7 +119,7 @@ const links = [
     // lg only (more navigation)
     <div className="hidden lg:block xl:hidden -ml-headerMenuMore">
       <HeaderDropdown renderParent={() => <span>Mehr</span>}>
-        <ul className="w-menuDropdown">
+        <ul>
           <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
             <a href="#">Für Garagisten</a>
           </li>
@@ -285,7 +285,7 @@ storiesOf("Header", module)
         // not lg
         <div className="lg:hidden xl:block">
           <HeaderDropdown renderParent={() => <span>Sich Informieren</span>}>
-            <ul className="w-menuDropdown">
+            <ul>
               <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
                 <a href="#">Additional info one</a>
               </li>
@@ -303,7 +303,7 @@ storiesOf("Header", module)
         // lg only (more navigation)
         <div className="hidden lg:block xl:hidden -ml-headerMenuMore">
           <HeaderDropdown renderParent={() => <span>Mehr</span>}>
-            <ul className="w-menuDropdown">
+            <ul>
               <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
                 <a href="#">Für Garagisten</a>
               </li>
@@ -410,7 +410,7 @@ storiesOf("Header", module)
         // not lg
         <div className="lg:hidden xl:block">
           <HeaderDropdown renderParent={() => <span>Sich Informieren</span>}>
-            <ul className="w-menuDropdown">
+            <ul>
               <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
                 <a href="#">Additional info one</a>
               </li>
@@ -428,7 +428,7 @@ storiesOf("Header", module)
         // lg only (more navigation)
         <div className="hidden lg:block xl:hidden -ml-headerMenuMore">
           <HeaderDropdown renderParent={() => <span>Mehr</span>}>
-            <ul className="w-menuDropdown">
+            <ul>
               <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
                 <a href="#">Für Garagisten</a>
               </li>
