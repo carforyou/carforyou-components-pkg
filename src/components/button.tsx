@@ -9,7 +9,7 @@ interface Props {
   dataTestid?: string
   teal?: boolean
   tealBorder?: boolean
-  small?: boolean | "auto"
+  size?: "large" | "small" | "auto"
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   submit?: boolean
@@ -21,16 +21,16 @@ export const Button: FC<Props> = ({
   dataTestid,
   teal,
   tealBorder,
-  small = false,
+  size = "large",
   disabled,
   onClick,
   submit,
   icon,
 }) => {
   const padding = classnames("px-10", {
-    "min-h-36": small === true,
-    "min-h-52": small === false,
-    "min-h-36 lg:min-h-52": small === "auto",
+    "min-h-36": size === "large",
+    "min-h-52": size === "small",
+    "min-h-36 lg:min-h-52": size === "auto",
   })
   const classes = classnames("rounded border", {
     "bg-teal hover:bg-teal-dark focus:bg-teal": teal,

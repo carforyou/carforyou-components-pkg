@@ -139,7 +139,7 @@ const links = [
 ]
 const renderCTAButton = () => (
   <div className="hidden md:block">
-    <Button small="auto" icon={() => <Plus color={white} />}>
+    <Button size="auto" icon={() => <Plus color={white} />}>
       Kostenlos inserieren
     </Button>
   </div>
@@ -323,7 +323,7 @@ storiesOf("Header", module)
     ]
     const renderCTAButton = () => (
         <div className="hidden md:block">
-          <Button small="auto" icon={() => <Plus color={white} />}>Kostenlos inserieren</Button>
+          <Button size="auto" icon={() => <Plus color={white} />}>Kostenlos inserieren</Button>
         </div>
     )
     const iconButtons = [() => <Heart />]
@@ -448,7 +448,7 @@ storiesOf("Header", module)
     ]
     const renderCTAButton = () => (
         <div className="hidden md:block">
-          <Button small="auto" icon={() => <Plus color={white} />}>Kostenlos inserieren</Button>
+          <Button size="auto" icon={() => <Plus color={white} />}>Kostenlos inserieren</Button>
         </div>
     )
     const iconButtons = [() => <Heart />]
@@ -536,7 +536,7 @@ storiesOf("Header", module)
         ),
     ]
     const renderCTAButton = () => (
-        <Button small="auto" icon={() => <Plus color={white} />}>
+        <Button size="auto" icon={() => <Plus color={white} />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
     )
@@ -584,7 +584,7 @@ storiesOf("Header", module)
         ),
       ]
       const renderCTAButton = () => (
-        <Button small="auto" icon={() => <Plus color={white} />}>
+        <Button size="auto" icon={() => <Plus color={white} />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
       )
