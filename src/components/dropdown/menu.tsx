@@ -33,6 +33,13 @@ interface Props<T> {
   isFetching?: boolean
 }
 
+const isCustomValue = (value): boolean => {
+  if (typeof value === "object") {
+    return "customValue" in value
+  }
+  return false
+}
+
 const hightlightItem = <T extends {}>({
   name,
   preMatch,
@@ -45,7 +52,7 @@ const hightlightItem = <T extends {}>({
       {preMatch}
       <span
         className={classNames("font-bold underline", {
-          select_withQuotes: "customValue" in value,
+          select_withQuotes: isCustomValue(value),
         })}
       >
         {match}
@@ -127,7 +134,7 @@ class Menu<T> extends Component<Props<T>> {
                     "font-bold text-teal": isSelected,
                     "bg-grey-bright": index === highlightedIndex,
                     "text-grey-3": item.placeholder,
-                    "text-teal": "customValue" in item.value,
+                    "text-teal": isCustomValue(item.value),
                     [padding]: !isWrapped,
                   }
                 ),
