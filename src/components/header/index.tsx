@@ -93,6 +93,7 @@ const Header: FC<Props> = ({
             "h-headerSmall lg:h-header px-15 md:px-20 py-15 flex items-center",
             {
               "bg-white": isLight,
+              "border-b border-grey-2": isLight,
               "bg-grey-dark": isDark,
               "text-white": isDarkOrTransparent,
             }
