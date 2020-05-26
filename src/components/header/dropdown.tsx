@@ -24,9 +24,7 @@ const HeaderDropdown: FC<Props> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const { isDark, isDarkOrTransparent, isLightOrDark } = useContext(
-    HeaderThemeContext
-  )
+  const { isDarkOrTransparent, isLightOrDark } = useContext(HeaderThemeContext)
 
   useEffect(() => {
     if (isOpen) {

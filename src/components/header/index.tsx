@@ -85,6 +85,7 @@ const Header: FC<Props> = ({
     <HeaderThemeProvider theme={theme}>
       <div
         className={classNames({
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           "h-headerTransparent bg-header_transparent": isTransparent,
         })}
       >
