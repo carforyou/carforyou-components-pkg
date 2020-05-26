@@ -368,7 +368,7 @@ Object {
       "iconDefault": "32px",
       "logoDefault": "170px",
       "logoSmall": "140px",
-      "menuDropdown": "220px",
+      "menuDropdown": "280px",
       "modal": "570px",
       "modalLarge": "770px",
       "modalSmall": "370px",
