@@ -368,7 +368,6 @@ Object {
       "iconDefault": "32px",
       "logoDefault": "170px",
       "logoSmall": "140px",
-      "menuDropdown": "280px",
       "modal": "570px",
       "modalLarge": "770px",
       "modalSmall": "370px",
@@ -380,7 +379,8 @@ Object {
     "zIndex": Object {
       "auto": "auto",
       "clearButton": 10,
-      "dropdownMenu": 30,
+      "dropdownMenu": 20,
+      "headerDropdown": 30,
       "modal": 98,
       "modalClose": 10,
       "negative": -1,
