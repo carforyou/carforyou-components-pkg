@@ -28,8 +28,8 @@ export const Button: FC<Props> = ({
   icon,
 }) => {
   const padding = classnames("px-10", {
-    "min-h-36": size === "large",
-    "min-h-52": size === "small",
+    "min-h-36": size === "small",
+    "min-h-52": size === "large",
     "min-h-36 lg:min-h-52": size === "auto",
   })
   const classes = classnames("rounded border", {
