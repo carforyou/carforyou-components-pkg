@@ -485,7 +485,7 @@ export default {
       radioIndicator: "12px",
       logoDefault: "170px",
       logoSmall: "140px",
-      menuDropdown: "220px",
+      menuDropdown: "280px",
       profileDropdown: "320px",
       iconDefault: "32px",
     },
