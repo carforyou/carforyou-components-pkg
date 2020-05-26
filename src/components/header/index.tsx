@@ -119,7 +119,11 @@ const Header: FC<Props> = ({
               </div>
             </div>
             {/* Right Section */}
-            <div className="flex items-center cursor-pointer">
+            <div
+              className={classNames("flex items-center cursor-pointer", {
+                "text-grey-3": isLight,
+              })}
+            >
               {/* CTA Button */}
               <div className="mr-headerMenu ">{renderCTAButton()}</div>
               {/* Icons Button */}
