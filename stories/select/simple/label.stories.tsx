@@ -13,7 +13,7 @@ storiesOf("Select / Label", module)
     "Standard",
     generateStory({
       withAutosuggest: false,
-      labelText: "Label"
+      labelText: "Label",
     })
   )
   .add(
@@ -21,7 +21,7 @@ storiesOf("Select / Label", module)
     generateStory({
       withAutosuggest: false,
       placeholder: "Placeholder",
-      labelText: "Label"
+      labelText: "Label",
     })
   )
   .add(
@@ -29,7 +29,7 @@ storiesOf("Select / Label", module)
     generateStory({
       withAutosuggest: false,
       hint: "Hint text",
-      labelText: "Label"
+      labelText: "Label",
     })
   )
   .add(
@@ -37,7 +37,7 @@ storiesOf("Select / Label", module)
     generateStory({
       withAutosuggest: false,
       labelText: "Label",
-      required: true
+      required: true,
     })
   )
   .add(
@@ -45,7 +45,7 @@ storiesOf("Select / Label", module)
     generateStory({
       withAutosuggest: false,
       labelText: "Label",
-      renderLabelPopup: () => <div>Popup Content</div>
+      renderLabelPopup: () => <div>Popup Content</div>,
     })
   )
   .add(
@@ -53,7 +53,7 @@ storiesOf("Select / Label", module)
     generateStory({
       withAutosuggest: false,
       labelText: "Label",
-      error: "Error message"
+      error: "Error message",
     })
   )
   .add(
@@ -62,6 +62,6 @@ storiesOf("Select / Label", module)
       withAutosuggest: false,
       required: true,
       labelText: "Label",
-      renderLabelPopup: () => <div>Popup Content</div>
+      renderLabelPopup: () => <div>Popup Content</div>,
     })
   )

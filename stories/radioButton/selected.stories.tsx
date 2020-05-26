@@ -10,21 +10,21 @@ storiesOf("Radio button / Selected", module)
   .add(
     "Standard",
     generateStory({
-      value: initialValue
+      value: initialValue,
     })
   )
   .add(
     "Disabled",
     generateStory({
       value: initialValue,
-      disabled: true
+      disabled: true,
     })
   )
   .add(
     "With error message",
     generateStory({
       value: initialValue,
-      error: "Error message"
+      error: "Error message",
     })
   )
   .add(
@@ -32,7 +32,7 @@ storiesOf("Radio button / Selected", module)
     generateStory({
       value: initialValue,
       labelPosition: "left",
-      label: "Label"
+      label: "Label",
     })
   )
   .add(
@@ -40,6 +40,6 @@ storiesOf("Radio button / Selected", module)
     generateStory({
       value: initialValue,
       labelPosition: "right",
-      label: "Label"
+      label: "Label",
     })
   )

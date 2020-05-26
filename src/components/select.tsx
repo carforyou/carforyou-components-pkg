@@ -46,6 +46,7 @@ interface SimpleSelect<T> extends BaseProps<T> {
 
 type Props<T> = AutosuggestSelect<T> | SimpleSelect<T>
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Select = forwardRef<HTMLInputElement, Props<any>>(
   (
     {
@@ -178,6 +179,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       return {
         select_open: showOpenedIcon && !selected,
         select_closed: !isOpen && !selected,
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         select_withSearchIcon: showOpenedIcon && !selected && showSearchIcon,
       }
     }
@@ -211,9 +213,11 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       <>
         {"withAutosuggest" in rest && rest.withAutosuggest ? (
           <DropdownWithAutosuggest
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             {...(dropdownProps as DropdownWithAutosuggestProps<any>)}
           />
         ) : (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           <Dropdown {...(dropdownProps as DropdownProps<any>)} />
         )}
       </>

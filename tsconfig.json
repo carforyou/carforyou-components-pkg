@@ -8,6 +8,6 @@
     "baseUrl": "src",
     "esModuleInterop": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "build"]
+  "include": ["src/**/*", "stories/**/*"],
+  "exclude": ["node_modules"]
 }

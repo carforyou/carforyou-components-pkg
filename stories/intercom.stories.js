@@ -6,10 +6,9 @@ import { wInfo } from "./utils"
 
 import Intercom from "../src/components/intercom"
 
-storiesOf("Intercom", module)
-  .add(
-    "Default",
-    wInfo(`
+storiesOf("Intercom", module).add(
+  "Default",
+  wInfo(`
     Description
     ~~~
     <Intercom appId="123" stage="dev" label="Support" autoload={false} userInfo={{ user_id: "123" }}/>
@@ -19,11 +18,15 @@ storiesOf("Intercom", module)
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 md:w-3/12">
         <Intercom
-          appId={text("appId (you need am actual app id to be able to load intercom)", "123")}
+          appId={text(
+            "appId (you need am actual app id to be able to load intercom)",
+            "123"
+          )}
           stage={text("stage", "dev")}
           label={text("label", "Support")}
-          autoload={boolean("autoload", false)} />
+          autoload={boolean("autoload", false)}
+        />
       </div>
     </div>
-    ))
-  )
+  ))
+)

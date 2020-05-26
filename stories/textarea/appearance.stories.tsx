@@ -10,34 +10,34 @@ storiesOf("Textarea / Appearance", module)
   .add(
     "Standard",
     generateStory({
-      value: initialValue
+      value: initialValue,
     })
   )
   .add(
     "Disabled",
     generateStory({
       value: initialValue,
-      disabled: true
+      disabled: true,
     })
   )
   .add(
     "With error message",
     generateStory({
       value: initialValue,
-      error: "Error message"
+      error: "Error message",
     })
   )
   .add(
     "With placeholder",
     generateStory({
       value: initialValue,
-      placeholder: "Placeholder"
+      placeholder: "Placeholder",
     })
   )
   .add(
     "With hint",
     generateStory({
       value: initialValue,
-      hint: "Hint text"
+      hint: "Hint text",
     })
   )

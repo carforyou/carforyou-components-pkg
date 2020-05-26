@@ -14,7 +14,7 @@ const generateDescription = ({
   error,
   disabled,
   required,
-  hint
+  hint,
 }) => {
   return `
   Description
@@ -50,7 +50,7 @@ const generateStoryFunction = ({
   required,
   hint,
   onBlur,
-  onChange
+  onChange,
 }) => ({ value, setValue }) => {
   return (
     <div className="mx-30 mb-40">
@@ -66,7 +66,7 @@ const generateStoryFunction = ({
           disabled={disabled}
           required={required}
           hint={hint}
-          onChange={e => {
+          onChange={(e) => {
             setValue(e.target.value)
             onChange()(e)
           }}
@@ -86,7 +86,7 @@ const generateStory = ({
   error = null,
   disabled = null,
   required = null,
-  hint = null
+  hint = null,
 }) => {
   const onBlur = () => action("onBlur")
   const onChange = () => action("onChange")
@@ -99,19 +99,19 @@ const generateStory = ({
     error,
     disabled,
     required,
-    hint
+    hint,
   }
 
   return wInfo(
     generateDescription({
       value,
-      ...common
+      ...common,
     })
   )(
     generateStoryFunction({
       ...common,
       onBlur,
-      onChange
+      onChange,
     })
   )
 }

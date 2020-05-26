@@ -38,6 +38,7 @@ export interface TailwindConfig {
   theme?: TailwindTheme
   options?: { [key: string]: string | number | boolean }
   modules?: { [key: string]: string[] }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   plugins?: any[]
 }
 
@@ -49,7 +50,7 @@ const resolveConfig = (config) => {
   }
 
   for (const conf in config.theme) {
-    if (config.theme.hasOwnProperty(conf)) {
+    if (Object.prototype.hasOwnProperty.call(config.theme, conf)) {
       theme[conf] =
         typeof config.theme[conf] === "function"
           ? config.theme[conf](getKey)
