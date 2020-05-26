@@ -4,7 +4,7 @@ import Spinner from "../spinner"
 import { wrapLink } from "../../lib/buttonHelper"
 
 interface Item<T> {
-  value: any
+  value: T | { customValue: T }
   name: string
   key?: string
   placeholder?: boolean
@@ -45,7 +45,7 @@ const hightlightItem = <T extends {}>({
       {preMatch}
       <span
         className={classNames("font-bold underline", {
-          select_withQuotes: value.customValue,
+          select_withQuotes: "customValue" in value,
         })}
       >
         {match}
@@ -107,7 +107,7 @@ class Menu<T> extends Component<Props<T>> {
 
           const { clonedElement, isWrapped } = wrapLink(
             renderOption({
-              value: item.value,
+              value: item.value as T,
               name: hightlightItem(item),
               isSelected,
             }),
@@ -127,7 +127,7 @@ class Menu<T> extends Component<Props<T>> {
                     "font-bold text-teal": isSelected,
                     "bg-grey-bright": index === highlightedIndex,
                     "text-grey-3": item.placeholder,
-                    "text-teal": item.value.customValue,
+                    "text-teal": "customValue" in item.value,
                     [padding]: !isWrapped,
                   }
                 ),
