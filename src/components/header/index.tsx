@@ -102,12 +102,12 @@ const Header: FC<Props> = ({
         >
           <nav className="w-12/12 flex items-center">
             {/* Logo Section */}
-            <div className="min-w-100 w-logoSmall xl:w-logoDefault mr-20 xl:mr-40">
+            <div className="min-w-100 w-logoSmall lg:w-logoDefault mr-20 xl:mr-40">
               {renderLogo()}
             </div>
             {/* Links - LG / Desktop  */}
             <div className="flex flex-grow">
-              <div className="hidden lg:flex items-center">
+              <div className="hidden lg:flex items-center text-center">
                 {links.map((renderLink, index) => {
                   return (
                     <div
