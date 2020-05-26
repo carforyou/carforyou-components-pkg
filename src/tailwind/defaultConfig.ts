@@ -506,7 +506,7 @@ export default {
       negative: -1,
       clearButton: 10,
       modalClose: 10,
-      dropdownMenu: 20,
+      dropdownMenu: 30,
       modal: 98,
     },
 
