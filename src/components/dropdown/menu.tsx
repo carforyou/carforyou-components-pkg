@@ -108,7 +108,7 @@ class Menu<T> extends Component<Props<T>> {
           )
 
           return (
-            // tslint:disable-next-line:jsx-key
+            // eslint-disable-next-line react/jsx-key
             <li
               {...getItemProps({
                 "data-testid": item.name,

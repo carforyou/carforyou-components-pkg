@@ -7,14 +7,15 @@ import { wInfo } from "./utils"
 
 import Dropdown from "../src/components/dropdown"
 
-const options = () => object("options", [
-  { value: 1, name: "One" },
-  { value: 2, name: "Two" },
-  { value: 3, name: "Three" },
-  { value: 4, name: "Four" },
-  { value: 5, name: "Five" },
-  { value: 6, name: "Six" }
-])
+const options = () =>
+  object("options", [
+    { value: 1, name: "One" },
+    { value: 2, name: "Two" },
+    { value: 3, name: "Three" },
+    { value: 4, name: "Four" },
+    { value: 5, name: "Five" },
+    { value: 6, name: "Six" },
+  ])
 const onSelect = () => action("onSelect")
 const selected = () => number("selected", null)
 const disabled = () => boolean("disabled", false)
@@ -51,7 +52,9 @@ storiesOf("Dropdown", module)
             onSelect={onSelect()}
             toggle={({ name, placeholder }) => (
               <div className="text-left">
-                <span className={placeholder ? "font-regular" : "font-bold"}>{name}</span>
+                <span className={placeholder ? "font-regular" : "font-bold"}>
+                  {name}
+                </span>
               </div>
             )}
             selected={selected()}
@@ -93,7 +96,9 @@ storiesOf("Dropdown", module)
             toggle={({ name, placeholder }) => (
               <div className="text-left">
                 <span className="font-regular">Select number: </span>
-                <span className={placeholder ? "font-regular" : "font-bold"}>{name || "-"}</span>
+                <span className={placeholder ? "font-regular" : "font-bold"}>
+                  {name || "-"}
+                </span>
               </div>
             )}
             selected={selected()}
@@ -140,7 +145,9 @@ storiesOf("Dropdown", module)
             toggle={({ name, placeholder }) => (
               <div className="text-left">
                 <span className="font-regular">Select number: </span>
-                <span className={placeholder ? "font-regular" : "font-bold"}>{name || "-"}</span>
+                <span className={placeholder ? "font-regular" : "font-bold"}>
+                  {name || "-"}
+                </span>
               </div>
             )}
             selected={selected()}
@@ -155,7 +162,7 @@ storiesOf("Dropdown", module)
         </div>
       </div>
     ))
-)
+  )
   .add(
     "Without selection handler",
     wInfo(`
@@ -185,7 +192,9 @@ storiesOf("Dropdown", module)
             toggle={({ name, placeholder }) => (
               <div className="text-left">
                 <span className="font-regular">Select number: </span>
-                <span className={placeholder ? "font-regular" : "font-bold"}>{name || "-"}</span>
+                <span className={placeholder ? "font-regular" : "font-bold"}>
+                  {name || "-"}
+                </span>
               </div>
             )}
             selected={selected()}

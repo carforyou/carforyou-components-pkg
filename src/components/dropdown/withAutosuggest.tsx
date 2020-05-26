@@ -72,7 +72,7 @@ const filterOptions = (noResults) => (allOptions, text) => {
     return allOptions
   }
 
-  const specialChars = /[-\/\\^$*+?.()|[\]{}]/g
+  const specialChars = /[-/\\^$*+?.()|[\]{}]/g
   const cleanedText = text.replace(specialChars, "\\$&")
   const regex = new RegExp(cleanedText, "i")
   const startsWith = new RegExp(`^${cleanedText}`, "i")
