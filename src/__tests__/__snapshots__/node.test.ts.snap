@@ -380,7 +380,7 @@ Object {
     "zIndex": Object {
       "auto": "auto",
       "clearButton": 10,
-      "dropdownMenu": 20,
+      "dropdownMenu": 30,
       "modal": 98,
       "modalClose": 10,
       "negative": -1,
