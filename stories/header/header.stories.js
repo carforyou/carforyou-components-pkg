@@ -16,26 +16,24 @@ import Logout from "./icons/logout"
 const renderLanguageNavigationFactory = (
   renderParent = () => <span>DE</span>
 ) => {
-  return () => {
-    return (
-      <HeaderDropdown stickOut="left" renderParent={renderParent}>
-        <ul>
-          <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">DE</a>
-          </li>
-          <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">FR</a>
-          </li>
-          <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">IT</a>
-          </li>
-          <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">EN</a>
-          </li>
-        </ul>
-      </HeaderDropdown>
-    )
-  }
+  return (
+    <HeaderDropdown stickOut="left" renderParent={renderParent}>
+      <ul>
+        <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">DE</a>
+        </li>
+        <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">FR</a>
+        </li>
+        <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">IT</a>
+        </li>
+        <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">EN</a>
+        </li>
+      </ul>
+    </HeaderDropdown>
+  )
 }
 
 const profile = {
@@ -279,7 +277,7 @@ storiesOf("Header", module)
             ctaButton={ctaButton}
             iconButtons={iconButtons}
             profile={profile}
-            renderLanguageNavigation={renderLanguageNavigationFactory()}
+            languageNavigation={renderLanguageNavigationFactory()}
           />
         </div>
     )
@@ -294,7 +292,7 @@ storiesOf("Header", module)
               ctaButton={ctaButton}
               iconButtons={iconButtons}
               profile={profile}
-              renderLanguageNavigation={renderLanguageNavigationFactory()}
+              languageNavigation={renderLanguageNavigationFactory()}
             />
           </div>
         </div>
@@ -401,7 +399,7 @@ storiesOf("Header", module)
             ctaButton={ctaButton}
             iconButtons={iconButtons}
             profile={profile}
-            renderLanguageNavigation={renderLanguageNavigationFactory()}
+            languageNavigation={renderLanguageNavigationFactory()}
           />
         </div>
     )
@@ -414,7 +412,7 @@ storiesOf("Header", module)
             ctaButton={ctaButton}
             iconButtons={iconButtons}
             profile={profile}
-            renderLanguageNavigation={renderLanguageNavigationFactory()}
+            languageNavigation={renderLanguageNavigationFactory()}
           />
         </div>
       )
@@ -474,7 +472,7 @@ storiesOf("Header", module)
             links={links}
             ctaButton={ctaButton}
             profile={profile}
-            renderLanguageNavigation={renderLanguageNavigationFactory(() => (
+            languageNavigation={renderLanguageNavigationFactory(() => (
               <span>DE</span>
             ))}
           />
@@ -506,7 +504,7 @@ storiesOf("Header", module)
             links={links}
             ctaButton={ctaButton}
             profile={profile}
-            renderLanguageNavigation={renderLanguageNavigationFactory(() => (
+            languageNavigation={renderLanguageNavigationFactory(() => (
               <span>DE</span>
             ))}
           />

@@ -24,7 +24,7 @@ interface Props {
     renderWelcomeMessage: () => JSX.Element
     renderContent: () => JSX.Element
   }
-  renderLanguageNavigation?: () => JSX.Element
+  languageNavigation: JSX.Element
 }
 
 const Header: FC<Props> = ({
@@ -36,11 +36,10 @@ const Header: FC<Props> = ({
     renderWelcomeMessage: () => null,
     renderContent: () => null,
   },
-  renderLanguageNavigation = () => null,
+  languageNavigation = null,
   mobileMenuText = "MENU",
 }) => {
   const { isLight, isDark, isTransparent } = getThemeCombinations(theme)
-  const languageNavigation = renderLanguageNavigation()
 
   const themeLog = {
     [HeaderTheme.LIGHT]: <LogoRedBlack />,
