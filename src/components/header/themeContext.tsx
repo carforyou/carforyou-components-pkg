@@ -9,8 +9,6 @@ export interface HeaderThemeValues {
   isLight: boolean
   isDark: boolean
   isTransparent: boolean
-  isDarkOrTransparent: boolean
-  isLightOrDark: boolean
 }
 
 export const getThemeCombinations = (
@@ -19,10 +17,6 @@ export const getThemeCombinations = (
   isLight: theme === HeaderTheme.LIGHT,
   isDark: theme === HeaderTheme.DARK,
   isTransparent: theme === HeaderTheme.TRANSPARENT,
-  isDarkOrTransparent: [HeaderTheme.DARK, HeaderTheme.TRANSPARENT].includes(
-    theme
-  ),
-  isLightOrDark: [HeaderTheme.LIGHT, HeaderTheme.DARK].includes(theme),
 })
 
 const HeaderThemeContext = createContext(

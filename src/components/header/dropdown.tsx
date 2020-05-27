@@ -24,7 +24,7 @@ const HeaderDropdown: FC<Props> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const { isDarkOrTransparent, isLightOrDark } = useContext(HeaderThemeContext)
+  const { isLight, isDark, isTransparent } = useContext(HeaderThemeContext)
 
   useEffect(() => {
     if (isOpen) {
@@ -46,7 +46,7 @@ const HeaderDropdown: FC<Props> = ({
         className={classNames(
           "flex items-center cursor-pointer py-10 lg:py-0 hover:opacity-60",
           {
-            "lg:text-white": isDarkOrTransparent,
+            "lg:text-white": isDark || isTransparent,
           }
         )}
         onClick={toggle}
@@ -57,7 +57,7 @@ const HeaderDropdown: FC<Props> = ({
           width="28"
           color={colorDropdownArrow}
           className={classNames("inline-block", {
-            "lg:text-white": isDarkOrTransparent,
+            "lg:text-white": isDark || isTransparent,
           })}
         />
       </div>
@@ -71,7 +71,7 @@ const HeaderDropdown: FC<Props> = ({
           className={classNames(
             "flex items-center font-bold lg:font-regular hover:opacity-60",
             {
-              "lg:text-white": isDarkOrTransparent,
+              "lg:text-white": isDark || isTransparent,
             }
           )}
           onClick={toggle}
@@ -80,17 +80,16 @@ const HeaderDropdown: FC<Props> = ({
           <ArrowDownM
             height="28"
             width="28"
-            className={classNames("inline-block, customRotate-180", {
-              "lg:text-white": isDarkOrTransparent,
+            className={classNames("inline-block customRotate-180", {
+              "lg:text-white": isDark || isTransparent,
             })}
           />
         </div>
         <div
           className={classNames(
-            "text-black text-left whitespace-no-wrap bg-grey-1 lg:bg-white relative lg:absolute lg:border lg:border-grey-2 lg:rounded-4 lg:shadow-hard",
+            "text-black text-left whitespace-no-wrap bg-grey-1 md:bg-white relative lg:absolute lg:border lg:border-grey-2 lg:rounded-4 lg:shadow-hard",
             {
               "right-0": stickOut === "left",
-              "bg-white": isLightOrDark,
             }
           )}
         >

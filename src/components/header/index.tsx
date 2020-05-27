@@ -39,12 +39,7 @@ const Header: FC<Props> = ({
   renderLanguageNavigation = () => null,
   mobileMenuText = "MENU",
 }) => {
-  const {
-    isLight,
-    isDark,
-    isTransparent,
-    isDarkOrTransparent,
-  } = getThemeCombinations(theme)
+  const { isLight, isDark, isTransparent } = getThemeCombinations(theme)
   const languageNavigation = renderLanguageNavigation()
 
   const themeLog = {
@@ -91,10 +86,9 @@ const Header: FC<Props> = ({
           className={classNames(
             "h-headerSmall lg:h-header px-15 md:px-20 py-15 flex items-center",
             {
-              "bg-white": isLight,
-              "border-b border-grey-2": isLight,
-              "bg-grey-dark": isDark,
-              "text-white": isDarkOrTransparent,
+              "bg-white border-b border-grey-2": isLight,
+              "bg-grey-dark text-white": isDark,
+              "text-white": isTransparent,
             }
           )}
         >
@@ -148,9 +142,8 @@ const Header: FC<Props> = ({
                 <HeaderDropdown
                   renderParent={() => (
                     <div
-                      className={classNames({
-                        "text-grey-3": isLight,
-                        "text-white": isDarkOrTransparent,
+                      className={classNames("text-white", {
+                        "text-grey-3 text-black": isLight,
                       })}
                     >
                       <Profile />
@@ -172,9 +165,8 @@ const Header: FC<Props> = ({
               <div className="block lg:hidden">
                 <a
                   onClick={openModal}
-                  className={classNames("cursor-pointer", {
-                    "text-grey-3": isLight,
-                    "text-white": isDarkOrTransparent,
+                  className={classNames("cursor-pointer text-white", {
+                    "text-grey-3 text-black": isLight,
                   })}
                 >
                   {mobileMenuText}
