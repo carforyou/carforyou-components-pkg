@@ -17,15 +17,7 @@ import Header from "./components/header/index"
 import { HeaderTheme } from "./components/header/themeContext"
 import HeaderDropdown from "./components/header/dropdown"
 import useModal from "./hooks/useModal"
-
-// TODO:
 import Profile from "./components/icons/profile"
-import Plus from "./header/icons/plus"
-import MyCars from "./header/icons/myCars"
-import Logout from "./header/icons/logout"
-import Heart from "./header/icons/heart"
-
-// New
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
 import LogoWhite from "./components/icons/logoWhite"
@@ -51,10 +43,6 @@ export {
   HeaderDropdown,
   HeaderTheme,
   Profile,
-  Plus,
-  MyCars,
-  Logout,
-  Heart,
   LogoRedWhite,
   LogoRedBlack,
   LogoWhite,
