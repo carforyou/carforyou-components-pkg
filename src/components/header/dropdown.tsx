@@ -1,13 +1,6 @@
 import React, { FC, useState, useEffect, useContext } from "react"
 import classNames from "classnames"
 
-import { defaultConfig as tailwindConfig } from "../../tailwind/index"
-const {
-  theme: {
-    colors: { black: colorDropdownArrow },
-  },
-} = tailwindConfig
-
 import ArrowDownM from "../icons/arrowDownMCrop"
 import HeaderThemeContext, { HeaderTheme } from "./themeContext"
 
@@ -24,7 +17,7 @@ const HeaderDropdown: FC<Props> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const { isDark, isTransparent } = useContext(HeaderThemeContext)
+  const { isDark, isTransparent, isLight } = useContext(HeaderThemeContext)
 
   useEffect(() => {
     if (isOpen) {
@@ -55,8 +48,8 @@ const HeaderDropdown: FC<Props> = ({
         <ArrowDownM
           height="28"
           width="28"
-          color={colorDropdownArrow}
           className={classNames("inline-block", {
+            "lg:text-black": isLight,
             "lg:text-white": isDark || isTransparent,
           })}
         />
