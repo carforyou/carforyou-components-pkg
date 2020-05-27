@@ -7,7 +7,7 @@ const ValueWrapper = ({ initialValue, children }) => {
   return children({ value, setValue })
 }
 
-export const ControlledInputDecorator = (initialValue) => (storyFn) => (
+export const ControlledInputDecorator = initialValue => storyFn => (
   <ValueWrapper initialValue={initialValue}>{storyFn}</ValueWrapper>
 )
 
@@ -16,10 +16,10 @@ const withInfoStyle = {
     h1: {
       fontsize: "24px",
       color: "salmon",
-      fontWeight: "400",
-    },
-  },
+      fontWeight: "400"
+    }
+  }
 }
 
-export const wInfo = (text) =>
+export const wInfo = text =>
   withInfo({ inline: true, source: false, styles: withInfoStyle, text })

@@ -8,7 +8,7 @@ import { wInfo } from "./utils"
 import AlertMessage from "../src/components/alertMessage"
 
 const options = ["error", "warning", "information", "success"]
-const deafultValue = "error"
+const deafultValue= "error"
 
 storiesOf("Alert Message", module)
   .add(
@@ -22,21 +22,11 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
-          <AlertMessage
-            type={select("State alert", options, deafultValue)}
-            fullWidth={boolean("Full width", false)}
-            alignCenter={boolean("Align Center", false)}
-          >
-            {text(
-              "Label",
-              <div className="py-10">
-                Write here some text describing the message that you want to
-                convey to the user, in case he takes the time to read it.
-              </div>
-            )}
+          <AlertMessage type={select("State alert", options, deafultValue)} fullWidth={boolean("Full width", false)} alignCenter={boolean("Align Center", false)}>
+            {text("Label", (<div className="py-10">Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.</div>))}
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
   .add(
@@ -52,12 +42,11 @@ storiesOf("Alert Message", module)
         <div className="w-12/12">
           <AlertMessage type="error">
             <span className="py-10">
-              Write here some text describing the message that you want to
-              convey to the user, in case he takes the time to read it.
-            </span>
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
   .add(
@@ -73,12 +62,11 @@ storiesOf("Alert Message", module)
         <div className="w-12/12">
           <AlertMessage type="warning">
             <span className="py-10">
-              Write here some text describing the message that you want to
-              convey to the user, in case he takes the time to read it.
-            </span>
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
   .add(
@@ -94,12 +82,11 @@ storiesOf("Alert Message", module)
         <div className="w-12/12">
           <AlertMessage type="information">
             <span className="py-10">
-              Write here some text describing the message that you want to
-              convey to the user, in case he takes the time to read it.
-            </span>
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
   .add(
@@ -115,12 +102,11 @@ storiesOf("Alert Message", module)
         <div className="w-12/12">
           <AlertMessage type="success">
             <span className="py-10">
-              Write here some text describing the message that you want to
-              convey to the user, in case he takes the time to read it.
-            </span>
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
   .add(
@@ -136,14 +122,13 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
-          <AlertMessage type="error" icon={() => <MailSent fill="#F73B47" />}>
+          <AlertMessage type="error" icon={() => <MailSent fill="#F73B47"/>}>
             <span className="pl-16 py-15">
-              Write here some text describing the message that you want to
-              convey to the user, in case he takes the time to read it.
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
             </span>
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
   .add(
@@ -164,12 +149,11 @@ storiesOf("Alert Message", module)
         <div className="w-12/12">
           <AlertMessage type="warning" icon={() => <MailSent fill="#fcb001" />}>
             <span className="pl-16 py-15">
-              Write here some text describing the message that you want to
-              convey to the user, in case he takes the time to read it.
-            </span>
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
   .add(
@@ -188,17 +172,13 @@ storiesOf("Alert Message", module)
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
-          <AlertMessage
-            type="information"
-            icon={() => <MailSent fill="#3696B9" />}
-          >
+          <AlertMessage type="information" icon={() => <MailSent fill="#3696B9" />}>
             <span className="pl-16 py-15">
-              Write here some text describing the message that you want to
-              convey to the user, in case he takes the time to read it.
-            </span>
+              Write here some text describing the message that you want to convey to the user, in case he takes the time to read it.
+            </span>  
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
 
@@ -221,9 +201,10 @@ storiesOf("Alert Message", module)
           <AlertMessage type="success" icon={() => <MailSent fill="#74CC74" />}>
             <span className="pl-16 py-15">
               Write here some text describing the message.
-            </span>
+            </span>  
           </AlertMessage>
-        </div>
-      </div>
+        </div>  
+      </div>  
     ))
   )
+

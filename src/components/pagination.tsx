@@ -7,7 +7,7 @@ interface Props {
   previousLabel: string
   nextLabel: string
   rangePageLabel: string
-  onPageChange: (data) => void
+  onPageChange: (data: any) => void
   forcePage: number
   query?: object
   pageLinkBuilder?: (page: number, params: object) => string

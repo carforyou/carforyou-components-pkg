@@ -12,7 +12,7 @@ interface Props<T> {
   error?: string
   renderLabel?: () => JSX.Element
   labelPosition?: "left" | "right"
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<any>) => void
 }
 
 function RadioButton<T>({

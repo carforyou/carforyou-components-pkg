@@ -57,7 +57,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean
   required?: boolean
   onChange?: (e: { target: { value: string | number } }) => void
-  onBlur?: (e: FocusEvent) => void
+  onBlur?: (e: FocusEvent<any>) => void
   debounce?: number
 }
 
@@ -93,6 +93,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         className={className}
         inputMode={mode !== "text" ? mode : null}
         onKeyDown={(e) => {
+          // tslint:disable:no-unused-expression
           mode === "numeric"
             ? validateNumber(e)
             : mode === "decimal"
@@ -100,6 +101,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
             : null
 
           onKeyDown && onKeyDown(e)
+          // tslint:enable:no-unused-expression
         }}
         onChange={debounceCallback(onChange, debounce)}
         onBlur={onBlur}

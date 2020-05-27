@@ -1,3 +1,4 @@
+/* tslint:disable:object-literal-sort-keys */
 import TransformPlugin from "./plugins/transform"
 /*
 Tailwind - The Utility-First CSS Framework
@@ -604,6 +605,5 @@ export default {
     transitionDuration: ["responsive", "hover"],
   },
   corePlugins: {},
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   plugins: [TransformPlugin, require("tailwindcss-gradients")()],
 }

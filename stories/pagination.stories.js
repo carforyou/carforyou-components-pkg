@@ -7,7 +7,7 @@ import Pagination from "../src/components/pagination"
 
 storiesOf("Pagination", module)
   .add(
-    "on first page",
+    "on first page", 
     wInfo(`
     Description
     ~~~~
@@ -27,21 +27,20 @@ storiesOf("Pagination", module)
       <Pagination
         pageCount={100}
         forcePage={0}
-        renderHead={(links) => links}
+        renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
         rangePageLabel="of"
         onPageChange={action("page changed")}
         query={{ foo: "bar" }}
-        pageLinkBuilder={(page) => {
+        pageLinkBuilder={page => {
           return `/paginated/?page=${page}`
         }}
       />
     ))
   )
-  .add(
-    "on last page",
-    wInfo(`
+  .add("on last page",
+  wInfo(`
   Description
   ~~~~
   <Pagination>
@@ -60,21 +59,20 @@ storiesOf("Pagination", module)
       <Pagination
         pageCount={100}
         forcePage={99}
-        renderHead={(links) => links}
+        renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
         rangePageLabel="of"
         onPageChange={action("page changed")}
         query={{ foo: "bar" }}
-        pageLinkBuilder={(page) => {
+        pageLinkBuilder={page => {
           return `/paginated/?page=${page}`
         }}
       />
     ))
   )
-  .add(
-    "on page 50",
-    wInfo(`
+  .add("on page 50",
+  wInfo(`
   Description
   ~~~~
   <Pagination>
@@ -93,15 +91,15 @@ storiesOf("Pagination", module)
       <Pagination
         pageCount={100}
         forcePage={49}
-        renderHead={(links) => links}
+        renderHead={links => links}
         previousLabel="Previous"
         nextLabel="Next"
         rangePageLabel="of"
         onPageChange={action("page changed")}
         query={{ foo: "bar" }}
-        pageLinkBuilder={(page) => {
+        pageLinkBuilder={page => {
           return `/paginated/?page=${page}`
         }}
       />
     ))
-  )
+  ) 

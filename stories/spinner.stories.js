@@ -5,9 +5,10 @@ import { wInfo } from "./utils"
 
 import Spinner from "../src/components/spinner"
 
-storiesOf("Spinner", module).add(
-  "Default",
-  wInfo(`
+storiesOf("Spinner", module)
+  .add(
+    "Default",
+    wInfo(`
     Description
     ~~~
     <Spinner />
@@ -19,5 +20,5 @@ storiesOf("Spinner", module).add(
         <Spinner />
       </div>
     </div>
-  ))
-)
+    ))
+  )

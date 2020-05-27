@@ -12,7 +12,7 @@ const generateDescription = ({
   disabled = false,
   error,
   label,
-  labelPosition,
+  labelPosition
 }) => {
   return `
   Description
@@ -46,7 +46,7 @@ const generateStoryFunction = ({
           value={inputValue}
           checked={value === inputValue}
           name={name}
-          onChange={(e) => {
+          onChange={e => {
             setValue(e.target.value)
             onChange()(e)
           }}
@@ -64,7 +64,7 @@ const generateStory = ({
   disabled = false,
   error = null,
   label = null,
-  labelPosition = null,
+  labelPosition = null
 }) => {
   const onChange = () => action("onChange")
 
@@ -74,13 +74,13 @@ const generateStory = ({
     error,
     disabled,
     label,
-    labelPosition,
+    labelPosition
   }
 
   return wInfo(generateDescription(common))(
     generateStoryFunction({
       ...common,
-      onChange,
+      onChange
     })
   )
 }

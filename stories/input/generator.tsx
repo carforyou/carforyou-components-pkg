@@ -1,5 +1,6 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
+import { text, array, boolean } from "@storybook/addon-knobs"
 
 import { wInfo } from "../utils"
 
@@ -17,7 +18,7 @@ const generateDescription = ({
   hasClearButton,
   required,
   mode,
-  hint,
+  hint
 }) => {
   return `
   Description
@@ -48,7 +49,7 @@ ${floatingLabel ? "    floatingLabel" : ""}
 
 const generateStoryFunction = ({ mode, onChange, onBlur, name, ...rest }) => ({
   value,
-  setValue,
+  setValue
 }) => {
   return (
     <div className="mx-30 mb-40">
@@ -58,7 +59,7 @@ const generateStoryFunction = ({ mode, onChange, onBlur, name, ...rest }) => ({
           name={name}
           value={value}
           mode={mode as "text" | "numeric" | "decimal"}
-          onChange={(e) => {
+          onChange={e => {
             setValue(e.target.value)
             onChange()(e)
           }}
@@ -82,7 +83,7 @@ const generateStory = ({
   hasClearButton = null,
   required = null,
   hint = null,
-  mode = "text",
+  mode = "text"
 }) => {
   const onBlur = () => action("onBlur")
   const onChange = () => action("onChange")
@@ -95,14 +96,14 @@ const generateStory = ({
     disabled,
     hasClearButton,
     mode,
-    hint,
+    hint
   }
 
   const labelProps =
     renderLabelPopup || required
       ? {
           renderLabelPopup,
-          required,
+          required
         }
       : floatingLabel
       ? { floatingLabel }
@@ -114,14 +115,14 @@ const generateStory = ({
       renderLabelPopup,
       floatingLabel,
       required,
-      ...common,
+      ...common
     })
   )(
     generateStoryFunction({
       ...common,
       ...labelProps,
       onBlur,
-      onChange,
+      onChange
     })
   )
 }

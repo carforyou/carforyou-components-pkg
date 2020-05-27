@@ -8,9 +8,10 @@ import { wInfo } from "./utils"
 import Button from "../src/components/button"
 import CtaCall from "../.storybook/icons/ctaCall"
 
-storiesOf("Icon Button", module).add(
-  "Default",
-  wInfo(`
+storiesOf("Icon Button", module)
+  .add(
+    "Default",
+    wInfo(`
     Description
     ~~~
     <Button icon={() <CtaCall />}>
@@ -30,5 +31,5 @@ storiesOf("Icon Button", module).add(
         </Button>
       </div>
     </div>
-  ))
-)
+    ))
+  )

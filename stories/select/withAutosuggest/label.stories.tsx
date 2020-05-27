@@ -12,35 +12,35 @@ storiesOf("Select with autosuggest / Label", module)
   .add(
     "Standard",
     generateStory({
-      labelText: "Label",
+      labelText: "Label"
     })
   )
   .add(
     "With placeholder",
     generateStory({
       placeholder: "Placeholder",
-      labelText: "Label",
+      labelText: "Label"
     })
   )
   .add(
     "With hint",
     generateStory({
       hint: "Hint text",
-      labelText: "Label",
+      labelText: "Label"
     })
   )
   .add(
     "Required indicator",
     generateStory({
       labelText: "Label",
-      required: true,
+      required: true
     })
   )
   .add(
     "Popup",
     generateStory({
       labelText: "Label",
-      renderLabelPopup: () => <div>Popup Content</div>,
+      renderLabelPopup: () => <div>Popup Content</div>
     })
   )
   .add(
@@ -48,6 +48,6 @@ storiesOf("Select with autosuggest / Label", module)
     generateStory({
       required: true,
       labelText: "Label",
-      renderLabelPopup: () => <div>Popup Content</div>,
+      renderLabelPopup: () => <div>Popup Content</div>
     })
   )

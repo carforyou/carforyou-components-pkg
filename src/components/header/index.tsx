@@ -17,9 +17,9 @@ import useModal from "../../hooks/useModal"
 interface Props {
   theme?: HeaderTheme
   mobileMenuText?: string
-  links?: Array<JSX.Element>
+  links?: JSX.Element[]
   ctaButton?: JSX.Element
-  iconButtons: Array<JSX.Element>
+  iconButtons: JSX.Element[]
   profile?: {
     renderWelcomeMessage: () => JSX.Element
     renderContent: () => JSX.Element

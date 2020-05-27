@@ -5,14 +5,14 @@
  * @note: Currently only supports callbacks with a single parameter (for form input events)
  */
 function debounce(
-  callback?: (event) => void,
+  callback?: (event: any) => void,
   delay?: number
-): (event) => void | undefined {
+): (event: any) => void | undefined {
   if (!callback || !delay) {
     return callback
   }
   let timer
-  return (event): void => {
+  return (event: any): void => {
     clearTimeout(timer)
     timer = setTimeout(() => {
       timer = null

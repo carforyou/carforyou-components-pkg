@@ -21,7 +21,7 @@ const generateDescription = ({
   skipContainer,
   extraDescription,
   withAutosuggest,
-  noResultsText,
+  noResultsText
 }) => {
   return `
   Description
@@ -76,7 +76,7 @@ const generateStoryFunction = ({
   showSearchIcon,
   skipContainer,
   withAutosuggest,
-  noResultsText,
+  noResultsText
 }) => ({ value, setValue }) => {
   const renderSelect = () => (
     <Select
@@ -92,7 +92,7 @@ const generateStoryFunction = ({
       placeholder={placeholder}
       hint={hint}
       showSearchIcon={showSearchIcon}
-      handleChange={(v) => {
+      handleChange={v => {
         setValue(v)
         handleChange(v)
       }}
@@ -126,7 +126,7 @@ const generateStory = ({
     { value: 3, name: "Three" },
     { value: 4, name: "Four" },
     { value: 5, name: "Five" },
-    { value: 6, name: "Six" },
+    { value: 6, name: "Six" }
   ],
   allowCustomValues = false,
   selected = null,
@@ -141,7 +141,7 @@ const generateStory = ({
   skipContainer = false,
   extraDescription = null,
   withAutosuggest = true,
-  noResultsText = null,
+  noResultsText = null
 }) => {
   const handleChange = () => action("handleChange")
 
@@ -160,13 +160,13 @@ const generateStory = ({
     hint,
     withAutosuggest,
     skipContainer,
-    noResultsText,
+    noResultsText
   }
 
   return wInfo(generateDescription({ ...common, extraDescription }))(
     generateStoryFunction({
       ...common,
-      handleChange: handleChange(),
+      handleChange: handleChange()
     })
   )
 }

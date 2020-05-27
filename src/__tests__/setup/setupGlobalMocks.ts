@@ -5,14 +5,14 @@ window.matchMedia =
   window.matchMedia ||
   (() => {
     return {
-      addListener: jest.fn(),
+      addListener: () => {}, // tslint:disable-line: no-empty
       matches: false,
-      removeListener: jest.fn(),
+      removeListener: () => {}, // tslint:disable-line: no-empty
       media: "test",
-      onchange: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: () => true,
+      onchange: () => {}, // tslint:disable-line: no-empty
+      addEventListener: () => {}, // tslint:disable-line: no-empty
+      removeEventListener: () => {}, // tslint:disable-line: no-empty
+      dispatchEvent: () => true, // tslint:disable-line: no-empty
     }
   })
 

@@ -21,9 +21,9 @@ interface InputProps {
   onChange: <T extends { target: { name: string; value: string | number } }>(
     e: T
   ) => void
-  onBlur?: (e: FocusEvent) => void
-  onKeyDown?: (e: KeyboardEvent) => void
-  onFocus?: (e: FocusEvent) => void
+  onBlur?: (e: FocusEvent<any>) => void
+  onKeyDown?: (e: KeyboardEvent<any>) => void
+  onFocus?: (e: FocusEvent<any>) => void
   step?: number
   min?: number
   max?: number
@@ -93,7 +93,6 @@ const Input = forwardRef<HTMLInputElement, Props>(
         value={value || ""}
         placeholder={placeholder || ""}
         className={classNames("w-12/12", className, {
-          // eslint-disable-next-line @typescript-eslint/naming-convention
           input_withClearButton: hasClearButton,
           "floatingLabel-input": labelProps.floating,
         })}

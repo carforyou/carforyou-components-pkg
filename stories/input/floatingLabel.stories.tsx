@@ -1,3 +1,5 @@
+import React from "react"
+
 import { storiesOf } from "@storybook/react"
 
 import { ControlledInputDecorator } from "../utils"
@@ -12,7 +14,7 @@ storiesOf("Input / Floating Label", module)
     generateStory({
       value: initialValue,
       labelText: "Label",
-      floatingLabel: true,
+      floatingLabel: true
     })
   )
   .add(
@@ -21,7 +23,7 @@ storiesOf("Input / Floating Label", module)
       value: initialValue,
       labelText: "Label",
       floatingLabel: true,
-      error: "Error message",
+      error: "Error message"
     })
   )
   .add(
@@ -30,7 +32,7 @@ storiesOf("Input / Floating Label", module)
       value: initialValue,
       hasClearButton: true,
       labelText: "Label",
-      floatingLabel: true,
+      floatingLabel: true
     })
   )
   .add(
@@ -39,6 +41,6 @@ storiesOf("Input / Floating Label", module)
       value: initialValue,
       hint: "Hint text",
       labelText: "Label",
-      floatingLabel: true,
+      floatingLabel: true
     })
   )

@@ -12,7 +12,7 @@ const generateDescription = ({
   error,
   label,
   labelPosition,
-  buttonStyle,
+  buttonStyle
 }) => {
   return `
   Description
@@ -33,7 +33,7 @@ ${buttonStyle ? "    buttonStyle" : ""}
 
 const generateStoryFunction = ({ name, onChange, label, ...rest }) => ({
   value,
-  setValue,
+  setValue
 }) => {
   return (
     <div className="mx-30 mb-40">
@@ -42,7 +42,7 @@ const generateStoryFunction = ({ name, onChange, label, ...rest }) => ({
         <Checkbox
           name={name}
           checked={value}
-          onChange={(e) => {
+          onChange={e => {
             setValue(e.target.checked)
             onChange()(e)
           }}
@@ -61,7 +61,7 @@ const generateStory = ({
   error = null,
   label = null,
   labelPosition = null,
-  buttonStyle = null,
+  buttonStyle = null
 }) => {
   const onChange = () => action("onChange")
 
@@ -69,12 +69,12 @@ const generateStory = ({
     name,
     error,
     disabled,
-    label,
+    label
   }
 
   const labelProps = labelPosition
     ? {
-        labelPosition,
+        labelPosition
       }
     : buttonStyle
     ? { buttonStyle }
@@ -85,13 +85,13 @@ const generateStory = ({
       checked: value,
       labelPosition,
       buttonStyle,
-      ...common,
+      ...common
     })
   )(
     generateStoryFunction({
       ...common,
       ...labelProps,
-      onChange,
+      onChange
     })
   )
 }
