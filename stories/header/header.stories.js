@@ -74,65 +74,55 @@ const profile = {
   },
 }
 const links = [
-  () => (
-    <a href="#" className="block py-10 lg:py-0">
-      Auto Kaufen
-    </a>
-  ),
-  () => (
-    <a href="#" className="block py-10 lg:py-0">
-      Auto Verkaufen
-    </a>
-  ),
-  () => (
-    // not lg
-    <a href="#" className="block lg:hidden xl:block py-10 lg:py-0">
-      Für Garagisten
-    </a>
-  ),
-  () => (
-    // not lg
-    <div className="lg:hidden xl:block">
-      <HeaderDropdown renderParent={() => <span>Sich Informieren</span>}>
-        <ul>
-          <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">Additional info one</a>
-          </li>
-          <li className="py-15 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">Additional info two</a>
-          </li>
-          <li className="pt-10 pb-20 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">Additional info three</a>
-          </li>
-        </ul>
-      </HeaderDropdown>
-    </div>
-  ),
-  () => (
-    // lg only (more navigation)
-    <div className="hidden lg:block xl:hidden -ml-headerMenuMore">
-      <HeaderDropdown renderParent={() => <span>Mehr</span>}>
-        <ul>
-          <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">Für Garagisten</a>
-          </li>
-          <li className="py-15 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">Additional info one</a>
-          </li>
-          <li className="py-15 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">Additional info two</a>
-          </li>
-          <li className="pt-10 pb-20 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
-            <a href="#">Additional info three</a>
-          </li>
-        </ul>
-      </HeaderDropdown>
-    </div>
-  ),
+  <a href="#" key="link-1" className="block py-10 lg:py-0">
+    Auto Kaufen
+  </a>,
+  <a href="#" key="link-1" className="block py-10 lg:py-0">
+    Auto Verkaufen
+  </a>,
+  // not lg
+  <a href="#" key="link-1" className="block lg:hidden xl:block py-10 lg:py-0">
+    Für Garagisten
+  </a>,
+  // not lg
+  <div className="lg:hidden xl:block" key="link-1">
+    <HeaderDropdown renderParent={() => <span>Sich Informieren</span>}>
+      <ul>
+        <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">Additional info one</a>
+        </li>
+        <li className="py-15 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">Additional info two</a>
+        </li>
+        <li className="pt-10 pb-20 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">Additional info three</a>
+        </li>
+      </ul>
+    </HeaderDropdown>
+  </div>,
+  // lg only (more navigation)
+  <div className="hidden lg:block xl:hidden -ml-headerMenuMore" key="link-1">
+    <HeaderDropdown renderParent={() => <span>Mehr</span>}>
+      <ul>
+        <li className="pt-20 pb-10 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">Für Garagisten</a>
+        </li>
+        <li className="py-15 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">Additional info one</a>
+        </li>
+        <li className="py-15 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">Additional info two</a>
+        </li>
+        <li className="pt-10 pb-20 lg:py-10 pl-40 lg:px-20 lg:hover:bg-grey-bright">
+          <a href="#">Additional info three</a>
+        </li>
+      </ul>
+    </HeaderDropdown>
+  </div>,
 ]
-const renderCTAButton = () => (
+const ctaButton = (
   <div className="hidden md:block">
-    <Button size="auto" icon={() => <Plus />}>
+    <Button size="responsive" icon={() => <Plus />}>
       Kostenlos inserieren
     </Button>
   </div>
@@ -274,9 +264,9 @@ storiesOf("Header", module)
         </div>
       ),
     ]
-    const renderCTAButton = () => (
+    const ctaButton = (
         <div className="hidden md:block">
-          <Button size="auto" icon={() => <Plus />}>Kostenlos inserieren</Button>
+          <Button size="responsive" icon={() => <Plus />}>Kostenlos inserieren</Button>
         </div>
     )
     const iconButtons = [() => <Heart />]
@@ -286,7 +276,7 @@ storiesOf("Header", module)
           <Header
             theme={HeaderTheme.TRANSPARENT}
             links={links}
-            renderCTAButton={renderCTAButton}
+            ctaButton={ctaButton}
             iconButtons={iconButtons}
             profile={profile}
             renderLanguageNavigation={renderLanguageNavigationFactory()}
@@ -301,7 +291,7 @@ storiesOf("Header", module)
             <Header
               theme={HeaderTheme.TRANSPARENT}
               links={links}
-              renderCTAButton={renderCTAButton}
+              ctaButton={ctaButton}
               iconButtons={iconButtons}
               profile={profile}
               renderLanguageNavigation={renderLanguageNavigationFactory()}
@@ -397,9 +387,9 @@ storiesOf("Header", module)
         </div>
       ),
     ]
-    const renderCTAButton = () => (
+    const ctaButton = (
         <div className="hidden md:block">
-          <Button size="auto" icon={() => <Plus />}>Kostenlos inserieren</Button>
+          <Button size="responsive" icon={() => <Plus />}>Kostenlos inserieren</Button>
         </div>
     )
     const iconButtons = [() => <Heart />]
@@ -408,7 +398,7 @@ storiesOf("Header", module)
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header
             links={links}
-            renderCTAButton={renderCTAButton}
+            ctaButton={ctaButton}
             iconButtons={iconButtons}
             profile={profile}
             renderLanguageNavigation={renderLanguageNavigationFactory()}
@@ -421,7 +411,7 @@ storiesOf("Header", module)
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header
             links={links}
-            renderCTAButton={renderCTAButton}
+            ctaButton={ctaButton}
             iconButtons={iconButtons}
             profile={profile}
             renderLanguageNavigation={renderLanguageNavigationFactory()}
@@ -461,24 +451,18 @@ storiesOf("Header", module)
     }
 
     const links = [
-        () => (
-          <a href="#" className="block py-10 lg:py-0">
-            Meine Inserate
-          </a>
-        ),
-        () => (
-          <a href="#" className="block py-10 lg:py-0">
-            Automarkt
-          </a>
-        ),
-        () => (
-          <a href="#" className="block py-10 lg:py-0">
-            News
-          </a>
-        ),
+      <a href="#" key="link-1" className="block py-10 lg:py-0">
+        Meine Inserate
+      </a>,
+      <a href="#" key="link-2" className="block py-10 lg:py-0">
+        Automarkt
+      </a>,
+      <a href="#" key="link-3" className="block py-10 lg:py-0">
+        News
+      </a>,
     ]
-    const renderCTAButton = () => (
-        <Button size="auto" icon={() => <Plus />}>
+    const ctaButton = (
+        <Button size="responsive" icon={() => <Plus />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
     )
@@ -488,7 +472,7 @@ storiesOf("Header", module)
           <Header
             theme={HeaderTheme.DARK}
             links={links}
-            renderCTAButton={renderCTAButton}
+            ctaButton={ctaButton}
             profile={profile}
             renderLanguageNavigation={renderLanguageNavigationFactory(() => (
               <span>DE</span>
@@ -499,24 +483,18 @@ storiesOf("Header", module)
     ~~~~
     `)(() => {
       const links = [
-        () => (
-          <a href="#" className="block py-10 lg:py-0">
-            Meine Inserate
-          </a>
-        ),
-        () => (
-          <a href="#" className="block py-10 lg:py-0">
-            Automarkt
-          </a>
-        ),
-        () => (
-          <a href="#" className="block py-10 lg:py-0">
-            News
-          </a>
-        ),
+        <a href="#" key="link-1" className="block py-10 lg:py-0">
+          Meine Inserate
+        </a>,
+        <a href="#" key="link-2" className="block py-10 lg:py-0">
+          Automarkt
+        </a>,
+        <a href="#" key="link-3" className="block py-10 lg:py-0">
+          News
+        </a>,
       ]
-      const renderCTAButton = () => (
-        <Button size="auto" icon={() => <Plus />}>
+      const ctaButton = (
+        <Button size="responsive" icon={() => <Plus />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
       )
@@ -526,7 +504,7 @@ storiesOf("Header", module)
           <Header
             theme={HeaderTheme.DARK}
             links={links}
-            renderCTAButton={renderCTAButton}
+            ctaButton={ctaButton}
             profile={profile}
             renderLanguageNavigation={renderLanguageNavigationFactory(() => (
               <span>DE</span>

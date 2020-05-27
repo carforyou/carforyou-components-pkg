@@ -15,22 +15,22 @@ import {
 import useModal from "../../hooks/useModal"
 
 interface Props {
-  links?: Array<() => JSX.Element>
-  renderCTAButton?: () => JSX.Element
-  iconButtons?: Array<() => JSX.Element>
+  theme?: HeaderTheme
+  mobileMenuText?: string
+  links?: Array<JSX.Element>
+  ctaButton?: JSX.Element
+  iconButtons: Array<JSX.Element>
   profile?: {
     renderWelcomeMessage: () => JSX.Element
     renderContent: () => JSX.Element
   }
   renderLanguageNavigation?: () => JSX.Element
-  theme?: HeaderTheme
-  mobileMenuText?: string
 }
 
 const Header: FC<Props> = ({
   theme = HeaderTheme.LIGHT,
   links = [],
-  renderCTAButton = () => null,
+  ctaButton = null,
   iconButtons = [],
   profile = {
     renderWelcomeMessage: () => null,
@@ -62,8 +62,8 @@ const Header: FC<Props> = ({
         <div className="px-15">
           {profile.renderWelcomeMessage()}
           <hr className="-mx-headerMenu text-grey-1" />
-          {links.map((renderLink, index) => {
-            return <div key={`navigationLink-${index}`}>{renderLink()}</div>
+          {links.map((link, index) => {
+            return <div key={`navigationLink-${index}`}>{link}</div>
           })}
           <hr className="-mx-headerMenu text-grey-1" />
           {profile.renderContent()}
@@ -106,13 +106,13 @@ const Header: FC<Props> = ({
             {/* Links - LG / Desktop  */}
             <div className="flex flex-grow">
               <div className="hidden lg:flex items-center text-center">
-                {links.map((renderLink, index) => {
+                {links.map((link, index) => {
                   return (
                     <div
                       className="mr-headerMenu"
                       key={`navigationLink-${index}`}
                     >
-                      {renderLink()}
+                      {link}
                     </div>
                   )
                 })}
@@ -125,16 +125,16 @@ const Header: FC<Props> = ({
               })}
             >
               {/* CTA Button */}
-              <div className="mr-headerMenu ">{renderCTAButton()}</div>
+              <div className="mr-headerMenu ">{ctaButton}</div>
               {/* Icons Button */}
               <div>
-                {iconButtons.map((renderIconButton, index) => {
+                {iconButtons.map((iconButton, index) => {
                   return (
                     <div
                       className="mr-headerMenu hover:opacity-60"
                       key={`navigationLink-${index}`}
                     >
-                      {renderIconButton()}
+                      {iconButton}
                     </div>
                   )
                 })}

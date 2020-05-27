@@ -47,17 +47,17 @@ storiesOf("Button", module)
     ))
   )
   .add(
-    "Auto",
+    "Responsive",
     wInfo(`
     Description
     ~~~
-    <Button size="auto">CarForYou</Button>
+    <Button size="responsive">CarForYou</Button>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
-        <div className="text-2xl mb-20">Auto size button</div>
+        <div className="text-2xl mb-20">Responsive size button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button size="auto">Auto size button</Button>
+          <Button size="responsive">Responsive size button</Button>
         </div>
       </div>
     ))
