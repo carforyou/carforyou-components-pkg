@@ -10,7 +10,6 @@ Object {
   "theme": Object {
     "backgroundColor": Object {
       "black": "#000000",
-      "black-logo": "#1D1D1B",
       "facebook": "#4267B2",
       "fair-deal": "#EAA403",
       "good-deal": "#81B040",
@@ -59,7 +58,6 @@ Object {
     },
     "borderColor": Object {
       "black": "#000000",
-      "black-logo": "#1D1D1B",
       "default": undefined,
       "facebook": "#4267B2",
       "fair-deal": "#EAA403",
@@ -118,7 +116,6 @@ Object {
     },
     "colors": Object {
       "black": "#000000",
-      "black-logo": "#1D1D1B",
       "facebook": "#4267B2",
       "fair-deal": "#EAA403",
       "good-deal": "#81B040",
@@ -185,7 +182,6 @@ Object {
       "header": "85px",
       "headerSmall": "60px",
       "headerTransparent": "166px",
-      "iconDefault": "32px",
       "input": "52px",
       "radioIndicator": "12px",
       "screen": "100vh",
@@ -314,7 +310,6 @@ Object {
     },
     "textColor": Object {
       "black": "#000000",
-      "black-logo": "#1D1D1B",
       "facebook": "#4267B2",
       "fair-deal": "#EAA403",
       "good-deal": "#81B040",
@@ -365,7 +360,6 @@ Object {
       "auto": "auto",
       "checkbox": "24px",
       "clearButton": "32px",
-      "iconDefault": "32px",
       "logoDefault": "170px",
       "logoSmall": "140px",
       "modal": "570px",
