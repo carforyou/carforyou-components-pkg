@@ -20,10 +20,10 @@ import useModal from "./hooks/useModal"
 
 // TODO:
 import Profile from "./components/icons/profile"
-import Plus from "./components/icons/plus"
-import MyCars from "./components/icons/myCars"
-import Logout from "./components/icons/logout"
-import Heart from "./components/icons/heart"
+import Plus from "./header/icons/plus"
+import MyCars from "./header/icons/myCars"
+import Logout from "./header/icons/logout"
+import Heart from "./header/icons/heart"
 
 // New
 import LogoRedWhite from "./components/icons/logoRedWhite"

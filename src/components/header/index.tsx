@@ -1,17 +1,9 @@
 import React, { FC } from "react"
 import classNames from "classnames"
 
-import { defaultConfig as tailwindConfig } from "../../tailwind/index"
-const {
-  theme: {
-    colors: { "grey-3": iconColorLight, white: iconColorDark },
-  },
-} = tailwindConfig
-
 import LogoRedBlack from "../icons/logoRedBlack"
 import LogoWhite from "../icons/logoWhite"
 import LogoRedWhite from "../icons/logoRedWhite"
-
 import Profile from "../icons/profile"
 
 import HeaderDropdown from "./dropdown"
@@ -47,7 +39,6 @@ const Header: FC<Props> = ({
   renderLanguageNavigation = () => null,
   mobileMenuText = "MENU",
 }) => {
-  const iconColor = theme === HeaderTheme.LIGHT ? iconColorLight : iconColorDark
   const {
     isLight,
     isDark,
@@ -155,7 +146,16 @@ const Header: FC<Props> = ({
                 })}
               >
                 <HeaderDropdown
-                  renderParent={() => <Profile color={iconColor} />}
+                  renderParent={() => (
+                    <div
+                      className={classNames({
+                        "text-grey-3": isLight,
+                        "text-white": isDarkOrTransparent,
+                      })}
+                    >
+                      <Profile />
+                    </div>
+                  )}
                   theme={theme}
                   stickOut="left"
                 >

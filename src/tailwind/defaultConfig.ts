@@ -230,7 +230,6 @@ export default {
       screen: "100vh",
       scrollbar: "70px",
       clearButton: "32px",
-      iconDefault: "32px",
       checkbox: "24px",
       radioIndicator: "12px",
       input: "52px",
@@ -484,7 +483,6 @@ export default {
       logoDefault: "170px",
       logoSmall: "140px",
       profileDropdown: "320px",
-      iconDefault: "32px",
     },
 
     transitionDuration: {

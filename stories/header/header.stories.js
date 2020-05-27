@@ -2,22 +2,16 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import { wInfo } from "../utils"
 
-import { defaultConfig as tailwindConfig } from "../../src/tailwind/index"
-const {
-  theme: {
-    colors: { salmon, white },
-  },
-} = tailwindConfig
-
 import Header from "../../src/components/header/index"
 import { HeaderTheme } from "../../src/components/header/themeContext"
 import HeaderDropdown from "../../src/components/header/dropdown"
 import Button from "../../src/components/button"
-import Plus from "../../src/components/icons/plus"
-import Heart from "../../src/components/icons/heart"
-import MyCars from "../../src/components/icons/myCars"
 import Profile from "../../src/components/icons/profile"
-import Logout from "../../src/components/icons/logout"
+
+import Plus from "./icons/plus"
+import Heart from "./icons/heart"
+import MyCars from "./icons/myCars"
+import Logout from "./icons/logout"
 
 const renderLanguageNavigationFactory = (
   renderParent = () => <span>DE</span>
@@ -138,7 +132,7 @@ const links = [
 ]
 const renderCTAButton = () => (
   <div className="hidden md:block">
-    <Button size="auto" icon={() => <Plus color={white} />}>
+    <Button size="auto" icon={() => <Plus />}>
       Kostenlos inserieren
     </Button>
   </div>
@@ -169,15 +163,6 @@ storiesOf("Header", module)
     <Header theme={HeaderTheme.DARK} />
     ~~~~
     `)(() => {
-      const renderLogo = () => (
-        <Logo
-          colors={{
-            icon: salmon,
-            carFor: white,
-            you: salmon,
-          }}
-        />
-      )
       return (
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header theme={HeaderTheme.DARK} />
@@ -190,15 +175,6 @@ storiesOf("Header", module)
     wInfo(`
     Empty
     ~~~~
-    const renderWhiteLogo = () => (
-        <Logo
-            colors={{
-                icon: white,
-                carFor: white,
-                you: white,
-            }}
-        />
-    )
     <Header />
     <Header theme={HeaderTheme.TRANSPARENT} />
     ~~~~
@@ -300,7 +276,7 @@ storiesOf("Header", module)
     ]
     const renderCTAButton = () => (
         <div className="hidden md:block">
-          <Button size="auto" icon={() => <Plus color={white} />}>Kostenlos inserieren</Button>
+          <Button size="auto" icon={() => <Plus />}>Kostenlos inserieren</Button>
         </div>
     )
     const iconButtons = [() => <Heart />]
@@ -423,7 +399,7 @@ storiesOf("Header", module)
     ]
     const renderCTAButton = () => (
         <div className="hidden md:block">
-          <Button size="auto" icon={() => <Plus color={white} />}>Kostenlos inserieren</Button>
+          <Button size="auto" icon={() => <Plus />}>Kostenlos inserieren</Button>
         </div>
     )
     const iconButtons = [() => <Heart />]
@@ -502,7 +478,7 @@ storiesOf("Header", module)
         ),
     ]
     const renderCTAButton = () => (
-        <Button size="auto" icon={() => <Plus color={white} />}>
+        <Button size="auto" icon={() => <Plus />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
     )
@@ -540,7 +516,7 @@ storiesOf("Header", module)
         ),
       ]
       const renderCTAButton = () => (
-        <Button size="auto" icon={() => <Plus color={white} />}>
+        <Button size="auto" icon={() => <Plus />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
       )
