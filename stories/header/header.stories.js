@@ -15,7 +15,6 @@ import HeaderDropdown from "../../src/components/header/dropdown"
 import Button from "../../src/components/button"
 import Plus from "../../src/components/icons/plus"
 import Heart from "../../src/components/icons/heart"
-import Logo from "../../src/components/icons/logo"
 import MyCars from "../../src/components/icons/myCars"
 import Profile from "../../src/components/icons/profile"
 import Logout from "../../src/components/icons/logout"
@@ -146,16 +145,6 @@ const renderCTAButton = () => (
 )
 const iconButtons = [() => <Heart color="currentColor" />]
 
-const renderWhiteLogo = () => (
-  <Logo
-    colors={{
-      icon: white,
-      carFor: white,
-      you: white,
-    }}
-  />
-)
-
 storiesOf("Header", module)
   .add(
     "Theme LIGHT",
@@ -177,16 +166,7 @@ storiesOf("Header", module)
     wInfo(`
     Empty
     ~~~~
-    const renderLogo = () => (
-        <Logo
-            colors={{
-              icon: salmon,
-              carFor: white,
-              you: salmon,
-            }}
-        />
-    )
-    <Header theme={HeaderTheme.DARK} renderLogo={renderLogo} />
+    <Header theme={HeaderTheme.DARK} />
     ~~~~
     `)(() => {
       const renderLogo = () => (
@@ -200,7 +180,7 @@ storiesOf("Header", module)
       )
       return (
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
-          <Header theme={HeaderTheme.DARK} renderLogo={renderLogo} />
+          <Header theme={HeaderTheme.DARK} />
         </div>
       )
     })
@@ -220,16 +200,13 @@ storiesOf("Header", module)
         />
     )
     <Header />
-    <Header theme={HeaderTheme.TRANSPARENT} renderLogo={renderWhiteLogo} />
+    <Header theme={HeaderTheme.TRANSPARENT} />
     ~~~~
     `)(() => {
       return (
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <div className="bg-white">
-            <Header
-              theme={HeaderTheme.TRANSPARENT}
-              renderLogo={renderWhiteLogo}
-            />
+            <Header theme={HeaderTheme.TRANSPARENT} />
           </div>
         </div>
       )
@@ -332,7 +309,6 @@ storiesOf("Header", module)
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header
             theme={HeaderTheme.TRANSPARENT}
-            renderLogo={renderWhiteLogo}
             links={links}
             renderCTAButton={renderCTAButton}
             iconButtons={iconButtons}
@@ -348,7 +324,6 @@ storiesOf("Header", module)
           <div className="bg-white">
             <Header
               theme={HeaderTheme.TRANSPARENT}
-              renderLogo={renderWhiteLogo}
               links={links}
               renderCTAButton={renderCTAButton}
               iconButtons={iconButtons}
@@ -509,15 +484,6 @@ storiesOf("Header", module)
         }
     }
 
-    const renderLogo = () => (
-        <Logo
-          colors={{
-            icon: salmon,
-            carFor: white,
-            you: "salmon",
-          }}
-        />
-    )
     const links = [
         () => (
           <a href="#" className="block py-10 lg:py-0">
@@ -545,7 +511,6 @@ storiesOf("Header", module)
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header
             theme={HeaderTheme.DARK}
-            renderLogo={renderLogo}
             links={links}
             renderCTAButton={renderCTAButton}
             profile={profile}
@@ -557,15 +522,6 @@ storiesOf("Header", module)
     )
     ~~~~
     `)(() => {
-      const renderLogo = () => (
-        <Logo
-          colors={{
-            icon: salmon,
-            carFor: white,
-            you: salmon,
-          }}
-        />
-      )
       const links = [
         () => (
           <a href="#" className="block py-10 lg:py-0">
@@ -593,7 +549,6 @@ storiesOf("Header", module)
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header
             theme={HeaderTheme.DARK}
-            renderLogo={renderLogo}
             links={links}
             renderCTAButton={renderCTAButton}
             profile={profile}

@@ -8,7 +8,10 @@ const {
   },
 } = tailwindConfig
 
-import Logo from "../icons/logo"
+import LogoRedBlack from "../icons/logoRedBlack"
+import LogoWhite from "../icons/logoWhite"
+import LogoRedWhite from "../icons/logoRedWhite"
+
 import Profile from "../icons/profile"
 
 import HeaderDropdown from "./dropdown"
@@ -20,7 +23,6 @@ import {
 import useModal from "../../hooks/useModal"
 
 interface Props {
-  renderLogo?: () => JSX.Element
   links?: Array<() => JSX.Element>
   renderCTAButton?: () => JSX.Element
   iconButtons?: Array<() => JSX.Element>
@@ -35,7 +37,6 @@ interface Props {
 
 const Header: FC<Props> = ({
   theme = HeaderTheme.LIGHT,
-  renderLogo = () => <Logo />,
   links = [],
   renderCTAButton = () => null,
   iconButtons = [],
@@ -55,11 +56,17 @@ const Header: FC<Props> = ({
   } = getThemeCombinations(theme)
   const languageNavigation = renderLanguageNavigation()
 
+  const themeLog = {
+    [HeaderTheme.LIGHT]: <LogoRedBlack />,
+    [HeaderTheme.DARK]: <LogoRedWhite />,
+    [HeaderTheme.TRANSPARENT]: <LogoWhite />,
+  }
+
   const renderMobileNavigation = () => {
     return (
       <div className="min-w-screen text-black">
         <div className="min-w-100 w-logoDefault mx-headerMenu my-22">
-          <Logo />
+          <LogoRedBlack />
         </div>
         <div className="px-15">
           {profile.renderWelcomeMessage()}
@@ -103,7 +110,7 @@ const Header: FC<Props> = ({
           <nav className="w-12/12 flex items-center">
             {/* Logo Section */}
             <div className="min-w-100 w-logoSmall lg:w-logoDefault mr-20 xl:mr-40">
-              {renderLogo()}
+              <a href="https://www.carforyou.ch/">{themeLog[theme]}</a>
             </div>
             {/* Links - LG / Desktop  */}
             <div className="flex flex-grow">

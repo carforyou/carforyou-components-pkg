@@ -29,7 +29,6 @@ export default {
 
     colors: {
       black: "#000000",
-      "black-logo": "#1D1D1B",
       white: "#FFFFFF",
       transparent: "transparent",
       salmon: "#F73B47",

@@ -16,13 +16,19 @@ import WithValidationError from "./components/fieldHelpers/withValidationError"
 import Header from "./components/header/index"
 import { HeaderTheme } from "./components/header/themeContext"
 import HeaderDropdown from "./components/header/dropdown"
+import useModal from "./hooks/useModal"
+
+// TODO:
 import Profile from "./components/icons/profile"
 import Plus from "./components/icons/plus"
 import MyCars from "./components/icons/myCars"
 import Logout from "./components/icons/logout"
-import Logo from "./components/icons/logo"
 import Heart from "./components/icons/heart"
-import useModal from "./hooks/useModal"
+
+// New
+import LogoRedWhite from "./components/icons/logoRedWhite"
+import LogoRedBlack from "./components/icons/logoRedBlack"
+import LogoWhite from "./components/icons/logoWhite"
 
 export {
   Button,
@@ -48,6 +54,8 @@ export {
   Plus,
   MyCars,
   Logout,
-  Logo,
   Heart,
+  LogoRedWhite,
+  LogoRedBlack,
+  LogoWhite,
 }
