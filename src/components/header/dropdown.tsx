@@ -99,7 +99,7 @@ const HeaderDropdown: FC<Props> = ({
     )
   }
 
-  return <>{isOpen ? renderOpenState() : renderClosedState()}</>
+  return isOpen ? renderOpenState() : renderClosedState()
 }
 
 export default HeaderDropdown

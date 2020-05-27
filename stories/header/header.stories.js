@@ -125,7 +125,7 @@ const ctaButton = (
     </Button>
   </div>
 )
-const iconButtons = [() => <Heart color="currentColor" />]
+const iconButtons = [<Heart key="heart" />]
 
 storiesOf("Header", module)
   .add(

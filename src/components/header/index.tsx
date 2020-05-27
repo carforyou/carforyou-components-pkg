@@ -73,6 +73,87 @@ const Header: FC<Props> = ({
     style: "white",
   })
 
+  const renderLogo = () => (
+    <div className="min-w-100 w-logoSmall lg:w-logoDefault mr-20 xl:mr-40">
+      <a href="https://www.carforyou.ch/">{themeLog[theme]}</a>
+    </div>
+  )
+
+  const renderLinksDesktop = () => (
+    <div className="flex flex-grow">
+      <div className="hidden lg:flex items-center text-center">
+        {links.map((link, index) => {
+          return (
+            <div className="mr-headerMenu" key={`navigationLink-${index}`}>
+              {link}
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+
+  const renderCtaButton = () => (
+    <div className="mr-headerMenu ">{ctaButton}</div>
+  )
+
+  const renderProfileNavigationDesktop = () => (
+    <div
+      className={classNames("hidden lg:block", {
+        "mr-headerMenu": languageNavigation,
+      })}
+    >
+      <HeaderDropdown
+        renderParent={() => (
+          <div
+            className={classNames("text-white", {
+              "text-grey-3 text-black": isLight,
+            })}
+          >
+            <Profile />
+          </div>
+        )}
+        theme={theme}
+        stickOut="left"
+      >
+        <div className="m-headerMenu w-profileDropdown">
+          {profile.renderWelcomeMessage()}
+          <hr className="-mx-headerMenu text-grey-1 mb-20" />
+          {profile.renderContent()}
+        </div>
+      </HeaderDropdown>
+    </div>
+  )
+
+  const renderMobileNavigationLink = () => (
+    <div className="block lg:hidden">
+      <a
+        onClick={openModal}
+        className={classNames("cursor-pointer text-white", {
+          "text-grey-3 text-black": isLight,
+        })}
+      >
+        {mobileMenuText}
+      </a>
+      {renderModal()}
+    </div>
+  )
+
+  const renderIconButtons = () => (
+    <div>
+      {iconButtons.map((iconButton, index) => {
+        return (
+          <div
+            className="mr-headerMenu hover:opacity-60"
+            key={`navigationLink-${index}`}
+          >
+            {iconButton}
+          </div>
+        )
+      })}
+    </div>
+  )
+
   return (
     <HeaderThemeProvider theme={theme}>
       <div
@@ -92,86 +173,18 @@ const Header: FC<Props> = ({
           )}
         >
           <nav className="w-12/12 flex items-center">
-            {/* Logo Section */}
-            <div className="min-w-100 w-logoSmall lg:w-logoDefault mr-20 xl:mr-40">
-              <a href="https://www.carforyou.ch/">{themeLog[theme]}</a>
-            </div>
-            {/* Links - LG / Desktop  */}
-            <div className="flex flex-grow">
-              <div className="hidden lg:flex items-center text-center">
-                {links.map((link, index) => {
-                  return (
-                    <div
-                      className="mr-headerMenu"
-                      key={`navigationLink-${index}`}
-                    >
-                      {link}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-            {/* Right Section */}
+            {renderLogo()}
+            {renderLinksDesktop()}
             <div
               className={classNames("flex items-center cursor-pointer", {
                 "text-grey-3": isLight,
               })}
             >
-              {/* CTA Button */}
-              <div className="mr-headerMenu ">{ctaButton}</div>
-              {/* Icons Button */}
-              <div>
-                {iconButtons.map((iconButton, index) => {
-                  return (
-                    <div
-                      className="mr-headerMenu hover:opacity-60"
-                      key={`navigationLink-${index}`}
-                    >
-                      {iconButton}
-                    </div>
-                  )
-                })}
-              </div>
-              {/* Profile - LG / Desktop  */}
-              <div
-                className={classNames("hidden lg:block", {
-                  "mr-headerMenu": languageNavigation,
-                })}
-              >
-                <HeaderDropdown
-                  renderParent={() => (
-                    <div
-                      className={classNames("text-white", {
-                        "text-grey-3 text-black": isLight,
-                      })}
-                    >
-                      <Profile />
-                    </div>
-                  )}
-                  theme={theme}
-                  stickOut="left"
-                >
-                  <div className="m-headerMenu w-profileDropdown">
-                    {profile.renderWelcomeMessage()}
-                    <hr className="-mx-headerMenu text-grey-1 mb-20" />
-                    {profile.renderContent()}
-                  </div>
-                </HeaderDropdown>
-              </div>
-              {/* Language Navigation - LG / Desktop */}
+              {renderCtaButton()}
+              {renderIconButtons()}
+              {renderProfileNavigationDesktop()}
               <div className="hidden lg:block">{languageNavigation}</div>
-              {/* Menu Block Groups for mobile */}
-              <div className="block lg:hidden">
-                <a
-                  onClick={openModal}
-                  className={classNames("cursor-pointer text-white", {
-                    "text-grey-3 text-black": isLight,
-                  })}
-                >
-                  {mobileMenuText}
-                </a>
-                {renderModal()}
-              </div>
+              {renderMobileNavigationLink()}
             </div>
           </nav>
         </header>
