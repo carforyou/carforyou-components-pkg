@@ -24,7 +24,7 @@ purgeCssPaths.concat(components.getComponentPaths())
 
 You can also access the base config directly if you need to:
 
-Note: Be careful with loading the tailwind configuration as tailwind uses [lodash](https://bundlephobia.com/result?p=lodash), which might significantly increase your bundle size.
+Note: Be careful with loading the tailwind configuration, as tailwind uses [lodash](https://bundlephobia.com/result?p=lodash), which might significantly increase your bundle size.
 
 ```
 import { tailwind } from "@carforyou/components"
