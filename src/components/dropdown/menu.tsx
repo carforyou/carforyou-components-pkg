@@ -52,7 +52,7 @@ const hightlightItem = <T extends {}>({
       {preMatch}
       <span
         className={classNames("font-bold underline", {
-          select_withQuotes: isCustomValue(value),
+          "select_withQuotes": isCustomValue(value),
         })}
       >
         {match}
