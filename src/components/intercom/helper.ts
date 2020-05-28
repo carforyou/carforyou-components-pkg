@@ -9,6 +9,7 @@ const loadIntercom = (settings) => {
   if (!window.Intercom) {
     ;((w, d, id, s, _x) => {
       function i() {
+        // eslint-disable-next-line prefer-rest-params
         i.c(arguments)
       }
       i.q = []

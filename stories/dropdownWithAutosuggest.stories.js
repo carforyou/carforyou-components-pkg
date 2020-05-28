@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { storiesOf } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
-import { object, number, boolean, text } from "@storybook/addon-knobs"
+import { object, number, boolean } from "@storybook/addon-knobs"
 
 import { wInfo } from "./utils"
 
@@ -14,7 +14,7 @@ const options = () =>
     { value: 3, name: "Three" },
     { value: 4, name: "Four" },
     { value: 5, name: "Five" },
-    { value: 6, name: "Six" }
+    { value: 6, name: "Six" },
   ])
 const onSelect = () => action("onSelect")
 const selected = () => number("selected", null)
@@ -36,15 +36,15 @@ const TypeAheadWrapper = () => {
               {...getInputProps({
                 placeholder: "Select number",
                 className:
-                  "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200"
+                  "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200",
               })}
             />
           )}
-          onTypeAhead={value =>
+          onTypeAhead={(value) =>
             setSuggestions(
-              [1, 2, 3, 4, 5].map(i => ({
+              [1, 2, 3, 4, 5].map((i) => ({
                 name: `${value}: suggestion ${i}`,
-                value: `${value}.${i}`
+                value: `${value}.${i}`,
               }))
             )
           }
@@ -90,7 +90,7 @@ storiesOf("DropdownWithAutosuggest", module)
                 {...getInputProps({
                   placeholder: "Select number",
                   className:
-                    "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200"
+                    "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200",
                 })}
               />
             )}
@@ -138,7 +138,7 @@ storiesOf("DropdownWithAutosuggest", module)
                 {...getInputProps({
                   placeholder: "Select number",
                   className:
-                    "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200"
+                    "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200",
                 })}
               />
             )}

@@ -11,39 +11,39 @@ storiesOf("Select with autosuggest / Appearance", module)
   .add(
     "With search icon",
     generateStory({
-      showSearchIcon: true
+      showSearchIcon: true,
     })
   )
   .add(
     "Disabled",
     generateStory({
-      disabled: true
+      disabled: true,
     })
   )
   .add(
     "With error message",
     generateStory({
-      error: "Error message"
+      error: "Error message",
     })
   )
   .add(
     "With placeholder",
     generateStory({
-      placeholder: "Placeholder"
+      placeholder: "Placeholder",
     })
   )
   .add(
     "With hint",
     generateStory({
       selected: initialValue,
-      hint: "Hint text"
+      hint: "Hint text",
     })
   )
   .add(
     "With no results message",
     generateStory({
       selected: initialValue,
-      noResultsText: "Sorry no results"
+      noResultsText: "Sorry no results",
     })
   )
   .add(
@@ -52,6 +52,6 @@ storiesOf("Select with autosuggest / Appearance", module)
       selected: initialValue,
       skipContainer: true,
       extraDescription:
-        "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then."
+        "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then.",
     })
   )

@@ -16,7 +16,7 @@ interface Props {
   disabled?: boolean
   required?: boolean
   onChange: (e: { target: { value: string } }) => void
-  onBlur: (e: FocusEvent<any>) => void
+  onBlur: (e: FocusEvent) => void
   rows?: number
   cols?: number
   maxLength?: number

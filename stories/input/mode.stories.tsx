@@ -11,20 +11,20 @@ storiesOf("Input / Modes", module)
     "Text",
     generateStory({
       value: initialValue,
-      mode: "text"
+      mode: "text",
     })
   )
   .add(
     "Numeric",
     generateStory({
       value: initialValue,
-      mode: "numeric"
+      mode: "numeric",
     })
   )
   .add(
     "Decimal",
     generateStory({
       value: initialValue,
-      mode: "decimal"
+      mode: "decimal",
     })
   )

@@ -20,7 +20,6 @@ storiesOf("Button", module)
         <div className="w-12/12 md:w-3/12">
           <Button
             teal={boolean("Teal", false)}
-            small={boolean("Small", false)}
             disabled={boolean("Disabled", false)}
             tealBorder={boolean("Teal Border", false)}
             onClick={action("on Click")}
@@ -36,13 +35,29 @@ storiesOf("Button", module)
     wInfo(`
     Description
     ~~~
-    <Button small>CarForYou</Button>
+    <Button size="small">CarForYou</Button>
     ~~~
     `)(() => (
       <div className="mx-30 mb-40">
         <div className="text-2xl mb-20">Small button</div>
         <div className="w-12/12 md:w-3/12">
-          <Button small>Small button</Button>
+          <Button size="small">Small button</Button>
+        </div>
+      </div>
+    ))
+  )
+  .add(
+    "Responsive",
+    wInfo(`
+    Description
+    ~~~
+    <Button size="responsive">CarForYou</Button>
+    ~~~
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Responsive size button</div>
+        <div className="w-12/12 md:w-3/12">
+          <Button size="responsive">Responsive size button</Button>
         </div>
       </div>
     ))

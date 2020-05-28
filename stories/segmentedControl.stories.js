@@ -6,16 +6,17 @@ import { boolean, number, object } from "@storybook/addon-knobs"
 import { wInfo } from "./utils"
 import SegmentedControl from "../src/components/segmentedControl"
 
-const options = () => object("options", [
-  { value: 1, name: "Button 1" },
-  { value: 2, name: "Button 2" },
-  { value: 3, name: "Button 3" }
-])
+const options = () =>
+  object("options", [
+    { value: 1, name: "Button 1" },
+    { value: 2, name: "Button 2" },
+    { value: 3, name: "Button 3" },
+  ])
 const onSelect = () => action("onSelect")
-const initialSelection = (initial = null) => number("Initial Selection", initial)
+const initialSelection = (initial = null) =>
+  number("Initial Selection", initial)
 const small = (initial = false) => boolean("Small", initial)
 const disabled = (initial = false) => boolean("Disabled", initial)
-
 
 storiesOf("SegmentedControl", module)
   .add(
@@ -65,7 +66,7 @@ storiesOf("SegmentedControl", module)
           <SegmentedControl
             options={object("options", [
               { value: 1, name: "Button 1" },
-              { value: 2, name: "Button 2" }
+              { value: 2, name: "Button 2" },
             ])}
             onSelect={onSelect()}
             initialSelection={initialSelection()}

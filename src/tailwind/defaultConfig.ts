@@ -1,4 +1,3 @@
-/* tslint:disable:object-literal-sort-keys */
 import TransformPlugin from "./plugins/transform"
 /*
 Tailwind - The Utility-First CSS Framework
@@ -234,6 +233,9 @@ export default {
       checkbox: "24px",
       radioIndicator: "12px",
       input: "52px",
+      header: "85px",
+      headerSmall: "60px",
+      headerTransparent: "166px",
       "20": "20px",
       "40": "40px",
     },
@@ -315,10 +317,14 @@ export default {
       "10": "10px",
       "15": "15px",
       "20": "20px",
+      "22": "22px",
       "25": "25px",
       "30": "30px",
       "40": "40px",
       labelPopupIcon: "3px",
+      headerMenu: "14px",
+      "-headerMenu": "-14px",
+      "-headerMenuMore": "-28px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
     },
@@ -474,6 +480,9 @@ export default {
       modalLarge: "770px",
       checkbox: "24px",
       radioIndicator: "12px",
+      logoDefault: "170px",
+      logoSmall: "140px",
+      profileDropdown: "320px",
     },
 
     transitionDuration: {
@@ -494,6 +503,7 @@ export default {
       clearButton: 10,
       modalClose: 10,
       dropdownMenu: 20,
+      headerDropdown: 30,
       modal: 98,
     },
 
@@ -594,5 +604,6 @@ export default {
     transitionDuration: ["responsive", "hover"],
   },
   corePlugins: {},
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   plugins: [TransformPlugin, require("tailwindcss-gradients")()],
 }
