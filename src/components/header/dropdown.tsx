@@ -80,7 +80,7 @@ const HeaderDropdown: FC<Props> = ({
         </div>
         <div
           className={classNames(
-            "text-black text-left whitespace-no-wrap bg-grey-1 md:bg-white relative lg:absolute lg:border lg:border-grey-2 lg:rounded-4 lg:shadow-hard",
+            "text-black text-left whitespace-no-wrap bg-grey-1 lg:bg-white relative lg:absolute lg:border lg:border-grey-2 lg:rounded-4 lg:shadow-hard",
             {
               "right-0": stickOut === "left",
             }

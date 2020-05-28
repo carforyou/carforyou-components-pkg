@@ -53,7 +53,7 @@ const Header: FC<Props> = ({
         <div className="min-w-100 w-logoDefault mx-headerMenu my-22">
           <LogoRedBlack />
         </div>
-        <div className="px-15">
+        <div className="px-14">
           {profile.renderWelcomeMessage()}
           <hr className="-mx-headerMenu text-grey-1" />
           {links.map((link, index) => {
