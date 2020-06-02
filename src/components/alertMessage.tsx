@@ -34,7 +34,7 @@ export const AlertMessage: FC<Props> = ({
   return (
     <div
       className={classnames(
-        "flex w-12/12 leading-sm text-base px-10",
+        "flex items-center w-12/12 leading-sm text-base px-10",
         fullWidth ? "border-t border-b" : "border rounded",
         alignCenter ? "justify-center" : null,
         {
@@ -46,14 +46,8 @@ export const AlertMessage: FC<Props> = ({
         }
       )}
     >
-      {icon ? (
-        <div className="flex items-center">
-          {icon()}
-          {children}
-        </div>
-      ) : (
-        children
-      )}
+      {icon ? icon() : null}
+      {children}
     </div>
   )
 }
