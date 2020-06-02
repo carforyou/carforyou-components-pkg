@@ -53,7 +53,14 @@ const Header: FC<Props> = ({
         <div className="min-w-100 w-logoDefault mx-headerMenu my-22">
           <LogoRedBlack />
         </div>
-        <div className="px-14">
+        <div
+          className="px-14"
+          onClick={(event) => {
+            if (event.target instanceof HTMLAnchorElement) {
+              closeModal()
+            }
+          }}
+        >
           {profile.renderWelcomeMessage()}
           <hr className="-mx-headerMenu text-grey-1" />
           {links.map((link, index) => {
@@ -68,10 +75,13 @@ const Header: FC<Props> = ({
     )
   }
 
-  const { openModal, renderModal } = useModal(renderMobileNavigation, {
-    size: "fullscreen",
-    style: "white",
-  })
+  const { openModal, closeModal, renderModal } = useModal(
+    renderMobileNavigation,
+    {
+      size: "fullscreen",
+      style: "white",
+    }
+  )
 
   const renderLogo = () => (
     <div className="min-w-100 w-logoSmall lg:w-logoDefault mr-20 xl:mr-40">

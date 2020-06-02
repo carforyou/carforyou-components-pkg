@@ -54,6 +54,7 @@ const useModal = (
 
   return {
     openModal,
+    closeModal,
     renderModal,
     modalVisible: isVisble,
   }
