@@ -34,7 +34,8 @@ interface Props<T> {
 }
 
 const isCustomValue = (value): boolean => {
-  if (typeof value === "object") {
+
+  if (value && typeof value === "object") {
     return "customValue" in value
   }
   return false
