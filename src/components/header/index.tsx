@@ -55,9 +55,14 @@ const Header: FC<Props> = ({
         </div>
         <div
           className="px-14"
-          onClick={(event) => {
-            if (event.target instanceof HTMLAnchorElement) {
-              closeModal()
+          onClick={({ target }) => {
+            while (target) {
+              if (target instanceof HTMLAnchorElement) {
+                closeModal()
+                break
+              }
+
+              target = (target as HTMLElement).parentNode
             }
           }}
         >
