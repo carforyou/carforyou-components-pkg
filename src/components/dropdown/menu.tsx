@@ -52,6 +52,7 @@ const hightlightItem = <T extends {}>({
       {preMatch}
       <span
         className={classNames("font-bold underline", {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           select_withQuotes: isCustomValue(value),
         })}
       >
