@@ -1,4 +1,4 @@
-import React, { useState, RefObject } from "react"
+import React, { useState, RefObject, useEffect } from "react"
 import { createPortal } from "react-dom"
 
 import classNames from "classnames"
@@ -24,13 +24,19 @@ const useModal = (
 
   const openModal = () => {
     setVisible(true)
-    document.body.classList.add("preventScrolling")
   }
 
   const closeModal = () => {
-    document.body.classList.remove("preventScrolling")
     setVisible(false)
   }
+
+  useEffect(() => {
+    if (isVisble) {
+      document.body.classList.add("preventScrolling")
+    } else {
+      document.body.classList.remove("preventScrolling")
+    }
+  }, [isVisble])
 
   const renderModalComponent = () => (
     <Modal close={closeModal} size={size} style={style}>
