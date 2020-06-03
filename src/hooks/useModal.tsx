@@ -36,6 +36,8 @@ const useModal = (
     } else {
       document.body.classList.remove("preventScrolling")
     }
+
+    return () => document.body.classList.remove("preventScrolling")
   }, [isVisible])
 
   const renderModalComponent = () => (
