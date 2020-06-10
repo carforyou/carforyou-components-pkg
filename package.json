@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "@carforyou/eslint-config": "1.1.0",
+    "@carforyou/eslint-config": "1.1.1",
     "@carforyou/pika-plugin-build-standalone-node": "^1.0.0",
     "@percy/storybook": "^3.2.0",
     "@pika/pack": "^0.5.0",
