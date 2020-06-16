@@ -90,6 +90,8 @@ export default {
       top: "top",
     },
 
+    backgroundOpacity: (theme) => theme("opacity"),
+
     /*
     |-----------------------------------------------------------------------------
     | Background sizes               https://tailwindcss.com/docs/background-size
@@ -538,6 +540,7 @@ export default {
     backgroundAttachment: ["responsive"],
     backgroundColor: ["responsive", "hover", "focus", "active"],
     backgroundPosition: ["responsive"],
+    backgroundOpacity: ["responsive", "hover", "focus", "active"],
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
     borderCollapse: ["responsive"],
