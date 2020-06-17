@@ -29,14 +29,14 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
   }, [])
 
   return (
-    <div className="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-screen transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto">
+    <div className="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto">
       <Overlay handleClick={close} />
       <div
         className={classNames(
-          "min-h-screen md:min-h-auto max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
+          "min-h-full max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
           size === "fullscreen"
-            ? "inset-0 h-full"
-            : "inset-x-0 md:align-middle md:inset-auto h-full md:h-auto rounded-4",
+            ? "inset-0"
+            : "inset-x-0 md:min-h-auto md:align-middle md:inset-auto h-full md:h-auto rounded-4",
           style === "white" ? "bg-white" : "bg-grey-dark text-white"
         )}
         role="dialog"

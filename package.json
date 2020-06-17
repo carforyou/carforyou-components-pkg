@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "@carforyou/eslint-config": "1.1.0",
+    "@carforyou/eslint-config": "1.1.1",
     "@carforyou/pika-plugin-build-standalone-node": "^1.0.0",
     "@percy/storybook": "^3.2.0",
     "@pika/pack": "^0.5.0",
@@ -56,7 +56,7 @@
     "@storybook/storybook-deployer": "^2.8.1",
     "@svgr/webpack": "^5.0.0",
     "@testing-library/react": "^10.0.0",
-    "@types/jest": "^25.0.0",
+    "@types/jest": "^26.0.0",
     "@types/node": "^12.12.24",
     "@types/react": "^16.9.17",
     "@types/react-paginate": "^6.2.1",

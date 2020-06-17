@@ -1,4 +1,4 @@
-import React, { useState, RefObject } from "react"
+import React, { useState, RefObject, useEffect } from "react"
 import { createPortal } from "react-dom"
 
 import classNames from "classnames"
@@ -14,7 +14,7 @@ const useModal = (
     container?: RefObject<HTMLDivElement>
   }
 ) => {
-  const [isVisble, setVisible] = useState(false)
+  const [isVisible, setVisible] = useState(false)
   const {
     size = "medium",
     style = "white",
@@ -24,13 +24,21 @@ const useModal = (
 
   const openModal = () => {
     setVisible(true)
-    document.body.classList.add("preventScrolling")
   }
 
   const closeModal = () => {
-    document.body.classList.remove("preventScrolling")
     setVisible(false)
   }
+
+  useEffect(() => {
+    if (isVisible) {
+      document.body.classList.add("preventScrolling")
+    } else {
+      document.body.classList.remove("preventScrolling")
+    }
+
+    return () => document.body.classList.remove("preventScrolling")
+  }, [isVisible])
 
   const renderModalComponent = () => (
     <Modal close={closeModal} size={size} style={style}>
@@ -38,24 +46,25 @@ const useModal = (
     </Modal>
   )
 
-  const renderModalWrappper = () =>
+  const renderModalWrapper = () =>
     alwaysRender ? (
-      <div className={classNames({ hidden: !isVisble })}>
+      <div className={classNames({ hidden: !isVisible })}>
         {renderModalComponent()}
       </div>
-    ) : isVisble ? (
+    ) : isVisible ? (
       renderModalComponent()
     ) : null
 
   const renderModal = () =>
     container?.current
-      ? createPortal(renderModalWrappper(), container.current)
-      : renderModalWrappper()
+      ? createPortal(renderModalWrapper(), container.current)
+      : renderModalWrapper()
 
   return {
     openModal,
+    closeModal,
     renderModal,
-    modalVisible: isVisble,
+    modalVisible: isVisible,
   }
 }
 
