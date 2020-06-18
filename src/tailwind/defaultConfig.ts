@@ -90,6 +90,8 @@ export default {
       top: "top",
     },
 
+    backgroundOpacity: (theme) => theme("opacity"),
+
     /*
     |-----------------------------------------------------------------------------
     | Background sizes               https://tailwindcss.com/docs/background-size
@@ -172,6 +174,9 @@ export default {
       harder: "0 0 18px 0 rgba(35,42,54,0.8)",
       focus: "0px 0px 1px 2px rgba(54, 150, 185, 0.6)",
     },
+
+    divideColor: (theme) => theme("borderColor"),
+    divideWidth: (theme) => theme("borderWidth"),
 
     /*
     |-----------------------------------------------------------------------------
@@ -438,6 +443,22 @@ export default {
       "270": "270deg",
       "360": "360deg",
     },
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Spacing                    https://tailwindcss.com/docs/customizing-spacing
+    |-----------------------------------------------------------------------------
+    |
+    | Class name: .spacing{-side?}-{size}
+    |
+    */
+    spacing: {
+      10: "10px",
+      20: "20px",
+      30: "30px",
+      40: "40px",
+    },
+
     /*
     |-----------------------------------------------------------------------------
     | Text colors                         https://tailwindcss.com/docs/text-color
@@ -538,6 +559,7 @@ export default {
     backgroundAttachment: ["responsive"],
     backgroundColor: ["responsive", "hover", "focus", "active"],
     backgroundPosition: ["responsive"],
+    backgroundOpacity: ["responsive", "hover", "focus", "active"],
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
     borderCollapse: ["responsive"],
@@ -548,6 +570,8 @@ export default {
     boxShadow: ["responsive", "hover", "focus"],
     cursor: ["responsive"],
     display: ["responsive"],
+    divideColor: ["responsive"],
+    divideWidth: ["responsive"],
     fill: ["responsive"],
     flex: ["responsive"],
     flexDirection: ["responsive"],
@@ -582,6 +606,7 @@ export default {
     pointerEvents: ["responsive"],
     position: ["responsive"],
     resize: ["responsive"],
+    space: ["responsive"],
     stroke: ["responsive"],
     tableLayout: ["responsive"],
     textAlign: ["responsive"],

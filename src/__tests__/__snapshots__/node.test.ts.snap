@@ -40,6 +40,15 @@ Object {
       "yellow": "#FCB001",
       "yellow-light": "#FEEFCC",
     },
+    "backgroundOpacity": Object {
+      "0": "0",
+      "10": ".1",
+      "100": "1",
+      "20": ".2",
+      "40": ".4",
+      "60": ".6",
+      "80": ".8",
+    },
     "backgroundPosition": Object {
       "bottom": "bottom",
       "center": "center",
@@ -151,6 +160,13 @@ Object {
       "270": "270deg",
       "360": "360deg",
       "90": "90deg",
+    },
+    "divideColor": [Function],
+    "divideWidth": Object {
+      "0": "0",
+      "2": "2px",
+      "5": "5px",
+      "default": "1px",
     },
     "fontFamily": Object {
       "sans": Array [
@@ -308,6 +324,12 @@ Object {
       "xl": "1280px",
       "xs": "480px",
     },
+    "spacing": Object {
+      "10": "10px",
+      "20": "20px",
+      "30": "30px",
+      "40": "40px",
+    },
     "textColor": Object {
       "black": "#000000",
       "facebook": "#4267B2",
@@ -402,6 +424,12 @@ Object {
       "focus",
       "active",
     ],
+    "backgroundOpacity": Array [
+      "responsive",
+      "hover",
+      "focus",
+      "active",
+    ],
     "backgroundPosition": Array [
       "responsive",
     ],
@@ -439,6 +467,12 @@ Object {
       "responsive",
     ],
     "display": Array [
+      "responsive",
+    ],
+    "divideColor": Array [
+      "responsive",
+    ],
+    "divideWidth": Array [
       "responsive",
     ],
     "fill": Array [
@@ -559,6 +593,9 @@ Object {
       "responsive",
       "hover",
       "focus",
+    ],
+    "space": Array [
+      "responsive",
     ],
     "stroke": Array [
       "responsive",
