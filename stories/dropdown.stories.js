@@ -19,7 +19,7 @@ const options = () =>
 const onSelect = () => action("onSelect")
 const selected = () => number("selected", null)
 const disabled = () => boolean("disabled", false)
-const placeholder = () => text("placeholder", "Select number")
+const placeholderKnob = () => text("placeholder", "Select number")
 
 storiesOf("Dropdown", module)
   .add(
@@ -59,7 +59,7 @@ storiesOf("Dropdown", module)
             )}
             selected={selected()}
             disabled={disabled()}
-            placeholder={placeholder()}
+            placeholder={placeholderKnob()}
           />
         </div>
       </div>

@@ -480,7 +480,7 @@ storiesOf("Header", module)
     )
     ~~~~
     `)(() => {
-      const links = [
+      const dhLinks = [
         <a href="#" key="link-1" className="block py-10 lg:py-0">
           Meine Inserate
         </a>,
@@ -491,7 +491,7 @@ storiesOf("Header", module)
           News
         </a>,
       ]
-      const ctaButton = (
+      const dhCtaButton = (
         <Button size="responsive" icon={() => <Plus />}>
           <span className="hidden sm:inline-block">Inserat erstellen</span>
         </Button>
@@ -501,8 +501,8 @@ storiesOf("Header", module)
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header
             theme={HeaderTheme.DARK}
-            links={links}
-            ctaButton={ctaButton}
+            links={dhLinks}
+            ctaButton={dhCtaButton}
             profile={profile}
             languageNavigation={renderLanguageNavigationFactory(() => (
               <span>DE</span>
