@@ -162,7 +162,6 @@ Object {
       "90": "90deg",
     },
     "divideColor": [Function],
-    "divideOpacity": undefined,
     "divideWidth": Object {
       "0": "0",
       "2": "2px",
@@ -330,7 +329,6 @@ Object {
       "20": "20px",
       "30": "30px",
       "40": "40px",
-      "5": "5px",
     },
     "textColor": Object {
       "black": "#000000",
@@ -472,9 +470,6 @@ Object {
       "responsive",
     ],
     "divideColor": Array [
-      "responsive",
-    ],
-    "divideOpacity": Array [
       "responsive",
     ],
     "divideWidth": Array [

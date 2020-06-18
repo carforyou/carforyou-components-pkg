@@ -176,7 +176,6 @@ export default {
     },
 
     divideColor: (theme) => theme("borderColor"),
-    divideOpacity: (theme) => theme("borderOpacity"),
     divideWidth: (theme) => theme("borderWidth"),
 
     /*
@@ -454,7 +453,6 @@ export default {
     |
     */
     spacing: {
-      5: "5px",
       10: "10px",
       20: "20px",
       30: "30px",
@@ -573,7 +571,6 @@ export default {
     cursor: ["responsive"],
     display: ["responsive"],
     divideColor: ["responsive"],
-    divideOpacity: ["responsive"],
     divideWidth: ["responsive"],
     fill: ["responsive"],
     flex: ["responsive"],
