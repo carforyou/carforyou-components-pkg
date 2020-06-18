@@ -201,7 +201,6 @@ storiesOf("Alert Message", module)
       </div>
     ))
   )
-
   .add(
     "Success with Icon",
     wInfo(`
@@ -219,6 +218,36 @@ storiesOf("Alert Message", module)
         <div className="text-2xl mb-20">Example</div>
         <div className="w-12/12">
           <AlertMessage type="success" icon={() => <MailSent fill="#74CC74" />}>
+            <span className="pl-16 py-15">
+              Write here some text describing the message.
+            </span>
+          </AlertMessage>
+        </div>
+      </div>
+    ))
+  )
+  .add(
+    "Success with Icon centered",
+    wInfo(`
+    Description
+    ~~~~
+    <AlertMessage
+      type="success"
+      alignCenter
+      icon={() => <MailSent fill="#3696B9" />
+    >
+      Success Message
+    </AlertMessage>
+    ~~~
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Example</div>
+        <div className="w-12/12">
+          <AlertMessage
+            type="success"
+            icon={() => <MailSent fill="#74CC74" />}
+            alignCenter
+          >
             <span className="pl-16 py-15">
               Write here some text describing the message.
             </span>
