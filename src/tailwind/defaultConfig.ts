@@ -175,6 +175,10 @@ export default {
       focus: "0px 0px 1px 2px rgba(54, 150, 185, 0.6)",
     },
 
+    divideColor: (theme) => theme("borderColor"),
+    divideOpacity: (theme) => theme("borderOpacity"),
+    divideWidth: (theme) => theme("borderWidth"),
+
     /*
     |-----------------------------------------------------------------------------
     | Fonts                                    https://tailwindcss.com/docs/fonts
@@ -440,6 +444,23 @@ export default {
       "270": "270deg",
       "360": "360deg",
     },
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Spacing                    https://tailwindcss.com/docs/customizing-spacing
+    |-----------------------------------------------------------------------------
+    |
+    | Class name: .spacing{-side?}-{size}
+    |
+    */
+    spacing: {
+      5: "5px",
+      10: "10px",
+      20: "20px",
+      25: "25px",
+      40: "40px",
+    },
+
     /*
     |-----------------------------------------------------------------------------
     | Text colors                         https://tailwindcss.com/docs/text-color

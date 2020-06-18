@@ -161,6 +161,14 @@ Object {
       "360": "360deg",
       "90": "90deg",
     },
+    "divideColor": [Function],
+    "divideOpacity": undefined,
+    "divideWidth": Object {
+      "0": "0",
+      "2": "2px",
+      "5": "5px",
+      "default": "1px",
+    },
     "fontFamily": Object {
       "sans": Array [
         "Muli, Century Gothic, Lucida Grande, Sans-Serif",
@@ -316,6 +324,13 @@ Object {
       "sm": "576px",
       "xl": "1280px",
       "xs": "480px",
+    },
+    "spacing": Object {
+      "10": "10px",
+      "20": "20px",
+      "25": "25px",
+      "40": "40px",
+      "5": "5px",
     },
     "textColor": Object {
       "black": "#000000",
