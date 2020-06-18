@@ -40,15 +40,6 @@ Object {
       "yellow": "#FCB001",
       "yellow-light": "#FEEFCC",
     },
-    "backgroundOpacity": Object {
-      "0": "0",
-      "10": ".1",
-      "100": "1",
-      "20": ".2",
-      "40": ".4",
-      "60": ".6",
-      "80": ".8",
-    },
     "backgroundPosition": Object {
       "bottom": "bottom",
       "center": "center",
@@ -419,12 +410,6 @@ Object {
       "responsive",
     ],
     "backgroundColor": Array [
-      "responsive",
-      "hover",
-      "focus",
-      "active",
-    ],
-    "backgroundOpacity": Array [
       "responsive",
       "hover",
       "focus",
