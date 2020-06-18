@@ -471,6 +471,15 @@ Object {
     "display": Array [
       "responsive",
     ],
+    "divideColor": Array [
+      "responsive",
+    ],
+    "divideOpacity": Array [
+      "responsive",
+    ],
+    "divideWidth": Array [
+      "responsive",
+    ],
     "fill": Array [
       "responsive",
     ],
@@ -589,6 +598,9 @@ Object {
       "responsive",
       "hover",
       "focus",
+    ],
+    "space": Array [
+      "responsive",
     ],
     "stroke": Array [
       "responsive",
