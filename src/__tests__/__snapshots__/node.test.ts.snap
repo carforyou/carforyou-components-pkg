@@ -4,6 +4,8 @@ exports[`tailwind defaultConfig is accessible 1`] = `
 Object {
   "corePlugins": Object {
     "backgroundOpacity": false,
+    "borderOpacity": false,
+    "placeholderOpacity": false,
   },
   "plugins": Array [
     [Function],

@@ -624,7 +624,11 @@ export default {
     transitionTimingFunction: ["responsive", "hover"],
     transitionDuration: ["responsive", "hover"],
   },
-  corePlugins: { backgroundOpacity: false },
+  corePlugins: {
+    backgroundOpacity: false,
+    borderOpacity: false,
+    placeholderOpacity: false,
+  },
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   plugins: [TransformPlugin, require("tailwindcss-gradients")()],
 }
