@@ -9,7 +9,6 @@ export default {
     sync(resolve(__dirname, "../dist-src/components/**/*"), {
       nodir: true,
     }),
-  getWhitelistPatterns: () => [/^w-.*\/12$/],
 }
 
 // Export all components
