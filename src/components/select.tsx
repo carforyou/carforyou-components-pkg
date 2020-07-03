@@ -190,6 +190,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
     const renderInput = (hasError, props) => (
       <>
         <WithClearButton
+          disabled={disabled}
           visible={!!selected}
           onClear={() => handleChange(null)}
         >
@@ -201,6 +202,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
     const renderToggle = (hasError, props) => (
       <>
         <WithClearButton
+          disabled={disabled}
           onClear={() => handleChange(null)}
           visible={!!selected}
         >
