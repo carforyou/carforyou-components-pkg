@@ -4,6 +4,7 @@ import React, {
   cloneElement,
   ReactElement,
   Children,
+  Fragment,
 } from "react"
 import classnames from "classnames"
 
@@ -66,7 +67,13 @@ const wrapMultipleChildren = (
     wrapLink(element, paddingClasses, renderChildren)
   )
   return {
-    clonedElement: <>{mappedNodes.map(({ clonedElement }) => clonedElement)}</>,
+    clonedElement: (
+      <>
+        {mappedNodes.map(({ clonedElement }, index) => (
+          <Fragment key={index}>{clonedElement}</Fragment>
+        ))}
+      </>
+    ),
     isWrapped: mappedNodes.reduce(
       (acc, { isWrapped }) => acc || isWrapped,
       false
