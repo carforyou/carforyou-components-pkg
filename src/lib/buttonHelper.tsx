@@ -9,7 +9,8 @@ import classnames from "classnames"
 
 const wrapSingleChild = (
   node: ReactNode,
-  paddingClasses: string
+  paddingClasses: string,
+  renderChildren: (children: ReactNode) => ReactNode
 ): { clonedElement: ReactNode; isWrapped: boolean } => {
   // ReactNode can be either an element or a text
   // isValidElement return false for the latter
@@ -35,7 +36,7 @@ const wrapSingleChild = (
             paddingClasses
           )}
         >
-          {element.props.children}
+          {renderChildren(element.props.children)}
         </span>
       )
 
@@ -44,7 +45,8 @@ const wrapSingleChild = (
 
     const { clonedElement, isWrapped } = wrapLink(
       element.props.children,
-      paddingClasses
+      paddingClasses,
+      renderChildren
     )
     return {
       clonedElement: cloneElement(element, {}, clonedElement),
@@ -57,9 +59,12 @@ const wrapSingleChild = (
 
 const wrapMultipleChildren = (
   nodes: ReactNode[],
-  paddingClasses: string
+  paddingClasses: string,
+  renderChildren: (children: ReactNode) => ReactNode
 ): { clonedElement: ReactNode; isWrapped: boolean } => {
-  const mappedNodes = nodes.map((element) => wrapLink(element, paddingClasses))
+  const mappedNodes = nodes.map((element) =>
+    wrapLink(element, paddingClasses, renderChildren)
+  )
   return {
     clonedElement: <>{mappedNodes.map(({ clonedElement }) => clonedElement)}</>,
     isWrapped: mappedNodes.reduce(
@@ -69,14 +74,31 @@ const wrapMultipleChildren = (
   }
 }
 
-export const wrapLink = (
+const wrapLinkNode = (
   node: ReactNode,
-  paddingClasses: string
+  paddingClasses: string,
+  renderChildren: (children: ReactNode) => ReactNode
 ): { clonedElement: ReactNode; isWrapped: boolean } => {
   const childrenArray = Children.toArray(node)
   if (childrenArray.length <= 1) {
-    return wrapSingleChild(childrenArray[0], paddingClasses)
+    return wrapSingleChild(childrenArray[0], paddingClasses, renderChildren)
   }
 
-  return wrapMultipleChildren(childrenArray, paddingClasses)
+  return wrapMultipleChildren(childrenArray, paddingClasses, renderChildren)
+}
+
+export const wrapLink = (
+  node: ReactNode,
+  paddingClasses: string,
+  renderChildren: (children: ReactNode) => ReactNode = (children) => children
+): { clonedElement: ReactNode; isWrapped: boolean } => {
+  const { clonedElement, isWrapped } = wrapLinkNode(
+    node,
+    paddingClasses,
+    renderChildren
+  )
+
+  return isWrapped
+    ? { clonedElement, isWrapped }
+    : { clonedElement: renderChildren(clonedElement), isWrapped }
 }

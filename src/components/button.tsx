@@ -44,7 +44,19 @@ export const Button: FC<Props> = ({
   })
   const buttonClasses = classnames(padding, classes)
 
-  const { clonedElement, isWrapped } = wrapLink(children, buttonClasses)
+  const { clonedElement, isWrapped } = wrapLink(
+    children,
+    buttonClasses,
+    (originalChildren) =>
+      icon ? (
+        <>
+          {icon()}
+          <span className="pl-5 pr-8">{originalChildren}</span>
+        </>
+      ) : (
+        originalChildren
+      )
+  )
 
   return (
     <div className="flex flex-col">
@@ -59,14 +71,7 @@ export const Button: FC<Props> = ({
         onClick: !disabled ? onClick : null,
         disabled,
         "data-testid": dataTestid,
-        children: icon ? (
-          <>
-            {icon()}
-            <span className="pl-5 pr-8">{clonedElement}</span>
-          </>
-        ) : (
-          clonedElement
-        ),
+        children: clonedElement,
       })}
     </div>
   )
