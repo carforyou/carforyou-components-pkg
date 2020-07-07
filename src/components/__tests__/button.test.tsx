@@ -120,4 +120,23 @@ describe("<Button>", () => {
     const option = getByText("Label")
     expect(option.parentElement).toMatchSnapshot()
   })
+
+  it("only renders the icon once with multiple children", async () => {
+    const { findAllByTestId } = render(
+      <Button
+        icon={() => (
+          <span data-testid="icon">
+            <CtaCall />
+          </span>
+        )}
+      >
+        <div>
+          <div>List for free</div>
+          <div>new</div>
+        </div>
+      </Button>
+    )
+
+    expect((await findAllByTestId("icon")).length).toEqual(1)
+  })
 })

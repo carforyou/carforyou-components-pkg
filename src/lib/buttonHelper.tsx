@@ -44,7 +44,7 @@ const wrapSingleChild = (
       return { clonedElement: clone, isWrapped: true }
     }
 
-    const { clonedElement, isWrapped } = wrapLink(
+    const { clonedElement, isWrapped } = wrapLinkNode(
       element.props.children,
       paddingClasses,
       renderChildren
@@ -64,7 +64,7 @@ const wrapMultipleChildren = (
   renderChildren: (children: ReactNode) => ReactNode
 ): { clonedElement: ReactNode; isWrapped: boolean } => {
   const mappedNodes = nodes.map((element) =>
-    wrapLink(element, paddingClasses, renderChildren)
+    wrapLinkNode(element, paddingClasses, renderChildren)
   )
   return {
     clonedElement: (
