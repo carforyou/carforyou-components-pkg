@@ -109,4 +109,15 @@ describe("<Button>", () => {
     )
     expect(container).toMatchSnapshot()
   })
+
+  it("renders an icon inside a button with link as a child", () => {
+    const { getByText } = render(
+      <Button icon={() => <CtaCall />}>
+        <a>Label</a>
+      </Button>
+    )
+
+    const option = getByText("Label")
+    expect(option.parentElement).toMatchSnapshot()
+  })
 })
