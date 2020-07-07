@@ -8,9 +8,10 @@ import { wInfo } from "./utils"
 import Button from "../src/components/button"
 import CtaCall from "../.storybook/icons/ctaCall"
 
-storiesOf("Icon Button", module).add(
-  "Default",
-  wInfo(`
+storiesOf("Icon Button", module)
+  .add(
+    "Default",
+    wInfo(`
     Description
     ~~~
     <Button icon={() <CtaCall />}>
@@ -18,17 +19,35 @@ storiesOf("Icon Button", module).add(
     </Button>
     ~~~
     `)(() => (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">Example</div>
-      <div className="w-12/12 md:w-3/12">
-        <Button
-          icon={() => <CtaCall />}
-          teal={boolean("Teal", false)}
-          onClick={action("on Click")}
-        >
-          {text("Label", "Anrufen")}
-        </Button>
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Example</div>
+        <div className="w-12/12 md:w-3/12">
+          <Button
+            icon={() => <CtaCall />}
+            teal={boolean("Teal", false)}
+            onClick={action("on Click")}
+          >
+            {text("Label", "Anrufen")}
+          </Button>
+        </div>
       </div>
-    </div>
-  ))
-)
+    ))
+  )
+  .add(
+    "Wrapping a link",
+    wInfo(`
+    Description
+    ~~~
+    <Button icon={() => <CtaCall />}><a href="https://carforyou.ch">CarForYou</a></Button>
+    ~~~
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Wrapping a link</div>
+        <div className="w-12/12 md:w-3/12">
+          <Button icon={() => <CtaCall />}>
+            <a href="https://carforyou.ch">CarForYou</a>
+          </Button>
+        </div>
+      </div>
+    ))
+  )

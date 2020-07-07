@@ -110,3 +110,21 @@ storiesOf("Button", module)
       </div>
     ))
   )
+  .add(
+    "Wrapping a link",
+    wInfo(`
+    Description
+    ~~~
+    <Button><a href="https://carforyou.ch">CarForYou</a></Button>
+    ~~~
+    `)(() => (
+      <div className="mx-30 mb-40">
+        <div className="text-2xl mb-20">Wrapping a link</div>
+        <div className="w-12/12 md:w-3/12">
+          <Button>
+            <a href="https://carforyou.ch">CarForYou</a>
+          </Button>
+        </div>
+      </div>
+    ))
+  )
