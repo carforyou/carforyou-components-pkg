@@ -1,0 +1,31 @@
+.tooltip_top::after {
+  content: " ";
+  margin-left: -10px;
+  border-width: 10px;
+  border-color: white transparent transparent transparent;
+  @apply border-solid absolute top-full left-half;
+}
+
+.tooltip_bottom::after {
+  content: " ";
+  margin-left: -10px;
+  border-width: 10px;
+  border-color: transparent transparent white transparent;
+  @apply border-solid absolute bottom-full left-half;
+}
+
+.tooltip_left::after {
+  content: " ";
+  margin-top: -10px;
+  border-width: 10px;
+  border-color: transparent white transparent transparent;
+  @apply border-solid absolute right-full top-half;
+}
+
+.tooltip_right::after {
+  content: " ";
+  margin-top: -10px;
+  border-width: 10px;
+  border-color: transparent transparent transparent white;
+  @apply border-solid absolute left-full top-half;
+}

@@ -264,6 +264,8 @@ export default {
       floatingLabel: "13px",
       "-floatingLabel": "-13px",
       radioIndicator: "5px",
+      tooltip: "110%",
+      full: "100%",
     },
 
     /*
@@ -501,6 +503,7 @@ export default {
       logoDefault: "170px",
       logoSmall: "140px",
       profileDropdown: "320px",
+      tooltip: "320px",
     },
 
     transitionDuration: {
