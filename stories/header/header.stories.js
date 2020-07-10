@@ -501,6 +501,7 @@ storiesOf("Header", module)
         <div className="m-40 p-5" style={{ "background-color": "deeppink" }}>
           <Header
             theme={HeaderTheme.DARK}
+            logoUrl="https://www.carforyou.ch"
             links={dhLinks}
             ctaButton={dhCtaButton}
             profile={profile}

@@ -16,6 +16,7 @@ import useModal from "../../hooks/useModal"
 
 interface Props {
   theme?: HeaderTheme
+  logoUrl?: string
   mobileMenuText?: string
   links?: Array<JSX.Element>
   ctaButton?: JSX.Element
@@ -29,6 +30,7 @@ interface Props {
 
 const Header: FC<Props> = ({
   theme = HeaderTheme.LIGHT,
+  logoUrl = "/",
   links = [],
   ctaButton = null,
   iconButtons = [],
@@ -90,7 +92,7 @@ const Header: FC<Props> = ({
 
   const renderLogo = () => (
     <div className="min-w-100 w-logoSmall lg:w-logoDefault mr-20 xl:mr-40">
-      <a href="https://www.carforyou.ch/">{themeLog[theme]}</a>
+      <a href={logoUrl}>{themeLog[theme]}</a>
     </div>
   )
 
