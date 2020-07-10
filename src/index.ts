@@ -21,6 +21,7 @@ import Profile from "./components/icons/profile"
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
 import LogoWhite from "./components/icons/logoWhite"
+import Tooltip from "./components/tooltip/index"
 
 export {
   Button,
@@ -46,4 +47,5 @@ export {
   LogoRedWhite,
   LogoRedBlack,
   LogoWhite,
+  Tooltip,
 }
