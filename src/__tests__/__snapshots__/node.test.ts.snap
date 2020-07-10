@@ -203,10 +203,12 @@ Object {
       "0": 0,
       "auto": "auto",
       "floatingLabel": "13px",
+      "full": "100%",
       "half": "50%",
       "modalClose": "10px",
       "radioIndicator": "5px",
       "requiredIndicator": "5px",
+      "tooltip": "110%",
       "validationError": "5px",
     },
     "letterSpacing": Object {
@@ -386,6 +388,7 @@ Object {
       "radioIndicator": "12px",
       "screen": "100vw",
       "scrollbar": "14px",
+      "tooltip": "320px",
     },
     "zIndex": Object {
       "auto": "auto",
