@@ -4,13 +4,18 @@ import { wInfo } from "../utils"
 
 import Tooltip from "../../src/components/tooltip"
 
-const generateDescription = ({ position }) => {
+const generateDescription = ({ position, positionSwitchThreshold }) => {
   return `
   Description
   ~~~
   <Tooltip
     renderContent={() => <div>Tooltip content.</div>}
     position="${position}"
+${
+  positionSwitchThreshold
+    ? `    positionSwitchThreshold={${positionSwitchThreshold}}`
+    : ""
+}
   >
     <div>I have a tooltip</div>
   </Tooltip>
@@ -18,7 +23,7 @@ const generateDescription = ({ position }) => {
   `.replace(/^\s*[\r\n]/gm, "")
 }
 
-const generateStoryFunction = ({ position }) => () => {
+const generateStoryFunction = ({ position, positionSwitchThreshold }) => () => {
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
@@ -32,6 +37,7 @@ const generateStoryFunction = ({ position }) => () => {
             </p>
           )}
           position={position}
+          positionSwitchThreshold={positionSwitchThreshold}
         >
           <span>I have a tooltip</span>
         </Tooltip>
@@ -40,9 +46,12 @@ const generateStoryFunction = ({ position }) => () => {
   )
 }
 
-const generateStory = ({ position = "top" }) => {
-  return wInfo(generateDescription({ position }))(
-    generateStoryFunction({ position })
+const generateStory = ({
+  position = "top",
+  positionSwitchThreshold = null,
+}) => {
+  return wInfo(generateDescription({ position, positionSwitchThreshold }))(
+    generateStoryFunction({ position, positionSwitchThreshold })
   )
 }
 
