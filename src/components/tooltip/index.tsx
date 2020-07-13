@@ -12,8 +12,14 @@ const Tooltip: FC<Props> = ({ children, renderContent, position }) => {
 
   return (
     <div
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
+      onMouseEnter={(event) => {
+        event.stopPropagation()
+        setIsVisible(true)
+      }}
+      onMouseLeave={(event) => {
+        event.stopPropagation()
+        setIsVisible(false)
+      }}
       className="relative inline-block"
     >
       {isVisible ? <PopUp position={position}>{renderContent()}</PopUp> : null}
