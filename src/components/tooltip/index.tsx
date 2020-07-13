@@ -14,7 +14,16 @@ export enum TooltipPosition {
 }
 
 interface Props {
+  /**
+   * Content of the tooltip
+   */
   renderContent: () => ReactNode
+  /**
+   * Position of the tooltip
+   * It's consumer responsibility to render tooltip in the right position
+   * the component itself doesn't alter the position that's passed to it
+   * in any way
+   */
   position: TooltipPosition
 }
 
