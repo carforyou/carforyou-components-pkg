@@ -2,9 +2,16 @@ import React, { FC, ReactNode, useState } from "react"
 
 import PopUp from "./popUp"
 
+export enum TooltipPosition {
+  top = "top",
+  bottom = "bottom",
+  left = "left",
+  right = "right",
+}
+
 interface Props {
   renderContent: () => ReactNode
-  position: "top" | "bottom" | "left" | "right"
+  position: TooltipPosition
 }
 
 const Tooltip: FC<Props> = ({ children, renderContent, position }) => {
