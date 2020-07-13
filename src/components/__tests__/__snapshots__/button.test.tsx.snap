@@ -112,7 +112,7 @@ exports[`<Button> renders a div with link as a child 1`] = `
   class="flex w-12/12 justify-center items-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none"
 >
   <a
-    class="w-12/12 hover:opacity-100"
+    class="w-12/12 hover:opacity-100 flex flex-col"
   >
     <span
       class="flex items-center justify-center px-10 min-h-52 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon"
