@@ -18,14 +18,14 @@
   content: " ";
   margin-top: -10px;
   border-width: 10px;
-  border-color: transparent white transparent transparent;
-  @apply border-solid absolute right-full top-half;
+  border-color: transparent transparent transparent white;
+  @apply border-solid absolute left-full top-half;
 }
 
 .tooltip_right::after {
   content: " ";
   margin-top: -10px;
   border-width: 10px;
-  border-color: transparent transparent transparent white;
-  @apply border-solid absolute left-full top-half;
+  border-color: transparent white transparent transparent;
+  @apply border-solid absolute right-full top-half;
 }

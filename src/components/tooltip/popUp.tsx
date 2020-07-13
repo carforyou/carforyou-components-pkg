@@ -14,8 +14,8 @@ const PopUp: FC<Props> = ({ children, position }) => (
         "top-half -translate-y-1/2": ["left", "right"].includes(position),
         "tooltip_top bottom-tooltip mb-10": position === "top",
         "tooltip_bottom top-tooltip mt-10": position === "bottom",
-        "tooltip_left left-tooltip ml-10": position === "left",
-        "tooltip_right right-tooltip mr-10": position === "right",
+        "tooltip_left right-tooltip mr-10": position === "left",
+        "tooltip_right left-tooltip ml-10": position === "right",
       }
     )}
   >
