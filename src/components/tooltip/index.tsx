@@ -20,7 +20,7 @@ interface Props {
   renderContent: () => ReactNode
   /**
    * Position of the tooltip
-   * It's consumer responsibility to render tooltip in the right position
+   * It's consumer's responsibility to render tooltip in the right position
    * the component itself doesn't alter the position that's passed to it
    * in any way
    */
