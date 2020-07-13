@@ -4,7 +4,11 @@ import PopUp from "./popUp"
 
 export enum TooltipPosition {
   top = "top",
+  topLeft = "topLeft",
+  topRight = "topRight",
   bottom = "bottom",
+  bottomLeft = "bottomLeft",
+  bottomRight = "bottomRight",
   left = "left",
   right = "right",
 }
