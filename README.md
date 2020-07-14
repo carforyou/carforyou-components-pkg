@@ -45,10 +45,11 @@ You can also import styles and assets:
 
 ## Setup tailwind in a next.js project
 
-The following describes the very minimal setup required in a vanilla next.js project with **tailwindcss@0.6.1**
+The following describes the very minimal setup required in a vanilla next.js project
 
 ```
-npm install tailwindcss@0.6.1 postcss-easy-import @zeit/next-css --save-dev
+npm install tailwindcss
+npm install -D @fullhuman/postcss-purgecss postcss-easy-import
 ```
 
 `tailwind.css`:
@@ -64,23 +65,53 @@ Import this CSS file in `_app`:
 import "../tailwind.css";
 ```
 
-`next.config.js`:
+Create a `postcss.config.js`:
 
 ```
-const withCSS = require("@zeit/next-css");
-module.exports = withCSS();
-```
+const glob = require("glob")
+const components = require("@carforyou/components").default
 
-`postcss.config.js`
+const purgeCssPaths = glob
+  .sync("src/**/*", {
+    ignore: "**/__*__/**",
+    nodir: true,
+  })
+  .concat(components.getComponentPaths())
 
-```
-const tailwindConfig = require("./tailwind")
+const tailwindExtractor = (content) => {
+  return content.match(/[A-Za-z0-9-_:/]+(?<!:)/g) || []
+}
+
 module.exports = {
-  plugins: [require("postcss-easy-import"), require("tailwindcss")(tailwindConfig), require("autoprefixer")]
-};
+  plugins: {
+    "postcss-easy-import": {},
+    tailwindcss: {},
+    "@fullhuman/postcss-purgecss": {
+      content: purgeCssPaths,
+      extractors: [
+        {
+          extensions: ["jsx", "tsx", "js", "ts"],
+          extractor: tailwindExtractor,
+        },
+      ]
+    },
+    autoprefixer: {},
+  },
+}
+
 ```
 
-Set up a `tailwind.js` as described above.
+Set up a `tailwind.config.js`:
+
+````
+const { tailwind } = require("@carforyou/components").default
+
+const customTailwindConfig = {
+  theme: {}
+}
+
+module.exports = tailwind.withDefaultConfig(customTailwindConfig)
+```
 
 ## Development
 
