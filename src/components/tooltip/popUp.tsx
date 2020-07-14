@@ -54,11 +54,6 @@ const PopUp: FC<Props> = ({ children, position, alignment }) => (
         "tooltip_rightEnd -bottom-10":
           position === TooltipPosition.right &&
           alignment === TooltipAlignment.end,
-
-        // "tooltip_bottomLeft right-0":
-        //   position === TooltipPosition.bottomLeft,
-        // "tooltip_bottomRight left-0":
-        //   position === TooltipPosition.bottomRight,
       }
     )}
   >
