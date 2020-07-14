@@ -1,4 +1,4 @@
-.tooltip_top::after {
+.tooltip_topCenter::after {
   content: " ";
   margin-left: -10px;
   border-width: 10px;
@@ -6,7 +6,23 @@
   @apply border-solid absolute top-full left-half;
 }
 
-.tooltip_bottom::after {
+.tooltip_topStart::after {
+  content: " ";
+  border-width: 10px;
+  border-color: white transparent transparent transparent;
+  left: 10px;
+  @apply border-solid absolute top-full;
+}
+
+.tooltip_topEnd::after {
+  content: " ";
+  border-width: 10px;
+  border-color: white transparent transparent transparent;
+  right: 10px;
+  @apply border-solid absolute top-full;
+}
+
+.tooltip_bottomCenter::after {
   content: " ";
   margin-left: -10px;
   border-width: 10px;
@@ -14,7 +30,23 @@
   @apply border-solid absolute bottom-full left-half;
 }
 
-.tooltip_left::after {
+.tooltip_bottomStart::after {
+  content: " ";
+  border-width: 10px;
+  border-color: transparent transparent white transparent;
+  left: 10px;
+  @apply border-solid absolute bottom-full;
+}
+
+.tooltip_bottomEnd::after {
+  content: " ";
+  border-width: 10px;
+  border-color: transparent transparent white transparent;
+  right: 10px;
+  @apply border-solid absolute bottom-full;
+}
+
+.tooltip_leftCenter::after {
   content: " ";
   margin-top: -10px;
   border-width: 10px;
@@ -22,10 +54,42 @@
   @apply border-solid absolute left-full top-half;
 }
 
-.tooltip_right::after {
+.tooltip_leftStart::after {
+  content: " ";
+  top: 10px;
+  border-width: 10px;
+  border-color: transparent transparent transparent white;
+  @apply border-solid absolute left-full;
+}
+
+.tooltip_leftEnd::after {
+  content: " ";
+  bottom: 10px;
+  border-width: 10px;
+  border-color: transparent transparent transparent white;
+  @apply border-solid absolute left-full;
+}
+
+.tooltip_rightCenter::after {
   content: " ";
   margin-top: -10px;
   border-width: 10px;
   border-color: transparent white transparent transparent;
   @apply border-solid absolute right-full top-half;
+}
+
+.tooltip_rightStart::after {
+  content: " ";
+  border-width: 10px;
+  top: 10px;
+  border-color: transparent white transparent transparent;
+  @apply border-solid absolute right-full;
+}
+
+.tooltip_rightEnd::after {
+  content: " ";
+  border-width: 10px;
+  bottom: 10px;
+  border-color: transparent white transparent transparent;
+  @apply border-solid absolute right-full;
 }

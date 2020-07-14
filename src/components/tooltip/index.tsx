@@ -9,6 +9,11 @@ export enum TooltipPosition {
   right = "right",
 }
 
+export enum TooltipAlignment {
+  start = "start",
+  center = "center",
+  end = "end",
+}
 
 const getSpaceAroundRect = ({ top, bottom, left, right }) => ({
   top,
@@ -39,10 +44,15 @@ interface Props {
   /**
    * Alignment the tooltip with the container
    */
-  // alignment?: TooltipAlignment
+  alignment?: TooltipAlignment
 }
 
-const Tooltip: FC<Props> = ({ children, renderContent, getPosition }) => {
+const Tooltip: FC<Props> = ({
+  children,
+  renderContent,
+  getPosition,
+  alignment = TooltipAlignment.center,
+}) => {
   const tooltipContainer = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
   const [calculatedPosition, setCalculatedPosition] = useState(null)
@@ -67,7 +77,9 @@ const Tooltip: FC<Props> = ({ children, renderContent, getPosition }) => {
       className="relative inline-block"
     >
       {isVisible ? (
-        <PopUp position={calculatedPosition}>{renderContent()}</PopUp>
+        <PopUp position={calculatedPosition} alignment={alignment}>
+          {renderContent()}
+        </PopUp>
       ) : null}
       {children}
     </div>

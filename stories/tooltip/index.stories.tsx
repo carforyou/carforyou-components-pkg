@@ -1,10 +1,17 @@
 import { storiesOf } from "@storybook/react"
-import { TooltipPosition } from "../../src/components/tooltip"
+import { TooltipPosition, TooltipAlignment } from "../../src/components/tooltip"
 
 import generateStory from "./generator"
 
-Object.entries(TooltipPosition).reduce(
-  (acc, [name, position]) =>
-    acc.add(`On the ${name}`, generateStory({ position })),
+Object.values(TooltipPosition).reduce(
+  (accPosition, position) =>
+    Object.values(TooltipAlignment).reduce(
+      (accAlignment, alignment) =>
+        accAlignment.add(
+          `On the ${position} aligned to ${alignment}`,
+          generateStory({ position, alignment })
+        ),
+      accPosition
+    ),
   storiesOf("Tooltip", module)
 )

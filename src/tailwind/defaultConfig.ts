@@ -256,6 +256,7 @@ export default {
 
     inset: {
       "0": 0,
+      "-10": "-10px",
       auto: "auto",
       half: "50%",
       requiredIndicator: "5px",
