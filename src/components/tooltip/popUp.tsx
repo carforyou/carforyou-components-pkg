@@ -25,16 +25,6 @@ const PopUp: FC<Props> = ({ children, position }) => (
         "tooltip_bottom top-tooltip mt-10": position === TooltipPosition.bottom,
         "tooltip_left right-tooltip mr-10": position === TooltipPosition.left,
         "tooltip_right left-tooltip ml-10": position === TooltipPosition.right,
-        /* eslint-disable @typescript-eslint/naming-convention */
-        "tooltip_topLeft bottom-tooltip mb-10 right-0":
-          position === TooltipPosition.topLeft,
-        "tooltip_topRight bottom-tooltip mb-10 left-0":
-          position === TooltipPosition.topRight,
-        "tooltip_bottomLeft top-tooltip mt-10 right-0":
-          position === TooltipPosition.bottomLeft,
-        "tooltip_bottomRight top-tooltip mt-10 left-0":
-          position === TooltipPosition.bottomRight,
-        /* eslint-enable @typescript-eslint/naming-convention */
       }
     )}
   >

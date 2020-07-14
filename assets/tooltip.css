@@ -6,44 +6,12 @@
   @apply border-solid absolute top-full left-half;
 }
 
-.tooltip_topLeft::after {
-  content: " ";
-  border-width: 10px;
-  border-color: white transparent transparent transparent;
-  right: 10px;
-  @apply border-solid absolute top-full;
-}
-
-.tooltip_topRight::after {
-  content: " ";
-  border-width: 10px;
-  border-color: white transparent transparent transparent;
-  left: 10px;
-  @apply border-solid absolute top-full;
-}
-
 .tooltip_bottom::after {
   content: " ";
   margin-left: -10px;
   border-width: 10px;
   border-color: transparent transparent white transparent;
   @apply border-solid absolute bottom-full left-half;
-}
-
-.tooltip_bottomLeft::after {
-  content: " ";
-  border-width: 10px;
-  border-color: transparent transparent white transparent;
-  right: 10px;
-  @apply border-solid absolute bottom-full;
-}
-
-.tooltip_bottomRight::after {
-  content: " ";
-  border-width: 10px;
-  border-color: transparent transparent white transparent;
-  left: 10px;
-  @apply border-solid absolute bottom-full;
 }
 
 .tooltip_left::after {

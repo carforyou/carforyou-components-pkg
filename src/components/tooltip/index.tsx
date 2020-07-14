@@ -4,36 +4,11 @@ import PopUp from "./popUp"
 
 export enum TooltipPosition {
   top = "top",
-  topLeft = "topLeft",
-  topRight = "topRight",
   bottom = "bottom",
-  bottomLeft = "bottomLeft",
-  bottomRight = "bottomRight",
   left = "left",
   right = "right",
 }
 
-const spacingPosition = {
-  top: "top",
-  topLeft: "top",
-  topRight: "top",
-  bottom: "bottom",
-  bottomLeft: "bottom",
-  bottomRight: "bottom",
-  left: "left",
-  right: "right",
-}
-
-const oppositePosition = {
-  top: TooltipPosition.bottom,
-  topLeft: TooltipPosition.bottomLeft,
-  topRight: TooltipPosition.bottomRight,
-  bottom: TooltipPosition.top,
-  bottomLeft: TooltipPosition.topLeft,
-  bottomRight: TooltipPosition.topRight,
-  left: TooltipPosition.right,
-  right: TooltipPosition.left,
-}
 
 const getSpaceAroundRect = ({ top, bottom, left, right }) => ({
   top,
@@ -42,22 +17,11 @@ const getSpaceAroundRect = ({ top, bottom, left, right }) => ({
   right: window.innerWidth - right,
 })
 
-export const calculateTooltipPosition = (
-  container,
-  originalPosition,
-  switchThreshold
-) => {
-  if (!switchThreshold && !container) {
-    return originalPosition
-  }
-
-  const space = getSpaceAroundRect(container.getBoundingClientRect())[
-    spacingPosition[originalPosition]
-  ]
-
-  return space < switchThreshold
-    ? oppositePosition[originalPosition]
-    : originalPosition
+interface SpaceAroundRect {
+  top: number
+  left: number
+  bottom: number
+  right: number
 }
 
 interface Props {
@@ -66,37 +30,32 @@ interface Props {
    */
   renderContent: () => ReactNode
   /**
-   * Position of the tooltip
+   * Gets the position where tooltip is supposed to be shown
+   * the spaceAround argument is a spacing around the tooltip container
+   * in pixel, therefore as a consumer you can perform all the calculations
+   * and decide on which side render the tooltip
    */
-  position: TooltipPosition
+  getPosition: (spaceAround: SpaceAroundRect) => TooltipPosition
   /**
-   * Threshold of the position switch
-   * If the space around tooltip container (on the side where tooltip is to be displayed)
-   * is smaller than then threshold the tooltip will be moved
+   * Alignment the tooltip with the container
    */
-  positionSwitchThreshold?: number
+  // alignment?: TooltipAlignment
 }
 
-const Tooltip: FC<Props> = ({
-  children,
-  renderContent,
-  position,
-  positionSwitchThreshold,
-}) => {
+const Tooltip: FC<Props> = ({ children, renderContent, getPosition }) => {
   const tooltipContainer = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [calculatedPosition, setCalculatedPosition] = useState(position)
+  const [calculatedPosition, setCalculatedPosition] = useState(null)
 
   return (
     <div
       ref={tooltipContainer}
+      onClick={(event) => event.stopPropagation()}
       onMouseEnter={(event) => {
         event.stopPropagation()
         setCalculatedPosition(
-          calculateTooltipPosition(
-            tooltipContainer.current,
-            position,
-            positionSwitchThreshold
+          getPosition(
+            getSpaceAroundRect(tooltipContainer.current.getBoundingClientRect())
           )
         )
         setIsVisible(true)

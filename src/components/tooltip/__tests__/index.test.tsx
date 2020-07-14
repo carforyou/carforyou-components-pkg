@@ -1,57 +1,48 @@
-import { calculateTooltipPosition, TooltipPosition } from "../index"
+import React from "react"
+import { render, fireEvent, act } from "@testing-library/react"
+import Tooltip from "../index"
 
-describe("#calculateTooltipPosition", () => {
-  const container = {
-    // window size is 1024x768
-    // mock rect with 100px vertical and 200px horizontal space around
-    getBoundingClientRect: () => ({
+describe("<Tooltip />", () => {
+  const original = window.HTMLDivElement.prototype.getBoundingClientRect
+
+  beforeEach(() => {
+    window.HTMLDivElement.prototype.getBoundingClientRect = () => ({
       top: 100,
-      bottom: 668,
-      left: 200,
-      right: 824,
-    }),
-  }
-
-  it("returns original position without a threshold", () => {
-    expect(
-      calculateTooltipPosition(container, TooltipPosition.top, null)
-    ).toEqual(TooltipPosition.top)
-  })
-
-  describe("with enough space", () => {
-    Object.entries(TooltipPosition).forEach(([name, value]) => {
-      it(`returns original position for ${name}`, () => {
-        expect(calculateTooltipPosition(container, value, 10)).toEqual(value)
-      })
+      bottom: 200,
+      left: 100,
+      right: 300,
+      x: 100,
+      y: 100,
+      height: 100,
+      width: 200,
+      toJSON: jest.fn(),
     })
   })
 
-  describe("with not enough space", () => {
-    const testCases = {
-      top: { oppositePosition: TooltipPosition.bottom, threshold: 150 },
-      topLeft: { oppositePosition: TooltipPosition.bottomLeft, threshold: 150 },
-      topRight: {
-        oppositePosition: TooltipPosition.bottomRight,
-        threshold: 150,
-      },
-      bottom: { oppositePosition: TooltipPosition.top, threshold: 150 },
-      bottomLeft: { oppositePosition: TooltipPosition.topLeft, threshold: 150 },
-      bottomRight: {
-        oppositePosition: TooltipPosition.topRight,
-        threshold: 150,
-      },
-      left: { oppositePosition: TooltipPosition.right, threshold: 250 },
-      right: { oppositePosition: TooltipPosition.left, threshold: 250 },
-    }
+  afterEach(() => {
+    window.HTMLDivElement.prototype.getBoundingClientRect = original
+  })
 
-    Object.entries(testCases).forEach(
-      ([position, { oppositePosition, threshold }]) => {
-        it(`switches ${position} to ${oppositePosition}`, () => {
-          expect(
-            calculateTooltipPosition(container, position, threshold)
-          ).toEqual(oppositePosition)
-        })
-      }
+  // getBoundingClientRect returns all zeros in jsdom, we mock here
+  it("passes the space around the container to getPosition", () => {
+    const getPosition = jest.fn()
+
+    const { getByText } = render(
+      <Tooltip renderContent={() => <>Lorem ipsum</>} getPosition={getPosition}>
+        <div>I have a tooltip</div>
+      </Tooltip>
     )
+
+    act(() => {
+      fireEvent.mouseEnter(getByText("I have a tooltip"))
+    })
+
+    // window size is 1024x768
+    expect(getPosition).toHaveBeenCalledWith({
+      top: 100,
+      left: 100,
+      bottom: 568,
+      right: 724,
+    })
   })
 })
