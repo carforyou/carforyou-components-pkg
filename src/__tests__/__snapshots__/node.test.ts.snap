@@ -199,6 +199,7 @@ Object {
       "scrollbar": "70px",
     },
     "inset": Object {
+      "-10": "-10px",
       "-floatingLabel": "-13px",
       "0": 0,
       "auto": "auto",
