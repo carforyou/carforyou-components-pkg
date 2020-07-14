@@ -3,7 +3,7 @@ import classnames from "classnames"
 
 interface Props {
   children: ReactNode
-  secondary: boolean
+  secondary?: boolean
 }
 
 export const Pill: FC<Props> = ({ children, secondary }) => (
