@@ -1,4 +1,5 @@
 import Button from "./components/button"
+import Pill from "./components/pill"
 import Pagination from "./components/pagination"
 import Dropdown from "./components/dropdown/index"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
@@ -28,6 +29,7 @@ import Tooltip, {
 
 export {
   Button,
+  Pill,
   Pagination,
   Dropdown,
   DropdownWithAutosuggest,

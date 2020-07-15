@@ -134,6 +134,7 @@ export default {
       "4": "4px",
       "10": "10px",
       "20": "20px",
+      pill: "8px",
     },
 
     /*

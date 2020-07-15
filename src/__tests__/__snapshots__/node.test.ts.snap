@@ -102,6 +102,7 @@ Object {
       "full": "9999px",
       "half": "50%",
       "none": "0",
+      "pill": "8px",
     },
     "borderWidth": Object {
       "0": "0",
