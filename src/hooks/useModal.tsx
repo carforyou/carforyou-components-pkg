@@ -8,14 +8,14 @@ import Modal, { ModalSize, ModalStyle } from "../components/modal/index"
 const useModal = (
   modal: (modalProps: {
     closeModal: () => void
-    onClose: () => void
   }) => JSX.Element,
   options?: {
     size?: ModalSize
     style?: ModalStyle
     alwaysRender?: boolean
     container?: RefObject<HTMLDivElement>
-  }
+  },
+  onClose?: () => void
 ) => {
   const [isVisible, setVisible] = useState(false)
   const {
