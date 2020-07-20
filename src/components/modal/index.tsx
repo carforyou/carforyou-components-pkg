@@ -16,10 +16,11 @@ interface Props {
   style: ModalStyle
 }
 
-const Modal: FC<Props> = ({ close, size, style, children }) => {
+const Modal: FC<Props> = ({ close, onClose, size, style, children }) => {
   const handleKeys = (e) => {
     if (e.keyCode === 27) {
       e.preventDefault()
+      onClose ? onClose() : null
       close()
     }
   }
