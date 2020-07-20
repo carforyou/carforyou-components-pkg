@@ -6,16 +6,14 @@ import classNames from "classnames"
 import Modal, { ModalSize, ModalStyle } from "../components/modal/index"
 
 const useModal = (
-  modal: (modalProps: {
-    closeModal: () => void
-  }) => JSX.Element,
+  modal: (modalProps: { closeModal: () => void }) => JSX.Element,
   options?: {
     size?: ModalSize
     style?: ModalStyle
     alwaysRender?: boolean
     container?: RefObject<HTMLDivElement>
-  },
-  onClose?: () => void
+    onClose?: () => void
+  }
 ) => {
   const [isVisible, setVisible] = useState(false)
   const {
@@ -23,6 +21,7 @@ const useModal = (
     style = "white",
     alwaysRender = false,
     container = null,
+    onClose = null,
   } = options || {}
 
   const openModal = () => {
