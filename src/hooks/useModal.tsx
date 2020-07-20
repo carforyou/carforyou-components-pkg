@@ -6,7 +6,10 @@ import classNames from "classnames"
 import Modal, { ModalSize, ModalStyle } from "../components/modal/index"
 
 const useModal = (
-  modal: (modalProps: { closeModal: () => void }) => JSX.Element,
+  modal: (modalProps: {
+    closeModal: () => void
+    onClose: () => void
+  }) => JSX.Element,
   options?: {
     size?: ModalSize
     style?: ModalStyle
@@ -41,7 +44,7 @@ const useModal = (
   }, [isVisible])
 
   const renderModalComponent = () => (
-    <Modal close={closeModal} size={size} style={style}>
+    <Modal close={closeModal} onClose={onClose} size={size} style={style}>
       {modal}
     </Modal>
   )

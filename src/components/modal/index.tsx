@@ -10,6 +10,7 @@ export type ModalStyle = "white" | "dark"
 
 interface Props {
   close: () => void
+  onClose?: () => void
   children: (options: { closeModal: () => void }) => ReactNode
   size: ModalSize
   style: ModalStyle
@@ -43,7 +44,10 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
       >
         <div
           className="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
-          onClick={close}
+          onClick={() => {
+            onClose ? onClose() : null
+            close()
+          }}
           data-testid="modal-close"
         >
           <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
