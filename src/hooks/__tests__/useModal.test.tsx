@@ -1,5 +1,5 @@
 import React, { createRef, RefObject, FC } from "react"
-import { fireEvent, render, act } from "@testing-library/react"
+import { fireEvent, render } from "@testing-library/react"
 
 import useModal from "../useModal"
 
@@ -74,7 +74,7 @@ describe("useModal", () => {
 
     it("calls the onClose function when pressing ESC", async () => {
       const onCloseMock = jest.fn()
-      const { getByText, container, getByTestId } = renderWrapper(onCloseMock)
+      const { getByText, container } = renderWrapper(onCloseMock)
 
       fireEvent.click(getByText(buttonText))
       getByText(modalText)
