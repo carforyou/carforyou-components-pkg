@@ -17,11 +17,15 @@ interface Props {
 }
 
 const Modal: FC<Props> = ({ close, onClose, size, style, children }) => {
+  const handleClose = () => {
+    onClose ? onClose() : null
+    close()
+  }
+
   const handleKeys = (e) => {
     if (e.keyCode === 27) {
       e.preventDefault()
-      onClose ? onClose() : null
-      close()
+      handleClose()
     }
   }
 
@@ -32,7 +36,7 @@ const Modal: FC<Props> = ({ close, onClose, size, style, children }) => {
 
   return (
     <div className="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto">
-      <Overlay handleClick={close} />
+      <Overlay handleClick={handleClose} />
       <div
         className={classNames(
           "min-h-full max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
@@ -45,10 +49,7 @@ const Modal: FC<Props> = ({ close, onClose, size, style, children }) => {
       >
         <div
           className="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
-          onClick={() => {
-            onClose ? onClose() : null
-            close()
-          }}
+          onClick={handleClose}
           data-testid="modal-close"
         >
           <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
