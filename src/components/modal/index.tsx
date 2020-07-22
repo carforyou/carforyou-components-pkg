@@ -23,11 +23,13 @@ interface Props {
 
 const Modal: FC<Props> = ({ close, onClose, size, style, children }) => {
   const handleClose = () => {
+    console.log("handleClose", onClose)
     onClose ? onClose() : null
     close()
   }
 
   const handleKeys = (e) => {
+    console.log("handleKeys called")
     if (e.keyCode === 27) {
       e.preventDefault()
       handleClose()
