@@ -6,7 +6,13 @@ import { wInfo } from "../utils"
 import useModal from "../../src/hooks/useModal"
 import Button from "../../src/components/button"
 
-const generateDescription = ({ size, alwaysRender, container, style }) => {
+const generateDescription = ({
+  size,
+  alwaysRender,
+  container,
+  style,
+  onClose,
+}) => {
   return `
   Description
   ~~~
@@ -18,6 +24,7 @@ ${size ? `      size: ${size},` : ""}
 ${alwaysRender ? `      alwaysRender: ${alwaysRender},` : ""}
 ${container ? `      container: ${container},` : ""}
 ${style ? `      style: ${style}` : ""}
+${onClose ? `      onClose: ${onClose}` : ""}
     })
 
     return (
@@ -36,6 +43,7 @@ const generateStoryFunction = ({
   alwaysRender,
   container,
   style,
+  onClose,
 }) => () => {
   function ModalDemo() {
     const { openModal, renderModal } = useModal(
@@ -63,7 +71,7 @@ const generateStoryFunction = ({
           </p>
         </div>
       ),
-      { size, alwaysRender, container, style }
+      { size, alwaysRender, container, style, onClose }
     )
 
     return (
@@ -84,15 +92,16 @@ const generateStoryFunction = ({
   )
 }
 
-const generareStrory = ({
+const generateModalStory = ({
   size = "medium",
   alwaysRender = false,
   container = null,
   style = "white",
+  onClose = null,
 }) => {
-  return wInfo(generateDescription({ size, alwaysRender, container, style }))(
-    generateStoryFunction({ size, alwaysRender, container, style })
-  )
+  return wInfo(
+    generateDescription({ size, alwaysRender, container, style, onClose })
+  )(generateStoryFunction({ size, alwaysRender, container, style, onClose }))
 }
 
-export default generareStrory
+export default generateModalStory
