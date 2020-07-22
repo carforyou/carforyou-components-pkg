@@ -1,10 +1,22 @@
 import { storiesOf } from "@storybook/react"
 
-import generateStory from "./generator"
+import generateModalStory from "./generator"
 
 storiesOf("Modal", module)
-  .add("Small", generateStory({ size: "small" }))
-  .add("Medium", generateStory({ size: "medium" }))
-  .add("Large", generateStory({ size: "large" }))
-  .add("Fulscreen", generateStory({ size: "fullscreen" }))
-  .add("Dark Fulscreen", generateStory({ style: "dark", size: "fullscreen" }))
+  .add("Small", generateModalStory({ size: "small" }))
+  .add(
+    "Small with onClose event",
+    generateModalStory({
+      size: "small",
+      onClose: () => {
+        alert("onClose callback called")
+      },
+    })
+  )
+  .add("Medium", generateModalStory({ size: "medium" }))
+  .add("Large", generateModalStory({ size: "large" }))
+  .add("Fulscreen", generateModalStory({ size: "fullscreen" }))
+  .add(
+    "Dark Fulscreen",
+    generateModalStory({ style: "dark", size: "fullscreen" })
+  )

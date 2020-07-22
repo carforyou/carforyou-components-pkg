@@ -9,10 +9,15 @@ export type ModalSize = "small" | "medium" | "large" | "fullscreen"
 export type ModalStyle = "white" | "dark"
 
 interface Props {
+  // Function to close the modal
   close: () => void
+  // Callback function called when the modal is closed
   onClose?: () => void
+  // Modal content
   children: (options: { closeModal: () => void }) => ReactNode
+  // Screen size
   size: ModalSize
+  // Background color
   style: ModalStyle
 }
 
