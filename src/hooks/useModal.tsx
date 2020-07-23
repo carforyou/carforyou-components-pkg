@@ -5,15 +5,17 @@ import classNames from "classnames"
 
 import Modal, { ModalSize, ModalStyle } from "../components/modal/index"
 
+export interface UseModalOptions {
+  size?: ModalSize
+  style?: ModalStyle
+  alwaysRender?: boolean
+  container?: RefObject<HTMLDivElement>
+  onClose?: () => void
+}
+
 const useModal = (
   modal: (modalProps: { closeModal: () => void }) => JSX.Element,
-  options?: {
-    size?: ModalSize
-    style?: ModalStyle
-    alwaysRender?: boolean
-    container?: RefObject<HTMLDivElement>
-    onClose?: () => void
-  }
+  options?: UseModalOptions
 ) => {
   const [isVisible, setVisible] = useState(false)
   const {
