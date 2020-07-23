@@ -1,10 +1,11 @@
-import React from "react"
+import React, { FC } from "react"
 import classNames from "classnames"
 
 import { wInfo } from "../utils"
 
-import useModal from "../../src/hooks/useModal"
+import useModal, { UseModalOptions } from "../../src/hooks/useModal"
 import Button from "../../src/components/button"
+import { action } from "@storybook/addon-actions"
 
 const generateDescription = ({
   size,
@@ -39,12 +40,12 @@ ${onClose ? `      onClose: ${onClose}` : ""}
 }
 
 const generateStoryFunction = ({
-  size,
   alwaysRender,
   container,
+  size,
   style,
   onClose,
-}) => () => {
+}) => {
   function ModalDemo() {
     const { openModal, renderModal } = useModal(
       () => (
@@ -82,7 +83,7 @@ const generateStoryFunction = ({
     )
   }
 
-  return (
+  return () => (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 md:w-3/12">
@@ -97,11 +98,27 @@ const generateModalStory = ({
   alwaysRender = false,
   container = null,
   style = "white",
-  onClose = null,
+  onCloseActionText = null,
 }) => {
+  const onClose = onCloseActionText ? action(onCloseActionText) : null
+
   return wInfo(
-    generateDescription({ size, alwaysRender, container, style, onClose })
-  )(generateStoryFunction({ size, alwaysRender, container, style, onClose }))
+    generateDescription({
+      size,
+      alwaysRender,
+      container,
+      style,
+      onClose,
+    })
+  )(
+    generateStoryFunction({
+      size,
+      alwaysRender,
+      container,
+      style,
+      onClose,
+    })
+  )
 }
 
 export default generateModalStory

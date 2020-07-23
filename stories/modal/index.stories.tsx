@@ -8,9 +8,7 @@ storiesOf("Modal", module)
     "Small with onClose event",
     generateModalStory({
       size: "small",
-      onClose: () => {
-        alert("onClose callback called")
-      },
+      onCloseActionText: "onClose callback called",
     })
   )
   .add("Medium", generateModalStory({ size: "medium" }))

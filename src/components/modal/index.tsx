@@ -8,7 +8,7 @@ export type ModalSize = "small" | "medium" | "large" | "fullscreen"
 
 export type ModalStyle = "white" | "dark"
 
-interface Props {
+export interface ModalProps {
   // Function to close the modal
   close: () => void
   // Callback function called when the modal is closed
@@ -21,7 +21,7 @@ interface Props {
   style: ModalStyle
 }
 
-const Modal: FC<Props> = ({ close, onClose, size, style, children }) => {
+const Modal: FC<ModalProps> = ({ close, onClose, size, style, children }) => {
   const handleClose = () => {
     onClose ? onClose() : null
     close()
