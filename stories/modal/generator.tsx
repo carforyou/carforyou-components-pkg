@@ -1,9 +1,9 @@
-import React, { FC } from "react"
+import React from "react"
 import classNames from "classnames"
 
 import { wInfo } from "../utils"
 
-import useModal, { UseModalOptions } from "../../src/hooks/useModal"
+import useModal from "../../src/hooks/useModal"
 import Button from "../../src/components/button"
 import { action } from "@storybook/addon-actions"
 
