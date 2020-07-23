@@ -85,7 +85,7 @@ const generateStory = ({
   mode = "text",
 }) => {
   const onBlur = () => action("onBlur")
-  const onChange = () => action("w")
+  const onChange = () => action("onChange")
 
   const common = {
     name,
