@@ -6,11 +6,13 @@ import useModal from "../useModal"
 const modalText = "HERE BE DRAGONS"
 const buttonText = "Open modal"
 
-const Component: FC<{ modalContainer?: RefObject<HTMLDivElement> }> = ({
-  modalContainer,
-}) => {
+const Component: FC<{
+  modalContainer?: RefObject<HTMLDivElement>
+  onClose?: () => {}
+}> = ({ modalContainer, onClose = null }) => {
   const { renderModal, openModal } = useModal(() => <div>{modalText}</div>, {
     container: modalContainer,
+    onClose,
   })
 
   return (
@@ -34,7 +36,8 @@ const ComponentWithPortal: FC<{}> = () => {
 
 describe("useModal", () => {
   describe("without portal", () => {
-    const renderWrapper = () => render(<Component />)
+    const renderWrapper = (onClose = null) =>
+      render(<Component onClose={onClose} />)
 
     it("renders correct markup", () => {
       const { container } = renderWrapper()
@@ -66,6 +69,41 @@ describe("useModal", () => {
       fireEvent.keyDown(container, { keyCode: 27 })
 
       expect(container.firstChild).toMatchSnapshot()
+      expect(container).not.toContain(modalText)
+    })
+
+    it("calls the onClose function when pressing ESC", async () => {
+      const onCloseMock = jest.fn()
+      const { getByText, container } = renderWrapper(onCloseMock)
+
+      fireEvent.click(getByText(buttonText))
+      getByText(modalText)
+      fireEvent.keyDown(container, {
+        keyCode: 27,
+      })
+
+      expect(onCloseMock).toBeCalledTimes(1)
+    })
+
+    it("calls the onClose function the close button is clicked", async () => {
+      const onCloseMock = jest.fn()
+      const { getByText, getByTestId } = renderWrapper(onCloseMock)
+
+      fireEvent.click(getByText(buttonText))
+      getByText(modalText)
+      fireEvent.click(getByTestId("modal-close"))
+
+      expect(onCloseMock).toBeCalledTimes(1)
+    })
+
+    it("calls the onClose function when the overlay is clicked", async () => {
+      const onCloseMock = jest.fn()
+      const { getByText, getByTestId } = renderWrapper(onCloseMock)
+      fireEvent.click(getByText(buttonText))
+      getByText(modalText)
+      fireEvent.click(getByTestId("modal-overlay"))
+
+      expect(onCloseMock).toBeCalledTimes(1)
     })
   })
 

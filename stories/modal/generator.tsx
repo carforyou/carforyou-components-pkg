@@ -5,8 +5,15 @@ import { wInfo } from "../utils"
 
 import useModal from "../../src/hooks/useModal"
 import Button from "../../src/components/button"
+import { action } from "@storybook/addon-actions"
 
-const generateDescription = ({ size, alwaysRender, container, style }) => {
+const generateDescription = ({
+  size,
+  alwaysRender,
+  container,
+  style,
+  onClose,
+}) => {
   return `
   Description
   ~~~
@@ -18,6 +25,7 @@ ${size ? `      size: ${size},` : ""}
 ${alwaysRender ? `      alwaysRender: ${alwaysRender},` : ""}
 ${container ? `      container: ${container},` : ""}
 ${style ? `      style: ${style}` : ""}
+${onClose ? `      onClose: ${onClose}` : ""}
     })
 
     return (
@@ -32,11 +40,12 @@ ${style ? `      style: ${style}` : ""}
 }
 
 const generateStoryFunction = ({
-  size,
   alwaysRender,
   container,
+  size,
   style,
-}) => () => {
+  onClose,
+}) => {
   function ModalDemo() {
     const { openModal, renderModal } = useModal(
       () => (
@@ -63,7 +72,7 @@ const generateStoryFunction = ({
           </p>
         </div>
       ),
-      { size, alwaysRender, container, style }
+      { size, alwaysRender, container, style, onClose }
     )
 
     return (
@@ -74,7 +83,7 @@ const generateStoryFunction = ({
     )
   }
 
-  return (
+  return () => (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 md:w-3/12">
@@ -84,15 +93,32 @@ const generateStoryFunction = ({
   )
 }
 
-const generareStrory = ({
+const generateModalStory = ({
   size = "medium",
   alwaysRender = false,
   container = null,
   style = "white",
+  onCloseActionText = null,
 }) => {
-  return wInfo(generateDescription({ size, alwaysRender, container, style }))(
-    generateStoryFunction({ size, alwaysRender, container, style })
+  const onClose = onCloseActionText ? action(onCloseActionText) : null
+
+  return wInfo(
+    generateDescription({
+      size,
+      alwaysRender,
+      container,
+      style,
+      onClose,
+    })
+  )(
+    generateStoryFunction({
+      size,
+      alwaysRender,
+      container,
+      style,
+      onClose,
+    })
   )
 }
 
-export default generareStrory
+export default generateModalStory
