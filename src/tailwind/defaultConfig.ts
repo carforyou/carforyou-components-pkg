@@ -505,7 +505,6 @@ export default {
       logoDefault: "170px",
       logoSmall: "140px",
       profileDropdown: "320px",
-      tooltip: "320px",
     },
 
     transitionDuration: {

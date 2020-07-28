@@ -12,7 +12,7 @@ interface Props {
 const PopUp: FC<Props> = ({ children, position, alignment }) => (
   <div
     className={classNames(
-      "w-tooltip p-15 bg-white rounded-4 shadow-hard z-modal absolute transform",
+      "p-15 bg-white rounded-4 shadow-hard z-modal absolute transform",
       {
         "bottom-tooltip mb-10": position === TooltipPosition.top,
         "top-tooltip mt-10": position === TooltipPosition.bottom,
