@@ -9,7 +9,7 @@ const generateDescription = ({ position, alignment }) => {
   Description
   ~~~
   <Tooltip
-    renderContent={() => <div>Tooltip content.</div>}
+    renderContent={() => <div className="w-...">Tooltip content.</div>}
     getPosition={() => "${position}"}
     alignment="${alignment}"
   >
@@ -26,7 +26,7 @@ const generateStoryFunction = ({ position, alignment }) => () => {
       <div className="w-12/12 flex justify-center">
         <Tooltip
           renderContent={() => (
-            <p>
+            <p className="w-modalSmall">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Vestibulum urna augue, consectetur at sapien eu, facilisis
               gravida.

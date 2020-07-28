@@ -390,7 +390,6 @@ Object {
       "radioIndicator": "12px",
       "screen": "100vw",
       "scrollbar": "14px",
-      "tooltip": "320px",
     },
     "zIndex": Object {
       "auto": "auto",
