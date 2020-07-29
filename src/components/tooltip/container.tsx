@@ -9,7 +9,7 @@ const TooltipContainer = forwardRef<HTMLDivElement, GetTooltipPropsArg>(
     <div
       ref={ref}
       {...props}
-      className={classNames("flex flex-col relative", {
+      className={classNames("flex flex-col relative z-modal", {
         "pb-10": tooltipPosition === TooltipPosition.top,
         "pl-10": tooltipPosition === TooltipPosition.right,
         "pt-10": tooltipPosition === TooltipPosition.bottom,
