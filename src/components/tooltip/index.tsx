@@ -1,6 +1,8 @@
-import React, { FC, ReactNode, useState, useRef } from "react"
+import React, { FC, ReactNode } from "react"
+import TooltipTrigger from "react-popper-tooltip"
 
-import PopUp from "./popUp"
+import TooltipContainer from "./container"
+import TooltipArrow from "./arrow"
 
 export enum TooltipPosition {
   top = "top",
@@ -14,14 +16,6 @@ export enum TooltipAlignment {
   center = "center",
   end = "end",
 }
-
-const getSpaceAroundRect = ({ top, bottom, left, right }) => ({
-  top,
-  left,
-  bottom: window.innerHeight - bottom,
-  right: window.innerWidth - right,
-})
-
 interface SpaceAroundRect {
   top: number
   left: number
@@ -29,60 +23,93 @@ interface SpaceAroundRect {
   right: number
 }
 
-interface Props {
+export interface Props {
   /**
    * Content of the tooltip
    */
   renderContent: () => ReactNode
   /**
-   * Gets the position where tooltip is supposed to be shown
-   * the spaceAround argument is a spacing around the tooltip container
-   * in pixel, therefore as a consumer you can perform all the calculations
-   * and decide on which side render the tooltip
+   * Preferred position of the tooltip, the position
+   * will be adjusted if there's not enough space for
+   * the tooltip to be rendered
    */
-  getPosition: (spaceAround: SpaceAroundRect) => TooltipPosition
+  preferredPosition: TooltipPosition
   /**
    * Alignment the tooltip with the container
    */
   alignment?: TooltipAlignment
 }
 
+type Placement =
+  | "top"
+  | "top-start"
+  | "top-end"
+  | "bottom"
+  | "bottom-start"
+  | "bottom-end"
+  | "left"
+  | "left-start"
+  | "left-end"
+  | "right"
+  | "right-start"
+  | "right-end"
+
+const getPlacement = (
+  position: TooltipPosition,
+  alignment: TooltipAlignment
+): Placement =>
+  (alignment === "center" ? position : `${position}-${alignment}`) as Placement
+
 const Tooltip: FC<Props> = ({
   children,
   renderContent,
-  getPosition,
+  preferredPosition,
   alignment = TooltipAlignment.center,
 }) => {
-  const tooltipContainer = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const [calculatedPosition, setCalculatedPosition] = useState(null)
-
   return (
-    <div
-      ref={tooltipContainer}
-      onClick={(event) => event.stopPropagation()}
-      onMouseEnter={(event) => {
-        event.stopPropagation()
-        setCalculatedPosition(
-          getPosition(
-            getSpaceAroundRect(tooltipContainer.current.getBoundingClientRect())
-          )
+    <TooltipTrigger
+      placement={getPlacement(preferredPosition, alignment)}
+      trigger="hover"
+      tooltip={({
+        arrowRef,
+        tooltipRef,
+        getArrowProps,
+        getTooltipProps,
+        placement,
+      }) => {
+        const tooltipPosition = placement.split("-")[0]
+
+        return (
+          <TooltipContainer
+            {...getTooltipProps({
+              ref: tooltipRef,
+              tooltipPosition,
+            })}
+          >
+            <TooltipArrow
+              {...getArrowProps({
+                ref: arrowRef,
+                tooltipPosition,
+              })}
+            />
+            <div className="p-15 bg-white rounded-4 shadow-hard">
+              {renderContent()}
+            </div>
+          </TooltipContainer>
         )
-        setIsVisible(true)
       }}
-      onMouseLeave={(event) => {
-        event.stopPropagation()
-        setIsVisible(false)
-      }}
-      className="relative inline-block"
     >
-      {isVisible ? (
-        <PopUp position={calculatedPosition} alignment={alignment}>
-          {renderContent()}
-        </PopUp>
-      ) : null}
-      {children}
-    </div>
+      {({ getTriggerProps, triggerRef }) => (
+        <div
+          {...getTriggerProps({
+            ref: triggerRef,
+            className: "inline-block",
+          })}
+        >
+          {children}
+        </div>
+      )}
+    </TooltipTrigger>
   )
 }
 

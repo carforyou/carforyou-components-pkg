@@ -10,7 +10,7 @@ const generateDescription = ({ position, alignment }) => {
   ~~~
   <Tooltip
     renderContent={() => <div className="w-...">Tooltip content.</div>}
-    getPosition={() => "${position}"}
+    preferredPosition="${position}"
     alignment="${alignment}"
   >
     <div>I have a tooltip</div>
@@ -32,7 +32,7 @@ const generateStoryFunction = ({ position, alignment }) => () => {
               gravida.
             </p>
           )}
-          getPosition={() => position}
+          preferredPosition={position}
           alignment={alignment}
         >
           <span>I have a tooltip</span>
