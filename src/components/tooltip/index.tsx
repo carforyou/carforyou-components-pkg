@@ -1,19 +1,16 @@
 import React, { FC, ReactNode } from "react"
-import TooltipTrigger from "react-popper-tooltip"
-
-import TooltipContainer from "./container"
-import TooltipArrow from "./arrow"
+import TooltipTrigger from "react-tooltip-lite"
 
 export enum TooltipPosition {
-  top = "top",
-  bottom = "bottom",
+  up = "up",
+  down = "down",
   left = "left",
   right = "right",
 }
 
 export enum TooltipAlignment {
   start = "start",
-  center = "center",
+  middle = "middle",
   end = "end",
 }
 interface SpaceAroundRect {
@@ -40,75 +37,23 @@ export interface Props {
   alignment?: TooltipAlignment
 }
 
-type Placement =
-  | "top"
-  | "top-start"
-  | "top-end"
-  | "bottom"
-  | "bottom-start"
-  | "bottom-end"
-  | "left"
-  | "left-start"
-  | "left-end"
-  | "right"
-  | "right-start"
-  | "right-end"
-
-const getPlacement = (
-  position: TooltipPosition,
-  alignment: TooltipAlignment
-): Placement =>
-  (alignment === "center" ? position : `${position}-${alignment}`) as Placement
-
 const Tooltip: FC<Props> = ({
   children,
   renderContent,
   preferredPosition,
-  alignment = TooltipAlignment.center,
+  alignment = TooltipAlignment.middle,
 }) => {
   return (
     <TooltipTrigger
-      placement={getPlacement(preferredPosition, alignment)}
-      trigger="hover"
-      tooltip={({
-        arrowRef,
-        tooltipRef,
-        getArrowProps,
-        getTooltipProps,
-        placement,
-      }) => {
-        const tooltipPosition = placement.split("-")[0]
-
-        return (
-          <TooltipContainer
-            {...getTooltipProps({
-              ref: tooltipRef,
-              tooltipPosition,
-            })}
-          >
-            <TooltipArrow
-              {...getArrowProps({
-                ref: arrowRef,
-                tooltipPosition,
-              })}
-            />
-            <div className="p-15 bg-white rounded-4 shadow-hard">
-              {renderContent()}
-            </div>
-          </TooltipContainer>
-        )
-      }}
+      content={
+        <div className="p-15 shadow-hard rounded-4">{renderContent()}</div>
+      }
+      direction={`${preferredPosition}-${alignment}`}
+      padding="0px"
+      background="#fff"
+      tipContentHover={true}
     >
-      {({ getTriggerProps, triggerRef }) => (
-        <div
-          {...getTriggerProps({
-            ref: triggerRef,
-            className: "inline-block",
-          })}
-        >
-          {children}
-        </div>
-      )}
+      {children}
     </TooltipTrigger>
   )
 }
