@@ -1,27 +1,18 @@
-import React, { FC, ReactNode, useState, useRef } from "react"
-
-import PopUp from "./popUp"
+import React, { FC, ReactNode } from "react"
+import TooltipTrigger from "react-tooltip-lite"
 
 export enum TooltipPosition {
-  top = "top",
-  bottom = "bottom",
+  up = "up",
+  down = "down",
   left = "left",
   right = "right",
 }
 
 export enum TooltipAlignment {
   start = "start",
-  center = "center",
+  middle = "middle",
   end = "end",
 }
-
-const getSpaceAroundRect = ({ top, bottom, left, right }) => ({
-  top,
-  left,
-  bottom: window.innerHeight - bottom,
-  right: window.innerWidth - right,
-})
-
 interface SpaceAroundRect {
   top: number
   left: number
@@ -29,18 +20,17 @@ interface SpaceAroundRect {
   right: number
 }
 
-interface Props {
+export interface Props {
   /**
    * Content of the tooltip
    */
   renderContent: () => ReactNode
   /**
-   * Gets the position where tooltip is supposed to be shown
-   * the spaceAround argument is a spacing around the tooltip container
-   * in pixel, therefore as a consumer you can perform all the calculations
-   * and decide on which side render the tooltip
+   * Preferred position of the tooltip, the position
+   * will be adjusted if there's not enough space for
+   * the tooltip to be rendered
    */
-  getPosition: (spaceAround: SpaceAroundRect) => TooltipPosition
+  preferredPosition: TooltipPosition
   /**
    * Alignment the tooltip with the container
    */
@@ -50,38 +40,22 @@ interface Props {
 const Tooltip: FC<Props> = ({
   children,
   renderContent,
-  getPosition,
-  alignment = TooltipAlignment.center,
+  preferredPosition,
+  alignment = TooltipAlignment.middle,
 }) => {
-  const tooltipContainer = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const [calculatedPosition, setCalculatedPosition] = useState(null)
-
   return (
-    <div
-      ref={tooltipContainer}
-      onClick={(event) => event.stopPropagation()}
-      onMouseEnter={(event) => {
-        event.stopPropagation()
-        setCalculatedPosition(
-          getPosition(
-            getSpaceAroundRect(tooltipContainer.current.getBoundingClientRect())
-          )
-        )
-        setIsVisible(true)
-      }}
-      onMouseLeave={(event) => {
-        event.stopPropagation()
-        setIsVisible(false)
-      }}
-      className="relative inline-block"
-    >
-      {isVisible ? (
-        <PopUp position={calculatedPosition} alignment={alignment}>
-          {renderContent()}
-        </PopUp>
-      ) : null}
-      {children}
+    <div className="inline-block" onClick={(e) => e.preventDefault()}>
+      <TooltipTrigger
+        content={
+          <div className="p-15 shadow-hard rounded-4">{renderContent()}</div>
+        }
+        direction={`${preferredPosition}-${alignment}`}
+        padding="0px"
+        background="#fff"
+        tipContentHover={true}
+      >
+        {children}
+      </TooltipTrigger>
     </div>
   )
 }
