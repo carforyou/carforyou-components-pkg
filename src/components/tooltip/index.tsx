@@ -47,11 +47,12 @@ const Tooltip: FC<Props> = ({
     <div className="inline-block" onClick={(e) => e.preventDefault()}>
       <TooltipTrigger
         content={
-          <div className="p-15 shadow-hard rounded-4">{renderContent()}</div>
+          <div className="rounded-4 shadow-hard p-15 bg-white">
+            {renderContent()}
+          </div>
         }
         direction={`${preferredPosition}-${alignment}`}
         padding="0px"
-        background="#fff"
         tipContentHover={true}
       >
         {children}

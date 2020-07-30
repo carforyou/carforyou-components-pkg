@@ -1,0 +1,5 @@
+/* purgecss start ignore */
+.react-tooltip-lite-arrow {
+  @apply border-white;
+}
+/* purgecss end ignore */
