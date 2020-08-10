@@ -1,0 +1,9 @@
+.fixedCard {
+  @apply flex flex-wrap rounded-10;
+  @apply shadow-small bg-white relative z-card;
+  @apply flex-col;
+}
+
+.fixedCard:hover {
+  @apply shadow-soft transition duration-200;
+}
