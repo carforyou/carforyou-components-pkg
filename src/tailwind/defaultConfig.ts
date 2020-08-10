@@ -527,6 +527,7 @@ export default {
       dropdownMenu: 20,
       headerDropdown: 30,
       modal: 98,
+      card: 10,
     },
 
     /*
