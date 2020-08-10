@@ -5,14 +5,17 @@ import classNames from "classnames"
 
 import Modal, { ModalSize, ModalStyle } from "../components/modal/index"
 
+export interface UseModalOptions {
+  size?: ModalSize
+  style?: ModalStyle
+  alwaysRender?: boolean
+  container?: RefObject<HTMLDivElement>
+  onClose?: () => void
+}
+
 const useModal = (
   modal: (modalProps: { closeModal: () => void }) => JSX.Element,
-  options?: {
-    size?: ModalSize
-    style?: ModalStyle
-    alwaysRender?: boolean
-    container?: RefObject<HTMLDivElement>
-  }
+  options?: UseModalOptions
 ) => {
   const [isVisible, setVisible] = useState(false)
   const {
@@ -20,6 +23,7 @@ const useModal = (
     style = "white",
     alwaysRender = false,
     container = null,
+    onClose = null,
   } = options || {}
 
   const openModal = () => {
@@ -41,7 +45,7 @@ const useModal = (
   }, [isVisible])
 
   const renderModalComponent = () => (
-    <Modal close={closeModal} size={size} style={style}>
+    <Modal close={closeModal} onClose={onClose} size={size} style={style}>
       {modal}
     </Modal>
   )

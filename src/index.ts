@@ -1,4 +1,5 @@
 import Button from "./components/button"
+import Pill from "./components/pill"
 import Pagination from "./components/pagination"
 import Dropdown from "./components/dropdown/index"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
@@ -21,9 +22,14 @@ import Profile from "./components/icons/profile"
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
 import LogoWhite from "./components/icons/logoWhite"
+import Tooltip, {
+  TooltipPosition,
+  TooltipAlignment,
+} from "./components/tooltip/index"
 
 export {
   Button,
+  Pill,
   Pagination,
   Dropdown,
   DropdownWithAutosuggest,
@@ -46,4 +52,7 @@ export {
   LogoRedWhite,
   LogoRedBlack,
   LogoWhite,
+  Tooltip,
+  TooltipPosition,
+  TooltipAlignment,
 }

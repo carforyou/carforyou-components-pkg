@@ -8,18 +8,29 @@ export type ModalSize = "small" | "medium" | "large" | "fullscreen"
 
 export type ModalStyle = "white" | "dark"
 
-interface Props {
+export interface ModalProps {
+  // Function to close the modal
   close: () => void
+  // Callback function called when the modal is closed
+  onClose?: () => void
+  // Modal content
   children: (options: { closeModal: () => void }) => ReactNode
+  // Screen size
   size: ModalSize
+  // Background color
   style: ModalStyle
 }
 
-const Modal: FC<Props> = ({ close, size, style, children }) => {
+const Modal: FC<ModalProps> = ({ close, onClose, size, style, children }) => {
+  const handleClose = () => {
+    onClose ? onClose() : null
+    close()
+  }
+
   const handleKeys = (e) => {
     if (e.keyCode === 27) {
       e.preventDefault()
-      close()
+      handleClose()
     }
   }
 
@@ -30,7 +41,7 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
 
   return (
     <div className="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto">
-      <Overlay handleClick={close} />
+      <Overlay handleClick={handleClose} />
       <div
         className={classNames(
           "min-h-full max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block md:relative",
@@ -43,7 +54,7 @@ const Modal: FC<Props> = ({ close, size, style, children }) => {
       >
         <div
           className="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
-          onClick={close}
+          onClick={handleClose}
           data-testid="modal-close"
         >
           <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />

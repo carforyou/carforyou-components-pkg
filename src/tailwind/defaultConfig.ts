@@ -134,6 +134,7 @@ export default {
       "4": "4px",
       "10": "10px",
       "20": "20px",
+      pill: "8px",
     },
 
     /*
@@ -256,6 +257,7 @@ export default {
 
     inset: {
       "0": 0,
+      "-10": "-10px",
       auto: "auto",
       half: "50%",
       requiredIndicator: "5px",
@@ -264,6 +266,8 @@ export default {
       floatingLabel: "13px",
       "-floatingLabel": "-13px",
       radioIndicator: "5px",
+      tooltip: "110%",
+      full: "100%",
     },
 
     /*
