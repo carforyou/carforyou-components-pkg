@@ -1,11 +1,18 @@
 import React, { FC, ReactNode } from "react"
 
 interface Props {
+  renderImage: () => ReactNode
   children: ReactNode
+  onClick?: () => void
 }
 
-export const Card: FC<Props> = ({ children }) => {
-  return <article className="fixedCard">{children}</article>
+export const Card: FC<Props> = ({ renderImage, children, onClick }) => {
+  return (
+    <article className="fixedCard" onClick={onClick}>
+      {renderImage()}
+      {children}
+    </article>
+  )
 }
 
 export default Card
