@@ -6,7 +6,7 @@ interface Props {
   onClick?: () => void
 }
 
-export const Card: FC<Props> = ({ renderImage, children, onClick }) => {
+export const FixedCard: FC<Props> = ({ renderImage, children, onClick }) => {
   return (
     <article className="fixedCard" onClick={onClick}>
       {renderImage()}
@@ -15,4 +15,4 @@ export const Card: FC<Props> = ({ renderImage, children, onClick }) => {
   )
 }
 
-export default Card
+export default FixedCard
