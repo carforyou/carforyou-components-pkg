@@ -31,7 +31,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "deepmerge": "^4.2.2",
-    "downshift": "^5.0.0",
+    "downshift": "^6.0.0",
     "glob": "^7.1.6",
     "react-paginate": "^6.3.2",
     "react-tooltip-lite": "^1.12.0",
