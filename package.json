@@ -4,7 +4,7 @@
   "description": "CAR FOR YOU React components",
   "scripts": {
     "version": "npm run build",
-    "dev": "npm run build:tailwind && start-storybook -p 6006",
+    "dev": "npm run build:tailwind && start-storybook -s ./public -p 6006",
     "test": "jest",
     "lint": "eslint --ext ts,js,tsx,jsx,json .",
     "format": "npm run lint -- --fix",

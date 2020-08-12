@@ -26,6 +26,7 @@ import Tooltip, {
   TooltipPosition,
   TooltipAlignment,
 } from "./components/tooltip/index"
+import FixedCard from "./components/card/fixed"
 
 export {
   Button,
@@ -55,4 +56,5 @@ export {
   Tooltip,
   TooltipPosition,
   TooltipAlignment,
+  FixedCard,
 }
