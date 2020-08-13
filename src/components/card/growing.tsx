@@ -7,10 +7,17 @@ interface Props {
   noMarginsOnMobile?: boolean
 }
 
-export const GrowingCard: FC<Props> = ({ renderImage, children, noMarginsOnMobile }) => {
+export const GrowingCard: FC<Props> = ({
+  renderImage,
+  children,
+  noMarginsOnMobile,
+}) => {
   return (
-    <article className={classNames("growingCard"
-    {"rounded-none md:rounded-10": noMarginsOnMobile})}>
+    <article
+      className={classNames("growingCard", {
+        "rounded-none md:rounded-10": noMarginsOnMobile,
+      })}
+    >
       {renderImage()}
       {children}
     </article>
