@@ -11,5 +11,5 @@
 
 .growingCard {
   @apply flex flex-row flex-wrap rounded-10;
-  @apply shadow-small bg-white relative z-card;
+  @apply shadow-small bg-white relative z-card overflow-hidden;
 }
