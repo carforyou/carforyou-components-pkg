@@ -4,6 +4,12 @@
   @apply flex-col overflow-hidden;
 }
 
-.fixedCard:hover {
+.fixedCard:hover,
+.growingCard:hover {
   @apply shadow-soft transition duration-200;
+}
+
+.growingCard {
+  @apply flex flex-row flex-wrap rounded-10;
+  @apply shadow-small bg-white relative z-card;
 }
