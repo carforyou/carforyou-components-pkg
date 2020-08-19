@@ -273,6 +273,7 @@ Object {
       "full": "100%",
     },
     "maxWidth": Object {
+      "container": "1200px",
       "full": "100%",
     },
     "minHeight": Object {
