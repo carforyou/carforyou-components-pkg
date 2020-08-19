@@ -359,6 +359,7 @@ export default {
     */
     maxWidth: {
       full: "100%",
+      container: "1200px",
     },
 
     /*
