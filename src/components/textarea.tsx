@@ -1,4 +1,4 @@
-import React, { FocusEvent, forwardRef } from "react"
+import React, { FocusEvent, forwardRef, FormEvent } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "./fieldHelpers/withValidationError"
@@ -17,6 +17,7 @@ interface Props {
   required?: boolean
   onChange: (e: { target: { value: string } }) => void
   onBlur: (e: FocusEvent) => void
+  onInput?: (e: FormEvent<HTMLTextAreaElement>) => void
   rows?: number
   cols?: number
   maxLength?: number
@@ -36,6 +37,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(
       required = false,
       onChange,
       onBlur,
+      onInput,
       rows,
       cols,
       maxLength,
@@ -55,6 +57,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(
         )}
         onChange={onChange}
         onBlur={onBlur}
+        onInput={onInput}
         data-testid={name}
         data-valid={!hasError}
         disabled={disabled}
