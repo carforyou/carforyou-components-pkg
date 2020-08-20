@@ -14,9 +14,6 @@ import Checkbox from "./components/checkbox"
 import RadioButton from "./components/radioButton"
 import WithLabel from "./components/fieldHelpers/withLabel"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
-import Header from "./components/header/index"
-import { HeaderTheme } from "./components/header/themeContext"
-import HeaderDropdown from "./components/header/dropdown"
 import useModal from "./hooks/useModal"
 import Profile from "./components/icons/profile"
 import LogoRedWhite from "./components/icons/logoRedWhite"
@@ -46,9 +43,6 @@ export {
   WithLabel,
   WithValidationError,
   useModal,
-  Header,
-  HeaderDropdown,
-  HeaderTheme,
   Profile,
   LogoRedWhite,
   LogoRedBlack,
