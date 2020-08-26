@@ -6,12 +6,12 @@ module.exports = ({ config }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve("awesome-typescript-loader")
+        loader: require.resolve("ts-loader"),
       },
       {
-        loader: require.resolve("react-docgen-typescript-loader")
-      }
-    ]
+        loader: require.resolve("react-docgen-typescript-loader"),
+      },
+    ],
   })
 
   // Exclude modules from storybooks default CSS loader and inject our own
@@ -43,11 +43,11 @@ module.exports = ({ config }) => {
         loader: "postcss-loader",
         options: {
           config: {
-            path: ".storybook/"
-          }
-        }
-      }
-    ]
+            path: ".storybook/",
+          },
+        },
+      },
+    ],
   })
 
   return config
