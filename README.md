@@ -37,7 +37,7 @@ Then, you can start using the shared React components:
 import  { Pagination } from "@carforyou/components"
 ```
 
-You can also import styles and assets:
+In order for the components being styled correctly, *your project will need to be able to process CSS modules*. Additionally, you'll have to import global styles like follows:
 
 ```
 @import '@carforyou/components/assets/index.css';
