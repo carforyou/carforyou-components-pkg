@@ -5,12 +5,12 @@ module.exports = ({ config }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve("awesome-typescript-loader")
+        loader: require.resolve("ts-loader"),
       },
       {
-        loader: require.resolve("react-docgen-typescript-loader")
-      }
-    ]
+        loader: require.resolve("react-docgen-typescript-loader"),
+      },
+    ],
   })
   config.resolve.extensions.push(".ts", ".tsx")
 
@@ -24,11 +24,11 @@ module.exports = ({ config }) => {
         loader: "postcss-loader",
         options: {
           config: {
-            path: ".storybook/"
-          }
-        }
-      }
-    ]
+            path: ".storybook/",
+          },
+        },
+      },
+    ],
   })
 
   return config

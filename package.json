@@ -62,7 +62,6 @@
     "@types/node": "^12.12.24",
     "@types/react": "^16.9.17",
     "@types/react-paginate": "^6.2.1",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
     "bundlesize": "^0.18.0",
     "jest": "^25.1.0",
@@ -78,7 +77,8 @@
     "svgo": "^1.3.2",
     "tailwindcss": "^1.4.6",
     "ts-jest": "^25.0.0",
-    "typescript": "^3.7.5"
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.0"
   },
   "@pika/pack": {
     "pipeline": [
