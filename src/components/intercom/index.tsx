@@ -7,6 +7,8 @@ import ChatIcon from "../icons/chat"
 import CloseIcon from "../icons/close"
 import Spinner from "../spinner"
 
+import styles from "./index.module.css"
+
 interface Props {
   /**
    * Intercom app/workplace id
@@ -128,7 +130,8 @@ export const Intercom: FC<Props> = ({
     <>
       <div
         className={classNames(
-          "intercom-launcher sticky fixed text-white py-2 cursor-pointer transition-3 hover:opacity-60",
+          styles.launcher,
+          "sticky fixed text-white py-2 cursor-pointer transition-3 hover:opacity-60",
           state === State.Open ? "bg-teal" : "bg-grey-4"
         )}
         id={intercomLauncherId}
