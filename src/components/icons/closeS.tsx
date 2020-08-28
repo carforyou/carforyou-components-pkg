@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-const CloseS: FC<{}> = () => (
+const CloseS: FC = () => (
   <svg
     width="24"
     height="24"

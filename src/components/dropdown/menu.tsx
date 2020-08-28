@@ -2,6 +2,7 @@ import React, { Ref, Component, ReactNode } from "react"
 import classNames from "classnames"
 import Spinner from "../spinner"
 import { wrapLink } from "../../lib/buttonHelper"
+import { GetItemPropsOptions, GetMenuPropsOptions } from "downshift"
 
 interface Item<T> {
   value: T | { customValue: T }
@@ -14,9 +15,12 @@ interface Item<T> {
 }
 
 interface Props<T> {
-  getItemProps: (props: object) => object
-  getMenuProps: (props: object, options?: object) => object
-  setHighlightedIndex: (index: number, state?: object) => void
+  getItemProps: (props: GetItemPropsOptions<Item<T>>) => Record<string, unknown>
+  getMenuProps: (
+    props: GetMenuPropsOptions,
+    options?: Record<string, unknown>
+  ) => Record<string, unknown>
+  setHighlightedIndex: (index: number, state?: Record<string, unknown>) => void
   highlightedIndex?: number
   selectedItem?: Item<T>
   inputValue?: string
@@ -40,7 +44,7 @@ const isCustomValue = (value): boolean => {
   return false
 }
 
-const hightlightItem = <T extends {}>({
+const hightlightItem = <T extends unknown>({
   name,
   preMatch,
   match,
@@ -125,9 +129,9 @@ class Menu<T> extends Component<Props<T>> {
           return (
             // eslint-disable-next-line react/jsx-key
             <li
+              data-testid={item.name}
               {...getItemProps({
-                "data-testid": item.name,
-                key: item.key || item.value || `item-${index}`,
+                key: item.key || item.value?.toString() || `item-${index}`,
                 item,
                 className: classNames(
                   "hover:bg-grey-bright transition duration-200 cursor-pointer",

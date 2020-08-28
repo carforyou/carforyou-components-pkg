@@ -2,7 +2,9 @@ import React, { ReactChild, ReactElement } from "react"
 
 interface Props<T> {
   placeholder?: string
-  getToggleButtonProps: (props: object) => object
+  getToggleButtonProps: (
+    props: Record<string, unknown>
+  ) => Record<string, unknown>
   isOpen: boolean
   selectedItem: { name: string; value: T }
   className: string

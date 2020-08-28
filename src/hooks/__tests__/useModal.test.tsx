@@ -8,7 +8,7 @@ const buttonText = "Open modal"
 
 const Component: FC<{
   modalContainer?: RefObject<HTMLDivElement>
-  onClose?: () => {}
+  onClose?: () => void
 }> = ({ modalContainer, onClose = null }) => {
   const { renderModal, openModal } = useModal(() => <div>{modalText}</div>, {
     container: modalContainer,
@@ -23,7 +23,7 @@ const Component: FC<{
   )
 }
 
-const ComponentWithPortal: FC<{}> = () => {
+const ComponentWithPortal: FC = () => {
   const portalRef: RefObject<HTMLDivElement> = createRef()
 
   return (

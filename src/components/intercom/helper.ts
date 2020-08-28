@@ -1,7 +1,7 @@
 declare global {
   interface Window {
-    Intercom: (event: string, options?: object) => void
-    intercomSettings: object
+    Intercom: (event: string, options?: Record<string, unknown>) => void
+    intercomSettings: Record<string, unknown>
   }
 }
 
