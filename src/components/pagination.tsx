@@ -9,8 +9,8 @@ interface Props {
   rangePageLabel: string
   onPageChange: (data) => void
   forcePage: number
-  query?: object
-  pageLinkBuilder?: (page: number, params: object) => string
+  query?: Record<string, unknown>
+  pageLinkBuilder?: (page: number, params: Record<string, unknown>) => string
   renderHead?: (links) => void
 }
 

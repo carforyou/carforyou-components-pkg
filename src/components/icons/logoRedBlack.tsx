@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-const LogoRedBlack: FC<{}> = () => {
+const LogoRedBlack: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 243.04 37.13">
       <path

@@ -269,7 +269,7 @@ function DropdownWithAutosuggest<T>({
       toggle={renderToggle}
       menu={(downshift, filteredOptions) => {
         return (
-          <Menu
+          <Menu<T>
             {...{
               ...downshift,
               innerRef: menuRef,

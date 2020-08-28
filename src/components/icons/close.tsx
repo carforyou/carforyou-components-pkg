@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-const Close: FC<{}> = () => {
+const Close: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
       <path

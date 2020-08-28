@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-const Chat: FC<{}> = () => {
+const Chat: FC = () => {
   return (
     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">

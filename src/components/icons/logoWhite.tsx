@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-const LogoWhite: FC<{}> = () => {
+const LogoWhite: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 243.04 37.13">
       <path
