@@ -24,6 +24,7 @@ import Tooltip, {
   TooltipAlignment,
 } from "./components/tooltip/index"
 import FixedCard from "./components/card/fixed"
+import OpeningHours from "./components/openingHours"
 
 export {
   Button,
@@ -51,4 +52,5 @@ export {
   TooltipPosition,
   TooltipAlignment,
   FixedCard,
+  OpeningHours,
 }
