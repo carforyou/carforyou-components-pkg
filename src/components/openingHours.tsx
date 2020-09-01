@@ -3,13 +3,9 @@ import React, { FC } from "react"
 import ClockOutlinedTeal from "./icons/clockOutlined"
 
 interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   openingHours: any
-  weekDaysTranslation: string
-  mondayTranslation: string
-  sundayTranslation: string
-  openTranslation: string
-  closedTranslation: string
-  infoTranslation: string
+  labels: { [key: string]: string }
 }
 
 const daysOrder = [
@@ -22,15 +18,7 @@ const daysOrder = [
   "sunday",
 ]
 
-export const OpeningHours: FC<Props> = ({
-  openingHours,
-  weekDaysTranslation,
-  mondayTranslation,
-  sundayTranslation,
-  openTranslation,
-  closedTranslation,
-  infoTranslation,
-}) => {
+export const OpeningHours: FC<Props> = ({ openingHours, labels, children }) => {
   const openingHoursByDay = daysOrder.reduce((acc, day) => {
     acc[day] = []
     return acc
@@ -50,17 +38,16 @@ export const OpeningHours: FC<Props> = ({
 
   const getFormattedDays = (days) => {
     if (days.length > 1) {
-      return `${`${days[0]}`.slice(0, 2)}-${`${days[days.length - 1]}`.slice(
-        0,
-        2
-      )}`
+      return `${`${labels[days[0]]}`.slice(0, 2)}-${`${
+        labels[days[days.length - 1]]
+      }`.slice(0, 2)}`
     }
-    return days[0]
+    return labels[days[0]]
   }
 
   const renderRow = (day, morning, afternoon = null) => {
     return (
-      <div className="w-12/12 flex items-baseline pb-5" key={day}>
+      <div className="w-12/12 flex items-baseline pb-10" key={day}>
         <div className="w-4/12">{day}</div>
         <div className="ml-20 flex flex-col leading-xs">
           <span>{morning}</span>
@@ -73,8 +60,8 @@ export const OpeningHours: FC<Props> = ({
   const renderOpeningHours = () => {
     if (isOpen24h()) {
       return renderRow(
-        `${mondayTranslation.slice(0, 2)}-${sundayTranslation.slice(0, 2)}`,
-        openTranslation
+        `${labels.monday.slice(0, 2)}-${labels.sunday.slice(0, 2)}`,
+        `${labels.open} 24h`
       )
     }
 
@@ -117,7 +104,7 @@ export const OpeningHours: FC<Props> = ({
             )
           default:
             // closed
-            return renderRow(getFormattedDays(days), closedTranslation)
+            return renderRow(getFormattedDays(days), labels.closed)
         }
       })
   }
@@ -125,10 +112,10 @@ export const OpeningHours: FC<Props> = ({
   return openingHours ? (
     <>
       <div className="flex mt-15 text-grey-4 text-sm">
-        <ClockOutlinedTeal height="20" width="20" />
+        <ClockOutlinedTeal height="24" width="24" />
         <div className="w-12/12 pl-15">{renderOpeningHours()}</div>
       </div>
-      <p className="py-20 pl-30 text-grey-3">{infoTranslation}</p>
+      {children}
     </>
   ) : null
 }
