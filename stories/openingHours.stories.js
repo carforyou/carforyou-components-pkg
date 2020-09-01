@@ -117,34 +117,34 @@ const openingHours = [
   },
 ]
 
-const weekDays = [
-  "Friday",
-  "Monday",
-  "Saturday",
-  "Sunday",
-  "Thursday",
-  "Tuesday",
-  "Wednesday",
-]
-
 storiesOf("Opening Hours", module).add(
   "Closed during lunch time",
   wInfo(`
     Description
     ~~~
-    <OpeningHours>NEW</OpeningHours>
+    <OpeningHours>Disclaimer</OpeningHours>
     ~~~
     `)(() => (
     <div className="pl-40 w-12/12 md:w-6/12">
       <OpeningHours
         openingHours={openingHours}
-        weekDaysTranslation={weekDays}
-        mondayTranslation="Monday"
-        sundayTranslation="Sunday"
-        openTranslation="open"
-        closedTranslation="closed"
-        infoTranslation="This data is provided by Google, and could contain inaccurate informations."
-      />
+        labels={{
+          monday: "Monday",
+          tuesday: "Tuesday",
+          wednesday: "Wednesday",
+          thursday: "Thursday",
+          friday: "Friday",
+          saturday: "Saturday",
+          sunday: "Sunday",
+          open: "open",
+          closed: "closed",
+        }}
+      >
+        <p className="py-20 pl-30 text-grey-3">
+          This data is provided by Google, and could contain inaccurate
+          informations.
+        </p>
+      </OpeningHours>
     </div>
   ))
 )
