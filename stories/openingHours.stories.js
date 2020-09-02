@@ -136,9 +136,7 @@ storiesOf("Opening Hours", module).add(
     labels={{
       monday: "Monday",
       tuesday: "Tuesday",
-    }}>
-      Disclaimer
-    </OpeningHours>
+    }}/>
     ~~~
     `)(() => (
     <div className="pl-40 w-12/12 md:w-6/12">
@@ -155,12 +153,7 @@ storiesOf("Opening Hours", module).add(
           open: "open",
           closed: "closed",
         }}
-      >
-        <p className="py-20 pl-30 text-grey-3">
-          This data is provided by Google, and could contain inaccurate
-          informations.
-        </p>
-      </OpeningHours>
+      />
     </div>
   ))
 )

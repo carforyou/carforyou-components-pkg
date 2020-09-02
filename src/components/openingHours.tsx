@@ -6,8 +6,11 @@ interface Props {
   /**
    * Any opening hours to be displayed
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  openingHours: any
+  openingHours: Array<{
+    open: { dayOfWeek: string; time: string }
+    close: { dayOfWeek: string; time: string }
+  }>
+
   /**
    * Text to be displayed
    */
@@ -24,7 +27,7 @@ const daysOrder = [
   "sunday",
 ]
 
-export const OpeningHours: FC<Props> = ({ openingHours, labels, children }) => {
+export const OpeningHours: FC<Props> = ({ openingHours, labels }) => {
   const openingHoursByDay = daysOrder.reduce((acc, day) => {
     acc[day] = []
     return acc
@@ -121,7 +124,6 @@ export const OpeningHours: FC<Props> = ({ openingHours, labels, children }) => {
         <ClockOutlinedTeal height="24" width="24" />
         <div className="w-12/12 pl-15">{renderOpeningHours()}</div>
       </div>
-      {children}
     </>
   ) : null
 }
