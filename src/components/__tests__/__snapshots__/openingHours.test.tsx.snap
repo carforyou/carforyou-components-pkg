@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Opening hours /> renders correct markup - 24h open 1`] = `
+<div>
+  <div
+    class="flex mt-15 text-grey-4 text-sm"
+  >
+    <svg
+      height="24"
+      viewBox="0 0 22 22"
+      width="24"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+        stroke="#3696B9"
+        stroke-width="2"
+        transform="translate(-5 -5)"
+      >
+        <rect
+          height="20"
+          rx="10"
+          width="20"
+          x="6"
+          y="6"
+        />
+        <path
+          d="M16 11.2V16l2.4 2.4"
+          stroke-linecap="round"
+        />
+      </g>
+    </svg>
+    <div
+      class="w-12/12 pl-15"
+    >
+      <div
+        class="w-12/12 flex items-baseline pb-10"
+      >
+        <div
+          class="w-4/12"
+        >
+          Mo-Su
+        </div>
+        <div
+          class="ml-20 flex flex-col leading-xs"
+        >
+          <span>
+            open 24h
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Opening hours /> renders correct markup - closed during lunch time 1`] = `
+<div>
+  <div
+    class="flex mt-15 text-grey-4 text-sm"
+  >
+    <svg
+      height="24"
+      viewBox="0 0 22 22"
+      width="24"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+        stroke="#3696B9"
+        stroke-width="2"
+        transform="translate(-5 -5)"
+      >
+        <rect
+          height="20"
+          rx="10"
+          width="20"
+          x="6"
+          y="6"
+        />
+        <path
+          d="M16 11.2V16l2.4 2.4"
+          stroke-linecap="round"
+        />
+      </g>
+    </svg>
+    <div
+      class="w-12/12 pl-15"
+    >
+      <div
+        class="w-12/12 flex items-baseline pb-10"
+      >
+        <div
+          class="w-4/12"
+        >
+          Mo-Th
+        </div>
+        <div
+          class="ml-20 flex flex-col leading-xs"
+        >
+          <span>
+            07:30-12:00
+          </span>
+          <span>
+            13:30-18:00
+          </span>
+        </div>
+      </div>
+      <div
+        class="w-12/12 flex items-baseline pb-10"
+      >
+        <div
+          class="w-4/12"
+        >
+          Friday
+        </div>
+        <div
+          class="ml-20 flex flex-col leading-xs"
+        >
+          <span>
+            07:30-12:00
+          </span>
+          <span>
+            13:30-17:00
+          </span>
+        </div>
+      </div>
+      <div
+        class="w-12/12 flex items-baseline pb-10"
+      >
+        <div
+          class="w-4/12"
+        >
+          Saturday
+        </div>
+        <div
+          class="ml-20 flex flex-col leading-xs"
+        >
+          <span>
+            09:00-12:00
+          </span>
+        </div>
+      </div>
+      <div
+        class="w-12/12 flex items-baseline pb-10"
+      >
+        <div
+          class="w-4/12"
+        >
+          Sunday
+        </div>
+        <div
+          class="ml-20 flex flex-col leading-xs"
+        >
+          <span>
+            closed
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Opening hours /> renders correct markup - open working days 1`] = `
+<div>
+  <div
+    class="flex mt-15 text-grey-4 text-sm"
+  >
+    <svg
+      height="24"
+      viewBox="0 0 22 22"
+      width="24"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+        stroke="#3696B9"
+        stroke-width="2"
+        transform="translate(-5 -5)"
+      >
+        <rect
+          height="20"
+          rx="10"
+          width="20"
+          x="6"
+          y="6"
+        />
+        <path
+          d="M16 11.2V16l2.4 2.4"
+          stroke-linecap="round"
+        />
+      </g>
+    </svg>
+    <div
+      class="w-12/12 pl-15"
+    >
+      <div
+        class="w-12/12 flex items-baseline pb-10"
+      >
+        <div
+          class="w-4/12"
+        >
+          Mo-Sa
+        </div>
+        <div
+          class="ml-20 flex flex-col leading-xs"
+        >
+          <span>
+            08:00-19:00
+          </span>
+        </div>
+      </div>
+      <div
+        class="w-12/12 flex items-baseline pb-10"
+      >
+        <div
+          class="w-4/12"
+        >
+          Sunday
+        </div>
+        <div
+          class="ml-20 flex flex-col leading-xs"
+        >
+          <span>
+            closed
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

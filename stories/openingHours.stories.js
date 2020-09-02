@@ -122,7 +122,23 @@ storiesOf("Opening Hours", module).add(
   wInfo(`
     Description
     ~~~
-    <OpeningHours>Disclaimer</OpeningHours>
+    <OpeningHours
+    openingHours={{
+      open: {
+        dayOfWeek: "Saturday",
+        time: "09:00",
+      },
+      close: {
+        dayOfWeek: "Saturday",
+        time: "12:00",
+      },
+    }}
+    labels={{
+      monday: "Monday",
+      tuesday: "Tuesday",
+    }}>
+      Disclaimer
+    </OpeningHours>
     ~~~
     `)(() => (
     <div className="pl-40 w-12/12 md:w-6/12">

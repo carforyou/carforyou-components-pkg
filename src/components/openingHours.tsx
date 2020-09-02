@@ -3,8 +3,14 @@ import React, { FC } from "react"
 import ClockOutlinedTeal from "./icons/clockOutlined"
 
 interface Props {
+  /**
+   * Any opening hours to be displayed
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   openingHours: any
+  /**
+   * Text to be displayed
+   */
   labels: { [key: string]: string }
 }
 
