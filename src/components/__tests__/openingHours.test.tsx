@@ -16,7 +16,7 @@ describe("<Opening hours />", () => {
     closed: "closed",
   }
 
-  it("renders correct markup - 24h open", () => {
+  it("renders correct markup - 24h open and the clock icon", () => {
     const openingHours = [
       {
         open: {
@@ -28,7 +28,7 @@ describe("<Opening hours />", () => {
     ]
 
     const { container } = render(
-      <OpeningHours openingHours={openingHours} labels={labels} />
+      <OpeningHours openingHours={openingHours} labels={labels} clockIcon />
     )
 
     expect(container).toMatchSnapshot()
