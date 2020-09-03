@@ -5,31 +5,6 @@ exports[`<Opening hours /> renders correct markup - 24h open 1`] = `
   <div
     class="flex mt-15 text-grey-4 text-sm"
   >
-    <svg
-      height="24"
-      viewBox="0 0 22 22"
-      width="24"
-    >
-      <g
-        fill="none"
-        fill-rule="evenodd"
-        stroke="#3696B9"
-        stroke-width="2"
-        transform="translate(-5 -5)"
-      >
-        <rect
-          height="20"
-          rx="10"
-          width="20"
-          x="6"
-          y="6"
-        />
-        <path
-          d="M16 11.2V16l2.4 2.4"
-          stroke-linecap="round"
-        />
-      </g>
-    </svg>
     <div
       class="w-12/12 pl-15"
     >
@@ -59,31 +34,6 @@ exports[`<Opening hours /> renders correct markup - closed during lunch time 1`]
   <div
     class="flex mt-15 text-grey-4 text-sm"
   >
-    <svg
-      height="24"
-      viewBox="0 0 22 22"
-      width="24"
-    >
-      <g
-        fill="none"
-        fill-rule="evenodd"
-        stroke="#3696B9"
-        stroke-width="2"
-        transform="translate(-5 -5)"
-      >
-        <rect
-          height="20"
-          rx="10"
-          width="20"
-          x="6"
-          y="6"
-        />
-        <path
-          d="M16 11.2V16l2.4 2.4"
-          stroke-linecap="round"
-        />
-      </g>
-    </svg>
     <div
       class="w-12/12 pl-15"
     >
@@ -167,31 +117,6 @@ exports[`<Opening hours /> renders correct markup - open working days 1`] = `
   <div
     class="flex mt-15 text-grey-4 text-sm"
   >
-    <svg
-      height="24"
-      viewBox="0 0 22 22"
-      width="24"
-    >
-      <g
-        fill="none"
-        fill-rule="evenodd"
-        stroke="#3696B9"
-        stroke-width="2"
-        transform="translate(-5 -5)"
-      >
-        <rect
-          height="20"
-          rx="10"
-          width="20"
-          x="6"
-          y="6"
-        />
-        <path
-          d="M16 11.2V16l2.4 2.4"
-          stroke-linecap="round"
-        />
-      </g>
-    </svg>
     <div
       class="w-12/12 pl-15"
     >

@@ -1,6 +1,7 @@
 import React from "react"
 import { storiesOf } from "@storybook/react"
 
+import { boolean } from "@storybook/addon-knobs"
 import { wInfo } from "./utils"
 import OpeningHours from "../src/components/openingHours"
 
@@ -137,6 +138,7 @@ storiesOf("Opening Hours", module).add(
       monday: "Monday",
       tuesday: "Tuesday",
     }}/>
+    clockIcon
     ~~~
     `)(() => (
     <div className="pl-40 w-12/12 md:w-6/12">
@@ -153,6 +155,7 @@ storiesOf("Opening Hours", module).add(
           open: "open",
           closed: "closed",
         }}
+        clockIcon={boolean("Clock Icon", true)}
       />
     </div>
   ))

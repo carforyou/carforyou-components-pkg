@@ -10,11 +10,14 @@ interface Props {
     open: { dayOfWeek: string; time: string }
     close: { dayOfWeek: string; time: string }
   }>
-
   /**
    * Text to be displayed
    */
   labels: { [key: string]: string }
+  /**
+   * Icon is displayed
+   */
+  clockIcon?: boolean
 }
 
 const daysOrder = [
@@ -27,7 +30,11 @@ const daysOrder = [
   "sunday",
 ]
 
-export const OpeningHours: FC<Props> = ({ openingHours, labels }) => {
+export const OpeningHours: FC<Props> = ({
+  openingHours,
+  labels,
+  clockIcon,
+}) => {
   const openingHoursByDay = daysOrder.reduce((acc, day) => {
     acc[day] = []
     return acc
@@ -121,7 +128,7 @@ export const OpeningHours: FC<Props> = ({ openingHours, labels }) => {
   return openingHours ? (
     <>
       <div className="flex mt-15 text-grey-4 text-sm">
-        <ClockOutlinedTeal height="24" width="24" />
+        {clockIcon ? <ClockOutlinedTeal height="24" width="24" /> : null}
         <div className="w-12/12 pl-15">{renderOpeningHours()}</div>
       </div>
     </>
