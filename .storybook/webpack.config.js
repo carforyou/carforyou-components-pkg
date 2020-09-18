@@ -42,9 +42,9 @@ module.exports = ({ config }) => {
       {
         loader: "postcss-loader",
         options: {
-          config: {
-            path: ".storybook/",
-          },
+          postcssOptions: {
+            config: path.resolve(__dirname, "postcss.config.js")
+          }
         },
       },
     ],

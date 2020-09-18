@@ -66,6 +66,7 @@
     "jest": "^25.1.0",
     "marked": "^1.0.0",
     "marked-terminal": "^4.1.0",
+    "postcss": "^7.0.34",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^4.0.0",
     "react": "^16.12.0",
