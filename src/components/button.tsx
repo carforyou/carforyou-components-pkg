@@ -56,10 +56,12 @@ export const Button: FC<Props> = ({
     buttonClasses,
     (originalChildren) =>
       icon ? (
-        <>
-          {icon()}
-          <span className="pl-5 pr-8">{originalChildren}</span>
-        </>
+        <div className="flex justify-center items-center">
+          <div>{icon()}</div>
+          <span className="text-left self-center pl-10 w-12/12">
+            {originalChildren}
+          </span>
+        </div>
       ) : (
         originalChildren
       )
