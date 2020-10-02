@@ -4,7 +4,7 @@ import classNames from "classnames"
 import WithValidationError from "./fieldHelpers/withValidationError"
 import WithHorizontalLabel from "./fieldHelpers/withHorizontalLabel"
 
-interface Props<T> {
+interface Props {
   name: string
   value: string
   disabled?: boolean
@@ -15,7 +15,7 @@ interface Props<T> {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-function RadioButton<T>({
+function RadioButton({
   name,
   value,
   disabled = false,
@@ -24,7 +24,7 @@ function RadioButton<T>({
   renderLabel,
   labelPosition,
   onChange,
-}: Props<T>): ReactElement {
+}: Props): ReactElement {
   const renderInput = (hasError) => (
     <div className="inputRadio">
       <input
