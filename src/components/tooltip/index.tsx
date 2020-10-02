@@ -13,12 +13,6 @@ export enum TooltipAlignment {
   middle = "middle",
   end = "end",
 }
-interface SpaceAroundRect {
-  top: number
-  left: number
-  bottom: number
-  right: number
-}
 
 export interface Props {
   /**
