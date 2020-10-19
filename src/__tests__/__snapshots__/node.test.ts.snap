@@ -326,10 +326,12 @@ Object {
       "xxs": "375px",
     },
     "spacing": Object {
+      "0": "0px",
       "10": "10px",
       "20": "20px",
       "30": "30px",
       "40": "40px",
+      "5": "5px",
     },
     "textColor": Object {
       "black": "#000000",
