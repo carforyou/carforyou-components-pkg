@@ -323,6 +323,7 @@ Object {
       "sm": "576px",
       "xl": "1280px",
       "xs": "480px",
+      "xxs": "375px",
     },
     "spacing": Object {
       "10": "10px",
