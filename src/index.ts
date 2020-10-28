@@ -26,6 +26,8 @@ import Tooltip, {
 import FixedCard from "./components/card/fixed"
 import OpeningHours from "./components/openingHours"
 
+import { defaultConfig as TailwindConfig } from "./tailwind/index"
+
 export {
   Button,
   Pill,
@@ -53,4 +55,5 @@ export {
   TooltipAlignment,
   FixedCard,
   OpeningHours,
+  TailwindConfig,
 }
