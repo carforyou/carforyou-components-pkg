@@ -1,6 +1,5 @@
 import merge_ from "deepmerge"
 import defaultConfig from "./defaultConfig"
-import resolveConfig from "tailwindcss/resolveConfig" // eslint-disable-line no-eval
 
 const mergeDeep = merge_
 
@@ -43,6 +42,24 @@ export interface TailwindConfig {
   plugins?: any[]
 }
 
+const resolveConfig = (config) => {
+  const theme = {}
+
+  const getKey = (key) => {
+    return defaultConfig.theme[key]
+  }
+
+  for (const conf in config.theme) {
+    if (Object.prototype.hasOwnProperty.call(config.theme, conf)) {
+      theme[conf] =
+        typeof config.theme[conf] === "function"
+          ? config.theme[conf](getKey)
+          : config.theme[conf]
+    }
+  }
+
+  return { ...config, theme }
+}
 const resolvedConfig: TailwindConfig = resolveConfig(defaultConfig)
 
 const withDefaultConfig = (customConfig: TailwindConfig) => {
