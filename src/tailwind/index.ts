@@ -1,6 +1,6 @@
 import merge_ from "deepmerge"
 import defaultConfig from "./defaultConfig"
-import resolveConfig from "tailwindcss/resolveConfig"
+import resolveConfig from "tailwindcss/resolveConfig" // eslint-disable-line no-eval
 
 const mergeDeep = merge_
 
