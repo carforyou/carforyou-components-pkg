@@ -26,7 +26,7 @@ import Tooltip, {
 import FixedCard from "./components/card/fixed"
 import OpeningHours from "./components/openingHours"
 
-import { tailwindTheme } from "./tailwind/index"
+import { tailwindTheme } from "./tailwind/defaultConfig"
 
 export {
   Button,
