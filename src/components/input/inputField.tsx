@@ -85,7 +85,6 @@ const InputField = forwardRef<HTMLInputElement, Props>(
     return (
       <input
         ref={ref}
-        id={name}
         name={name}
         type={isNumber ? "number" : "text"}
         value={value || ""}

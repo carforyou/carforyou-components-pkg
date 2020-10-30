@@ -45,7 +45,6 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(
     const renderField = (hasError) => (
       <textarea
         ref={ref}
-        id={name}
         name={name}
         value={value || ""}
         placeholder={placeholder || ""}

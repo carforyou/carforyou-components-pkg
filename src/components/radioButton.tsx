@@ -29,7 +29,6 @@ function RadioButton({
     <div className="inputRadio">
       <input
         name={name}
-        id={name}
         value={value}
         checked={checked}
         type="radio"
