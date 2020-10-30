@@ -9,7 +9,7 @@ length of this file. It's really just a big JavaScript object and
 we've done our very best to explain each section.
 View the full documentation at https://tailwindcss.com.
 */
-export default {
+const config = {
   theme: {
     /*
     |-----------------------------------------------------------------------------
@@ -641,3 +641,8 @@ export default {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   plugins: [TransformPlugin, require("tailwindcss-gradients")()],
 }
+
+const tailwindTheme = config.theme
+
+export default config
+export { tailwindTheme }
