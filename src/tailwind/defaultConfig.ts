@@ -40,7 +40,7 @@ export default {
       "teal-light": "#D7EAF1",
       "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
-      "teeal-darker": "1A6072",
+      "teal-darker": "1A6072",
       "grey-dark": "#232A36",
       "grey-dark-opaque": "#A7AAAF",
       "grey-4": "#54575C",
