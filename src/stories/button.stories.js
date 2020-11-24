@@ -1,14 +1,13 @@
 import React from "react"
 import Button from "../components/button"
 import { action } from "@storybook/addon-actions"
-import { text, withKnobs } from "@storybook/addon-knobs"
 
 export default {
   title: "Button",
   component: Button,
-  decorators: [withKnobs],
   args: {
     buttonName: "Default",
+    label: "Storybook",
   },
   argTypes: {
     buttonName: {
@@ -20,12 +19,11 @@ export default {
 }
 
 const Template = (args) => {
-  const label = text("Label", "Storybook")
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">{args.buttonName}</div>
       <div className="w-12/12 md:w-3/12">
-        <Button {...args}>{label}</Button>
+        <Button {...args}>{args.label}</Button>
       </div>
     </div>
   )
