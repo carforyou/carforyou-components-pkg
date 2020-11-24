@@ -69,3 +69,10 @@ Disabled.args = {
   onClick: action("on Click"),
   buttonName: "Disabled",
 }
+
+export const WrappingALink = Template.bind({})
+WrappingALink.args = {
+  onClick: action("on Click"),
+  buttonName: "Wrapping a link",
+  label: <a href="https://carforyou.ch">CarForYou</a>,
+}
