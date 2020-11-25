@@ -1,22 +1,23 @@
 import React from "react"
 import Dropdown from "../components/dropdown/index"
 import { action } from "@storybook/addon-actions"
-import { object, number, boolean, text } from "@storybook/addon-knobs"
 
-const options = () =>
-  object("options", [
+const options = () => (
+  "options",
+  [
     { value: 1, name: "One" },
     { value: 2, name: "Two" },
     { value: 3, name: "Three" },
     { value: 4, name: "Four" },
     { value: 5, name: "Five" },
     { value: 6, name: "Six" },
-  ])
+  ]
+)
 
 const onSelect = () => action("onSelect")
-const selected = () => number("selected", null)
-const disabled = () => boolean("disabled", false)
-const placeholderKnob = () => text("placeholder", "Select number")
+const selected = () => ("selected", null)
+const disabled = () => ("disabled", false)
+const placeholderKnob = () => ("placeholder", "Select number")
 
 export default {
   title: "Dropdown",
