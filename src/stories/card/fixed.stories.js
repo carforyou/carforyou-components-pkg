@@ -7,13 +7,6 @@ export default {
   args: {
     storyName: "Fixed Card",
   },
-  argTypes: {
-    buttonName: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 }
 
 const Template = (args) => {
