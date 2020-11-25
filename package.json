@@ -30,6 +30,7 @@
     "tailwindcss": "^1.4.0"
   },
   "dependencies": {
+    "@storybook/addon-knobs": "^6.1.6",
     "classnames": "^2.2.6",
     "core-js": "^3.7.0",
     "deepmerge": "^4.2.2",
