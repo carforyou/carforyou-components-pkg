@@ -35,8 +35,18 @@ export default {
 }
 
 const Template = (args) => {
+  return (
+    <div className="mx-30 mb-40">
+      <div className="text-2xl mb-20">{args.storyName}</div>
+      <div className="relative">
+        <DropdownWithAutosuggest {...args} />
+      </div>
+    </div>
+  )
+}
+
+const TypeAheadWrapper = (args) => {
   const [suggestions, setSuggestions] = useState([])
-  const optionss = { suggestions }
   const onTypeAhead = (value) =>
     setSuggestions(
       [1, 2, 3, 4, 5].map((i) => ({
@@ -50,8 +60,8 @@ const Template = (args) => {
       <div className="relative">
         <DropdownWithAutosuggest
           {...args}
-          optionss={optionss}
-          onTypeAheads={onTypeAhead}
+          options={suggestions}
+          onTypeAhead={onTypeAhead}
         />
       </div>
     </div>
@@ -79,7 +89,6 @@ Default.args = {
 }
 
 export const WithCustomValues = Template.bind({})
-WithCustomValues.onTypeAhead = null
 WithCustomValues.args = {
   storyName: "With custom values",
   options: options(),
@@ -98,11 +107,9 @@ WithCustomValues.args = {
   trimInput: trimInput(),
 }
 
-export const WithTypeAhead = Template.bind({})
-const testt = WithTypeAhead.onTypeAhead
+export const WithTypeAhead = TypeAheadWrapper.bind({})
 WithTypeAhead.args = {
   storyName: "With Type Ahead",
-  options: options(),
   onSelect: onSelect(),
   input: ({ getInputProps }) => (
     <input
@@ -113,5 +120,4 @@ WithTypeAhead.args = {
       })}
     />
   ),
-  onTypeAhead: testt,
 }
