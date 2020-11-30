@@ -31,7 +31,6 @@ export default {
   },
 }
 
-
 const Template = (args) => {
   return (
     <div className="mx-30 mb-40">
@@ -53,13 +52,13 @@ const Template = (args) => {
 
 export const Simple = Template.bind({})
 Simple.args = {
-  storyName: "Simple"
+  storyName: "Simple",
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   disabled: true,
-  storyName: "Disabled"
+  storyName: "Disabled",
 }
 
 export const WithErrorMessage = Template.bind({})
