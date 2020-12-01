@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import Select from "../../../components/select"
 
@@ -17,10 +17,8 @@ export default {
       { value: 5, name: "Five" },
       { value: 6, name: "Six" },
     ],
-    allowCustomValues: false,
     skipContainer: false,
     withAutosuggest: false,
-    handleChange: handleChange(),
   },
   argTypes: {
     buttonName: {
@@ -28,10 +26,15 @@ export default {
         disable: true,
       },
     },
+    skipContainer: {
+      description:
+        "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then.",
+    },
   },
 }
 
 const Template = (args) => {
+  const [value, setValue] = useState(null)
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">{args.storyName}</div>
@@ -39,11 +42,25 @@ const Template = (args) => {
         {args.skipContainer ? (
           <div className="w-12/12 relative">
             <div className="w-6/12">
-              <Select {...args} />
+              <Select
+                {...args}
+                selected={value}
+                handleChange={(v) => {
+                  setValue(v)
+                  handleChange()(v)
+                }}
+              />
             </div>
           </div>
         ) : (
-          <Select {...args} />
+          <Select
+            {...args}
+            selected={value}
+            handleChange={(v) => {
+              setValue(v)
+              handleChange()(v)
+            }}
+          />
         )}
       </div>
     </div>
@@ -82,7 +99,5 @@ WithHint.args = {
 export const WithCustomWrapper = Template.bind({})
 WithCustomWrapper.args = {
   skipContainer: true,
-  extraDescription:
-    "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then.",
   storyName: "With custom wrapper",
 }

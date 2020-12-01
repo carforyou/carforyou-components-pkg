@@ -5,7 +5,7 @@ import Select from "../../../components/select"
 const handleChange = () => action("handleChange")
 
 export default {
-  title: "Select/Label",
+  title: "Select  with autosuggest/Label",
   component: Select,
   args: {
     storyName: "",
@@ -18,7 +18,7 @@ export default {
       { value: 6, name: "Six" },
     ],
     skipContainer: false,
-    withAutosuggest: false,
+    withAutosuggest: true,
     labelText: "Label",
   },
   argTypes: {
@@ -91,12 +91,6 @@ export const Popup = Template.bind({})
 Popup.args = {
   renderLabelPopup: () => <div>Popup Content</div>,
   storyName: "Popup",
-}
-
-export const WithErrorMessage = Template.bind({})
-WithErrorMessage.args = {
-  error: "Error message",
-  storyName: "With error message",
 }
 
 export const RequiredWithPopup = Template.bind({})

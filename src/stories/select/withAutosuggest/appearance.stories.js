@@ -18,7 +18,6 @@ export default {
       { value: 5, name: "Five" },
       { value: 6, name: "Six" },
     ],
-    allowCustomValues: false,
     skipContainer: false,
     withAutosuggest: true,
   },
@@ -28,11 +27,15 @@ export default {
         disable: true,
       },
     },
+    skipContainer: {
+      description:
+        "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then.",
+    },
   },
 }
 
 const Template = (args) => {
-  const [value, setValue] = useState([])
+  const [value, setValue] = useState(null)
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">{args.storyName}</div>
@@ -45,7 +48,7 @@ const Template = (args) => {
                 selected={value}
                 handleChange={(v) => {
                   setValue(v)
-                  handleChange(v)
+                  handleChange()(v)
                 }}
               />
             </div>
@@ -56,7 +59,7 @@ const Template = (args) => {
             selected={value}
             handleChange={(v) => {
               setValue(v)
-              handleChange(v)
+              handleChange()(v)
             }}
           />
         )}
@@ -111,7 +114,5 @@ export const WithCustomWrapper = Template.bind({})
 WithCustomWrapper.args = {
   selected: initialValue,
   skipContainer: true,
-  extraDescription:
-    "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then.",
   storyName: "With custom wrapper",
 }
