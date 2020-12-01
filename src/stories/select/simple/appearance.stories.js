@@ -1,6 +1,6 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import Select from "../../components/select"
+import Select from "../../../components/select"
 
 const handleChange = () => action("handleChange")
 
