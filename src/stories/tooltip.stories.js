@@ -22,7 +22,16 @@ const Template = ({ args }) => {
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
       <div className="w-12/12 flex justify-center">
-        <Tooltip {...args}>
+        <Tooltip
+          {...args}
+          renderContent={() => (
+            <p className="w-modalSmall">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vestibulum urna augue, consectetur at sapien eu, facilisis
+              gravida.
+            </p>
+          )}
+        >
           <span>I have a tooltip</span>
         </Tooltip>
       </div>
@@ -30,27 +39,15 @@ const Template = ({ args }) => {
   )
 }
 
-const story = ({ position = "top", alignment = "center" }) => {
-  Default.args = {
-    renderContent: () => (
-      <p className="w-modalSmall">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum urna
-        augue, consectetur at sapien eu, facilisis gravida.
-      </p>
-    ),
-    preferredPosition: { position },
-    alignment: { alignment },
-  }
-}
-
 Object.values(TooltipPosition).reduce(
   (accPosition, position) =>
     Object.values(TooltipAlignment).reduce(
       (accAlignment, alignment) =>
         accAlignment.add(
-          `On the ${position} aligned to ${alignment}`,story({ position, alignment })
-          ),
+          `On the ${position} aligned to ${alignment}`,
+          Template.bind({})
+        ),
       accPosition
     ),
-  (export const Default = Template.bind({}))
+  stories(position, alignment)
 )
