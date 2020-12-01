@@ -2,10 +2,16 @@ import React from "react"
 import { action } from "@storybook/addon-actions"
 import Select from "../../../components/select"
 
-const initialValue = ""
+const value = ""
+const setValue = (value) => ("value", value)
+const handleChange = () => action("handleChange")
+const onChange = (v) => {
+  setValue(v)
+  handleChange(v)
+}
 
 export default {
-  title: "Select with autosuggest/Appearance",
+  title: "Select  with autosuggest/Appearance",
   component: Select,
   args: {
     storyName: "",
@@ -20,6 +26,8 @@ export default {
     allowCustomValues: false,
     skipContainer: false,
     withAutosuggest: true,
+    handleChange: onChange,
+    selected: "",
   },
   argTypes: {
     buttonName: {
@@ -29,87 +37,70 @@ export default {
     },
   },
 }
-const generateStoryFunction = ({ args }) => ({ value, setValue }) => {
-  const renderSelect = () => (
-    <Select
-      {...args}
-      selected={value}
-      handleChange={(v) => {
-        setValue(v)
-        handleChange(v)
-      }}
-    />
-  )
 
+const TemplateAutoSuggest = (args) => {
   return (
     <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">Example</div>
+      <div className="text-2xl mb-20">{args.storyName}</div>
       <div className="w-12/12 md:w-3/12">
         {args.skipContainer ? (
           <div className="w-12/12 relative">
-            <div className="w-6/12">{renderSelect()}</div>
+            <div className="w-6/12">
+              <Select {...args} />
+            </div>
           </div>
         ) : (
-          renderSelect()
+          <Select {...args} />
         )}
       </div>
     </div>
   )
 }
 
-const Template = ({ args }) => {
-  const handleChange = () => action("handleChange")
-  return generateStoryFunction({
-    ...args,
-    handleChange: handleChange(),
-  })
-}
-
-export const Simple = Template.bind({})
+export const Simple = TemplateAutoSuggest.bind({})
 Simple.args = {
   storyName: "Simple",
   showSearchIcon: true,
-  handleChange: handleChange(),
 }
 
-export const WithSearchIcon = Template.bind({})
+export const WithSearchIcon = TemplateAutoSuggest.bind({})
 WithSearchIcon.args = {
   storyName: "With search icon",
   showSearchIcon: true,
 }
 
-export const Disabled = Template.bind({})
+export const Disabled = TemplateAutoSuggest.bind({})
 Disabled.args = {
   storyName: "Disabled",
   disabled: true,
 }
 
-export const WithErrorMessage = Template.bind({})
+export const WithErrorMessage = TemplateAutoSuggest.bind({})
 WithErrorMessage.args = {
   storyName: "With error message",
   error: "Error message",
 }
 
-export const WithPlaceholder = Template.bind({})
+export const WithPlaceholder = TemplateAutoSuggest.bind({})
 WithPlaceholder.args = {
   storyName: "With placeholder",
   placeholder: "Placeholder",
 }
 
-export const WithHint = Template.bind({})
+export const WithHint = TemplateAutoSuggest.bind({})
 WithHint.args = {
   storyName: "With hint",
   hint: "Hint text",
 }
 
-export const WithNoResultsMessage = Template.bind({})
+export const WithNoResultsMessage = TemplateAutoSuggest.bind({})
 WithNoResultsMessage.args = {
   selected: initialValue,
   noResultsText: "Sorry no results",
   storyName: "With no results message",
 }
 
-export const WithCustomWrapper = Template.bind({})
+export const WithCustomWrapper = TemplateAutoSuggest.bind({})
 WithCustomWrapper.args = {
   selected: initialValue,
   skipContainer: true,
