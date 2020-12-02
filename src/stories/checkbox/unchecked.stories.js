@@ -43,40 +43,40 @@ const Template = (args) => {
 
 export const Standard = Template.bind({})
 Standard.args = {
-  storyName: "Standard"
+  storyName: "Standard",
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   disabled: true,
-  storyName: "Disabled"
+  storyName: "Disabled",
 }
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
   error: "Error message",
-  storyName: "With error message"
+  storyName: "With error message",
 }
 
 export const WithLabelOnTheLeft = Template.bind({})
 WithLabelOnTheLeft.args = {
   labelPosition: "left",
   label: "Label",
-  storyName: "With label on the left"
+  storyName: "With label on the left",
 }
 
 export const WithLabelOnTheRight = Template.bind({})
 WithLabelOnTheRight.args = {
   labelPosition: "right",
   label: "Label",
-  storyName: "With label on the right"
+  storyName: "With label on the right",
 }
 
 export const ButtonStyle = Template.bind({})
 ButtonStyle.args = {
   buttonStyle: true,
   label: "Label",
-  storyName: "Button style"
+  storyName: "Button style",
 }
 
 export const ButtonStyleDisabled = Template.bind({})
@@ -84,7 +84,7 @@ ButtonStyleDisabled.args = {
   buttonStyle: true,
   label: "Label",
   disabled: true,
-  storyName: "Button style disabled"
+  storyName: "Button style disabled",
 }
 
 export const ButtonStyleWithErrorMessage = Template.bind({})
@@ -92,5 +92,5 @@ ButtonStyleWithErrorMessage.args = {
   buttonStyle: true,
   label: "Label",
   error: "Error message",
-  storyName: "Button style with error message"
+  storyName: "Button style with error message",
 }
