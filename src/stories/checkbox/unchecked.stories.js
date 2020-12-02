@@ -13,7 +13,7 @@ export default {
     value: initialValue,
   },
   argTypes: {
-    buttonName: {
+    storyName: {
       table: {
         disable: true,
       },
@@ -25,7 +25,7 @@ const Template = (args) => {
   const [value, setValue] = useState(false)
   return (
     <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">Example</div>
+      <div className="text-2xl mb-20">{args.storyName}</div>
       <div className="w-12/12 md:w-3/12">
         <Checkbox
           {...args}
