@@ -6,7 +6,7 @@ const onChange = () => action("onChange")
 const initialValue = false
 
 export default {
-  title: "Checkbox/Checked",
+  title: "Checkbox/Unchecked",
   component: Checkbox,
   args: {
     storyName: "",
@@ -22,7 +22,7 @@ export default {
 }
 
 const Template = (args) => {
-  const [value, setValue] = useState(true)
+  const [value, setValue] = useState(false)
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>
