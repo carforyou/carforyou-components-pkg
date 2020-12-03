@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Checkbox from "../../components/checkbox"
 import { action } from "@storybook/addon-actions"
 
@@ -11,6 +11,8 @@ export default {
   args: {
     storyName: "",
     value: initialValue,
+    checked: true,
+    onChange: onChange(),
   },
   argTypes: {
     storyName: {
@@ -22,18 +24,12 @@ export default {
 }
 
 const Template = (args) => {
-  const [value, setValue] = useState(true)
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">{args.storyName}</div>
       <div className="w-12/12 md:w-3/12">
         <Checkbox
           {...args}
-          checked={value}
-          onChange={(e) => {
-            setValue(e.target.checked)
-            onChange()(e)
-          }}
           renderLabel={args.label ? () => args.label : null}
         />
       </div>

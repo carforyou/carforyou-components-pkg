@@ -1,2 +1,2 @@
-import { addons } from "@storybook/addons";
-addons.setConfig({ showRoots: false });
+import { addons } from "@storybook/addons"
+addons.setConfig({ showRoots: false })
