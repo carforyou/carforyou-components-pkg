@@ -3,7 +3,7 @@ import Checkbox from "../../components/checkbox"
 import { action } from "@storybook/addon-actions"
 
 const onChange = () => action("onChange")
-const initialValue = false
+const initialValue = true
 
 export default {
   title: "Checkbox/Checked",
@@ -66,27 +66,4 @@ WithLabelOnTheRight.args = {
   labelPosition: "right",
   label: "Label",
   storyName: "With label on the right",
-}
-
-export const ButtonStyle = Template.bind({})
-ButtonStyle.args = {
-  buttonStyle: true,
-  label: "Label",
-  storyName: "Button style",
-}
-
-export const ButtonStyleDisabled = Template.bind({})
-ButtonStyleDisabled.args = {
-  buttonStyle: true,
-  label: "Label",
-  disabled: true,
-  storyName: "Button style disabled",
-}
-
-export const ButtonStyleWithErrorMessage = Template.bind({})
-ButtonStyleWithErrorMessage.args = {
-  buttonStyle: true,
-  label: "Label",
-  error: "Error message",
-  storyName: "Button style with error message",
 }
