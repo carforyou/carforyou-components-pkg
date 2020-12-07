@@ -3,15 +3,15 @@ import RadioButton from "../../components/radioButton"
 import { action } from "@storybook/addon-actions"
 
 const onChange = () => action("onChange")
-const initialValue = "A"
+const initialValue = "B"
 
 export default {
-  title: "Radio Button/Selected",
+  title: "Radio Button/Not selected",
   component: RadioButton,
   args: {
     storyName: "",
     value: initialValue,
-    checked: true,
+    checked: false,
     onChange: (e) => {
       onChange()(e)
     },

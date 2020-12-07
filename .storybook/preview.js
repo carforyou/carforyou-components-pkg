@@ -1,1 +1,2 @@
-import "./stories.css";
+import "./stories.css"
+import "../assets/index.css"
