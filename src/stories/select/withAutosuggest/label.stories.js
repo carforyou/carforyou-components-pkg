@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import Select from "../../../components/select"
+
+const handleChange = () => action("handleChange")
 
 export default {
   title: "Select  with autosuggest/Label",
@@ -17,7 +19,6 @@ export default {
     ],
     skipContainer: false,
     withAutosuggest: true,
-    labelText: "Label",
   },
   argTypes: {
     buttonName: {
@@ -25,14 +26,15 @@ export default {
         disable: true,
       },
     },
+    skipContainer: {
+      description:
+        "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then.",
+    },
   },
 }
 
 const Template = (args) => {
-  const handleChange = () => action("handleChange")
-  var initialValue = 8
-  const setValue = (value) => (initialValue = value)
-  
+  const [value, setValue] = useState(null)
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">{args.storyName}</div>
@@ -42,12 +44,10 @@ const Template = (args) => {
             <div className="w-6/12">
               <Select
                 {...args}
-                selected={initialValue}
+                selected={value}
                 handleChange={(v) => {
                   setValue(v)
                   handleChange()(v)
-                  console.log(v)
-                  console.log(initialValue)
                 }}
               />
             </div>
@@ -55,12 +55,10 @@ const Template = (args) => {
         ) : (
           <Select
             {...args}
-            selected={initialValue}
+            selected={value}
             handleChange={(v) => {
               setValue(v)
               handleChange()(v)
-              console.log(v)
-              console.log(initialValue)
             }}
           />
         )}
