@@ -1,8 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { action } from "@storybook/addon-actions"
 import Select from "../../../components/select"
-
-const handleChange = () => action("handleChange")
 
 export default {
   title: "Select  with autosuggest/Label",
@@ -31,7 +29,10 @@ export default {
 }
 
 const Template = (args) => {
-  const [value, setValue] = useState(null)
+  const handleChange = () => action("handleChange")
+  var initialValue = 8
+  const setValue = (value) => (initialValue = value)
+  
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">{args.storyName}</div>
@@ -41,10 +42,12 @@ const Template = (args) => {
             <div className="w-6/12">
               <Select
                 {...args}
-                selected={value}
+                selected={initialValue}
                 handleChange={(v) => {
                   setValue(v)
                   handleChange()(v)
+                  console.log(v)
+                  console.log(initialValue)
                 }}
               />
             </div>
@@ -52,10 +55,12 @@ const Template = (args) => {
         ) : (
           <Select
             {...args}
-            selected={value}
+            selected={initialValue}
             handleChange={(v) => {
               setValue(v)
               handleChange()(v)
+              console.log(v)
+              console.log(initialValue)
             }}
           />
         )}
