@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
+import Generator from "../../generator.js"
 import Select from "../../../components/select"
 
 const handleChange = () => action("handleChange")
@@ -36,10 +37,10 @@ export default {
 const Template = (args) => {
   const [value, setValue] = useState(null)
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="w-12/12 md:w-3/12">
-        {args.skipContainer ? (
+    <Generator
+      title={args.storyName}
+      component={
+        args.skipContainer ? (
           <div className="w-12/12 relative">
             <div className="w-6/12">
               <Select
@@ -61,9 +62,9 @@ const Template = (args) => {
               handleChange()(v)
             }}
           />
-        )}
-      </div>
-    </div>
+        )
+      }
+    />
   )
 }
 

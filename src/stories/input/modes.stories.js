@@ -1,5 +1,5 @@
 import React from "react"
-
+import Generator from "../generator.js"
 import Input from "../../components/input/index"
 
 export default {
@@ -7,37 +7,33 @@ export default {
   component: Input,
   args: {
     storyName: "Input / Mode",
+    value: "",
   },
 }
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="w-12/12 md:w-3/12">
-        <Input {...args}>{args.label}</Input>
-      </div>
-    </div>
+    <Generator
+      title={args.storyName}
+      component={<Input {...args}>{args.label}</Input>}
+    />
   )
 }
 
 export const Text = Template.bind({})
 Text.args = {
   storyName: "Text",
-  value: "",
   mode: "text",
 }
 
 export const Numeric = Template.bind({})
 Numeric.args = {
   storyName: "Numeric",
-  value: "",
   mode: "numeric",
 }
 
 export const Decimal = Template.bind({})
 Decimal.args = {
   storyName: "Decimal",
-  value: "",
   mode: "decimal",
 }

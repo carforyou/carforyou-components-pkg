@@ -1,5 +1,6 @@
 import React from "react"
 import Dropdown from "../components/dropdown/index"
+import Generator from "./generator.js"
 import { action } from "@storybook/addon-actions"
 
 const options = () => (
@@ -15,15 +16,23 @@ const options = () => (
 )
 
 const onSelect = () => action("onSelect")
-const selected = () => ("selected", null)
-const disabled = () => ("disabled", false)
-const placeholderKnob = () => ("placeholder", "Select number")
 
 export default {
   title: "Dropdown",
   component: Dropdown,
   args: {
     storyName: "",
+    options: options(),
+    toggle: ({ name, placeholder }) => (
+      <div className="text-left">
+        <span className="font-regular">Select number: </span>
+        <span className={placeholder ? "font-regular" : "font-bold"}>
+          {name || "-"}
+        </span>
+      </div>
+    ),
+    selected: null,
+    disabled: false,
   },
   argTypes: {
     storyName: {
@@ -36,62 +45,31 @@ export default {
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="relative">
-        <Dropdown {...args} />
-      </div>
-    </div>
+    <Generator
+      title={args.storyName}
+      style={"relative"}
+      component={<Dropdown {...args} />}
+    />
   )
 }
 
 export const WithPlaceholder = Template.bind({})
 WithPlaceholder.args = {
   storyName: "With placeholder",
-  options: options(),
-  toggle: ({ name, placeholder }) => (
-    <div className="text-left">
-      <span className={placeholder ? "font-regular" : "font-bold"}>{name}</span>
-    </div>
-  ),
-  selected: selected(),
   onSelect: onSelect(),
-  disabled: disabled(),
-  placeholder: placeholderKnob(),
+  placeholder: "Select number",
 }
 
 export const WithoutPlaceholder = Template.bind({})
 WithoutPlaceholder.args = {
   storyName: "Without placeholder",
-  options: options(),
-  toggle: ({ name, placeholder }) => (
-    <div className="text-left">
-      <span className="font-regular">Select number: </span>
-      <span className={placeholder ? "font-regular" : "font-bold"}>
-        {name || "-"}
-      </span>
-    </div>
-  ),
-  selected: selected(),
   onSelect: onSelect(),
-  disabled: disabled(),
 }
 
 export const WithCustomOptionRender = Template.bind({})
 WithCustomOptionRender.args = {
   storyName: "With custom option render",
-  options: options(),
-  toggle: ({ name, placeholder }) => (
-    <div className="text-left">
-      <span className="font-regular">Select number: </span>
-      <span className={placeholder ? "font-regular" : "font-bold"}>
-        {name || "-"}
-      </span>
-    </div>
-  ),
-  selected: selected(),
   onSelect: onSelect(),
-  disabled: disabled(),
   renderOption: ({ name, value }) => (
     <div className="w-12/12 flex justify-between">
       <span>{name}</span>
@@ -103,15 +81,4 @@ WithCustomOptionRender.args = {
 export const WithoutSelectionHandler = Template.bind({})
 WithoutSelectionHandler.args = {
   storyName: "Without selection handler",
-  options: options(),
-  toggle: ({ name, placeholder }) => (
-    <div className="text-left">
-      <span className="font-regular">Select number: </span>
-      <span className={placeholder ? "font-regular" : "font-bold"}>
-        {name || "-"}
-      </span>
-    </div>
-  ),
-  selected: selected(),
-  disabled: disabled(),
 }

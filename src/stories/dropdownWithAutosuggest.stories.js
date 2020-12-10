@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
+import Input from "../components/input/inputField"
+import Generator from "./generator.js"
 import { action } from "@storybook/addon-actions"
 
 const options = () => (
@@ -15,15 +17,21 @@ const options = () => (
 )
 
 const onSelect = () => action("onSelect")
-const selected = () => ("selected", null)
 const allowCustomValues = (initial = false) => ("allowCustomValues", initial)
-const trimInput = () => ("trimInput", false)
 
 export default {
   title: "DropdownWithAutosuggest",
   component: DropdownWithAutosuggest,
   args: {
     storyName: "",
+    onSelect: onSelect(),
+    input: ({ getInputProps }) => (
+      <Input
+        {...getInputProps({
+          placeholder: "Select number",
+        })}
+      />
+    ),
   },
   argTypes: {
     storyName: {
@@ -36,12 +44,11 @@ export default {
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="relative">
-        <DropdownWithAutosuggest {...args} />
-      </div>
-    </div>
+    <Generator
+      title={args.storyName}
+      style={"relative"}
+      component={<DropdownWithAutosuggest {...args} />}
+    />
   )
 }
 
@@ -73,51 +80,21 @@ Default.onTypeAhead = null
 Default.args = {
   storyName: "With placeholder",
   options: options(),
-  onSelect: onSelect(),
-  input: ({ getInputProps }) => (
-    <input
-      {...getInputProps({
-        placeholder: "Select number",
-        className:
-          "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200",
-      })}
-    />
-  ),
-  selected: selected(),
+  selected: null,
   allowCustomValues: allowCustomValues(),
-  trimInput: trimInput(),
+  trimInput: false,
 }
 
 export const WithCustomValues = Template.bind({})
 WithCustomValues.args = {
   storyName: "With custom values",
   options: options(),
-  onSelect: onSelect(),
-  input: ({ getInputProps }) => (
-    <input
-      {...getInputProps({
-        placeholder: "Select number",
-        className:
-          "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200",
-      })}
-    />
-  ),
-  selected: selected(),
+  selected: null,
   allowCustomValues: allowCustomValues(true),
-  trimInput: trimInput(),
+  trimInput: false,
 }
 
 export const WithTypeAhead = TypeAheadWrapper.bind({})
 WithTypeAhead.args = {
   storyName: "With Type Ahead",
-  onSelect: onSelect(),
-  input: ({ getInputProps }) => (
-    <input
-      {...getInputProps({
-        placeholder: "Select number",
-        className:
-          "text-grey-dark outline-none px-10 py-15 border-grey-2 rounded border focus:border-grey-4 focus:outline-none hover:border-grey-3 hover:transition duration-200",
-      })}
-    />
-  ),
 }

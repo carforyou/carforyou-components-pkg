@@ -1,6 +1,6 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-
+import Generator from "../generator.js"
 import Input from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
@@ -13,17 +13,16 @@ export default {
   component: Input,
   args: {
     storyName: "Input / Label",
+    labelText: "Label",
   },
 }
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="w-12/12 md:w-3/12">
-        <Input {...args}>{args.label}</Input>
-      </div>
-    </div>
+    <Generator
+      title={args.storyName}
+      component={<Input {...args}>{args.label}</Input>}
+    />
   )
 }
 
@@ -31,14 +30,12 @@ export const Standard = Template.bind({})
 Standard.args = {
   storyName: "Standard",
   value: "",
-  labelText: "Label",
 }
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
   storyName: "With Error Message",
   value: "",
-  labelText: "Label",
   error: "Error message",
 }
 
@@ -48,7 +45,6 @@ WithClearButton.args = {
   value: "text",
   hasClearButton: true,
   placeholder: "Type something",
-  labelText: "Label",
   onChange: (e) => {
     setValue(e.target.value)
     onChange()(e)
@@ -60,7 +56,6 @@ export const WithPlaceholder = Template.bind({})
 WithPlaceholder.args = {
   storyName: "With placeholder",
   placeholder: "Placeholder",
-  labelText: "Label",
 }
 
 export const WithHint = Template.bind({})
@@ -68,14 +63,12 @@ WithHint.args = {
   storyName: "With hint",
   value: "",
   hint: "Hint text",
-  labelText: "Label",
 }
 
 export const WithRequiredIndicator = Template.bind({})
 WithRequiredIndicator.args = {
   storyName: "With required indicator",
   value: "",
-  labelText: "Label",
   required: true,
 }
 
@@ -83,7 +76,6 @@ export const WithPopup = Template.bind({})
 WithPopup.args = {
   storyName: "With Popup",
   value: "",
-  labelText: "Label",
   renderLabelPopup: () => <div>Popup Content</div>,
 }
 
@@ -92,6 +84,5 @@ RequiredWithPopup.args = {
   storyName: "Required with popup",
   value: "",
   required: true,
-  labelText: "Label",
   renderLabelPopup: () => <div>Popup Content</div>,
 }

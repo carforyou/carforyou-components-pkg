@@ -1,4 +1,5 @@
 import React from "react"
+import Generator from "./generator.js"
 import Spinner from "../components/spinner"
 
 export default {
@@ -17,12 +18,7 @@ export default {
 }
 
 const Template = (args) => {
-  return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <Spinner />
-    </div>
-  )
+  return <Generator title={args.storyName} style={""} component={<Spinner />} />
 }
 
 export const Default = Template.bind({})

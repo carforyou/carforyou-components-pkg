@@ -1,4 +1,5 @@
 import React from "react"
+import Generator from "./generator.js"
 import RadioButton from "../components/radioButton"
 import { action } from "@storybook/addon-actions"
 
@@ -27,15 +28,15 @@ export default {
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="w-12/12 md:w-3/12">
+    <Generator
+      title={args.storyName}
+      component={
         <RadioButton
           renderLabel={args.label ? () => args.label : null}
           {...args}
         />
-      </div>
-    </div>
+      }
+    />
   )
 }
 

@@ -1,7 +1,7 @@
 import React from "react"
 
 import classNames from "classnames"
-
+import Generator from "./generator.js"
 import Button from "../components/button"
 import useModal from "../hooks/useModal"
 import { action } from "@storybook/addon-actions"
@@ -11,6 +11,8 @@ export default {
   component: useModal,
   args: {
     storyName: "Modal",
+    alwaysRender: false,
+    container: null,
   },
 }
 
@@ -53,12 +55,10 @@ function ModalDemo(args) {
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="w-12/12 md:w-3/12">
-        <ModalDemo {...args}>{args.label}</ModalDemo>
-      </div>
-    </div>
+    <Generator
+      title={args.storyName}
+      component={<ModalDemo {...args}>{args.label}</ModalDemo>}
+    />
   )
 }
 
@@ -66,8 +66,6 @@ export const Small = Template.bind({})
 Small.args = {
   storyName: "Small",
   size: "small",
-  alwaysRender: false,
-  container: null,
   style: "white",
   onClose: null,
 }
@@ -76,8 +74,6 @@ export const SmallWithClose = Template.bind({})
 SmallWithClose.args = {
   storyName: "Small with onClose event",
   size: "small",
-  alwaysRender: false,
-  container: null,
   style: "white",
   onClose: action("onClose callback called"),
 }
@@ -86,8 +82,6 @@ export const Medium = Template.bind({})
 Medium.args = {
   storyName: "Medium",
   size: "medium",
-  alwaysRender: false,
-  container: null,
   style: "white",
   onClose: null,
 }
@@ -96,8 +90,6 @@ export const Large = Template.bind({})
 Large.args = {
   storyName: "Large",
   size: "large",
-  alwaysRender: false,
-  container: null,
   style: "white",
   onClose: null,
 }
@@ -106,8 +98,6 @@ export const Fullscreen = Template.bind({})
 Fullscreen.args = {
   storyName: "Fullscreen",
   size: "fullscreen",
-  alwaysRender: false,
-  container: null,
   style: "white",
   onClose: null,
 }
@@ -117,7 +107,5 @@ DarkFullscreen.args = {
   storyName: "Dark fullscreen",
   size: "fullscreen",
   style: "dark",
-  alwaysRender: false,
-  container: null,
   onClose: null,
 }

@@ -1,93 +1,103 @@
 import React from "react"
 import AlertMessage from "../components/alertMessage"
+import Generator from "./generator.js"
 import MailSent from "../../.storybook/icons/mailSent"
 
 export default {
   title: "AlertMessage",
   component: AlertMessage,
   args: {
+    storyName: "",
     text:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.",
     type: "information",
     fullWidth: false,
     alignCenter: false,
   },
+  argTypes: {
+    storyName: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 }
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.alertName}</div>
-      <div className="w-12/12">
+    <Generator
+      title={args.storyName}
+      style={"w-12/12"}
+      component={
         <AlertMessage {...args}>
           <span className="py-10">{args.text}</span>
         </AlertMessage>
-      </div>
-    </div>
+      }
+    />
   )
 }
 
 export const Default = Template.bind({})
 Default.args = {
-  alertName: "Default",
+  storyName: "Default",
   type: "error",
 }
 
 export const Warning = Template.bind({})
 Warning.args = {
-  alertName: "Warning",
+  storyName: "Warning",
   type: "warning",
 }
 
 export const Errors = Template.bind({})
 Errors.args = {
-  alertName: "Error",
+  storyName: "Error",
   type: "error",
 }
 
 export const Information = Template.bind({})
 Information.args = {
-  alertName: "Information",
+  storyName: "Information",
   type: "information",
 }
 
 export const Success = Template.bind({})
 Success.args = {
-  alertName: "Success",
+  storyName: "Success",
   type: "success",
 }
 
 export const ErrorWithIcon = Template.bind({})
 ErrorWithIcon.args = {
-  alertName: "Error with Icon",
+  storyName: "Error with Icon",
   type: "error",
-  icon: () => <MailSent fill="#F73B47" />,
+  icon: () => <MailSent className="text-salmon fill-current" />,
 }
 
 export const WarningWithIcon = Template.bind({})
 WarningWithIcon.args = {
-  alertName: "Warning with Icon",
+  storyName: "Warning with Icon",
   type: "warnings",
-  icon: () => <MailSent fill="#fcb001" />,
+  icon: () => <MailSent className="text-yellow fill-current" />,
 }
 
 export const InformationWithIcon = Template.bind({})
 InformationWithIcon.args = {
-  alertName: "Information with Icon",
+  storyName: "Information with Icon",
   type: "information",
-  icon: () => <MailSent fill="#3696B9" />,
+  icon: () => <MailSent className="text-teal fill-current" />,
 }
 
 export const SuccessWithIcon = Template.bind({})
 SuccessWithIcon.args = {
-  alertName: "Success with Icon",
+  storyName: "Success with Icon",
   type: "success",
   icon: () => <MailSent fill="#74CC74" />,
 }
 
 export const SuccessWithIconCentered = Template.bind({})
 SuccessWithIconCentered.args = {
-  alertName: "Success with Icon centered",
+  storyName: "Success with Icon centered",
   type: "success",
   icon: () => <MailSent fill="#74CC74" />,
   alignCenter: true,

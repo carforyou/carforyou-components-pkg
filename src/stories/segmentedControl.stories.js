@@ -1,4 +1,5 @@
 import React from "react"
+import Generator from "./generator.js"
 import SegmentedControl from "../components/segmentedControl"
 import { action } from "@storybook/addon-actions"
 
@@ -32,12 +33,11 @@ export default {
 
 const Template = (args) => {
   return (
-    <div className="mx-30 mb-40">
-      <div className="text-2xl mb-20">{args.storyName}</div>
-      <div className="w-12/12 md:w-4/12">
-        <SegmentedControl {...args} />
-      </div>
-    </div>
+    <Generator
+      title={args.storyName}
+      style={"w-12/12 md:w-4/12"}
+      component={<SegmentedControl {...args} />}
+    />
   )
 }
 
