@@ -4,10 +4,10 @@
     "target": "es5",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "jsx": "react",
-    "rootDirs": ["src", "stories"],
+    "rootDirs": ["src"],
     "baseUrl": "src",
     "esModuleInterop": true
   },
-  "include": ["typings.d.ts", "src/**/*", "stories/**/*"],
+  "include": ["typings.d.ts", "src/**/*"],
   "exclude": ["node_modules"]
 }
