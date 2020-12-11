@@ -1,5 +1,5 @@
 import React from "react"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import Pagination from "../components/pagination"
 import { action } from "@storybook/addon-actions"
 
@@ -30,7 +30,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       style={""}
       component={<Pagination {...args} />}

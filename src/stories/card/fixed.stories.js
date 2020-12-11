@@ -1,6 +1,6 @@
 import React from "react"
 import FixedCard from "../../components/card/fixed"
-import Generator from "../generator.js"
+import StoryContainer from "../storyContainer"
 
 export default {
   title: "Card",
@@ -12,7 +12,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={<FixedCard {...args}>{args.children}</FixedCard>}
     />

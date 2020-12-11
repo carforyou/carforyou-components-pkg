@@ -1,5 +1,5 @@
 import React from "react"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import OpeningHours from "../components/openingHours"
 
 const openingHours = [
@@ -126,7 +126,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       style={"w-12/12 md:w-6/12"}
       component={<OpeningHours {...args} />}

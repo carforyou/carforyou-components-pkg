@@ -1,6 +1,6 @@
 import React from "react"
 import AlertMessage from "../components/alertMessage"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import MailSent from "../../.storybook/icons/mailSent"
 
 export default {
@@ -25,7 +25,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       style={"w-12/12"}
       component={

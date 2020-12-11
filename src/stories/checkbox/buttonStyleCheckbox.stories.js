@@ -1,6 +1,6 @@
 import React from "react"
 import Checkbox from "../../components/checkbox"
-import Generator from "../generator.js"
+import StoryContainer from "../storyContainer"
 import { action } from "@storybook/addon-actions"
 
 const onChange = () => action("onChange")
@@ -28,7 +28,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={
         <Checkbox

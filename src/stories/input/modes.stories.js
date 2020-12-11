@@ -1,5 +1,5 @@
 import React from "react"
-import Generator from "../generator.js"
+import StoryContainer from "../storyContainer"
 import Input from "../../components/input/index"
 
 export default {
@@ -13,7 +13,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={<Input {...args}>{args.label}</Input>}
     />

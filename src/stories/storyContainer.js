@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Generator({
+export default function StoryContainer({
   title,
   component,
   style = "w-12/12 md:w-3/12",

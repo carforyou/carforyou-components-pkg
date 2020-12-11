@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
 import Input from "../components/input/inputField"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import { action } from "@storybook/addon-actions"
 
 const options = () => (
@@ -44,7 +44,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       style={"relative"}
       component={<DropdownWithAutosuggest {...args} />}

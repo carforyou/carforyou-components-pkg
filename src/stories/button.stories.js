@@ -1,6 +1,6 @@
 import React from "react"
 import Button from "../components/button"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import { action } from "@storybook/addon-actions"
 
 export default {
@@ -22,7 +22,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={<Button {...args}>{args.label}</Button>}
     />

@@ -1,5 +1,5 @@
 import React from "react"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import Intercom from "../components/intercom/index"
 
 export default {
@@ -23,7 +23,9 @@ export default {
 }
 
 const Template = (args) => {
-  return <Generator title={args.storyName} component={<Intercom {...args} />} />
+  return (
+    <StoryContainer title={args.storyName} component={<Intercom {...args} />} />
+  )
 }
 
 export const Default = Template.bind({})

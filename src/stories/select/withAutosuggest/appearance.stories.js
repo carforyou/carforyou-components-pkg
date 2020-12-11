@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import Generator from "../../generator.js"
+import StoryContainer from "../../storyContainer"
 import Select from "../../../components/select"
 
 const handleChange = () => action("handleChange")
@@ -38,7 +38,7 @@ export default {
 const Template = (args) => {
   const [value, setValue] = useState(null)
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={
         args.skipContainer ? (

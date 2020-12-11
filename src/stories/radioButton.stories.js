@@ -1,5 +1,5 @@
 import React from "react"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import RadioButton from "../components/radioButton"
 import { action } from "@storybook/addon-actions"
 
@@ -28,7 +28,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={
         <RadioButton

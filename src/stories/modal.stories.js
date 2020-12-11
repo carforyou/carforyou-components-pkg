@@ -1,7 +1,7 @@
 import React from "react"
 
 import classNames from "classnames"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import Button from "../components/button"
 import useModal from "../hooks/useModal"
 import { action } from "@storybook/addon-actions"
@@ -55,7 +55,7 @@ function ModalDemo(args) {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={<ModalDemo {...args}>{args.label}</ModalDemo>}
     />

@@ -1,5 +1,5 @@
 import React from "react"
-import Generator from "../generator.js"
+import StoryContainer from "../storyContainer"
 import Textarea from "../../components/textarea"
 import { action } from "@storybook/addon-actions"
 
@@ -27,7 +27,9 @@ export default {
 }
 
 const Template = (args) => {
-  return <Generator title={args.storyName} component={<Textarea {...args} />} />
+  return (
+    <StoryContainer title={args.storyName} component={<Textarea {...args} />} />
+  )
 }
 
 export const Standard = Template.bind({})

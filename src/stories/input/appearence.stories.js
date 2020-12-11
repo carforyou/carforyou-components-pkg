@@ -1,7 +1,7 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import Input from "../../components/input/index"
-import Generator from "../generator.js"
+import StoryContainer from "../storyContainer"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
@@ -17,7 +17,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       component={<Input {...args}>{args.label}</Input>}
     />

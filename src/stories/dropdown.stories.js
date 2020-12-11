@@ -1,6 +1,6 @@
 import React from "react"
 import Dropdown from "../components/dropdown/index"
-import Generator from "./generator.js"
+import StoryContainer from "./storyContainer"
 import { action } from "@storybook/addon-actions"
 
 const options = () => (
@@ -45,7 +45,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <Generator
+    <StoryContainer
       title={args.storyName}
       style={"relative"}
       component={<Dropdown {...args} />}
