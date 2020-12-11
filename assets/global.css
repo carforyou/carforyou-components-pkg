@@ -37,6 +37,7 @@ h4 {
   @apply opacity-100;
 }
 
+/* purgecss ignore */
 .preventScrolling {
   @apply fixed overflow-hidden;
 }
@@ -51,6 +52,7 @@ h4 {
 }
 
 @screen lg {
+  /* purgecss ignore */
   .preventScrolling {
     @apply relative;
   }
