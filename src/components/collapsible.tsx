@@ -1,4 +1,5 @@
 import React, { ReactNode, FC, useState } from "react"
+import classNames from "classnames"
 
 import ArrowDownM from "./icons/arrowDownMCrop"
 
@@ -8,7 +9,7 @@ interface Props {
   children?: () => ReactNode
   onCollapseStateChange?: (isCollapsed: boolean) => void
   collapseIconSize?: number
-  className?: string
+  opacityOnHover?: boolean
 }
 
 const Collapsible: FC<Props> = ({
@@ -17,17 +18,16 @@ const Collapsible: FC<Props> = ({
   children,
   onCollapseStateChange,
   collapseIconSize = 24,
-  className,
+  opacityOnHover = true,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(isInitiallyCollapsed)
 
   return (
     <>
       <a
-        className={
-          "flex items-center cursor-pointer" +
-          (className ? " " + className : "")
-        }
+        className={classNames("flex items-center cursor-pointer", {
+          "hover:opacity-100": !opacityOnHover,
+        })}
         onClick={() => {
           onCollapseStateChange ? onCollapseStateChange(!isCollapsed) : null
           setIsCollapsed(!isCollapsed)
