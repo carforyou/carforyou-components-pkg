@@ -1,7 +1,7 @@
 import React, { ReactNode, FC, useState } from "react"
 import classNames from "classnames"
 
-import ArrowDownM from "./icons/arrowDownMCrop"
+import ArrowDown from "./icons/arrowDown"
 
 interface Props {
   isInitiallyCollapsed?: boolean
@@ -36,7 +36,7 @@ const Collapsible: FC<Props> = ({
       >
         <div className="flex w-12/12 items-center">
           {renderToggle({ isCollapsed })}
-          <ArrowDownM
+          <ArrowDown
             height={collapseIconSize}
             width={collapseIconSize}
             className={isCollapsed ? null : "rotate-180 transform"}
