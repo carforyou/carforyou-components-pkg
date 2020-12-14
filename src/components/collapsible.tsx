@@ -6,25 +6,30 @@ interface Props {
   isInitiallyCollapsed?: boolean
   renderToggle: (options: { isCollapsed: boolean }) => ReactNode
   children?: () => ReactNode
-  trackingHandler?: (action: string) => void
+  onCollapseStateChange?: (isCollapsed: boolean) => void
+  collapseIconSize?: number
+  className?: string
 }
 
 const Collapsible: FC<Props> = ({
   renderToggle,
   isInitiallyCollapsed = true,
   children,
-  trackingHandler,
+  onCollapseStateChange,
+  collapseIconSize = 24,
+  className,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(isInitiallyCollapsed)
 
   return (
     <>
       <a
-        className="font-bold flex items-center cursor-pointer"
+        className={
+          "flex items-center cursor-pointer" +
+          (className ? " " + className : "")
+        }
         onClick={() => {
-          trackingHandler
-            ? trackingHandler(isCollapsed ? "open" : "close")
-            : null
+          onCollapseStateChange ? onCollapseStateChange(!isCollapsed) : null
           setIsCollapsed(!isCollapsed)
         }}
         data-collapsed={isCollapsed}
@@ -32,8 +37,8 @@ const Collapsible: FC<Props> = ({
         <div className="flex w-12/12 items-center">
           {renderToggle({ isCollapsed })}
           <ArrowDownM
-            height="32"
-            width="32"
+            height={collapseIconSize}
+            width={collapseIconSize}
             className={isCollapsed ? null : "rotate-180 transform"}
           />
         </div>
