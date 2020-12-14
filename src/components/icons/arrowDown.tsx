@@ -11,7 +11,7 @@ const ArrowDown = (props) => (
   >
     <path
       d="M8 10l4 4 4-4"
-      stroke="#232A36"
+      stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
