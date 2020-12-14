@@ -17,7 +17,7 @@ const Collapsible: FC<Props> = ({
   isInitiallyCollapsed = true,
   children,
   onCollapseStateChange,
-  collapseIconSize = 24,
+  collapseIconSize = 32,
   opacityOnHover = true,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(isInitiallyCollapsed)
