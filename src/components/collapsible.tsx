@@ -4,11 +4,34 @@ import classNames from "classnames"
 import ArrowDown from "./icons/arrowDown"
 
 interface Props {
+  /**
+   * False if the element shall be expanded by default
+   * default: true
+   */
   isInitiallyCollapsed?: boolean
+  /**
+   * A render prop to customize the clickable title of the collapsible element
+   *  - isCollapsed tells you the current state of the collapsible element
+   */
   renderToggle: (options: { isCollapsed: boolean }) => ReactNode
+  /**
+   * Children to be rendered within the collapse component. The elements will be visible when the component is expanded.
+   */
   children?: () => ReactNode
+  /**
+   * Function executed when the collapse state has changed.
+   *  - passes the new collapse state as a function parameter
+   */
   onCollapseStateChange?: (isCollapsed: boolean) => void
+  /**
+   * The size of the arrow down icon
+   * default: 32
+   */
   collapseIconSize?: number
+  /**
+   * If the element should get a bit transparent on hover
+   * default: true
+   */
   opacityOnHover?: boolean
 }
 
