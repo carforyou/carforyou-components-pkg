@@ -8,9 +8,8 @@ export default {
   component: Collapsible,
   args: {
     isInitiallyCollapsed: true,
-    renderToggle: (options) => options,
-    onCollapseStateChange: (isCollapsed) => isCollapsed,
-    collapseIconSize: 32,
+    renderToggle: (isCollapsed) => isCollapsed,
+    onChange: (isCollapsed) => isCollapsed,
     opacityOnHover: true,
   },
 }
@@ -28,13 +27,10 @@ const Template = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   isInitiallyCollapsed: true,
-  renderToggle: (options) => (
-    <div className="font-bold">
-      {options.isCollapsed ? "Show more" : "Show less"}
-    </div>
+  renderToggle: (isCollapsed) => (
+    <div className="font-bold">{isCollapsed ? "Show more" : "Show less"}</div>
   ),
-  onCollapseStateChange: action("Collapse state is now"),
-  collapseIconSize: 24,
+  onChange: action("Collapse state is now"),
   opacityOnHover: true,
   children: () => (
     <div>

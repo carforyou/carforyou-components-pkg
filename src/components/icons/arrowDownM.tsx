@@ -1,22 +1,22 @@
 import React from "react"
 
-const ArrowDown = (props) => (
+const ArrowDownM = (props) => (
   <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
-      d="M8 10l4 4 4-4"
+      d="M10.6667 13.3333L16 18.6666L21.3333 13.3333"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
   </svg>
 )
 
-export default ArrowDown
+export default ArrowDownM

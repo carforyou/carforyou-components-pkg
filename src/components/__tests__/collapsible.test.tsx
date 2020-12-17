@@ -7,13 +7,12 @@ const openedText = "Close me"
 const closedText = "Open me"
 const content = "I am content"
 
-const renderWrapper = ({ isCollapsed = true } = {}) =>
+const renderWrapper = ({ isInitiallyCollapsed = true, onChange = null } = {}) =>
   render(
     <Collapsible
-      renderToggle={(options) =>
-        options.isCollapsed ? closedText : openedText
-      }
-      isInitiallyCollapsed={isCollapsed}
+      renderToggle={(isCollapsed) => (isCollapsed ? closedText : openedText)}
+      onChange={onChange}
+      isInitiallyCollapsed={isInitiallyCollapsed}
     >
       {() => content}
     </Collapsible>
@@ -45,7 +44,7 @@ describe("<Collapsible>", () => {
   describe("rendered open", () => {
     it("is open", () => {
       const { getByText, queryAllByText } = renderWrapper({
-        isCollapsed: false,
+        isInitiallyCollapsed: false,
       })
 
       expect(queryAllByText(closedText)).toEqual([])
@@ -55,7 +54,7 @@ describe("<Collapsible>", () => {
 
     it("can be closed", () => {
       const { getByText, queryAllByText } = renderWrapper({
-        isCollapsed: false,
+        isInitiallyCollapsed: false,
       })
 
       act(() => {
@@ -65,6 +64,27 @@ describe("<Collapsible>", () => {
       expect(getByText(closedText))
       expect(queryAllByText(openedText)).toEqual([])
       expect(queryAllByText(content)).toEqual([])
+    })
+  })
+
+  describe("on change function", () => {
+    it("should call the onChange function if defined", () => {
+      const customOnChangeFunction = jest.fn()
+      const { getByText } = renderWrapper({
+        onChange: customOnChangeFunction,
+      })
+
+      act(() => {
+        fireEvent.click(getByText(closedText))
+      })
+
+      expect(customOnChangeFunction).toHaveBeenCalledWith(false)
+
+      act(() => {
+        fireEvent.click(getByText(openedText))
+      })
+
+      expect(customOnChangeFunction).toHaveBeenCalledWith(true)
     })
   })
 })

@@ -1,36 +1,28 @@
 import React, { ReactNode, FC, useState } from "react"
 import classNames from "classnames"
 
-import ArrowDown from "./icons/arrowDown"
-
+import ArrowDownM from "./icons/arrowDownM"
 interface Props {
   /**
    * False if the element shall be expanded by default
-   * default: true
    */
   isInitiallyCollapsed?: boolean
   /**
    * A render prop to customize the clickable title of the collapsible element
    *  - isCollapsed tells you the current state of the collapsible element
    */
-  renderToggle: (options: { isCollapsed: boolean }) => ReactNode
+  renderToggle: (isCollapsed: boolean) => ReactNode
   /**
    * Children to be rendered within the collapse component. The elements will be visible when the component is expanded.
    */
   children?: () => ReactNode
   /**
-   * Function executed when the collapse state has changed.
-   *  - passes the new collapse state as a function parameter
+   * Function executed when the collapsible state has changed.
+   *  - passes the new collapsible state as a function parameter
    */
-  onCollapseStateChange?: (isCollapsed: boolean) => void
+  onChange?: (isCollapsed: boolean) => void
   /**
-   * The size of the arrow down icon
-   * default: 32
-   */
-  collapseIconSize?: number
-  /**
-   * If the element should get a bit transparent on hover
-   * default: true
+   * If the element should get transparent on hover
    */
   opacityOnHover?: boolean
 }
@@ -39,8 +31,7 @@ const Collapsible: FC<Props> = ({
   renderToggle,
   isInitiallyCollapsed = true,
   children,
-  onCollapseStateChange,
-  collapseIconSize = 32,
+  onChange,
   opacityOnHover = true,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(isInitiallyCollapsed)
@@ -52,18 +43,14 @@ const Collapsible: FC<Props> = ({
           "hover:opacity-100": !opacityOnHover,
         })}
         onClick={() => {
-          onCollapseStateChange ? onCollapseStateChange(!isCollapsed) : null
+          onChange && onChange(!isCollapsed)
           setIsCollapsed(!isCollapsed)
         }}
         data-collapsed={isCollapsed}
       >
         <div className="flex w-12/12 items-center">
-          {renderToggle({ isCollapsed })}
-          <ArrowDown
-            height={collapseIconSize}
-            width={collapseIconSize}
-            className={isCollapsed ? null : "rotate-180 transform"}
-          />
+          {renderToggle(isCollapsed)}
+          <ArrowDownM className={isCollapsed ? null : "rotate-180 transform"} />
         </div>
       </a>
       {isCollapsed ? null : children()}
