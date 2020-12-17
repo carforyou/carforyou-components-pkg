@@ -13,7 +13,7 @@ interface Props {
    */
   renderToggle: (isCollapsed: boolean) => ReactNode
   /**
-   * Children to be rendered within the collapse component. The elements will be visible when the component is expanded.
+   * Children to be rendered within the collapsible component. The elements will be visible when the component is expanded.
    */
   children?: () => ReactNode
   /**
