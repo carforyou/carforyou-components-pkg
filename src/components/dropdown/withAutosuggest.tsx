@@ -16,7 +16,6 @@ import { getClosestElement } from "../../lib/elementsHelper"
 import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
 
 import BaseDownshift from "./base"
-import useIsMountedRef from "../../hooks/useIsMountedRef"
 
 import Menu from "./menu"
 
@@ -129,7 +128,6 @@ function DropdownWithAutosuggest<T>({
   const [inputValue, setInputValue] = useState("")
   const [isFetching, setIsFetching] = useState(false)
   const [fetchedOptions, setFetchedOptions] = useState(options)
-  const isMountedRef = useIsMountedRef()
 
   useEffect(() => {
     setFetchedOptions(options)
@@ -234,10 +232,7 @@ function DropdownWithAutosuggest<T>({
           setInputValue(value)
           if (fetchSuggestions) {
             setIsFetching(true)
-            const fetchedSuggestions = await fetchSuggestions(value)
-            if (isMountedRef.current) {
-              setFetchedOptions(fetchedSuggestions)
-            }
+            setFetchedOptions(await fetchSuggestions(value))
             setIsFetching(false)
           }
 
