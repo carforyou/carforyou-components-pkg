@@ -15,6 +15,7 @@ import RadioButton from "./components/radioButton"
 import WithLabel from "./components/fieldHelpers/withLabel"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
 import useModal from "./hooks/useModal"
+import useIsMountedRef from "./hooks/useIsMountedRef"
 import Profile from "./components/icons/profile"
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
@@ -44,6 +45,7 @@ export {
   WithLabel,
   WithValidationError,
   useModal,
+  useIsMountedRef,
   Profile,
   LogoRedWhite,
   LogoRedBlack,
