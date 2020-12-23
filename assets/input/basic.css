@@ -51,7 +51,6 @@ textarea:focus {
   @apply border-teal outline-none;
 }
 
-
 input[type="number"]:hover,
 input[type="text"]:hover,
 input[type="checkbox"]:hover:not(.checkbox-buttonStyle),
@@ -86,6 +85,25 @@ input[type="number"][data-valid="false"]:focus,
 input[type="text"][data-valid="false"]:focus,
 textarea[data-valid="false"]:focus {
   @apply text-grey-dark;
+}
+
+input.input_left {
+  @apply rounded-l-4 rounded-r-none;
+}
+
+input.input_right,
+div.input_right {
+  @apply rounded-r-4 rounded-l-none -ml-1;
+}
+
+.input_left:hover,
+.input_right:hover {
+  @apply z-1 transition duration-200;
+}
+
+.input_left:focus,
+.input_right:focus {
+  @apply z-1;
 }
 
 /* hide ie specific input controls */
