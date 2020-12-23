@@ -27,7 +27,7 @@ interface InputProps {
   step?: number
   min?: number
   max?: number
-  className?: string
+  position?: "left" | "right"
   debounce?: number
 }
 
@@ -64,7 +64,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       step,
       min,
       max,
-      className,
+      position,
       debounce,
       ...rest
     },
@@ -92,10 +92,12 @@ const Input = forwardRef<HTMLInputElement, Props>(
         name={name}
         value={value || ""}
         placeholder={placeholder || ""}
-        className={classNames("w-12/12", className, {
+        className={classNames("w-12/12", {
           // eslint-disable-next-line @typescript-eslint/naming-convention
           input_withClearButton: hasClearButton,
           "floatingLabel-input": labelProps.floating,
+          input_left: position === "left",
+          input_right: position === "right",
         })}
         mode={mode}
         hasError={hasError}
