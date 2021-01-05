@@ -1,5 +1,5 @@
 import React from "react"
-import { render, act, fireEvent } from "@testing-library/react"
+import { render, fireEvent } from "@testing-library/react"
 
 import Collapsible from "../collapsible"
 
@@ -31,9 +31,7 @@ describe("<Collapsible>", () => {
     it("can be opened", () => {
       const { getByText, queryAllByText } = renderWrapper()
 
-      act(() => {
-        fireEvent.click(getByText(closedText))
-      })
+      fireEvent.click(getByText(closedText))
 
       expect(queryAllByText(closedText)).toEqual([])
       expect(getByText(openedText))
@@ -57,9 +55,7 @@ describe("<Collapsible>", () => {
         isInitiallyCollapsed: false,
       })
 
-      act(() => {
-        fireEvent.click(getByText(openedText))
-      })
+      fireEvent.click(getByText(openedText))
 
       expect(getByText(closedText))
       expect(queryAllByText(openedText)).toEqual([])
@@ -74,16 +70,10 @@ describe("<Collapsible>", () => {
         onChange: customOnChangeFunction,
       })
 
-      act(() => {
-        fireEvent.click(getByText(closedText))
-      })
-
+      fireEvent.click(getByText(closedText))
       expect(customOnChangeFunction).toHaveBeenCalledWith(false)
 
-      act(() => {
-        fireEvent.click(getByText(openedText))
-      })
-
+      fireEvent.click(getByText(openedText))
       expect(customOnChangeFunction).toHaveBeenCalledWith(true)
     })
   })
