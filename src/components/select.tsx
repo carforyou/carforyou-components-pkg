@@ -71,7 +71,8 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       options,
       onSelect: handleChange,
       selected,
-      menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu",
+      hasHint: hint ? true : false,
+      //menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu",
     }
 
     const dropdownProps =

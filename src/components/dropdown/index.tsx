@@ -50,7 +50,7 @@ interface Props<T> {
    *  Defaults to ===
    */
   equal?: (a: T, b: T) => boolean
-  menuClassName?: string
+  hasHint?: boolean
 }
 
 function Dropdown<T>({
@@ -62,7 +62,7 @@ function Dropdown<T>({
   toggle,
   disabled,
   renderOption,
-  menuClassName,
+  hasHint,
 }: Props<T>): ReactElement {
   return (
     <BaseDownshift
@@ -90,10 +90,8 @@ function Dropdown<T>({
         const props = {
           ...downshift,
           ...downshift.getMenuProps({
-            className: classNames(
-              "text-left rounded-none shadow-hard md:position-left-auto md:shadow-soft md:rounded-4",
-              menuClassName
-            ),
+            //className: "text-left md:position-left-auto shadow-hard md:shadow-soft rounded-none md:rounded-4",
+            //className: "shadow-soft rounded-4",
           }),
           options: [
             ...(placeholder
@@ -102,6 +100,7 @@ function Dropdown<T>({
             ...filteredOptions,
           ],
           renderOption,
+          hasHint,
         }
 
         return <Menu {...props} />

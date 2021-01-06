@@ -25,7 +25,6 @@ interface Props<T> {
   selectedItem?: Item<T>
   inputValue?: string
   options: Array<Item<T>>
-  className?: string
   equal?: (a: T, b: T) => boolean
   innerRef?: Ref<HTMLUListElement>
   renderOption?: (option: {
@@ -35,6 +34,7 @@ interface Props<T> {
   }) => ReactNode
   noResults?: string
   isFetching?: boolean
+  hasHint: boolean
 }
 
 const isCustomValue = (value): boolean => {
@@ -83,11 +83,11 @@ class Menu<T> extends Component<Props<T>> {
       highlightedIndex,
       selectedItem,
       options,
-      className,
       innerRef,
       noResults,
       inputValue,
       isFetching,
+      hasHint,
     } = this.props
 
     let { renderOption } = this.props
@@ -101,9 +101,10 @@ class Menu<T> extends Component<Props<T>> {
         {...getMenuProps(
           {
             className: classNames(
-              "border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10",
-              className
+              "border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10 shadow-soft rounded-4",
+              { "-mt-selectWithHintMenu": hasHint, "-mt-selectMenu": !hasHint }
             ),
+
             onMouseLeave: () => {
               setHighlightedIndex(null)
             },
@@ -153,8 +154,8 @@ class Menu<T> extends Component<Props<T>> {
     ) : inputValue && noResults ? (
       <div
         className={classNames(
-          "p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0",
-          className
+          "p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 shadow-soft rounded-4",
+          { "-mt-selectWithHintMenu": hasHint, "-mt-selectMenu": !hasHint }
         )}
       >
         {isFetching ? (
