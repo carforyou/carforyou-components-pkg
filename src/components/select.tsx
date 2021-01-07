@@ -71,7 +71,10 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       options,
       onSelect: handleChange,
       selected,
-      hasHint: hint ? true : false,
+      hasHint:
+        hint && "withAutosuggest" in rest && rest.withAutosuggest
+          ? true
+          : false,
       //menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu",
     }
 

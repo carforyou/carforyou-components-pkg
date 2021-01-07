@@ -17,6 +17,7 @@ interface InputProps {
   disabled?: boolean
   autoFocus?: boolean
   hasClearButton?: boolean
+  hasSearchIcon?: boolean
   mode: "text" | "numeric" | "decimal" | "tel" | "email"
   onChange: <T extends { target: { name: string; value: string | number } }>(
     e: T
@@ -55,6 +56,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       hint,
       disabled = false,
       hasClearButton = false,
+      hasSearchIcon = false,
       autoFocus = false,
       mode,
       onChange,
@@ -95,6 +97,8 @@ const Input = forwardRef<HTMLInputElement, Props>(
         className={classNames("w-12/12", {
           // eslint-disable-next-line @typescript-eslint/naming-convention
           input_withClearButton: hasClearButton,
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          "select_withSearchIcon bg-right bg-transparent bg-no-repeat": hasSearchIcon,
           "floatingLabel-input": labelProps.floating,
           input_left: position === "left",
           input_right: position === "right",

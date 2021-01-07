@@ -269,19 +269,26 @@ function DropdownWithAutosuggest<T>({
       toggle={renderToggle}
       menu={(downshift, filteredOptions) => {
         return (
-          <Menu<T>
-            {...{
-              ...downshift,
-              innerRef: menuRef,
-              options: filteredOptions,
-              //className: "shadow-soft rounded-4",
-              equal: equalWrapper,
-              noResults,
-              hasHint,
-              inputValue,
-              isFetching,
-            }}
-          />
+          <div
+            className={classNames("", {
+              "-mt-selectWithHintMenu": hasHint,
+              "-mt-selectMenu": !hasHint,
+            })}
+          >
+            <Menu<T>
+              {...{
+                ...downshift,
+                innerRef: menuRef,
+                options: filteredOptions,
+                //className: "shadow-soft rounded-4",
+                equal: equalWrapper,
+                noResults,
+                hasHint,
+                inputValue,
+                isFetching,
+              }}
+            />
+          </div>
         )
       }}
     />

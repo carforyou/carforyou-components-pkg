@@ -87,7 +87,7 @@ class Menu<T> extends Component<Props<T>> {
       noResults,
       inputValue,
       isFetching,
-      hasHint,
+      //hasHint,
     } = this.props
 
     let { renderOption } = this.props
@@ -101,8 +101,8 @@ class Menu<T> extends Component<Props<T>> {
         {...getMenuProps(
           {
             className: classNames(
-              "border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10 shadow-soft rounded-4",
-              { "-mt-selectWithHintMenu": hasHint, "-mt-selectMenu": !hasHint }
+              "border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10 shadow-soft rounded-4"
+              //{ "-mt-selectWithHintMenu": hasHint, "-mt-selectMenu": !hasHint }
             ),
 
             onMouseLeave: () => {
@@ -154,8 +154,8 @@ class Menu<T> extends Component<Props<T>> {
     ) : inputValue && noResults ? (
       <div
         className={classNames(
-          "p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 shadow-soft rounded-4",
-          { "-mt-selectWithHintMenu": hasHint, "-mt-selectMenu": !hasHint }
+          "p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 shadow-soft rounded-4"
+          //{ "-mt-selectWithHintMenu": hasHint, "-mt-selectMenu": !hasHint }
         )}
       >
         {isFetching ? (
