@@ -89,10 +89,7 @@ function Dropdown<T>({
       menu={(downshift, filteredOptions) => {
         const props = {
           ...downshift,
-          ...downshift.getMenuProps({
-            //className: "text-left md:position-left-auto shadow-hard md:shadow-soft rounded-none md:rounded-4",
-            //className: "shadow-soft rounded-4",
-          }),
+          ...downshift.getMenuProps({}),
           options: [
             ...(placeholder
               ? [{ name: placeholder, value: null, placeholder: true }]

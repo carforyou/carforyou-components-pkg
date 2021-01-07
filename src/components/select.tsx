@@ -75,7 +75,6 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
         hint && "withAutosuggest" in rest && rest.withAutosuggest
           ? true
           : false,
-      //menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu",
     }
 
     const dropdownProps =
