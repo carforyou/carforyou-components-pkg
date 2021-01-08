@@ -1,16 +1,16 @@
 import React, { forwardRef } from "react"
 import classNames from "classnames"
 
-import DropdownWithAutosuggest, {
-  DropdownWithAutosuggestProps,
-} from "../components/dropdown/withAutosuggest"
-import Dropdown, { DropdownProps } from "./dropdown/index"
-
+import InputField from "./input/inputField"
 import WithValidationError from "./fieldHelpers/withValidationError"
+
 import WithLabel from "./fieldHelpers/withLabel"
 import WithClearButton from "./fieldHelpers/withClearButton"
 import HintText from "./fieldHelpers/hintText"
-import InputField from "./input/inputField"
+import Dropdown, { DropdownProps } from "./dropdown/index"
+import DropdownWithAutosuggest, {
+  DropdownWithAutosuggestProps,
+} from "../components/dropdown/withAutosuggest"
 
 interface BaseProps<T> {
   name: string

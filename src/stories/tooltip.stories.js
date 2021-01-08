@@ -1,4 +1,5 @@
 import React from "react"
+
 import Tooltip from "../components/tooltip/index"
 
 export default {

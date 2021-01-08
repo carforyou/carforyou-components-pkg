@@ -1,7 +1,8 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import Input from "../../components/input/index"
+
 import StoryContainer from "../storyContainer"
+import Input from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")

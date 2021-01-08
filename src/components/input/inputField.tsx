@@ -1,4 +1,4 @@
-import React, { forwardRef, FocusEvent, InputHTMLAttributes } from "react"
+import React, { FocusEvent, forwardRef, InputHTMLAttributes } from "react"
 
 import debounceCallback from "../../lib/debounceHelper"
 

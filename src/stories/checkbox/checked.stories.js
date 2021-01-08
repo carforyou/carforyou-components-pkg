@@ -1,7 +1,9 @@
 import React from "react"
-import Checkbox from "../../components/checkbox"
-import StoryContainer from "../storyContainer"
+
 import { action } from "@storybook/addon-actions"
+
+import StoryContainer from "../storyContainer"
+import Checkbox from "../../components/checkbox"
 
 const onChange = () => action("onChange")
 const initialValue = true

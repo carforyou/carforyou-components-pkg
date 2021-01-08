@@ -1,4 +1,4 @@
-import React, { createRef, RefObject, FC } from "react"
+import React, { createRef, FC, RefObject } from "react"
 import { fireEvent, render } from "@testing-library/react"
 
 import useModal from "../useModal"

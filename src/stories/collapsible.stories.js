@@ -1,7 +1,9 @@
 import React from "react"
+
+import { action } from "@storybook/addon-actions"
+
 import StoryContainer from "./storyContainer"
 import Collapsible from "../components/collapsible"
-import { action } from "@storybook/addon-actions"
 
 export default {
   title: "Collapsible",

@@ -1,6 +1,7 @@
 import { resolve } from "path"
 import { sync } from "glob"
-import { withDefaultConfig, defaultConfig } from "./tailwind/index"
+
+import { defaultConfig, withDefaultConfig } from "./tailwind/index"
 
 // Export node-only API
 export default {

@@ -1,6 +1,7 @@
 import React from "react"
-import AlertMessage from "../components/alertMessage"
+
 import StoryContainer from "./storyContainer"
+import AlertMessage from "../components/alertMessage"
 import MailSent from "../../.storybook/icons/mailSent"
 
 export default {

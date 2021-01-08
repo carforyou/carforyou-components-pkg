@@ -1,13 +1,12 @@
-import React, { FC, useEffect, useState } from "react"
 import useDeepCompareEffect from "use-deep-compare-effect"
+import React, { FC, useEffect, useState } from "react"
 import classNames from "classnames"
 
-import { bootIntercom } from "./helper"
-import ChatIcon from "../icons/chat"
-import CloseIcon from "../icons/close"
-import Spinner from "../spinner"
-
 import styles from "./index.module.css"
+import { bootIntercom } from "./helper"
+import Spinner from "../spinner"
+import CloseIcon from "../icons/close"
+import ChatIcon from "../icons/chat"
 
 interface Props {
   /**

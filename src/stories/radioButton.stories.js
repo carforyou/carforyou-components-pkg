@@ -1,7 +1,9 @@
 import React from "react"
+
+import { action } from "@storybook/addon-actions"
+
 import StoryContainer from "./storyContainer"
 import RadioButton from "../components/radioButton"
-import { action } from "@storybook/addon-actions"
 
 const onChange = () => action("onChange")
 const initialValue = "B"

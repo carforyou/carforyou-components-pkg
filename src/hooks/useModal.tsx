@@ -1,5 +1,5 @@
-import React, { useState, RefObject, useEffect } from "react"
 import { createPortal } from "react-dom"
+import React, { RefObject, useEffect, useState } from "react"
 
 import classNames from "classnames"
 

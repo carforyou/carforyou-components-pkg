@@ -1,5 +1,5 @@
 import React from "react"
-import { render, fireEvent, act } from "@testing-library/react"
+import { act, fireEvent, render } from "@testing-library/react"
 
 jest.mock("../helper", () => ({
   bootIntercom: jest.fn((settings, { onOpen, onClose }) => {
@@ -17,8 +17,8 @@ jest.mock("../helper", () => ({
   }),
 }))
 
-import { bootIntercom } from "../helper"
 import Intercom from "../index"
+import { bootIntercom } from "../helper"
 
 describe("<Intercom />", () => {
   const renderWrapper = (options = {}) => {

@@ -2,9 +2,9 @@ import React, { ReactChild, ReactElement, ReactNode } from "react"
 
 import classNames from "classnames"
 
-import BaseDownshift from "./base"
 import Menu from "./menu"
 import ButtonToggle from "./buttonToggle"
+import BaseDownshift from "./base"
 
 interface Props<T> {
   /**
