@@ -1,7 +1,9 @@
 import React from "react"
+
+import { action } from "@storybook/addon-actions"
+
 import StoryContainer from "./storyContainer"
 import Pagination from "../components/pagination"
-import { action } from "@storybook/addon-actions"
 
 export default {
   title: "Pagination",

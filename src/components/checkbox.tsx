@@ -1,4 +1,4 @@
-import React, { ReactElement, ChangeEvent } from "react"
+import React, { ChangeEvent, ReactElement } from "react"
 import classNames from "classnames"
 
 import WithValidationError from "./fieldHelpers/withValidationError"

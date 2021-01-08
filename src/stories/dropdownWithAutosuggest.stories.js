@@ -1,8 +1,10 @@
 import React, { useState } from "react"
-import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
-import Input from "../components/input/inputField"
-import StoryContainer from "./storyContainer"
+
 import { action } from "@storybook/addon-actions"
+
+import StoryContainer from "./storyContainer"
+import Input from "../components/input/inputField"
+import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
 
 const options = () => (
   "options",

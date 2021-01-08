@@ -1,23 +1,21 @@
 import React, {
-  ReactChild,
   FormEvent,
-  KeyboardEvent,
-  Ref,
-  useRef,
   InputHTMLAttributes,
+  KeyboardEvent,
+  ReactChild,
   ReactElement,
-  useState,
+  Ref,
   useEffect,
+  useRef,
+  useState,
 } from "react"
-import classNames from "classnames"
 import { GetInputPropsOptions } from "downshift"
-
-import { getClosestElement } from "../../lib/elementsHelper"
-import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
-
-import BaseDownshift from "./base"
+import classNames from "classnames"
 
 import Menu from "./menu"
+import BaseDownshift from "./base"
+import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
+import { getClosestElement } from "../../lib/elementsHelper"
 
 interface InputProps {
   getInputProps: <O extends GetInputPropsOptions>(

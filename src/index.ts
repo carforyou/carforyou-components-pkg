@@ -1,31 +1,31 @@
-import Button from "./components/button"
+import useModal from "./hooks/useModal"
+import Tooltip, {
+  TooltipAlignment,
+  TooltipPosition,
+} from "./components/tooltip/index"
+import Textarea from "./components/textarea"
+import Spinner from "./components/spinner"
+import Select from "./components/select"
+import SegmentedControl from "./components/segmentedControl/index"
+import RadioButton from "./components/radioButton"
 import Pill from "./components/pill"
 import Pagination from "./components/pagination"
-import Dropdown from "./components/dropdown/index"
-import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
-import SegmentedControl from "./components/segmentedControl/index"
-import Spinner from "./components/spinner"
+import OpeningHours from "./components/openingHours"
 import Intercom from "./components/intercom/index"
-import AlertMessage from "./components/alertMessage"
 import Input from "./components/input/index"
-import Textarea from "./components/textarea"
-import Select from "./components/select"
-import Checkbox from "./components/checkbox"
-import RadioButton from "./components/radioButton"
-import WithLabel from "./components/fieldHelpers/withLabel"
-import WithValidationError from "./components/fieldHelpers/withValidationError"
-import useModal from "./hooks/useModal"
 import Profile from "./components/icons/profile"
+import LogoWhite from "./components/icons/logoWhite"
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
-import LogoWhite from "./components/icons/logoWhite"
-import Tooltip, {
-  TooltipPosition,
-  TooltipAlignment,
-} from "./components/tooltip/index"
-import FixedCard from "./components/card/fixed"
-import OpeningHours from "./components/openingHours"
+import WithValidationError from "./components/fieldHelpers/withValidationError"
+import WithLabel from "./components/fieldHelpers/withLabel"
+import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
+import Dropdown from "./components/dropdown/index"
 import Collapsible from "./components/collapsible"
+import Checkbox from "./components/checkbox"
+import FixedCard from "./components/card/fixed"
+import Button from "./components/button"
+import AlertMessage from "./components/alertMessage"
 
 export {
   Button,

@@ -1,7 +1,9 @@
 import React from "react"
+
+import { action } from "@storybook/addon-actions"
+
 import StoryContainer from "../storyContainer"
 import Textarea from "../../components/textarea"
-import { action } from "@storybook/addon-actions"
 
 const onChange = () => action("onChange")
 const onBlur = () => action("onBlur")

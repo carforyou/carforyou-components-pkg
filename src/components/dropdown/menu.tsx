@@ -1,8 +1,9 @@
-import React, { Ref, Component, ReactNode } from "react"
+import React, { Component, ReactNode, Ref } from "react"
+import { GetItemPropsOptions, GetMenuPropsOptions } from "downshift"
 import classNames from "classnames"
+
 import Spinner from "../spinner"
 import { wrapLink } from "../../lib/buttonHelper"
-import { GetItemPropsOptions, GetMenuPropsOptions } from "downshift"
 
 interface Item<T> {
   value: T | { customValue: T }

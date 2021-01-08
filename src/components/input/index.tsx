@@ -1,12 +1,12 @@
-import React, { FocusEvent, KeyboardEvent, forwardRef } from "react"
+import React, { FocusEvent, forwardRef, KeyboardEvent } from "react"
 import classNames from "classnames"
 
+import InputField from "./inputField"
 import WithValidationError from "../fieldHelpers/withValidationError"
 import WithLabel from "../fieldHelpers/withLabel"
 import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
 import HintText from "../fieldHelpers/hintText"
-import InputField from "./inputField"
 
 interface InputProps {
   name: string
