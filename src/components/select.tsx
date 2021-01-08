@@ -71,7 +71,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       options,
       onSelect: handleChange,
       selected,
-      hasHint: hint ? true : false,
+      menuClassName: hint ? "-mt-selectWithHintMenu" : "-mt-selectMenu",
     }
 
     const dropdownProps =
@@ -127,7 +127,6 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
           }
         : {
             ...baseProps,
-            isSelect: true,
             placeholder,
             disabled,
             toggle: (downshift, isOpen) => {

@@ -63,8 +63,8 @@ interface Props<T> {
   fetchSuggestions?: (
     value: string
   ) => Promise<Array<{ value: T; name: string }>>
+  menuClassName?: string
   noResults?: string
-  hasHint?: boolean
 }
 
 const filterOptions = (noResults) => (allOptions, text) => {
@@ -121,8 +121,8 @@ function DropdownWithAutosuggest<T>({
   fetchSuggestions,
   trimInput,
   allowCustomValues = false,
+  menuClassName,
   noResults,
-  hasHint,
 }: Props<T>): ReactElement {
   const menuRef: Ref<HTMLUListElement> = useRef()
   const [inputValue, setInputValue] = useState("")
@@ -272,13 +272,9 @@ function DropdownWithAutosuggest<T>({
           <Menu<T>
             {...{
               ...downshift,
-              ...downshift.getMenuProps({
-                className: hasHint
-                  ? "-mt-selectWithHintMenu"
-                  : "-mt-selectMenu",
-              }),
               innerRef: menuRef,
               options: filteredOptions,
+              className: menuClassName,
               equal: equalWrapper,
               noResults,
               inputValue,
