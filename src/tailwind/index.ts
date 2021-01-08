@@ -1,4 +1,5 @@
 import merge_ from "deepmerge"
+
 import defaultConfig from "./defaultConfig"
 
 const mergeDeep = merge_

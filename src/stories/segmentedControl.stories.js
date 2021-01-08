@@ -1,7 +1,9 @@
 import React from "react"
+
+import { action } from "@storybook/addon-actions"
+
 import StoryContainer from "./storyContainer"
 import SegmentedControl from "../components/segmentedControl"
-import { action } from "@storybook/addon-actions"
 
 const options = () => (
   "options",

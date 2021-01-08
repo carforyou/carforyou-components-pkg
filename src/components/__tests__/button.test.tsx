@@ -1,5 +1,5 @@
 import React from "react"
-import { render, fireEvent, cleanup } from "@testing-library/react"
+import { cleanup, fireEvent, render } from "@testing-library/react"
 
 import Button from "../button"
 import CtaCall from "../../../.storybook/icons/ctaCall"

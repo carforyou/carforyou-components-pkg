@@ -1,6 +1,7 @@
 import React from "react"
-import FixedCard from "../../components/card/fixed"
+
 import StoryContainer from "../storyContainer"
+import FixedCard from "../../components/card/fixed"
 
 export default {
   title: "Card",

@@ -1,5 +1,5 @@
 import React from "react"
-import { render, cleanup, fireEvent, within } from "@testing-library/react"
+import { cleanup, fireEvent, render, within } from "@testing-library/react"
 
 import DropdownWithAutosuggest from "../withAutosuggest"
 

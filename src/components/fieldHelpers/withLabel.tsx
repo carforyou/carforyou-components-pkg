@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 import classNames from "classnames"
 
-import useModal from "../../hooks/useModal"
 import InfoIcon from "../icons/info"
+import useModal from "../../hooks/useModal"
 
 interface Props {
   name: string

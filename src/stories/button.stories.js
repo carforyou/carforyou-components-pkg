@@ -1,7 +1,9 @@
 import React from "react"
-import Button from "../components/button"
-import StoryContainer from "./storyContainer"
+
 import { action } from "@storybook/addon-actions"
+
+import StoryContainer from "./storyContainer"
+import Button from "../components/button"
 
 export default {
   title: "Button",

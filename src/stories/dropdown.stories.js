@@ -1,7 +1,9 @@
 import React from "react"
-import Dropdown from "../components/dropdown/index"
-import StoryContainer from "./storyContainer"
+
 import { action } from "@storybook/addon-actions"
+
+import StoryContainer from "./storyContainer"
+import Dropdown from "../components/dropdown/index"
 
 const options = () => (
   "options",
