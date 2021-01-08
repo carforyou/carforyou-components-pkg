@@ -272,9 +272,13 @@ function DropdownWithAutosuggest<T>({
           <Menu<T>
             {...{
               ...downshift,
+              ...downshift.getMenuProps({
+                className: hasHint
+                  ? "-mt-selectWithHintMenu"
+                  : "-mt-selectMenu",
+              }),
               innerRef: menuRef,
               options: filteredOptions,
-              className: hasHint ? "-mt-selectWithHintMenu" : "-mt-selectMenu",
               equal: equalWrapper,
               noResults,
               inputValue,

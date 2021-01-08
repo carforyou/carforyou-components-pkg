@@ -55,28 +55,14 @@ const Template = (args) => {
             </div>
           </div>
         ) : (
-          <div>
-            <div className="mr-20 mt-20">
-              <Select
-                {...args}
-                selected={value}
-                handleChange={(v) => {
-                  setValue(v)
-                  handleChange()(v)
-                }}
-              />
-            </div>
-            <div className="ml-20 mt-20">
-              <Select
-                {...args}
-                selected={value}
-                handleChange={(v) => {
-                  setValue(v)
-                  handleChange()(v)
-                }}
-              />
-            </div>
-          </div>
+          <Select
+            {...args}
+            selected={value}
+            handleChange={(v) => {
+              setValue(v)
+              handleChange()(v)
+            }}
+          />
         )
       }
     />

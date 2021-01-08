@@ -71,10 +71,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       options,
       onSelect: handleChange,
       selected,
-      hasHint:
-        hint && "withAutosuggest" in rest && rest.withAutosuggest
-          ? true
-          : false,
+      hasHint: hint ? true : false,
     }
 
     const dropdownProps =
@@ -130,6 +127,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
           }
         : {
             ...baseProps,
+            isSelect: true,
             placeholder,
             disabled,
             toggle: (downshift, isOpen) => {

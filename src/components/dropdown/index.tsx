@@ -51,6 +51,7 @@ interface Props<T> {
    */
   equal?: (a: T, b: T) => boolean
   hasHint?: boolean
+  isSelect?: boolean
 }
 
 function Dropdown<T>({
@@ -63,6 +64,7 @@ function Dropdown<T>({
   disabled,
   renderOption,
   hasHint,
+  isSelect = false,
 }: Props<T>): ReactElement {
   return (
     <BaseDownshift
@@ -89,7 +91,13 @@ function Dropdown<T>({
       menu={(downshift, filteredOptions) => {
         const props = {
           ...downshift,
-          ...downshift.getMenuProps({}),
+          ...downshift.getMenuProps({
+            className: isSelect
+              ? hasHint
+                ? "-mt-selectWithHintMenu"
+                : "-mt-selectMenu"
+              : "",
+          }),
           options: [
             ...(placeholder
               ? [{ name: placeholder, value: null, placeholder: true }]
@@ -97,7 +105,6 @@ function Dropdown<T>({
             ...filteredOptions,
           ],
           renderOption,
-          hasHint,
         }
 
         return <Menu {...props} />
