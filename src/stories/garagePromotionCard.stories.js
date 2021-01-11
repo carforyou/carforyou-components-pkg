@@ -15,6 +15,14 @@ export default {
       city: "Test",
     },
     title: "Mon garage",
+    mainImage: {
+      s3Key:"2020/12/04/13/45/32/2-promotionimage-1316-vt5CK5OFsSY7.jpg"
+    },
+    logo: {
+      s3Key:"2020/12/07/11/52/50/2-logo-1316-Cw3Xsal82n5X.png"
+    },
+    linkToDealerPage : "https://www.groupe-nomblot.com/",
+    url: "https://images.preprod.carforyou.ch/"
   },
   argTypes: {
     storyName: {
