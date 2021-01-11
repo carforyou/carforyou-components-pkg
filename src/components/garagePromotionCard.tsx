@@ -1,11 +1,34 @@
-import React from "react"
+import React, { FC } from "react"
 
 import ImageHelper from "./imageHelper"
 import UploadImagesIcon from "./icons/uploadImage"
 import ArrowRightTeal from "./icons/arrowRight"
 import { FixedCard } from "./card/fixed"
 
-const GaragePromotionCard = ({
+interface Props {
+  dealer: {
+    name: string
+    address?: string
+    zipCode: string
+    city?: string
+  }
+  title?: string
+  previewLabel: string
+  mainImage?: {
+    id: number
+    externalUrl: string
+    s3Key: string
+  }
+  logo?: {
+    id: number
+    externalUrl: string
+    s3Key: string
+  }
+  linkToDealerPage?: string
+  url: string
+}
+
+const GaragePromotionCard: FC<Props> = ({
   dealer,
   title,
   previewLabel,
