@@ -139,7 +139,7 @@ class Menu<T> extends Component<Props<T>> {
                   {
                     "font-bold text-teal": isSelected,
                     "bg-grey-bright": index === highlightedIndex,
-                    "text-grey-3": item.placeholder,
+                    "text-grey-4": item.placeholder,
                     "text-teal": isCustomValue(item.value),
                     [padding]: !isWrapped,
                   }
@@ -154,7 +154,7 @@ class Menu<T> extends Component<Props<T>> {
     ) : inputValue && noResults ? (
       <div
         className={classNames(
-          "p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0",
+          "p-20 text-grey-4 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0",
           className
         )}
       >

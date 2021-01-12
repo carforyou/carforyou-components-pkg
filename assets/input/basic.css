@@ -70,7 +70,7 @@ input[type="checkbox"]:disabled:hover,
 .select-toggle.select-toggle_disabled:hover,
 textarea:disabled,
 textarea:disabled:hover {
-  @apply bg-grey-bright text-grey-3;
+  @apply bg-grey-bright text-grey-4;
   @apply border-grey-2 cursor-not-allowed;
 }
 

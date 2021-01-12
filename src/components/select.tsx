@@ -135,7 +135,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                   selectClasses(isOpen),
                   {
                     "select-toggle_disabled": disabled,
-                    "text-grey-3": downshift.placeholder,
+                    "text-grey-4": downshift.placeholder,
                   }
                 ),
                 children: downshift.name,

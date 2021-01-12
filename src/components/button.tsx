@@ -45,7 +45,7 @@ export const Button: FC<Props> = ({
     "border-teal": teal || tealBorder,
     "bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon":
       !teal && !tealBorder,
-    "text-grey-3 hover:opacity-100": disabled && tealBorder,
+    "text-grey-4 hover:opacity-100": disabled && tealBorder,
     "bg-grey-3 hover:bg-grey-3": disabled && !tealBorder,
     "cursor-not-allowed border-grey-3": disabled,
   })
