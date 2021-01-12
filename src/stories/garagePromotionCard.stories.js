@@ -8,8 +8,8 @@ export default {
   args: {
     storyName: "Default",
     previewLabel: "Show more",
-    dealer: {
-      name: "Tartanpion",
+    dealerName: "Name of dealer",
+    dealerLocation: {
       address: "Montplaisir",
       zipCode: "69400",
       city: "Test",

@@ -6,8 +6,8 @@ import ArrowRightTeal from "./icons/arrowRight"
 import { FixedCard } from "./card/fixed"
 
 interface Props {
-  dealer: {
-    name: string
+  dealerName: string
+  dealerLocation: {
     address?: string
     zipCode: string
     city?: string
@@ -29,7 +29,8 @@ interface Props {
 }
 
 const GaragePromotionCard: FC<Props> = ({
-  dealer,
+  dealerName,
+  dealerLocation,
   title,
   previewLabel,
   mainImage,
@@ -42,7 +43,12 @@ const GaragePromotionCard: FC<Props> = ({
       renderImage={() => (
         <div className="bg-grey-1 flex justify-center items-center text-grey-2 h-cardImageSmall md:h-cardImage w-12/12 md:w-card">
           {mainImage?.s3Key ? (
-            <ImageHelper image={mainImage} cdnUrl={url} fullWidth />
+            <ImageHelper
+              image={mainImage}
+              cdnUrl={url}
+              pictureAlt={title}
+              fullWidth
+            />
           ) : (
             <UploadImagesIcon width="72px" height="72px" />
           )}
@@ -73,12 +79,17 @@ const GaragePromotionCard: FC<Props> = ({
         <div className="w-12/12 flex items-center">
           {logo?.s3Key ? (
             <div className="w-2/12 mr-10">
-              <ImageHelper image={logo} cdnUrl={url} fullWidth />
+              <ImageHelper
+                image={logo}
+                cdnUrl={url}
+                pictureAlt="logo"
+                fullWidth
+              />
             </div>
           ) : null}
           <div className="w-10/12">
-            <div className="font-bold">{dealer.name}</div>
-            <div className="text-sm mt-5">{`${dealer.address}, ${dealer.zipCode} ${dealer.city}`}</div>
+            <div className="font-bold">{dealerName}</div>
+            <div className="text-sm mt-5">{`${dealerLocation.address}, ${dealerLocation.zipCode} ${dealerLocation.city}`}</div>
           </div>
         </div>
       </div>
