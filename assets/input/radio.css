@@ -9,7 +9,7 @@
 }
 
 .inputRadio-checkmark {
-  @apply absolute top-0 left-0 h-checkbox w-checkbox border rounded-half border-grey-2 bg-white;
+  @apply absolute top-0 left-0 h-checkbox w-checkbox border rounded-half border-grey-3 bg-white;
 }
 
 .inputRadio-input:hover ~ .inputRadio-checkmark {
@@ -24,7 +24,7 @@
 .inputRadio-input:disabled:hover ~ .inputRadio-checkmark,
 .inputRadio-input:disabled:checked ~ .inputRadio-checkmark,
 .inputRadio-input:disabled:checked:hover ~ .inputRadio-checkmark {
-  @apply bg-grey-bright text-grey-4 border-grey-2 cursor-not-allowed;
+  @apply bg-grey-bright text-grey-4 border-grey-3 cursor-not-allowed;
 }
 
 .inputRadio-input:checked ~ .inputRadio-checkmark {

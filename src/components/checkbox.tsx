@@ -74,10 +74,10 @@ function Checkbox({
             {
               "focus-within:text-teal": !buttonStyle,
               "p-13 border rounded-4 ": buttonStyle,
-              "hover:border-grey-2 bg-grey-bright text-grey-2 cursor-not-allowed":
+              "hover:border-grey-3 bg-grey-bright text-grey-2 cursor-not-allowed":
                 buttonStyle && disabled,
               "border-salmon": buttonStyle && hasError,
-              "border-grey-2 hover:border-grey-dark focus-within:border-teal":
+              "border-grey-3 hover:border-grey-dark focus-within:border-teal":
                 buttonStyle && !hasError,
               "text-salmon": hasError,
             }
