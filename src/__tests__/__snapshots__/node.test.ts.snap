@@ -661,6 +661,8 @@ Object {
     ],
     "zIndex": Array [
       "responsive",
+      "hover",
+      "focus",
     ],
   },
 }
