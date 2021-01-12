@@ -88,8 +88,10 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                 className: classNames(
                   "input_withClearButton",
                   {
-                    input_left: position === "left",
-                    input_right: position === "right",
+                    "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "left",
+                    "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "right",
                   },
                   "select",
                   selectClasses(isOpen)
@@ -134,8 +136,10 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                 className: classNames(
                   "w-12/12 text-left select-toggle input_withClearButton",
                   {
-                    input_left: position === "left",
-                    input_right: position === "right",
+                    "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "left",
+                    "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "right",
                   },
                   "select",
                   selectClasses(isOpen),

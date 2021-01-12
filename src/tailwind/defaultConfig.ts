@@ -627,7 +627,7 @@ export default {
     whitespace: ["responsive"],
     width: ["responsive"],
     wordBreak: ["responsive"],
-    zIndex: ["responsive"],
+    zIndex: ["responsive", "hover", "focus"],
     gap: ["responsive"],
     scale: ["responsive", "hover", "focus"],
     translate: ["responsive", "hover", "focus"],

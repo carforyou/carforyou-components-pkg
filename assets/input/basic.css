@@ -88,22 +88,12 @@ textarea[data-valid="false"]:focus {
 }
 
 input.input_left {
-  @apply rounded-l-4 rounded-r-none;
+  @apply rounded-r-none;
 }
 
 input.input_right,
 div.input_right {
-  @apply rounded-r-4 rounded-l-none -ml-1;
-}
-
-.input_left:hover,
-.input_right:hover {
-  @apply z-1 transition duration-200;
-}
-
-.input_left:focus,
-.input_right:focus {
-  @apply z-1;
+  @apply rounded-l-none;
 }
 
 /* hide ie specific input controls */

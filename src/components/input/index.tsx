@@ -100,8 +100,10 @@ const Input = forwardRef<HTMLInputElement, Props>(
           // eslint-disable-next-line @typescript-eslint/naming-convention
           "select_withSearchIcon bg-right bg-transparent bg-no-repeat": hasSearchIcon,
           "floatingLabel-input": labelProps.floating,
-          input_left: position === "left",
-          input_right: position === "right",
+          "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
+            position === "left",
+          "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
+            position === "right",
         })}
         mode={mode}
         hasError={hasError}
