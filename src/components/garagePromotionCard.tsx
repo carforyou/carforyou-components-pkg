@@ -50,7 +50,7 @@ const GaragePromotionCard: FC<Props> = ({
               image={mainImage}
               cdnUrl={cdnUrl}
               pictureAlt={title}
-              height="image"
+              height="promotionImage"
             />
           ) : (
             <UploadImagesIcon width="72px" height="72px" />
