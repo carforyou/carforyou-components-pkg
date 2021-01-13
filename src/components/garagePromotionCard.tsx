@@ -7,7 +7,7 @@ import { FixedCard } from "./card/fixed"
 interface Props {
   dealerName: string
   dealerLocation: {
-    address?: number
+    address?: string
     zipCode: string
     city?: string
   }
@@ -46,6 +46,18 @@ const GaragePromotionCard: FC<Props> = ({
               src={`${cdnUrl}/${mainImage.s3Key}?w=350`}
               className="promotionImage w-12/12 object-cover"
               alt={title}
+              onClick={() => {
+                gtmHelper.event({
+                  category: "my garage",
+                  action: "my garage section hp",
+                  label: "click image",
+                  dealerId: id,
+                  promotionCardPosition: index + 1,
+                })
+              }}
+              onError={(e) => {
+                e.currentTarget.src = require("~/assets/imageMissing.svg")
+              }}
             />
           ) : (
             <UploadImagesIcon width="72px" height="72px" />
