@@ -6,6 +6,9 @@ import ArrowRightTeal from "./icons/arrowRight"
 import { FixedCard } from "./card/fixed"
 
 interface Props {
+  /**
+   * An array of options to show
+   */
   dealerName: string
   dealerLocation: {
     address?: string
@@ -25,7 +28,7 @@ interface Props {
     s3Key: string
   }
   linkToDealerPage?: string
-  url: string
+  cdnUrl: string
 }
 
 const GaragePromotionCard: FC<Props> = ({
@@ -36,7 +39,7 @@ const GaragePromotionCard: FC<Props> = ({
   mainImage,
   logo,
   linkToDealerPage,
-  url,
+  cdnUrl,
 }) => {
   return (
     <FixedCard
@@ -45,7 +48,7 @@ const GaragePromotionCard: FC<Props> = ({
           {mainImage?.s3Key ? (
             <ImageHelper
               image={mainImage}
-              cdnUrl={url}
+              cdnUrl={cdnUrl}
               pictureAlt={title}
               height="image"
             />
@@ -81,7 +84,7 @@ const GaragePromotionCard: FC<Props> = ({
             <div className="w-2/12 mr-10">
               <ImageHelper
                 image={logo}
-                cdnUrl={url}
+                cdnUrl={cdnUrl}
                 pictureAlt="logo"
                 height=""
               />

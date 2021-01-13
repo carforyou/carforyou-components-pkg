@@ -1,6 +1,7 @@
 import React from "react"
-import GaragePromotionCard from "../components/garagePromotionCard"
+
 import StoryContainer from "./storyContainer"
+import GaragePromotionCard from "../components/garagePromotionCard"
 
 export default {
   title: "Garage Promotion Card",
@@ -10,19 +11,19 @@ export default {
     previewLabel: "Show more",
     dealerName: "Name of dealer",
     dealerLocation: {
-      address: "Montplaisir",
-      zipCode: "69400",
-      city: "Test",
+      address: "Zürcherstrasse",
+      zipCode: "8953",
+      city: "Dietikon",
     },
-    title: "Mon garage",
+    title: "Sportgarage",
     mainImage: {
-      s3Key:"2020/12/04/13/45/32/2-promotionimage-1316-vt5CK5OFsSY7.jpg"
+      s3Key: "2020/12/04/13/45/32/2-promotionimage-1316-vt5CK5OFsSY7.jpg",
     },
     logo: {
-      s3Key:"2020/12/07/11/52/50/2-logo-1316-Cw3Xsal82n5X.png"
+      s3Key: "2020/12/07/11/52/50/2-logo-1316-Cw3Xsal82n5X.png",
     },
-    linkToDealerPage : "https://www.groupe-nomblot.com/",
-    url: "https://images.preprod.carforyou.ch/"
+    linkToDealerPage: "#",
+    cdnUrl: "https://images.preprod.carforyou.ch/",
   },
   argTypes: {
     storyName: {
