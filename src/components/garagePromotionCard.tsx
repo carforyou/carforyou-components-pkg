@@ -1,17 +1,13 @@
 import React, { FC } from "react"
 
-import ImageHelper from "./imageHelper"
 import UploadImagesIcon from "./icons/uploadImage"
 import ArrowRightTeal from "./icons/arrowRight"
 import { FixedCard } from "./card/fixed"
 
 interface Props {
-  /**
-   * An array of options to show
-   */
   dealerName: string
   dealerLocation: {
-    address?: string
+    address?: number
     zipCode: string
     city?: string
   }
@@ -46,11 +42,10 @@ const GaragePromotionCard: FC<Props> = ({
       renderImage={() => (
         <div>
           {mainImage?.s3Key ? (
-            <ImageHelper
-              image={mainImage}
-              cdnUrl={cdnUrl}
-              pictureAlt={title}
-              height="promotionImage"
+            <img
+              src={`${cdnUrl}/${mainImage.s3Key}?w=350`}
+              className="promotionImage w-12/12 object-cover"
+              alt={title}
             />
           ) : (
             <UploadImagesIcon width="72px" height="72px" />
@@ -82,11 +77,10 @@ const GaragePromotionCard: FC<Props> = ({
         <div className="w-12/12 flex items-center">
           {logo?.s3Key ? (
             <div className="w-2/12 mr-10">
-              <ImageHelper
-                image={logo}
-                cdnUrl={cdnUrl}
-                pictureAlt="logo"
-                height=""
+              <img
+                src={`${cdnUrl}/${logo.s3Key}?w=50&h=50`}
+                className="flex-shrink-0 mr-10"
+                alt="logo"
               />
             </div>
           ) : null}
