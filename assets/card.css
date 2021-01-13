@@ -7,3 +7,10 @@
 .fixedCard:hover {
   @apply shadow-soft transition duration-200;
 }
+
+.image {
+  height: 209px;
+}
+.title {
+  height: 72px;
+}

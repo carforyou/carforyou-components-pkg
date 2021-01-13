@@ -41,13 +41,13 @@ const GaragePromotionCard: FC<Props> = ({
   return (
     <FixedCard
       renderImage={() => (
-        <div className="bg-grey-1 flex justify-center items-center text-grey-2 h-cardImageSmall md:h-cardImage w-12/12 md:w-card">
+        <div>
           {mainImage?.s3Key ? (
             <ImageHelper
               image={mainImage}
               cdnUrl={url}
               pictureAlt={title}
-              fullWidth
+              height="image"
             />
           ) : (
             <UploadImagesIcon width="72px" height="72px" />
@@ -83,7 +83,7 @@ const GaragePromotionCard: FC<Props> = ({
                 image={logo}
                 cdnUrl={url}
                 pictureAlt="logo"
-                fullWidth
+                height=""
               />
             </div>
           ) : null}

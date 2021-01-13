@@ -1,5 +1,4 @@
 import React, { FC } from "react"
-import classNames from "classnames"
 
 interface Props {
   image: {
@@ -7,20 +6,20 @@ interface Props {
     externalUrl: string
     s3Key: string
   }
-  fullWidth?: boolean
+  height: string
   cdnUrl: string
   pictureAlt?: string
 }
 
 const ImageHelper: FC<Props> = ({
   image: { s3Key },
-  fullWidth,
   cdnUrl,
   pictureAlt,
+  height,
 }) => (
   <img
-    src={`${cdnUrl}/${s3Key}?${fullWidth ? "w=350" : "fit=clip&h=180"}`}
-    className={classNames("max-h-full", { "w-12/12 object-cover": fullWidth })}
+    src={`${cdnUrl}/${s3Key}?w=350`}
+    className={`${height} w-12/12 object-cover`}
     alt={pictureAlt}
   />
 )
