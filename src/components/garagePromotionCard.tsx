@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, MouseEvent } from "react"
 
 import UploadImagesIcon from "./icons/uploadImage"
 import ArrowRightTeal from "./icons/arrowRight"
@@ -25,6 +25,9 @@ interface Props {
   }
   linkToDealerPage?: string
   cdnUrl: string
+  handleOnClick?: (event: MouseEvent<HTMLButtonElement>) => void
+  handleOnError?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  handleOnClickText?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 const GaragePromotionCard: FC<Props> = ({
@@ -36,6 +39,9 @@ const GaragePromotionCard: FC<Props> = ({
   logo,
   linkToDealerPage,
   cdnUrl,
+  handleOnClick,
+  handleOnError,
+  handleOnClickText,
 }) => {
   return (
     <FixedCard
@@ -47,16 +53,10 @@ const GaragePromotionCard: FC<Props> = ({
               className="promotionImage w-12/12 object-cover"
               alt={title}
               onClick={() => {
-                gtmHelper.event({
-                  category: "my garage",
-                  action: "my garage section hp",
-                  label: "click image",
-                  dealerId: id,
-                  promotionCardPosition: index + 1,
-                })
+                handleOnClick
               }}
-              onError={(e) => {
-                e.currentTarget.src = require("~/assets/imageMissing.svg")
+              onError={() => {
+                handleOnError
               }}
             />
           ) : (
@@ -65,7 +65,12 @@ const GaragePromotionCard: FC<Props> = ({
         </div>
       )}
     >
-      <div className="p-20 w-12/12 md:w-card max-h-dropdown">
+      <div
+        className="p-20 w-12/12 md:w-card max-h-dropdown"
+        onClick={() => {
+          handleOnClickText
+        }}
+      >
         {title ? (
           <p className="text-lg">{title}</p>
         ) : (
