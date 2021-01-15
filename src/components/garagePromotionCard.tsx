@@ -13,18 +13,9 @@ interface Props {
   }
   title?: string
   previewLabel: string
-  mainImage?: {
-    id: number
-    externalUrl: string
-    s3Key: string
-  }
-  logo?: {
-    id: number
-    externalUrl: string
-    s3Key: string
-  }
+  mainImage?: string
+  logo?: string
   linkToDealerPage?: string
-  cdnUrl: string
   handleOnClick?: (event: MouseEvent<HTMLButtonElement>) => void
   handleOnError?: (event: React.ChangeEvent<HTMLInputElement>) => void
   handleOnClickText?: (event: MouseEvent<HTMLButtonElement>) => void
@@ -38,7 +29,6 @@ const GaragePromotionCard: FC<Props> = ({
   mainImage,
   logo,
   linkToDealerPage,
-  cdnUrl,
   handleOnClick,
   handleOnError,
   handleOnClickText,
@@ -47,9 +37,9 @@ const GaragePromotionCard: FC<Props> = ({
     <FixedCard
       renderImage={() => (
         <div>
-          {mainImage?.s3Key ? (
+          {!mainImage.includes("null") ? (
             <img
-              src={`${cdnUrl}/${mainImage.s3Key}?w=350`}
+              src={mainImage}
               className="promotionImage w-12/12 object-cover"
               alt={title}
               onClick={() => {
@@ -92,13 +82,9 @@ const GaragePromotionCard: FC<Props> = ({
         </a>
         <hr className="text-grey-1 my-20" />
         <div className="w-12/12 flex items-center">
-          {logo?.s3Key ? (
+          {!logo.includes("null") ? (
             <div className="w-2/12 mr-10">
-              <img
-                src={`${cdnUrl}/${logo.s3Key}?w=50&h=50`}
-                className="flex-shrink-0 mr-10"
-                alt="logo"
-              />
+              <img src={logo} className="flex-shrink-0 mr-10" alt="logo" />
             </div>
           ) : null}
           <div className="w-10/12">
