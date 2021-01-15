@@ -318,6 +318,7 @@ export default {
     */
 
     margin: {
+      "-1": "-1px",
       auto: "auto",
       px: "1px",
       "0": "0",
@@ -525,6 +526,7 @@ export default {
     |
     */
     zIndex: {
+      1: 1,
       auto: "auto",
       negative: -1,
       clearButton: 10,
@@ -625,7 +627,7 @@ export default {
     whitespace: ["responsive"],
     width: ["responsive"],
     wordBreak: ["responsive"],
-    zIndex: ["responsive"],
+    zIndex: ["responsive", "hover", "focus"],
     gap: ["responsive"],
     scale: ["responsive", "hover", "focus"],
     translate: ["responsive", "hover", "focus"],

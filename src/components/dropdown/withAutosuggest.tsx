@@ -272,7 +272,7 @@ function DropdownWithAutosuggest<T>({
               ...downshift,
               innerRef: menuRef,
               options: filteredOptions,
-              className: classNames("shadow-soft rounded-4", menuClassName),
+              className: menuClassName,
               equal: equalWrapper,
               noResults,
               inputValue,

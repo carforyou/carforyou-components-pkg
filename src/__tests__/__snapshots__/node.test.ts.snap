@@ -252,6 +252,7 @@ Object {
       },
     },
     "margin": Object {
+      "-1": "-1px",
       "-headerMenu": "-14px",
       "-headerMenuMore": "-28px",
       "-selectMenu": "-21px",
@@ -400,6 +401,7 @@ Object {
       "scrollbar": "14px",
     },
     "zIndex": Object {
+      "1": 1,
       "auto": "auto",
       "card": 10,
       "clearButton": 10,
@@ -659,6 +661,8 @@ Object {
     ],
     "zIndex": Array [
       "responsive",
+      "hover",
+      "focus",
     ],
   },
 }
