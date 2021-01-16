@@ -71,7 +71,7 @@ input[type="checkbox"]:disabled:hover,
 textarea:disabled,
 textarea:disabled:hover {
   @apply bg-grey-bright text-grey-4;
-  @apply border-grey-3 cursor-not-allowed;
+  @apply border-grey-2 cursor-not-allowed;
 }
 
 input[type="number"][data-valid="false"],
