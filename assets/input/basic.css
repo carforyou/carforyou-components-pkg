@@ -121,6 +121,7 @@ input::-ms-reveal {
   height: 0;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   @apply text-grey-4;
 }
