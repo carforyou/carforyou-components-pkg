@@ -8,7 +8,7 @@ import Spinner from "./components/spinner"
 import Select from "./components/select"
 import SegmentedControl from "./components/segmentedControl/index"
 import RadioButton from "./components/radioButton"
-import previewCard from "./components/previewCard"
+import PreviewCard from "./components/PreviewCard"
 import Pill from "./components/pill"
 import Pagination from "./components/pagination"
 import OpeningHours from "./components/openingHours"
@@ -54,7 +54,7 @@ export {
   TooltipPosition,
   TooltipAlignment,
   FixedCard,
-  previewCard,
+  PreviewCard,
   OpeningHours,
   Collapsible,
 }
