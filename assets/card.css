@@ -7,7 +7,3 @@
 .fixedCard:hover {
   @apply shadow-soft transition duration-200;
 }
-
-.promotionImage {
-  height: 209px;
-}

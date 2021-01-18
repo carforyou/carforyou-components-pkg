@@ -8,6 +8,7 @@ import Spinner from "./components/spinner"
 import Select from "./components/select"
 import SegmentedControl from "./components/segmentedControl/index"
 import RadioButton from "./components/radioButton"
+import previewCard from "./components/previewCard"
 import Pill from "./components/pill"
 import Pagination from "./components/pagination"
 import OpeningHours from "./components/openingHours"
@@ -17,7 +18,6 @@ import Profile from "./components/icons/profile"
 import LogoWhite from "./components/icons/logoWhite"
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
-import GaragePromotionCard from "./components/garagePromotionCard"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
 import WithLabel from "./components/fieldHelpers/withLabel"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
@@ -54,7 +54,7 @@ export {
   TooltipPosition,
   TooltipAlignment,
   FixedCard,
-  GaragePromotionCard,
+  previewCard,
   OpeningHours,
   Collapsible,
 }

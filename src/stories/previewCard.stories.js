@@ -1,26 +1,26 @@
 import React from "react"
 
 import StoryContainer from "./storyContainer"
-import GaragePromotionCard from "../components/garagePromotionCard"
+import PreviewCard from "../components/previewCard"
 
 export default {
-  title: "Garage Promotion Card",
-  component: GaragePromotionCard,
+  title: "Preview card",
+  component: PreviewCard,
   args: {
     storyName: "Default",
     previewLabel: "Show more",
-    dealerName: "Name of dealer",
-    dealerLocation: {
+    name: "Name of dealer",
+    location: {
       address: "Zürcherstrasse",
       zipCode: "8953",
       city: "Dietikon",
     },
     title: "Sportgarage",
-    mainImage:
+    image:
       "https://images.preprod.carforyou.ch/2020/12/04/13/45/32/2-promotionimage-1316-vt5CK5OFsSY7.jpg",
     logo:
       "https://images.preprod.carforyou.ch/2020/12/07/11/52/50/2-logo-1316-Cw3Xsal82n5X.png",
-    linkToDealerPage: "#",
+    link: "#",
   },
   argTypes: {
     storyName: {
@@ -35,7 +35,7 @@ const Template = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
-      component={<GaragePromotionCard {...args} />}
+      component={<PreviewCard {...args} />}
     />
   )
 }
