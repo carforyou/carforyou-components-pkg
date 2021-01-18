@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 
 import styles from "./index.module.css"
+import UploadImagesIcon from "../icons/uploadImage"
 import ArrowRightTeal from "../icons/arrowRight"
 import { FixedCard } from "../card/fixed"
 
@@ -13,9 +14,10 @@ interface Props {
   }
   title?: string
   previewLabel: string
-  image: string
+  image?: string
   logo?: string
   link?: string
+  editMode?: boolean
   handleOnClick?: () => void
   handleOnError?: (e) => void
   handleOnClickText?: () => void
@@ -29,6 +31,7 @@ const PreviewCard: FC<Props> = ({
   image,
   logo,
   link,
+  editMode,
   handleOnClick,
   handleOnError,
   handleOnClickText,
@@ -36,18 +39,22 @@ const PreviewCard: FC<Props> = ({
   return (
     <FixedCard
       renderImage={() => (
-        <div>
-          <img
-            src={image}
-            className={`${styles.promotionImage} w-12/12 object-cover`}
-            alt={title}
-            onClick={() => {
-              handleOnClick && handleOnClick()
-            }}
-            onError={(e) => {
-              handleOnError && handleOnError(e)
-            }}
-          />
+        <div className="bg-grey-1 flex justify-center items-center text-grey-2 md:h-cardImage w-12/12 md:w-card">
+          {!image && editMode ? (
+            <UploadImagesIcon width="72px" height="72px" />
+          ) : (
+            <img
+              src={image}
+              className={`${styles.promotionImage} w-12/12 object-cover`}
+              alt={title}
+              onClick={() => {
+                handleOnClick && handleOnClick()
+              }}
+              onError={(e) => {
+                handleOnError && handleOnError(e)
+              }}
+            />
+          )}
         </div>
       )}
     >
