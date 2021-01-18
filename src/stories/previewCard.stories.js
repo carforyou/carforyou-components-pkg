@@ -9,7 +9,7 @@ export default {
   args: {
     storyName: "Default",
     previewLabel: "Show more",
-    name: "Name of dealer",
+    name: "Dealer Name",
     location: {
       address: "Zürcherstrasse",
       zipCode: "8953",
