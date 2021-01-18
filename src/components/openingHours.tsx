@@ -127,7 +127,7 @@ export const OpeningHours: FC<Props> = ({
 
   return openingHours ? (
     <>
-      <div className="flex text-grey-4 text-sm">
+      <div className="flex text-grey-dark text-sm">
         {clockIcon ? (
           <ClockOutlinedTeal className="mr-15" height="24" width="24" />
         ) : null}
