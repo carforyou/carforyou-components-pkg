@@ -3,7 +3,7 @@
 exports[`<Opening hours /> renders correct markup - 24h open and the clock icon 1`] = `
 <div>
   <div
-    class="flex text-grey-4 text-sm"
+    class="flex text-grey-dark text-sm"
   >
     <svg
       class="mr-15"
@@ -58,7 +58,7 @@ exports[`<Opening hours /> renders correct markup - 24h open and the clock icon 
 exports[`<Opening hours /> renders correct markup - closed during lunch time 1`] = `
 <div>
   <div
-    class="flex text-grey-4 text-sm"
+    class="flex text-grey-dark text-sm"
   >
     <div
       class="w-12/12 pt-5"
@@ -141,7 +141,7 @@ exports[`<Opening hours /> renders correct markup - closed during lunch time 1`]
 exports[`<Opening hours /> renders correct markup - open working days 1`] = `
 <div>
   <div
-    class="flex text-grey-4 text-sm"
+    class="flex text-grey-dark text-sm"
   >
     <div
       class="w-12/12 pt-5"

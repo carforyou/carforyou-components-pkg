@@ -45,9 +45,9 @@ export const Button: FC<Props> = ({
     "border-teal": teal || tealBorder,
     "bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon":
       !teal && !tealBorder,
-    "text-grey-3 hover:opacity-100": disabled && tealBorder,
-    "bg-grey-3 hover:bg-grey-3": disabled && !tealBorder,
-    "cursor-not-allowed border-grey-3": disabled,
+    "text-grey-dark hover:opacity-100": disabled && tealBorder,
+    "bg-grey-1 hover:bg-grey-1 text-grey-4": disabled && !tealBorder,
+    "cursor-not-allowed border-grey-1": disabled,
   })
   const buttonClasses = classnames(padding, classes)
 

@@ -3,7 +3,7 @@ input.floatingLabel-input:focus {
 }
 
 .floatingLabel-label {
-  @apply absolute text-grey-3 top-0;
+  @apply absolute text-grey-4 top-0;
   @apply left-floatingLabel transition duration-200;
 }
 
@@ -38,5 +38,5 @@ input::-webkit-input-placeholder {
 }
 
 input:placeholder-shown {
-  @apply text-grey-3;
+  @apply text-grey-4;
 }
