@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import styles from "./index.module.css"
+import ImageHelper from "./imageHelper"
 import UploadImagesIcon from "../icons/uploadImage"
 import ArrowRightTeal from "../icons/arrowRight"
 import { FixedCard } from "../card/fixed"
@@ -43,16 +43,11 @@ const PreviewCard: FC<Props> = ({
           {!image && editMode ? (
             <UploadImagesIcon width="72px" height="72px" />
           ) : (
-            <img
-              src={image}
-              className={`${styles.promotionImage} w-12/12 object-cover`}
-              alt={title}
-              onClick={() => {
-                handleOnClick && handleOnClick()
-              }}
-              onError={(e) => {
-                handleOnError && handleOnError(e)
-              }}
+            <ImageHelper
+              imageSrc={image}
+              pictureAlt={title}
+              handleOnClickImage={handleOnClick}
+              handleOnErrorImage={handleOnError}
             />
           )}
         </div>
