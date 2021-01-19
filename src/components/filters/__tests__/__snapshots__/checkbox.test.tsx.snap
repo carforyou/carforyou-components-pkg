@@ -1,0 +1,804 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
+<div>
+  <div
+    class="flex flex-wrap mb-5"
+  >
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_1"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_1"
+                  name="filter_testFilter_1"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  One
+                  <span
+                    class="inline-block ml-5 text-grey-3 text-sm"
+                  >
+                    (
+                    30
+                    )
+                  </span>
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_2"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_2"
+                  name="filter_testFilter_2"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Two
+                  <span
+                    class="inline-block ml-5 text-grey-3 text-sm"
+                  >
+                    (
+                    1’000
+                    )
+                  </span>
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-not-allowed text-grey-4 focus-within:text-teal"
+            for="filter_testFilter_3"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  disabled=""
+                  id="filter_testFilter_3"
+                  name="filter_testFilter_3"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Three
+                  <span
+                    class="inline-block ml-5 text-grey-3 text-sm"
+                  >
+                    (
+                    0
+                    )
+                  </span>
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CheckboxFilter/> renders correctly with icons 1`] = `
+<div>
+  <div
+    class="flex flex-wrap mb-5"
+  >
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_1"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_1"
+                  name="filter_testFilter_1"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  <svg
+                    class="mr-10"
+                    height="20"
+                    viewBox="0 0 22 22"
+                    width="20"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      stroke="#3696B9"
+                      stroke-width="2"
+                      transform="translate(-5 -5)"
+                    >
+                      <rect
+                        height="20"
+                        rx="10"
+                        width="20"
+                        x="6"
+                        y="6"
+                      />
+                      <path
+                        d="M16 11.2V16l2.4 2.4"
+                        stroke-linecap="round"
+                      />
+                    </g>
+                  </svg>
+                  One
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_2"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_2"
+                  name="filter_testFilter_2"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  <svg
+                    class="mr-10"
+                    height="20"
+                    viewBox="0 0 22 22"
+                    width="20"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      stroke="#3696B9"
+                      stroke-width="2"
+                      transform="translate(-5 -5)"
+                    >
+                      <rect
+                        height="20"
+                        rx="10"
+                        width="20"
+                        x="6"
+                        y="6"
+                      />
+                      <path
+                        d="M16 11.2V16l2.4 2.4"
+                        stroke-linecap="round"
+                      />
+                    </g>
+                  </svg>
+                  Two
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_3"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_3"
+                  name="filter_testFilter_3"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  <svg
+                    class="mr-10"
+                    height="20"
+                    viewBox="0 0 22 22"
+                    width="20"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      stroke="#3696B9"
+                      stroke-width="2"
+                      transform="translate(-5 -5)"
+                    >
+                      <rect
+                        height="20"
+                        rx="10"
+                        width="20"
+                        x="6"
+                        y="6"
+                      />
+                      <path
+                        d="M16 11.2V16l2.4 2.4"
+                        stroke-linecap="round"
+                      />
+                    </g>
+                  </svg>
+                  Three
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
+<div>
+  <div
+    class="flex flex-wrap mb-5"
+  >
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_1"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  checked=""
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_1"
+                  name="filter_testFilter_1"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  One
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_2"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  checked=""
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_2"
+                  name="filter_testFilter_2"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Two
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_3"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_3"
+                  name="filter_testFilter_3"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Three
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CheckboxFilter/> renders correctly with no options 1`] = `
+<div>
+  <div
+    class="flex flex-wrap mb-5"
+  />
+</div>
+`;
+
+exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
+<div>
+  <div
+    class="flex flex-wrap mb-5"
+  >
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_1"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_1"
+                  name="filter_testFilter_1"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  One
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_2"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_2"
+                  name="filter_testFilter_2"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Two
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_3"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_3"
+                  name="filter_testFilter_3"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Three
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CheckboxFilter/> renders correctly with title 1`] = `
+<div>
+  <div
+    class="flex flex-wrap mb-5"
+  >
+    <div>
+      Title
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_1"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_1"
+                  name="filter_testFilter_1"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  One
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_2"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_2"
+                  name="filter_testFilter_2"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Two
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      class="w-12/12 -mb-5"
+    >
+      <div
+        class="relative pb-px"
+      >
+        <div
+          class="validation-inputContainer mb-20"
+        >
+          <label
+            class="block w-12/12 cursor-pointer focus-within:text-teal"
+            for="filter_testFilter_3"
+          >
+            <div
+              class="flex items-center leading-sm font-normal justify-between flex-row-reverse"
+            >
+              <span
+                class="flex items-center ml-5"
+              >
+                <input
+                  class=""
+                  data-valid="true"
+                  id="filter_testFilter_3"
+                  name="filter_testFilter_3"
+                  type="checkbox"
+                  value=""
+                />
+              </span>
+              <span
+                class="w-12/12"
+              >
+                <span
+                  class="text-base leading-xs flex items-center"
+                >
+                  Three
+                </span>
+              </span>
+            </div>
+          </label>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
