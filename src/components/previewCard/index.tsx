@@ -2,16 +2,12 @@ import React, { FC } from "react"
 
 import ImageHelper from "./imageHelper"
 import UploadImagesIcon from "../icons/uploadImage"
-import ArrowRightTeal from "../icons/arrowRight"
-import { FixedCard } from "../card/fixed"
+import Arrow from "../icons/arrowDownM"
+import FixedCard from "../card/fixed"
 
 interface Props {
-  name: string
-  location: {
-    address?: string
-    zipCode: string
-    city?: string
-  }
+  footerTitle: string
+  footerText: string
   title?: string
   previewLabel: string
   image?: string
@@ -20,12 +16,11 @@ interface Props {
   editMode?: boolean
   handleOnClick?: () => void
   handleOnError?: (e) => void
-  handleOnClickText?: () => void
 }
 
 const PreviewCard: FC<Props> = ({
-  name,
-  location,
+  footerTitle,
+  footerText,
   title,
   previewLabel,
   image,
@@ -34,7 +29,6 @@ const PreviewCard: FC<Props> = ({
   editMode,
   handleOnClick,
   handleOnError,
-  handleOnClickText,
 }) => {
   return (
     <FixedCard
@@ -56,7 +50,7 @@ const PreviewCard: FC<Props> = ({
       <div
         className="p-20 w-12/12 md:w-card max-h-dropdown"
         onClick={() => {
-          handleOnClickText && handleOnClickText()
+          handleOnClick && handleOnClick()
         }}
       >
         {title ? (
@@ -76,22 +70,22 @@ const PreviewCard: FC<Props> = ({
           className="text-teal flex items-center font-bold mt-16"
         >
           {previewLabel}
-          <ArrowRightTeal width="32px" height="32px" />
+          <Arrow
+            className="text-teal transform customRotate-270"
+            with="32px"
+            height="32px"
+          />
         </a>
         <hr className="text-grey-1 my-20" />
         <div className="w-12/12 flex items-center">
           {logo ? (
             <div className="w-2/12 mr-10">
-              <img src={logo} className="flex-shrink-0 mr-10" alt="logo" />
+              <ImageHelper imageSrc={logo} pictureAlt={"logo"} />
             </div>
           ) : null}
           <div className="w-10/12">
-            <div className="font-bold">{name}</div>
-            {location.address ? (
-              <div className="text-sm mt-5">{`${location.address}, ${location.zipCode} ${location.city}`}</div>
-            ) : (
-              <div className="text-sm mt-5">{`${location.zipCode} ${location.city}`}</div>
-            )}
+            <div className="font-bold">{footerTitle}</div>
+            <div className="text-sm mt-5">{footerText}</div>
           </div>
         </div>
       </div>

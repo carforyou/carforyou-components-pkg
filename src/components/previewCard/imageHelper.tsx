@@ -19,7 +19,11 @@ const ImageHelper: FC<Props> = ({
     <img
       src={imageSrc}
       alt={pictureAlt}
-      className={`${styles.promotionImage} w-12/12 object-cover`}
+      className={
+        pictureAlt == "logo"
+          ? "flex-shrink-0 mr-10"
+          : `${styles.promotionImage} w-12/12 object-cover`
+      }
       onClick={() => {
         handleOnClickImage && handleOnClickImage()
       }}
