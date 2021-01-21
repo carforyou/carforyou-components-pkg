@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import ImageHelper from "./imageHelper"
+import Image from "./imageHelper"
 import UploadImagesIcon from "../icons/uploadImage"
 import Arrow from "../icons/arrowDownM"
 import FixedCard from "../card/fixed"
@@ -33,10 +33,11 @@ const PreviewCard: FC<Props> = ({
           {!image ? (
             <UploadImagesIcon width="72px" height="72px" />
           ) : (
-            <ImageHelper
+            <Image
               imageSrc={image}
               pictureAlt={cardTitle}
               handleOnErrorImage={onImageFailedLoading}
+              isLogo={false}
             />
           )}
         </div>
@@ -66,7 +67,7 @@ const PreviewCard: FC<Props> = ({
         <div className="w-12/12 flex items-center">
           {logo ? (
             <div className="w-2/12 mr-10">
-              <ImageHelper imageSrc={logo} pictureAlt={"logo"} />
+              <Image imageSrc={logo} pictureAlt={"logo"} isLogo={true} />
             </div>
           ) : null}
           <div className="w-10/12">
