@@ -90,10 +90,7 @@ function Dropdown<T>({
         const props = {
           ...downshift,
           ...downshift.getMenuProps({
-            className: classNames(
-              "text-left rounded-none shadow-hard md:position-left-auto md:shadow-soft md:rounded-4",
-              menuClassName
-            ),
+            className: menuClassName,
           }),
           options: [
             ...(placeholder

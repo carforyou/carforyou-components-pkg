@@ -43,8 +43,8 @@ export default {
       "teal-darker": "#1A6072",
       "grey-dark": "#232A36",
       "grey-dark-opaque": "#A7AAAF",
-      "grey-4": "#54575C",
-      "grey-3": "#A0A7AB",
+      "grey-4": "#6F7681",
+      "grey-3": "#A1A7AF",
       "grey-2": "#D7DBDF",
       "grey-1": "#EBEFF1",
       "grey-bright": "#F9F9FB",
@@ -315,6 +315,7 @@ export default {
     */
 
     margin: {
+      "-1": "-1px",
       auto: "auto",
       px: "1px",
       "0": "0",
@@ -516,6 +517,7 @@ export default {
     |
     */
     zIndex: {
+      1: 1,
       auto: "auto",
       negative: -1,
       clearButton: 10,
@@ -615,7 +617,7 @@ export default {
     whitespace: ["responsive"],
     width: ["responsive"],
     wordBreak: ["responsive"],
-    zIndex: ["responsive"],
+    zIndex: ["responsive", "hover", "focus"],
     gap: ["responsive"],
     scale: ["responsive", "hover", "focus"],
     translate: ["responsive", "hover", "focus"],

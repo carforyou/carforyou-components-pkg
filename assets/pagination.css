@@ -5,7 +5,7 @@
 
 .page, .break-me {
   line-height: normal;
-  @apply text-grey-3 text-base inline-flex justify-center items-center mr-20 hidden;
+  @apply text-grey-4 text-base inline-flex justify-center items-center mr-20 hidden;
 }
 
 .page a {
@@ -33,7 +33,7 @@
 
 .disabled a,
 .disabled a:hover {
-  @apply text-grey-3 font-regular cursor-default opacity-60;
+  @apply text-grey-4 font-regular cursor-default opacity-60;
 }
 
 .page.active a {

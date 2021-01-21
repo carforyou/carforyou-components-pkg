@@ -24,7 +24,7 @@ interface BaseProps<T> {
   required?: boolean
   placeholder?: string
   hint?: string
-  className?: string
+  position?: "left" | "right"
   skipContainer?: boolean
 }
 
@@ -61,7 +61,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
       required = false,
       placeholder,
       hint,
-      className,
+      position,
       skipContainer = false,
       ...rest
     },
@@ -87,7 +87,12 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                 ref,
                 className: classNames(
                   "input_withClearButton",
-                  className,
+                  {
+                    "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "left",
+                    "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "right",
+                  },
                   "select",
                   selectClasses(isOpen)
                 ),
@@ -130,12 +135,17 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
               const toggleProps = {
                 className: classNames(
                   "w-12/12 text-left select-toggle input_withClearButton",
-                  className,
+                  {
+                    "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "left",
+                    "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
+                      position === "right",
+                  },
                   "select",
                   selectClasses(isOpen),
                   {
                     "select-toggle_disabled": disabled,
-                    "text-grey-3": downshift.placeholder,
+                    "text-grey-4": downshift.placeholder,
                   }
                 ),
                 children: downshift.name,
