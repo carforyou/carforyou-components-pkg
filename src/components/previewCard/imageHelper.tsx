@@ -5,16 +5,10 @@ import styles from "./index.module.css"
 interface Props {
   imageSrc?: string
   pictureAlt?: string
-  handleOnClickImage?: () => void
   handleOnErrorImage?: (e) => void
 }
 
-const ImageHelper: FC<Props> = ({
-  imageSrc,
-  pictureAlt,
-  handleOnClickImage,
-  handleOnErrorImage,
-}) =>
+const ImageHelper: FC<Props> = ({ imageSrc, pictureAlt, handleOnErrorImage }) =>
   imageSrc ? (
     <img
       src={imageSrc}
@@ -24,9 +18,6 @@ const ImageHelper: FC<Props> = ({
           ? "flex-shrink-0 mr-10"
           : `${styles.promotionImage} w-12/12 object-cover`
       }
-      onClick={() => {
-        handleOnClickImage && handleOnClickImage()
-      }}
       onError={(e) => {
         handleOnErrorImage && handleOnErrorImage(e)
       }}

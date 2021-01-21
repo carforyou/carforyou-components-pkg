@@ -8,53 +8,43 @@ import FixedCard from "../card/fixed"
 interface Props {
   footerTitle: string
   footerText: string
-  title?: string
+  cardTitle?: string
   previewLabel: string
   image?: string
   logo?: string
   link?: string
-  editMode?: boolean
-  handleOnClick?: () => void
-  handleOnError?: (e) => void
+  onImageFailedLoading?: (e) => void
 }
 
 const PreviewCard: FC<Props> = ({
   footerTitle,
   footerText,
-  title,
+  cardTitle,
   previewLabel,
   image,
   logo,
   link,
-  editMode,
-  handleOnClick,
-  handleOnError,
+  onImageFailedLoading,
 }) => {
   return (
     <FixedCard
       renderImage={() => (
         <div className="bg-grey-1 flex justify-center items-center text-grey-2 md:h-cardImage w-12/12 md:w-card">
-          {!image && editMode ? (
+          {!image ? (
             <UploadImagesIcon width="72px" height="72px" />
           ) : (
             <ImageHelper
               imageSrc={image}
-              pictureAlt={title}
-              handleOnClickImage={handleOnClick}
-              handleOnErrorImage={handleOnError}
+              pictureAlt={cardTitle}
+              handleOnErrorImage={onImageFailedLoading}
             />
           )}
         </div>
       )}
     >
-      <div
-        className="p-20 w-12/12 md:w-card max-h-dropdown"
-        onClick={() => {
-          handleOnClick && handleOnClick()
-        }}
-      >
-        {title ? (
-          <p className="text-lg">{title}</p>
+      <div className="p-20 w-12/12 md:w-card max-h-dropdown">
+        {cardTitle ? (
+          <p className="text-lg">{cardTitle}</p>
         ) : (
           <>
             <div className="bg-grey-1 h-20 w-12/12" />
@@ -70,11 +60,7 @@ const PreviewCard: FC<Props> = ({
           className="text-teal flex items-center font-bold mt-16"
         >
           {previewLabel}
-          <Arrow
-            className="text-teal transform customRotate-270"
-            with="32px"
-            height="32px"
-          />
+          <Arrow className="text-teal transform customRotate-270" />
         </a>
         <hr className="text-grey-1 my-20" />
         <div className="w-12/12 flex items-center">

@@ -10,8 +10,8 @@ export default {
     storyName: "Default",
     previewLabel: "Show more",
     footerTitle: "Dealer Name",
-    footerText: "Zürcherstrasse 8953 Dietikon",
-    title: "Sportgarage",
+    footerText: "Zürcherstrasse, 8953 Dietikon",
+    cardTitle: "Sportgarage",
     image:
       "https://images.preprod.carforyou.ch/2020/12/04/13/45/32/2-promotionimage-1316-vt5CK5OFsSY7.jpg",
     logo:
