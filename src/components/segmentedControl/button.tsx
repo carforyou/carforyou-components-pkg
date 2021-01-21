@@ -29,7 +29,7 @@ export const Button: FC<Props> = ({
       "flex w-12/12 justify-center items-center leading-xs transition duration-200 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none",
       selected ? "bg-teal text-white" : "bg-transparent text-teal",
       disabled
-        ? "cursor-not-allowed border-grey-3 bg-grey-1 text-grey-3 hover:border-grey-3 hover:bg-grey-1"
+        ? "cursor-not-allowed border-grey-3 bg-grey-1 text-grey-4 hover:border-grey-3 hover:bg-grey-1"
         : "border-teal focus:shadow-focus",
       {
         [padding]: !isWrapped,

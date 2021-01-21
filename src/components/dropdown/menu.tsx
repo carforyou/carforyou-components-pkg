@@ -102,7 +102,7 @@ class Menu<T> extends Component<Props<T>> {
         {...getMenuProps(
           {
             className: classNames(
-              "border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10",
+              "border border-grey-3 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10 shadow-soft rounded-4",
               className
             ),
             onMouseLeave: () => {
@@ -139,7 +139,7 @@ class Menu<T> extends Component<Props<T>> {
                   {
                     "font-bold text-teal": isSelected,
                     "bg-grey-bright": index === highlightedIndex,
-                    "text-grey-3": item.placeholder,
+                    "text-grey-4": item.placeholder,
                     "text-teal": isCustomValue(item.value),
                     [padding]: !isWrapped,
                   }
@@ -154,7 +154,7 @@ class Menu<T> extends Component<Props<T>> {
     ) : inputValue && noResults ? (
       <div
         className={classNames(
-          "p-20 text-grey-3 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0",
+          "p-20 text-grey-4 border border-grey-2 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 shadow-soft rounded-4",
           className
         )}
       >

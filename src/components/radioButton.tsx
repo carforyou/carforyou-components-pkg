@@ -46,7 +46,7 @@ function RadioButton({
     <label
       className={classNames(
         "block w-12/12",
-        disabled ? "cursor-not-allowed text-grey-3" : "cursor-pointer "
+        disabled ? "cursor-not-allowed text-grey-4" : "cursor-pointer "
       )}
       htmlFor={name}
     >
