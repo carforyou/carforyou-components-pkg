@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import Image from "./imageHelper"
+import styles from "./index.module.css"
 import UploadImagesIcon from "../icons/uploadImage"
 import Arrow from "../icons/arrowDownM"
 import FixedCard from "../card/fixed"
@@ -33,11 +33,13 @@ const PreviewCard: FC<Props> = ({
           {!image ? (
             <UploadImagesIcon width="72px" height="72px" />
           ) : (
-            <Image
-              imageSrc={image}
-              pictureAlt={cardTitle}
-              handleOnErrorImage={onImageFailedLoading}
-              isLogo={false}
+            <img
+              src={image}
+              alt={cardTitle}
+              className={`${styles.promotionImage} w-12/12 object-cover`}
+              onError={(e) => {
+                onImageFailedLoading && onImageFailedLoading(e)
+              }}
             />
           )}
         </div>
@@ -67,7 +69,14 @@ const PreviewCard: FC<Props> = ({
         <div className="w-12/12 flex items-center">
           {logo ? (
             <div className="w-2/12 mr-10">
-              <Image imageSrc={logo} pictureAlt={"logo"} isLogo={true} />
+              <img
+                src={logo}
+                alt={"logo"}
+                className={"flex-shrink-0 mr-10"}
+                onError={(e) => {
+                  onImageFailedLoading && onImageFailedLoading(e)
+                }}
+              />
             </div>
           ) : null}
           <div className="w-10/12">

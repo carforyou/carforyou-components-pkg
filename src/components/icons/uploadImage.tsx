@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 const UploadImagesIcon = (props) => (
   <svg viewBox="0 0 72 72" fill="none" {...props}>
