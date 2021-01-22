@@ -69,14 +69,7 @@ const PreviewCard: FC<Props> = ({
         <div className="w-12/12 flex items-center">
           {logo ? (
             <div className="w-2/12 mr-10">
-              <img
-                src={logo}
-                alt={"logo"}
-                className={"flex-shrink-0 mr-10"}
-                onError={(e) => {
-                  onImageFailedLoading && onImageFailedLoading(e)
-                }}
-              />
+              <img src={logo} alt={"logo"} className={"flex-shrink-0 mr-10"} />
             </div>
           ) : null}
           <div className="w-10/12">
