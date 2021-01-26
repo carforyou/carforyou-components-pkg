@@ -1,25 +1,24 @@
-import React, { useState } from "react"
+import React, { FC, ReactChild, useState } from "react"
 
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
 import Input from "../components/input/inputField"
-import DropdownWithAutosuggest from "../components/dropdown/withAutosuggest"
+import DropdownWithAutosuggest, {
+  InputProps,
+} from "../components/dropdown/withAutosuggest"
 
-const options = () => (
-  "options",
-  [
-    { value: 1, name: "One" },
-    { value: 2, name: "Two" },
-    { value: 3, name: "Three" },
-    { value: 4, name: "Four" },
-    { value: 5, name: "Five" },
-    { value: 6, name: "Six" },
-  ]
-)
+const options = () => [
+  { value: 1, name: "One" },
+  { value: 2, name: "Two" },
+  { value: 3, name: "Three" },
+  { value: 4, name: "Four" },
+  { value: 5, name: "Five" },
+  { value: 6, name: "Six" },
+]
 
 const onSelect = () => action("onSelect")
-const allowCustomValues = (initial = false) => ("allowCustomValues", initial)
+const allowCustomValues = (initial = false) => initial
 
 export default {
   title: "DropdownWithAutosuggest",
@@ -44,7 +43,25 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  toggle: (
+    selected: {
+      name: string
+      value: number | string
+      placeholder?: boolean
+    },
+    isOpen: boolean
+  ) => ReactChild
+  options: Array<{
+    value: number | string
+    name: string
+  }>
+  input: (propGetter: InputProps) => ReactChild
+  onSelect: (selection: number | string | { customValue: string }) => void
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

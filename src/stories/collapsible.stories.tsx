@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC, ReactNode } from "react"
 
 import { action } from "@storybook/addon-actions"
 
@@ -16,7 +16,13 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  children?: () => ReactNode
+  renderToggle: (isCollapsed: boolean) => ReactNode
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

@@ -17,7 +17,7 @@ import BaseDownshift from "./base"
 import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
 import { getClosestElement } from "../../lib/elementsHelper"
 
-interface InputProps {
+export interface InputProps {
   getInputProps: <O extends GetInputPropsOptions>(
     options?: O
   ) => InputHTMLAttributes<HTMLInputElement>

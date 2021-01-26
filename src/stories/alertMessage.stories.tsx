@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC, ReactNode } from "react"
 
 import StoryContainer from "./storyContainer"
 import AlertMessage from "../components/alertMessage"
@@ -24,7 +24,17 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  text: string
+  children: ReactNode
+  icon?: () => ReactNode
+  fullWidth?: boolean
+  type: "error" | "warning" | "information" | "success"
+  alignCenter?: boolean
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
