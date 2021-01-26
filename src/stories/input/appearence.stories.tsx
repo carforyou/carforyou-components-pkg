@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
@@ -6,17 +6,28 @@ import Input from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
-const setValue = (value) => ("value", value)
+const setValue = (value: string) => ("value", value)
 
 export default {
-  title: "Input/Floating Label",
+  title: "Input/Appearance",
   component: Input,
   args: {
-    storyName: "Input / Floating Label",
+    storyName: "Input / Appearance",
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  label: string
+  name: string
+  value: string
+  mode: "text" | "numeric" | "decimal" | "tel" | "email"
+  onChange: <T extends { target: { name: string; value: string | number } }>(
+    e: T
+  ) => void
+}
+
+const Template: FC<Props> = ({ ...args } : Props) => {
   return (
     <StoryContainer
       title={args.storyName}
@@ -29,16 +40,19 @@ export const Standard = Template.bind({})
 Standard.args = {
   storyName: "Standard",
   value: "",
-  labelText: "Label",
-  floatingLabel: true,
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  storyName: "Disabled",
+  value: "",
+  disabled: true,
 }
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
   storyName: "With Error Message",
   value: "",
-  labelText: "Label",
-  floatingLabel: true,
   error: "Error message",
 }
 
@@ -47,9 +61,8 @@ WithClearButton.args = {
   storyName: "With clear button",
   value: "text",
   hasClearButton: true,
-  labelText: "Label",
-  floatingLabel: true,
-  onChange: (e) => {
+  placeholder: "Type something",
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
     onChange()(e)
   },
@@ -68,6 +81,4 @@ WithHint.args = {
   storyName: "With hint",
   value: "",
   hint: "Hint text",
-  labelText: "Label",
-  floatingLabel: true,
 }

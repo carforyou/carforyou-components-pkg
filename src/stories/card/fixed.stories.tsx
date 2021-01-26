@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC, ReactElement } from "react"
 
 import StoryContainer from "../storyContainer"
 import FixedCard from "../../components/card/fixed"
@@ -11,7 +11,13 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  children: ReactElement
+  renderImage: () => ReactElement
+}
+
+const Template: FC<Props> = ({ ...args } : Props) => {
   return (
     <StoryContainer
       title={args.storyName}

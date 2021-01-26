@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 import StoryContainer from "../storyContainer"
 import Input from "../../components/input/index"
@@ -12,7 +12,18 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  label: string
+  name: string
+  value: string
+  mode: "text" | "numeric" | "decimal" | "tel" | "email"
+  onChange: <T extends { target: { name: string; value: string | number } }>(
+    e: T
+  ) => void
+}
+
+const Template: FC<Props> = ({ ...args} : Props) => {
   return (
     <StoryContainer
       title={args.storyName}
