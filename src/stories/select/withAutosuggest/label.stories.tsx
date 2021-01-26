@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../../storyContainer"
@@ -35,7 +35,17 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  skipContainer: boolean
+  selected: boolean
+  handleChange: (value: string) => void
+  name: string
+  options: Array<{ name: string; value: any | { customValue: any } }>
+  withAutosuggest: boolean
+}
+
+const Template: FC<Props> = ({ ...args } : Props) => {
   const [value, setValue] = useState(null)
   return (
     <StoryContainer
@@ -47,7 +57,7 @@ const Template = (args) => {
               <Select
                 {...args}
                 selected={value}
-                handleChange={(v) => {
+                handleChange={(v: React.ChangeEvent<HTMLSelectElement>) => {
                   setValue(v)
                   handleChange()(v)
                 }}
@@ -58,7 +68,7 @@ const Template = (args) => {
           <Select
             {...args}
             selected={value}
-            handleChange={(v) => {
+            handleChange={(v: React.ChangeEvent<HTMLSelectElement>) => {
               setValue(v)
               handleChange()(v)
             }}

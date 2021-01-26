@@ -5,9 +5,10 @@ import StoryContainer from "../../storyContainer"
 import Select from "../../../components/select"
 
 const handleChange = () => action("handleChange")
+const initialValue = ""
 
 export default {
-  title: "Select/Appearance",
+  title: "Select  with autosuggest/Appearance",
   component: Select,
   args: {
     storyName: "",
@@ -20,7 +21,7 @@ export default {
       { value: 6, name: "Six" },
     ],
     skipContainer: false,
-    withAutosuggest: false,
+    withAutosuggest: true,
   },
   argTypes: {
     buttonName: {
@@ -43,8 +44,6 @@ interface Props {
   name: string
   options: Array<{ name: string; value: any | { customValue: any } }>
   withAutosuggest: boolean
-  // options: Array<{ name: string; value: T | { customValue: T } }>
-  // withAutosuggest: boolean
 }
 
 const Template: FC<Props> = ({ ...args } : Props) => {
@@ -86,32 +85,46 @@ Simple.args = {
   storyName: "Simple",
 }
 
+export const WithSearchIcon = Template.bind({})
+WithSearchIcon.args = {
+  storyName: "With search icon",
+  showSearchIcon: true,
+}
+
 export const Disabled = Template.bind({})
 Disabled.args = {
-  disabled: true,
   storyName: "Disabled",
+  disabled: true,
 }
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
-  error: "Error message",
   storyName: "With error message",
+  error: "Error message",
 }
 
 export const WithPlaceholder = Template.bind({})
 WithPlaceholder.args = {
-  placeholder: "Placeholder",
   storyName: "With placeholder",
+  placeholder: "Placeholder",
 }
 
 export const WithHint = Template.bind({})
 WithHint.args = {
-  hint: "Hint text",
   storyName: "With hint",
+  hint: "Hint text",
+}
+
+export const WithNoResultsMessage = Template.bind({})
+WithNoResultsMessage.args = {
+  selected: initialValue,
+  noResultsText: "Sorry no results",
+  storyName: "With no results message",
 }
 
 export const WithCustomWrapper = Template.bind({})
 WithCustomWrapper.args = {
+  selected: initialValue,
   skipContainer: true,
   storyName: "With custom wrapper",
 }
