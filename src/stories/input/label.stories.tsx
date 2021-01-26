@@ -7,7 +7,7 @@ import Input from "../../components/input/index"
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
 
-const setValue = (value: string) => ("value", value)
+const setValue = (value: string) => value
 
 export default {
   title: "Input/Label",
@@ -29,7 +29,7 @@ interface Props {
   ) => void
 }
 
-const Template: FC<Props> = ({ ...args } : Props) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

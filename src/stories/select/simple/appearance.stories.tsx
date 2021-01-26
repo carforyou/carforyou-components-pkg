@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react"
+import React, { FC, useState } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../../storyContainer"
@@ -41,13 +41,16 @@ interface Props {
   selected: boolean
   handleChange: (value: string) => void
   name: string
-  options: Array<{ name: string; value: any | { customValue: any } }>
+  options: Array<{
+    name: string
+    value: (number | string) | { customValue: number | string }
+  }>
   withAutosuggest: boolean
   // options: Array<{ name: string; value: T | { customValue: T } }>
   // withAutosuggest: boolean
 }
 
-const Template: FC<Props> = ({ ...args } : Props) => {
+const Template: FC<Props> = (args) => {
   const [value, setValue] = useState(null)
   return (
     <StoryContainer

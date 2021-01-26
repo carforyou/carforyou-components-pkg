@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
@@ -28,7 +28,15 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  name: string
+  value: string
+  onChange: () => void
+  onBlur: () => void
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer title={args.storyName} component={<Textarea {...args} />} />
   )

@@ -34,7 +34,7 @@ interface Props {
   name: string
 }
 
-const Template: FC<Props> = ({ ...args } : Props) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

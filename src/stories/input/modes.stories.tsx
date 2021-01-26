@@ -23,7 +23,7 @@ interface Props {
   ) => void
 }
 
-const Template: FC<Props> = ({ ...args} : Props) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

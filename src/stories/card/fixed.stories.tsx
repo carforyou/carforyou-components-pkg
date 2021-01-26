@@ -17,7 +17,7 @@ interface Props {
   renderImage: () => ReactElement
 }
 
-const Template: FC<Props> = ({ ...args } : Props) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

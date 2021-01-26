@@ -6,7 +6,7 @@ import Input from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
-const setValue = (value: string) => ("value", value)
+const setValue = (value: string) => value
 
 export default {
   title: "Input/Floating Label",
@@ -27,7 +27,7 @@ interface Props {
   ) => void
 }
 
-const Template: FC<Props> = ({ ...args } : Props) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
@@ -60,7 +60,7 @@ WithClearButton.args = {
   hasClearButton: true,
   labelText: "Label",
   floatingLabel: true,
-  onChange: (e) => {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
     onChange()(e)
   },
