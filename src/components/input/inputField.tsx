@@ -61,7 +61,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: string
   disabled?: boolean
   required?: boolean
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onBlur?: (e: FocusEvent) => void
   debounce?: number
 }
