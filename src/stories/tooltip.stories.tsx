@@ -1,6 +1,9 @@
 import React, { FC, ReactNode } from "react"
 
-import Tooltip, { TooltipPosition, TooltipAlignment } from "../components/tooltip/index"
+import Tooltip, {
+  TooltipAlignment,
+  TooltipPosition,
+} from "../components/tooltip/index"
 
 export default {
   title: "Tooltip",

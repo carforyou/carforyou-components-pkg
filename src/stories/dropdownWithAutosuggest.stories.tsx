@@ -55,7 +55,7 @@ interface Props<T> {
   allowCustomValues?: boolean
 }
 
-const Template = <T extends {}>(args: Props<T>) => {
+const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
   return (
     <StoryContainer
       title={args.storyName}
@@ -65,7 +65,9 @@ const Template = <T extends {}>(args: Props<T>) => {
   )
 }
 
-const TypeAheadWrapper = <T extends {}>(args: Props<T>) => {
+const TypeAheadWrapper = <T extends Record<string, unknown>>(
+  args: Props<T>
+) => {
   const [suggestions, setSuggestions] = useState([])
   const onTypeAhead = (value: T) =>
     setSuggestions(

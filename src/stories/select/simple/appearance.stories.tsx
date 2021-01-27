@@ -50,7 +50,7 @@ interface Props<T> {
   error?: string
 }
 
-const Template = <T extends {}>(args: Props<T>) => {
+const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
   const [value, setValue] = useState(null)
   return (
     <StoryContainer

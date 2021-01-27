@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../../storyContainer"
@@ -45,7 +45,7 @@ interface Props<T> {
   withAutosuggest: boolean
 }
 
-const Template = <T extends {}>(args: Props<T>) => {
+const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
   const [value, setValue] = useState(null)
   return (
     <StoryContainer

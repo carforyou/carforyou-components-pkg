@@ -65,7 +65,7 @@ interface Props<T> {
   }) => ReactNode
 }
 
-const Template = <T extends {}>(args: Props<T>) => {
+const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
   return (
     <StoryContainer
       title={args.storyName}
