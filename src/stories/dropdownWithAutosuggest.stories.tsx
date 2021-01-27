@@ -1,4 +1,4 @@
-import React, { FC, ReactChild, useState } from "react"
+import React, { ReactChild, useState } from "react"
 
 import { action } from "@storybook/addon-actions"
 
@@ -43,25 +43,19 @@ export default {
   },
 }
 
-interface Props {
+interface Props<T> {
   storyName: string
-  toggle: (
-    selected: {
-      name: string
-      value: number | string
-      placeholder?: boolean
-    },
-    isOpen: boolean
-  ) => ReactChild
   options: Array<{
-    value: number | string
+    value: T
     name: string
   }>
   input: (propGetter: InputProps) => ReactChild
-  onSelect: (selection: number | string | { customValue: string }) => void
+  onSelect: (selection: T | { customValue: string }) => void
+  trimInput?: boolean
+  allowCustomValues?: boolean
 }
 
-const Template: FC<Props> = (args) => {
+const Template = <T extends {}>(args: Props<T>) => {
   return (
     <StoryContainer
       title={args.storyName}
@@ -71,9 +65,9 @@ const Template: FC<Props> = (args) => {
   )
 }
 
-const TypeAheadWrapper = (args) => {
+const TypeAheadWrapper = <T extends {}>(args: Props<T>) => {
   const [suggestions, setSuggestions] = useState([])
-  const onTypeAhead = (value) =>
+  const onTypeAhead = (value: T) =>
     setSuggestions(
       [1, 2, 3, 4, 5].map((i) => ({
         name: `${value}: suggestion ${i}`,

@@ -25,6 +25,11 @@ interface Props {
   onChange: <T extends { target: { name: string; value: string | number } }>(
     e: T
   ) => void
+  hasClearButton?: boolean
+  disabled?: boolean
+  error?: string
+  onBlur?: () => void
+  hint?: string
 }
 
 const Template: FC<Props> = (args) => {

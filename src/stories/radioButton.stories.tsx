@@ -33,6 +33,9 @@ interface Props {
   label: JSX.Element
   name: string
   value: string
+  labelPosition?: "left" | "right"
+  disabled?: boolean
+  error?: string
 }
 
 const Template: FC<Props> = (args) => {

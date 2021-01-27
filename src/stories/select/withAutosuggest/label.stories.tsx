@@ -35,20 +35,23 @@ export default {
   },
 }
 
-interface Props {
+interface Props<T> {
   storyName: string
   skipContainer: boolean
-  selected: boolean
-  handleChange: (value: string) => void
   name: string
+  selected?: boolean
+  handleChange: (value: T) => void
   options: Array<{
     name: string
-    value: (number | string) | { customValue: number | string }
+    value: T | { customValue: T }
   }>
   withAutosuggest: boolean
+  required?: boolean
+  hint?: string
+  renderLabelPopup?: () => JSX.Element
 }
 
-const Template: FC<Props> = (args) => {
+const Template = <T extends {}>(args: Props<T>) => {
   const [value, setValue] = useState(null)
   return (
     <StoryContainer

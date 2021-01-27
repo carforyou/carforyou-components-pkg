@@ -30,6 +30,8 @@ interface Props {
   storyName: string
   label: JSX.Element
   name: string
+  labelPosition?: string
+  disabled?: boolean
 }
 
 const Template: FC<Props> = (args) => {

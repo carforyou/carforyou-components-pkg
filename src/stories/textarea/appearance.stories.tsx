@@ -34,6 +34,9 @@ interface Props {
   value: string
   onChange: () => void
   onBlur: () => void
+  disabled?: boolean
+  error?: string
+  hint?: string
 }
 
 const Template: FC<Props> = (args) => {

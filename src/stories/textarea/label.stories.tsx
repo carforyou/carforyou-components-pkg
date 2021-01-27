@@ -35,6 +35,9 @@ interface Props {
   value: string
   onChange: () => void
   onBlur: () => void
+  renderLabelPopup?: () => JSX.Element
+  hint?: string
+  required?: boolean
 }
 
 const Template: FC<Props> = (args) => {

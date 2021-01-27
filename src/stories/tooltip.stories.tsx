@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react"
 
-import Tooltip, { TooltipPosition } from "../components/tooltip/index"
+import Tooltip, { TooltipPosition, TooltipAlignment } from "../components/tooltip/index"
 
 export default {
   title: "Tooltip",
@@ -26,6 +26,7 @@ export default {
 interface Props {
   renderContent: () => ReactNode
   preferredPosition: TooltipPosition
+  alignment: TooltipAlignment
 }
 
 const Template: FC<Props> = (args) => {

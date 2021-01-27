@@ -1,4 +1,4 @@
-import React, { FC, ReactChild } from "react"
+import React, { ReactChild, ReactNode } from "react"
 
 import { action } from "@storybook/addon-actions"
 
@@ -42,23 +42,30 @@ export default {
   },
 }
 
-interface Props {
+interface Props<T> {
   storyName: string
   toggle: (
     selected: {
       name: string
-      value: number | string
+      value: T
       placeholder?: boolean
     },
     isOpen: boolean
   ) => ReactChild
   options: Array<{
-    value: number | string
+    value: T
     name: string
   }>
+  onSelect?: (selection: T) => void
+  placeholder?: string
+  renderOption?: (option: {
+    value: T
+    name: string | ReactNode
+    isSelected: boolean
+  }) => ReactNode
 }
 
-const Template: FC<Props> = (args) => {
+const Template = <T extends {}>(args: Props<T>) => {
   return (
     <StoryContainer
       title={args.storyName}

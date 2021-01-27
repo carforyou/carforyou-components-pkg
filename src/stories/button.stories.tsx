@@ -24,7 +24,11 @@ export default {
 
 interface Props {
   storyName: string
-  label: string
+  label: JSX.Element
+  teal?: boolean
+  tealBorder?: boolean
+  size?: "large" | "small" | "responsive"
+  disabled?: boolean
 }
 
 const Template: FC<Props> = (args) => {

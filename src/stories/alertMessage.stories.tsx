@@ -28,7 +28,7 @@ interface Props {
   storyName: string
   text: string
   children: ReactNode
-  icon?: () => ReactNode
+  icon: () => ReactNode
   fullWidth?: boolean
   type: "error" | "warning" | "information" | "success"
   alignCenter?: boolean

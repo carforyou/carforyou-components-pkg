@@ -18,8 +18,10 @@ export default {
 
 interface Props {
   storyName: string
-  children?: () => ReactNode
+  children: () => ReactNode
   renderToggle: (isCollapsed: boolean) => ReactNode
+  onChange: (isCollapsed: boolean) => void
+  opacityOnHover: boolean
 }
 
 const Template: FC<Props> = (args) => {

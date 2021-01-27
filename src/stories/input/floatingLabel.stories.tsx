@@ -25,6 +25,11 @@ interface Props {
   onChange: <T extends { target: { name: string; value: string | number } }>(
     e: T
   ) => void
+  labelText?: string
+  floatingLabel?: boolean
+  error?: string
+  hasClearButton?: boolean
+  hint?: string
 }
 
 const Template: FC<Props> = (args) => {

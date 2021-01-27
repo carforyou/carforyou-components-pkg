@@ -23,10 +23,16 @@ interface Props {
   label: string
   name: string
   value: string
+  placeholder?: string
   mode: "text" | "numeric" | "decimal" | "tel" | "email"
   onChange: <T extends { target: { name: string; value: string | number } }>(
     e: T
   ) => void
+  renderLabelPopup?: () => JSX.Element
+  error?: string
+  hasClearButton?: boolean
+  required?: boolean
+  hint?: string
 }
 
 const Template: FC<Props> = (args) => {

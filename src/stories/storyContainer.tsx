@@ -3,7 +3,7 @@ import React from "react"
 interface StoryContainerArgs {
   title: string
   component: JSX.Element
-  style?: "w-12/12 md:w-3/12" | string
+  style?: string
 }
 
 export default function StoryContainer({

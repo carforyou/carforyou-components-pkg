@@ -28,6 +28,7 @@ interface Props {
   appId: string
   stage: string
   label: string
+  userInfo?: { [key: string]: number | string | boolean | undefined }
 }
 
 const Template: FC<Props> = (args) => {

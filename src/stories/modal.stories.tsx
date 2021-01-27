@@ -58,6 +58,9 @@ function ModalDemo(args) {
 interface Props {
   storyName: string
   label: string
+  size?: "small" | "medium" | "large" | "fullscreen"
+  style?: "white" | "dark"
+  onClose: () => void
 }
 
 const Template: FC<Props> = (args) => {

@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, ReactNode } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
@@ -18,6 +18,7 @@ export default {
 interface Props {
   storyName: string
   label: string
+  icon?: () => ReactNode
 }
 
 const Template: FC<Props> = (args) => {

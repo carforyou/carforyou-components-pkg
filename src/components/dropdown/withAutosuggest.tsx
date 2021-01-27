@@ -63,6 +63,7 @@ interface Props<T> {
   ) => Promise<Array<{ value: T; name: string }>>
   menuClassName?: string
   noResults?: string
+  onTypeAhead?: (value: T) => void
 }
 
 const filterOptions = (noResults) => (allOptions, text) => {

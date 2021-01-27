@@ -15,6 +15,7 @@ export default {
 interface Props {
   storyName: string
   label: string
+  secondary?: boolean
 }
 
 const Template: FC<Props> = (args) => {

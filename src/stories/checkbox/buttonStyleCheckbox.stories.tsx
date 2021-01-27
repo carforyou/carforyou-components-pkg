@@ -32,6 +32,9 @@ interface Props {
   storyName: string
   label: JSX.Element
   name: string
+  error?: string
+  disabled?: boolean
+  labelPosition?: "left" | "right"
 }
 
 const Template: FC<Props> = (args) => {
