@@ -11,8 +11,7 @@ export default {
     label: "Support",
     stage: "dev",
     autoload: false,
-    appId:
-      ("appId (you need am actual app id to be able to load intercom)", "123"),
+    appId: "123",
   },
   argTypes: {
     buttonName: {
