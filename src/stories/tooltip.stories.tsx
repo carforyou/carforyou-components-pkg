@@ -1,6 +1,6 @@
-import React from "react"
+import React, { FC, ReactNode } from "react"
 
-import Tooltip from "../components/tooltip/index"
+import Tooltip, { TooltipPosition } from "../components/tooltip/index"
 
 export default {
   title: "Tooltip",
@@ -23,7 +23,12 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  renderContent: () => ReactNode
+  preferredPosition: TooltipPosition
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>

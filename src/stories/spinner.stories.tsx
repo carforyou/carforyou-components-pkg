@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 import StoryContainer from "./storyContainer"
 import Spinner from "../components/spinner"
@@ -18,7 +18,11 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+}
+
+const Template: FC<Props> = (args) => {
   return <StoryContainer title={args.storyName} component={<Spinner />} />
 }
 

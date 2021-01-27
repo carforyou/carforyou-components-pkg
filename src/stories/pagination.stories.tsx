@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
@@ -30,7 +30,17 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  pageCount: number
+  previousLabel: string
+  nextLabel: string
+  rangePageLabel: string
+  onPageChange: (data: number | string) => void
+  forcePage: number
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

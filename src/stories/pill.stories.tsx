@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 import StoryContainer from "./storyContainer"
 import Pill from "../components/pill"
@@ -12,7 +12,12 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  label: string
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
