@@ -87,3 +87,4 @@ export const Button: FC<Props> = ({
 }
 
 export default Button
+export { Props as ButtonProps }

@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
 import StoryContainer from "./storyContainer"
-import AlertMessage from "../components/alertMessage"
+import AlertMessage, { AlertMessageProps } from "../components/alertMessage"
 import MailSent from "../../.storybook/icons/mailSent"
 
 export default {
@@ -24,14 +24,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends AlertMessageProps {
   storyName: string
   text: string
-  children: ReactNode
-  icon: () => ReactNode
-  fullWidth?: boolean
-  type: "error" | "warning" | "information" | "success"
-  alignCenter?: boolean
 }
 
 const Template: FC<Props> = (args) => {

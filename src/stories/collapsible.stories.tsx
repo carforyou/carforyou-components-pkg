@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
-import Collapsible from "../components/collapsible"
+import Collapsible, { CollapsibleProps } from "../components/collapsible"
 
 export default {
   title: "Collapsible",
@@ -16,12 +16,8 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends CollapsibleProps {
   storyName: string
-  children: () => ReactNode
-  renderToggle: (isCollapsed: boolean) => ReactNode
-  onChange: (isCollapsed: boolean) => void
-  opacityOnHover: boolean
 }
 
 const Template: FC<Props> = (args) => {

@@ -97,3 +97,4 @@ function Checkbox({
 }
 
 export default Checkbox
+export { PositionedLabelProps }

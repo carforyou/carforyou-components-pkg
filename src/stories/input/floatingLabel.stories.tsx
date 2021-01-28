@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
-import Input from "../../components/input/index"
+import Input, { FloatingLabelProps } from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
@@ -16,20 +16,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends FloatingLabelProps {
   storyName: string
   label: string
-  name: string
-  value: string
-  mode: "text" | "numeric" | "decimal" | "tel" | "email"
-  onChange: <T extends { target: { name: string; value: string | number } }>(
-    e: T
-  ) => void
-  labelText?: string
-  floatingLabel?: boolean
-  error?: string
-  hasClearButton?: boolean
-  hint?: string
 }
 
 const Template: FC<Props> = (args) => {
@@ -65,7 +54,7 @@ WithClearButton.args = {
   hasClearButton: true,
   labelText: "Label",
   floatingLabel: true,
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+  onChange: (e) => {
     setValue(e.target.value)
     onChange()(e)
   },

@@ -1,11 +1,11 @@
-import React, { ReactChild, useState } from "react"
+import React, { FC, useState } from "react"
 
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
 import Input from "../components/input/inputField"
 import DropdownWithAutosuggest, {
-  InputProps,
+  DropdownWithAutosuggestProps,
 } from "../components/dropdown/withAutosuggest"
 
 const options = () => [
@@ -43,19 +43,11 @@ export default {
   },
 }
 
-interface Props<T> {
+interface Props extends DropdownWithAutosuggestProps<unknown> {
   storyName: string
-  options: Array<{
-    value: T
-    name: string
-  }>
-  input: (propGetter: InputProps) => ReactChild
-  onSelect: (selection: T | { customValue: string }) => void
-  trimInput?: boolean
-  allowCustomValues?: boolean
 }
 
-const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
@@ -65,11 +57,9 @@ const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
   )
 }
 
-const TypeAheadWrapper = <T extends Record<string, unknown>>(
-  args: Props<T>
-) => {
+const TypeAheadWrapper: FC<Props> = (args) => {
   const [suggestions, setSuggestions] = useState([])
-  const onTypeAhead = (value: T) =>
+  const onTypeAhead = (value) =>
     setSuggestions(
       [1, 2, 3, 4, 5].map((i) => ({
         name: `${value}: suggestion ${i}`,

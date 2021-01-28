@@ -3,7 +3,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
-import Button from "../components/button"
+import Button, { ButtonProps } from "../components/button"
 
 export default {
   title: "Button",
@@ -22,13 +22,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends ButtonProps {
   storyName: string
   label: JSX.Element
-  teal?: boolean
-  tealBorder?: boolean
-  size?: "large" | "small" | "responsive"
-  disabled?: boolean
 }
 
 const Template: FC<Props> = (args) => {

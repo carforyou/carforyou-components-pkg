@@ -3,7 +3,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
-import Checkbox from "../../components/checkbox"
+import Checkbox, { PositionedLabelProps } from "../../components/checkbox"
 
 const onChange = () => action("onChange")
 const initialValue = false
@@ -28,13 +28,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends PositionedLabelProps {
   storyName: string
   label: JSX.Element
-  name: string
-  error?: string
-  disabled?: boolean
-  labelPosition?: "left" | "right"
 }
 
 const Template: FC<Props> = (args) => {

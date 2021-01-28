@@ -1,9 +1,11 @@
-import React, { ReactNode } from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
-import SegmentedControl from "../components/segmentedControl"
+import SegmentedControl, {
+  SegmentedControlProps,
+} from "../components/segmentedControl"
 
 const options = () => [
   { value: 1, name: "Button 1" },
@@ -31,24 +33,11 @@ export default {
   },
 }
 
-interface Props<T> {
+interface Props extends SegmentedControlProps<unknown> {
   storyName: string
-  options: Array<{
-    value: T
-    name: string
-  }>
-  onSelect?: (selection: T) => void
-  renderOption?: (option: {
-    value: T
-    name: string
-    isSelected: boolean
-  }) => ReactNode
-  initialSelection?: T
-  small?: boolean
-  disabled?: boolean
 }
 
-const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

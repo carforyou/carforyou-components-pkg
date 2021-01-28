@@ -3,7 +3,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
-import Pagination from "../components/pagination"
+import Pagination, { PaginationProps } from "../components/pagination"
 
 export default {
   title: "Pagination",
@@ -30,14 +30,8 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends PaginationProps {
   storyName: string
-  pageCount: number
-  previousLabel: string
-  nextLabel: string
-  rangePageLabel: string
-  onPageChange: (data: number | string) => void
-  forcePage: number
 }
 
 const Template: FC<Props> = (args) => {

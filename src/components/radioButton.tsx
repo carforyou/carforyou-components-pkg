@@ -69,3 +69,4 @@ function RadioButton({
 }
 
 export default RadioButton
+export { Props as RadioButtonProps }

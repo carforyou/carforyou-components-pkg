@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 
 import StoryContainer from "./storyContainer"
-import PreviewCard from "../components/previewCard"
+import PreviewCard, { PreviewCardProps } from "../components/previewCard"
 
 export default {
   title: "Preview card",
@@ -27,11 +27,8 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends PreviewCardProps {
   storyName: string
-  footerTitle: string
-  footerText: string
-  previewLabel: string
 }
 
 const Template: FC<Props> = (args) => {

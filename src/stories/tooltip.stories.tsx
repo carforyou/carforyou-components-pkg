@@ -1,9 +1,6 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
-import Tooltip, {
-  TooltipAlignment,
-  TooltipPosition,
-} from "../components/tooltip/index"
+import Tooltip, { TooltipProps } from "../components/tooltip/index"
 
 export default {
   title: "Tooltip",
@@ -26,13 +23,7 @@ export default {
   },
 }
 
-interface Props {
-  renderContent: () => ReactNode
-  preferredPosition: TooltipPosition
-  alignment: TooltipAlignment
-}
-
-const Template: FC<Props> = (args) => {
+const Template: FC<TooltipProps> = (args) => {
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>

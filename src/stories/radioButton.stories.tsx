@@ -3,7 +3,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
-import RadioButton from "../components/radioButton"
+import RadioButton, { RadioButtonProps } from "../components/radioButton"
 
 const onChange = () => action("onChange")
 const initialValue = "B"
@@ -28,14 +28,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends RadioButtonProps {
   storyName: string
   label: JSX.Element
-  name: string
-  value: string
-  labelPosition?: "left" | "right"
-  disabled?: boolean
-  error?: string
 }
 
 const Template: FC<Props> = (args) => {

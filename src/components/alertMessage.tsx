@@ -53,3 +53,4 @@ export const AlertMessage: FC<Props> = ({
 }
 
 export default AlertMessage
+export { Props as AlertMessageProps }

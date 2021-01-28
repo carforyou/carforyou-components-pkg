@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 
 import StoryContainer from "./storyContainer"
-import Intercom from "../components/intercom/index"
+import Intercom, { IntercomProps } from "../components/intercom/index"
 
 export default {
   title: "Intercom",
@@ -22,12 +22,8 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends IntercomProps {
   storyName: string
-  appId: string
-  stage: string
-  label: string
-  userInfo?: { [key: string]: number | string | boolean | undefined }
 }
 
 const Template: FC<Props> = (args) => {

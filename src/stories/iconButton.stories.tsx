@@ -1,8 +1,8 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
-import Button from "../components/button"
+import Button, { ButtonProps } from "../components/button"
 import CtaCall from "../../.storybook/icons/ctaCall"
 
 export default {
@@ -15,10 +15,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends ButtonProps {
   storyName: string
   label: string
-  icon?: () => ReactNode
 }
 
 const Template: FC<Props> = (args) => {

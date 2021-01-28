@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
-import Input from "../../components/input/index"
+import Input, { BaseInputProps } from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
@@ -16,20 +16,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends BaseInputProps {
   storyName: string
   label: string
-  name: string
-  value: string
-  mode: "text" | "numeric" | "decimal" | "tel" | "email"
-  onChange: <T extends { target: { name: string; value: string | number } }>(
-    e: T
-  ) => void
-  hasClearButton?: boolean
-  disabled?: boolean
-  error?: string
-  onBlur?: () => void
-  hint?: string
 }
 
 const Template: FC<Props> = (args) => {
@@ -67,7 +56,7 @@ WithClearButton.args = {
   value: "text",
   hasClearButton: true,
   placeholder: "Type something",
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+  onChange: (e) => {
     setValue(e.target.value)
     onChange()(e)
   },

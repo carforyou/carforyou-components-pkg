@@ -3,7 +3,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
-import Textarea from "../../components/textarea"
+import Textarea, { TextareaProps } from "../../components/textarea"
 
 const onChange = () => action("onChange")
 const onBlur = () => action("onBlur")
@@ -28,15 +28,8 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends TextareaProps {
   storyName: string
-  name: string
-  value: string
-  onChange: () => void
-  onBlur: () => void
-  disabled?: boolean
-  error?: string
-  hint?: string
 }
 
 const Template: FC<Props> = (args) => {

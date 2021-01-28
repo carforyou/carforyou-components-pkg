@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
 import StoryContainer from "../storyContainer"
-import FixedCard from "../../components/card/fixed"
+import FixedCard, { FixedCardProps } from "../../components/card/fixed"
 
 export default {
   title: "Card",
@@ -11,10 +11,8 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends FixedCardProps {
   storyName: string
-  children: ReactNode
-  renderImage: () => ReactNode
 }
 
 const Template: FC<Props> = (args) => {

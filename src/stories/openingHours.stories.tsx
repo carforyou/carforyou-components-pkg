@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 
 import StoryContainer from "./storyContainer"
-import OpeningHours from "../components/openingHours"
+import OpeningHours, { OpeningHoursProps } from "../components/openingHours"
 
 const openingHours = [
   {
@@ -125,20 +125,8 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends OpeningHoursProps {
   storyName: string
-  openingHours: Array<{
-    open: {
-      dayOfWeek: string
-      time: string
-    }
-    close: {
-      dayOfWeek: string
-      time: string
-    }
-  }>
-  labels: { [key: string]: string }
-  clockIcon?: boolean
 }
 
 const Template: FC<Props> = (args) => {

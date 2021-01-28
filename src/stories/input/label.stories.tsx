@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
-import Input from "../../components/input/index"
+import Input, { PopupLabelProps } from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
@@ -18,21 +18,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends PopupLabelProps {
   storyName: string
   label: string
-  name: string
-  value: string
-  placeholder?: string
-  mode: "text" | "numeric" | "decimal" | "tel" | "email"
-  onChange: <T extends { target: { name: string; value: string | number } }>(
-    e: T
-  ) => void
-  renderLabelPopup?: () => JSX.Element
-  error?: string
-  hasClearButton?: boolean
-  required?: boolean
-  hint?: string
 }
 
 const Template: FC<Props> = (args) => {
@@ -63,7 +51,7 @@ WithClearButton.args = {
   value: "text",
   hasClearButton: true,
   placeholder: "Type something",
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+  onChange: (e) => {
     setValue(e.target.value)
     onChange()(e)
   },

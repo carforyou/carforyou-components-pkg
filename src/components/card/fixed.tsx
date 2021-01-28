@@ -16,3 +16,4 @@ export const FixedCard: FC<Props> = ({ renderImage, children, onClick }) => {
 }
 
 export default FixedCard
+export { Props as FixedCardProps }

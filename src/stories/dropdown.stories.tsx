@@ -1,9 +1,9 @@
-import React, { ReactChild, ReactNode } from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "./storyContainer"
-import Dropdown from "../components/dropdown/index"
+import Dropdown, { DropdownProps } from "../components/dropdown/index"
 
 const options = () => [
   { value: 1, name: "One" },
@@ -42,30 +42,11 @@ export default {
   },
 }
 
-interface Props<T> {
+interface Props extends DropdownProps<unknown> {
   storyName: string
-  toggle: (
-    selected: {
-      name: string
-      value: T
-      placeholder?: boolean
-    },
-    isOpen: boolean
-  ) => ReactChild
-  options: Array<{
-    value: T
-    name: string
-  }>
-  onSelect?: (selection: T) => void
-  placeholder?: string
-  renderOption?: (option: {
-    value: T
-    name: string | ReactNode
-    isSelected: boolean
-  }) => ReactNode
 }
 
-const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

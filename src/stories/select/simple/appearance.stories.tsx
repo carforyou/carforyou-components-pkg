@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { FC, useState } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../../storyContainer"
-import Select from "../../../components/select"
+import Select, { SimpleSelectProps } from "../../../components/select"
 
 const handleChange = () => action("handleChange")
 
@@ -35,22 +35,11 @@ export default {
   },
 }
 
-interface Props<T> {
+interface Props extends SimpleSelectProps<unknown> {
   storyName: string
-  name: string
-  selected?: boolean
-  skipContainer: boolean
-  handleChange: (value: T) => void
-  options: Array<{
-    name: string
-    value: T | { customValue: T }
-  }>
-  withAutosuggest: boolean
-  hint?: string
-  error?: string
 }
 
-const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
+const Template: FC<Props> = (args) => {
   const [value, setValue] = useState(null)
   return (
     <StoryContainer
@@ -62,7 +51,7 @@ const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
               <Select
                 {...args}
                 selected={value}
-                handleChange={(v: React.ChangeEvent<HTMLSelectElement>) => {
+                handleChange={(v) => {
                   setValue(v)
                   handleChange()(v)
                 }}
@@ -73,7 +62,7 @@ const Template = <T extends Record<string, unknown>>(args: Props<T>) => {
           <Select
             {...args}
             selected={value}
-            handleChange={(v: React.ChangeEvent<HTMLSelectElement>) => {
+            handleChange={(v) => {
               setValue(v)
               handleChange()(v)
             }}

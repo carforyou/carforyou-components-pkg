@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 
 import StoryContainer from "./storyContainer"
-import Pill from "../components/pill"
+import Pill, { PillProps } from "../components/pill"
 
 export default {
   title: "Pill",
@@ -12,10 +12,9 @@ export default {
   },
 }
 
-interface Props {
+interface Props extends PillProps {
   storyName: string
   label: string
-  secondary?: boolean
 }
 
 const Template: FC<Props> = (args) => {
