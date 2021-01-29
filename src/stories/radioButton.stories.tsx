@@ -2,6 +2,7 @@ import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import RadioButton, { RadioButtonProps } from "../components/radioButton"
 
@@ -28,10 +29,7 @@ export default {
   },
 }
 
-interface Props extends RadioButtonProps {
-  storyName: string
-  label: JSX.Element
-}
+interface Props extends StoryProps<JSX.Element>, RadioButtonProps {}
 
 const Template: FC<Props> = (args) => {
   return (

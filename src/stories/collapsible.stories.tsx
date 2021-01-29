@@ -2,6 +2,7 @@ import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import Collapsible, { CollapsibleProps } from "../components/collapsible"
 
@@ -16,9 +17,7 @@ export default {
   },
 }
 
-interface Props extends CollapsibleProps {
-  storyName: string
-}
+interface Props extends StoryProps<unknown>, CollapsibleProps {}
 
 const Template: FC<Props> = (args) => {
   return (

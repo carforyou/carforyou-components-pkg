@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import OpeningHours, { OpeningHoursProps } from "../components/openingHours"
 
@@ -125,9 +126,7 @@ export default {
   },
 }
 
-interface Props extends OpeningHoursProps {
-  storyName: string
-}
+interface Props extends StoryProps<unknown>, OpeningHoursProps {}
 
 const Template: FC<Props> = (args) => {
   return (

@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import Spinner from "../components/spinner"
 
@@ -18,11 +19,7 @@ export default {
   },
 }
 
-interface Props {
-  storyName: string
-}
-
-const Template: FC<Props> = (args) => {
+const Template: FC<StoryProps<unknown>> = (args) => {
   return <StoryContainer title={args.storyName} component={<Spinner />} />
 }
 

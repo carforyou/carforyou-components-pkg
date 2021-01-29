@@ -2,6 +2,7 @@ import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import SegmentedControl, {
   SegmentedControlProps,
@@ -33,9 +34,7 @@ export default {
   },
 }
 
-interface Props extends SegmentedControlProps<unknown> {
-  storyName: string
-}
+interface Props extends StoryProps<unknown>, SegmentedControlProps<unknown> {}
 
 const Template: FC<Props> = (args) => {
   return (

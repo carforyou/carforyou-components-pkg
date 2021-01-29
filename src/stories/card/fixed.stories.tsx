@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 import FixedCard, { FixedCardProps } from "../../components/card/fixed"
 
@@ -11,9 +12,7 @@ export default {
   },
 }
 
-interface Props extends FixedCardProps {
-  storyName: string
-}
+interface Props extends StoryProps<unknown>, FixedCardProps {}
 
 const Template: FC<Props> = (args) => {
   return (

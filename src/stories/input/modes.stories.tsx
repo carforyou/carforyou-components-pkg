@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 import Input, { BaseInputProps } from "../../components/input/index"
 
@@ -12,10 +13,7 @@ export default {
   },
 }
 
-interface Props extends BaseInputProps {
-  storyName: string
-  label: string
-}
+interface Props extends StoryProps<string>, BaseInputProps {}
 
 const Template: FC<Props> = (args) => {
   return (

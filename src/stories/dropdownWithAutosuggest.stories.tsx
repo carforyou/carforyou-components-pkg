@@ -2,6 +2,7 @@ import React, { FC, useState } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import Input from "../components/input/inputField"
 import DropdownWithAutosuggest, {
@@ -43,9 +44,9 @@ export default {
   },
 }
 
-interface Props extends DropdownWithAutosuggestProps<unknown> {
-  storyName: string
-}
+interface Props
+  extends StoryProps<unknown>,
+    DropdownWithAutosuggestProps<unknown> {}
 
 const Template: FC<Props> = (args) => {
   return (

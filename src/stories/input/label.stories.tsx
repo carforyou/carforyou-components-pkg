@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 import Input, { PopupLabelProps } from "../../components/input/index"
 
@@ -18,10 +19,7 @@ export default {
   },
 }
 
-interface Props extends PopupLabelProps {
-  storyName: string
-  label: string
-}
+interface Props extends StoryProps<string>, PopupLabelProps {}
 
 const Template: FC<Props> = (args) => {
   return (

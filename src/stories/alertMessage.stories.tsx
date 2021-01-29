@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import AlertMessage, { AlertMessageProps } from "../components/alertMessage"
 import MailSent from "../../.storybook/icons/mailSent"
@@ -24,8 +25,7 @@ export default {
   },
 }
 
-interface Props extends AlertMessageProps {
-  storyName: string
+interface Props extends StoryProps<unknown>, AlertMessageProps {
   text: string
 }
 

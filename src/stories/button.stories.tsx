@@ -2,6 +2,7 @@ import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import Button, { ButtonProps } from "../components/button"
 
@@ -22,10 +23,7 @@ export default {
   },
 }
 
-interface Props extends ButtonProps {
-  storyName: string
-  label: JSX.Element
-}
+interface Props extends StoryProps<string>, ButtonProps {}
 
 const Template: FC<Props> = (args) => {
   return (

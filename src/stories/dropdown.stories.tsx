@@ -2,6 +2,7 @@ import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import Dropdown, { DropdownProps } from "../components/dropdown/index"
 
@@ -42,9 +43,7 @@ export default {
   },
 }
 
-interface Props extends DropdownProps<unknown> {
-  storyName: string
-}
+interface Props extends StoryProps<unknown>, DropdownProps<unknown> {}
 
 const Template: FC<Props> = (args) => {
   return (

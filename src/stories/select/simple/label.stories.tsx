@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react"
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../../storyProps"
 import StoryContainer from "../../storyContainer"
 import Select, { SimpleSelectProps } from "../../../components/select"
 
@@ -32,9 +33,7 @@ export default {
   },
 }
 
-interface Props extends SimpleSelectProps<unknown> {
-  storyName: string
-}
+interface Props extends StoryProps<unknown>, SimpleSelectProps<unknown> {}
 
 const Template: FC<Props> = (args) => {
   const [value, setValue] = useState(null)

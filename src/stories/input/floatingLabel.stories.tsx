@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 import Input, { FloatingLabelProps } from "../../components/input/index"
 
@@ -16,10 +17,7 @@ export default {
   },
 }
 
-interface Props extends FloatingLabelProps {
-  storyName: string
-  label: string
-}
+interface Props extends StoryProps<string>, FloatingLabelProps {}
 
 const Template: FC<Props> = (args) => {
   return (

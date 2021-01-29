@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import PreviewCard, { PreviewCardProps } from "../components/previewCard"
 
@@ -27,7 +28,7 @@ export default {
   },
 }
 
-interface Props extends PreviewCardProps {
+interface Props extends StoryProps<unknown>, PreviewCardProps {
   storyName: string
 }
 
