@@ -61,6 +61,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: string
   disabled?: boolean
   required?: boolean
+  autoComplete?: string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onBlur?: (e: FocusEvent) => void
   debounce?: number
@@ -77,6 +78,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
       hasError = false,
       disabled = false,
       required = false,
+      autoComplete = "on",
       onChange,
       onBlur,
       onKeyDown,
@@ -112,6 +114,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         data-valid={!hasError}
         disabled={disabled}
         required={required}
+        autoComplete={autoComplete}
         {...rest}
       />
     )

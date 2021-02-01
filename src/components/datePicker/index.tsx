@@ -78,6 +78,7 @@ const DatePicker: FC<Props> = ({
         placeholder={placeholder}
         mode="text"
         labelText={labelText}
+        autoComplete="off"
         value={selectedDate?.toLocaleDateString(locale, {
           weekday: "short",
           year: "numeric",
