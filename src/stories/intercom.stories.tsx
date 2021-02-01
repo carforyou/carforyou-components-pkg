@@ -1,7 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import Intercom from "../components/intercom/index"
+import Intercom, { IntercomProps } from "../components/intercom/index"
 
 export default {
   title: "Intercom",
@@ -11,8 +12,7 @@ export default {
     label: "Support",
     stage: "dev",
     autoload: false,
-    appId:
-      ("appId (you need am actual app id to be able to load intercom)", "123"),
+    appId: "123",
   },
   argTypes: {
     buttonName: {
@@ -23,7 +23,11 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<string>, IntercomProps {
+  label: string
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer title={args.storyName} component={<Intercom {...args} />} />
   )

@@ -1,21 +1,19 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import Dropdown from "../components/dropdown/index"
+import Dropdown, { DropdownProps } from "../components/dropdown/index"
 
-const options = () => (
-  "options",
-  [
-    { value: 1, name: "One" },
-    { value: 2, name: "Two" },
-    { value: 3, name: "Three" },
-    { value: 4, name: "Four" },
-    { value: 5, name: "Five" },
-    { value: 6, name: "Six" },
-  ]
-)
+const options = () => [
+  { value: 1, name: "One" },
+  { value: 2, name: "Two" },
+  { value: 3, name: "Three" },
+  { value: 4, name: "Four" },
+  { value: 5, name: "Five" },
+  { value: 6, name: "Six" },
+]
 
 const onSelect = () => action("onSelect")
 
@@ -45,7 +43,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, DropdownProps<unknown> {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

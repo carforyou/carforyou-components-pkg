@@ -1,13 +1,14 @@
-import React, { useState } from "react"
+import React, { FC, useState } from "react"
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../../storyProps"
 import StoryContainer from "../../storyContainer"
-import Select from "../../../components/select"
+import Select, { SimpleSelectProps } from "../../../components/select"
 
 const handleChange = () => action("handleChange")
 
 export default {
-  title: "Select/Label",
+  title: "Select/Appearance",
   component: Select,
   args: {
     storyName: "",
@@ -21,7 +22,6 @@ export default {
     ],
     skipContainer: false,
     withAutosuggest: false,
-    labelText: "Label",
   },
   argTypes: {
     buttonName: {
@@ -29,10 +29,16 @@ export default {
         disable: true,
       },
     },
+    skipContainer: {
+      description:
+        "`skipContainer` is useful if you want to have more control over how much the menu spans. You need to put the `<Select>` in a relative position container yourself then.",
+    },
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, SimpleSelectProps<unknown> {}
+
+const Template: FC<Props> = (args) => {
   const [value, setValue] = useState(null)
   return (
     <StoryContainer
@@ -66,9 +72,21 @@ const Template = (args) => {
   )
 }
 
-export const Standard = Template.bind({})
-Standard.args = {
-  storyName: "Standard",
+export const Simple = Template.bind({})
+Simple.args = {
+  storyName: "Simple",
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  disabled: true,
+  storyName: "Disabled",
+}
+
+export const WithErrorMessage = Template.bind({})
+WithErrorMessage.args = {
+  error: "Error message",
+  storyName: "With error message",
 }
 
 export const WithPlaceholder = Template.bind({})
@@ -83,27 +101,8 @@ WithHint.args = {
   storyName: "With hint",
 }
 
-export const RequiredIndicator = Template.bind({})
-RequiredIndicator.args = {
-  required: true,
-  storyName: "Required indicator",
-}
-
-export const Popup = Template.bind({})
-Popup.args = {
-  renderLabelPopup: () => <div>Popup Content</div>,
-  storyName: "Popup",
-}
-
-export const WithErrorMessage = Template.bind({})
-WithErrorMessage.args = {
-  error: "Error message",
-  storyName: "With error message",
-}
-
-export const RequiredWithPopup = Template.bind({})
-RequiredWithPopup.args = {
-  required: true,
-  renderLabelPopup: () => <div>Popup Content</div>,
-  storyName: "Required with Popup",
+export const WithCustomWrapper = Template.bind({})
+WithCustomWrapper.args = {
+  skipContainer: true,
+  storyName: "With custom wrapper",
 }

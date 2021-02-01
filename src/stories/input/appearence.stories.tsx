@@ -1,24 +1,25 @@
-import React from "react"
+import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
-import Input from "../../components/input/index"
+import Input, { BaseInputProps } from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
-
-const setValue = (value) => ("value", value)
+const setValue = (value: string) => value
 
 export default {
-  title: "Input/Label",
+  title: "Input/Appearance",
   component: Input,
   args: {
-    storyName: "Input / Label",
-    labelText: "Label",
+    storyName: "Input / Appearance",
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<string>, BaseInputProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
@@ -31,6 +32,13 @@ export const Standard = Template.bind({})
 Standard.args = {
   storyName: "Standard",
   value: "",
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  storyName: "Disabled",
+  value: "",
+  disabled: true,
 }
 
 export const WithErrorMessage = Template.bind({})
@@ -56,6 +64,7 @@ WithClearButton.args = {
 export const WithPlaceholder = Template.bind({})
 WithPlaceholder.args = {
   storyName: "With placeholder",
+  value: "",
   placeholder: "Placeholder",
 }
 
@@ -64,26 +73,4 @@ WithHint.args = {
   storyName: "With hint",
   value: "",
   hint: "Hint text",
-}
-
-export const WithRequiredIndicator = Template.bind({})
-WithRequiredIndicator.args = {
-  storyName: "With required indicator",
-  value: "",
-  required: true,
-}
-
-export const WithPopup = Template.bind({})
-WithPopup.args = {
-  storyName: "With Popup",
-  value: "",
-  renderLabelPopup: () => <div>Popup Content</div>,
-}
-
-export const RequiredWithPopup = Template.bind({})
-RequiredWithPopup.args = {
-  storyName: "Required with popup",
-  value: "",
-  required: true,
-  renderLabelPopup: () => <div>Popup Content</div>,
 }

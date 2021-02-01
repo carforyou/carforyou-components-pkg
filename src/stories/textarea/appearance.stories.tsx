@@ -1,9 +1,10 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
-import Textarea from "../../components/textarea"
+import Textarea, { TextareaProps } from "../../components/textarea"
 
 const onChange = () => action("onChange")
 const onBlur = () => action("onBlur")
@@ -28,7 +29,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, TextareaProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer title={args.storyName} component={<Textarea {...args} />} />
   )

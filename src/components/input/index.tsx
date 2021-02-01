@@ -192,4 +192,9 @@ const Input = forwardRef<HTMLInputElement, Props>(
 )
 
 export default Input
-export { Props as InputProps }
+export {
+  Props as InputProps,
+  InputProps as BaseInputProps,
+  PopupLabelProps,
+  FloatingLabelProps,
+}

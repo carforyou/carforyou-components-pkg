@@ -83,3 +83,4 @@ const PreviewCard: FC<Props> = ({
 }
 
 export default PreviewCard
+export { Props as PreviewCardProps }

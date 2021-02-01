@@ -1,7 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
-import FixedCard from "../../components/card/fixed"
+import FixedCard, { FixedCardProps } from "../../components/card/fixed"
 
 export default {
   title: "Card",
@@ -11,7 +12,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, FixedCardProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

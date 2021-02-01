@@ -1,6 +1,6 @@
-import React from "react"
+import React, { FC } from "react"
 
-import Tooltip from "../components/tooltip/index"
+import Tooltip, { TooltipProps } from "../components/tooltip/index"
 
 export default {
   title: "Tooltip",
@@ -23,7 +23,7 @@ export default {
   },
 }
 
-const Template = (args) => {
+const Template: FC<TooltipProps> = (args) => {
   return (
     <div className="mx-30 mb-40">
       <div className="text-2xl mb-20">Example</div>

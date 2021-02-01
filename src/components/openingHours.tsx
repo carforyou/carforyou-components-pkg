@@ -138,3 +138,4 @@ export const OpeningHours: FC<Props> = ({
 }
 
 export default OpeningHours
+export { Props as OpeningHoursProps }
