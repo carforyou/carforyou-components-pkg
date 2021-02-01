@@ -25,6 +25,9 @@ export type Language = "de" | "fr" | "it" | "en"
 interface Props {
   locale: Locale
   placeholder: string
+  labelText?: string
+  minDate?: Date
+  maxDate?: Date
   formik: {
     name: string
     value: null | Date
@@ -36,6 +39,9 @@ interface Props {
 const DatePicker: FC<Props> = ({
   locale,
   placeholder,
+  labelText,
+  minDate = null,
+  maxDate = null,
   formik: {
     value: initialValue = null,
     callback: updateFormValue,
@@ -46,8 +52,6 @@ const DatePicker: FC<Props> = ({
   const [selectedDate, setSelectedDate] = useState(initialValue)
   const [showCalendar, setShowCalendar] = useState(false)
   const containerRef = useRef(null)
-  const now = new Date()
-  const inOneYear = new Date(Date.now() + 31556952000)
 
   useEffect(() => {
     if (showCalendar) {
@@ -73,6 +77,7 @@ const DatePicker: FC<Props> = ({
         name="datePickerInput"
         placeholder={placeholder}
         mode="text"
+        labelText={labelText}
         value={selectedDate?.toLocaleDateString(locale, {
           weekday: "short",
           year: "numeric",
@@ -98,8 +103,8 @@ const DatePicker: FC<Props> = ({
         >
           <Calendar
             locale={locale}
-            minDate={now}
-            maxDate={inOneYear}
+            minDate={minDate}
+            maxDate={maxDate}
             minDetail="decade"
             onChange={(newValue) => {
               const [updatedDate] = Array.isArray(newValue)
