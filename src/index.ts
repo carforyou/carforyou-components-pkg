@@ -18,6 +18,7 @@ import Profile from "./components/icons/profile"
 import LogoWhite from "./components/icons/logoWhite"
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
+import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
 import WithLabel from "./components/fieldHelpers/withLabel"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
@@ -27,7 +28,6 @@ import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import AlertMessage from "./components/alertMessage"
-import CheckboxFilter from "./components/filters/checkbox"
 
 export {
   Button,
