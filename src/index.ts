@@ -27,6 +27,7 @@ import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import AlertMessage from "./components/alertMessage"
+import CheckboxFilter from "./components/filters/checkbox"
 
 export {
   Button,
@@ -57,4 +58,5 @@ export {
   PreviewCard,
   OpeningHours,
   Collapsible,
+  CheckboxFilter,
 }
