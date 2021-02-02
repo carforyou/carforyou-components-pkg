@@ -78,7 +78,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
       hasError = false,
       disabled = false,
       required = false,
-      autoComplete = "on",
+      autoComplete,
       onChange,
       onBlur,
       onKeyDown,

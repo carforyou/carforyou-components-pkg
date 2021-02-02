@@ -19,8 +19,6 @@ const formatWeekDay = (locale, date) => {
 }
 
 export type Locale = "de-CH" | "fr-CH" | "it-CH" | "en-GB"
-export type Language = "de" | "fr" | "it" | "en"
-
 interface Props {
   locale: Locale
   placeholder: string
