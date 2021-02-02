@@ -99,9 +99,7 @@ const DatePicker: FC<Props> = ({
       />
 
       {showCalendar ? (
-        <div
-          className={`${styles.container} transition duration-800 absolute -mt-20 left-0 xxs:left-auto w-12/12`}
-        >
+        <div className="calendarContainer transition duration-800 absolute -mt-20 left-0 xxs:left-auto w-12/12">
           <Calendar
             locale={locale}
             minDate={minDate}
@@ -125,7 +123,7 @@ const DatePicker: FC<Props> = ({
             tileDisabled={({ date, view }) => {
               return view === "month" && date.getDay() === 0
             }}
-            className={styles["react-calendar"]}
+            className="react-calendar"
           />
         </div>
       ) : null}
