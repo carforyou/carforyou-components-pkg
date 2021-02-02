@@ -56,3 +56,4 @@ const Tooltip: FC<Props> = ({
 }
 
 export default Tooltip
+export { Props as TooltipProps }

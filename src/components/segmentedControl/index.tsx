@@ -76,3 +76,4 @@ function SegmentedControl<T>({
 }
 
 export default SegmentedControl
+export { Props as SegmentedControlProps }

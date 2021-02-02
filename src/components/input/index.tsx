@@ -1,4 +1,9 @@
-import React, { FocusEvent, forwardRef, KeyboardEvent } from "react"
+import React, {
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  KeyboardEvent,
+} from "react"
 import classNames from "classnames"
 
 import InputField from "./inputField"
@@ -19,8 +24,16 @@ interface InputProps {
   hasClearButton?: boolean
   hasSearchIcon?: boolean
   mode: "text" | "numeric" | "decimal" | "tel" | "email"
-  onChange: <T extends { target: { name: string; value: string | number } }>(
-    e: T
+  onChange: (
+    e:
+      | ChangeEvent<HTMLInputElement>
+      | {
+          target: {
+            name: string
+            value: string | number
+            cleared: boolean
+          }
+        }
   ) => void
   onBlur?: (e: FocusEvent) => void
   onKeyDown?: (e: KeyboardEvent) => void
@@ -179,4 +192,9 @@ const Input = forwardRef<HTMLInputElement, Props>(
 )
 
 export default Input
-export { Props as InputProps }
+export {
+  Props as InputProps,
+  InputProps as BaseInputProps,
+  PopupLabelProps,
+  FloatingLabelProps,
+}

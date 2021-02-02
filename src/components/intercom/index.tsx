@@ -149,3 +149,4 @@ export const Intercom: FC<Props> = ({
 }
 
 export default Intercom
+export { Props as IntercomProps }

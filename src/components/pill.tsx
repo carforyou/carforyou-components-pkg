@@ -18,3 +18,4 @@ export const Pill: FC<Props> = ({ children, secondary }) => (
 )
 
 export default Pill
+export { Props as PillProps }

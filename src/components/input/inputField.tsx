@@ -1,4 +1,9 @@
-import React, { FocusEvent, forwardRef, InputHTMLAttributes } from "react"
+import React, {
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  InputHTMLAttributes,
+} from "react"
 
 import debounceCallback from "../../lib/debounceHelper"
 
@@ -56,7 +61,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: string
   disabled?: boolean
   required?: boolean
-  onChange?: (e: { target: { value: string | number } }) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onBlur?: (e: FocusEvent) => void
   debounce?: number
 }
