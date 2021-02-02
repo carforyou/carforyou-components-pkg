@@ -22,7 +22,7 @@ import WithValidationError from "./components/fieldHelpers/withValidationError"
 import WithLabel from "./components/fieldHelpers/withLabel"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 import Dropdown from "./components/dropdown/index"
-import DatePicker, { Language, Locale } from "./components/datePicker/index"
+import DatePicker, { Locale } from "./components/datePicker/index"
 import Collapsible from "./components/collapsible"
 import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
@@ -60,5 +60,4 @@ export {
   Collapsible,
   DatePicker,
   Locale,
-  Language,
 }
