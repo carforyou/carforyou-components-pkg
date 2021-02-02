@@ -14,7 +14,7 @@ export default {
     formik: {
       name: "datePicker",
       value: null,
-      callback: null,
+      callback: (e) => e,
       errorMessage: "",
     },
   },
@@ -30,3 +30,22 @@ const Template = (args) => {
 }
 
 export const Default = Template.bind({})
+Default.args = {
+  storyName: "Default",
+}
+
+export const WithMinMaxDate = Template.bind({})
+WithMinMaxDate.args = {
+  storyName: "With min and max date",
+  locale: "de-CH",
+  placeholder: "01.01.2020",
+  minDate: new Date(),
+  maxDate: new Date(Date.now() + 31556952000),
+  labelText: "Date",
+  formik: {
+    name: "datePicker",
+    value: null,
+    callback: (e) => e,
+    errorMessage: "",
+  },
+}
