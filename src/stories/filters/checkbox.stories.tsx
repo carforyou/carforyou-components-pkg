@@ -58,12 +58,6 @@ Simple.args = {
   storyName: "Simple",
 }
 
-export const WithTitle = Template.bind({})
-WithTitle.args = {
-  storyName: "With title",
-  children: <div className="text-center mb-10 text-xl">Title</div>,
-}
-
 export const WithInitialSelection = Template.bind({})
 WithInitialSelection.args = {
   storyName: "With initial selection",

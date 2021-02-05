@@ -24,7 +24,6 @@ const CheckboxFilter: FC<Props> = ({
   applyFilters,
   selected = [],
   facet = {},
-  children,
 }) => {
   const values = options.map(({ value }) => value)
 
@@ -74,12 +73,7 @@ const CheckboxFilter: FC<Props> = ({
     )
   }
 
-  return (
-    <div className="flex flex-wrap mb-5">
-      {children}
-      {options.map(renderOption)}
-    </div>
-  )
+  return <div className="flex flex-wrap mb-5">{options.map(renderOption)}</div>
 }
 
 export default CheckboxFilter

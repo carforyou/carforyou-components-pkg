@@ -97,14 +97,6 @@ describe("<CheckboxFilter/>", () => {
 
       expect(container).toMatchSnapshot()
     })
-
-    it("with title", () => {
-      const { getByText } = renderWrapper({
-        children: <div>Title</div>,
-      })
-
-      expect(getByText("Title"))
-    })
   })
 
   it("applies filter on click", () => {
