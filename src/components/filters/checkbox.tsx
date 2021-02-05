@@ -55,9 +55,15 @@ const CheckboxFilter: FC<Props> = ({
         <Checkbox
           name={`filter_${name}_${value}`}
           renderLabel={() => (
-            <span className="text-base leading-xs flex items-center">
-              {renderIcon ? renderIcon() : null}
-              {label}
+            <span className="text-base leading-xs flex items-center justify-between">
+              {renderIcon ? (
+                <span className="flex items-center">
+                  {renderIcon()}
+                  {label}
+                </span>
+              ) : (
+                label
+              )}
               {hasFacet && (
                 <span className="inline-block mr-5 text-grey-3 text-sm">
                   ({formatNumber(resultsCount)})
