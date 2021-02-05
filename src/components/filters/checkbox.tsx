@@ -46,8 +46,9 @@ const CheckboxFilter: FC<Props> = ({
 
   const renderOption = ({ value, label, renderIcon }: Item) => {
     const isSelected = selected.includes(value)
-    const resultsCount = facet[value.toString()]
-    const isDisabled = resultsCount === 0 && !isSelected
+    const resultsCount = facet[value.toString()] || 0
+    const hasFacet = Object.keys(facet).length > 0
+    const isDisabled = hasFacet && resultsCount === 0 && !isSelected
 
     return (
       <div className="w-12/12 -mb-5" key={`filter_${name}_${value}`}>
@@ -57,8 +58,8 @@ const CheckboxFilter: FC<Props> = ({
             <span className="text-base leading-xs flex items-center">
               {renderIcon ? renderIcon() : null}
               {label}
-              {typeof resultsCount === "number" && (
-                <span className="inline-block ml-5 text-grey-3 text-sm">
+              {hasFacet && (
+                <span className="inline-block mr-5 text-grey-3 text-sm">
                   ({formatNumber(resultsCount)})
                 </span>
               )}

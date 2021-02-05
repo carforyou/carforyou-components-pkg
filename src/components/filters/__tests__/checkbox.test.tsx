@@ -107,4 +107,20 @@ describe("<CheckboxFilter/>", () => {
 
     expect(applyFilterMock).toHaveBeenCalledWith({ testFilter: [1] })
   })
+
+  it("disables non-selected option with facet = zero", () => {
+    const { getByLabelText } = renderWrapper({
+      facet: { "1": 30, "2": 1000, "3": 0 },
+    })
+
+    expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
+  })
+
+  it("disables non-selected option when facet is provided and null", () => {
+    const { getByLabelText } = renderWrapper({
+      facet: { "1": 30, "2": 1000 },
+    })
+
+    expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
+  })
 })
