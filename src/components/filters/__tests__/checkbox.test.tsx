@@ -50,13 +50,18 @@ describe("<CheckboxFilter/>", () => {
     })
 
     it("with icons", () => {
-      const { container } = renderWrapper({
+      const { getByTestId } = renderWrapper({
         options: [
           {
             label: "One",
             value: 1,
             renderIcon: () => (
-              <ClockOutlinedTealIcon width="20" height="20" className="mr-10" />
+              <ClockOutlinedTealIcon
+                width="20"
+                height="20"
+                className="mr-10"
+                data-testid="icon-1"
+              />
             ),
           },
           {
@@ -76,7 +81,7 @@ describe("<CheckboxFilter/>", () => {
         ],
       })
 
-      expect(container).toMatchSnapshot()
+      expect(getByTestId("icon-1"))
     })
 
     it("with initial selection", () => {
@@ -94,11 +99,11 @@ describe("<CheckboxFilter/>", () => {
     })
 
     it("with title", () => {
-      const { container } = renderWrapper({
+      const { getByText } = renderWrapper({
         children: <div>Title</div>,
       })
 
-      expect(container).toMatchSnapshot()
+      expect(getByText("Title"))
     })
   })
 
