@@ -62,7 +62,7 @@
     "babel-loader": "^8.1.0",
     "bundlesize": "^0.18.0",
     "jest": "^25.1.0",
-    "marked": "^1.0.0",
+    "marked": "^2.0.0",
     "marked-terminal": "^4.1.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
