@@ -19,7 +19,7 @@ const Wrapper = (props) => {
     <CheckboxFilter
       {...props}
       selected={selection}
-      apply={(filters) => {
+      applyFilters={(filters) => {
         action("applyFilters")
         setSelection(filters[props.name])
       }}
@@ -28,7 +28,7 @@ const Wrapper = (props) => {
 }
 
 export default {
-  title: "Filters/Checkbox",
+  title: "CheckboxFilter",
   component: CheckboxFilter,
   args: {
     storyName: "",

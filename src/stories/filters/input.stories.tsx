@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 import { action } from "@storybook/addon-actions"
 
@@ -28,8 +28,7 @@ const Template = (props) => {
       component={
         <InputFilter
           {...props}
-          apply={(filters) => {
-            console.log(filters)
+          apply={(_filters) => {
             action("applyFilter")
           }}
         />
