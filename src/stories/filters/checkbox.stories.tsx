@@ -28,7 +28,7 @@ const Wrapper = (props) => {
 }
 
 export default {
-  title: "CheckboxFilter",
+  title: "Filters/Checkbox",
   component: CheckboxFilter,
   args: {
     storyName: "",
