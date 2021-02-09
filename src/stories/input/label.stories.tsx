@@ -1,22 +1,27 @@
-import React from "react"
+import React, { FC } from "react"
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
-import Input from "../../components/input/index"
+import Input, { PopupLabelProps } from "../../components/input/index"
 
 const onBlur = () => action("onBlur")
 const onChange = () => action("onChange")
-const setValue = (value) => ("value", value)
+
+const setValue = (value: string) => value
 
 export default {
-  title: "Input/Floating Label",
+  title: "Input/Label",
   component: Input,
   args: {
-    storyName: "Input / Floating Label",
+    storyName: "Input / Label",
+    labelText: "Label",
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<string>, PopupLabelProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
@@ -29,16 +34,12 @@ export const Standard = Template.bind({})
 Standard.args = {
   storyName: "Standard",
   value: "",
-  labelText: "Label",
-  floatingLabel: true,
 }
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
   storyName: "With Error Message",
   value: "",
-  labelText: "Label",
-  floatingLabel: true,
   error: "Error message",
 }
 
@@ -47,8 +48,7 @@ WithClearButton.args = {
   storyName: "With clear button",
   value: "text",
   hasClearButton: true,
-  labelText: "Label",
-  floatingLabel: true,
+  placeholder: "Type something",
   onChange: (e) => {
     setValue(e.target.value)
     onChange()(e)
@@ -59,7 +59,6 @@ WithClearButton.args = {
 export const WithPlaceholder = Template.bind({})
 WithPlaceholder.args = {
   storyName: "With placeholder",
-  value: "",
   placeholder: "Placeholder",
 }
 
@@ -68,6 +67,26 @@ WithHint.args = {
   storyName: "With hint",
   value: "",
   hint: "Hint text",
-  labelText: "Label",
-  floatingLabel: true,
+}
+
+export const WithRequiredIndicator = Template.bind({})
+WithRequiredIndicator.args = {
+  storyName: "With required indicator",
+  value: "",
+  required: true,
+}
+
+export const WithPopup = Template.bind({})
+WithPopup.args = {
+  storyName: "With Popup",
+  value: "",
+  renderLabelPopup: () => <div>Popup Content</div>,
+}
+
+export const RequiredWithPopup = Template.bind({})
+RequiredWithPopup.args = {
+  storyName: "Required with popup",
+  value: "",
+  required: true,
+  renderLabelPopup: () => <div>Popup Content</div>,
 }

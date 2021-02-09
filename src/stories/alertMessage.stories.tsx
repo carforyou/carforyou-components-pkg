@@ -1,7 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import AlertMessage from "../components/alertMessage"
+import AlertMessage, { AlertMessageProps } from "../components/alertMessage"
 import MailSent from "../../.storybook/icons/mailSent"
 
 export default {
@@ -24,7 +25,11 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, AlertMessageProps {
+  text: string
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

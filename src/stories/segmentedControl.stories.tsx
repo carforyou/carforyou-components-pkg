@@ -1,22 +1,23 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import SegmentedControl from "../components/segmentedControl"
+import SegmentedControl, {
+  SegmentedControlProps,
+} from "../components/segmentedControl"
 
-const options = () => (
-  "options",
-  [
-    { value: 1, name: "Button 1" },
-    { value: 2, name: "Button 2" },
-    { value: 3, name: "Button 3" },
-  ]
-)
+const options = () => [
+  { value: 1, name: "Button 1" },
+  { value: 2, name: "Button 2" },
+  { value: 3, name: "Button 3" },
+]
+
 const onSelect = () => action("onSelect")
-const initialSelection = (initial = null) => ("Initial Selection", initial)
-const small = (initial = false) => ("Small", initial)
-const disabled = (initial = false) => ("Disabled", initial)
+const initialSelection = (initial = null) => initial
+const small = (initial = false) => initial
+const disabled = (initial = false) => initial
 
 export default {
   title: "Segmented Control",
@@ -33,7 +34,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, SegmentedControlProps<unknown> {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

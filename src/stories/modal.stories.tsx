@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 import classNames from "classnames"
 
@@ -55,7 +55,15 @@ function ModalDemo(args) {
   )
 }
 
-const Template = (args) => {
+interface Props {
+  storyName: string
+  label: string
+  size?: "small" | "medium" | "large" | "fullscreen"
+  style?: "white" | "dark"
+  onClose: () => void
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

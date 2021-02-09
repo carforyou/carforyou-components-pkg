@@ -100,3 +100,4 @@ export const Pagination: StatelessComponent<Props> = ({
 }
 
 export default Pagination
+export { Props as PaginationProps }

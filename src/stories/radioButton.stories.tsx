@@ -1,9 +1,10 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import RadioButton from "../components/radioButton"
+import RadioButton, { RadioButtonProps } from "../components/radioButton"
 
 const onChange = () => action("onChange")
 const initialValue = "B"
@@ -28,7 +29,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<JSX.Element>, RadioButtonProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

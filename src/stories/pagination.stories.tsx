@@ -1,9 +1,10 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import Pagination from "../components/pagination"
+import Pagination, { PaginationProps } from "../components/pagination"
 
 export default {
   title: "Pagination",
@@ -30,7 +31,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, PaginationProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

@@ -244,3 +244,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
 )
 
 export default Select
+export {
+  AutosuggestSelect as AutosuggestSelectProps,
+  SimpleSelect as SimpleSelectProps,
+}

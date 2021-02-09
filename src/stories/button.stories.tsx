@@ -1,9 +1,10 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import Button from "../components/button"
+import Button, { ButtonProps } from "../components/button"
 
 export default {
   title: "Button",
@@ -22,7 +23,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<string>, ButtonProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

@@ -1,9 +1,10 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { action } from "@storybook/addon-actions"
 
+import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
-import Checkbox from "../../components/checkbox"
+import Checkbox, { PositionedLabelProps } from "../../components/checkbox"
 
 const onChange = () => action("onChange")
 const initialValue = true
@@ -26,7 +27,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<JSX.Element>, PositionedLabelProps {}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}

@@ -59,3 +59,4 @@ const Collapsible: FC<Props> = ({
 }
 
 export default Collapsible
+export { Props as CollapsibleProps }

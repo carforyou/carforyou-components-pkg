@@ -1,7 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 
+import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import PreviewCard from "../components/previewCard"
+import PreviewCard, { PreviewCardProps } from "../components/previewCard"
 
 export default {
   title: "Preview card",
@@ -27,7 +28,11 @@ export default {
   },
 }
 
-const Template = (args) => {
+interface Props extends StoryProps<unknown>, PreviewCardProps {
+  storyName: string
+}
+
+const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
