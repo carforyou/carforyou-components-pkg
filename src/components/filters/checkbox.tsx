@@ -13,7 +13,7 @@ interface Item {
 interface Props {
   name: string
   options: Item[]
-  applyFilters: (filtersToApply) => void
+  apply: (filtersToApply) => void
   selected?: (string | number)[]
   facet?: { [key: string]: number }
 }
@@ -21,7 +21,7 @@ interface Props {
 const CheckboxFilter: FC<Props> = ({
   name,
   options,
-  applyFilters,
+  apply: applyFilters,
   selected = [],
   facet = {},
 }) => {

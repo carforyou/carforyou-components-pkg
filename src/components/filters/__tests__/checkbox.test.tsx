@@ -20,7 +20,7 @@ const renderWrapper = ({
     <CheckboxFilter
       name={name}
       options={options}
-      applyFilters={applyFilters}
+      apply={applyFilters}
       selected={selected}
       facet={facet}
     >
