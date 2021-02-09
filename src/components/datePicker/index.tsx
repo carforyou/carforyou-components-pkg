@@ -1,6 +1,7 @@
 import Calendar from "react-calendar"
 import React, { FC, useEffect, useRef, useState } from "react"
 
+import styles from "./index.module.css"
 import Input from "../input/index"
 
 const isToday = (date) => {
@@ -96,7 +97,9 @@ const DatePicker: FC<Props> = ({
       />
 
       {showCalendar ? (
-        <div className="calendarContainer transition duration-800 absolute -mt-20 left-0 xxs:left-auto w-12/12">
+        <div
+          className={`${styles.container} transition duration-800 absolute -mt-20 left-0 xxs:left-auto w-12/12`}
+        >
           <Calendar
             locale={locale}
             minDate={minDate}
@@ -120,7 +123,7 @@ const DatePicker: FC<Props> = ({
             tileDisabled={({ date, view }) => {
               return view === "month" && date.getDay() === 0
             }}
-            className="react-calendar"
+            className={styles["react-calendar"]}
           />
         </div>
       ) : null}

@@ -316,6 +316,7 @@ export default {
     */
 
     margin: {
+      "-20": "-20px",
       "-1": "-1px",
       auto: "auto",
       px: "1px",
