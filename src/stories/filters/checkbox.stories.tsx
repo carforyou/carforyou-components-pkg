@@ -19,7 +19,7 @@ const Wrapper = (props) => {
     <CheckboxFilter
       {...props}
       selected={selection}
-      applyFilters={(filters) => {
+      apply={(filters) => {
         action("applyFilters")
         setSelection(filters[props.name])
       }}
