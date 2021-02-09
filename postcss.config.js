@@ -1,4 +1,5 @@
-const tailwindConfig = require("../.tailwind/defaultConfig").default
+// eslint-disable-next-line import/no-internal-modules
+const tailwindConfig = require("./.tailwind/defaultConfig").default
 
 module.exports = {
   plugins: [
