@@ -250,6 +250,7 @@ Object {
     },
     "margin": Object {
       "-1": "-1px",
+      "-5": "-5px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
       "0": "0",
