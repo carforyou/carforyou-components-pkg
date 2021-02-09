@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import Input from "../input"
+import Input from "../input/index"
 
 import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
 import getClosestElement from "../../lib/getClosestElement"
