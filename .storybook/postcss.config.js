@@ -1,9 +1,3 @@
-const tailwindConfig = require("../.tailwind/defaultConfig").default
+const config = require("../postcss.config")
 
-module.exports = {
-  plugins: [
-    require("postcss-easy-import"),
-    require("tailwindcss")(tailwindConfig),
-    require("autoprefixer"),
-  ],
-}
+module.exports = config
