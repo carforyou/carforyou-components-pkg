@@ -18,6 +18,8 @@ import Profile from "./components/icons/profile"
 import LogoWhite from "./components/icons/logoWhite"
 import LogoRedWhite from "./components/icons/logoRedWhite"
 import LogoRedBlack from "./components/icons/logoRedBlack"
+import InputFilter from "./components/filters/input"
+import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
 import WithLabel from "./components/fieldHelpers/withLabel"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
@@ -60,4 +62,6 @@ export {
   Collapsible,
   DatePicker,
   Locale,
+  CheckboxFilter,
+  InputFilter,
 }

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputFilter> renders correctly with autofocus after focusing 1`] = `
+<div>
+  <div
+    class="w-12/12 focus-within:text-teal"
+  >
+    <div
+      class="relative pb-px"
+    >
+      <div
+        class="validation-inputContainer mb-20"
+      >
+        <div
+          class="relative flex w-12/12 clearButton-container"
+        >
+          <input
+            autofocus=""
+            class="w-12/12 input_withClearButton"
+            data-testid="test"
+            data-valid="true"
+            id="test"
+            inputmode="numeric"
+            name="test"
+            placeholder="test"
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InputFilter> renders correctly with no values 1`] = `
+<div>
+  <div
+    class="w-12/12 focus-within:text-teal"
+  >
+    <div
+      class="relative pb-px"
+    >
+      <div
+        class="validation-inputContainer mb-20"
+      >
+        <div
+          class="relative flex w-12/12 clearButton-container"
+        >
+          <input
+            class="w-12/12 input_withClearButton"
+            data-testid="test"
+            data-valid="true"
+            id="test"
+            inputmode="numeric"
+            name="test"
+            placeholder="test"
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
