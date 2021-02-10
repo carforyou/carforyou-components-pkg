@@ -43,6 +43,7 @@ interface InputProps {
   max?: number
   position?: "left" | "right"
   debounce?: number
+  autoComplete?: string
 }
 
 interface PopupLabelProps extends InputProps {
@@ -81,6 +82,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       max,
       position,
       debounce,
+      autoComplete,
       ...rest
     },
     ref
@@ -131,6 +133,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         min={min}
         max={max}
         debounce={debounce}
+        autoComplete={autoComplete}
       />
     )
 

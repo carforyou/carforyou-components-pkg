@@ -100,6 +100,7 @@ Object {
       "2": "2px",
       "20": "20px",
       "4": "4px",
+      "6": "6px",
       "default": "4px",
       "full": "9999px",
       "half": "50%",
@@ -250,6 +251,7 @@ Object {
     },
     "margin": Object {
       "-1": "-1px",
+      "-20": "-20px",
       "-5": "-5px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
@@ -301,6 +303,7 @@ Object {
     "padding": Object {
       "0": "0",
       "10": "10px",
+      "12": "12px",
       "13": "13px",
       "14": "14px",
       "15": "15px",
