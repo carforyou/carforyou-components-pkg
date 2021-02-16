@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from "react"
+import React, { FC, ReactNode, useEffect, useState } from "react"
 import classNames from "classnames"
 
 import ArrowDownM from "./icons/arrowDownM"
@@ -25,6 +25,13 @@ interface Props {
    * If the element should get transparent on hover
    */
   opacityOnHover?: boolean
+  /**
+   * Forces the collapsible to expand
+   *   this can be used to allow control of the collapsed state outside of the component
+   *   an example use-case is controlling the focus of children collapsibles by the parent
+   *   component to ensure that only one is open at the time
+   */
+  forceExpand?: boolean
 }
 
 const Collapsible: FC<Props> = ({
@@ -33,8 +40,13 @@ const Collapsible: FC<Props> = ({
   children,
   onChange,
   opacityOnHover = true,
+  forceExpand = false,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(isInitiallyCollapsed)
+
+  useEffect(() => {
+    setIsCollapsed(forceExpand)
+  }, [forceExpand])
 
   return (
     <>
