@@ -7,12 +7,12 @@ const openedText = "Close me"
 const closedText = "Open me"
 const content = "I am content"
 
-const renderWrapper = ({ isInitiallyCollapsed = true, onChange = null } = {}) =>
+const renderWrapper = ({ forceCollapse = true, onChange = null } = {}) =>
   render(
     <Collapsible
       renderToggle={(isCollapsed) => (isCollapsed ? closedText : openedText)}
       onChange={onChange}
-      isInitiallyCollapsed={isInitiallyCollapsed}
+      forceCollapse={forceCollapse}
     >
       {() => content}
     </Collapsible>
@@ -42,7 +42,7 @@ describe("<Collapsible>", () => {
   describe("rendered open", () => {
     it("is open", () => {
       const { getByText, queryAllByText } = renderWrapper({
-        isInitiallyCollapsed: false,
+        forceCollapse: false,
       })
 
       expect(queryAllByText(closedText)).toEqual([])
@@ -52,7 +52,7 @@ describe("<Collapsible>", () => {
 
     it("can be closed", () => {
       const { getByText, queryAllByText } = renderWrapper({
-        isInitiallyCollapsed: false,
+        forceCollapse: false,
       })
 
       fireEvent.click(getByText(openedText))

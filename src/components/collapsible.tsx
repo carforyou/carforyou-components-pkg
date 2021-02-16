@@ -4,10 +4,6 @@ import classNames from "classnames"
 import ArrowDownM from "./icons/arrowDownM"
 interface Props {
   /**
-   * False if the element shall be expanded by default
-   */
-  isInitiallyCollapsed?: boolean
-  /**
    * A render prop to customize the clickable title of the collapsible element
    *  - isCollapsed tells you the current state of the collapsible element
    */
@@ -26,27 +22,26 @@ interface Props {
    */
   opacityOnHover?: boolean
   /**
-   * Forces the collapsible to expand
+   * Forces the collapsible to collapse
    *   this can be used to allow control of the collapsed state outside of the component
    *   an example use-case is controlling the focus of children collapsibles by the parent
    *   component to ensure that only one is open at the time
    */
-  forceExpand?: boolean
+  forceCollapse?: boolean
 }
 
 const Collapsible: FC<Props> = ({
   renderToggle,
-  isInitiallyCollapsed = true,
   children,
   onChange,
   opacityOnHover = true,
-  forceExpand = false,
+  forceCollapse = true,
 }) => {
-  const [isCollapsed, setIsCollapsed] = useState(isInitiallyCollapsed)
+  const [isCollapsed, setIsCollapsed] = useState(forceCollapse)
 
   useEffect(() => {
-    setIsCollapsed(forceExpand)
-  }, [forceExpand])
+    setIsCollapsed(forceCollapse)
+  }, [forceCollapse])
 
   return (
     <>
