@@ -28,6 +28,8 @@ interface Props {
    *   component to ensure that only one is open at the time
    */
   forceCollapse?: boolean
+  /** Makes sure that the content is always in the DOM */
+  alwaysRender?: boolean
 }
 
 const Collapsible: FC<Props> = ({
@@ -36,6 +38,7 @@ const Collapsible: FC<Props> = ({
   onChange,
   opacityOnHover = true,
   forceCollapse = true,
+  alwaysRender = false,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(forceCollapse)
 
@@ -60,7 +63,11 @@ const Collapsible: FC<Props> = ({
           <ArrowDownM className={isCollapsed ? null : "rotate-180 transform"} />
         </div>
       </a>
-      {isCollapsed ? null : children()}
+      {alwaysRender ? (
+        <div className={isCollapsed ? "hidden" : "block"}>{children()}</div>
+      ) : isCollapsed ? null : (
+        children()
+      )}
     </>
   )
 }
