@@ -18,6 +18,7 @@ const onSelect = () => action("onSelect")
 const initialSelection = (initial = null) => initial
 const small = (initial = false) => initial
 const disabled = (initial = false) => initial
+const growing = (initial = false) => initial
 
 export default {
   title: "Segmented Control",
@@ -40,7 +41,7 @@ const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
-      style={"w-12/12 md:w-4/12"}
+      style={"w-12/12 md:w-6/12"}
       component={<SegmentedControl {...args} />}
     />
   )
@@ -53,6 +54,7 @@ Default.args = {
   initialSelection: initialSelection(),
   small: small(),
   disabled: disabled(),
+  growing: growing(),
 }
 
 export const WithTwoButtons = Template.bind({})
@@ -131,4 +133,19 @@ DisabledSmall.args = {
   initialSelection: initialSelection(),
   small: small(true),
   disabled: disabled(true),
+}
+
+export const Growing = Template.bind({})
+Growing.args = {
+  storyName: "Growing",
+  options: [
+    { value: 1, name: "Button 1" },
+    { value: 2, name: "Button with very long text" },
+    { value: 3, name: "Button with even longer text" },
+  ],
+  onSelect: onSelect(),
+  initialSelection: initialSelection(),
+  small: small(true),
+  disabled: disabled(),
+  growing: growing(true),
 }

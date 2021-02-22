@@ -30,6 +30,7 @@ interface Props<T> {
    */
   small?: boolean
   disabled?: boolean
+  growing?: boolean
 }
 
 function SegmentedControl<T>({
@@ -39,6 +40,7 @@ function SegmentedControl<T>({
   renderOption = ({ name }) => name,
   small = false,
   disabled = false,
+  growing = false,
 }: Props<T>): ReactElement {
   const [selectedValue, updateSelected] = useState(
     (options.find(({ value }) => value === initialSelection) || options[0])
@@ -56,6 +58,7 @@ function SegmentedControl<T>({
             selected={selected}
             disabled={disabled}
             small={small}
+            growing={growing}
             position={
               index === 0 ? "left" : index === lastOption ? "right" : "middle"
             }

@@ -8,6 +8,7 @@ interface Props {
   selected?: boolean
   disabled?: boolean
   small?: boolean
+  growing?: boolean
   position: "left" | "right" | "middle"
   onClick?: () => void
 }
@@ -18,6 +19,7 @@ export const Button: FC<Props> = ({
   disabled,
   selected,
   onClick,
+  growing,
   position,
 }) => {
   const padding = classnames("px-8", small ? "py-8" : "py-16")
@@ -26,8 +28,9 @@ export const Button: FC<Props> = ({
   return createElement(isWrapped ? "div" : "button", {
     ...(!isWrapped ? { type: "button" } : {}),
     className: classnames(
-      "flex w-12/12 justify-center items-center leading-xs transition duration-200 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none",
+      "flex justify-center items-center leading-xs transition duration-200 cursor-pointer font-bold text-base border-t-2 border-b-2 border-r-2 focus:outline-none",
       selected ? "bg-teal text-white" : "bg-transparent text-teal",
+      growing ? "flex-grow" : "w-12/12",
       disabled
         ? "cursor-not-allowed border-grey-3 bg-grey-1 text-grey-4 hover:border-grey-3 hover:bg-grey-1"
         : "border-teal focus:shadow-focus",
