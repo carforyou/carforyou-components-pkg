@@ -7,12 +7,19 @@ const openedText = "Close me"
 const closedText = "Open me"
 const content = "I am content"
 
-const renderWrapper = ({ forceCollapse = true, onChange = null } = {}) =>
+const renderWrapper = ({
+  forceCollapse = true,
+  onChange = null,
+  tealChevron = false,
+  topMobileChevron = false,
+} = {}) =>
   render(
     <Collapsible
       renderToggle={(isCollapsed) => (isCollapsed ? closedText : openedText)}
       onChange={onChange}
       forceCollapse={forceCollapse}
+      tealChevron={tealChevron}
+      topMobileChevron={topMobileChevron}
     >
       {() => content}
     </Collapsible>
@@ -75,6 +82,20 @@ describe("<Collapsible>", () => {
 
       fireEvent.click(getByText(openedText))
       expect(customOnChangeFunction).toHaveBeenCalledWith(true)
+    })
+  })
+
+  describe("chevron variations", () => {
+    it("should render teal chevron correct", () => {
+      const { container } = renderWrapper({ tealChevron: true })
+      expect(container).toMatchSnapshot()
+    })
+
+    it("should render mobile chevron correct", () => {
+      const { container } = renderWrapper({
+        topMobileChevron: true,
+      })
+      expect(container).toMatchSnapshot()
     })
   })
 })

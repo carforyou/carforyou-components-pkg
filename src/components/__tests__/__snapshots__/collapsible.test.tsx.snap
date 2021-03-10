@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Collapsible> chevron variations should render mobile chevron correct 1`] = `
+<div>
+  <a
+    class="flex items-center cursor-pointer"
+    data-collapsed="true"
+  >
+    <div
+      class="flex w-12/12 items-center"
+    >
+      Open me
+      <svg
+        class=""
+        fill="none"
+        height="32"
+        viewBox="0 0 32 32"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.6667 13.3333L16 18.6666L21.3333 13.3333"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<Collapsible> chevron variations should render teal chevron correct 1`] = `
+<div>
+  <a
+    class="flex items-center cursor-pointer"
+    data-collapsed="true"
+  >
+    <div
+      class="flex w-12/12 items-center"
+    >
+      Open me
+      <svg
+        class="text-teal"
+        fill="none"
+        height="32"
+        viewBox="0 0 32 32"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.6667 13.3333L16 18.6666L21.3333 13.3333"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </a>
+</div>
+`;

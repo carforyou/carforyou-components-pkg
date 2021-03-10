@@ -30,6 +30,10 @@ interface Props {
   forceCollapse?: boolean
   /** Makes sure that the content is always in the DOM */
   alwaysRender?: boolean
+  /** Teal color chevron */
+  tealChevron?: boolean
+  /** Chevron position on the top for mobile and center for desktop */
+  mobileChevron?: boolean
 }
 
 const Collapsible: FC<Props> = ({
@@ -39,12 +43,19 @@ const Collapsible: FC<Props> = ({
   opacityOnHover = true,
   forceCollapse = true,
   alwaysRender = false,
+  tealChevron = false,
+  mobileChevron = false,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(forceCollapse)
 
   useEffect(() => {
     setIsCollapsed(forceCollapse)
   }, [forceCollapse])
+
+  const arrowColor = tealChevron ? "text-teal" : ""
+  const chevronPosition = mobileChevron
+    ? "items-start lg:items-center"
+    : "items-center"
 
   return (
     <>
@@ -58,9 +69,15 @@ const Collapsible: FC<Props> = ({
         }}
         data-collapsed={isCollapsed}
       >
-        <div className="flex w-12/12 items-center">
+        <div className={`flex w-12/12 ${chevronPosition}`}>
           {renderToggle(isCollapsed)}
-          <ArrowDownM className={isCollapsed ? null : "rotate-180 transform"} />
+          <ArrowDownM
+            className={
+              isCollapsed
+                ? `${arrowColor}`
+                : `rotate-180 transform ${arrowColor}`
+            }
+          />
         </div>
       </a>
       {alwaysRender ? (
