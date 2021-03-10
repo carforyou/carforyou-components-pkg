@@ -11,7 +11,7 @@ const renderWrapper = ({
   forceCollapse = true,
   onChange = null,
   tealChevron = false,
-  topMobileChevron = false,
+  mobileChevron = false,
 } = {}) =>
   render(
     <Collapsible
@@ -19,7 +19,7 @@ const renderWrapper = ({
       onChange={onChange}
       forceCollapse={forceCollapse}
       tealChevron={tealChevron}
-      topMobileChevron={topMobileChevron}
+      mobileChevron={mobileChevron}
     >
       {() => content}
     </Collapsible>
@@ -93,7 +93,7 @@ describe("<Collapsible>", () => {
 
     it("should render mobile chevron correct", () => {
       const { container } = renderWrapper({
-        topMobileChevron: true,
+        mobileChevron: true,
       })
       expect(container).toMatchSnapshot()
     })

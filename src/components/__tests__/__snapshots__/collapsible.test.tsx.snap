@@ -7,7 +7,7 @@ exports[`<Collapsible> chevron variations should render mobile chevron correct 1
     data-collapsed="true"
   >
     <div
-      class="flex w-12/12 items-center"
+      class="flex w-12/12 items-start lg:items-center"
     >
       Open me
       <svg
