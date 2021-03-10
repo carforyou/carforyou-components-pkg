@@ -62,7 +62,7 @@ MobileChevron.args = {
   ...Default.args,
   renderToggle: () => (
     <div className="flex w-12/12 border-2 px-10 py-30">
-      Observe chevron position on smaller screen vs big screen
+      Observe chevron position on smaller screen vs big lg: screen
     </div>
   ),
   mobileChevron: true,
