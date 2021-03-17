@@ -26,6 +26,7 @@ interface Props {
   labelText?: string
   minDate?: Date
   maxDate?: Date
+  disabled?: boolean
   formik: {
     name: string
     value: null | Date
@@ -40,6 +41,7 @@ const DatePicker: FC<Props> = ({
   labelText,
   minDate = null,
   maxDate = null,
+  disabled = false,
   formik: {
     value: initialValue = null,
     callback: updateFormValue,
@@ -94,6 +96,7 @@ const DatePicker: FC<Props> = ({
         }}
         hasClearButton={!isToday(selectedDate)}
         error={errorMessage}
+        disabled={disabled}
       />
 
       {showCalendar ? (
