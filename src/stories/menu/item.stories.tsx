@@ -10,7 +10,7 @@ export default {
   title: "Menu/Item",
   component: MenuItem,
   args: {
-    text: "Menu item",
+    title: "Menu item",
     IconComponent: ProfileIcon,
     onClick: action("on click menu item"),
     url: "https://example.com",
