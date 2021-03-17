@@ -284,6 +284,7 @@ export default {
     letterSpacing: {
       normal: "0",
       wide: "1px",
+      wider: "2px",
     },
 
     /*
