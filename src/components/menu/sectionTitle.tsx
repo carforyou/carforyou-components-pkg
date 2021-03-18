@@ -9,7 +9,7 @@ interface Props {
 
 const MenuSectionTitle: FC<Props> = ({ title }) => {
   return (
-    <div className="uppercase font-bold text-xs leading-xs text-grey-3 tracking-wider mt-25">
+    <div className="uppercase font-bold text-xxs leading-xs text-grey-3 tracking-wider mt-25">
       {title}
     </div>
   )

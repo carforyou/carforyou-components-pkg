@@ -26,7 +26,7 @@ const MenuItem: FC<Props> = ({ title, IconComponent, onClick, url }) => {
       onClick={onClick}
       href={url}
     >
-      <span className="text-grey-4 mr-10">
+      <span className="text-grey-4 mr-10 text-base leading-sm">
         <IconComponent width="24px" height="24px" />
       </span>
       {title}

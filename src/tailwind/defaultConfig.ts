@@ -200,6 +200,7 @@ export default {
     */
     fontSize: {
       "0": "0px",
+      xxs: "10px",
       xs: "12px",
       sm: "14px",
       base: "16px",
