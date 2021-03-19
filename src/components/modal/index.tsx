@@ -19,9 +19,20 @@ export interface ModalProps {
   size: ModalSize
   // Background color
   style: ModalStyle
+  verticalOverflow?: "auto" | "scroll" | "visible"
 }
 
-const Modal: FC<ModalProps> = ({ close, onClose, size, style, children }) => {
+const Modal: FC<ModalProps> = ({
+  close,
+  onClose,
+  size,
+  style,
+  children,
+  verticalOverflow,
+}) => {
+  const overflowClass = verticalOverflow
+    ? `overflow-y-${verticalOverflow}`
+    : "overflow-y-scroll md:overflow-y-auto"
   const handleClose = () => {
     onClose ? onClose() : null
     close()
@@ -40,7 +51,9 @@ const Modal: FC<ModalProps> = ({ close, onClose, size, style, children }) => {
   }, [])
 
   return (
-    <div className="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto">
+    <div
+      className={`fixed inset-0 scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center ${overflowClass}`}
+    >
       <Overlay handleClick={handleClose} />
       <div
         className={classNames(

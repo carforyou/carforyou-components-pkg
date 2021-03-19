@@ -5,7 +5,7 @@ exports[`useModal with a portal renders the modal within the portal 1`] = `
   data-testid="modal-wrapper"
 >
   <div
-    class="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto"
+    class="fixed inset-0 scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center overflow-y-scroll md:overflow-y-auto"
   >
     <div
       class="absolute inset-0 bg-grey-dark opacity-40 transition duration-200"
@@ -80,7 +80,7 @@ exports[`useModal without portal renders the modal within the container 1`] = `
       Open modal
     </button>
     <div
-      class="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto"
+      class="fixed inset-0 scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center overflow-y-scroll md:overflow-y-auto"
     >
       <div
         class="absolute inset-0 bg-grey-dark opacity-40 transition duration-200"
