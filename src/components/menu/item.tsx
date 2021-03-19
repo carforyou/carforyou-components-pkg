@@ -34,7 +34,7 @@ const MenuItem: FC<Props> = ({
   return (
     <a
       className={classNames("flex items-center py-13 pl-25 cursor-pointer", {
-        "bg-teal-bright text-teal rounded-4 font-bold": active,
+        "bg-teal-light text-teal rounded-4 font-bold": active,
       })}
       onClick={onClick}
       href={url}
