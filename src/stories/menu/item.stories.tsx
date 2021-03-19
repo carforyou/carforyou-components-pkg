@@ -14,6 +14,7 @@ export default {
     IconComponent: ProfileIcon,
     onClick: action("on click menu item"),
     url: "https://example.com",
+    active: false,
   },
   argTypes: {
     storyName: {
@@ -41,4 +42,10 @@ const Template: FC<Props> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   storyName: "Default",
+}
+
+export const Active = Template.bind({})
+Active.args = {
+  storyName: "Active",
+  active: true,
 }
