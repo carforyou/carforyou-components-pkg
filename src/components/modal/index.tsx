@@ -8,6 +8,7 @@ export type ModalSize = "small" | "medium" | "large" | "fullscreen"
 
 export type ModalStyle = "white" | "dark"
 
+export type ModalOverflow = "auto" | "scroll" | "visible"
 export interface ModalProps {
   // Function to close the modal
   close: () => void
@@ -19,9 +20,21 @@ export interface ModalProps {
   size: ModalSize
   // Background color
   style: ModalStyle
+  // Vertical overflow
+  verticalOverflow?: ModalOverflow
 }
 
-const Modal: FC<ModalProps> = ({ close, onClose, size, style, children }) => {
+const Modal: FC<ModalProps> = ({
+  close,
+  onClose,
+  size,
+  style,
+  children,
+  verticalOverflow,
+}) => {
+  const overflowClass = verticalOverflow
+    ? `overflow-y-${verticalOverflow}`
+    : "md:overflow-y-auto overflow-y-scroll"
   const handleClose = () => {
     onClose ? onClose() : null
     close()
@@ -40,11 +53,12 @@ const Modal: FC<ModalProps> = ({ close, onClose, size, style, children }) => {
   }, [])
 
   return (
-    <div className="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto">
+    <div className="fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center">
       <Overlay handleClick={handleClose} />
       <div
         className={classNames(
-          "min-h-full max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block",
+          "min-h-full max-h-full scrolling-touch fixed inline-block",
+          overflowClass,
           size === "fullscreen"
             ? "inset-0"
             : "inset-x-0 md:min-h-auto md:align-middle md:inset-auto md:relative h-full md:h-auto rounded-4",

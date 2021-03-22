@@ -5,14 +5,14 @@ exports[`useModal with a portal renders the modal within the portal 1`] = `
   data-testid="modal-wrapper"
 >
   <div
-    class="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto"
+    class="fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center"
   >
     <div
       class="absolute inset-0 bg-grey-dark opacity-40 transition duration-200"
       data-testid="modal-overlay"
     />
     <div
-      class="min-h-full max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block inset-x-0 md:min-h-auto md:align-middle md:inset-auto md:relative h-full md:h-auto rounded-4 bg-white"
+      class="min-h-full max-h-full scrolling-touch fixed inline-block md:overflow-y-auto overflow-y-scroll inset-x-0 md:min-h-auto md:align-middle md:inset-auto md:relative h-full md:h-auto rounded-4 bg-white"
       role="dialog"
     >
       <div
@@ -80,14 +80,14 @@ exports[`useModal without portal renders the modal within the container 1`] = `
       Open modal
     </button>
     <div
-      class="fixed inset-0 overflow-y-scroll scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center md:overflow-y-auto"
+      class="fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center"
     >
       <div
         class="absolute inset-0 bg-grey-dark opacity-40 transition duration-200"
         data-testid="modal-overlay"
       />
       <div
-        class="min-h-full max-h-full scrolling-touch md:overflow-y-auto overflow-y-scroll fixed inline-block inset-x-0 md:min-h-auto md:align-middle md:inset-auto md:relative h-full md:h-auto rounded-4 bg-white"
+        class="min-h-full max-h-full scrolling-touch fixed inline-block md:overflow-y-auto overflow-y-scroll inset-x-0 md:min-h-auto md:align-middle md:inset-auto md:relative h-full md:h-auto rounded-4 bg-white"
         role="dialog"
       >
         <div
