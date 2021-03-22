@@ -8,6 +8,7 @@ export type ModalSize = "small" | "medium" | "large" | "fullscreen"
 
 export type ModalStyle = "white" | "dark"
 
+export type ModalOverflow = "auto" | "scroll" | "visible"
 export interface ModalProps {
   // Function to close the modal
   close: () => void
@@ -20,7 +21,7 @@ export interface ModalProps {
   // Background color
   style: ModalStyle
   // Vertical overflow
-  verticalOverflow?: "auto" | "scroll" | "visible"
+  verticalOverflow?: ModalOverflow
 }
 
 const Modal: FC<ModalProps> = ({
