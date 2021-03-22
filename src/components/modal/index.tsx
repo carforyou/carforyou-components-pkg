@@ -32,7 +32,7 @@ const Modal: FC<ModalProps> = ({
 }) => {
   const overflowClass = verticalOverflow
     ? `overflow-y-${verticalOverflow}`
-    : "overflow-y-scroll md:overflow-y-auto"
+    : "md:overflow-y-visible overflow-y-scroll"
   const handleClose = () => {
     onClose ? onClose() : null
     close()
@@ -52,12 +52,13 @@ const Modal: FC<ModalProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 scrolling-touch z-modal min-h-full transition duration-200 flex flex-col justify-center items-center ${overflowClass}`}
+      className={`fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center`}
     >
       <Overlay handleClick={handleClose} />
       <div
         className={classNames(
-          "min-h-full max-h-full scrolling-touch md:overflow-y-visible overflow-y-scroll fixed inline-block",
+          "min-h-full max-h-full scrolling-touch fixed inline-block",
+          overflowClass,
           size === "fullscreen"
             ? "inset-0"
             : "inset-x-0 md:min-h-auto md:align-middle md:inset-auto md:relative h-full md:h-auto rounded-4",
