@@ -330,6 +330,7 @@ export default {
       "25": "25px",
       "30": "30px",
       "40": "40px",
+      "60": "60px",
       labelPopupIcon: "3px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
@@ -506,6 +507,8 @@ export default {
       modalLarge: "770px",
       checkbox: "24px",
       radioIndicator: "12px",
+      110: "110px",
+      200: "200px",
     },
 
     transitionDuration: {
