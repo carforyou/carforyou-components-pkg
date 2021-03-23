@@ -25,7 +25,7 @@ import WithLabel from "./components/fieldHelpers/withLabel"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 import Dropdown from "./components/dropdown/index"
 import DatePicker, { Locale } from "./components/datePicker/index"
-import CustomError from "./components/customError"
+import CustomErrorPage from "./components/customErrorPage"
 import Collapsible from "./components/collapsible"
 import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
@@ -65,5 +65,5 @@ export {
   Locale,
   CheckboxFilter,
   InputFilter,
-  CustomError,
+  CustomErrorPage,
 }

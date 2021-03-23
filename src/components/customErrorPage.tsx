@@ -3,14 +3,16 @@ import React, { FC } from "react"
 import Button from "./button"
 
 interface Props {
-  statusCode: number
+  statusCode: number | "default"
+  image: string
   pageTitle: string
   pageSubtitle: string
   redirectHref: string
   redirectLabel: string
 }
-const CustomError: FC<Props> = ({
+const CustomErrorPage: FC<Props> = ({
   statusCode,
+  image,
   pageTitle,
   pageSubtitle,
   redirectHref,
@@ -18,18 +20,14 @@ const CustomError: FC<Props> = ({
 }) => {
   return (
     <div
-      data-testid={statusCode === 404 ? "error404" : "errorDefault"}
+      data-testid={`error${statusCode}`}
       className="text-center pageWithFooter flex flex-col items-center justify-center"
     >
-      {statusCode === 404 ? (
-        <img src="/error404.png" className="w-110 lg:w-200" alt="404 page" />
-      ) : (
-        <img
-          src="/error-default.png"
-          className="w-110 lg:w-200"
-          alt="Error page"
-        />
-      )}
+      <img
+        src={image}
+        className="w-110 lg:w-200"
+        alt={`${statusCode} Error page`}
+      />
       <h1 className="text-xl md:text-3xl">{pageTitle}</h1>
       <h2 className="text-xl mt-20 mb-10 lg:mb-60 font-regular">
         {pageSubtitle}
@@ -45,5 +43,5 @@ const CustomError: FC<Props> = ({
   )
 }
 
-export default CustomError
+export default CustomErrorPage
 export { Props as Error404Props }
