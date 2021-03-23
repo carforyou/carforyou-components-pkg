@@ -3,13 +3,18 @@ import React, { RefObject, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
-import Modal, { ModalSize, ModalStyle } from "../components/modal/index"
+import Modal, {
+  ModalOverflow,
+  ModalSize,
+  ModalStyle,
+} from "../components/modal/index"
 
 export interface UseModalOptions {
   size?: ModalSize
   style?: ModalStyle
   alwaysRender?: boolean
   container?: RefObject<HTMLDivElement>
+  verticalOverflow?: ModalOverflow
   onClose?: () => void
 }
 
@@ -23,6 +28,7 @@ const useModal = (
     style = "white",
     alwaysRender = false,
     container = null,
+    verticalOverflow = null,
     onClose = null,
   } = options || {}
 
@@ -45,7 +51,13 @@ const useModal = (
   }, [isVisible])
 
   const renderModalComponent = () => (
-    <Modal close={closeModal} onClose={onClose} size={size} style={style}>
+    <Modal
+      close={closeModal}
+      onClose={onClose}
+      size={size}
+      style={style}
+      verticalOverflow={verticalOverflow}
+    >
       {modal}
     </Modal>
   )
