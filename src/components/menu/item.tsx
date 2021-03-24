@@ -25,7 +25,7 @@ interface Props {
   /**
    * component to wrap the link with
    */
-  LinkWrapper?: ComponentType<{ href?: string }>
+  LinkWrapper?: ComponentType<{ href: string }>
 }
 
 const MenuItem: FC<Props> = ({
