@@ -93,7 +93,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                     "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
                       position === "right",
                   },
-                  "select",
+                  "select bg-white",
                   selectClasses(isOpen)
                 ),
                 name,
@@ -141,7 +141,7 @@ const Select = forwardRef<HTMLInputElement, Props<any>>(
                     "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
                       position === "right",
                   },
-                  "select",
+                  "select bg-white",
                   selectClasses(isOpen),
                   {
                     "select-toggle_disabled": disabled,

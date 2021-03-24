@@ -200,6 +200,7 @@ export default {
     */
     fontSize: {
       "0": "0px",
+      xxs: "10px",
       xs: "12px",
       sm: "14px",
       base: "16px",
@@ -284,6 +285,7 @@ export default {
     letterSpacing: {
       normal: "0",
       wide: "1px",
+      wider: "2px",
     },
 
     /*
