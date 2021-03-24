@@ -183,6 +183,7 @@ Object {
       "sm": "14px",
       "xl": "24px",
       "xs": "12px",
+      "xxs": "10px",
     },
     "fontWeight": Object {
       "bold": 700,
@@ -217,6 +218,7 @@ Object {
     "letterSpacing": Object {
       "normal": "0",
       "wide": "1px",
+      "wider": "2px",
     },
     "lineHeight": Object {
       "label": "24px",

@@ -12,6 +12,9 @@ import PreviewCard from "./components/previewCard/index"
 import Pill from "./components/pill"
 import Pagination from "./components/pagination"
 import OpeningHours from "./components/openingHours"
+import MenuSectionTitle from "./components/menu/sectionTitle"
+import MenuItem from "./components/menu/item"
+import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
 import Profile from "./components/icons/profile"
@@ -64,4 +67,8 @@ export {
   Locale,
   CheckboxFilter,
   InputFilter,
+  MenuItem,
+  MenuSectionTitle,
+  MenuElement,
+  MenuElementProps,
 }
