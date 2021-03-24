@@ -10,10 +10,9 @@ export default {
   args: {
     statusCode: 404,
     image: "error404.png",
-    pageTitle: "Page not found",
-    pageSubtitle: "The requested page does no longer exist",
-    redirectHref: "/",
-    redirectLabel: "Go to home page",
+    title: "Page not found",
+    subtitle: "The requested page does no longer exist",
+    buttonLabel: "Go to home page",
   },
 }
 

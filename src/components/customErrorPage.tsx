@@ -14,28 +14,23 @@ interface Props {
   /**
    * the page title as an h1 heading
    */
-  pageTitle: string
+  title: string
   /**
    * the page subtitle as an h2 heading
    */
-  pageSubtitle: string
-  /**
-   * the redirection path on click of the button
-   */
-  redirectHref: string
+  subtitle: string
   /**
    * the label for the redirection button
    */
-  redirectLabel: string
+  buttonLabel: string
 }
 
 const CustomErrorPage: FC<Props> = ({
   statusCode,
   image,
-  pageTitle,
-  pageSubtitle,
-  redirectHref,
-  redirectLabel,
+  title,
+  subtitle,
+  buttonLabel,
 }) => {
   return (
     <div
@@ -47,14 +42,12 @@ const CustomErrorPage: FC<Props> = ({
         className="w-110 lg:w-200"
         alt={`${statusCode} Error page`}
       />
-      <h1 className="text-xl md:text-3xl">{pageTitle}</h1>
-      <h2 className="text-xl mt-20 mb-10 lg:mb-60 font-regular">
-        {pageSubtitle}
-      </h2>
+      <h1 className="text-xl md:text-3xl">{title}</h1>
+      <h2 className="text-xl mt-20 mb-10 lg:mb-60 font-regular">{subtitle}</h2>
       <div className="w-110 lg:w-200">
         <Button>
-          <a href={redirectHref} className="mx-auto">
-            {redirectLabel}
+          <a href="/" className="mx-auto">
+            {buttonLabel}
           </a>
         </Button>
       </div>
