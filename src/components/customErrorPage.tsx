@@ -3,13 +3,32 @@ import React, { FC } from "react"
 import Button from "./button"
 
 interface Props {
+  /**
+   * Any status code number
+   */
   statusCode: number | "default"
+  /**
+   * the source path to the image you want to show
+   */
   image: string
+  /**
+   * the page title as an h1 heading
+   */
   pageTitle: string
+  /**
+   * the page subtitle as an h2 heading
+   */
   pageSubtitle: string
+  /**
+   * the redirection path on click of the button
+   */
   redirectHref: string
+  /**
+   * the label for the redirection button
+   */
   redirectLabel: string
 }
+
 const CustomErrorPage: FC<Props> = ({
   statusCode,
   image,
