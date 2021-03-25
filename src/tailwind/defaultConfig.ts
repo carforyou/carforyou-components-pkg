@@ -509,8 +509,6 @@ export default {
       modalLarge: "770px",
       checkbox: "24px",
       radioIndicator: "12px",
-      110: "110px",
-      200: "200px",
     },
 
     transitionDuration: {

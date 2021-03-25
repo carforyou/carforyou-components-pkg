@@ -2,7 +2,9 @@ import React, { FC } from "react"
 
 import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import CustomErrorPage, { Error404Props } from "../components/customErrorPage"
+import CustomErrorPage, {
+  Error404Props,
+} from "../components/error/customErrorPage"
 
 export default {
   title: "Error page",

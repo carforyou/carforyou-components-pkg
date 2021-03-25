@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 
-import Button from "./button"
+import styles from "./customErrorPage.module.css"
+import Button from "../button"
 
 interface Props {
   /**
@@ -39,12 +40,12 @@ const CustomErrorPage: FC<Props> = ({
     >
       <img
         src={image}
-        className="w-110 lg:w-200"
+        className={styles.image}
         alt={`${statusCode} Error page`}
       />
       <h1 className="text-xl md:text-3xl">{title}</h1>
       <h2 className="text-xl mt-20 mb-10 lg:mb-60 font-regular">{subtitle}</h2>
-      <div className="w-110 lg:w-200">
+      <div className={styles.buttonContainer}>
         <Button>
           <a href="/" className="mx-auto">
             {buttonLabel}
