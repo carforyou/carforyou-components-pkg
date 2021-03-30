@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FC } from "react"
+import React, { FC } from "react"
 
 import Select from "./select"
-import Input from "./input"
+import Input from "./input/index"
 
 // import Label from "./label"
 
@@ -10,7 +10,8 @@ interface Props {
     min: string
     max: string
   }
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void
+  handleChangeMin: (value) => void
+  handleChangeMax: (value) => void
   value?: {
     min: number
     max: number
@@ -25,12 +26,13 @@ interface Props {
   }
   required?: boolean
   select: boolean
-  options: Array<{ name: string; value: string | { customValue: string } }>
+  options?: Array<{ name: string; value: number | { customValue: number } }>
 }
 
 const RangeSelect: FC<Props> = ({
   name: { min: minName, max: maxName },
-  handleChange,
+  handleChangeMin,
+  handleChangeMax,
   value: { min: minValue = "", max: maxValue = "" } = {},
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" } = {},
   select,
@@ -45,7 +47,8 @@ const RangeSelect: FC<Props> = ({
               name={minName}
               placeholder={minPlaceholder}
               options={options}
-              handleChange={handleChange}
+              selected={minValue ? Number(minValue) : null}
+              handleChange={handleChangeMin}
               position="left"
               inputMode="numeric"
               withAutosuggest
@@ -57,7 +60,8 @@ const RangeSelect: FC<Props> = ({
               name={maxName}
               placeholder={maxPlaceholder}
               options={options}
-              handleChange={handleChange}
+              selected={maxValue ? Number(maxValue) : null}
+              handleChange={handleChangeMax}
               position="right"
               inputMode="numeric"
               withAutosuggest
@@ -74,7 +78,7 @@ const RangeSelect: FC<Props> = ({
               mode="numeric"
               placeholder={minPlaceholder}
               position="left"
-              onChange={handleChange}
+              onChange={handleChangeMin}
             />
           </div>
           <div className="w-6/12">
@@ -84,7 +88,7 @@ const RangeSelect: FC<Props> = ({
               mode="numeric"
               placeholder={maxPlaceholder}
               position="right"
-              onChange={handleChange}
+              onChange={handleChangeMax}
             />
           </div>
         </div>

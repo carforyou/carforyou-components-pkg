@@ -17,7 +17,8 @@ export default {
       min: "string",
       max: "string",
     },
-    handleChange: onChange(),
+    handleChangeMin: onChange(),
+    handleChangeMax: onChange(),
     isValid: {
       min: true,
       max: true,
@@ -57,13 +58,15 @@ Default.args = {
 export const Select = Template.bind({})
 Select.args = {
   storyName: "Select",
+  minValue: 1,
+  maxValue: 6,
   options: [
-    { value: 1, name: "One" },
-    { value: 2, name: "Two" },
-    { value: 3, name: "Three" },
-    { value: 4, name: "Four" },
-    { value: 5, name: "Five" },
-    { value: 6, name: "Six" },
+    { name: "One", value: 1 },
+    { name: "Two", value: 2 },
+    { name: "Three", value: 3 },
+    { name: "Four", value: 4 },
+    { name: "Five", value: 5 },
+    { name: "Six", value: 6 },
   ],
   select: true,
 }
