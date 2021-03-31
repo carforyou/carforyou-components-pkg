@@ -5,7 +5,7 @@ import { formatNumber } from "../../lib/formattingHelper"
 import Checkbox from "../../components/checkbox"
 
 interface Item {
-  value: string | number
+  value: string | number | boolean
   label: string
   renderIcon?: () => ReactNode
 }
@@ -14,7 +14,7 @@ interface Props {
   name: string
   options: Item[]
   apply: (filtersToApply) => void
-  selected?: (string | number)[]
+  selected?: (string | number | boolean)[]
   facet?: { [key: string]: number }
 }
 
@@ -45,7 +45,7 @@ const CheckboxFilter: FC<Props> = ({
   }
 
   const renderOption = ({ value, label, renderIcon }: Item) => {
-    const isSelected = selected.includes(value)
+    const isSelected = selected.includes(value.toString())
     const resultsCount = facet[value.toString()] || 0
     const hasFacet = Object.keys(facet).length > 0
     const isDisabled = hasFacet && resultsCount === 0 && !isSelected
