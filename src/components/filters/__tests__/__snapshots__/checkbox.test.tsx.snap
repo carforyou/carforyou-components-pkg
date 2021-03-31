@@ -185,7 +185,6 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 class="flex items-center ml-5"
               >
                 <input
-                  checked=""
                   class=""
                   data-valid="true"
                   id="filter_testFilter_1"
@@ -229,7 +228,6 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 class="flex items-center ml-5"
               >
                 <input
-                  checked=""
                   class=""
                   data-valid="true"
                   id="filter_testFilter_2"
