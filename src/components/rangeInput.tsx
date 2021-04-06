@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import Select from "./select"
+import Input from "./input/index"
 
 interface Props {
   name: {
@@ -22,48 +22,40 @@ interface Props {
     max: string
   }
   required?: boolean
-  options?: Array<{ name: string; value: number | { customValue: number } }>
 }
 
-const RangeSelect: FC<Props> = ({
+const RangeInput: FC<Props> = ({
   name: { min: minName, max: maxName },
   handleChangeMin,
   handleChangeMax,
   value: { min: minValue = "", max: maxValue = "" } = {},
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" } = {},
-  options,
 }) => {
   return (
-    <div className="relative inline-flex">
-      <div className="inline-block w-6/12">
-        <Select
+    <div className="flex flex-wrap">
+      <div className="w-6/12">
+        <Input
           name={minName}
+          value={minValue}
+          mode="numeric"
           placeholder={minPlaceholder}
-          options={options}
-          selected={minValue ? Number(minValue) : null}
-          handleChange={handleChangeMin}
           position="left"
-          inputMode="numeric"
-          withAutosuggest
-          skipContainer
+          onChange={handleChangeMin}
         />
       </div>
-      <div className="inline-block w-6/12">
-        <Select
+      <div className="w-6/12">
+        <Input
           name={maxName}
+          value={maxValue}
+          mode="numeric"
           placeholder={maxPlaceholder}
-          options={options}
-          selected={maxValue ? Number(maxValue) : null}
-          handleChange={handleChangeMax}
           position="right"
-          inputMode="numeric"
-          withAutosuggest
-          skipContainer
+          onChange={handleChangeMax}
         />
       </div>
     </div>
   )
 }
 
-export default RangeSelect
-export { Props as RangeSelectProps }
+export default RangeInput
+export { Props as RangeInputProps }

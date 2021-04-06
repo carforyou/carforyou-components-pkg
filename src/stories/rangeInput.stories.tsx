@@ -4,13 +4,13 @@ import { action } from "@storybook/addon-actions"
 
 import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import RangeSelect, { RangeSelectProps } from "../components/rangeSelect"
+import RangeInput, { RangeInputProps } from "../components/rangeInput"
 
 const onChange = () => action("onChange")
 
 export default {
-  title: "RangeSelect",
-  component: RangeSelect,
+  title: "RangeInput",
+  component: RangeInput,
   args: {
     storyName: "",
     name: {
@@ -38,13 +38,13 @@ export default {
   },
 }
 
-interface Props extends StoryProps<unknown>, RangeSelectProps {}
+interface Props extends StoryProps<unknown>, RangeInputProps {}
 
 const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
-      component={<RangeSelect {...args} />}
+      component={<RangeInput {...args} />}
     />
   )
 }
@@ -54,12 +54,4 @@ Select.args = {
   storyName: "Default",
   minValue: 1,
   maxValue: 6,
-  options: [
-    { name: "One", value: 1 },
-    { name: "Two", value: 2 },
-    { name: "Three", value: 3 },
-    { name: "Four", value: 4 },
-    { name: "Five", value: 5 },
-    { name: "Six", value: 6 },
-  ],
 }
