@@ -40,6 +40,7 @@ const RangeInput: FC<Props> = ({
           mode="numeric"
           placeholder={minPlaceholder}
           position="left"
+          hasClearButton
           onChange={handleChangeMin}
         />
       </div>
@@ -48,6 +49,7 @@ const RangeInput: FC<Props> = ({
           name={maxName}
           value={maxValue}
           mode="numeric"
+          hasClearButton
           placeholder={maxPlaceholder}
           position="right"
           onChange={handleChangeMax}
