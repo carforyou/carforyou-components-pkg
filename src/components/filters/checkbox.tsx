@@ -16,7 +16,7 @@ interface Props {
   apply: (filtersToApply) => void
   selected?: (string | number)[]
   facet?: { [key: string]: number }
-  tracking?: (value) => void
+  onSelect?: (value) => void
 }
 
 const CheckboxFilter: FC<Props> = ({
@@ -25,14 +25,16 @@ const CheckboxFilter: FC<Props> = ({
   apply: applyFilters,
   selected = [],
   facet = {},
-  tracking,
+  onSelect,
 }) => {
   const values = options.map(({ value }) => value)
 
   const selectValue = (value) => () => {
     const selectionCopy = [...selected]
 
-    tracking ? tracking(value) : null
+    if (onSelect) {
+      onSelect(value)
+    }
 
     if (selectionCopy.includes(value)) {
       const i = selectionCopy.indexOf(value)

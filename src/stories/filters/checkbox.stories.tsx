@@ -101,3 +101,9 @@ WithIcon.args = {
     },
   ],
 }
+
+export const WithOnSelect = Template.bind({})
+WithOnSelect.args = {
+  storyName: "With onSelect",
+  onSelect: action("on Click"),
+}
