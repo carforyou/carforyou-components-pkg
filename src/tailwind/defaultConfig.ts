@@ -332,6 +332,7 @@ export default {
       "25": "25px",
       "30": "30px",
       "40": "40px",
+      "60": "60px",
       labelPopupIcon: "3px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",

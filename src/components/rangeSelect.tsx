@@ -30,7 +30,7 @@ const RangeSelect: FC<Props> = ({
   handleChangeMin,
   handleChangeMax,
   value: { min: minValue = "", max: maxValue = "" } = {},
-  placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" } = {},
+  placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
   options,
 }) => {
   return (

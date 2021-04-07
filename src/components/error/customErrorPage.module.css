@@ -1,0 +1,9 @@
+.image, .buttonContainer {
+    width: 110px
+}
+
+@screen lg {
+    .image, .buttonContainer {
+        width: 200px;
+    }
+}

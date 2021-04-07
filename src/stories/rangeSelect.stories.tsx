@@ -12,10 +12,9 @@ export default {
   title: "RangeSelect",
   component: RangeSelect,
   args: {
-    storyName: "",
     name: {
-      min: "string",
-      max: "string",
+      min: "min",
+      max: "max",
     },
     handleChangeMin: onChange(),
     handleChangeMax: onChange(),
@@ -49,11 +48,9 @@ const Template: FC<Props> = (args) => {
   )
 }
 
-export const Select = Template.bind({})
-Select.args = {
+export const Default = Template.bind({})
+Default.args = {
   storyName: "Default",
-  minValue: 1,
-  maxValue: 6,
   options: [
     { name: "One", value: 1 },
     { name: "Two", value: 2 },

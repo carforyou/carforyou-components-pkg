@@ -12,10 +12,13 @@ export default {
   title: "RangeInput",
   component: RangeInput,
   args: {
-    storyName: "",
     name: {
-      min: "string",
-      max: "string",
+      min: "min",
+      max: "max",
+    },
+    value: {
+      min: "",
+      max: "",
     },
     handleChangeMin: onChange(),
     handleChangeMax: onChange(),
@@ -27,7 +30,7 @@ export default {
       min: "min",
       max: "max",
     },
-    required: true,
+    required: false,
   },
   argTypes: {
     storyName: {
@@ -49,9 +52,13 @@ const Template: FC<Props> = (args) => {
   )
 }
 
-export const Select = Template.bind({})
-Select.args = {
+export const Default = Template.bind({})
+Default.args = {
   storyName: "Default",
-  minValue: 1,
-  maxValue: 6,
+}
+
+export const WithLabel = Template.bind({})
+WithLabel.args = {
+  storyName: "With Label",
+  rangeInputLabel: "Label",
 }

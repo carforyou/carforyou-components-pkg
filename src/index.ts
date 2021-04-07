@@ -27,6 +27,7 @@ import InputFilter from "./components/filters/input"
 import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
 import WithLabel from "./components/fieldHelpers/withLabel"
+import CustomErrorPage from "./components/error/customErrorPage"
 import DropdownWithAutosuggest from "./components/dropdown/withAutosuggest"
 import Dropdown from "./components/dropdown/index"
 import DatePicker, { Locale } from "./components/datePicker/index"
@@ -75,4 +76,5 @@ export {
   MenuElementProps,
   RangeSelect,
   RangeInput,
+  CustomErrorPage,
 }
