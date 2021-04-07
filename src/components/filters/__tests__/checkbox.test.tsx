@@ -15,6 +15,7 @@ const renderWrapper = ({
   selected = [],
   facet = {},
   children = null,
+  onSelect = jest.fn(),
 } = {}) => {
   return render(
     <CheckboxFilter
@@ -23,6 +24,7 @@ const renderWrapper = ({
       apply={applyFilters}
       selected={selected}
       facet={facet}
+      onSelect={onSelect}
     >
       {children}
     </CheckboxFilter>
@@ -122,5 +124,14 @@ describe("<CheckboxFilter/>", () => {
     })
 
     expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
+  })
+
+  it("calls onSelect when the value is selected", () => {
+    const onSelectFilterMock = jest.fn()
+    const { getByText } = renderWrapper({ onSelect: onSelectFilterMock })
+
+    fireEvent.click(getByText("Three"))
+
+    expect(onSelectFilterMock).toHaveBeenCalledWith(3)
   })
 })

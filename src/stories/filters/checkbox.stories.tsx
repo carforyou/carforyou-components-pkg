@@ -23,6 +23,7 @@ const Wrapper = (props) => {
         action("applyFilters")
         setSelection(filters[props.name])
       }}
+      onSelect={action("on Click")}
     />
   )
 }
@@ -100,4 +101,10 @@ WithIcon.args = {
       ),
     },
   ],
+}
+
+export const WithOnSelect = Template.bind({})
+WithOnSelect.args = {
+  storyName: "With onSelect",
+  onSelect: action("on Click"),
 }
