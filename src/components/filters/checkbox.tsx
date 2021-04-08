@@ -16,7 +16,7 @@ interface Props {
   apply: (filtersToApply) => void
   selected?: (string | number)[]
   facet?: { [key: string]: number }
-  onSelect?: (value) => void
+  onSelect?: (value: string | number) => void
 }
 
 const CheckboxFilter: FC<Props> = ({
