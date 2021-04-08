@@ -127,17 +127,15 @@ class Menu<T> extends Component<Props<T>> {
             padding
           )
 
-          const key =
-            item.key || typeof item.value === "object"
-              ? `item-${index}`
-              : item.value?.toString()
-
           return (
             // eslint-disable-next-line react/jsx-key
             <li
               data-testid={item.name}
               {...getItemProps({
-                key,
+                key:
+                  item.key ||
+                  (typeof item.value !== "object" && item.value.toString()) ||
+                  `item-${index}`,
                 item,
                 className: classNames(
                   "hover:bg-grey-bright transition duration-200 cursor-pointer",
