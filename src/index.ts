@@ -7,6 +7,8 @@ import Textarea from "./components/textarea"
 import Spinner from "./components/spinner"
 import Select from "./components/select"
 import SegmentedControl from "./components/segmentedControl/index"
+import RangeSelect from "./components/rangeSelect"
+import RangeInput from "./components/rangeInput"
 import RadioButton from "./components/radioButton"
 import PreviewCard from "./components/previewCard/index"
 import Pill from "./components/pill"
@@ -72,5 +74,7 @@ export {
   MenuSectionTitle,
   MenuElement,
   MenuElementProps,
+  RangeSelect,
+  RangeInput,
   CustomErrorPage,
 }
