@@ -59,6 +59,6 @@ Default.args = {
 
 export const WithLabel = Template.bind({})
 WithLabel.args = {
-  storyName: "With Label",
+  storyName: "With label",
   rangeInputLabel: "Label",
 }
