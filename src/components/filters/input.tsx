@@ -14,7 +14,7 @@ interface Props {
   min?: number
   max?: number
   position?: "left" | "right"
-  apply: (filtersToApply) => void
+  apply(event)
 }
 
 interface State {
@@ -33,26 +33,21 @@ export default class InputFilter extends Component<Props, State> {
   timeoutFn = null
 
   onChange = (event) => {
-    const value = event.target.value
-    this.setState({ value })
+    this.setState({ value: event.target.value })
     if (event.target.cleared) {
-      this.props.apply({ [this.props.name]: value })
+      this.props.apply(event)
     }
   }
 
   onKeyDown = (event) => {
     clearTimeout(this.timeoutFn)
     event.persist()
-    const value = event.target.value
 
     if (event.keyCode === 13) {
       event.preventDefault()
-      this.props.apply({ [this.props.name]: value })
+      this.props.apply(event)
     } else {
-      this.timeoutFn = setTimeout(
-        () => this.props.apply({ [this.props.name]: value }),
-        timeout
-      )
+      this.timeoutFn = setTimeout(() => this.props.apply(event), timeout)
     }
   }
 
@@ -69,9 +64,8 @@ export default class InputFilter extends Component<Props, State> {
 
   onBlur = (event) => {
     clearTimeout(this.timeoutFn)
-    const value = event.target.value
-    this.props.apply({ [this.props.name]: value })
-    this.setState({ refocus: false, value })
+    this.props.apply(event)
+    this.setState({ refocus: false, value: event.target.value })
   }
 
   componentDidUpdate(prevProps) {
