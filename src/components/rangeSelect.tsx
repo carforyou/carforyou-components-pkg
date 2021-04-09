@@ -3,62 +3,53 @@ import React, { FC } from "react"
 import Select from "./select"
 
 interface Props {
-  name: {
-    min: string
-    max: string
+  name: string
+  handleChange: {
+    min: (value) => void
+    max: (value) => void
   }
-  handleChangeMin: (value) => void
-  handleChangeMax: (value) => void
   value?: {
     min: number
     max: number
-  }
-  isValid?: {
-    min: boolean
-    max: boolean
   }
   placeholder?: {
     min: string
     max: string
   }
-  required?: boolean
-  options?: Array<{ name: string; value: number | { customValue: number } }>
+  options?: Array<{ name: string; value: number }>
 }
 
 const RangeSelect: FC<Props> = ({
-  name: { min: minName, max: maxName },
-  handleChangeMin,
-  handleChangeMax,
-  value: { min: minValue = "", max: maxValue = "" } = {},
+  name,
+  handleChange: { min: handleChangeMin, max: handleChangeMax } = {},
+  value: { min: minValue = null, max: maxValue = null } = {},
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
   options,
 }) => {
   return (
-    <div className="relative inline-flex">
+    <div>
       <div className="inline-block w-6/12">
         <Select
-          name={minName}
+          name={`${name}From`}
           placeholder={minPlaceholder}
           options={options}
           selected={minValue ? Number(minValue) : null}
           handleChange={handleChangeMin}
           position="left"
-          inputMode="numeric"
-          withAutosuggest
-          skipContainer
+          withAutosuggest={false}
+          skipContainer={false}
         />
       </div>
       <div className="inline-block w-6/12">
         <Select
-          name={maxName}
+          name={`${name}To`}
           placeholder={maxPlaceholder}
           options={options}
           selected={maxValue ? Number(maxValue) : null}
           handleChange={handleChangeMax}
           position="right"
-          inputMode="numeric"
-          withAutosuggest
-          skipContainer
+          withAutosuggest={false}
+          skipContainer={false}
         />
       </div>
     </div>

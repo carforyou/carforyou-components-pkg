@@ -12,15 +12,10 @@ export default {
   title: "RangeSelect",
   component: RangeSelect,
   args: {
-    name: {
-      min: "min",
-      max: "max",
-    },
-    handleChangeMin: onChange(),
-    handleChangeMax: onChange(),
-    isValid: {
-      min: true,
-      max: true,
+    name: "rangeSelect",
+    handleChange: {
+      min: onChange(),
+      max: onChange(),
     },
     placeholder: {
       min: "min",

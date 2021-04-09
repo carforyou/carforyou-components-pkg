@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeInput renders RangeInput correctly 1`] = `
+<div>
+  <div
+    class="flex flex-wrap"
+  >
+    <div
+      class="w-6/12"
+    >
+      <div
+        class="w-12/12 focus-within:text-teal"
+      >
+        <div
+          class="relative pb-px"
+        >
+          <div
+            class="validation-inputContainer mb-20"
+          >
+            <div
+              class="relative flex w-12/12 clearButton-container"
+            >
+              <input
+                class="w-12/12 input_withClearButton input_left hover:z-1 hover:transition hover:duration-200 focus:z-1"
+                data-testid="nameFrom"
+                data-valid="true"
+                id="nameFrom"
+                inputmode="numeric"
+                name="nameFrom"
+                placeholder="min"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-6/12"
+    >
+      <div
+        class="w-12/12 focus-within:text-teal"
+      >
+        <div
+          class="relative pb-px"
+        >
+          <div
+            class="validation-inputContainer mb-20"
+          >
+            <div
+              class="relative flex w-12/12 clearButton-container"
+            >
+              <input
+                class="w-12/12 input_withClearButton input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1"
+                data-testid="nameTo"
+                data-valid="true"
+                id="nameTo"
+                inputmode="numeric"
+                name="nameTo"
+                placeholder="max"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

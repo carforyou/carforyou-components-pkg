@@ -12,25 +12,17 @@ export default {
   title: "RangeInput",
   component: RangeInput,
   args: {
-    name: {
-      min: "min",
-      max: "max",
-    },
-    value: {
-      min: "",
-      max: "",
-    },
-    handleChangeMin: onChange(),
-    handleChangeMax: onChange(),
-    isValid: {
-      min: true,
-      max: true,
-    },
+    name: "rangeName",
+    handleChange: onChange(),
+    required: false,
     placeholder: {
       min: "min",
       max: "max",
     },
-    required: false,
+    value: {
+      min: null,
+      max: null,
+    },
   },
   argTypes: {
     storyName: {
@@ -41,7 +33,9 @@ export default {
   },
 }
 
-interface Props extends StoryProps<unknown>, RangeInputProps {}
+interface Props extends StoryProps<unknown>, RangeInputProps {
+  label: string
+}
 
 const Template: FC<Props> = (args) => {
   return (
@@ -60,5 +54,5 @@ Default.args = {
 export const WithLabel = Template.bind({})
 WithLabel.args = {
   storyName: "With label",
-  rangeInputLabel: "Label",
+  label: "Label",
 }

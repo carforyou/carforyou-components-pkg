@@ -1,9 +1,8 @@
 import React, { FC } from "react"
 
 interface Props {
-  label?: string
+  fieldName?: string
   required?: boolean
-  htmlFor?: string
 }
 
 const Required: FC = () => (
@@ -12,14 +11,12 @@ const Required: FC = () => (
   </span>
 )
 
-const Label: FC<Props> = ({ label, required = false, htmlFor }) => {
-  if (!label) return null
-  htmlFor = htmlFor || label
-
+const Label: FC<Props> = ({ fieldName, required = false }) => {
+  if (!fieldName) return null
   return (
-    <label htmlFor={htmlFor}>
+    <label>
       <b className="text-lg flex leading-label mb-5">
-        <span className="text-base">{label}</span>
+        <span className="text-base">{fieldName}</span>
         {required ? <Required /> : null}
       </b>
     </label>

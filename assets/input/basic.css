@@ -87,7 +87,8 @@ textarea[data-valid="false"]:focus {
   @apply text-grey-dark;
 }
 
-input.input_left {
+input.input_left,
+div.input_left {
   @apply rounded-r-none;
 }
 
