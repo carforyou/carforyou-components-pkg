@@ -14,7 +14,7 @@ interface Props {
   min?: number
   max?: number
   position?: "left" | "right"
-  apply(event)
+  apply: (event) => void
 }
 
 interface State {
