@@ -47,11 +47,11 @@ export const Default = Template.bind({})
 Default.args = {
   storyName: "Default",
   options: [
-    { name: "One", value: 1 },
-    { name: "Two", value: 2 },
-    { name: "Three", value: 3 },
-    { name: "Four", value: 4 },
-    { name: "Five", value: 5 },
-    { name: "Six", value: 6 },
+    { value: 1, name: "1" },
+    { value: 2, name: "2" },
+    { value: 3, name: "3" },
+    { value: 4, name: "4" },
+    { value: 5, name: "5" },
+    { value: 6, name: "6" },
   ],
 }

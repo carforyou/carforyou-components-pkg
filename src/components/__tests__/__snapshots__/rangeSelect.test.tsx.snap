@@ -2,49 +2,47 @@
 
 exports[`RangeSelect renders RangeSelect correctly 1`] = `
 <div>
-  <div>
+  <div
+    class="relative inline-flex"
+  >
     <div
       class="inline-block w-6/12"
     >
       <div
-        class="w-12/12 relative"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby=""
+        class="w-12/12"
+        role="combobox"
       >
         <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-labelledby=""
-          class="w-12/12"
-          role="combobox"
+          class="relative pb-px"
         >
-          <button
-            aria-haspopup="true"
-            aria-label="open menu"
-            class="w-12/12 cursor-pointer transition duration-200 focus:outline-none"
-            data-testid="dropdown-toggle"
-            data-toggle="true"
-            role="button"
-            type="button"
+          <div
+            class="validation-inputContainer mb-20"
           >
             <div
-              class="relative pb-px"
+              class="relative flex w-12/12 clearButton-container"
             >
-              <div
-                class="validation-inputContainer mb-20"
-              >
-                <div
-                  class="relative flex w-12/12 clearButton-container"
-                >
-                  <div
-                    class="w-12/12 text-left select-toggle input_withClearButton input_left hover:z-1 hover:transition hover:duration-200 focus:z-1 select bg-white select_closed text-grey-4"
-                    data-valid="true"
-                  >
-                    min
-                  </div>
-                </div>
-              </div>
-              <div />
+              <input
+                aria-autocomplete="list"
+                aria-labelledby=""
+                autocomplete="off"
+                autocorrect="off"
+                class="input_withClearButton input_left hover:z-1 hover:transition hover:duration-200 focus:z-1 select bg-white select_closed cursor-text w-12/12 overflow-hidden"
+                data-testid="nameFrom"
+                data-valid="true"
+                id="nameFrom"
+                inputmode="numeric"
+                name="nameFrom"
+                placeholder="min"
+                spellcheck="false"
+                type="number"
+                value=""
+              />
             </div>
-          </button>
+          </div>
+          <div />
         </div>
       </div>
     </div>
@@ -52,44 +50,40 @@ exports[`RangeSelect renders RangeSelect correctly 1`] = `
       class="inline-block w-6/12"
     >
       <div
-        class="w-12/12 relative"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby=""
+        class="w-12/12"
+        role="combobox"
       >
         <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-labelledby=""
-          class="w-12/12"
-          role="combobox"
+          class="relative pb-px"
         >
-          <button
-            aria-haspopup="true"
-            aria-label="open menu"
-            class="w-12/12 cursor-pointer transition duration-200 focus:outline-none"
-            data-testid="dropdown-toggle"
-            data-toggle="true"
-            role="button"
-            type="button"
+          <div
+            class="validation-inputContainer mb-20"
           >
             <div
-              class="relative pb-px"
+              class="relative flex w-12/12 clearButton-container"
             >
-              <div
-                class="validation-inputContainer mb-20"
-              >
-                <div
-                  class="relative flex w-12/12 clearButton-container"
-                >
-                  <div
-                    class="w-12/12 text-left select-toggle input_withClearButton input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1 select bg-white select_closed text-grey-4"
-                    data-valid="true"
-                  >
-                    max
-                  </div>
-                </div>
-              </div>
-              <div />
+              <input
+                aria-autocomplete="list"
+                aria-labelledby=""
+                autocomplete="off"
+                autocorrect="off"
+                class="input_withClearButton input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1 select bg-white select_closed cursor-text w-12/12 overflow-hidden"
+                data-testid="nameTo"
+                data-valid="true"
+                id="nameTo"
+                inputmode="numeric"
+                name="nameTo"
+                placeholder="max"
+                spellcheck="false"
+                type="number"
+                value=""
+              />
             </div>
-          </button>
+          </div>
+          <div />
         </div>
       </div>
     </div>

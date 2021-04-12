@@ -27,7 +27,7 @@ const RangeSelect: FC<Props> = ({
   options,
 }) => {
   return (
-    <div>
+    <div className="relative inline-flex">
       <div className="inline-block w-6/12">
         <Select
           name={`${name}From`}
@@ -36,8 +36,9 @@ const RangeSelect: FC<Props> = ({
           selected={minValue ? Number(minValue) : null}
           handleChange={handleChangeMin}
           position="left"
-          withAutosuggest={false}
-          skipContainer={false}
+          inputMode="numeric"
+          withAutosuggest
+          skipContainer
         />
       </div>
       <div className="inline-block w-6/12">
@@ -48,8 +49,9 @@ const RangeSelect: FC<Props> = ({
           selected={maxValue ? Number(maxValue) : null}
           handleChange={handleChangeMax}
           position="right"
-          withAutosuggest={false}
-          skipContainer={false}
+          inputMode="numeric"
+          withAutosuggest
+          skipContainer
         />
       </div>
     </div>

@@ -15,12 +15,12 @@ const renderWrapper = ({
   handleChangeMin = onChangeMin,
   handleChangeMax = onChangeMax,
   options = [
-    { name: "One", value: 1 },
-    { name: "Two", value: 2 },
-    { name: "Three", value: 3 },
-    { name: "Four", value: 4 },
-    { name: "Five", value: 5 },
-    { name: "Six", value: 6 },
+    { name: "1", value: 1 },
+    { name: "2", value: 2 },
+    { name: "3", value: 3 },
+    { name: "4", value: 4 },
+    { name: "5", value: 5 },
+    { name: "6", value: 6 },
   ],
 } = {}) =>
   render(
@@ -49,9 +49,11 @@ describe("RangeSelect", () => {
   })
 
   it("renders options on click", () => {
-    const { getByText } = renderWrapper()
-
-    fireEvent.click(getByText("max"))
-    expect(getByText("One"))
+    const { container, getByText } = renderWrapper()
+    const input = container.querySelector(
+      'input[name="nameTo"]'
+    ) as HTMLInputElement
+    fireEvent.click(input)
+    expect(getByText("1"))
   })
 })

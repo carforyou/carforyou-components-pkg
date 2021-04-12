@@ -17,16 +17,33 @@ interface Props {
   }
   required?: boolean
   label?: string
-  initialValue?: string
+  keyFrom?: string
+  keyTo?: string
+  onBlur?: (e) => void
+  onKeyDown?: (e) => void
+  onFocus?: (e) => void
+  autoFocus?: boolean
+  step?: number
+  min?: number
+  max?: number
 }
 
 const RangeInput: FC<Props> = ({
   name,
   handleChange,
+  onKeyDown,
+  onBlur,
+  onFocus,
   value: { min: minValue = null, max: maxValue = null },
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
   label,
   required = false,
+  keyFrom = "",
+  keyTo = "",
+  autoFocus = false,
+  step = null,
+  min = 0,
+  max = 9999999,
 }) => {
   return (
     <>
@@ -41,6 +58,14 @@ const RangeInput: FC<Props> = ({
             position="left"
             hasClearButton
             onChange={handleChange}
+            key={keyFrom}
+            onKeyDown={onKeyDown}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            autoFocus={autoFocus}
+            step={step}
+            min={min}
+            max={max}
           />
         </div>
         <div className="w-6/12">
@@ -52,6 +77,14 @@ const RangeInput: FC<Props> = ({
             placeholder={maxPlaceholder}
             position="right"
             onChange={handleChange}
+            key={keyTo}
+            onKeyDown={onKeyDown}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            autoFocus={autoFocus}
+            step={step}
+            min={min}
+            max={max}
           />
         </div>
       </div>
