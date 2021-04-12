@@ -132,7 +132,10 @@ class Menu<T> extends Component<Props<T>> {
             <li
               data-testid={item.name}
               {...getItemProps({
-                key: item.key || item.value?.toString() || `item-${index}`,
+                key:
+                  item.key ||
+                  (typeof item.value !== "object" && item.value.toString()) ||
+                  `item-${index}`,
                 item,
                 className: classNames(
                   "hover:bg-grey-bright transition duration-200 cursor-pointer",
