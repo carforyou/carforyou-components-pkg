@@ -57,6 +57,7 @@ const Collapsible: FC<Props> = ({
           setIsCollapsed(!isCollapsed)
         }}
         data-collapsed={isCollapsed}
+        data-testid="collapsible"
       >
         <div className="flex w-12/12 items-center">
           {renderToggle(isCollapsed)}
