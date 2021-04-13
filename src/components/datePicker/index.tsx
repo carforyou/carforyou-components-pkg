@@ -87,7 +87,7 @@ const DatePicker: FC<Props> = ({
           month: "2-digit",
           day: "2-digit",
         })}
-        onFocus={(e) => {
+        onFocus={() => {
           scrollIntoViewIfMobile(containerRef.current, 0, false)
           setShowCalendar(true)
         }}
