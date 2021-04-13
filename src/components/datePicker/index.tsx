@@ -1,7 +1,7 @@
 import Calendar from "react-calendar"
 import React, { FC, useEffect, useRef, useState } from "react"
 
-import { scrollIntoViewIfMobile } from "lib/scrollHelper"
+import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
 
 import styles from "./index.module.css"
 import Input from "../input/index"
