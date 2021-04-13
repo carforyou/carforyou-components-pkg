@@ -3,6 +3,7 @@ import React, { FC, useEffect, useRef, useState } from "react"
 
 import styles from "./index.module.css"
 import Input from "../input/index"
+import { scrollIntoViewIfMobile } from "lib/scrollHelper"
 
 const isToday = (date) => {
   if (!date) return false
@@ -85,7 +86,8 @@ const DatePicker: FC<Props> = ({
           month: "2-digit",
           day: "2-digit",
         })}
-        onFocus={() => {
+        onFocus={(e) => {
+          scrollIntoViewIfMobile(e.target, 300, false)
           setShowCalendar(true)
         }}
         onChange={({ target: { value } }) => {
