@@ -29,9 +29,17 @@ const renderWrapper = ({
   )
 
 describe("RangeInput", () => {
-  it("renders RangeInput correctly", () => {
+  it("renders two inputs element with expected name", () => {
     const { container } = renderWrapper()
-    expect(container).toMatchSnapshot()
+    const fromInput = container.querySelector(
+      'input[name="nameFrom"]'
+    ) as HTMLInputElement
+    const toInput = container.querySelector(
+      'input[name="nameTo"]'
+    ) as HTMLInputElement
+
+    expect(fromInput).toBeTruthy()
+    expect(toInput).toBeTruthy()
   })
 
   it("renders label if defined", () => {

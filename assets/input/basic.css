@@ -88,7 +88,7 @@ textarea[data-valid="false"]:focus {
 }
 
 input.input_left,
-div.input_left {
+input.input_left {
   @apply rounded-r-none;
 }
 
