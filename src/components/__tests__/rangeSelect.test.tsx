@@ -7,7 +7,8 @@ const onChangeMin = jest.fn()
 const onChangeMax = jest.fn()
 
 const renderWrapper = ({
-  name = "name",
+  minName = "nameFrom",
+  maxName = "nameTo",
   minValue = null,
   maxValue = null,
   minPlaceholder = "min",
@@ -25,7 +26,10 @@ const renderWrapper = ({
 } = {}) =>
   render(
     <RangeSelect
-      name={name}
+      name={{
+        min: minName,
+        max: maxName,
+      }}
       value={{
         min: minValue,
         max: maxValue,

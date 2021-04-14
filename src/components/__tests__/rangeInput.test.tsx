@@ -5,7 +5,8 @@ import RangeInput from "../rangeInput"
 
 const renderWrapper = ({
   label = null,
-  name = "name",
+  minName = "nameFrom",
+  maxName = "nameTo",
   minValue = null,
   maxValue = null,
   minPlaceholder = "min",
@@ -15,7 +16,10 @@ const renderWrapper = ({
   render(
     <RangeInput
       label={label}
-      name={name}
+      name={{
+        min: minName,
+        max: maxName,
+      }}
       value={{
         min: minValue,
         max: maxValue,

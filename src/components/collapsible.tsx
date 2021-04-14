@@ -48,21 +48,22 @@ const Collapsible: FC<Props> = ({
 
   return (
     <>
-      <a
+      <div
         className={classNames("flex items-center cursor-pointer", {
-          "hover:opacity-100": !opacityOnHover,
+          "transition duration-200 hover:opacity-60": opacityOnHover,
         })}
         onClick={() => {
           onChange && onChange(!isCollapsed)
           setIsCollapsed(!isCollapsed)
         }}
         data-collapsed={isCollapsed}
+        data-testid="collapsible"
       >
         <div className="flex w-12/12 items-center">
           {renderToggle(isCollapsed)}
           <ArrowDownM className={isCollapsed ? null : "rotate-180 transform"} />
         </div>
-      </a>
+      </div>
       {alwaysRender ? (
         <div className={isCollapsed ? "hidden" : "block"}>{children()}</div>
       ) : isCollapsed ? null : (

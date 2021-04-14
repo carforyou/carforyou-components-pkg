@@ -5,7 +5,10 @@ import Input from "./input/index"
 import Label from "./fieldHelpers/label"
 
 interface Props {
-  name: string
+  name: {
+    min: string
+    max: string
+  }
   handleChange: (value) => void
   value?: {
     min: number
@@ -20,7 +23,7 @@ interface Props {
 }
 
 const RangeInput: FC<Props> = ({
-  name,
+  name: { min: minName, max: maxName } = {},
   handleChange,
   value: { min: minValue = null, max: maxValue = null },
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
@@ -33,7 +36,7 @@ const RangeInput: FC<Props> = ({
       <div className="flex flex-wrap">
         <div className="w-6/12">
           <Input
-            name={`${name}From`}
+            name={minName}
             value={minValue}
             mode="numeric"
             placeholder={minPlaceholder}
@@ -44,7 +47,7 @@ const RangeInput: FC<Props> = ({
         </div>
         <div className="w-6/12">
           <Input
-            name={`${name}To`}
+            name={maxName}
             value={maxValue}
             mode="numeric"
             hasClearButton

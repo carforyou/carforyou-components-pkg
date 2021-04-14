@@ -12,7 +12,10 @@ export default {
   title: "RangeInput",
   component: RangeInput,
   args: {
-    name: "rangeName",
+    name: {
+      min: "rangeNameFrom",
+      max: "rangeNameTo",
+    },
     handleChange: onChange(),
     required: false,
     placeholder: {

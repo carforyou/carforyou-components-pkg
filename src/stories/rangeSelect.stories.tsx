@@ -12,7 +12,10 @@ export default {
   title: "RangeSelect",
   component: RangeSelect,
   args: {
-    name: "rangeSelect",
+    name: {
+      min: "rangeSelectFrom",
+      max: "rangeSelectTo",
+    },
     handleChange: {
       min: onChange(),
       max: onChange(),

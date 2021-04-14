@@ -3,7 +3,10 @@ import React, { FC } from "react"
 import Select from "./select"
 
 interface Props {
-  name: string
+  name: {
+    min: string
+    max: string
+  }
   handleChange: {
     min: (value) => void
     max: (value) => void
@@ -20,7 +23,7 @@ interface Props {
 }
 
 const RangeSelect: FC<Props> = ({
-  name,
+  name: { min: minName, max: maxName } = {},
   handleChange: { min: handleChangeMin, max: handleChangeMax } = {},
   value: { min: minValue = null, max: maxValue = null } = {},
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
@@ -30,7 +33,7 @@ const RangeSelect: FC<Props> = ({
     <div className="relative inline-flex">
       <div className="inline-block w-6/12">
         <Select
-          name={`${name}From`}
+          name={minName}
           placeholder={minPlaceholder}
           options={options}
           selected={minValue ? Number(minValue) : null}
@@ -43,7 +46,7 @@ const RangeSelect: FC<Props> = ({
       </div>
       <div className="inline-block w-6/12">
         <Select
-          name={`${name}To`}
+          name={maxName}
           placeholder={maxPlaceholder}
           options={options}
           selected={maxValue ? Number(maxValue) : null}
