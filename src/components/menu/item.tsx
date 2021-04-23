@@ -25,7 +25,7 @@ interface Props {
   /**
    * component to wrap the link with
    */
-  LinkWrapper?: ComponentType<{ href: string }>
+  LinkWrapper?: ComponentType<{ href?: string }>
 }
 
 const MenuItem: FC<Props> = ({
@@ -34,10 +34,12 @@ const MenuItem: FC<Props> = ({
   onClick,
   url,
   active = false,
-  LinkWrapper = Fragment,
+  LinkWrapper,
 }) => {
+  const LinkWrapperComponent = LinkWrapper || Fragment
+
   return (
-    <LinkWrapper href={url}>
+    <LinkWrapperComponent {...(LinkWrapper ? { href: url } : {})}>
       <a
         className={classNames("flex items-center py-13 pl-25 cursor-pointer", {
           "bg-teal-light text-teal rounded-4 font-bold": active,
@@ -54,7 +56,7 @@ const MenuItem: FC<Props> = ({
         </span>
         {title}
       </a>
-    </LinkWrapper>
+    </LinkWrapperComponent>
   )
 }
 
