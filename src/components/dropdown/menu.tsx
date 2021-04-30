@@ -102,7 +102,7 @@ class Menu<T> extends Component<Props<T>> {
         {...getMenuProps(
           {
             className: classNames(
-              "border border-grey-3 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset scrolling-touch overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10 shadow-soft rounded-4",
+              "border border-grey-3 absolute z-dropdownMenu bg-white cursor-normal inset-x-0 list-reset overflow-y-scroll custom-scrollbar max-h-dropdownSM md:max-h-dropdown py-10 shadow-soft rounded-4",
               className
             ),
             onMouseLeave: () => {
