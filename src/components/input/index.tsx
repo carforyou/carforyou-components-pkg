@@ -3,6 +3,8 @@ import React, {
   FocusEvent,
   forwardRef,
   KeyboardEvent,
+  useEffect,
+  useState,
 } from "react"
 import classNames from "classnames"
 
@@ -99,15 +101,25 @@ const Input = forwardRef<HTMLInputElement, Props>(
       visible: !!value,
       disabled,
       onClear: () => {
-        onChange({ target: { name, value: "", cleared: true } })
+        const clearEvent = { target: { name, value: "", cleared: true } }
+        onChange(clearEvent)
+        setCurrentEvent(clearEvent)
       },
     }
+    const [currentEvent, setCurrentEvent] = useState(null)
+    const currentValue = currentEvent?.target?.value || ""
+    useEffect(() => {
+      if (currentEvent) {
+        const timer = setTimeout(() => onChange(currentEvent), debounce)
+        return () => clearTimeout(timer)
+      }
+    }, [currentValue])
 
     const renderInput = (hasError) => (
       <InputField
         ref={ref}
         name={name}
-        value={value || ""}
+        value={currentValue}
         placeholder={placeholder || ""}
         className={classNames("w-12/12", {
           // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -124,7 +136,10 @@ const Input = forwardRef<HTMLInputElement, Props>(
         hasError={hasError}
         disabled={disabled}
         required={required}
-        onChange={onChange}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          e.persist()
+          setCurrentEvent(e)
+        }}
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
