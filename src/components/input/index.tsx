@@ -3,9 +3,8 @@ import React, {
   FocusEvent,
   forwardRef,
   KeyboardEvent,
-  useEffect,
-  useState,
 } from "react"
+
 import classNames from "classnames"
 
 import InputField from "./inputField"
@@ -14,6 +13,7 @@ import WithLabel from "../fieldHelpers/withLabel"
 import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
 import HintText from "../fieldHelpers/hintText"
+import useDebounce from "../../hooks/useDebounce"
 
 interface InputProps {
   name: string
@@ -106,14 +106,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         setCurrentEvent(clearEvent)
       },
     }
-    const [currentEvent, setCurrentEvent] = useState(null)
-    const currentValue = currentEvent?.target?.value || ""
-    useEffect(() => {
-      if (currentEvent) {
-        const timer = setTimeout(() => onChange(currentEvent), debounce)
-        return () => clearTimeout(timer)
-      }
-    }, [currentValue])
+    const [currentValue, setCurrentEvent] = useDebounce(onChange, debounce)
 
     const renderInput = (hasError) => (
       <InputField
