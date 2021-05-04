@@ -12,12 +12,6 @@
     @apply shadow-hard rounded-6 bg-white leading-xs w-12/12 p-10;
 }
 
-@screen xxs {
-    :local .react-calendar {
-        min-width: 346px;
-    }
-}
-
 :local .react-calendar,
 :local .react-calendar *,
 :local .react-calendar *:before,
