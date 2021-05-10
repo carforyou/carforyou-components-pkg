@@ -103,16 +103,16 @@ const Input = forwardRef<HTMLInputElement, Props>(
       onClear: () => {
         const clearEvent = { target: { name, value: "", cleared: true } }
         onChange(clearEvent)
-        setCurrentEvent(clearEvent)
+        setInputEvent(clearEvent)
       },
     }
-    const [currentValue, setCurrentEvent] = useDebounce(onChange, debounce)
+    const [inputValue, setInputEvent] = useDebounce(onChange, debounce)
 
     const renderInput = (hasError) => (
       <InputField
         ref={ref}
         name={name}
-        value={currentValue}
+        value={inputValue}
         placeholder={placeholder || ""}
         className={classNames("w-12/12", {
           // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -131,7 +131,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         required={required}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           e.persist()
-          setCurrentEvent(e)
+          setInputEvent(e)
         }}
         onBlur={onBlur}
         onFocus={onFocus}
