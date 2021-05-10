@@ -83,6 +83,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
       hasError = false,
       disabled = false,
       required = false,
+      autoComplete,
       onChange,
       onBlur,
       onKeyDown,
@@ -118,6 +119,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         data-valid={!hasError}
         disabled={disabled}
         required={required}
+        autoComplete={autoComplete}
         {...rest}
       />
     )
