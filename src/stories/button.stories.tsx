@@ -39,6 +39,12 @@ Default.args = {
   storyName: "Default",
 }
 
+export const Disabled = Template.bind({})
+Disabled.args = {
+  disabled: true,
+  storyName: "Disabled",
+}
+
 export const Small = Template.bind({})
 Small.args = {
   size: "small",
@@ -53,20 +59,28 @@ Responsive.args = {
 
 export const Teal = Template.bind({})
 Teal.args = {
-  teal: true,
+  style: "teal",
+  storyName: "Teal",
+}
+
+export const TealDisabled = Template.bind({})
+TealDisabled.args = {
+  style: "teal",
+  disabled: true,
   storyName: "Teal",
 }
 
 export const TealBorder = Template.bind({})
 TealBorder.args = {
-  tealBorder: true,
+  style: "teal-border",
   storyName: "Teal Border",
 }
 
-export const Disabled = Template.bind({})
-Disabled.args = {
+export const TealBorderDisabled = Template.bind({})
+TealBorderDisabled.args = {
+  style: "teal-border",
   disabled: true,
-  storyName: "Disabled",
+  storyName: "Teal Border",
 }
 
 export const WrappingALink = Template.bind({})
