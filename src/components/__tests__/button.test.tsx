@@ -32,7 +32,7 @@ describe("<Button>", () => {
     })
 
     it("renders teal button", () => {
-      const { container } = render(<Button teal>Label</Button>)
+      const { container } = render(<Button style="teal">Label</Button>)
       expect(container).toMatchSnapshot()
     })
 
@@ -52,7 +52,7 @@ describe("<Button>", () => {
 
     it("renders small teal button", () => {
       const { container } = render(
-        <Button size="small" teal>
+        <Button size="small" style="teal">
           Label
         </Button>
       )
@@ -60,13 +60,13 @@ describe("<Button>", () => {
     })
 
     it("renders white Teal button", () => {
-      const { container } = render(<Button tealBorder>Label</Button>)
+      const { container } = render(<Button style="teal-border">Label</Button>)
       expect(container).toMatchSnapshot()
     })
 
     it("renders white Teal small button", () => {
       const { container } = render(
-        <Button tealBorder size="small">
+        <Button style="teal-border" size="small">
           Label
         </Button>
       )
