@@ -1,8 +1,8 @@
-import React, { FC } from "react"
+import React from "react"
 
-const VerifiedIcon: FC = () => {
+const VerifiedIcon = (props) => {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
       <path
         d="M6.126 13.8L3 17l2.5 1.5L7 21l3.899-4.095m2.202 0l3.9 4.095 1.5-2.5L21 17l-3.127-3.2"
         stroke="#EAA403"
