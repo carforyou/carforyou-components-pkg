@@ -7,8 +7,7 @@ interface Props {
   /** - */
   children: ReactNode
   dataTestid?: string
-  teal?: boolean
-  tealBorder?: boolean
+  style?: "salmon" | "teal" | "teal-border"
   size?: "large" | "small" | "responsive"
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
@@ -25,9 +24,8 @@ interface Props {
 export const Button: FC<Props> = ({
   children,
   dataTestid,
-  teal,
-  tealBorder,
   size = "large",
+  style = "salmon",
   disabled,
   onClick,
   submit,
@@ -40,14 +38,15 @@ export const Button: FC<Props> = ({
     "min-h-36 lg:min-h-52": size === "responsive",
   })
   const classes = classnames("rounded border", {
-    "bg-teal hover:bg-teal-dark focus:bg-teal": teal,
-    "bg-white text-teal hover:opacity-60": tealBorder,
-    "border-teal": teal || tealBorder,
+    "bg-teal hover:bg-teal-dark focus:bg-teal border-teal": style === "teal",
+    "bg-white text-teal hover:opacity-60 border-teal": style === "teal-border",
     "bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon":
-      !teal && !tealBorder,
-    "text-grey-dark hover:opacity-100": disabled && tealBorder,
-    "bg-grey-1 hover:bg-grey-1 text-grey-4": disabled && !tealBorder,
-    "cursor-not-allowed border-grey-1": disabled,
+      style === "salmon",
+    "cursor-not-allowed ": disabled,
+    "bg-grey-1 border-grey-1 hover:bg-grey-1 text-grey-4":
+      disabled && style !== "teal-border",
+    "text-grey-3 border-grey-3 hover:opacity-100":
+      disabled && style === "teal-border",
   })
   const buttonClasses = classnames(padding, classes)
 
