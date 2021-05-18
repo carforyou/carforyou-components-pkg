@@ -39,7 +39,7 @@ Single.args = {
   storyName: "Single",
   tabs: [
     {
-      name: "Tab 1",
+      title: "Tab 1",
       renderContent: () => <>Tab 1 Content</>,
     },
   ],
@@ -47,15 +47,15 @@ Single.args = {
 
 export const WithIcon = Template.bind({})
 WithIcon.args = {
-  storyName: "With Icon",
+  storytitle: "With Icon",
   tabs: [
     {
-      name: "Tab 1",
+      title: "Tab 1",
       renderContent: () => <>Tab 1 Content</>,
       renderIcon: () => <MailSent width="20px" height="20px" />,
     },
     {
-      name: "Tab 2",
+      title: "Tab 2",
       renderContent: () => <>Tab 2 Content</>,
       renderIcon: () => <MailSent width="20px" height="20px" />,
     },
@@ -64,22 +64,22 @@ WithIcon.args = {
 
 export const More = Template.bind({})
 More.args = {
-  storyName: "More tabs",
+  storytitle: "More tabs",
   tabs: [
     {
-      name: "Tab 1",
+      title: "Tab 1",
       renderContent: () => <>Tab 1 Content</>,
     },
     {
-      name: "Tab 2",
+      title: "Tab 2",
       renderContent: () => <>Tab 2 Content</>,
     },
     {
-      name: "Tab 3",
+      title: "Tab 3",
       renderContent: () => <>Tab 3 Content</>,
     },
     {
-      name: "Tab 4",
+      title: "Tab 4",
       renderContent: () => <>Tab 4 Content</>,
     },
   ],

@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useState } from "react"
 import classnames from "classnames"
 
 interface Tab {
-  name: string
+  title: string
   renderIcon?: () => ReactNode
   renderContent: () => ReactNode
 }
@@ -19,7 +19,7 @@ const Tabs: FC<Props> = ({ tabs }) => {
   return (
     <div className="w-12/12 bg-white rounded-4 border border-grey-2 shadow-soft">
       <div className="flex flex-row">
-        {tabs.map(({ name, renderIcon }, index) => (
+        {tabs.map(({ title, renderIcon }, index) => (
           <div
             onClick={() => setActiveTab(index)}
             className={classnames(
@@ -34,7 +34,7 @@ const Tabs: FC<Props> = ({ tabs }) => {
             key={`tab-${index}`}
           >
             {renderIcon && <span className="pr-8">{renderIcon()}</span>}
-            {name}
+            {title}
           </div>
         ))}
       </div>

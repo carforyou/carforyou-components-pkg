@@ -8,19 +8,19 @@ const renderWrapper = () =>
     <Tabs
       tabs={[
         {
-          name: "Tab 1",
+          title: "Tab 1",
           renderContent: () => <>Tab 1 Content</>,
         },
         {
-          name: "Tab 2",
+          title: "Tab 2",
           renderContent: () => <>Tab 2 Content</>,
         },
         {
-          name: "Tab 3",
+          title: "Tab 3",
           renderContent: () => <>Tab 3 Content</>,
         },
         {
-          name: "Tab 4",
+          title: "Tab 4",
           renderContent: () => <>Tab 4 Content</>,
         },
       ]}
