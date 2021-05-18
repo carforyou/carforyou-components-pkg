@@ -28,6 +28,7 @@ const Tabs: FC<Props> = ({ tabs }) => {
                 "bg-grey-1 border-b": index !== activeTab,
                 "mb-px": index === activeTab,
                 "border-r": index !== tabsCount - 1,
+                "-ml-1 border-l": index !== 0,
                 "justify-start": tabsCount === 1,
                 "justify-center": tabsCount > 1,
               }
