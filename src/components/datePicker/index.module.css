@@ -13,9 +13,9 @@
 }
 
 @screen xxs {
-    :local .react-calendar {
-        min-width: 346px;
-    }
+  :local .react-calendar {
+      min-width: 346px;
+  }
 }
 
 :local .react-calendar,
