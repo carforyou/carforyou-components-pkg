@@ -9,7 +9,94 @@ Object {
   },
   "plugins": Array [
     [Function],
-    [Function],
+    Object {
+      "config": Object {
+        "theme": Object {
+          "conicGradientColors": Object {},
+          "conicGradientPositions": Object {
+            "b": "bottom",
+            "bl": "bottom left",
+            "br": "bottom right",
+            "default": "center",
+            "l": "left",
+            "r": "right",
+            "t": "top",
+            "tl": "top left",
+            "tr": "top right",
+          },
+          "conicGradientStartingAngles": Object {
+            "default": "0",
+          },
+          "linearGradientColors": Object {},
+          "linearGradientDirections": Object {
+            "b": "to bottom",
+            "bl": "to bottom left",
+            "br": "to bottom right",
+            "l": "to left",
+            "r": "to right",
+            "t": "to top",
+            "tl": "to top left",
+            "tr": "to top right",
+          },
+          "radialGradientColors": Object {},
+          "radialGradientPositions": Object {
+            "b": "bottom",
+            "bl": "bottom left",
+            "br": "bottom right",
+            "default": "center",
+            "l": "left",
+            "r": "right",
+            "t": "top",
+            "tl": "top left",
+            "tr": "top right",
+          },
+          "radialGradientShapes": Object {
+            "default": "ellipse",
+          },
+          "radialGradientSizes": Object {
+            "default": "closest-side",
+          },
+          "repeatingConicGradientColors": Object {},
+          "repeatingConicGradientLengths": Object {},
+          "repeatingConicGradientPositions": [Function],
+          "repeatingConicGradientStartingAngles": [Function],
+          "repeatingLinearGradientColors": Object {},
+          "repeatingLinearGradientDirections": [Function],
+          "repeatingLinearGradientLengths": Object {},
+          "repeatingRadialGradientColors": Object {},
+          "repeatingRadialGradientLengths": Object {},
+          "repeatingRadialGradientPositions": [Function],
+          "repeatingRadialGradientShapes": [Function],
+          "repeatingRadialGradientSizes": Object {
+            "default": "farthest-corner",
+          },
+        },
+        "variants": Object {
+          "backgroundImage": Array [
+            "responsive",
+          ],
+          "conicGradients": Array [
+            "responsive",
+          ],
+          "linearGradients": Array [
+            "responsive",
+          ],
+          "radialGradients": Array [
+            "responsive",
+          ],
+          "repeatingConicGradients": Array [
+            "responsive",
+          ],
+          "repeatingLinearGradients": Array [
+            "responsive",
+          ],
+          "repeatingRadialGradients": Array [
+            "responsive",
+          ],
+        },
+      },
+      "handler": [Function],
+    },
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -230,26 +317,24 @@ Object {
       "xs": 1.25,
       "xxs": 0.9,
     },
-    "linearGradients": Object {
-      "colors": Object {
-        "black": Array [
-          "rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)",
-        ],
-        "fade": Array [
-          "rgba(255,255,255,0) 90%",
-          "rgba(255,255,255,1) 100%",
-        ],
-        "grey": Array [
-          "#F9F9FB",
-          "#FFFFFF 20%",
-        ],
-      },
-      "directions": Object {
-        "to-bottom": "to bottom",
-        "to-left": "to left",
-        "to-right": "to right",
-        "to-top": "to top",
-      },
+    "linearGradientColors": Object {
+      "black": Array [
+        "rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)",
+      ],
+      "fade": Array [
+        "rgba(255,255,255,0) 90%",
+        "rgba(255,255,255,1) 100%",
+      ],
+      "grey": Array [
+        "#F9F9FB",
+        "#FFFFFF 20%",
+      ],
+    },
+    "linearGradientDirections": Object {
+      "b": "to bottom",
+      "l": "to left",
+      "r": "to right",
+      "t": "to top",
     },
     "margin": Object {
       "-1": "-1px",
