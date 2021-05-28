@@ -38,6 +38,10 @@ import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import AlertMessage from "./components/alertMessage"
 
+import BuyNowBadge from "./components/badges/buyNow"
+import GdbdBadge from "./components/badges/gdbd"
+import MbgBadge from "./components/badges/mbg"
+
 export {
   Button,
   Pill,
@@ -79,4 +83,7 @@ export {
   RangeInput,
   CustomErrorPage,
   VerifiedRibbon,
+  BuyNowBadge,
+  GdbdBadge,
+  MbgBadge,
 }
