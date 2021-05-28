@@ -8,12 +8,12 @@ describe("<BuyNowBadge>", () => {
     // Temporarly disable this test
     return
 
-    const { findByText, getByText } = render(
-      <BuyNowBadge language="en" hasText />
-    )
+    // const { findByText, getByText } = render(
+    //   <BuyNowBadge language="en" hasText />
+    // )
 
-    fireEvent.mouseEnter(getByText("buyNow.badge.title"))
+    // fireEvent.mouseEnter(getByText("buyNow.badge.title"))
 
-    expect(await findByText("buyNow.badge.tooltip"))
+    // expect(await findByText("buyNow.badge.tooltip"))
   })
 })

@@ -1,14 +1,18 @@
 import React, { FC, ReactNode } from "react"
 
 import classNames from "classnames"
+
 import styles from "./badges.module.css"
+import { BadgeSize } from "../../types"
 
 interface BadgeProps {
+  size: BadgeSize
+  text: string
+  icon: JSX.Element
   tooltip?: ReactNode
-  icon: () => JSX.Element
 }
 
-const Badge: FC<BadgeProps> = ({ icon, children }) => {
+const Badge: FC<BadgeProps> = ({ icon, text, size }) => {
   const content = (
     <div
       className={classNames(
@@ -16,14 +20,8 @@ const Badge: FC<BadgeProps> = ({ icon, children }) => {
         "inline-flex items-center border border-grey-1 rounded-4 cursor-pointer text-sm font-bold"
       )}
     >
-      {children ? (
-        <>
-          <span className="mr-4">{icon()}</span>
-          {children}
-        </>
-      ) : (
-        icon()
-      )}
+      {icon}
+      {size === "large" && <span className="ml-5">{text}</span>}
     </div>
   )
   // TODO: if tooltip is provided, render it
@@ -31,3 +29,4 @@ const Badge: FC<BadgeProps> = ({ icon, children }) => {
 }
 
 export default Badge
+export { BadgeProps }
