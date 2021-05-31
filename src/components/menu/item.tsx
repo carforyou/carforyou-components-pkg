@@ -11,6 +11,10 @@ interface Props {
    */
   IconComponent: ComponentType<{ width: string; height: string }>
   /**
+   * notification component to be rendered
+   */
+  NotificationComponent?: ComponentType<{ width: string; height: string }>
+  /**
    * click event handler (e.g. displaying modal, tracking function)
    */
   onClick?: () => void
@@ -31,6 +35,7 @@ interface Props {
 const MenuItem: FC<Props> = ({
   title,
   IconComponent,
+  NotificationComponent,
   onClick,
   url,
   active = false,
@@ -55,6 +60,11 @@ const MenuItem: FC<Props> = ({
           <IconComponent width="24px" height="24px" />
         </span>
         {title}
+        {NotificationComponent ? (
+          <span className="w-12/12 text-right px-5">
+            <NotificationComponent width="24px" height="24px" />
+          </span>
+        ) : null}
       </a>
     </LinkWrapperComponent>
   )

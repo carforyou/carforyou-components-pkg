@@ -5,6 +5,7 @@ import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 import MenuItem, { MenuItemProps } from "../../components/menu/item"
 import ProfileIcon from "../../components/icons/profile"
+import Notification from "../../components/icons/notification"
 
 export default {
   title: "Menu/Item",
@@ -48,4 +49,10 @@ export const Active = Template.bind({})
 Active.args = {
   storyName: "Active",
   active: true,
+}
+
+export const WithNotification = Template.bind({})
+WithNotification.args = {
+  storyName: "With Notification",
+  NotificationComponent: Notification,
 }
