@@ -98,5 +98,8 @@
   },
   "storybook-deployer": {
     "commitMessage": "Deploy storybook [skip ci]"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
