@@ -38,16 +38,7 @@ module.exports = ({ config }) => {
   config.module.rules.push({
     include: path.resolve(__dirname, "../"),
     test: /\.css$/,
-    use: [
-      {
-        loader: "postcss-loader",
-        options: {
-          config: {
-            path: ".storybook/",
-          },
-        },
-      },
-    ],
+    use: ["postcss-loader"],
   })
 
   return config
