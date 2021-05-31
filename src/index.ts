@@ -5,6 +5,7 @@ import Tooltip, {
   TooltipPosition,
 } from "./components/tooltip/index"
 import Textarea from "./components/textarea"
+import Tabs from "./components/tabs"
 import Spinner from "./components/spinner"
 import Select from "./components/select"
 import SegmentedControl from "./components/segmentedControl/index"
@@ -79,4 +80,5 @@ export {
   RangeInput,
   CustomErrorPage,
   VerifiedRibbon,
+  Tabs,
 }
