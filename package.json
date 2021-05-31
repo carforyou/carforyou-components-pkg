@@ -43,7 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.7",
     "@carforyou/eslint-config": "3.1.7",
-    "@carforyou/pika-plugin-build-components": "1.0.11-updatePostCss-e55507fbc29c0790162688beec2bcf5d17c4fdd7.1",
+    "@carforyou/pika-plugin-build-components": "1.1.0-updatePostCss-e86c9e3141fad8c3d2b5710f8f6d29d974c1c926.1",
     "@percy/storybook": "^3.3.1",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-copy-assets": "^0.9.0",
