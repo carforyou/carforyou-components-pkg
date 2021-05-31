@@ -1,31 +1,31 @@
-// import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
-// import Badge from "../badges"
-// import MbgIcon from "../../assets/components/moneyBackGuarantee"
+import Badge, { ExternalBadgeProps } from "../badges"
+import MbgIcon from "../../assets/components/moneyBackGuarantee"
 
-// interface Props {
-//   language: string
-//   hasText?: boolean
-//   tooltip?: ReactNode
-// }
+export const MbgBadge: FC<ExternalBadgeProps> = ({
+  language,
+  size = "large",
+  tooltipContent,
+}) => {
+  const title = {
+    de: "Geld-Zurück-Garantie",
+    fr: "Garantie de remboursement",
+    it: "Garanzia di rimborso",
+    en: "Money-Back-Guarantee",
+  }
 
-// export const MbgBadge: FC<Props> = ({ language, hasText, tooltip }) => {
-//   const title = {
-//     de: "Geld-Zurück-Garantie",
-//     fr: "Garantie de remboursement",
-//     it: "Garanzia di rimborso",
-//     en: "Money-Back-Guarantee",
-//   }
+  return (
+    <div className="text-green-light">
+      <Badge
+        icon={<MbgIcon width="24" height="24" />}
+        tooltipContent={tooltipContent}
+        text={title[language]}
+        size={size}
+      />
+    </div>
+  )
+}
 
-//   return (
-//     <div data-testid="mbg-icon">
-//       <Badge icon={() => <MbgIcon width="24" height="24" />} tooltip={tooltip}>
-//         {hasText ? (
-//           <span className="text-green-light">{title[language]}</span>
-//         ) : null}
-//       </Badge>
-//     </div>
-//   )
-// }
-
-// export default MbgBadge
+export default MbgBadge
+export { ExternalBadgeProps as MbgBadgeProps }
