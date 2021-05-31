@@ -1,15 +1,16 @@
 import React, { FC } from "react"
 
+import { DummyTooltip } from "./dummyTooltip"
 import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
-import GdbdBadge, { GdbdBadgeProps, Scores } from "../../components/badges/gdbd"
+import GdbdBadge, { GdbdBadgeProps } from "../../components/badges/gdbd"
 
 export default {
   title: "Badges/GdbdBadge",
   component: GdbdBadge,
   args: {
     language: "en",
-    score: Scores.GoodDeal,
+    score: "not-defined",
     size: "large",
   },
   argTypes: {
@@ -59,32 +60,30 @@ Italian.args = {
 
 export const GreatDeal = Template.bind({})
 GreatDeal.args = {
-  score: Scores.GreatDeal,
+  score: "great-deal",
 }
 
 export const GoodDeal = Template.bind({})
 GoodDeal.args = {
-  score: Scores.GoodDeal,
+  score: "good-deal",
 }
 
 export const FairDeal = Template.bind({})
 GreatDeal.args = {
-  score: Scores.FairDeal,
+  score: "fair-deal",
 }
 
 export const HighDeal = Template.bind({})
 GreatDeal.args = {
-  score: Scores.HighDeal,
+  score: "high-deal",
 }
 
 export const NotDefined = Template.bind({})
 NotDefined.args = {
-  score: Scores.NotDefined,
+  score: "not-defined",
 }
 
-// FIXME:
 export const WithTooltip = Template.bind({})
-const DummyTooltip: FC = () => <div>Dummy tool tip</div>
 WithTooltip.args = {
-  tooltip: DummyTooltip,
+  tooltipContent: <DummyTooltip />,
 }

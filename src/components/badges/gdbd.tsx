@@ -1,49 +1,25 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
 import styles from "./gdbd.module.css"
 
-import Badge from "../badges"
-import { BadgeSize, Language } from "../../types"
+import Badge, { ExternalBadgeProps } from "../badges"
 import PriceCheckIcon from "../../assets/components/priceCheck"
 
-// ### A: enum Version
-
-export enum Scores {
-  GreatDeal = "great-deal",
-  GoodDeal = "good-deal",
-  FairDeal = "fair-deal",
-  HighDeal = "high-deal",
-  NotDefined = "not-defined",
-}
-
-// Usage
-
-// <Foo score={Scores.GreatDeal}` />
-
-// ### B: enum Version
-
-// Union Type Version
-type UnionScore =
+export type Score =
   | "great-deal"
   | "good-deal"
   | "fair-deal"
   | "high-deal"
   | "not-defined"
 
-// Usage
-
-// <Foo score="great-deal" />
-interface GdbdBadgeProps {
-  language: Language
-  score: Scores
-  size: BadgeSize
-  tooltip?: ReactNode
+interface GdbdBadgeProps extends ExternalBadgeProps {
+  score: Score
 }
 
 export const GdbdBadge: FC<GdbdBadgeProps> = ({
   language,
-  score = Scores.NotDefined,
-  tooltip,
+  score = "not-defined",
+  tooltipContent,
   size = "large",
 }) => {
   const title = {
@@ -82,7 +58,7 @@ export const GdbdBadge: FC<GdbdBadgeProps> = ({
     <div className={styles[score]}>
       <Badge
         icon={<PriceCheckIcon width="24" height="24" />}
-        tooltip={tooltip}
+        tooltipContent={tooltipContent}
         text={text}
         size={size}
       />

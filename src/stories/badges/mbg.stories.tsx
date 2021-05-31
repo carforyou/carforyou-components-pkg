@@ -4,11 +4,11 @@ import { DummyTooltip } from "./dummyTooltip"
 import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 
-import BuyNowBadge, { BuyNowBadgeProps } from "../../components/badges/buyNow"
+import MbgBadge, { MbgBadgeProps } from "../../components/badges/mbg"
 
 export default {
-  title: "Badges/BuyNowBadge",
-  component: BuyNowBadge,
+  title: "Badges/MbgBadge",
+  component: MbgBadge,
   args: {
     language: "en",
     size: "large",
@@ -22,14 +22,11 @@ export default {
   },
 }
 
-type Props = StoryProps<unknown> & BuyNowBadgeProps
+type Props = StoryProps<unknown> & MbgBadgeProps
 
 const Template: FC<Props> = (args) => {
   return (
-    <StoryContainer
-      title={args.storyName}
-      component={<BuyNowBadge {...args} />}
-    />
+    <StoryContainer title={args.storyName} component={<MbgBadge {...args} />} />
   )
 }
 

@@ -1,19 +1,12 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
-import Badge from "../badges"
-import { BadgeSize, Language } from "../../types"
+import Badge, { ExternalBadgeProps } from "../badges"
 import CreditCardIcon from "../../assets/components/creditCard"
 
-export interface BuyNowBadgeProps {
-  language: Language
-  size?: BadgeSize
-  tooltip?: ReactNode
-}
-
-export const BuyNowBadge: FC<BuyNowBadgeProps> = ({
+export const BuyNowBadge: FC<ExternalBadgeProps> = ({
   language,
   size = "large",
-  tooltip,
+  tooltipContent,
 }) => {
   const title = {
     de: "Online kaufen",
@@ -26,7 +19,7 @@ export const BuyNowBadge: FC<BuyNowBadgeProps> = ({
     <div className="text-teal">
       <Badge
         icon={<CreditCardIcon width="24" height="24" />}
-        tooltip={tooltip}
+        tooltipContent={tooltipContent}
         size={size}
         text={title[language]}
       />
@@ -35,3 +28,4 @@ export const BuyNowBadge: FC<BuyNowBadgeProps> = ({
 }
 
 export default BuyNowBadge
+export { ExternalBadgeProps as BuyNowBadgeProps }
