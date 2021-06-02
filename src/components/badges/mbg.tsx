@@ -1,7 +1,8 @@
 import React, { FC } from "react"
 
-import Badge, { ExternalBadgeProps } from "../badges"
 import MbgIcon from "../../assets/components/moneyBackGuarantee"
+
+import Badge, { ExternalBadgeProps } from "."
 
 export const MbgBadge: FC<ExternalBadgeProps> = ({
   language,

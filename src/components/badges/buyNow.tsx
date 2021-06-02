@@ -1,7 +1,8 @@
 import React, { FC } from "react"
 
-import Badge, { ExternalBadgeProps } from "../badges"
 import CreditCardIcon from "../../assets/components/creditCard"
+
+import Badge, { ExternalBadgeProps } from "."
 
 export const BuyNowBadge: FC<ExternalBadgeProps> = ({
   language,

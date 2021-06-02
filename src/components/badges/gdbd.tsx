@@ -2,8 +2,9 @@ import React, { FC } from "react"
 
 import styles from "./gdbd.module.css"
 
-import Badge, { ExternalBadgeProps } from "../badges"
 import PriceCheckIcon from "../../assets/components/priceCheck"
+
+import Badge, { ExternalBadgeProps } from "."
 
 export type Score =
   | "great-deal"
