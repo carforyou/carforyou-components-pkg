@@ -1,19 +1,43 @@
 import React from "react"
-import { render, fireEvent } from "@testing-library/react"
+import { fireEvent, render } from "@testing-library/react"
 
 import BuyNowBadge from "../buyNow"
+import { DummyTooltip } from "../../../stories/badges/dummyTooltip"
 
 describe("<BuyNowBadge>", () => {
-  it("renders tooltip on hover", async () => {
-    // Temporarly disable this test
-    return
+  it("renders the badge in english", () => {
+    const { getByText } = render(<BuyNowBadge language="en" />)
+    expect(getByText("Buy online"))
+  })
 
-    // const { findByText, getByText } = render(
-    //   <BuyNowBadge language="en" hasText />
-    // )
+  it("renders the badge without text", () => {
+    const { queryAllByText } = render(
+      <BuyNowBadge language="en" size="small" />
+    )
+    expect(queryAllByText("Buy online")).toHaveLength(0)
+  })
 
-    // fireEvent.mouseEnter(getByText("buyNow.badge.title"))
+  it("renders the badge in german", () => {
+    const { getByText } = render(<BuyNowBadge language="de" />)
+    expect(getByText("Online kaufen"))
+  })
 
-    // expect(await findByText("buyNow.badge.tooltip"))
+  it("renders the badge in french", () => {
+    const { getByText } = render(<BuyNowBadge language="fr" />)
+    expect(getByText("Acheter en ligne"))
+  })
+
+  it("renders the badge in italian", () => {
+    const { getByText } = render(<BuyNowBadge language="it" />)
+    expect(getByText("Acquistare l'auto online"))
+  })
+
+  it("renders a tooltip on hover", async () => {
+    const { findByText, getByText } = render(
+      <BuyNowBadge language="en" tooltipContent={<DummyTooltip />} />
+    )
+
+    fireEvent.mouseEnter(getByText("Buy online"))
+    expect(await findByText("Dummy tooltip"))
   })
 })
