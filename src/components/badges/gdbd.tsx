@@ -13,7 +13,7 @@ export type Score =
   | "not-defined"
 
 interface GdbdBadgeProps extends ExternalBadgeProps {
-  score: Score
+  score?: Score
 }
 
 export const GdbdBadge: FC<GdbdBadgeProps> = ({
