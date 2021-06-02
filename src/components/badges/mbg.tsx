@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 
+import { BadgeProps } from "./types"
+import BaseBadge from "./base"
 import MbgIcon from "../../assets/components/moneyBackGuarantee"
 
-import Badge, { ExternalBadgeProps } from "."
-
-export const MbgBadge: FC<ExternalBadgeProps> = ({
+export const MbgBadge: FC<BadgeProps> = ({
   language,
   size = "large",
   tooltipContent,
@@ -18,7 +18,7 @@ export const MbgBadge: FC<ExternalBadgeProps> = ({
 
   return (
     <div className="text-green-light">
-      <Badge
+      <BaseBadge
         icon={<MbgIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
         text={title[language]}
@@ -29,4 +29,4 @@ export const MbgBadge: FC<ExternalBadgeProps> = ({
 }
 
 export default MbgBadge
-export { ExternalBadgeProps as MbgBadgeProps }
+export { BadgeProps as MbgBadgeProps }

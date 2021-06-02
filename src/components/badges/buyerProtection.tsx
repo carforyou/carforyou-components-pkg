@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 
+import { BadgeProps } from "./types"
+import BaseBadge from "./base"
 import UmbrellaIcon from "../../assets/components/umbrella"
 
-import Badge, { ExternalBadgeProps } from "."
-
-export const BuyerProtectionBadge: FC<ExternalBadgeProps> = ({
+export const BuyerProtectionBadge: FC<BadgeProps> = ({
   language,
   size = "large",
   tooltipContent,
@@ -16,7 +16,7 @@ export const BuyerProtectionBadge: FC<ExternalBadgeProps> = ({
     en: "Buyer Protection",
   }
   return (
-    <Badge
+    <BaseBadge
       icon={
         <div className="text-green-dark">
           <UmbrellaIcon width="24" height="24" />
@@ -30,4 +30,4 @@ export const BuyerProtectionBadge: FC<ExternalBadgeProps> = ({
 }
 
 export default BuyerProtectionBadge
-export { ExternalBadgeProps as BuyerProtectionBadgeProps }
+export { BadgeProps as BuyerProtectionBadgeProps }

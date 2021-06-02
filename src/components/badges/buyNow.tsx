@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 
+import { BadgeProps } from "./types"
+import BaseBadge from "./base"
 import CreditCardIcon from "../../assets/components/creditCard"
 
-import Badge, { ExternalBadgeProps } from "."
-
-export const BuyNowBadge: FC<ExternalBadgeProps> = ({
+export const BuyNowBadge: FC<BadgeProps> = ({
   language,
   size = "large",
   tooltipContent,
@@ -18,7 +18,7 @@ export const BuyNowBadge: FC<ExternalBadgeProps> = ({
 
   return (
     <div className="text-teal">
-      <Badge
+      <BaseBadge
         icon={<CreditCardIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
         size={size}
@@ -29,4 +29,4 @@ export const BuyNowBadge: FC<ExternalBadgeProps> = ({
 }
 
 export default BuyNowBadge
-export { ExternalBadgeProps as BuyNowBadgeProps }
+export { BadgeProps as BuyNowBadgeProps }

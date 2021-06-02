@@ -1,10 +1,9 @@
 import React, { FC } from "react"
 
+import { BadgeProps } from "./types"
 import styles from "./gdbd.module.css"
-
+import BaseBadge from "./base"
 import PriceCheckIcon from "../../assets/components/priceCheck"
-
-import Badge, { ExternalBadgeProps } from "."
 
 export type Score =
   | "great-deal"
@@ -13,7 +12,7 @@ export type Score =
   | "high-deal"
   | "not-defined"
 
-interface GdbdBadgeProps extends ExternalBadgeProps {
+interface GdbdBadgeProps extends BadgeProps {
   score?: Score
 }
 
@@ -57,7 +56,7 @@ export const GdbdBadge: FC<GdbdBadgeProps> = ({
 
   return (
     <div className={styles[score]}>
-      <Badge
+      <BaseBadge
         icon={<PriceCheckIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
         text={text}

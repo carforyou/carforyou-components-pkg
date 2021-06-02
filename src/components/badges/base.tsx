@@ -4,23 +4,17 @@ import classNames from "classnames"
 
 import styles from "./badges.module.css"
 
-import Tooltip, { TooltipPosition } from "../tooltip"
-import { Language } from "../../types"
+import Tooltip, { TooltipPosition } from "../tooltip/index"
 
 export type BadgeSize = "small" | "large"
-export interface BadgeProps {
+interface Props {
   size: BadgeSize
   text: string
   icon: ReactNode
   tooltipContent?: ReactNode
 }
-export interface ExternalBadgeProps {
-  language: Language
-  size?: BadgeSize
-  tooltipContent?: ReactNode
-}
 
-const Badge: FC<BadgeProps> = ({ icon, text, size, tooltipContent }) => {
+const BaseBadge: FC<Props> = ({ icon, text, size, tooltipContent }) => {
   const content = (
     <div
       className={classNames(
@@ -47,4 +41,4 @@ const Badge: FC<BadgeProps> = ({ icon, text, size, tooltipContent }) => {
   )
 }
 
-export default Badge
+export default BaseBadge

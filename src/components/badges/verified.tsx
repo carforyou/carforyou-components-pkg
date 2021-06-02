@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 
+import { BadgeProps } from "./types"
+import BaseBadge from "./base"
 import VerifiedIcon from "../../assets/components/verified"
 
-import Badge, { ExternalBadgeProps } from "."
-
-export const VerifiedBadge: FC<ExternalBadgeProps> = ({
+export const VerifiedBadge: FC<BadgeProps> = ({
   language,
   size = "large",
   tooltipContent,
@@ -16,7 +16,7 @@ export const VerifiedBadge: FC<ExternalBadgeProps> = ({
     en: "Verified",
   }
   return (
-    <Badge
+    <BaseBadge
       icon={<VerifiedIcon width="24" height="24" />}
       tooltipContent={tooltipContent}
       size={size}
@@ -26,4 +26,4 @@ export const VerifiedBadge: FC<ExternalBadgeProps> = ({
 }
 
 export default VerifiedBadge
-export { ExternalBadgeProps as VerifiedBadgeProps }
+export { BadgeProps as VerifiedBadgeProps }
