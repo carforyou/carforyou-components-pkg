@@ -1,8 +1,7 @@
 .space {
-  padding: 0 4px 0 4px
+  padding: 0 4px 0 4px;
 }
 
 .toolTipContainer {
-  width: 260px;
+  width: 300px;
 }
-

@@ -39,7 +39,7 @@ import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import VerifiedBadge from "./components/badges/verified"
 import MbgBadge from "./components/badges/mbg"
-import GdbdBadge from "./components/badges/gdbd"
+import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
 import BuyNowBadge from "./components/badges/buyNow"
 import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
@@ -91,4 +91,5 @@ export {
   MbgBadge,
   VerifiedBadge,
   BuyerProtectionBadge,
+  GdbdScore,
 }
