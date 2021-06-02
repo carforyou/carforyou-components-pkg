@@ -69,12 +69,12 @@ GoodDeal.args = {
 }
 
 export const FairDeal = Template.bind({})
-GreatDeal.args = {
+FairDeal.args = {
   score: "fair-deal",
 }
 
 export const HighDeal = Template.bind({})
-GreatDeal.args = {
+HighDeal.args = {
   score: "high-deal",
 }
 
