@@ -10,7 +10,7 @@ we've done our very best to explain each section.
 View the full documentation at https://tailwindcss.com.
 */
 const colors = {
-  darkGreen: "#149246",
+  greenDark: "#149246",
 }
 
 export default {
@@ -60,8 +60,8 @@ export default {
       "high-deal": "#E34A15",
       "fair-deal": "#EAA403",
       "good-deal": "#81B040",
-      "great-deal": colors.darkGreen,
-      "green-dark": colors.darkGreen,
+      "great-deal": colors.greenDark,
+      "green-dark": colors.greenDark,
       "not-defined": "#A0A7AB",
       yellow: "#FCB001",
       "yellow-light": "#FEEFCC",
