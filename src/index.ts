@@ -37,6 +37,9 @@ import Collapsible from "./components/collapsible"
 import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
+import MbgBadge from "./components/badges/mbg"
+import GdbdBadge from "./components/badges/gdbd"
+import BuyNowBadge from "./components/badges/buyNow"
 import AlertMessage from "./components/alertMessage"
 
 export {
@@ -81,4 +84,7 @@ export {
   CustomErrorPage,
   VerifiedRibbon,
   Tabs,
+  BuyNowBadge,
+  GdbdBadge,
+  MbgBadge,
 }

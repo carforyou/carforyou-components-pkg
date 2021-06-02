@@ -1,0 +1,19 @@
+.great-deal {
+  color: #149246;
+}
+
+.good-deal {
+  color: #81b040;
+}
+
+.fair-deal {
+  color: #eab000;
+}
+
+.high-deal {
+  color: #fa9000;
+}
+
+.not-defined {
+  @apply text-grey-3;
+}
