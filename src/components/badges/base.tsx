@@ -2,11 +2,11 @@ import React, { FC, ReactNode } from "react"
 
 import classNames from "classnames"
 
+import { BadgeSize } from "./types"
 import styles from "./badges.module.css"
 
 import Tooltip, { TooltipPosition } from "../tooltip/index"
 
-export type BadgeSize = "small" | "large"
 interface Props {
   size: BadgeSize
   text: string
