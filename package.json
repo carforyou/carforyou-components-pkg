@@ -38,22 +38,24 @@
     "react-paginate": "^7.0.0",
     "react-tooltip-lite": "^1.12.0",
     "tailwindcss-gradients": "3.0.0",
-    "use-deep-compare-effect": "1.3.0"
+    "use-deep-compare-effect": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.7",
     "@carforyou/eslint-config": "3.1.7",
     "@carforyou/pika-plugin-build-components": "1.1.0-updatePostCss-e86c9e3141fad8c3d2b5710f8f6d29d974c1c926.1",
-    "@percy/storybook": "^3.3.1",
+    "@percy/storybook": "^4.0.0-beta.1",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-copy-assets": "^0.9.0",
     "@pika/plugin-standard-pkg": "^0.9.0",
     "@pika/plugin-ts-standard-pkg": "^0.9.0",
-    "@storybook/addon-actions": "^6.1.2",
-    "@storybook/addon-essentials": "^6.1.2",
-    "@storybook/addon-links": "^6.1.2",
-    "@storybook/react": "^6.1.2",
-    "@storybook/storybook-deployer": "2.8.7",
+    "@storybook/addon-actions": "^6.3.0-beta.5",
+    "@storybook/addon-essentials": "^6.3.0-beta.5",
+    "@storybook/addon-links": "^6.3.0-beta.5",
+    "@storybook/builder-webpack5": "^6.3.0-beta.5",
+    "@storybook/manager-webpack5": "^6.3.0-beta.5",
+    "@storybook/react": "^6.3.0-beta.5",
+    "@storybook/storybook-deployer": "2.8.8",
     "@svgr/webpack": "^5.0.0",
     "@testing-library/react": "^11.0.0",
     "@types/jest": "^26.0.0",
@@ -76,9 +78,10 @@
     "semantic-release": "^17.0.0",
     "svgo": "^1.3.2",
     "tailwindcss": "^2.1.2",
-    "ts-jest": "26.5.5",
-    "ts-loader": "9.0.0",
-    "typescript": "4.2.2"
+    "ts-jest": "^26.5.5",
+    "ts-loader": "^9.0.0",
+    "typescript": "4.2.2",
+    "webpack": "^5.38.1"
   },
   "@pika/pack": {
     "pipeline": [
