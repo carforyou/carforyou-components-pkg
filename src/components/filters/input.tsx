@@ -79,8 +79,16 @@ export default class InputFilter extends Component<Props, State> {
   }
 
   render() {
-    const { name, initialValue, mode, placeholder, step, min, max, position } =
-      this.props
+    const {
+      name,
+      initialValue,
+      mode,
+      placeholder,
+      step,
+      min,
+      max,
+      position,
+    } = this.props
 
     const { refocus, value } = this.state
 
