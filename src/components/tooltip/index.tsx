@@ -38,7 +38,16 @@ const Tooltip: FC<Props> = ({
   alignment = TooltipAlignment.middle,
 }) => {
   return (
-    <div className="inline-block" onClick={(e) => e.preventDefault()}>
+    <div
+      className="inline-block"
+      onClick={(e) => {
+        e.preventDefault()
+        e.stopPropagation()
+      }}
+      onTouchEnd={(e) => {
+        e.stopPropagation()
+      }}
+    >
       <TooltipTrigger
         content={
           <div className="rounded-4 shadow-hard p-15 bg-white">
