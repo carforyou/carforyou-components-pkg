@@ -1,6 +1,6 @@
 import React from "react"
 
-import { fireEvent, render, waitFor } from "@testing-library/react"
+import { fireEvent, render } from "@testing-library/react"
 
 import Input from "../../components/input"
 
@@ -39,8 +39,6 @@ describe("useDebounce", () => {
     fireEvent.change(input, { target: { value: "Test" } })
     jest.runOnlyPendingTimers()
 
-    await waitFor(() => {
-      expect(callback).toBeCalled()
-    })
+    expect(callback).toBeCalled()
   })
 })
