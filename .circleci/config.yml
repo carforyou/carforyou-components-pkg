@@ -45,6 +45,7 @@ jobs:
 
   unit:
     <<: *DOCKER_NODE
+    resource_class: medium
     steps:
       - attach_workspace:
           at: ~/
