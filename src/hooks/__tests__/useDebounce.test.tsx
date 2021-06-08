@@ -1,10 +1,10 @@
 import React from "react"
 
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, waitFor } from "@testing-library/react"
 
 import Input from "../../components/input"
 
-const Wrapper = (value, callback) => {
+const Wrapper = ({ value, callback }) => {
   return (
     <Input
       name="testInput"
@@ -32,12 +32,15 @@ describe("useDebounce", () => {
   const renderWrapper = (callback) =>
     render(<Wrapper value={"Initial value"} callback={callback} />)
 
-  it("should execute the callback function", () => {
-    const onClick = jest.fn()
-    const { getByPlaceholderText } = renderWrapper(onClick)
+  it("should execute the callback function", async () => {
+    const callback = jest.fn()
+    const { getByPlaceholderText } = renderWrapper(callback)
     const input = getByPlaceholderText("testInput")
     fireEvent.change(input, { target: { value: "Test" } })
     jest.runOnlyPendingTimers()
-    expect(onClick).toBeCalled()
+
+    await waitFor(() => {
+      expect(callback).toBeCalled()
+    })
   })
 })
