@@ -131,7 +131,12 @@ const Input = forwardRef<HTMLInputElement, Props>(
         required={required}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           e.persist()
-          setInputEvent(e)
+          setInputEvent({
+            ...e,
+            target: {
+              ...e.target,
+            },
+          })
         }}
         onBlur={onBlur}
         onFocus={onFocus}
