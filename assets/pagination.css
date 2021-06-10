@@ -11,7 +11,7 @@
 .page a {
   min-width: 30px;
   height: 30px;
-  @apply p-5 w-auto;
+  @apply w-auto;
 }
 
 .page:not(.active):hover {
@@ -20,7 +20,6 @@
 
 .page.active {
   @apply text-white bg-teal rounded-20 outline-none text-center;
-
 }
 
 .previous {
@@ -37,11 +36,11 @@
 }
 
 .page.active a {
-  @apply cursor-default opacity-100;
+  @apply cursor-default opacity-100 flex justify-center items-center;
 }
 
 .page a:link, .page a:visited {
-  @apply text-grey-dark;
+  @apply text-grey-dark flex justify-center items-center;
 }
 
 .page a:focus,
@@ -52,7 +51,7 @@
 }
 
 .next, .previous {
-  @apply mt-10;
+  @apply mt-20;
 }
 
 .next {
