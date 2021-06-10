@@ -61,7 +61,7 @@ const MenuItem: FC<Props> = ({
         </span>
         {title}
         {NotificationComponent ? (
-          <span className="w-12/12 text-right text-salmon px-5">
+          <span className="w-12/12 text-right px-5">
             <NotificationComponent width="14px" height="14px" />
           </span>
         ) : null}

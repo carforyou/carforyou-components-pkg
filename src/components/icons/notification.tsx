@@ -1,6 +1,6 @@
-import React, { FC } from "react"
+import React from "react"
 
-const Notification: FC = () => (
+const Notification = () => (
   <svg
     width="14"
     height="14"
