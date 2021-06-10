@@ -37,7 +37,7 @@ interface Props {
 const MenuItem: FC<Props> = ({
   title,
   IconComponent,
-  hasNotificationIcon = false,
+  hasNotificationIcon,
   onClick,
   url,
   active = false,
