@@ -49,3 +49,9 @@ Active.args = {
   storyName: "Active",
   active: true,
 }
+
+export const WithNotification = Template.bind({})
+WithNotification.args = {
+  storyName: "With Notification",
+  hasNotificationIcon: true,
+}
