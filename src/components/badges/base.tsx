@@ -19,7 +19,7 @@ const BaseBadge: FC<Props> = ({ icon, text, size, tooltipContent }) => {
     <div
       className={classNames(
         styles.space,
-        "inline-flex items-center border border-grey-1 rounded-4 text-sm font-bold",
+        "inline-flex items-center border border-grey-1 rounded-4 text-sm font-bold bg-white",
         {
           "cursor-pointer": tooltipContent,
         }
