@@ -15,17 +15,20 @@ export const BuyerProtectionBadge: FC<BadgeProps> = ({
     it: "Protezione dell’acquirente",
     en: "Buyer Protection",
   }
+
   return (
-    <BaseBadge
-      icon={
-        <div className="text-green-dark">
-          <UmbrellaIcon width="24" height="24" />
-        </div>
-      }
-      tooltipContent={tooltipContent}
-      size={size}
-      text={title[language]}
-    />
+    <div className="text-grey-dark">
+      <BaseBadge
+        icon={
+          <div className="text-green-dark">
+            <UmbrellaIcon width="24" height="24" />
+          </div>
+        }
+        tooltipContent={tooltipContent}
+        size={size}
+        text={title[language]}
+      />
+    </div>
   )
 }
 

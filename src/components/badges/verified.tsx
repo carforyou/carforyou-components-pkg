@@ -15,13 +15,16 @@ export const VerifiedBadge: FC<BadgeProps> = ({
     it: "Verificato",
     en: "Verified",
   }
+
   return (
-    <BaseBadge
-      icon={<VerifiedIcon width="24" height="24" />}
-      tooltipContent={tooltipContent}
-      size={size}
-      text={title[language]}
-    />
+    <div className="text-grey-dark">
+      <BaseBadge
+        icon={<VerifiedIcon width="24" height="24" />}
+        tooltipContent={tooltipContent}
+        size={size}
+        text={title[language]}
+      />
+    </div>
   )
 }
 
