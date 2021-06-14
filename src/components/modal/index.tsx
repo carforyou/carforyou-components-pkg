@@ -78,7 +78,7 @@ const Modal: FC<ModalProps> = ({
             "p-15 md:p-40 md:w-modalLarge": size === "large",
             "p-15 md:p-40 md:w-modal": size === "medium",
             "p-15 md:p-40 md:w-modalSmall": size === "small",
-            "p-0 h-full": size === "fullscreen",
+            "h-full": size === "fullscreen",
           })}
         >
           {children({ closeModal: close })}
