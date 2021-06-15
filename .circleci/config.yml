@@ -5,7 +5,7 @@ orbs:
 
 docker: &DOCKER_NODE
   docker:
-    - image: cimg/node:lts
+    - image: cimg/node:14.17.0
 
 jobs:
   install:
@@ -45,10 +45,11 @@ jobs:
 
   unit:
     <<: *DOCKER_NODE
+    resource_class: medium
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run test
+      - run: npm run test -- --maxWorkers=4
       - slack/notify-on-failure:
           only_for_branches: master
 

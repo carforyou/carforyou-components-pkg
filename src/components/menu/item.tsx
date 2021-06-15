@@ -1,6 +1,8 @@
 import React, { ComponentType, FC, Fragment } from "react"
 import classNames from "classnames"
 
+import Notification from "../icons/notification"
+
 interface Props {
   /**
    * title to be displayed
@@ -10,6 +12,10 @@ interface Props {
    * icon component to be rendered
    */
   IconComponent: ComponentType<{ width: string; height: string }>
+  /**
+   * notification component to be rendered
+   */
+  hasNotificationIcon?: boolean
   /**
    * click event handler (e.g. displaying modal, tracking function)
    */
@@ -31,6 +37,7 @@ interface Props {
 const MenuItem: FC<Props> = ({
   title,
   IconComponent,
+  hasNotificationIcon,
   onClick,
   url,
   active = false,
@@ -55,6 +62,11 @@ const MenuItem: FC<Props> = ({
           <IconComponent width="24px" height="24px" />
         </span>
         {title}
+        {hasNotificationIcon ? (
+          <span className="w-12/12 text-right px-5">
+            <Notification width="14px" height="14px" />
+          </span>
+        ) : null}
       </a>
     </LinkWrapperComponent>
   )

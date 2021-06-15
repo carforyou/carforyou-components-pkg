@@ -74,11 +74,11 @@ const Modal: FC<ModalProps> = ({
           <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
         </div>
         <div
-          className={classNames("z-modal w-12/12 my-0 p-15", {
-            "md:p-40 md:w-modalLarge": size === "large",
-            "md:p-40 md:w-modal": size === "medium",
-            "md:p-40 md:w-modalSmall": size === "small",
-            "md:p-0 h-full": size === "fullscreen",
+          className={classNames("z-modal w-12/12 my-0", {
+            "p-15 md:p-40 md:w-modalLarge": size === "large",
+            "p-15 md:p-40 md:w-modal": size === "medium",
+            "p-15 md:p-40 md:w-modalSmall": size === "small",
+            "h-full": size === "fullscreen",
           })}
         >
           {children({ closeModal: close })}
