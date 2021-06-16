@@ -4,6 +4,7 @@ import React, {
   forwardRef,
   KeyboardEvent,
 } from "react"
+
 import classNames from "classnames"
 
 import InputField from "./inputField"
@@ -12,6 +13,7 @@ import WithLabel from "../fieldHelpers/withLabel"
 import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
 import HintText from "../fieldHelpers/hintText"
+import useDebounce from "../../hooks/useDebounce"
 
 interface InputProps {
   name: string
@@ -99,15 +101,18 @@ const Input = forwardRef<HTMLInputElement, Props>(
       visible: !!value,
       disabled,
       onClear: () => {
-        onChange({ target: { name, value: "", cleared: true } })
+        const clearEvent = { target: { name, value: "", cleared: true } }
+        onChange(clearEvent)
+        setInputEvent(clearEvent)
       },
     }
+    const [inputValue, setInputEvent] = useDebounce(onChange, debounce)
 
     const renderInput = (hasError) => (
       <InputField
         ref={ref}
         name={name}
-        value={value || ""}
+        value={inputValue}
         placeholder={placeholder || ""}
         className={classNames("w-12/12", {
           // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -124,7 +129,10 @@ const Input = forwardRef<HTMLInputElement, Props>(
         hasError={hasError}
         disabled={disabled}
         required={required}
-        onChange={onChange}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          e.persist()
+          setInputEvent(e)
+        }}
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
