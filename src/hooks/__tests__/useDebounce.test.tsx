@@ -32,8 +32,7 @@ describe("useDebounce", () => {
   const renderWrapper = (callback) =>
     render(<Wrapper value={"Initial value"} callback={callback} />)
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip("should execute the callback function", async () => {
+  it("should execute the callback function", async () => {
     const callback = jest.fn()
     const { getByPlaceholderText } = renderWrapper(callback)
     const input = getByPlaceholderText("testInput")
