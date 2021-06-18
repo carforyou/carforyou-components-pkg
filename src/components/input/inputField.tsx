@@ -5,6 +5,8 @@ import React, {
   InputHTMLAttributes,
 } from "react"
 
+import debounceCallback from "../../lib/debounceHelper"
+
 const validateNumber = (e) => {
   const key = e.which || e.keyCode
 
@@ -59,6 +61,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: string
   disabled?: boolean
   required?: boolean
+  autoComplete?: string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onBlur?: (e: FocusEvent) => void
   debounce?: number
@@ -105,7 +108,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
 
           onKeyDown && onKeyDown(e)
         }}
-        onChange={onChange}
+        onChange={debounceCallback(onChange, debounce)}
         onBlur={onBlur}
         data-testid={name}
         data-valid={!hasError}
