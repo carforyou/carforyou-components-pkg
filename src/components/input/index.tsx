@@ -106,7 +106,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         setInputEvent(clearEvent)
       },
     }
-    const [inputValue, setInputEvent] = useDebounce(onChange, debounce)
+    const [inputValue, setInputEvent] = useDebounce(onChange, debounce, value)
 
     const renderInput = (hasError) => (
       <InputField
