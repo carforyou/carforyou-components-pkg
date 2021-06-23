@@ -19,6 +19,7 @@ const initialSelection = (initial = null) => initial
 const small = (initial = false) => initial
 const disabled = (initial = false) => initial
 const growing = (initial = false) => initial
+const wrapOnSmallScreens = (initial = false) => initial
 
 export default {
   title: "Segmented Control",
@@ -55,6 +56,7 @@ Default.args = {
   small: small(),
   disabled: disabled(),
   growing: growing(),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
 }
 
 export const WithTwoButtons = Template.bind({})
@@ -68,6 +70,7 @@ WithTwoButtons.args = {
   initialSelection: initialSelection(),
   small: small(),
   disabled: disabled(),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
 }
 
 export const WithoutSelectionHandler = Template.bind({})
@@ -77,6 +80,7 @@ WithoutSelectionHandler.args = {
   initialSelection: initialSelection(2),
   small: small(),
   disabled: disabled(),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
 }
 
 export const WithInitialSelection = Template.bind({})
@@ -87,6 +91,7 @@ WithInitialSelection.args = {
   initialSelection: initialSelection(2),
   small: small(),
   disabled: disabled(),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
 }
 
 export const WithCustomOptionRender = Template.bind({})
@@ -97,6 +102,7 @@ WithCustomOptionRender.args = {
   initialSelection: initialSelection(),
   small: small(),
   disabled: disabled(),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
   renderOption: ({ name, value }) => (
     <div className="w-12/12 flex justify-between">
       <span>{name}</span>
@@ -113,6 +119,7 @@ Small.args = {
   initialSelection: initialSelection(),
   small: small(true),
   disabled: disabled(),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
 }
 
 export const Disabled = Template.bind({})
@@ -123,6 +130,7 @@ Disabled.args = {
   initialSelection: initialSelection(),
   small: small(),
   disabled: disabled(true),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
 }
 
 export const DisabledSmall = Template.bind({})
@@ -133,6 +141,7 @@ DisabledSmall.args = {
   initialSelection: initialSelection(),
   small: small(true),
   disabled: disabled(true),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
 }
 
 export const Growing = Template.bind({})
@@ -148,4 +157,17 @@ Growing.args = {
   small: small(true),
   disabled: disabled(),
   growing: growing(true),
+  wrapOnSmallScreens: wrapOnSmallScreens(),
+}
+
+export const WrapOnSmallScreens = Template.bind({})
+WrapOnSmallScreens.args = {
+  storyName: "Wraps on small screens",
+  options: options(),
+  onSelect: onSelect(),
+  initialSelection: initialSelection(),
+  small: small(),
+  disabled: disabled(),
+  growing: growing(),
+  wrapOnSmallScreens: wrapOnSmallScreens(true),
 }

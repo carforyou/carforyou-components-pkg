@@ -1,4 +1,5 @@
 import React, { ReactElement, ReactNode, useState } from "react"
+import classnames from "classnames"
 
 import Button from "./button"
 
@@ -31,6 +32,7 @@ interface Props<T> {
   small?: boolean
   disabled?: boolean
   growing?: boolean
+  wrapOnSmallScreens?: boolean
 }
 
 function SegmentedControl<T>({
@@ -41,6 +43,7 @@ function SegmentedControl<T>({
   small = false,
   disabled = false,
   growing = false,
+  wrapOnSmallScreens = false,
 }: Props<T>): ReactElement {
   const [selectedValue, updateSelected] = useState(
     (options.find(({ value }) => value === initialSelection) || options[0])
@@ -49,7 +52,12 @@ function SegmentedControl<T>({
   const lastOption = options.length - 1
 
   return (
-    <div className="flex w-12/12">
+    <div
+      className={classnames(
+        "flex w-12/12",
+        wrapOnSmallScreens && "flex-col sm:flex-row"
+      )}
+    >
       {options.map(({ name, value }, index) => {
         const selected = value === selectedValue
         return (
@@ -59,6 +67,7 @@ function SegmentedControl<T>({
             disabled={disabled}
             small={small}
             growing={growing}
+            wrapOnSmallScreens={wrapOnSmallScreens}
             position={
               index === 0 ? "left" : index === lastOption ? "right" : "middle"
             }
