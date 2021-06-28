@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useMemo,
 } from "react"
-import * as lodashDebounce from "lodash.debounce"
+import debounce from "lodash.debounce"
 import classNames from "classnames"
 
 import InputField from "./inputField"
@@ -83,7 +83,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       min,
       max,
       position,
-      debounce,
+      debounce: delay,
       autoComplete,
       ...rest
     },
@@ -105,13 +105,15 @@ const Input = forwardRef<HTMLInputElement, Props>(
       },
     }
 
-    const debouncedChangeHandler = useMemo(
-      () => lodashDebounce(onChange, debounce),
-      [onChange, debounce]
-    )
+    const debouncedChangeHandler = useMemo(() => {
+      if (onChange) {
+        return debounce(onChange, delay)
+      }
+      return onChange
+    }, [onChange, delay])
     useEffect(() => {
       return () => {
-        debouncedChangeHandler.cancel()
+        debouncedChangeHandler?.cancel()
       }
     }, [])
 
@@ -136,7 +138,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         hasError={hasError}
         disabled={disabled}
         required={required}
-        onChange={debouncedChangeHandler}
+        onChange={onChange}
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
@@ -144,7 +146,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         step={step}
         min={min}
         max={max}
-        debounce={debounce}
+        debounce={delay}
         autoComplete={autoComplete}
       />
     )
