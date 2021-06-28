@@ -28,6 +28,7 @@ module.exports = ({ config }) => {
         loader: 'css-loader',
         options: {
           modules: true,
+          importLoaders: 1,
         },
       },
     ],
@@ -42,8 +43,8 @@ module.exports = ({ config }) => {
       {
         loader: "postcss-loader",
         options: {
-          config: {
-            path: ".storybook/",
+          postcssOptions: {
+            config: path.resolve(__dirname),
           },
         },
       },
