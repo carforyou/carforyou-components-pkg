@@ -109,17 +109,13 @@ const Input = forwardRef<HTMLInputElement, Props>(
       },
     }
 
-    const persistedOnChange = (e) => {
-      e.persist()
-      onChange(e)
-    }
-
     const debouncedChangeHandler = useMemo(() => {
       if (onChange) {
-        return debounce(persistedOnChange, delay)
+        return debounce(onChange, delay)
       }
       return onChange
-    }, [onChange, delay])
+    }, [])
+
     useEffect(() => {
       return () => {
         debouncedChangeHandler?.cancel()
@@ -158,7 +154,14 @@ const Input = forwardRef<HTMLInputElement, Props>(
         hasError={hasError}
         disabled={disabled}
         required={required}
-        onChange={delay ? debouncedChangeHandler : onChange}
+        onChange={
+          delay
+            ? (e) => {
+                e.persist()
+                debouncedChangeHandler(e)
+              }
+            : onChange
+        }
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
