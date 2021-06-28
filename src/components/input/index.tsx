@@ -3,7 +3,10 @@ import React, {
   FocusEvent,
   forwardRef,
   KeyboardEvent,
+  useEffect,
+  useMemo,
 } from "react"
+import * as lodashDebounce from "lodash.debounce"
 import classNames from "classnames"
 
 import InputField from "./inputField"
@@ -12,7 +15,6 @@ import WithLabel from "../fieldHelpers/withLabel"
 import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
 import HintText from "../fieldHelpers/hintText"
-
 interface InputProps {
   name: string
   value: string | number
@@ -103,6 +105,16 @@ const Input = forwardRef<HTMLInputElement, Props>(
       },
     }
 
+    const debouncedChangeHandler = useMemo(
+      () => lodashDebounce(onChange, debounce),
+      [onChange, debounce]
+    )
+    useEffect(() => {
+      return () => {
+        debouncedChangeHandler.cancel()
+      }
+    }, [])
+
     const renderInput = (hasError) => (
       <InputField
         ref={ref}
@@ -124,7 +136,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         hasError={hasError}
         disabled={disabled}
         required={required}
-        onChange={onChange}
+        onChange={debouncedChangeHandler}
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
