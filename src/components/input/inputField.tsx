@@ -95,7 +95,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         id={name}
         name={name}
         type={isNumber ? "number" : "text"}
-        value={value || ""}
+        defaultValue={value || ""}
         placeholder={placeholder || ""}
         className={className}
         inputMode={mode !== "text" ? mode : null}
