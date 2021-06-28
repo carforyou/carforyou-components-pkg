@@ -105,12 +105,14 @@ const Input = forwardRef<HTMLInputElement, Props>(
       },
     }
 
+    const persistedOnChange = (e) => {
+      e.persist()
+      onChange(e)
+    }
+
     const debouncedChangeHandler = useMemo(() => {
       if (onChange) {
-        return debounce((e) => {
-          e.persist()
-          return onChange
-        }, delay)
+        return debounce(persistedOnChange, delay)
       }
       return onChange
     }, [onChange, delay])
