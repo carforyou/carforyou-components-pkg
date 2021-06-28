@@ -91,10 +91,11 @@ const DatePicker: FC<Props> = ({
           scrollIntoViewIfMobile(containerRef.current, 300, false)
           setShowCalendar(true)
         }}
-        onChange={({ target: { value } }) => {
-          if (value === "") {
+        onChange={(event) => {
+          if (event.target.value === "") {
             setSelectedDate(null)
             setShowCalendar(false)
+            updateFormValue(event)
           }
         }}
         hasClearButton={!isToday(selectedDate)}
