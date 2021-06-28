@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
-const useDebounce = (onChange, debounce, initialValue) => {
+const useDebounce = (onChange, debounce) => {
   const [event, setEvent] = useState(null)
-  const value = event?.target?.value || initialValue
+  const value = event?.target?.value || ""
   useEffect(() => {
     if (event) {
       const timer = setTimeout(() => onChange(event), debounce)
