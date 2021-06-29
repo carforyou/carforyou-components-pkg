@@ -52,7 +52,10 @@ const Collapsible: FC<Props> = ({
         className={classNames("flex items-center cursor-pointer", {
           "transition duration-200 hover:opacity-60": opacityOnHover,
         })}
-        onClick={() => {
+        onClick={(e) => {
+          if (e.target instanceof HTMLAnchorElement) {
+            e.stopPropagation()
+          }
           onChange && onChange(!isCollapsed)
           setIsCollapsed(!isCollapsed)
         }}
