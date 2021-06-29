@@ -1,4 +1,5 @@
 import React, { FC, ReactNode, useEffect, useState } from "react"
+import { hasEventBubbledThroughTag } from "lib/tagHelper"
 import classNames from "classnames"
 
 import ArrowDownM from "./icons/arrowDownM"
@@ -53,11 +54,16 @@ const Collapsible: FC<Props> = ({
           "transition duration-200 hover:opacity-60": opacityOnHover,
         })}
         onClick={(e) => {
-          if (e.target instanceof HTMLAnchorElement) {
-            e.stopPropagation()
+          if (
+            !hasEventBubbledThroughTag({
+              tagName: "a",
+              target: e.target as HTMLElement,
+              currentTarget: e.currentTarget,
+            })
+          ) {
+            onChange && onChange(!isCollapsed)
+            setIsCollapsed(!isCollapsed)
           }
-          onChange && onChange(!isCollapsed)
-          setIsCollapsed(!isCollapsed)
         }}
         data-collapsed={isCollapsed}
         data-testid="collapsible"
