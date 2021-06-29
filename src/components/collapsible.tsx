@@ -1,8 +1,10 @@
 import React, { FC, ReactNode, useEffect, useState } from "react"
-import { hasEventBubbledThroughTag } from "lib/tagHelper"
+
 import classNames from "classnames"
 
 import ArrowDownM from "./icons/arrowDownM"
+import { hasEventBubbledThroughTag } from "../lib/tagHelper"
+
 interface Props {
   /**
    * A render prop to customize the clickable title of the collapsible element
