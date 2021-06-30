@@ -34,7 +34,6 @@
     "deepmerge": "^4.2.2",
     "downshift": "^6.0.0",
     "glob": "^7.1.6",
-    "postcss": "^8.3.5",
     "react-calendar": "^3.3.1",
     "react-paginate": "^7.0.0",
     "react-tooltip-lite": "^1.12.0",
