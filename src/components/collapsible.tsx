@@ -3,7 +3,6 @@ import React, { FC, ReactNode, useEffect, useState } from "react"
 import classNames from "classnames"
 
 import ArrowDownM from "./icons/arrowDownM"
-import { hasEventBubbledThroughTag } from "../lib/tagHelper"
 
 interface Props {
   /**
@@ -48,6 +47,28 @@ const Collapsible: FC<Props> = ({
   useEffect(() => {
     setIsCollapsed(forceCollapse)
   }, [forceCollapse])
+
+  const hasEventBubbledThroughTag = ({
+    tagName,
+    target,
+    currentTarget,
+  }: {
+    tagName: string
+    target: HTMLElement
+    currentTarget: HTMLElement
+  }) => {
+    if (target == currentTarget || !target.parentElement || !target.tagName) {
+      return false
+    }
+
+    if (target.tagName.toLowerCase() === tagName.toLowerCase()) return true
+
+    return hasEventBubbledThroughTag({
+      tagName,
+      target: target.parentElement,
+      currentTarget,
+    })
+  }
 
   return (
     <>
