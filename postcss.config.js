@@ -4,5 +4,6 @@ module.exports = {
   plugins: [
     require("postcss-easy-import"),
     require("tailwindcss")(tailwindConfig),
+    require("autoprefixer"),
   ],
 }
