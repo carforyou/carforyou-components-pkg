@@ -113,7 +113,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       if (onChange) {
         return debounce(onChange, delay)
       }
-      return onChange
+      return null
     }, [])
 
     useEffect(() => {
