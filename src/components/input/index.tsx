@@ -104,8 +104,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       visible: !!value,
       disabled,
       onClear: () => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ;(inputRef.current as any).value = ""
+        ;(inputRef.current as HTMLInputElement).value = ""
         onChange({ target: { name, value: "", cleared: true } })
       },
     }
