@@ -46,7 +46,7 @@ const DatePicker: FC<Props> = ({
   disabled = false,
   formik: {
     value: initialValue = null,
-    callback: updateFormValue,
+    callback,
     name: formFiledName,
     errorMessage,
   },
@@ -73,6 +73,15 @@ const DatePicker: FC<Props> = ({
     }
   }
 
+  const updateFormValue = (newValue) => {
+    callback({
+      target: {
+        name: formFiledName,
+        value: newValue,
+      },
+    })
+  }
+
   return (
     <div ref={containerRef} className="relative">
       <Input
@@ -94,6 +103,7 @@ const DatePicker: FC<Props> = ({
         onChange={({ target: { value } }) => {
           if (value === "") {
             setSelectedDate(null)
+            updateFormValue(null)
             setShowCalendar(false)
           }
         }}
@@ -116,12 +126,7 @@ const DatePicker: FC<Props> = ({
                 ? newValue
                 : [newValue]
               setSelectedDate(updatedDate)
-              updateFormValue({
-                target: {
-                  name: formFiledName,
-                  value: updatedDate,
-                },
-              })
+              updateFormValue(updatedDate)
               setShowCalendar(false)
             }}
             value={selectedDate}
