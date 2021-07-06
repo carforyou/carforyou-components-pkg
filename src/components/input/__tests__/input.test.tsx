@@ -90,5 +90,43 @@ describe("<Input>", () => {
 
       expect(onChangeMock).toBeCalled()
     })
+
+    it("hooks refs passed as functions", async () => {
+      const onChangeMock = jest.fn()
+      let inputRef = null
+      const { findByPlaceholderText } = render(
+        <Input
+          name="testInput"
+          placeholder="testInput"
+          value="initial value"
+          mode="text"
+          onChange={onChangeMock}
+          hasClearButton
+          ref={(input) => {
+            inputRef = input
+          }}
+        />
+      )
+      await findByPlaceholderText("testInput")
+      expect(inputRef.value).toBe("initial value")
+    })
+
+    it("hooks refs passed as objects", async () => {
+      const onChangeMock = jest.fn()
+      const inputRef = React.createRef<HTMLInputElement>()
+      const { findByPlaceholderText } = render(
+        <Input
+          name="testInput"
+          placeholder="testInput"
+          value="initial value"
+          mode="text"
+          onChange={onChangeMock}
+          hasClearButton
+          ref={inputRef}
+        />
+      )
+      await findByPlaceholderText("testInput")
+      expect(inputRef.current.value).toBe("initial value")
+    })
   })
 })
