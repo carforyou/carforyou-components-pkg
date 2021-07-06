@@ -114,7 +114,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         return lodashDebounce(onChange, debounce)
       }
       return null
-    }, [])
+    }, [onChange, debounce])
 
     useEffect(() => {
       return () => {
