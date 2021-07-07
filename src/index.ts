@@ -21,6 +21,7 @@ import MenuItem from "./components/menu/item"
 import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
+import Image, { ImageProps } from "./components/image/index"
 import Profile from "./components/icons/profile"
 import LogoWhite from "./components/icons/logoWhite"
 import LogoRedWhite from "./components/icons/logoRedWhite"
@@ -45,6 +46,8 @@ import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
 
 export {
+  Image,
+  ImageProps,
   Button,
   Pill,
   Pagination,
