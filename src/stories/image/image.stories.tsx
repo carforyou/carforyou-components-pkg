@@ -32,9 +32,3 @@ export const ImageMissing = Template.bind({})
 ImageMissing.args = {
   image: null,
 }
-
-export const WithLink = Template.bind({})
-WithLink.args = {
-  image: "/dummyImage.jpeg",
-  href: "https://www.carforyou.ch/en",
-}
