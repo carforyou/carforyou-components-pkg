@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 
-import { StoryProps } from "../storyProps"
-import StoryContainer from "../storyContainer"
-import Image, { ImageProps } from "../../components/image/index"
+import { StoryProps } from "./storyProps"
+import StoryContainer from "./storyContainer"
+import Image, { ImageProps } from "../components/image"
 
 export default {
   title: "Image",
