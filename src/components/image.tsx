@@ -1,7 +1,5 @@
 import React, { FC } from "react"
 
-import ImageMissing from "../assets/components/imageMissing"
-
 interface Props {
   image: string
   className?: string
@@ -15,7 +13,7 @@ const Image: FC<Props> = ({
   onLoad,
   getImageAltAttribute,
 }) => {
-  return image ? (
+  return (
     <img
       data-testid="component-image"
       className={className}
@@ -23,8 +21,6 @@ const Image: FC<Props> = ({
       alt={getImageAltAttribute}
       onLoad={onLoad}
     />
-  ) : (
-    <ImageMissing />
   )
 }
 
