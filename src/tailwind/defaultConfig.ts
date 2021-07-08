@@ -121,7 +121,7 @@ export default {
     */
     borderColor: (theme) => ({
       ...theme("colors"),
-      default: theme("colors.grey-light", "currentColor"),
+      DEFAULT: theme("colors.grey-light", "currentColor"),
     }),
 
     /*
@@ -134,7 +134,7 @@ export default {
     */
     borderRadius: {
       none: "0",
-      default: "4px",
+      DEFAULT: "4px",
       full: "9999px",
       half: "50%",
       "2": "2px",
@@ -154,7 +154,7 @@ export default {
     |
     */
     borderWidth: {
-      default: "1px",
+      DEFAULT: "1px",
       "0": "0",
       "2": "2px",
       "5": "5px",
@@ -173,7 +173,7 @@ export default {
     */
     boxShadow: {
       none: "none",
-      default: "0 2px 4px 0 rgba(0,0,0,0.10)",
+      DEFAULT: "0 2px 4px 0 rgba(0,0,0,0.10)",
       small: "0 2px 6px 0 rgba(35,42,54,0.1)",
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
