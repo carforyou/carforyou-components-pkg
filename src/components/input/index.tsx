@@ -162,9 +162,19 @@ const Input = forwardRef<HTMLInputElement, Props>(
               }
             : onChange
         }
-        onBlur={onBlur}
         onFocus={onFocus}
-        onKeyDown={onKeyDown}
+        onKeyDown={(event) => {
+          if (onKeyDown && event.keyCode === 13) {
+            debouncedChangeHandler?.cancel()
+          }
+          onKeyDown(event)
+        }}
+        onBlur={(event) => {
+          if (onBlur) {
+            debouncedChangeHandler?.cancel()
+          }
+          onBlur(event)
+        }}
         autoFocus={autoFocus}
         step={step}
         min={min}
