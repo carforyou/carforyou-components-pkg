@@ -8,7 +8,7 @@
 npm install @carforyou/components
 ```
 
-In your `tailwind.js`, merge your custom configs with the base configuration:
+In your `tailwind.config.js`, merge your custom configs with the base configuration:
 
 ```
 const { tailwind } = require("@carforyou/components").default
@@ -80,7 +80,7 @@ module.exports = {
 };
 ```
 
-Set up a `tailwind.js` as described above.
+Set up a `tailwind.config.js` as described above.
 
 ## Development
 
