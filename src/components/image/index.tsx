@@ -1,5 +1,7 @@
 import React, { FC } from "react"
 
+import ImageMissing from "../../assets/components/imageMissing"
+
 interface Props {
   image: string
   className?: string
@@ -25,12 +27,12 @@ const Image: FC<Props> = ({
         src={image}
         alt={getImageAltAttribute}
         onError={() => {
-          ;<img src={require("~/src/assets/imageMissing.svg")} />
+          ;<ImageMissing />
         }}
         onLoad={onLoad}
       />
     ) : (
-      <img src={require("~/src/assets/imageMissing.svg")} />
+      <ImageMissing />
     )
   }
 
