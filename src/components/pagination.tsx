@@ -65,7 +65,7 @@ export const Pagination: StatelessComponent<Props> = ({
     if (currentPage) {
       if (navButtonClicked && onButtonClick) {
         onButtonClick(navButtonClicked)
-      } else if (currentPage && onButtonClick) {
+      } else if (onButtonClick) {
         onButtonClick(`${currentPage.selected + 1}`)
       }
       onPageChange(currentPage)
@@ -73,7 +73,6 @@ export const Pagination: StatelessComponent<Props> = ({
     }
   }, [currentPage])
 
-  useState()
   return pageCount > 1 ? (
     <div className="flex justify-center">
       {renderHead &&
