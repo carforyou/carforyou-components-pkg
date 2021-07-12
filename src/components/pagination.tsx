@@ -1,5 +1,5 @@
 import ReactPaginate from "react-paginate"
-import React, { StatelessComponent } from "react"
+import React, { StatelessComponent, useEffect, useState } from "react"
 
 import ArrowDownM from "./icons/arrowDownMCrop"
 
@@ -13,6 +13,7 @@ interface Props {
   query?: Record<string, unknown>
   pageLinkBuilder?: (page: number, params: Record<string, unknown>) => string
   renderHead?: (links) => void
+  onButtonClick?: (label) => void
 }
 
 const getRelLinks = (forcePage, query, pageCount, linkBuilder) => {
@@ -47,7 +48,32 @@ export const Pagination: StatelessComponent<Props> = ({
   query,
   pageLinkBuilder,
   renderHead,
+  onButtonClick,
 }) => {
+  const [currentPage, setCurrentPage] = useState(null)
+  const [navButtonClicked, setNavButtonClicked] = useState("")
+
+  const handlePageChange = (data) => {
+    setCurrentPage(data)
+  }
+
+  const handleNavButtonClick = (label) => {
+    setNavButtonClicked(label)
+  }
+
+  useEffect(() => {
+    if (currentPage) {
+      if (navButtonClicked && onButtonClick) {
+        onButtonClick(navButtonClicked)
+      } else if (currentPage && onButtonClick) {
+        onButtonClick(`${currentPage.selected + 1}`)
+      }
+      onPageChange(currentPage)
+      setNavButtonClicked("")
+    }
+  }, [currentPage])
+
+  useState()
   return pageCount > 1 ? (
     <div className="flex justify-center">
       {renderHead &&
@@ -60,30 +86,40 @@ export const Pagination: StatelessComponent<Props> = ({
         }
         pageCount={pageCount}
         previousLabel={
-          <>
+          <div
+            className="flex items-center"
+            onClick={() => {
+              handleNavButtonClick("previous")
+            }}
+          >
             <ArrowDownM
               height="28"
               width="28"
               className="inline-block customRotate-90"
             />
             {previousLabel}
-          </>
+          </div>
         }
         nextLabel={
-          <>
+          <div
+            className="flex items-center"
+            onClick={() => {
+              handleNavButtonClick("next")
+            }}
+          >
             {nextLabel}
             <ArrowDownM
               height="28"
               width="28"
               className="inline-block align-middle customRotate-270"
             />
-          </>
+          </div>
         }
         breakLabel={<span>...</span>}
         breakClassName="break-me"
         marginPagesDisplayed={1}
         pageRangeDisplayed={5}
-        onPageChange={onPageChange}
+        onPageChange={handlePageChange}
         containerClassName="pagination"
         pageClassName="page"
         activeClassName="active"
