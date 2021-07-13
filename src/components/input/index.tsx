@@ -3,7 +3,12 @@ import React, {
   FocusEvent,
   forwardRef,
   KeyboardEvent,
+  MutableRefObject,
+  useEffect,
+  useMemo,
+  useRef,
 } from "react"
+import lodashDebounce from "lodash.debounce"
 import classNames from "classnames"
 
 import InputField from "./inputField"
@@ -12,7 +17,6 @@ import WithLabel from "../fieldHelpers/withLabel"
 import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
 import HintText from "../fieldHelpers/hintText"
-
 interface InputProps {
   name: string
   value: string | number
@@ -87,6 +91,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
     },
     ref
   ) => {
+    const inputRef = useRef()
     const required =
       "floatingLabel" in rest || ("required" in rest ? rest.required : null)
     const labelProps =
@@ -99,13 +104,38 @@ const Input = forwardRef<HTMLInputElement, Props>(
       visible: !!value,
       disabled,
       onClear: () => {
+        ;(inputRef.current as HTMLInputElement).value = ""
         onChange({ target: { name, value: "", cleared: true } })
       },
     }
 
+    const debouncedChangeHandler = useMemo(() => {
+      if (onChange) {
+        return lodashDebounce(onChange, debounce)
+      }
+      return null
+    }, [onChange, debounce])
+
+    useEffect(() => {
+      return () => {
+        debouncedChangeHandler?.cancel()
+      }
+    }, [])
+
+    useEffect(() => {
+      if (ref) {
+        if (typeof ref === "function") {
+          ref(inputRef.current)
+        } else {
+          const mutableRefObject = ref as MutableRefObject<HTMLInputElement>
+          mutableRefObject.current = inputRef.current
+        }
+      }
+    }, [ref])
+
     const renderInput = (hasError) => (
       <InputField
-        ref={ref}
+        ref={inputRef}
         name={name}
         value={value || ""}
         placeholder={placeholder || ""}
@@ -124,7 +154,14 @@ const Input = forwardRef<HTMLInputElement, Props>(
         hasError={hasError}
         disabled={disabled}
         required={required}
-        onChange={onChange}
+        onChange={
+          debounce
+            ? (e) => {
+                e.persist()
+                debouncedChangeHandler(e)
+              }
+            : onChange
+        }
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
