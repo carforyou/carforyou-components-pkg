@@ -247,6 +247,7 @@ export default {
       input: "52px",
       "20": "20px",
       "40": "40px",
+      image: "180px",
     },
 
     /*
