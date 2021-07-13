@@ -1,7 +1,9 @@
 import React, { FC, ReactNode, useEffect, useState } from "react"
+
 import classNames from "classnames"
 
 import ArrowDownM from "./icons/arrowDownM"
+
 interface Props {
   /**
    * A render prop to customize the clickable title of the collapsible element
@@ -46,15 +48,45 @@ const Collapsible: FC<Props> = ({
     setIsCollapsed(forceCollapse)
   }, [forceCollapse])
 
+  const hasEventBubbledThroughTag = ({
+    tagName,
+    target,
+    currentTarget,
+  }: {
+    tagName: string
+    target: HTMLElement
+    currentTarget: HTMLElement
+  }) => {
+    if (target == currentTarget || !target.parentElement || !target.tagName) {
+      return false
+    }
+
+    if (target.tagName.toLowerCase() === tagName.toLowerCase()) return true
+
+    return hasEventBubbledThroughTag({
+      tagName,
+      target: target.parentElement,
+      currentTarget,
+    })
+  }
+
   return (
     <>
       <div
         className={classNames("flex items-center cursor-pointer", {
           "transition duration-200 hover:opacity-60": opacityOnHover,
         })}
-        onClick={() => {
-          onChange && onChange(!isCollapsed)
-          setIsCollapsed(!isCollapsed)
+        onClick={(e) => {
+          if (
+            !hasEventBubbledThroughTag({
+              tagName: "a",
+              target: e.target as HTMLElement,
+              currentTarget: e.currentTarget,
+            })
+          ) {
+            onChange && onChange(!isCollapsed)
+            setIsCollapsed(!isCollapsed)
+          }
         }}
         data-collapsed={isCollapsed}
         data-testid="collapsible"
