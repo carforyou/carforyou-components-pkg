@@ -8,9 +8,6 @@ module.exports = ({ config }) => {
       {
         loader: require.resolve("ts-loader"),
       },
-      {
-        loader: require.resolve("react-docgen-typescript-loader"),
-      },
     ],
   })
 
@@ -38,16 +35,7 @@ module.exports = ({ config }) => {
   config.module.rules.push({
     include: path.resolve(__dirname, "../"),
     test: /\.css$/,
-    use: [
-      {
-        loader: "postcss-loader",
-        options: {
-          config: {
-            path: ".storybook/",
-          },
-        },
-      },
-    ],
+    use: ["postcss-loader"],
   })
 
   return config

@@ -9,7 +9,94 @@ Object {
   },
   "plugins": Array [
     [Function],
-    [Function],
+    Object {
+      "config": Object {
+        "theme": Object {
+          "conicGradientColors": Object {},
+          "conicGradientPositions": Object {
+            "b": "bottom",
+            "bl": "bottom left",
+            "br": "bottom right",
+            "default": "center",
+            "l": "left",
+            "r": "right",
+            "t": "top",
+            "tl": "top left",
+            "tr": "top right",
+          },
+          "conicGradientStartingAngles": Object {
+            "default": "0",
+          },
+          "linearGradientColors": Object {},
+          "linearGradientDirections": Object {
+            "b": "to bottom",
+            "bl": "to bottom left",
+            "br": "to bottom right",
+            "l": "to left",
+            "r": "to right",
+            "t": "to top",
+            "tl": "to top left",
+            "tr": "to top right",
+          },
+          "radialGradientColors": Object {},
+          "radialGradientPositions": Object {
+            "b": "bottom",
+            "bl": "bottom left",
+            "br": "bottom right",
+            "default": "center",
+            "l": "left",
+            "r": "right",
+            "t": "top",
+            "tl": "top left",
+            "tr": "top right",
+          },
+          "radialGradientShapes": Object {
+            "default": "ellipse",
+          },
+          "radialGradientSizes": Object {
+            "default": "closest-side",
+          },
+          "repeatingConicGradientColors": Object {},
+          "repeatingConicGradientLengths": Object {},
+          "repeatingConicGradientPositions": [Function],
+          "repeatingConicGradientStartingAngles": [Function],
+          "repeatingLinearGradientColors": Object {},
+          "repeatingLinearGradientDirections": [Function],
+          "repeatingLinearGradientLengths": Object {},
+          "repeatingRadialGradientColors": Object {},
+          "repeatingRadialGradientLengths": Object {},
+          "repeatingRadialGradientPositions": [Function],
+          "repeatingRadialGradientShapes": [Function],
+          "repeatingRadialGradientSizes": Object {
+            "default": "farthest-corner",
+          },
+        },
+        "variants": Object {
+          "backgroundImage": Array [
+            "responsive",
+          ],
+          "conicGradients": Array [
+            "responsive",
+          ],
+          "linearGradients": Array [
+            "responsive",
+          ],
+          "radialGradients": Array [
+            "responsive",
+          ],
+          "repeatingConicGradients": Array [
+            "responsive",
+          ],
+          "repeatingLinearGradients": Array [
+            "responsive",
+          ],
+          "repeatingRadialGradients": Array [
+            "responsive",
+          ],
+        },
+      },
+      "handler": [Function],
+    },
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -63,8 +150,8 @@ Object {
       "cover": "cover",
     },
     "borderColor": Object {
+      "DEFAULT": undefined,
       "black": "#000000",
-      "default": undefined,
       "facebook": "#4267B2",
       "fair-deal": "#EAA403",
       "good-deal": "#81B040",
@@ -103,7 +190,7 @@ Object {
       "20": "20px",
       "4": "4px",
       "6": "6px",
-      "default": "4px",
+      "DEFAULT": "4px",
       "full": "9999px",
       "half": "50%",
       "none": "0",
@@ -113,10 +200,10 @@ Object {
       "0": "0",
       "2": "2px",
       "5": "5px",
-      "default": "1px",
+      "DEFAULT": "1px",
     },
     "boxShadow": Object {
-      "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
+      "DEFAULT": "0 2px 4px 0 rgba(0,0,0,0.10)",
       "focus": "0px 0px 1px 2px rgba(54, 150, 185, 0.6)",
       "hard": "0 4px 18px 0 rgba(35,42,54,0.4)",
       "harder": "0 0 18px 0 rgba(35,42,54,0.8)",
@@ -169,7 +256,7 @@ Object {
       "0": "0",
       "2": "2px",
       "5": "5px",
-      "default": "1px",
+      "DEFAULT": "1px",
     },
     "fontFamily": Object {
       "sans": Array [
@@ -233,26 +320,24 @@ Object {
       "xs": 1.25,
       "xxs": 0.9,
     },
-    "linearGradients": Object {
-      "colors": Object {
-        "black": Array [
-          "rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)",
-        ],
-        "fade": Array [
-          "rgba(255,255,255,0) 90%",
-          "rgba(255,255,255,1) 100%",
-        ],
-        "grey": Array [
-          "#F9F9FB",
-          "#FFFFFF 20%",
-        ],
-      },
-      "directions": Object {
-        "to-bottom": "to bottom",
-        "to-left": "to left",
-        "to-right": "to right",
-        "to-top": "to top",
-      },
+    "linearGradientColors": Object {
+      "black": Array [
+        "rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)",
+      ],
+      "fade": Array [
+        "rgba(255,255,255,0) 90%",
+        "rgba(255,255,255,1) 100%",
+      ],
+      "grey": Array [
+        "#F9F9FB",
+        "#FFFFFF 20%",
+      ],
+    },
+    "linearGradientDirections": Object {
+      "b": "to bottom",
+      "l": "to left",
+      "r": "to right",
+      "t": "to top",
     },
     "margin": Object {
       "-1": "-1px",
