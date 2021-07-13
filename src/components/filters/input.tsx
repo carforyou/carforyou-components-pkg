@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 
 import Input from "../input/index"
 
@@ -17,99 +17,70 @@ interface Props {
   apply: (event) => void
 }
 
-interface State {
-  refocus: boolean
-  value: string
-}
+const InputFilter: FC<Props> = ({
+  name,
+  initialValue,
+  mode,
+  placeholder,
+  step,
+  min,
+  max,
+  position,
+  apply,
+}) => {
+  const [refocus, setRefocus] = useState(false)
+  const inputRef = useRef()
 
-const timeout = 1000
+  useEffect(() => {
+    ;(inputRef.current as HTMLInputElement).value = initialValue
+  }, [initialValue])
 
-export default class InputFilter extends Component<Props, State> {
-  state = {
-    refocus: false,
-    value: this.props.initialValue,
-  }
-
-  timeoutFn = null
-
-  onChange = (event) => {
-    this.setState({ value: event.target.value })
-    if (event.target.cleared) {
-      this.props.apply(event)
-    }
-  }
-
-  onKeyDown = (event) => {
-    clearTimeout(this.timeoutFn)
+  const onFocus = (event) => {
     event.persist()
-
-    if (event.keyCode === 13) {
-      event.preventDefault()
-      this.props.apply(event)
-    } else {
-      this.timeoutFn = setTimeout(() => this.props.apply(event), timeout)
-    }
-  }
-
-  onFocus = (event) => {
-    event.persist()
-    this.setState({ refocus: true }, () => {
+    setRefocus(() => {
       const closestSection = getClosestElement(
         event.target,
         "[data-closestpoint]"
       )
       scrollIntoViewIfMobile(closestSection)
+      return true
     })
   }
 
-  onBlur = (event) => {
-    clearTimeout(this.timeoutFn)
-    this.props.apply(event)
-    this.setState({ refocus: false, value: event.target.value })
-  }
+  const onChange = (event) => apply(event)
 
-  componentDidUpdate(prevProps) {
-    const { initialValue } = this.props
-
-    if (initialValue !== prevProps.initialValue) {
-      const newValue = initialValue ? initialValue : null
-
-      this.setState({ value: newValue })
+  const onKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      apply(event)
     }
   }
 
-  render() {
-    const {
-      name,
-      initialValue,
-      mode,
-      placeholder,
-      step,
-      min,
-      max,
-      position,
-    } = this.props
-
-    const { refocus, value } = this.state
-
-    return (
-      <Input
-        mode={mode}
-        name={name}
-        step={step}
-        min={min}
-        max={max}
-        value={value}
-        placeholder={placeholder}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        onKeyDown={this.onKeyDown}
-        onChange={this.onChange}
-        position={position}
-        key={initialValue}
-        autoFocus={refocus}
-        hasClearButton
-      />
-    )
+  const onBlur = (event) => {
+    apply(event)
+    setRefocus(false)
   }
+
+  return (
+    <Input
+      ref={inputRef}
+      mode={mode}
+      name={name}
+      step={step}
+      min={min}
+      max={max}
+      value={initialValue}
+      placeholder={placeholder}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onKeyDown={onKeyDown}
+      onChange={onChange}
+      position={position}
+      autoFocus={refocus}
+      hasClearButton
+      debounce={1000}
+    />
+  )
 }
+
+export default InputFilter
