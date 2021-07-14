@@ -15,6 +15,7 @@ interface Props {
     | "fullScreenGalleryImage"
     | "imageInfo"
     | "maxHeight"
+    | "bigImage"
   objectFit?: "cover" | "contain"
 }
 
@@ -37,6 +38,7 @@ const Image: FC<Props> = ({ image, objectFit, imageType, onLoad, alt }) => {
       imageType === "fullScreenGalleryImage",
     "w-12/12 max-h-imageInfo": imageType === "imageInfo",
     "max-h-full": imageType === "maxHeight",
+    "w-12/12 h-full": imageType === "bigImage",
   })
 
   const imageClasses = classnames(cover, classes)
