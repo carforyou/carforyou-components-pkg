@@ -4,7 +4,7 @@ import classnames from "classnames"
 interface Props {
   image: string
   onLoad?: () => void
-  getImageAltAttribute?: string
+  alt?: string
   imageType?:
     | "fullWidth"
     | "fixedCard"
@@ -14,16 +14,11 @@ interface Props {
     | "galleryPicture"
     | "fullScreenGalleryImage"
     | "imageInfo"
+    | "maxHeight"
   objectFit?: "cover" | "contain"
 }
 
-const Image: FC<Props> = ({
-  image,
-  objectFit,
-  imageType,
-  onLoad,
-  getImageAltAttribute,
-}) => {
+const Image: FC<Props> = ({ image, objectFit, imageType, onLoad, alt }) => {
   const cover = classnames({
     "object-cover": objectFit === "cover",
     "object-contain": objectFit === "contain",
@@ -41,6 +36,7 @@ const Image: FC<Props> = ({
     "h-auto m-auto max-h-screen max-w-full":
       imageType === "fullScreenGalleryImage",
     "w-12/12 max-h-imageInfo": imageType === "imageInfo",
+    "max-h-full": imageType === "maxHeight",
   })
 
   const imageClasses = classnames(cover, classes)
@@ -49,7 +45,7 @@ const Image: FC<Props> = ({
     <img
       data-testid="component-image"
       src={image}
-      alt={getImageAltAttribute}
+      alt={alt}
       onLoad={onLoad}
       className={imageClasses}
     />
