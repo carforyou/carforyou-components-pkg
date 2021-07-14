@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom"
-import React, { RefObject, useEffect, useState } from "react"
+import React, { RefObject, useCallback, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
@@ -32,13 +32,13 @@ const useModal = (
     onClose = null,
   } = options || {}
 
-  const openModal = () => {
+  const openModal = useCallback(() => {
     setVisible(true)
-  }
+  }, [])
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setVisible(false)
-  }
+  }, [])
 
   useEffect(() => {
     if (isVisible) {
