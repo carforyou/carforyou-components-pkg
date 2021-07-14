@@ -629,6 +629,7 @@ export default {
     whitespace: ["responsive"],
     width: ["responsive"],
     wordBreak: ["responsive"],
+    textOverflow: ["responsive"],
     zIndex: ["responsive", "hover", "focus"],
     gap: ["responsive"],
     scale: ["responsive", "hover", "focus"],
