@@ -248,6 +248,7 @@ export default {
       "20": "20px",
       "40": "40px",
       image: "180px",
+      galleryImage: "250px",
     },
 
     /*
@@ -353,9 +354,13 @@ export default {
     |*/
 
     maxHeight: {
+      screen: "100vh",
       full: "100%",
       dropdown: "240px",
+      image: "180px",
+      imageLarge: "330px",
       dropdownSM: "190px",
+      imageInfo: "400px",
     },
 
     /*

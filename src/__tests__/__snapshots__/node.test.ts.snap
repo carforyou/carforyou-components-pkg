@@ -199,6 +199,7 @@ Object {
       "checkbox": "24px",
       "clearButton": "32px",
       "full": "100%",
+      "galleryImage": "250px",
       "image": "180px",
       "input": "52px",
       "radioIndicator": "12px",
@@ -279,6 +280,10 @@ Object {
       "dropdown": "240px",
       "dropdownSM": "190px",
       "full": "100%",
+      "image": "180px",
+      "imageInfo": "400px",
+      "imageLarge": "330px",
+      "screen": "100vh",
     },
     "maxWidth": Object {
       "container": "1200px",
