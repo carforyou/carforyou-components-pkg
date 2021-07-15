@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, ReactNode } from "react"
 
 import classNames from "classnames"
 
@@ -19,7 +19,7 @@ export default {
 }
 
 function ModalDemo(args) {
-  const { size, alwaysRender, container, style, onClose } = args
+  const { size, alwaysRender, container, style, onClose, title } = args
   const { openModal, renderModal } = useModal(
     () => (
       <div className={classNames({ "p-40": args.size === "fullscreen" })}>
@@ -44,7 +44,7 @@ function ModalDemo(args) {
         </p>
       </div>
     ),
-    { size, alwaysRender, container, style, onClose }
+    { size, alwaysRender, container, style, onClose, title }
   )
 
   return (
@@ -61,6 +61,7 @@ interface Props {
   size?: "small" | "medium" | "large" | "fullscreen"
   style?: "white" | "dark"
   onClose: () => void
+  title?: ReactNode
 }
 
 const Template: FC<Props> = (args) => {
@@ -86,6 +87,15 @@ SmallWithClose.args = {
   size: "small",
   style: "white",
   onClose: action("onClose callback called"),
+}
+
+export const SmallWithTitle = Template.bind({})
+SmallWithTitle.args = {
+  storyName: "Small with title",
+  size: "small",
+  style: "white",
+  onClose: null,
+  title: "How does the price check work?",
 }
 
 export const Medium = Template.bind({})

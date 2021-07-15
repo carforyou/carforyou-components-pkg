@@ -16,34 +16,38 @@ exports[`useModal with a portal renders the modal within the portal 1`] = `
       role="dialog"
     >
       <div
-        class="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
-        data-testid="modal-close"
-      >
-        <svg
-          height="48"
-          viewBox="0 0 24 24"
-          width="48"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            fill="none"
-            fill-rule="evenodd"
-            stroke="#232A36"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.2"
-          >
-            <path
-              d="M7 7l10 10M17 7L7 17"
-            />
-          </g>
-        </svg>
-      </div>
-      <div
         class="z-modal w-12/12 my-0 p-15 md:p-40 md:w-modal"
       >
-        <div>
-          HERE BE DRAGONS
+        <div
+          class="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
+          data-testid="modal-close"
+        >
+          <svg
+            height="48"
+            viewBox="0 0 24 24"
+            width="48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              stroke="#232A36"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.2"
+            >
+              <path
+                d="M7 7l10 10M17 7L7 17"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="pt-15"
+        >
+          <div>
+            HERE BE DRAGONS
+          </div>
         </div>
       </div>
     </div>
@@ -91,34 +95,38 @@ exports[`useModal without portal renders the modal within the container 1`] = `
         role="dialog"
       >
         <div
-          class="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
-          data-testid="modal-close"
-        >
-          <svg
-            height="48"
-            viewBox="0 0 24 24"
-            width="48"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-              stroke="#232A36"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.2"
-            >
-              <path
-                d="M7 7l10 10M17 7L7 17"
-              />
-            </g>
-          </svg>
-        </div>
-        <div
           class="z-modal w-12/12 my-0 p-15 md:p-40 md:w-modal"
         >
-          <div>
-            HERE BE DRAGONS
+          <div
+            class="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
+            data-testid="modal-close"
+          >
+            <svg
+              height="48"
+              viewBox="0 0 24 24"
+              width="48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                stroke="#232A36"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.2"
+              >
+                <path
+                  d="M7 7l10 10M17 7L7 17"
+                />
+              </g>
+            </svg>
+          </div>
+          <div
+            class="pt-15"
+          >
+            <div>
+              HERE BE DRAGONS
+            </div>
           </div>
         </div>
       </div>

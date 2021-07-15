@@ -22,6 +22,8 @@ export interface ModalProps {
   style: ModalStyle
   // Vertical overflow
   verticalOverflow?: ModalOverflow
+  // Title in the modal
+  title?: ReactNode
 }
 
 const Modal: FC<ModalProps> = ({
@@ -31,6 +33,7 @@ const Modal: FC<ModalProps> = ({
   style,
   children,
   verticalOverflow,
+  title,
 }) => {
   const overflowClass = verticalOverflow
     ? `overflow-y-${verticalOverflow}`
@@ -67,13 +70,6 @@ const Modal: FC<ModalProps> = ({
         role="dialog"
       >
         <div
-          className="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
-          onClick={handleClose}
-          data-testid="modal-close"
-        >
-          <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
-        </div>
-        <div
           className={classNames("z-modal w-12/12 my-0", {
             "p-15 md:p-40 md:w-modalLarge": size === "large",
             "p-15 md:p-40 md:w-modal": size === "medium",
@@ -81,7 +77,30 @@ const Modal: FC<ModalProps> = ({
             "h-full": size === "fullscreen",
           })}
         >
-          {children({ closeModal: close })}
+          {title ? (
+            <div className="flex items-center">
+              <h2 className="font-bold text-xl text-grey-dark w-12/12">
+                {title}
+              </h2>
+              <div
+                className="z-modalClose cursor-pointer"
+                onClick={handleClose}
+                data-testid="modal-close"
+              >
+                <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
+              </div>
+            </div>
+          ) : (
+            <div
+              className="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
+              onClick={handleClose}
+              data-testid="modal-close"
+            >
+              <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
+            </div>
+          )}
+
+          <div className="pt-15">{children({ closeModal: close })}</div>
         </div>
       </div>
     </div>
