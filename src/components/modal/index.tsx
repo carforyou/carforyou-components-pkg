@@ -22,6 +22,8 @@ export interface ModalProps {
   style: ModalStyle
   // Vertical overflow
   verticalOverflow?: ModalOverflow
+  // Title in the modal
+  title?: ReactNode
 }
 
 const Modal: FC<ModalProps> = ({
@@ -31,6 +33,7 @@ const Modal: FC<ModalProps> = ({
   style,
   children,
   verticalOverflow,
+  title,
 }) => {
   const overflowClass = verticalOverflow
     ? `overflow-y-${verticalOverflow}`
@@ -52,6 +55,18 @@ const Modal: FC<ModalProps> = ({
     return () => document.removeEventListener("keydown", handleKeys)
   }, [])
 
+  const renderCloseIcon = () => (
+    <div
+      className={classNames("z-modalClose cursor-pointer", {
+        "absolute right-modalClose top-modalClose": !title,
+      })}
+      onClick={handleClose}
+      data-testid="modal-close"
+    >
+      <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
+    </div>
+  )
+
   return (
     <div className="fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center">
       <Overlay handleClick={handleClose} />
@@ -67,13 +82,6 @@ const Modal: FC<ModalProps> = ({
         role="dialog"
       >
         <div
-          className="absolute z-modalClose cursor-pointer right-modalClose top-modalClose"
-          onClick={handleClose}
-          data-testid="modal-close"
-        >
-          <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
-        </div>
-        <div
           className={classNames("z-modal w-12/12 my-0", {
             "p-15 md:p-40 md:w-modalLarge": size === "large",
             "p-15 md:p-40 md:w-modal": size === "medium",
@@ -81,6 +89,16 @@ const Modal: FC<ModalProps> = ({
             "h-full": size === "fullscreen",
           })}
         >
+          {title ? (
+            <div className="flex items-center pb-15">
+              <h2 className="font-bold text-xl text-grey-dark w-12/12">
+                {title}
+              </h2>
+              {renderCloseIcon()}
+            </div>
+          ) : (
+            renderCloseIcon()
+          )}
           {children({ closeModal: close })}
         </div>
       </div>
