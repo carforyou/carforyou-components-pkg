@@ -120,7 +120,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       return () => {
         debouncedChangeHandler?.cancel()
       }
-    }, [])
+    }, [debouncedChangeHandler])
 
     useEffect(() => {
       if (ref) {
