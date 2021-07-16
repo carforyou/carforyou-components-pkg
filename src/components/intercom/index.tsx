@@ -1,5 +1,5 @@
 import useDeepCompareEffect from "use-deep-compare-effect"
-import React, { FC, useEffect, useState } from "react"
+import React, { FC, useEffect, useMemo, useState } from "react"
 import classNames from "classnames"
 
 import styles from "./index.module.css"
@@ -84,23 +84,27 @@ export const Intercom: FC<Props> = ({
   autoload = false,
   userInfo = {},
 }) => {
-  const intercomSettings = {
-    cfy: true,
-    app_id: appId,
-    stage,
-    custom_launcher_selector: `#${intercomLauncherId}`,
-    hide_default_launcher: true,
-    alignment: "right",
-    horizontal_padding: 20,
-    vertical_padding: 76,
-    language_override: language,
-    ...userInfo,
-  }
+  const intercomSettings = useMemo(() => {
+    return {
+      cfy: true,
+      app_id: appId,
+      stage,
+      custom_launcher_selector: `#${intercomLauncherId}`,
+      hide_default_launcher: true,
+      alignment: "right",
+      horizontal_padding: 20,
+      vertical_padding: 76,
+      language_override: language,
+      ...userInfo,
+    }
+  }, [appId, language, stage, userInfo])
 
-  const intercomEventHandlers = {
-    onOpen: () => setState(State.Open),
-    onClose: () => setState(State.Ready),
-  }
+  const intercomEventHandlers = useMemo(() => {
+    return {
+      onOpen: () => setState(State.Open),
+      onClose: () => setState(State.Ready),
+    }
+  }, [])
 
   const [state, setState] = useState<State>(State.NotLoaded)
 
@@ -123,7 +127,7 @@ export const Intercom: FC<Props> = ({
       window.Intercom("shutdown")
       bootIntercom(intercomSettings, intercomEventHandlers)
     }
-  }, [isLoggedIn])
+  }, [intercomEventHandlers, intercomSettings, isLoggedIn])
 
   return (
     <>
