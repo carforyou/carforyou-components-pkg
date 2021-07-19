@@ -23,7 +23,7 @@ export interface ModalProps {
   // Vertical overflow
   verticalOverflow?: ModalOverflow
   // Title in the modal
-  title?: ReactNode
+  title?: string
 }
 
 const Modal: FC<ModalProps> = ({
@@ -64,7 +64,7 @@ const Modal: FC<ModalProps> = ({
       onClick={handleClose}
       data-testid="modal-close"
     >
-      <CloseMIcon color={style === "dark" ? "#FFFFFF" : "#232A36"} />
+      <CloseMIcon />
     </div>
   )
 
@@ -78,23 +78,23 @@ const Modal: FC<ModalProps> = ({
           size === "fullscreen"
             ? "inset-0"
             : "inset-x-0 md:min-h-auto md:align-middle md:inset-auto md:relative h-full md:h-auto rounded-4",
-          style === "white" ? "bg-white" : "bg-grey-dark text-white"
+          style === "white"
+            ? "bg-white text-grey-dark"
+            : "bg-grey-dark text-white"
         )}
         role="dialog"
       >
         <div
-          className={classNames("z-modal w-12/12 my-0", {
-            "p-15 md:p-40 md:w-modalLarge": size === "large",
-            "p-15 md:p-40 md:w-modal": size === "medium",
-            "p-15 md:p-40 md:w-modalSmall": size === "small",
+          className={classNames("z-modal w-12/12 my-0 p-15 md:p-40", {
+            "md:w-modalLarge": size === "large",
+            "md:w-modal": size === "medium",
+            "md:w-modalSmall": size === "small",
             "h-full": size === "fullscreen",
           })}
         >
           {title ? (
             <div className="flex items-center mb-15">
-              <h2 className="font-bold text-xl text-grey-dark w-12/12">
-                {title}
-              </h2>
+              <h2 className="font-bold text-xl w-12/12">{title}</h2>
               {renderCloseIcon()}
             </div>
           ) : (

@@ -1,11 +1,5 @@
 import { createPortal } from "react-dom"
-import React, {
-  ReactNode,
-  RefObject,
-  useCallback,
-  useEffect,
-  useState,
-} from "react"
+import React, { RefObject, useCallback, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
@@ -22,7 +16,7 @@ export interface UseModalOptions {
   container?: RefObject<HTMLDivElement>
   verticalOverflow?: ModalOverflow
   onClose?: () => void
-  title?: ReactNode
+  title?: string
 }
 
 const useModal = (

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
 
 import classNames from "classnames"
 
@@ -61,7 +61,7 @@ interface Props {
   size?: "small" | "medium" | "large" | "fullscreen"
   style?: "white" | "dark"
   onClose: () => void
-  title?: ReactNode
+  title?: string
 }
 
 const Template: FC<Props> = (args) => {

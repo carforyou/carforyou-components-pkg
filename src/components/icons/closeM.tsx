@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-const CloseM: FC<{ color?: string }> = ({ color = "#232A36" }) => (
+const CloseM: FC = () => (
   <svg
     width="48"
     height="48"
@@ -8,7 +8,7 @@ const CloseM: FC<{ color?: string }> = ({ color = "#232A36" }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <g
-      stroke={color}
+      stroke="currentColor"
       strokeWidth="1.2"
       fill="none"
       fillRule="evenodd"
