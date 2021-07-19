@@ -122,7 +122,7 @@ export const Intercom: FC<Props> = ({
 
   const isLoggedIn = userInfo.user_id && userInfo.email
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     if (!isLoggedIn && window.Intercom) {
       window.Intercom("shutdown")
       bootIntercom(intercomSettings, intercomEventHandlers)
