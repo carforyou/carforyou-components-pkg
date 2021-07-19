@@ -108,11 +108,11 @@ export const Intercom: FC<Props> = ({
 
   const [state, setState] = useState<State>(State.NotLoaded)
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     if (autoload) {
       bootIntercom(intercomSettings, intercomEventHandlers)
     }
-  })
+  }, [intercomSettings, intercomEventHandlers, autoload])
 
   useDeepCompareEffect(() => {
     if (window.Intercom) {
