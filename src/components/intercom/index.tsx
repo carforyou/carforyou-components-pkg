@@ -1,5 +1,5 @@
 import { useDeepCompareEffect, useDeepCompareMemo } from "use-deep-compare"
-import React, { FC, useEffect, useMemo, useState } from "react"
+import React, { FC, useMemo, useState } from "react"
 import classNames from "classnames"
 
 import styles from "./index.module.css"
