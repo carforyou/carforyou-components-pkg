@@ -78,7 +78,7 @@ describe("<Button>", () => {
       expect(container).toMatchSnapshot()
     })
 
-    it("renders white-border disabled button", () => {
+    it("renders disabled white-border button", () => {
       const { container } = render(
         <Button style="white-border" disabled={true}>
           Label
