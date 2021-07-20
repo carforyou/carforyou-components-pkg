@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from "react"
+import React, { FC, ReactNode, useCallback, useEffect } from "react"
 import classNames from "classnames"
 
 import Overlay from "./overlay"
@@ -38,22 +38,25 @@ const Modal: FC<ModalProps> = ({
   const overflowClass = verticalOverflow
     ? `overflow-y-${verticalOverflow}`
     : "md:overflow-y-auto overflow-y-scroll"
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     onClose ? onClose() : null
     close()
-  }
+  }, [onClose, close])
 
-  const handleKeys = (e) => {
-    if (e.keyCode === 27) {
-      e.preventDefault()
-      handleClose()
-    }
-  }
+  const handleKeys = useCallback(
+    (e) => {
+      if (e.keyCode === 27) {
+        e.preventDefault()
+        handleClose()
+      }
+    },
+    [handleClose]
+  )
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeys)
     return () => document.removeEventListener("keydown", handleKeys)
-  }, [])
+  }, [handleKeys])
 
   const renderCloseIcon = () => (
     <div
