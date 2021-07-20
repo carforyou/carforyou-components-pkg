@@ -7,7 +7,7 @@ interface Props {
   /** - */
   children: ReactNode
   dataTestid?: string
-  style?: "salmon" | "teal" | "teal-border" | "white"
+  style?: "salmon" | "teal" | "teal-border" | "white-border"
   size?: "large" | "small" | "responsive"
   disabled?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
@@ -41,14 +41,14 @@ export const Button: FC<Props> = ({
   const buttonStyles = {
     teal: "bg-teal hover:bg-teal-dark focus:bg-teal border-teal",
     "teal-border": "bg-white text-teal hover:opacity-60 border-teal",
-    white: "bg-none text-white hover:opacity-60 border-white",
+    "white-border": "bg-none text-white hover:opacity-60 border-white",
     salmon: "bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon",
   }
 
   const disabledStyles = {
     teal: "bg-grey-1 border-grey-1 hover:bg-grey-1 text-grey-4",
     "teal-border": "text-grey-3 border-grey-3 hover:opacity-100",
-    white: "text-grey-3 border-grey-3 hover:opacity-100",
+    "white-border": "text-grey-3 border-grey-3 hover:opacity-100",
     salmon: "bg-grey-1 border-grey-1 hover:bg-grey-1 text-grey-4",
   }
 

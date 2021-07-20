@@ -107,6 +107,37 @@ exports[`<Button> button variations renders white Teal small button 1`] = `
 </div>
 `;
 
+exports[`<Button> button variations renders white-border button 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <button
+      class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-none text-white hover:opacity-60 border-white"
+      type="button"
+    >
+      Label
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<Button> button variations renders white-border disabled button 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <button
+      class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-none text-white hover:opacity-60 border-white text-grey-3 border-grey-3 hover:opacity-100 cursor-not-allowed"
+      disabled=""
+      type="button"
+    >
+      Label
+    </button>
+  </div>
+</div>
+`;
+
 exports[`<Button> renders a div with link as a child 1`] = `
 <div
   class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none"
