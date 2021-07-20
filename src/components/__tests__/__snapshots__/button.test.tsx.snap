@@ -6,7 +6,7 @@ exports[`<Button> button variations renders disabled button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed  bg-grey-1 border-grey-1 hover:bg-grey-1 text-grey-4"
+      class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-52 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon bg-grey-1 border-grey-1 hover:bg-grey-1 text-grey-4 cursor-not-allowed"
       disabled=""
       type="button"
     >
@@ -37,7 +37,7 @@ exports[`<Button> button variations renders small disabled button 1`] = `
     class="flex flex-col"
   >
     <button
-      class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-36 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon cursor-not-allowed  bg-grey-1 border-grey-1 hover:bg-grey-1 text-grey-4"
+      class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none px-10 min-h-36 rounded border bg-salmon border-salmon hover:bg-salmon-dark focus:bg-salmon bg-grey-1 border-grey-1 hover:bg-grey-1 text-grey-4 cursor-not-allowed"
       disabled=""
       type="button"
     >
