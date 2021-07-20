@@ -30,7 +30,7 @@ const Template: FC<Props> = (args) => {
     <StoryContainer
       title={args.storyName}
       component={<Button {...args}>{args.label}</Button>}
-      style={args.style === "white" ? "bg-grey-dark p-20" : ""}
+      style={args.style === "white-border" ? "bg-grey-dark p-20" : ""}
     />
   )
 }
@@ -86,15 +86,15 @@ TealBorderDisabled.args = {
 
 export const White = Template.bind({})
 White.args = {
-  style: "white",
-  storyName: "White",
+  style: "white-border",
+  storyName: "White border",
 }
 
 export const WhiteDisabled = Template.bind({})
 WhiteDisabled.args = {
-  style: "white",
+  style: "white-border",
   disabled: true,
-  storyName: "White",
+  storyName: "White border disabled",
 }
 
 export const WrappingALink = Template.bind({})
