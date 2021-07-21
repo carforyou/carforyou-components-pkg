@@ -160,7 +160,7 @@ function DropdownWithAutosuggest<T>({
         "data-testid": name,
         "aria-labelledby": "",
         spellCheck: "false",
-        autoComplete: "off",
+        autoComplete: "none",
         autoCorrect: "off",
         disabled: isDisabled,
         className: classNames(
