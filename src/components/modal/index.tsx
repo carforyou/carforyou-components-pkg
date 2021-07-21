@@ -85,10 +85,10 @@ const Modal: FC<ModalProps> = ({
         role="dialog"
       >
         <div
-          className={classNames("z-modal w-12/12 my-0 p-15 md:p-40", {
-            "md:w-modalLarge": size === "large",
-            "md:w-modal": size === "medium",
-            "md:w-modalSmall": size === "small",
+          className={classNames("z-modal w-12/12 my-0", {
+            "p-15 md:p-40 md:w-modalLarge": size === "large",
+            "p-15 md:p-40 md:w-modal": size === "medium",
+            "p-15 md:p-40 md:w-modalSmall": size === "small",
             "h-full": size === "fullscreen",
           })}
         >
