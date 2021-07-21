@@ -72,6 +72,20 @@ describe("<Button>", () => {
       )
       expect(container).toMatchSnapshot()
     })
+
+    it("renders white-border button", () => {
+      const { container } = render(<Button style="white-border">Label</Button>)
+      expect(container).toMatchSnapshot()
+    })
+
+    it("renders disabled white-border button", () => {
+      const { container } = render(
+        <Button style="white-border" disabled={true}>
+          Label
+        </Button>
+      )
+      expect(container).toMatchSnapshot()
+    })
   })
 
   it("has correct padding without the custom renderer", () => {
