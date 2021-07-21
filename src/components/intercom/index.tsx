@@ -1,4 +1,4 @@
-import { useDeepCompareEffect, useDeepCompareMemo } from "use-deep-compare"
+import useDeepCompareEffect from "use-deep-compare-effect"
 import React, { FC, useMemo, useState } from "react"
 import classNames from "classnames"
 
@@ -84,7 +84,7 @@ export const Intercom: FC<Props> = ({
   autoload = false,
   userInfo = {},
 }) => {
-  const intercomSettings = useDeepCompareMemo(() => {
+  const intercomSettings = useMemo(() => {
     return {
       cfy: true,
       app_id: appId,
