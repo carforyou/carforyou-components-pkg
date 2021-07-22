@@ -4,7 +4,7 @@ exports[`<DropdownWithAutosuggest> when closed renders the input 1`] = `
 <input
   aria-autocomplete="list"
   aria-labelledby=""
-  autocomplete="off"
+  autocomplete="none"
   autocorrect="off"
   class="cursor-text w-12/12 overflow-hidden"
   data-testid="From"
