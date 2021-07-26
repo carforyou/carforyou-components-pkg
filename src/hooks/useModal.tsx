@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom"
-import React, { RefObject, useEffect, useState } from "react"
+import React, { RefObject, useCallback, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
@@ -16,6 +16,7 @@ export interface UseModalOptions {
   container?: RefObject<HTMLDivElement>
   verticalOverflow?: ModalOverflow
   onClose?: () => void
+  title?: string
 }
 
 const useModal = (
@@ -30,15 +31,16 @@ const useModal = (
     container = null,
     verticalOverflow = null,
     onClose = null,
+    title = null,
   } = options || {}
 
-  const openModal = () => {
+  const openModal = useCallback(() => {
     setVisible(true)
-  }
+  }, [])
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setVisible(false)
-  }
+  }, [])
 
   useEffect(() => {
     if (isVisible) {
@@ -57,6 +59,7 @@ const useModal = (
       size={size}
       style={style}
       verticalOverflow={verticalOverflow}
+      title={title}
     >
       {modal}
     </Modal>
