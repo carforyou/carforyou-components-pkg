@@ -34,10 +34,15 @@ describe("<GdbdBadge>", () => {
       expect(getByText("Above market price"))
     })
 
-    it("renders the badge without a score", () => {
+    it("renders the badge fon not defined", () => {
       const { getByText } = render(
         <GdbdBadge language="en" score="not-defined" />
       )
+      expect(getByText("No price check"))
+    })
+
+    it("renders the badge without a score", () => {
+      const { getByText } = render(<GdbdBadge language="en" score={null} />)
       expect(getByText("No price check"))
     })
   })
@@ -71,10 +76,15 @@ describe("<GdbdBadge>", () => {
       expect(getByText("Über dem Marktpreis"))
     })
 
-    it("renders the badge without a score", () => {
+    it("renders the badge for not defined", () => {
       const { getByText } = render(
         <GdbdBadge language="de" score="not-defined" />
       )
+      expect(getByText("Kein Preischeck"))
+    })
+
+    it("renders the badge without a score", () => {
+      const { getByText } = render(<GdbdBadge language="de" score={null} />)
       expect(getByText("Kein Preischeck"))
     })
   })
@@ -108,10 +118,15 @@ describe("<GdbdBadge>", () => {
       expect(getByText("Au-dessus du marché"))
     })
 
-    it("renders the badge without a score", () => {
+    it("renders the badge for not defined", () => {
       const { getByText } = render(
         <GdbdBadge language="fr" score="not-defined" />
       )
+      expect(getByText("Prix non comparable"))
+    })
+
+    it("renders the badge without a score", () => {
+      const { getByText } = render(<GdbdBadge language="fr" score={null} />)
       expect(getByText("Prix non comparable"))
     })
   })
@@ -145,10 +160,15 @@ describe("<GdbdBadge>", () => {
       expect(getByText("Sopra valore di mercato"))
     })
 
-    it("renders the badge without a score", () => {
+    it("renders the badge for not defined", () => {
       const { getByText } = render(
         <GdbdBadge language="it" score="not-defined" />
       )
+      expect(getByText("Prezzo non comparabile"))
+    })
+
+    it("renders the badge without a score", () => {
+      const { getByText } = render(<GdbdBadge language="it" score={null} />)
       expect(getByText("Prezzo non comparabile"))
     })
   })
