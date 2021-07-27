@@ -37,7 +37,7 @@ const Image: FC<Props> = ({
 
   const imageHeight = classnames({
     "h-full": fullHeight,
-  }) 
+  })
 
   const classes = classnames({
     "max-h-imageInfo": imageType === "imageInfo",
