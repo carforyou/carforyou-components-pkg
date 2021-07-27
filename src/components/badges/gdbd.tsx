@@ -18,10 +18,11 @@ interface GdbdBadgeProps extends BadgeProps {
 
 export const GdbdBadge: FC<GdbdBadgeProps> = ({
   language,
-  score = "not-defined",
+  score,
   tooltipContent,
   size = "large",
 }) => {
+  const scoreOrDefault = score || "not-defined"
   const title = {
     de: {
       "fair-deal": "Marktpreis",
@@ -52,10 +53,10 @@ export const GdbdBadge: FC<GdbdBadgeProps> = ({
       "not-defined": "Prezzo non comparabile",
     },
   }
-  const text = title[language][score]
+  const text = title[language][scoreOrDefault]
 
   return (
-    <div className={styles[score]}>
+    <div className={styles[scoreOrDefault]}>
       <BaseBadge
         icon={<PriceCheckIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
