@@ -34,7 +34,7 @@ describe("<GdbdBadge>", () => {
       expect(getByText("Above market price"))
     })
 
-    it("renders the badge fon not defined", () => {
+    it("renders the badge for not defined", () => {
       const { getByText } = render(
         <GdbdBadge language="en" score="not-defined" />
       )
