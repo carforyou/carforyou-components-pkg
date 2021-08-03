@@ -27,8 +27,3 @@ export const Default = Template.bind({})
 Default.args = {
   image: "/dummyImage.jpeg",
 }
-
-export const ImageMissing = Template.bind({})
-ImageMissing.args = {
-  image: null,
-}
