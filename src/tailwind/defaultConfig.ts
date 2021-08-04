@@ -121,7 +121,7 @@ export default {
     */
     borderColor: (theme) => ({
       ...theme("colors"),
-      default: theme("colors.grey-light", "currentColor"),
+      DEFAULT: theme("colors.grey-light", "currentColor"),
     }),
 
     /*
@@ -134,12 +134,13 @@ export default {
     */
     borderRadius: {
       none: "0",
-      default: "4px",
+      DEFAULT: "4px",
       full: "9999px",
       half: "50%",
       "2": "2px",
       "4": "4px",
       "6": "6px",
+      "8": "8px",
       "10": "10px",
       "20": "20px",
       pill: "8px",
@@ -154,7 +155,7 @@ export default {
     |
     */
     borderWidth: {
-      default: "1px",
+      DEFAULT: "1px",
       "0": "0",
       "2": "2px",
       "5": "5px",
@@ -173,7 +174,7 @@ export default {
     */
     boxShadow: {
       none: "none",
-      default: "0 2px 4px 0 rgba(0,0,0,0.10)",
+      DEFAULT: "0 2px 4px 0 rgba(0,0,0,0.10)",
       small: "0 2px 6px 0 rgba(35,42,54,0.1)",
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
@@ -209,6 +210,7 @@ export default {
       xs: "12px",
       sm: "14px",
       base: "16px",
+      md: "18px",
       lg: "21px",
       xl: "24px",
       "2xl": "32px",
@@ -264,8 +266,11 @@ export default {
     */
 
     inset: {
-      "0": 0,
       "-10": "-10px",
+      "0": 0,
+      "8": "8px",
+      "10": "10px",
+      "40": "40px",
       auto: "auto",
       half: "50%",
       requiredIndicator: "5px",
@@ -325,9 +330,12 @@ export default {
     */
 
     margin: {
+      "-45": "-45px",
+      "-40": "-40px",
       "-20": "-20px",
-      "-1": "-1px",
+      "-10": "-10px",
       "-5": "-5px",
+      "-1": "-1px",
       auto: "auto",
       px: "1px",
       "0": "0",
@@ -340,6 +348,8 @@ export default {
       "30": "30px",
       "40": "40px",
       "60": "60px",
+      "80": "80px",
+      "90": "90px",
       labelPopupIcon: "3px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
@@ -390,6 +400,7 @@ export default {
       full: "100%",
       screen: "100vh",
       "36": "36px",
+      "40": "40px",
       "52": "52px",
     },
 
@@ -439,6 +450,7 @@ export default {
       px: "1px",
       "0": "0",
       "2": "2px",
+      "3": "3px",
       "5": "5px",
       "8": "8px",
       "10": "10px",
@@ -543,6 +555,7 @@ export default {
       dropdownMenu: 20,
       modal: 98,
       card: 10,
+      intercom: 10,
     },
 
     /*
@@ -635,6 +648,7 @@ export default {
     whitespace: ["responsive"],
     width: ["responsive"],
     wordBreak: ["responsive"],
+    textOverflow: ["responsive"],
     zIndex: ["responsive", "hover", "focus"],
     gap: ["responsive"],
     scale: ["responsive", "hover", "focus"],
