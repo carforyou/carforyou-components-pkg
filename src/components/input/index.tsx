@@ -120,7 +120,8 @@ const Input = forwardRef<HTMLInputElement, Props>(
       return () => {
         debouncedChangeHandler?.cancel()
       }
-    }, [debouncedChangeHandler])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     useEffect(() => {
       if (ref) {
