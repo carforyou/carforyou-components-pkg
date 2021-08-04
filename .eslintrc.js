@@ -11,7 +11,6 @@ module.exports = {
     {
       files: ["*"],
       rules: {
-        "no-restricted-imports": "off",
         "react-hooks/exhaustive-deps": [
           "error",
           {
