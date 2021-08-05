@@ -25,5 +25,5 @@ const Template: FC<Props> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  image: "/dummyImage.jpeg",
+  source: "/dummyImage.jpeg",
 }

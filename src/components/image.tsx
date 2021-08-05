@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import classnames from "classnames"
 
 interface Props {
-  image: string
+  source: string
   onLoad?: () => void
   alt?: string
   objectFit?: "cover" | "contain"
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Image: FC<Props> = ({
-  image,
+  source,
   objectFit,
   onLoad,
   alt,
@@ -30,17 +30,14 @@ const Image: FC<Props> = ({
   return (
     <img
       data-testid="component-image"
-      src={image}
+      src={source}
       alt={alt}
       onLoad={onLoad}
-      onError={(e) => {
-        onError && onError(e)
-      }}
-      className={
-        galleryImage
-          ? `${cover} m-auto max-h-screen h-full`
-          : `${cover} h-full w-12/12`
-      }
+      onError={onError}
+      className={classnames(
+        cover,
+        galleryImage ? "m-auto max-h-screen h-full" : "h-full w-12/12"
+      )}
       height={height}
       width={width}
     />
