@@ -120,6 +120,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       return () => {
         debouncedChangeHandler?.cancel()
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -143,7 +144,8 @@ const Input = forwardRef<HTMLInputElement, Props>(
           // eslint-disable-next-line @typescript-eslint/naming-convention
           input_withClearButton: hasClearButton,
           // eslint-disable-next-line @typescript-eslint/naming-convention
-          "select_withSearchIcon bg-right bg-transparent bg-no-repeat": hasSearchIcon,
+          "select_withSearchIcon bg-right bg-transparent bg-no-repeat":
+            hasSearchIcon,
           "floatingLabel-input": labelProps.floating,
           "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
             position === "left",
