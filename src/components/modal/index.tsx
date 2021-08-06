@@ -53,6 +53,7 @@ const Modal: FC<ModalProps> = ({
   useEffect(() => {
     document.addEventListener("keydown", handleKeys)
     return () => document.removeEventListener("keydown", handleKeys)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const renderCloseIcon = () => (
