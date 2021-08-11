@@ -1,8 +1,8 @@
+import { act } from "react-test-renderer"
 import React from "react"
 import { fireEvent, render } from "@testing-library/react"
 
 import RangeSelect from "../rangeSelect"
-import { act } from "react-test-renderer"
 
 const onChangeMin = jest.fn()
 const onChangeMax = jest.fn()
