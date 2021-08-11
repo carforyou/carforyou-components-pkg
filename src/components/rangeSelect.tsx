@@ -8,8 +8,8 @@ interface Props {
     max: string
   }
   handleChange: {
-    min: (value) => void
-    max: (value) => void
+    min: (value: number) => void
+    max: (value: number) => void
   }
   value?: {
     min: number
@@ -20,6 +20,7 @@ interface Props {
     max: string
   }
   options?: Array<{ name: string; value: number }>
+  onSelect?: (data: { name: string; value: number }) => void
 }
 
 const RangeSelect: FC<Props> = ({
@@ -28,6 +29,7 @@ const RangeSelect: FC<Props> = ({
   value: { min: minValue = null, max: maxValue = null } = {},
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
   options,
+  onSelect,
 }) => {
   return (
     <div className="relative inline-flex">
@@ -37,7 +39,10 @@ const RangeSelect: FC<Props> = ({
           placeholder={minPlaceholder}
           options={options}
           selected={minValue ? Number(minValue) : null}
-          handleChange={handleChangeMin}
+          handleChange={(value) => {
+            handleChangeMin(value)
+            onSelect && onSelect({ name: minName, value })
+          }}
           position="left"
           inputMode="numeric"
           withAutosuggest
@@ -50,7 +55,10 @@ const RangeSelect: FC<Props> = ({
           placeholder={maxPlaceholder}
           options={options}
           selected={maxValue ? Number(maxValue) : null}
-          handleChange={handleChangeMax}
+          handleChange={(value) => {
+            handleChangeMax(value)
+            onSelect && onSelect({ name: maxName, value })
+          }}
           position="right"
           inputMode="numeric"
           withAutosuggest
