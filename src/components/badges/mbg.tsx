@@ -2,7 +2,7 @@ import React, { FC } from "react"
 
 import { BadgeProps } from "./types"
 import BaseBadge from "./base"
-import MbgIcon from "../../assets/components/moneyBackGuarantee"
+import MbgIcon from "../../assets/dist/moneyBackGuarantee"
 
 export const MbgBadge: FC<BadgeProps> = ({
   language,

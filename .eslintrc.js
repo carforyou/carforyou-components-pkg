@@ -17,7 +17,20 @@ module.exports = {
             additionalHooks: "useDeepCompareEffect",
           },
         ],
+        "no-restricted-imports": [
+          "error",
+          {
+            patterns: ["~/src/assets/src"],
+          },
+        ],
+        "no-restricted-modules": [
+          "error",
+          {
+            patterns: ["~/src/assets/src"],
+          },
+        ],
       },
     },
+
   ],
 }
