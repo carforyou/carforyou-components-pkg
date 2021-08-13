@@ -1,4 +1,3 @@
-import { act } from "react-test-renderer"
 import React from "react"
 import { fireEvent, render } from "@testing-library/react"
 
@@ -81,11 +80,9 @@ describe("RangeSelect", () => {
 
     const input = getByPlaceholderText("min")
 
-    act(() => {
-      fireEvent.click(input)
-      const option = getByText("1")
-      fireEvent.click(option)
-    })
+    fireEvent.click(input)
+    const option = getByText("1")
+    fireEvent.click(option)
 
     expect(mockedOnSelect).toHaveBeenCalledWith({ name: "nameFrom", value: 1 })
   })
