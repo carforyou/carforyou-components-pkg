@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import classNames from "classnames"
 
-import InfoIcon from "../icons/info"
+import InfoIcon from "../../assets/src/icons/info"
 import useModal from "../../hooks/useModal"
 
 interface Props {

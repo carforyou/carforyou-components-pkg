@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions"
 import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 import MenuItem, { MenuItemProps } from "../../components/menu/item"
-import ProfileIcon from "../../components/icons/profile"
+import ProfileIcon from "../../assets/src/icons/profile"
 
 export default {
   title: "Menu/Item",

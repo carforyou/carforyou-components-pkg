@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import classNames from "classnames"
 
-import CloseSIcon from "../icons/closeS"
+import CloseSIcon from "../../assets/src/icons/closeS"
 
 interface Props {
   visible?: boolean

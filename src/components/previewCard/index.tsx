@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 
 import styles from "./index.module.css"
-import UploadImagesIcon from "../icons/uploadImage"
-import Arrow from "../icons/arrowDownM"
+import UploadImagesIcon from "../../assets/src/icons/uploadImage"
+import Arrow from "../../assets/src/icons/arrowDownM"
 import FixedCard from "../card/fixed"
 
 interface Props {
