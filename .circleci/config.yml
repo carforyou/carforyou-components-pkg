@@ -113,15 +113,15 @@ workflows:
 
       - unit:
           requires:
-            - install
+            - build
 
       - lint:
           requires:
-            - install
+            - build
 
       - typecheck:
           requires:
-            - install
+            - build
 
       - deploy:
           requires:
