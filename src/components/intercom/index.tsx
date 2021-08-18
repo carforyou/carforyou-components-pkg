@@ -5,8 +5,8 @@ import classNames from "classnames"
 import styles from "./index.module.css"
 import { bootIntercom } from "./helper"
 import Spinner from "../spinner"
-import CloseIcon from "../../assets/src/icons/close"
-import ChatIcon from "../../assets/src/icons/chat"
+import CloseIcon from "../../assets/dist/icons/close"
+import ChatIcon from "../../assets/dist/icons/chat"
 
 interface Props {
   /**

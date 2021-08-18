@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useEffect } from "react"
 import classNames from "classnames"
 
 import Overlay from "./overlay"
-import CloseMIcon from "../../assets/src/icons/closeM"
+import CloseMIcon from "../../assets/dist/icons/closeM"
 
 export type ModalSize = "small" | "medium" | "large" | "fullscreen"
 

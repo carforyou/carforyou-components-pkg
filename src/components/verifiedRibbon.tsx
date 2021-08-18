@@ -2,8 +2,8 @@ import React, { FC } from "react"
 
 import classnames from "classnames"
 
-import Verified from "../assets/src/icons/verified"
-import Ribbon from "../assets/src/icons/ribbon"
+import Verified from "../assets/dist/icons/verified"
+import Ribbon from "../assets/dist/icons/ribbon"
 
 interface Props {
   label?: string

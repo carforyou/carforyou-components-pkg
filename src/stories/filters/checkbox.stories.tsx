@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
-import ClockOutlinedTealIcon from "../../assets/src/icons/clockOutlinedTeal"
+import ClockOutlinedTealIcon from "../../assets/dist/icons/clockOutlinedTeal"
 import CheckboxFilter from "../../components/filters/checkbox"
 
 const options = [

@@ -1,7 +1,7 @@
 import React, { ComponentType, FC, Fragment } from "react"
 import classNames from "classnames"
 
-import Notification from "../../assets/src/icons/notification"
+import Notification from "../../assets/dist/icons/notification"
 
 interface Props {
   /**

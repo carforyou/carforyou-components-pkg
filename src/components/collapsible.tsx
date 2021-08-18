@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
-import ArrowDownM from "../assets/src/dist/icons/arrowDownM"
+import ArrowDownM from "../assets/dist/icons/arrowDownM"
 
 interface Props {
   /**
