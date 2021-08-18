@@ -39,7 +39,7 @@
     "react-paginate": "^7.0.0",
     "react-tooltip-lite": "npm:@carforyou/react-tooltip-lite@1.12.1",
     "tailwindcss-gradients": "^2.0.0",
-    "use-deep-compare-effect": "^1.6.1"
+    "use-deep-compare-effect": "^1.4.0"
   },
   "optionalDependencies": {
     "fsevents": "^2.0.0"
