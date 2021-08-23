@@ -6,7 +6,7 @@ interface Props {
   onLoad?: () => void
   alt?: string
   objectFit?: "cover" | "contain"
-  galleryImage?: boolean
+  fullScreenHeight?: boolean
   width?: number
   height?: number
   onError?: (e) => void
@@ -20,7 +20,7 @@ const Image: FC<Props> = ({
   width,
   height,
   onError,
-  galleryImage,
+  fullScreenHeight,
 }) => {
   const cover = classnames({
     "object-cover": objectFit === "cover",
@@ -35,8 +35,9 @@ const Image: FC<Props> = ({
       onLoad={onLoad}
       onError={onError}
       className={classnames(
+        "h-full",
         cover,
-        galleryImage ? "m-auto max-h-screen h-full" : "h-full w-12/12"
+        fullScreenHeight ? "m-auto max-h-screen" : "w-12/12"
       )}
       height={height}
       width={width}

@@ -249,8 +249,6 @@ export default {
       input: "52px",
       "20": "20px",
       "40": "40px",
-      image: "180px",
-      galleryImage: "250px",
     },
 
     /*
@@ -362,15 +360,11 @@ export default {
     |
     | Class name: .max-h-{size}
     |*/
-
     maxHeight: {
-      screen: "100vh",
       full: "100%",
       dropdown: "240px",
-      image: "180px",
-      imageLarge: "330px",
       dropdownSM: "190px",
-      imageInfo: "400px",
+      "280": "280px",
     },
 
     /*
@@ -402,6 +396,8 @@ export default {
       "36": "36px",
       "40": "40px",
       "52": "52px",
+      "278": "278px",
+      "249": "249px",
     },
 
     /*

@@ -9,6 +9,7 @@ export default {
   component: Image,
   args: {
     storyName: "Image",
+    source: "/dummyImage.jpeg",
   },
 }
 
@@ -18,12 +19,23 @@ const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
+      style={"h-screen m-20 w-4/12"}
       component={<Image {...args}>{args.children}</Image>}
     />
   )
 }
 
-export const Default = Template.bind({})
-Default.args = {
-  source: "/dummyImage.jpeg",
+export const Cover = Template.bind({})
+Cover.args = {
+  objectFit: "cover",
+}
+
+export const Contain = Template.bind({})
+Contain.args = {
+  objectFit: "contain",
+}
+
+export const FullScreenHeight = Template.bind({})
+FullScreenHeight.args = {
+  fullScreenHeight: true,
 }
