@@ -285,7 +285,6 @@ Object {
       "px": "1px",
     },
     "maxHeight": Object {
-      "280": "280px",
       "dropdown": "240px",
       "dropdownSM": "190px",
       "full": "100%",
@@ -296,8 +295,6 @@ Object {
     },
     "minHeight": Object {
       "0": "0",
-      "249": "249px",
-      "278": "278px",
       "36": "36px",
       "40": "40px",
       "52": "52px",
