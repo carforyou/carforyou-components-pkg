@@ -364,7 +364,6 @@ export default {
       full: "100%",
       dropdown: "240px",
       dropdownSM: "190px",
-      "280": "280px",
     },
 
     /*
@@ -396,8 +395,6 @@ export default {
       "36": "36px",
       "40": "40px",
       "52": "52px",
-      "278": "278px",
-      "249": "249px",
     },
 
     /*
