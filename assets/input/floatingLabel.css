@@ -8,17 +8,18 @@ input.floatingLabel-input:focus {
 }
 
 input.floatingLabel-input:focus ~ .floatingLabel-label {
-  @apply text-teal
+  @apply text-teal;
 }
 
 .floatingLabel-input[data-valid="false"] ~ .floatingLabel-label,
 .floatingLabel-input[data-valid="false"]:focus ~ .floatingLabel-label {
-  @apply text-salmon
+  @apply text-salmon;
 }
 
 .floatingLabel-input:focus ~ .floatingLabel-label,
 .floatingLabel-input:disabled ~ .floatingLabel-label,
-.floatingLabel-input:valid ~ .floatingLabel-label {
+.floatingLabel-input:required:valid ~ .floatingLabel-label,
+.floatingLabel-input:optional:not(:placeholder-shown) ~ .floatingLabel-label {
   @apply text-xs -top-floatingLabel;
 }
 
@@ -26,12 +27,24 @@ input.floatingLabel-input:focus ~ .floatingLabel-label {
   top: 16px;
 }
 
-.clearButton-container > .floatingLabel > .floatingLabel-input:valid ~ .floatingLabel-label,
-.clearButton-container > .floatingLabel > .floatingLabel-input:disabled ~ .floatingLabel-label,
-.clearButton-container > .floatingLabel > .floatingLabel-input:focus ~ .floatingLabel-label {
+.clearButton-container
+  > .floatingLabel
+  > .floatingLabel-input:required:valid
+  ~ .floatingLabel-label,
+.clearButton-container
+  > .floatingLabel
+  > .floatingLabel-input:optional:not(:placeholder-shown)
+  ~ .floatingLabel-label,
+.clearButton-container
+  > .floatingLabel
+  > .floatingLabel-input:disabled
+  ~ .floatingLabel-label,
+.clearButton-container
+  > .floatingLabel
+  > .floatingLabel-input:focus
+  ~ .floatingLabel-label {
   top: 3px;
 }
-
 
 input::-webkit-input-placeholder {
   opacity: 1;
