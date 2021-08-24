@@ -1,3 +1,4 @@
+import { act } from "react-test-renderer"
 import React from "react"
 import { fireEvent, render } from "@testing-library/react"
 
@@ -5,6 +6,7 @@ import RangeSelect from "../rangeSelect"
 
 const onChangeMin = jest.fn()
 const onChangeMax = jest.fn()
+const onSelect = jest.fn()
 
 const renderWrapper = ({
   minName = "nameFrom",
@@ -23,6 +25,7 @@ const renderWrapper = ({
     { name: "5", value: 5 },
     { name: "6", value: 6 },
   ],
+  handleSelect = onSelect,
 } = {}) =>
   render(
     <RangeSelect
@@ -43,6 +46,7 @@ const renderWrapper = ({
         max: handleChangeMax,
       }}
       options={options}
+      onSelect={handleSelect}
     />
   )
 
@@ -67,5 +71,22 @@ describe("RangeSelect", () => {
     ) as HTMLInputElement
     fireEvent.click(input)
     expect(getByText("1"))
+  })
+
+  it("fires the onSelect event with the correct name and value", () => {
+    const mockedOnSelect = jest.fn()
+    const { getByPlaceholderText, getByText } = renderWrapper({
+      handleSelect: mockedOnSelect,
+    })
+
+    const input = getByPlaceholderText("min")
+
+    act(() => {
+      fireEvent.click(input)
+      const option = getByText("1")
+      fireEvent.click(option)
+    })
+
+    expect(mockedOnSelect).toHaveBeenCalledWith({ name: "nameFrom", value: 1 })
   })
 })

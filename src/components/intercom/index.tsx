@@ -120,7 +120,7 @@ export const Intercom: FC<Props> = ({
     }
   }, [userInfo])
 
-  const isLoggedIn = userInfo.user_id && userInfo.email
+  const isLoggedIn = !!userInfo.user_id
 
   useDeepCompareEffect(() => {
     if (!isLoggedIn && window.Intercom) {

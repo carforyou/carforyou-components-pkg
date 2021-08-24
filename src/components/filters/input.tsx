@@ -15,6 +15,7 @@ interface Props {
   max?: number
   position?: "left" | "right"
   apply: (event) => void
+  onApply?: (value: string) => void
 }
 
 const InputFilter: FC<Props> = ({
@@ -27,6 +28,7 @@ const InputFilter: FC<Props> = ({
   max,
   position,
   apply,
+  onApply,
 }) => {
   const [refocus, setRefocus] = useState(false)
   const inputRef = useRef()
@@ -47,17 +49,22 @@ const InputFilter: FC<Props> = ({
     })
   }
 
-  const onChange = (event) => apply(event)
+  const applyWithTrigger = (event) => {
+    apply(event)
+    onApply && onApply(event.target.value)
+  }
+
+  const onChange = (event) => applyWithTrigger(event)
 
   const onKeyDown = (event) => {
     if (event.keyCode === 13) {
       event.preventDefault()
-      apply(event)
+      applyWithTrigger(event)
     }
   }
 
   const onBlur = (event) => {
-    apply(event)
+    applyWithTrigger(event)
     setRefocus(false)
   }
 
