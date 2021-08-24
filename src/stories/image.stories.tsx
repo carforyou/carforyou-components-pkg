@@ -19,7 +19,7 @@ const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
-      style={"h-screen m-20 w-4/12"}
+      style={args.fullScreen === undefined && "h-screen m-20 w-4/12"}
       component={<Image {...args}>{args.children}</Image>}
     />
   )
@@ -35,7 +35,8 @@ Contain.args = {
   objectFit: "contain",
 }
 
-export const FullScreenHeight = Template.bind({})
-FullScreenHeight.args = {
-  fullScreenHeight: true,
+export const FullScreenImage = Template.bind({})
+FullScreenImage.args = {
+  objectFit: "cover",
+  fullScreen: true,
 }
