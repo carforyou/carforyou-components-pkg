@@ -92,8 +92,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
     ref
   ) => {
     const inputRef = useRef()
-    const required =
-      "floatingLabel" in rest || ("required" in rest ? rest.required : null)
+    const required = "required" in rest ? rest.required : null
     const labelProps =
       "floatingLabel" in rest
         ? { floating: rest.floatingLabel }
@@ -139,7 +138,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         ref={inputRef}
         name={name}
         value={value || ""}
-        placeholder={placeholder || ""}
+        placeholder={placeholder || " "} // safari needs a non empty placeholder to make the :placeholder-shown pseudo selector work
         className={classNames("w-12/12", {
           // eslint-disable-next-line @typescript-eslint/naming-convention
           input_withClearButton: hasClearButton,
