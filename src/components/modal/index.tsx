@@ -59,18 +59,20 @@ const Modal: FC<ModalProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const renderCloseIcon = () => (
-    <div
-      className={classNames(
-        "z-modalClose cursor-pointer",
-        title ? "self-start" : "absolute right-modalClose top-modalClose"
-      )}
-      onClick={handleClose}
-      data-testid="modal-close"
-    >
-      <CloseMIcon />
-    </div>
-  )
+  const renderCloseIcon = () => {
+    return showCloseIcon ? (
+      <div
+        className={classNames(
+          "z-modalClose cursor-pointer",
+          title ? "self-start" : "absolute right-modalClose top-modalClose"
+        )}
+        onClick={handleClose}
+        data-testid="modal-close"
+      >
+        <CloseMIcon />
+      </div>
+    ) : null
+  }
 
   return (
     <div className="fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center">
@@ -99,11 +101,11 @@ const Modal: FC<ModalProps> = ({
           {title ? (
             <div className="flex items-center mb-15">
               <h2 className="font-bold text-xl w-12/12">{title}</h2>
-              {showCloseIcon && renderCloseIcon()}
+              {renderCloseIcon()}
             </div>
-          ) : showCloseIcon ? (
+          ) : (
             renderCloseIcon()
-          ) : null}
+          )}
           {children({ closeModal: close })}
         </div>
       </div>
