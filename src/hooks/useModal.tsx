@@ -16,6 +16,7 @@ export interface UseModalOptions {
   container?: RefObject<HTMLDivElement>
   verticalOverflow?: ModalOverflow
   onClose?: () => void
+  showCloseIcon?: boolean
   title?: string
 }
 
@@ -31,6 +32,7 @@ const useModal = (
     container = null,
     verticalOverflow = null,
     onClose = null,
+    showCloseIcon = true,
     title = null,
   } = options || {}
 
@@ -56,6 +58,7 @@ const useModal = (
     <Modal
       close={closeModal}
       onClose={onClose}
+      showCloseIcon={showCloseIcon}
       size={size}
       style={style}
       verticalOverflow={verticalOverflow}
