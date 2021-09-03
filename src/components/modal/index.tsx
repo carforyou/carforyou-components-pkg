@@ -14,6 +14,8 @@ export interface ModalProps {
   close: () => void
   // Callback function called when the modal is closed
   onClose?: () => void
+  // if the close icon on the top right should be displayed
+  showCloseIcon?: boolean
   // Modal content
   children: (options: { closeModal: () => void }) => ReactNode
   // Screen size
@@ -29,6 +31,7 @@ export interface ModalProps {
 const Modal: FC<ModalProps> = ({
   close,
   onClose,
+  showCloseIcon = true,
   size,
   style,
   children,
@@ -96,11 +99,11 @@ const Modal: FC<ModalProps> = ({
           {title ? (
             <div className="flex items-center mb-15">
               <h2 className="font-bold text-xl w-12/12">{title}</h2>
-              {renderCloseIcon()}
+              {showCloseIcon && renderCloseIcon()}
             </div>
-          ) : (
+          ) : showCloseIcon ? (
             renderCloseIcon()
-          )}
+          ) : null}
           {children({ closeModal: close })}
         </div>
       </div>
