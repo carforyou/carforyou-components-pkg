@@ -21,10 +21,6 @@ import MenuItem from "./components/menu/item"
 import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
-import Profile from "./assets/dist/icons/profile"
-import LogoWhite from "./assets/dist/icons/logoWhite"
-import LogoRedWhite from "./assets/dist/icons/logoRedWhite"
-import LogoRedBlack from "./assets/dist/icons/logoRedBlack"
 import InputFilter from "./components/filters/input"
 import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
@@ -62,10 +58,6 @@ export {
   WithLabel,
   WithValidationError,
   useModal,
-  Profile,
-  LogoRedWhite,
-  LogoRedBlack,
-  LogoWhite,
   Tooltip,
   TooltipPosition,
   TooltipAlignment,
