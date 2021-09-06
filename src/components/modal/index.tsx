@@ -65,7 +65,7 @@ const Modal: FC<ModalProps> = ({
       onClick={handleClose}
       data-testid="modal-close"
     >
-      <CloseMIcon />
+      <CloseMIcon width="48" height="48" />
     </div>
   )
 
