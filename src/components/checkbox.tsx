@@ -12,6 +12,7 @@ interface CheckboxProps {
   error?: string
   renderLabel?: () => JSX.Element
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  alignItemsCenter?: "center" | "start"
 }
 
 interface PositionedLabelProps extends CheckboxProps {
@@ -32,6 +33,7 @@ function Checkbox({
   error,
   renderLabel,
   onChange,
+  alignItemsCenter = "center",
   ...rest
 }: Props): ReactElement {
   const labelProps =
@@ -84,7 +86,10 @@ function Checkbox({
           )}
         >
           {renderLabel ? (
-            <WithHorizontalLabel {...labelProps}>
+            <WithHorizontalLabel
+              alignItemsCenter={alignItemsCenter}
+              {...labelProps}
+            >
               {renderInput(hasError)}
             </WithHorizontalLabel>
           ) : (
