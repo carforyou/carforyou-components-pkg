@@ -93,7 +93,11 @@ const Collapsible: FC<Props> = ({
       >
         <div className="flex w-12/12 items-center">
           {renderToggle(isCollapsed)}
-          <ArrowDownMIcon width={32} height={32} className={isCollapsed ? null : "rotate-180 transform"} />
+          <ArrowDownMIcon
+            width={32}
+            height={32}
+            className={isCollapsed ? null : "rotate-180 transform"}
+          />
         </div>
       </div>
       {alwaysRender ? (
