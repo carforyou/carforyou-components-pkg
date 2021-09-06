@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import ClockOutlinedTeal from "../assets/dist/icons/clockOutlinedTeal"
+import ClockOutlinedTealIcon from "../assets/dist/icons/clockOutlinedTeal"
 
 interface Props {
   /**
@@ -129,7 +129,7 @@ export const OpeningHours: FC<Props> = ({
     <>
       <div className="flex text-grey-dark text-sm">
         {clockIcon ? (
-          <ClockOutlinedTeal className="mr-15" height="24" width="24" />
+          <ClockOutlinedTealIcon className="mr-15" height="24" width="24" />
         ) : null}
         <div className="w-12/12 pt-5">{renderOpeningHours()}</div>
       </div>

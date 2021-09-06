@@ -2,7 +2,7 @@ import React, { FC } from "react"
 
 import styles from "./index.module.css"
 import UploadImagesIcon from "../../assets/dist/icons/uploadImage"
-import Arrow from "../../assets/dist/icons/arrowDownM"
+import ArrowIcon from "../../assets/dist/icons/arrowDownM"
 import FixedCard from "../card/fixed"
 
 interface Props {
@@ -63,7 +63,7 @@ const PreviewCard: FC<Props> = ({
           className="text-teal flex items-center font-bold mt-16"
         >
           {previewLabel}
-          <Arrow className="text-teal transform customRotate-270" />
+          <ArrowIcon className="text-teal transform customRotate-270" />
         </a>
         <hr className="text-grey-1 my-20" />
         <div className="w-12/12 flex items-center">
