@@ -1,5 +1,8 @@
 module.exports = {
   extends: ["@carforyou/eslint-config/react", "plugin:react-hooks/recommended"],
+  env: {
+    browser: true,
+  },
   overrides: [
     {
       files: ["*.config.js"],
@@ -32,4 +35,5 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: ["pkg", "src/assets/dist", "storybook-static"],
 }
