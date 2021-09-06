@@ -1,9 +1,9 @@
 import React, { FC } from "react"
 
 import styles from "./index.module.css"
+import FixedCard from "../card/fixed"
 import UploadImagesIcon from "../../assets/dist/icons/uploadImage"
 import ArrowIcon from "../../assets/dist/icons/arrowDownM"
-import FixedCard from "../card/fixed"
 
 interface Props {
   footerTitle: string
