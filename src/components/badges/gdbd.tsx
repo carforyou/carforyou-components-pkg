@@ -3,7 +3,7 @@ import React, { FC } from "react"
 import { BadgeProps } from "./types"
 import styles from "./gdbd.module.css"
 import BaseBadge from "./base"
-import PriceCheckIcon from "../../assets/components/priceCheck"
+import PriceCheckIcon from "../../assets/dist/priceCheck"
 
 export type Score =
   | "great-deal"

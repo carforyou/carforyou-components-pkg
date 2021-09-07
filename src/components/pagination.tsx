@@ -1,7 +1,7 @@
 import ReactPaginate from "react-paginate"
 import React, { StatelessComponent } from "react"
 
-import ArrowDownM from "./icons/arrowDownMCrop"
+import ArrowDownMIcon from "../assets/dist/icons/arrowDownMCrop"
 
 interface Props {
   pageCount: number
@@ -61,7 +61,7 @@ export const Pagination: StatelessComponent<Props> = ({
         pageCount={pageCount}
         previousLabel={
           <>
-            <ArrowDownM
+            <ArrowDownMIcon
               height="28"
               width="28"
               className="inline-block customRotate-90"
@@ -72,7 +72,7 @@ export const Pagination: StatelessComponent<Props> = ({
         nextLabel={
           <>
             {nextLabel}
-            <ArrowDownM
+            <ArrowDownMIcon
               height="28"
               width="28"
               className="inline-block align-middle customRotate-270"

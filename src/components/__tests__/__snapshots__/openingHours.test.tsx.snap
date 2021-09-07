@@ -6,16 +6,19 @@ exports[`<Opening hours /> renders correct markup - 24h open and the clock icon 
     class="flex text-grey-dark text-sm"
   >
     <svg
+      aria-label="clockoutlinedteal icon"
       class="mr-15"
       height="24"
+      role="img"
       viewBox="0 0 22 22"
       width="24"
     >
+      <title>
+        clockoutlinedteal icon
+      </title>
       <g
         fill="none"
-        fill-rule="evenodd"
         stroke="#3696B9"
-        stroke-width="2"
         transform="translate(-5 -5)"
       >
         <rect
@@ -27,7 +30,6 @@ exports[`<Opening hours /> renders correct markup - 24h open and the clock icon 
         />
         <path
           d="M16 11.2V16l2.4 2.4"
-          stroke-linecap="round"
         />
       </g>
     </svg>

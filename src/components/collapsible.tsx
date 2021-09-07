@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
-import ArrowDownM from "./icons/arrowDownM"
+import ArrowDownMIcon from "../assets/dist/icons/arrowDownM"
 
 interface Props {
   /**
@@ -93,7 +93,11 @@ const Collapsible: FC<Props> = ({
       >
         <div className="flex w-12/12 items-center">
           {renderToggle(isCollapsed)}
-          <ArrowDownM className={isCollapsed ? null : "rotate-180 transform"} />
+          <ArrowDownMIcon
+            width={32}
+            height={32}
+            className={isCollapsed ? null : "rotate-180 transform"}
+          />
         </div>
       </div>
       {alwaysRender ? (
