@@ -360,7 +360,6 @@ export default {
     |
     | Class name: .max-h-{size}
     |*/
-
     maxHeight: {
       full: "100%",
       dropdown: "240px",
