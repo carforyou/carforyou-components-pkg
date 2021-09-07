@@ -21,6 +21,7 @@ import MenuItem from "./components/menu/item"
 import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
+import Image, { ImageProps } from "./components/image"
 import InputFilter from "./components/filters/input"
 import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
@@ -45,6 +46,8 @@ import LogoRedWhite from "./assets/dist/icons/logoRedWhite"
 import LogoRedBlack from "./assets/dist/icons/logoRedBlack"
 
 export {
+  Image,
+  ImageProps,
   Button,
   Pill,
   Pagination,
