@@ -21,6 +21,7 @@ import MenuItem from "./components/menu/item"
 import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
+import Image, { ImageProps } from "./components/image"
 import InputFilter from "./components/filters/input"
 import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
@@ -41,6 +42,8 @@ import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
 
 export {
+  Image,
+  ImageProps,
   Button,
   Pill,
   Pagination,
