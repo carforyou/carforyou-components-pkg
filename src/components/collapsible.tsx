@@ -32,6 +32,8 @@ interface Props {
   forceCollapse?: boolean
   /** Makes sure that the content is always in the DOM */
   alwaysRender?: boolean
+  /** Overrides the generic test-id "collapsible" with the passed prop*/
+  dataTestId?: string
 }
 
 const Collapsible: FC<Props> = ({
@@ -41,6 +43,7 @@ const Collapsible: FC<Props> = ({
   opacityOnHover = true,
   forceCollapse = true,
   alwaysRender = false,
+  dataTestId = "collapsible",
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(forceCollapse)
 
@@ -89,7 +92,7 @@ const Collapsible: FC<Props> = ({
           }
         }}
         data-collapsed={isCollapsed}
-        data-testid="collapsible"
+        data-testid={dataTestId}
       >
         <div className="flex w-12/12 items-center">
           {renderToggle(isCollapsed)}
