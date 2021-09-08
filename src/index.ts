@@ -40,10 +40,6 @@ import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
 import BuyNowBadge from "./components/badges/buyNow"
 import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
-import Profile from "./assets/dist/icons/profile"
-import LogoWhite from "./assets/dist/icons/logoWhite"
-import LogoRedWhite from "./assets/dist/icons/logoRedWhite"
-import LogoRedBlack from "./assets/dist/icons/logoRedBlack"
 
 export {
   Image,
@@ -65,10 +61,6 @@ export {
   WithLabel,
   WithValidationError,
   useModal,
-  Profile,
-  LogoRedWhite,
-  LogoRedBlack,
-  LogoWhite,
   Tooltip,
   TooltipPosition,
   TooltipAlignment,
