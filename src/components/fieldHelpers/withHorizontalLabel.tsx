@@ -4,6 +4,7 @@ import classNames from "classnames"
 interface Props {
   renderContent?: () => JSX.Element
   position?: "right" | "left"
+  alignItems?: "center" | "start"
   error?: boolean
 }
 
@@ -11,10 +12,13 @@ const WithHorizontalLabel: FC<Props> = ({
   renderContent,
   position = "right",
   error = false,
+  alignItems = "center",
   children,
 }) => (
   <div
-    className={classNames("flex items-center leading-sm font-normal", {
+    className={classNames("flex leading-sm font-normal", {
+      "items-center": alignItems === "center",
+      "items-start": alignItems === "start",
       "text-salmon": error,
       "justify-between flex-row-reverse": position === "left",
       "flex-row": position === "right",
