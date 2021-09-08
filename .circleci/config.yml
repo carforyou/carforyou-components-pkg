@@ -39,7 +39,6 @@ jobs:
           root: ~/
           paths:
             - project/pkg
-            - project/src/assets/dist
             - project/storybook-static
       - slack/notify-on-failure:
           only_for_branches: master
@@ -113,15 +112,15 @@ workflows:
 
       - unit:
           requires:
-            - build
+            - install
 
       - lint:
           requires:
-            - build
+            - install
 
       - typecheck:
           requires:
-            - build
+            - install
 
       - deploy:
           requires:

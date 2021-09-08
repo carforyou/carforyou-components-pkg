@@ -23,21 +23,23 @@ exports[`useModal with a portal renders the modal within the portal 1`] = `
           data-testid="modal-close"
         >
           <svg
-            aria-label="closem icon"
             height="48"
-            role="img"
             viewBox="0 0 24 24"
             width="48"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              closem icon
-            </title>
-            <path
-              d="m7 7 10 10m0-10L7 17"
+            <g
               fill="none"
+              fill-rule="evenodd"
               stroke="currentColor"
-            />
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.2"
+            >
+              <path
+                d="M7 7l10 10M17 7L7 17"
+              />
+            </g>
           </svg>
         </div>
         <div>
@@ -96,21 +98,23 @@ exports[`useModal without portal renders the modal within the container 1`] = `
             data-testid="modal-close"
           >
             <svg
-              aria-label="closem icon"
               height="48"
-              role="img"
               viewBox="0 0 24 24"
               width="48"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                closem icon
-              </title>
-              <path
-                d="m7 7 10 10m0-10L7 17"
+              <g
                 fill="none"
+                fill-rule="evenodd"
                 stroke="currentColor"
-              />
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.2"
+              >
+                <path
+                  d="M7 7l10 10M17 7L7 17"
+                />
+              </g>
             </svg>
           </div>
           <div>

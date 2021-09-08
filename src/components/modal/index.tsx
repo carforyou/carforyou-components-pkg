@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useEffect } from "react"
 import classNames from "classnames"
 
 import Overlay from "./overlay"
-import CloseMIcon from "../../assets/dist/icons/closeM"
+import CloseMIcon from "../icons/closeM"
 
 export type ModalSize = "small" | "medium" | "large" | "fullscreen"
 
@@ -65,7 +65,7 @@ const Modal: FC<ModalProps> = ({
       onClick={handleClose}
       data-testid="modal-close"
     >
-      <CloseMIcon width="48" height="48" />
+      <CloseMIcon />
     </div>
   )
 

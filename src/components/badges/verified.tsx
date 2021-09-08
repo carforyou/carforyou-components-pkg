@@ -2,7 +2,7 @@ import React, { FC } from "react"
 
 import { BadgeProps } from "./types"
 import BaseBadge from "./base"
-import VerifiedIcon from "../../assets/dist/verified"
+import VerifiedIcon from "../../assets/components/verified"
 
 export const VerifiedBadge: FC<BadgeProps> = ({
   language,

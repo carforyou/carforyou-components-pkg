@@ -2,8 +2,8 @@ import React, { FC } from "react"
 
 import classnames from "classnames"
 
-import VerifiedIcon from "../assets/dist/icons/verified"
-import RibbonIcon from "../assets/dist/icons/ribbon"
+import Verified from "./icons/verified"
+import Ribbon from "./icons/ribbon"
 
 interface Props {
   label?: string
@@ -28,10 +28,10 @@ const VerifiedRibbon: FC<Props> = ({
   return (
     <div className="relative">
       <span className="text-grey-dark">
-        <RibbonIcon width={ribbonWidth} />
+        <Ribbon width={ribbonWidth} />
       </span>
       <span className="absolute left-0 mt-10 ml-10">
-        <VerifiedIcon width={iconWidth} />
+        <Verified width={iconWidth} />
         <span className={classnames("text-white font-bold pl-5", fontSize)}>
           {label}
         </span>

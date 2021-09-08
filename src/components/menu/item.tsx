@@ -1,7 +1,7 @@
 import React, { ComponentType, FC, Fragment } from "react"
 import classNames from "classnames"
 
-import NotificationIcon from "../../assets/dist/icons/notification"
+import Notification from "../icons/notification"
 
 interface Props {
   /**
@@ -59,12 +59,12 @@ const MenuItem: FC<Props> = ({
             "text-grey-4": !active,
           })}
         >
-          <IconComponent width="24" height="24" />
+          <IconComponent width="24px" height="24px" />
         </span>
         {title}
         {hasNotificationIcon ? (
           <span className="w-12/12 text-right px-5">
-            <NotificationIcon width="14" height="14" />
+            <Notification width="14px" height="14px" />
           </span>
         ) : null}
       </a>
