@@ -29,7 +29,7 @@ const WithClearButton: FC<Props> = ({
           onClick={!disabled ? onClear : null}
         >
           <div className="items-center justify-center flex h-full w-full">
-            <CloseSIcon />
+            <CloseSIcon width="24" height="24" />
           </div>
         </div>
       ) : null}
