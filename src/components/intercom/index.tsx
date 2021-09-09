@@ -50,7 +50,7 @@ const renderLauncher = (state: State, label) => {
     case "Ready":
       return (
         <div className="flex items-center">
-          <ChatIcon />
+          <ChatIcon width="32" height="32" />
           {label}
         </div>
       )
@@ -69,7 +69,7 @@ const renderLauncher = (state: State, label) => {
           className="w-12/12 h-full flex items-center justify-center"
           data-testid="intercom-close"
         >
-          <CloseIcon />
+          <CloseIcon width="32" height="32" />
         </div>
       )
     }
