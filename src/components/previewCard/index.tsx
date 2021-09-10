@@ -63,7 +63,11 @@ const PreviewCard: FC<Props> = ({
           className="text-teal flex items-center font-bold mt-16"
         >
           {previewLabel}
-          <ArrowIcon className="text-teal transform customRotate-270" />
+          <ArrowIcon
+            width={32}
+            height={32}
+            className="text-teal transform customRotate-270"
+          />
         </a>
         <hr className="text-grey-1 my-20" />
         <div className="w-12/12 flex items-center">
