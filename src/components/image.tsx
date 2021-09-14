@@ -10,6 +10,7 @@ interface Props {
   width?: number
   height?: number
   onError?: (e) => void
+  loading?: "lazy" | "eager"
 }
 
 const Image: FC<Props> = ({
@@ -21,6 +22,7 @@ const Image: FC<Props> = ({
   height,
   onError,
   fullScreen,
+  loading = "eager",
 }) => {
   const cover = classnames({
     "object-cover": objectFit === "cover",
@@ -41,6 +43,7 @@ const Image: FC<Props> = ({
       )}
       height={height}
       width={width}
+      loading={loading}
     />
   )
 }
