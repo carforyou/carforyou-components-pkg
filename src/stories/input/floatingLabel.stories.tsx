@@ -34,6 +34,7 @@ Standard.args = {
   value: "",
   labelText: "Label",
   floatingLabel: true,
+  required: true,
 }
 
 export const WithErrorMessage = Template.bind({})
