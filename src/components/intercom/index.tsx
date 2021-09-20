@@ -51,7 +51,7 @@ const renderLauncher = (state: State, label) => {
       return (
         <div className="flex items-center">
           <ChatIcon width="32" height="32" />
-          <span className="hidden md:visible">{label}</span>
+          <span className="hidden md:block">{label}</span>
         </div>
       )
     case "Loading":
