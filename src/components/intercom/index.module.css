@@ -3,7 +3,6 @@
   height: 36px;
   bottom: 6px;
   right: 6px;
-  min-width: 123px;
   padding-left: 13px;
   padding-right: 18px;
   z-index: 15;
@@ -13,5 +12,6 @@
   .launcher {
     bottom: 20px;
     right: 20px;
+    min-width: 123px;
   }
 }
