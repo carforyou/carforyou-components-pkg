@@ -11,6 +11,7 @@ interface Props {
   cardTitle?: string
   previewLabel: string
   image?: string
+  imageLoading?: "lazy" | "eager"
   logo?: string
   link?: string
   onImageFailedLoading?: (e) => void
@@ -22,6 +23,7 @@ const PreviewCard: FC<Props> = ({
   cardTitle,
   previewLabel,
   image,
+  imageLoading = "eager",
   logo,
   link,
   onImageFailedLoading,
@@ -40,6 +42,7 @@ const PreviewCard: FC<Props> = ({
               onError={(e) => {
                 onImageFailedLoading && onImageFailedLoading(e)
               }}
+              loading={imageLoading}
             />
           )}
         </div>
@@ -63,13 +66,22 @@ const PreviewCard: FC<Props> = ({
           className="text-teal flex items-center font-bold mt-16"
         >
           {previewLabel}
-          <ArrowIcon className="text-teal transform customRotate-270" />
+          <ArrowIcon
+            width={32}
+            height={32}
+            className="text-teal transform customRotate-270"
+          />
         </a>
         <hr className="text-grey-1 my-20" />
         <div className="w-12/12 flex items-center">
           {logo ? (
             <div className="w-2/12 mr-10">
-              <img src={logo} alt={"logo"} className={"flex-shrink-0 mr-10"} />
+              <img
+                src={logo}
+                alt={"logo"}
+                className={"flex-shrink-0 mr-10"}
+                loading={imageLoading}
+              />
             </div>
           ) : null}
           <div className="w-10/12">

@@ -46,7 +46,7 @@ const WithLabel: FC<Props> = ({
                 openModal()
               }}
             >
-              <InfoIcon />
+              <InfoIcon width="24" height="24" />
             </a>
           )}
         </b>
