@@ -59,8 +59,6 @@ interface PopupLabelProps extends InputProps {
 interface FloatingLabelProps extends InputProps {
   labelText?: string
   floatingLabel?: boolean
-  renderLabelPopup?: () => JSX.Element
-  required?: boolean
 }
 
 type Props = PopupLabelProps | FloatingLabelProps
@@ -203,7 +201,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         name={name}
         error={hasError}
         text={labelText}
-        required={rest.required}
+        required={required}
         {...labelProps}
       >
         {renderInput(hasError)}
