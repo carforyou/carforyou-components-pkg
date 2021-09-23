@@ -3,15 +3,16 @@
   height: 36px;
   bottom: 6px;
   right: 6px;
-  min-width: 123px;
-  padding-left: 13px;
+  padding-left: 18px;
   padding-right: 18px;
   z-index: 15;
 }
 
 @screen md {
   .launcher {
+    min-width: 123px;
     bottom: 20px;
     right: 20px;
+    padding-right: 25px;
   }
 }
