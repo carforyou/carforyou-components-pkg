@@ -76,7 +76,7 @@
     "postcss-loader": "^4.2.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "semantic-release": "^17.4.3",
+    "semantic-release": "18.0.0",
     "tailwindcss": "^2.2.4",
     "ts-jest": "^27.0.4",
     "ts-loader": "^8",
