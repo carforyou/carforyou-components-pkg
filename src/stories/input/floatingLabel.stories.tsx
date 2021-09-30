@@ -34,6 +34,14 @@ Standard.args = {
   value: "",
   labelText: "Label",
   floatingLabel: true,
+}
+
+export const Required = Template.bind({})
+Required.args = {
+  storyName: "Required",
+  value: "",
+  labelText: "Label",
+  floatingLabel: true,
   required: true,
 }
 
