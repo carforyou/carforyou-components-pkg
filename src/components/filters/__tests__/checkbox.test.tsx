@@ -13,7 +13,7 @@ const renderWrapper = ({
   ],
   applyFilters = jest.fn(),
   selected = [],
-  facet = {},
+  facet = null,
   children = null,
   onSelect = jest.fn(),
 } = {}) => {
@@ -123,6 +123,16 @@ describe("<CheckboxFilter/>", () => {
       facet: { "1": 30, "2": 1000 },
     })
 
+    expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
+  })
+
+  it("disables non-selected options when facet is provided and empty", () => {
+    const { getByLabelText } = renderWrapper({
+      facet: {},
+    })
+
+    expect(getByLabelText("One", { exact: false })).toHaveProperty("disabled")
+    expect(getByLabelText("Two", { exact: false })).toHaveProperty("disabled")
     expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
   })
 
