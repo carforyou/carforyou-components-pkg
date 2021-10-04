@@ -24,7 +24,7 @@ const CheckboxFilter: FC<Props> = ({
   options,
   apply: applyFilters,
   selected = [],
-  facet = {},
+  facet,
   onSelect,
 }) => {
   const values = options.map(({ value }) => value)
@@ -52,8 +52,8 @@ const CheckboxFilter: FC<Props> = ({
 
   const renderOption = ({ value, label, renderIcon }: Item) => {
     const isSelected = selected.includes(value)
-    const resultsCount = facet[value.toString()] || 0
-    const hasFacet = Object.keys(facet).length > 0
+    const resultsCount = facet?.[value.toString()] || 0
+    const hasFacet = !!facet
     const isDisabled = hasFacet && resultsCount === 0 && !isSelected
 
     return (

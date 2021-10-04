@@ -45,7 +45,7 @@
     "fsevents": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.0",
+    "@babel/core": "7.15.5",
     "@carforyou/assets": "^1.1.0",
     "@carforyou/eslint-config": "3.1.8",
     "@carforyou/pika-plugin-build-components": "1.1.1",
