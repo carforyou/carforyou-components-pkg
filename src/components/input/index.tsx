@@ -201,6 +201,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         name={name}
         error={hasError}
         text={labelText}
+        required={required}
         {...labelProps}
       >
         {renderInput(hasError)}
