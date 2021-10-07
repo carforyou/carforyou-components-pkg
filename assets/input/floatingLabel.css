@@ -5,6 +5,7 @@ input.floatingLabel-input:focus {
 .floatingLabel-label {
   @apply absolute text-grey-4 top-0;
   @apply left-floatingLabel transition duration-200;
+  @apply pointer-events-none;
 }
 
 input.floatingLabel-input:focus ~ .floatingLabel-label {
