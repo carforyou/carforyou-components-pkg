@@ -9,7 +9,5 @@ export type BadgeBackground = "bg-white" | "bg-whatsapp"
 export interface BadgeProps {
   language: Language
   size?: BadgeSize
-  height: BadgeHeight
-  background: BadgeBackground
   tooltipContent?: ReactNode
 }
