@@ -62,6 +62,8 @@ export const GdbdBadge: FC<GdbdBadgeProps> = ({
         tooltipContent={tooltipContent}
         text={text}
         size={size}
+        height="small"
+        background="bg-white"
       />
     </div>
   )

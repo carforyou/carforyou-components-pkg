@@ -23,6 +23,8 @@ export const MbgBadge: FC<BadgeProps> = ({
         tooltipContent={tooltipContent}
         text={title[language]}
         size={size}
+        height="small"
+        background="bg-white"
       />
     </div>
   )

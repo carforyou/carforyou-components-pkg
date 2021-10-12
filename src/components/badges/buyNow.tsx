@@ -22,6 +22,8 @@ export const BuyNowBadge: FC<BadgeProps> = ({
         icon={<CreditCardIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
         size={size}
+        height="small"
+        background="bg-white"
         text={title[language]}
       />
     </div>

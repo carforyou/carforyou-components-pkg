@@ -2,26 +2,43 @@ import React, { FC, ReactNode } from "react"
 
 import classNames from "classnames"
 
-import { BadgeSize } from "./types"
+import { BadgeBackground, BadgeHeight, BadgeSize } from "./types"
 import styles from "./badges.module.css"
 
 import Tooltip, { TooltipPosition } from "../tooltip/index"
 
 interface Props {
   size: BadgeSize
+  height: BadgeHeight
   text: string
   icon: ReactNode
+  background: BadgeBackground
   tooltipContent?: ReactNode
 }
 
-const BaseBadge: FC<Props> = ({ icon, text, size, tooltipContent }) => {
+const BaseBadge: FC<Props> = ({
+  icon,
+  text,
+  size,
+  height,
+  background,
+  tooltipContent,
+}) => {
   const content = (
     <div
       className={classNames(
-        styles.space,
-        "inline-flex items-center border border-grey-1 rounded-4 text-sm font-bold bg-white",
+        height === "small" && styles.space,
+        "inline-flex items-center rounded-4 font-bold",
         {
           "cursor-pointer": tooltipContent,
+        },
+        {
+          "bg-whatsapp": background === "bg-whatsapp",
+          "bg-white border border-grey-1": background === "bg-white",
+        },
+        {
+          "text-base py-5 px-10": height === "large",
+          "text-sm": height === "small",
         }
       )}
     >
