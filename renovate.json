@@ -13,14 +13,14 @@
     },
     {
       "matchDatasources": ["docker", "final"],
+      "matchPackageNames": ["node", "@types/node"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "schedule": null,
       "automerge": true
     },
     {
       "matchPackagePatterns": ["^@carforyou\/.*"],
-      "schedule": null,
-      "automerge": false
+      "schedule": null
     }
   ],
   "node": {
