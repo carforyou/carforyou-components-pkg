@@ -37,9 +37,8 @@ describe("tailwind", () => {
     })
 
     it("can extend objects for properties that extends colors", () => {
-      const borderColorCount = Object.keys(
-        defaultConfig.theme.borderColor
-      ).length
+      const borderColorCount = Object.keys(defaultConfig.theme.borderColor)
+        .length
       const mergedConfig = withDefaultConfig({
         theme: { borderColor: { tuna: "#4E5154" } },
       })
