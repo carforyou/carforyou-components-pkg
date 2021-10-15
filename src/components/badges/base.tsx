@@ -2,15 +2,15 @@ import React, { FC, ReactNode } from "react"
 
 import classNames from "classnames"
 
-import { BadgeBackground, BadgeHeight, BadgeSize } from "./types"
+import { BadgeBackground, BadgeSize } from "./types"
 import styles from "./badges.module.css"
 
 import Tooltip, { TooltipPosition } from "../tooltip/index"
 
 interface Props {
   size: BadgeSize
-  height: BadgeHeight
   text: string
+  withText: boolean
   icon: ReactNode
   background: BadgeBackground
   tooltipContent?: ReactNode
@@ -20,30 +20,29 @@ const BaseBadge: FC<Props> = ({
   icon,
   text,
   size,
-  height,
+  withText,
   background,
   tooltipContent,
 }) => {
   const content = (
     <div
       className={classNames(
-        height === "small" && styles.space,
         "inline-flex items-center rounded-4 font-bold",
         {
           "cursor-pointer": tooltipContent,
         },
         {
-          "bg-whatsapp": background === "bg-whatsapp",
-          "bg-white border border-grey-1": background === "bg-white",
+          "bg-green-bright": background === "green",
+          "bg-white border border-grey-1": background === "white",
         },
         {
-          "text-base py-5 px-10": height === "large",
-          "text-sm": height === "small",
+          "text-base py-5 px-10": size === "large",
+          "text-sm px-5": size === "small",
         }
       )}
     >
       {icon}
-      {size === "large" && <span className="ml-5">{text}</span>}
+      {withText && <span className="ml-5">{text}</span>}
     </div>
   )
 

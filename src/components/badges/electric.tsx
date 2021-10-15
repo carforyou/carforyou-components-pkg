@@ -21,9 +21,9 @@ export const ElectricBadge: FC<BadgeProps> = ({
       <BaseBadge
         icon={<ElectricIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
-        size={size}
-        height="large"
-        background="bg-whatsapp"
+        size="large"
+        withText={size === "large"}
+        background="green"
         text={title[language]}
       />
     </div>
