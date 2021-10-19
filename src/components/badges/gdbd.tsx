@@ -61,7 +61,9 @@ export const GdbdBadge: FC<GdbdBadgeProps> = ({
         icon={<PriceCheckIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
         text={text}
-        size={size}
+        size="small"
+        withText={size === "large"}
+        background="white"
       />
     </div>
   )

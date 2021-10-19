@@ -22,7 +22,9 @@ export const MbgBadge: FC<BadgeProps> = ({
         icon={<MbgIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
         text={title[language]}
-        size={size}
+        size="small"
+        withText={size === "large"}
+        background="white"
       />
     </div>
   )

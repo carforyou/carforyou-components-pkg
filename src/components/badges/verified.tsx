@@ -21,7 +21,9 @@ export const VerifiedBadge: FC<BadgeProps> = ({
       <BaseBadge
         icon={<VerifiedIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
-        size={size}
+        size="small"
+        withText={size === "large"}
+        background="white"
         text={title[language]}
       />
     </div>

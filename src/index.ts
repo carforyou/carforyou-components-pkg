@@ -37,6 +37,7 @@ import Button from "./components/button"
 import VerifiedBadge from "./components/badges/verified"
 import MbgBadge from "./components/badges/mbg"
 import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
+import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
 import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
@@ -82,6 +83,7 @@ export {
   VerifiedRibbon,
   Tabs,
   BuyNowBadge,
+  ElectricBadge,
   GdbdBadge,
   MbgBadge,
   VerifiedBadge,
