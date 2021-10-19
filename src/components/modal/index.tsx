@@ -70,7 +70,7 @@ const Modal: FC<ModalProps> = ({
   )
 
   return (
-    <div className="fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center">
+    <div className="fixed inset-0 scrolling-touch overflow-y-scroll md:overflow-y-auto z-modal min-h-full transition duration-200 flex flex-col justify-center items-center pr-15">
       <Overlay handleClick={handleClose} />
       <div
         className={classNames(

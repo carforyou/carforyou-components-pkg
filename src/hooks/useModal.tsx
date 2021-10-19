@@ -65,15 +65,12 @@ const useModal = (
     </Modal>
   )
 
-  const showModal =
-    isVisible && document.body.classList.contains("preventScrolling")
-
   const renderModalWrapper = () =>
     alwaysRender ? (
-      <div className={classNames({ hidden: !showModal })}>
+      <div className={classNames({ hidden: !isVisible })}>
         {renderModalComponent()}
       </div>
-    ) : showModal ? (
+    ) : isVisible ? (
       renderModalComponent()
     ) : null
 
