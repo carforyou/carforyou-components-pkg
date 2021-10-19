@@ -35,22 +35,18 @@ const useModal = (
   } = options || {}
 
   const openModal = useCallback(() => {
+    document.body.classList.add("preventScrolling")
     setVisible(true)
   }, [])
 
   const closeModal = useCallback(() => {
+    document.body.classList.remove("preventScrolling")
     setVisible(false)
   }, [])
 
   useEffect(() => {
-    if (isVisible) {
-      document.body.classList.add("preventScrolling")
-    } else {
-      document.body.classList.remove("preventScrolling")
-    }
-
     return () => document.body.classList.remove("preventScrolling")
-  }, [isVisible])
+  }, [])
 
   const renderModalComponent = () => (
     <Modal
