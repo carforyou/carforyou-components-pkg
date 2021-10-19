@@ -39,7 +39,7 @@ h4 {
 
 /* purgecss ignore */
 .preventScrolling {
-  @apply fixed overflow-hidden pr-15;
+  @apply fixed overflow-hidden;
 }
 
 @screen md {

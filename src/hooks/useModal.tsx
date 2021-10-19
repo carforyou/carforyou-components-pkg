@@ -3,6 +3,7 @@ import React, { RefObject, useCallback, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
+import { disableScrollOnBody, enableScrollOnBody } from "../lib/scrollHelper"
 import Modal, {
   ModalOverflow,
   ModalSize,
@@ -35,17 +36,17 @@ const useModal = (
   } = options || {}
 
   const openModal = useCallback(() => {
-    document.body.classList.add("preventScrolling")
+    disableScrollOnBody()
     setVisible(true)
   }, [])
 
   const closeModal = useCallback(() => {
-    document.body.classList.remove("preventScrolling")
+    enableScrollOnBody()
     setVisible(false)
   }, [])
 
   useEffect(() => {
-    return () => document.body.classList.remove("preventScrolling")
+    return enableScrollOnBody
   }, [])
 
   const renderModalComponent = () => (
