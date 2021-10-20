@@ -54,7 +54,7 @@ const hightlightItem = <T extends unknown>({
 }: Item<T>): ReactNode => {
   return match ? (
     <>
-      {preMatch}
+      <span>{preMatch}</span>
       <span
         className={classNames("font-bold underline", {
           // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -63,7 +63,7 @@ const hightlightItem = <T extends unknown>({
       >
         {match}
       </span>
-      {postMatch}
+      <span>{postMatch}</span>
     </>
   ) : (
     name
