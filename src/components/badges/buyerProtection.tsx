@@ -25,7 +25,9 @@ export const BuyerProtectionBadge: FC<BadgeProps> = ({
           </div>
         }
         tooltipContent={tooltipContent}
-        size={size}
+        size="small"
+        withText={size === "large"}
+        background="white"
         text={title[language]}
       />
     </div>
