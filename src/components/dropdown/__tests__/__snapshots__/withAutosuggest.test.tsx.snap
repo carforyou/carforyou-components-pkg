@@ -24,13 +24,13 @@ exports[`<DropdownWithAutosuggest> when opened highlights elements on exact matc
   id="downshift-3-item-0"
   role="option"
 >
-  
+  <span />
   <span
     class="font-bold underline"
   >
     One
   </span>
-  
+  <span />
 </li>
 `;
 
@@ -42,13 +42,15 @@ exports[`<DropdownWithAutosuggest> when opened marks the partial match when typi
   id="downshift-2-item-0"
   role="option"
 >
-  
+  <span />
   <span
     class="font-bold underline"
   >
     On
   </span>
-  e
+  <span>
+    e
+  </span>
 </li>
 `;
 
