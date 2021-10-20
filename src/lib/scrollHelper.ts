@@ -19,3 +19,24 @@ export const scrollIntoViewIfMobile = (
     }, timeout)
   }
 }
+
+const getScrollBarWidth = () => {
+  const documentWidth = document.documentElement.clientWidth
+  return Math.abs(window.innerWidth - documentWidth)
+}
+
+const hasOverflow = () => {
+  return getScrollBarWidth() > 0
+}
+
+export const disableScrollOnBody = () => {
+  if (hasOverflow()) {
+    document.body.style.paddingRight = `${getScrollBarWidth()}px`
+  }
+  document.body.classList.add("preventScrolling")
+}
+
+export const enableScrollOnBody = () => {
+  document.body.classList.remove("preventScrolling")
+  document.body.style.paddingRight = ""
+}
