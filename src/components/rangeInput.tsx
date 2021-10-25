@@ -20,6 +20,7 @@ interface Props {
   }
   required?: boolean
   label?: string
+  debounce?: number
 }
 
 const RangeInput: FC<Props> = ({
@@ -29,6 +30,7 @@ const RangeInput: FC<Props> = ({
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
   label,
   required = false,
+  debounce,
 }) => {
   return (
     <>
@@ -43,6 +45,7 @@ const RangeInput: FC<Props> = ({
             position="left"
             hasClearButton
             onChange={handleChange}
+            debounce={debounce}
           />
         </div>
         <div className="w-6/12">
@@ -54,6 +57,7 @@ const RangeInput: FC<Props> = ({
             placeholder={maxPlaceholder}
             position="right"
             onChange={handleChange}
+            debounce={debounce}
           />
         </div>
       </div>
