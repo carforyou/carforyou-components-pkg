@@ -41,6 +41,8 @@ import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
 import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
+import RangeFilterWithFacets from "./components/filters/rangeWithFacets/index"
+import RangeFilterScale from "./components/filters/rangeWithFacets/rangeFilterScale"
 
 export {
   Image,
@@ -89,4 +91,6 @@ export {
   VerifiedBadge,
   BuyerProtectionBadge,
   GdbdScore,
+  RangeFilterWithFacets,
+  RangeFilterScale,
 }
