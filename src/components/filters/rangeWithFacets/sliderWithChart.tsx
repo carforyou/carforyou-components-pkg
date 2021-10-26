@@ -38,7 +38,7 @@ const SliderWithChart: React.FC<Props> = ({
       renderThumb={({ props }) => (
         <div
           {...props}
-          className="h-icon w-icon border border-grey-2 rounded-half bg-white shadow"
+          className="h-checkbox w-checkbox border border-grey-2 rounded-half bg-white shadow"
         />
       )}
       renderTrack={({ props, children }) => (

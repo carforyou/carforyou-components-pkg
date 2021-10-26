@@ -239,6 +239,8 @@ export default {
     */
 
     height: {
+      4: "4px",
+      rangeFilterChart: "118px",
       auto: "auto",
       full: "100%",
       screen: "100vh",
@@ -479,6 +481,7 @@ export default {
       5: "5px",
       10: "10px",
       20: "20px",
+      25: "25px",
       30: "30px",
       40: "40px",
     },

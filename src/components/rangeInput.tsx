@@ -36,7 +36,7 @@ const RangeInput: FC<Props> = ({
     <>
       <Label fieldName={label} required={required} />
       <div className="flex flex-wrap">
-        <div className="w-6/12">
+        <div className="w-6/12" key={`${minName}-${minValue}`}>
           <Input
             name={minName}
             value={minValue}
@@ -48,7 +48,7 @@ const RangeInput: FC<Props> = ({
             debounce={debounce}
           />
         </div>
-        <div className="w-6/12">
+        <div className="w-6/12" key={`${maxName}-${maxValue}`}>
           <Input
             name={maxName}
             value={maxValue}

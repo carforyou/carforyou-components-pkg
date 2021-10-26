@@ -11,7 +11,7 @@ const Chart: React.FC<Props> = ({ facets, range }) => {
 
   const maxValue = Math.max(...Object.values(facets))
   return (
-    <div className="w-12/12 h-118 flex justify-between">
+    <div className="w-12/12 h-rangeFilterChart flex justify-between">
       {Object.keys(facets).map((facet, index) => (
         <div
           key={facet}
