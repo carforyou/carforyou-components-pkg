@@ -1,5 +1,4 @@
 import useModal from "./hooks/useModal"
-import VerifiedRibbon from "./components/verifiedRibbon"
 import Tooltip, {
   TooltipAlignment,
   TooltipPosition,
@@ -80,7 +79,6 @@ export {
   RangeSelect,
   RangeInput,
   CustomErrorPage,
-  VerifiedRibbon,
   Tabs,
   BuyNowBadge,
   ElectricBadge,

@@ -60,6 +60,13 @@ Small.args = {
   size: "small",
 }
 
+export const DarkBackground = Template.bind({})
+DarkBackground.args = {
+  textColor: "white",
+  background: "grey",
+  badgeSize: "medium",
+}
+
 export const WithTooltip = Template.bind({})
 WithTooltip.args = {
   tooltipContent: <DummyTooltip />,

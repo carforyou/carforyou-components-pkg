@@ -33,10 +33,12 @@ const BaseBadge: FC<Props> = ({
         },
         {
           "bg-green-bright": background === "green",
+          "bg-grey-dark": background === "grey",
           "bg-white border border-grey-1": background === "white",
         },
         {
           "text-base py-5 px-10": size === "large",
+          "text-sm py-3 px-10": size === "medium",
           "text-sm px-5": size === "small",
         }
       )}

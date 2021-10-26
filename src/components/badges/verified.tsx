@@ -1,13 +1,24 @@
 import React, { FC } from "react"
+import classNames from "classnames"
 
 import { BadgeProps } from "./types"
+import { BadgeBackground, BadgeSize } from "./types"
 import BaseBadge from "./base"
 import VerifiedIcon from "../../assets/dist/verified"
 
-export const VerifiedBadge: FC<BadgeProps> = ({
+interface VerifiedBadgeProps extends BadgeProps {
+  textColor?: "grey" | "white"
+  badgeSize?: BadgeSize
+  background?: BadgeBackground
+}
+
+export const VerifiedBadge: FC<VerifiedBadgeProps> = ({
   language,
   size = "large",
+  badgeSize = "small",
   tooltipContent,
+  textColor = "grey",
+  background = "white",
 }) => {
   const title = {
     de: "Verifiziert",
@@ -17,13 +28,18 @@ export const VerifiedBadge: FC<BadgeProps> = ({
   }
 
   return (
-    <div className="text-grey-dark">
+    <div
+      className={classNames({
+        "text-grey-dark": textColor === "grey",
+        "text-white": textColor === "white",
+      })}
+    >
       <BaseBadge
         icon={<VerifiedIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
-        size="small"
+        size={badgeSize}
         withText={size === "large"}
-        background="white"
+        background={background}
         text={title[language]}
       />
     </div>
