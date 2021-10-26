@@ -3,8 +3,9 @@ import React, { useMemo } from "react"
 
 import RangeFilterScale from "./rangeFilterScale"
 
-import { NumericMinMaxValue } from "./index"
 import Chart from "./chart"
+
+import { NumericMinMaxValue } from "./index"
 
 interface Props {
   scale: string[]

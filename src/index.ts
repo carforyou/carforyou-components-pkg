@@ -22,6 +22,8 @@ import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
 import Image, { ImageProps } from "./components/image"
+import RangeFilterScale from "./components/filters/rangeWithFacets/rangeFilterScale"
+import RangeFilterWithFacets from "./components/filters/rangeWithFacets/index"
 import InputFilter from "./components/filters/input"
 import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
@@ -41,8 +43,6 @@ import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
 import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
-import RangeFilterWithFacets from "./components/filters/rangeWithFacets/index"
-import RangeFilterScale from "./components/filters/rangeWithFacets/rangeFilterScale"
 
 export {
   Image,
