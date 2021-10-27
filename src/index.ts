@@ -1,5 +1,4 @@
 import useModal from "./hooks/useModal"
-import VerifiedRibbon from "./components/verifiedRibbon"
 import Tooltip, {
   TooltipAlignment,
   TooltipPosition,
@@ -36,6 +35,7 @@ import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import VerifiedBadge from "./components/badges/verified"
 import MbgBadge from "./components/badges/mbg"
+import InvertedVerifiedBadge from "./components/badges/invertedVerified"
 import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
 import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
@@ -80,13 +80,13 @@ export {
   RangeSelect,
   RangeInput,
   CustomErrorPage,
-  VerifiedRibbon,
   Tabs,
   BuyNowBadge,
   ElectricBadge,
   GdbdBadge,
   MbgBadge,
   VerifiedBadge,
+  InvertedVerifiedBadge,
   BuyerProtectionBadge,
   GdbdScore,
 }
