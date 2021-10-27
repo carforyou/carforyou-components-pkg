@@ -50,18 +50,18 @@ class RangeFilterScale {
     return this.scale[index]
   }
 
-  toMinMax = (
+  toMinMax(
     minIndex: number,
     maxIndex: number,
     previousSelection: NumericMinMaxValue
-  ): NumericMinMaxValue => {
+  ): NumericMinMaxValue {
     return {
       min: minIndex ? this.toValue(minIndex) : null,
       max: maxIndex ? this.toValue(maxIndex) : previousSelection.max,
     }
   }
 
-  toRange = (selection: NumericMinMaxValue): [number, number] => {
+  toRange(selection: NumericMinMaxValue): [number, number] {
     const maxValue = selection.max
       ? this.toIndex(selection.max)
       : this.getMaxIndex()
@@ -70,7 +70,7 @@ class RangeFilterScale {
     return [minValue, maxValue]
   }
 
-  getMaxIndex = (): number => {
+  getMaxIndex(): number {
     return this.scale.length
   }
 }

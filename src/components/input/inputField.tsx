@@ -63,7 +63,6 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onBlur?: (e: FocusEvent) => void
   debounce?: number
-  isControlled?: boolean
 }
 
 const InputField = forwardRef<HTMLInputElement, Props>(
@@ -82,15 +81,11 @@ const InputField = forwardRef<HTMLInputElement, Props>(
       onBlur,
       onKeyDown,
       debounce,
-      isControlled,
       ...rest
     },
     ref
   ) => {
     const isNumber = mode === "numeric" || mode === "decimal"
-    const inputValue = {
-      [isControlled ? "value" : "defaultValue"]: value || "",
-    }
 
     return (
       <input
@@ -98,6 +93,7 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         id={name}
         name={name}
         type={isNumber ? "number" : "text"}
+        defaultValue={value || ""}
         placeholder={placeholder || ""}
         className={className}
         inputMode={mode !== "text" ? mode : null}
@@ -117,7 +113,6 @@ const InputField = forwardRef<HTMLInputElement, Props>(
         disabled={disabled}
         required={required}
         autoComplete={autoComplete}
-        {...inputValue}
         {...rest}
       />
     )

@@ -1,10 +1,8 @@
-import React, { FC, MutableRefObject, useRef, useState } from "react"
+import React, { FC, MutableRefObject } from "react"
 
 import Input from "./input/index"
 
 import Label from "./fieldHelpers/label"
-import { clearTimeout } from "timers"
-import { NumericMinMaxValue } from "./filters/rangeWithFacets"
 
 interface Props {
   inputRefs?: {

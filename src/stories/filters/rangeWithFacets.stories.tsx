@@ -1,7 +1,9 @@
-import StoryContainer from "../storyContainer"
 import React, { useState } from "react"
-import { RangeFilterWithFacets } from "../../index"
+
 import { action } from "@storybook/addon-actions"
+
+import StoryContainer from "../storyContainer"
+import { RangeFilterWithFacets } from "../../index"
 
 const exampleScale = [
   "*-1000",
