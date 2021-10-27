@@ -11,7 +11,7 @@ export type NumericMinMaxValue = {
 type TrackingEvent = {
   touchedElement: "field" | "slider"
   field?: string
-  value: number | NumericMinMaxValue
+  value: NumericMinMaxValue
 }
 
 interface Props {

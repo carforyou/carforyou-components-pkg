@@ -61,7 +61,7 @@ const RangeInputWithUnit: FC<Props> = ({
           hasClearButton={false}
           onChange={onChange}
           textAlignment="right"
-          debounce={500}
+          debounce={800}
         />
       </div>
 
@@ -76,7 +76,7 @@ const RangeInputWithUnit: FC<Props> = ({
           position="right"
           onChange={onChange}
           textAlignment="right"
-          debounce={500}
+          debounce={800}
         />
       </div>
     </div>
