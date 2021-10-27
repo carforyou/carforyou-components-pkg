@@ -61,13 +61,13 @@ class RangeFilterScale {
     }
   }
 
-  toRange(selection: NumericMinMaxValue): number[] {
+  toRange(selection: NumericMinMaxValue): [number, number] {
     const maxValue = selection.max
       ? this.toIndex(selection.max)
       : this.getMaxIndex()
     const minValue = selection.min ? this.toIndex(selection.min) : 0
 
-    const range = [minValue, maxValue]
+    const range: [number, number] = [minValue, maxValue]
     const sortedRange = [...range].sort((a, b) => a - b)
 
     return JSON.stringify(range) === JSON.stringify(sortedRange)
