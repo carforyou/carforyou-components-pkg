@@ -40,6 +40,11 @@ describe("RangeFilterScale", () => {
     expect(myRange.toRange({ min: 1500, max: 22000 })).toEqual([1, 3])
   })
 
+  it("returns the minValue twice when the max < min or min > max", () => {
+    const myRange = new RangeFilterScale(mockRange)
+    expect(myRange.toRange({ min: 1500, max: 50 })).toEqual([1, 1])
+  })
+
   it("gets the value for an index", () => {
     const myRange = new RangeFilterScale(mockRange)
     expect(myRange.toMinMax(2, 3, { min: 1000, max: 22500 })).toEqual({
