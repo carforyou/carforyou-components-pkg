@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 
 import { Language } from "../../types/language"
 
-export type BadgeSize = "small" | "medium" | "large"
+export type BadgeSize = "small" | "large"
 export type BadgeBackground = "white" | "green" | "grey"
 
 export interface BadgeProps {

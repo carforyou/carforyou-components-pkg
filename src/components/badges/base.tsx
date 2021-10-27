@@ -38,7 +38,6 @@ const BaseBadge: FC<Props> = ({
         },
         {
           "text-base py-5 px-10": size === "large",
-          "text-sm py-3 px-10": size === "medium",
           "text-sm px-5": size === "small",
         }
       )}
