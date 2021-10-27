@@ -4,7 +4,7 @@ import { BadgeProps } from "./types"
 import BaseBadge from "./base"
 import VerifiedIcon from "../../assets/dist/verified"
 
-export const VerifiedBadge: FC<BadgeProps> = ({
+export const InvertedVerifiedBadge: FC<BadgeProps> = ({
   language,
   size = "large",
   tooltipContent,
@@ -17,18 +17,16 @@ export const VerifiedBadge: FC<BadgeProps> = ({
   }
 
   return (
-    <div className="text-grey-dark">
-      <BaseBadge
-        icon={<VerifiedIcon width="24" height="24" />}
-        tooltipContent={tooltipContent}
-        size="small"
-        withText={size === "large"}
-        background="white"
-        text={title[language]}
-      />
-    </div>
+    <BaseBadge
+      icon={<VerifiedIcon width="24" height="24" />}
+      tooltipContent={tooltipContent}
+      size="medium"
+      withText={size === "large"}
+      text={title[language]}
+      background="grey"
+    />
   )
 }
 
-export default VerifiedBadge
+export default InvertedVerifiedBadge
 export { BadgeProps as VerifiedBadgeProps }
