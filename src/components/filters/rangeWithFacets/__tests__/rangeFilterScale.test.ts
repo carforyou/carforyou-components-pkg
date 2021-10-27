@@ -11,7 +11,7 @@ describe("RangeFilterScale", () => {
 
   it("transforms the range to the correct backend request for facets", () => {
     const myRange = new RangeFilterScale(mockRange)
-    expect(myRange.facets).toEqual([
+    expect(myRange.facetsRequest).toEqual([
       { from: null, key: "*-1000", to: 1000 },
       { from: 1000, key: "1000-2000", to: 2000 },
       { from: 2000, key: "2000-22500", to: 22500 },

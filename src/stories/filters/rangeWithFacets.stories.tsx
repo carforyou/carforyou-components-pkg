@@ -77,6 +77,7 @@ const Wrapper = (props) => {
         action("tracking called with " + JSON.stringify(trackingEvent))
       }}
       value={value}
+      numberOfResultsLabel="Autos"
     />
   )
 }
@@ -119,10 +120,8 @@ Default.args = {
     min: 5000,
     max: 25000,
   },
-  placeholder: {
-    min: "From",
-    max: "To",
-  },
+  unit: "CHF",
+  subtext: "(1450 Autos)",
 }
 
 export const WithoutFacets = Template.bind({})
@@ -137,8 +136,6 @@ WithoutFacets.args = {
     min: 5000,
     max: 25000,
   },
-  placeholder: {
-    min: "From",
-    max: "To",
-  },
+  unit: "CHF",
+  subtext: "(1450 Autos)",
 }

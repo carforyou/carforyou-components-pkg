@@ -1,14 +1,10 @@
-import React, { FC, MutableRefObject } from "react"
+import React, { FC } from "react"
 
 import Input from "./input/index"
 
 import Label from "./fieldHelpers/label"
 
 interface Props {
-  inputRefs?: {
-    min: MutableRefObject<HTMLInputElement>
-    max: MutableRefObject<HTMLInputElement>
-  }
   name: {
     min: string
     max: string
@@ -27,7 +23,6 @@ interface Props {
 }
 
 const RangeInput: FC<Props> = ({
-  inputRefs,
   name: { min: minName, max: maxName } = {},
   handleChange,
   value: { min: minValue = null, max: maxValue = null },
@@ -38,27 +33,29 @@ const RangeInput: FC<Props> = ({
   return (
     <>
       <Label fieldName={label} required={required} />
-      <div className="w-12/12 flex">
-        <Input
-          ref={inputRefs?.min}
-          name={minName}
-          value={minValue}
-          mode="numeric"
-          placeholder={minPlaceholder}
-          position="left"
-          hasClearButton
-          onChange={handleChange}
-        />
-        <Input
-          ref={inputRefs?.max}
-          name={maxName}
-          value={maxValue}
-          mode="numeric"
-          hasClearButton
-          placeholder={maxPlaceholder}
-          position="right"
-          onChange={handleChange}
-        />
+      <div className="flex flex-wrap">
+        <div className="w-6/12">
+          <Input
+            name={minName}
+            value={minValue}
+            mode="numeric"
+            placeholder={minPlaceholder}
+            position="left"
+            hasClearButton
+            onChange={handleChange}
+          />
+        </div>
+        <div className="w-6/12">
+          <Input
+            name={maxName}
+            value={maxValue}
+            mode="numeric"
+            hasClearButton
+            placeholder={maxPlaceholder}
+            position="right"
+            onChange={handleChange}
+          />
+        </div>
       </div>
     </>
   )

@@ -9,12 +9,12 @@ type SingleRangeElement = {
 type FacetsRange = SingleRangeElement[]
 
 class RangeFilterScale {
-  private readonly scale
-  readonly facets
+  private readonly scale: number[]
+  readonly facetsRequest
 
   constructor(range: string[]) {
-    this.facets = this.rangeToFacets(range)
     this.scale = this.transformRangesToScale(range)
+    this.facetsRequest = this.rangeToFacetsRequest(range)
   }
 
   private transformRangesToScale(ranges: string[]): number[] {
@@ -25,7 +25,7 @@ class RangeFilterScale {
     })
   }
 
-  private rangeToFacets = (ranges: string[]): FacetsRange => {
+  private rangeToFacetsRequest = (ranges: string[]): FacetsRange => {
     return ranges.map((range) => {
       const [from, to] = range.split("-")
       return {

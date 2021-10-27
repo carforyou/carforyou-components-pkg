@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react"
 
 import SliderWithChart from "./sliderWithChart"
-import RangeInput from "../../rangeInput"
+import RangeInputWithUnit from "./rangeInputWithUnit"
 
 export type NumericMinMaxValue = {
   min: number
@@ -37,12 +37,13 @@ interface Props {
    */
   value: NumericMinMaxValue
   /**
-   * The placeholder for the min and max value field
+   * Range unit
    */
-  placeholder: {
-    min: string
-    max: string
-  }
+  unit: string
+  /**
+   * Text that is shown below the input fields
+   */
+  subtext: string
   /**
    * Function that is triggered when the filter updates either through the fields or the slider
    * @param values: the new values of the filter
@@ -60,7 +61,8 @@ const RangeFilterWithFacets: React.FC<Props> = ({
   facets,
   inputName,
   value,
-  placeholder,
+  unit,
+  subtext,
   addFilter,
   tracking,
 }) => {
@@ -104,41 +106,38 @@ const RangeFilterWithFacets: React.FC<Props> = ({
     }
   }
 
-  const syncSliderWithInput = ({ target }) => {
-    const { name, value: changedValue } = target
-    let updatedValue = null
-    if (inputName.min === name) {
-      updatedValue = { min: changedValue, max: value.max }
-    } else if (inputName.max === name) {
-      updatedValue = { min: value.min, max: changedValue }
-    }
-
-    if (updatedValue) {
-      setValuesWhileSliding(updatedValue)
-      addFilter(updatedValue)
-      tracking({ touchedElement: "field", field: name, value: changedValue })
-    }
+  const syncSliderWithInput = (event) => {
+    setValuesWhileSliding(event.newValue)
+    addFilter(event.newValue)
+    tracking({
+      touchedElement: "field",
+      field: event.touchedField,
+      value: event.newValue,
+    })
   }
 
   return (
-    <div className="space-y-25">
-      <SliderWithChart
-        onChange={onSliderChange}
-        onSliderRelease={onSliderRelease}
-        scale={scale}
-        facets={facets}
-        selection={appliedValue()}
-      />
-      <RangeInput
-        inputRefs={{
-          min: minValueRef,
-          max: maxValueRef,
-        }}
-        name={inputName}
-        placeholder={placeholder}
-        handleChange={syncSliderWithInput}
-        value={appliedValue()}
-      />
+    <div className="flex flex-col items-center">
+      <div className="space-y-25">
+        <SliderWithChart
+          onChange={onSliderChange}
+          onSliderRelease={onSliderRelease}
+          selection={appliedValue()}
+          scale={scale}
+          facets={facets}
+        />
+        <RangeInputWithUnit
+          inputRefs={{
+            min: minValueRef,
+            max: maxValueRef,
+          }}
+          name={inputName}
+          handleChange={syncSliderWithInput}
+          unit={unit}
+          value={appliedValue()}
+        />
+      </div>
+      <p className="text-grey-3">{subtext}</p>
     </div>
   )
 }
