@@ -21,6 +21,7 @@ interface Props {
   required?: boolean
   label?: string
   debounce?: number
+  allowOverlap?: boolean
 }
 
 const RangeInput: FC<Props> = ({
@@ -31,35 +32,62 @@ const RangeInput: FC<Props> = ({
   label,
   required = false,
   debounce,
+  allowOverlap = true,
 }) => {
+  console.log(minValue, maxValue)
   return (
     <>
       <Label fieldName={label} required={required} />
-      <div className="flex flex-wrap">
-        <div className="w-6/12" key={`${minName}-${minValue}`}>
-          <Input
-            name={minName}
-            value={minValue}
-            mode="numeric"
-            placeholder={minPlaceholder}
-            position="left"
-            hasClearButton
-            onChange={handleChange}
-            debounce={debounce}
-          />
-        </div>
-        <div className="w-6/12" key={`${maxName}-${maxValue}`}>
-          <Input
-            name={maxName}
-            value={maxValue}
-            mode="numeric"
-            hasClearButton
-            placeholder={maxPlaceholder}
-            position="right"
-            onChange={handleChange}
-            debounce={debounce}
-          />
-        </div>
+      <div
+        className="w-12/12 flex"
+        //key={`${minName}-${minValue}-${maxName}-${maxValue}`}
+      >
+        <Input
+          name={minName}
+          value={minValue}
+          mode="numeric"
+          placeholder={minPlaceholder}
+          position="left"
+          hasClearButton
+          onChange={(event) => {
+            const value = Number(event.target.value)
+            if (allowOverlap || !value) {
+              handleChange(event)
+              return
+            } else if (maxValue && value > maxValue) {
+              event.target.value = maxValue
+              handleChange(event)
+              return
+            } else {
+              handleChange(event)
+              return
+            }
+          }}
+          debounce={debounce}
+        />
+        <Input
+          name={maxName}
+          value={maxValue}
+          mode="numeric"
+          hasClearButton
+          placeholder={maxPlaceholder}
+          position="right"
+          onChange={(event) => {
+            const value = Number(event.target.value)
+            if (allowOverlap || !value) {
+              handleChange(event)
+              return
+            } else if (minValue && value < minValue) {
+              event.target.value = minValue
+              handleChange(event)
+              return
+            } else {
+              handleChange(event)
+              return
+            }
+          }}
+          debounce={debounce}
+        />
       </div>
     </>
   )

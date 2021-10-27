@@ -124,6 +124,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
         handleChange={applyFilters}
         value={appliedValue()}
         debounce={500}
+        allowOverlap={false}
       />
     </div>
   )

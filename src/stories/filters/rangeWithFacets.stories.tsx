@@ -1,4 +1,3 @@
-import CheckboxFilter from "../../components/filters/checkbox"
 import StoryContainer from "../storyContainer"
 import React, { useState } from "react"
 import { RangeFilterWithFacets } from "../../index"
