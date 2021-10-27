@@ -49,7 +49,7 @@ describe("<RangeFilterWithFacets/>", () => {
   describe("with input field", () => {
     it("allows to change the min value through the input field", () => {
       const screen = renderScreen()
-      userEvent.type(screen.getByTestId("priceFrom"), "5000")
+      userEvent.type(screen.getByPlaceholderText("priceFrom"), "5000")
       return waitFor(() => {
         expect(mockAddFilter).toHaveBeenCalledWith({ min: "5000", max: null })
       })
@@ -57,7 +57,7 @@ describe("<RangeFilterWithFacets/>", () => {
 
     it("allows to change the max value through the input field", () => {
       const screen = renderScreen()
-      userEvent.type(screen.getByTestId("priceTo"), "10000")
+      userEvent.type(screen.getByPlaceholderText("priceTo"), "10000")
       return waitFor(() => {
         expect(mockAddFilter).toHaveBeenCalledWith({ min: null, max: "10000" })
       })
@@ -65,7 +65,7 @@ describe("<RangeFilterWithFacets/>", () => {
 
     it("triggers the tracking function when a field is edited", () => {
       const screen = renderScreen()
-      userEvent.type(screen.getByTestId("priceTo"), "10000")
+      userEvent.type(screen.getByPlaceholderText("priceTo"), "10000")
       return waitFor(() => {
         expect(mockTracking).toHaveBeenCalledWith({
           touchedElement: "field",

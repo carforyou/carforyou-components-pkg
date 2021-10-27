@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 
 import SliderWithChart from "./sliderWithChart"
 import RangeInput from "../../rangeInput"
@@ -66,14 +66,25 @@ const RangeFilterWithFacets: React.FC<Props> = ({
 }) => {
   const [valuesWhileSliding, setValuesWhileSliding] = useState(value)
   const [isSliding, setIsSliding] = useState(false)
+  const minValueRef = useRef(null)
+  const maxValueRef = useRef(null)
+
+  const syncInputWithSlider = (newValue: NumericMinMaxValue) => {
+    if (minValueRef.current && maxValueRef.current) {
+      minValueRef.current.value = newValue.min
+      maxValueRef.current.value = newValue.max
+    }
+  }
 
   const onSliderChange = (newValue: NumericMinMaxValue) => {
     if (!isSliding) setIsSliding(true)
+    syncInputWithSlider(newValue)
     setValuesWhileSliding(newValue)
   }
 
   const onSliderRelease = (newValue: NumericMinMaxValue) => {
     setIsSliding(false)
+    syncInputWithSlider(newValue)
     addFilter(newValue)
     tracking({ touchedElement: "slider", value: newValue })
   }
@@ -93,7 +104,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
     }
   }
 
-  const applyFilters = ({ target }) => {
+  const syncSliderWithInput = ({ target }) => {
     const { name, value: changedValue } = target
     let updatedValue = null
     if (inputName.min === name) {
@@ -119,12 +130,14 @@ const RangeFilterWithFacets: React.FC<Props> = ({
         selection={appliedValue()}
       />
       <RangeInput
+        inputRefs={{
+          min: minValueRef,
+          max: maxValueRef,
+        }}
         name={inputName}
         placeholder={placeholder}
-        handleChange={applyFilters}
+        handleChange={syncSliderWithInput}
         value={appliedValue()}
-        debounce={500}
-        allowOverlap={false}
       />
     </div>
   )

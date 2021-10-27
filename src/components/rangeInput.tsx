@@ -1,10 +1,16 @@
-import React, { FC } from "react"
+import React, { FC, MutableRefObject, useRef, useState } from "react"
 
 import Input from "./input/index"
 
 import Label from "./fieldHelpers/label"
+import { clearTimeout } from "timers"
+import { NumericMinMaxValue } from "./filters/rangeWithFacets"
 
 interface Props {
+  inputRefs?: {
+    min: MutableRefObject<HTMLInputElement>
+    max: MutableRefObject<HTMLInputElement>
+  }
   name: {
     min: string
     max: string
@@ -20,73 +26,40 @@ interface Props {
   }
   required?: boolean
   label?: string
-  debounce?: number
-  allowOverlap?: boolean
 }
 
 const RangeInput: FC<Props> = ({
+  inputRefs,
   name: { min: minName, max: maxName } = {},
   handleChange,
   value: { min: minValue = null, max: maxValue = null },
   placeholder: { min: minPlaceholder = "", max: maxPlaceholder = "" },
   label,
   required = false,
-  debounce,
-  allowOverlap = true,
 }) => {
-  console.log(minValue, maxValue)
   return (
     <>
       <Label fieldName={label} required={required} />
-      <div
-        className="w-12/12 flex"
-        //key={`${minName}-${minValue}-${maxName}-${maxValue}`}
-      >
+      <div className="w-12/12 flex">
         <Input
+          ref={inputRefs?.min}
           name={minName}
           value={minValue}
           mode="numeric"
           placeholder={minPlaceholder}
           position="left"
           hasClearButton
-          onChange={(event) => {
-            const value = Number(event.target.value)
-            if (allowOverlap || !value) {
-              handleChange(event)
-              return
-            } else if (maxValue && value > maxValue) {
-              event.target.value = maxValue
-              handleChange(event)
-              return
-            } else {
-              handleChange(event)
-              return
-            }
-          }}
-          debounce={debounce}
+          onChange={handleChange}
         />
         <Input
+          ref={inputRefs?.max}
           name={maxName}
           value={maxValue}
           mode="numeric"
           hasClearButton
           placeholder={maxPlaceholder}
           position="right"
-          onChange={(event) => {
-            const value = Number(event.target.value)
-            if (allowOverlap || !value) {
-              handleChange(event)
-              return
-            } else if (minValue && value < minValue) {
-              event.target.value = minValue
-              handleChange(event)
-              return
-            } else {
-              handleChange(event)
-              return
-            }
-          }}
-          debounce={debounce}
+          onChange={handleChange}
         />
       </div>
     </>
