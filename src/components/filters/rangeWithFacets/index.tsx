@@ -29,34 +29,14 @@ interface Props {
    * e.g. { "*-100": 100, "100-200": 200, "200-500": 5000, "500-*": 80  }
    */
   facets: Record<string, number>
-  /**
-   * The name for the input fields
-   */
   inputName: {
     min: string
     max: string
   }
-  /**
-   * Current values of the filter
-   */
   value: NumericMinMaxValue
-  /**
-   * Range unit
-   */
   unit: string
-  /**
-   * Text that is shown below the input fields
-   */
   subtext: string
-  /**
-   * Function that is triggered when the filter updates either through the fields or the slider
-   * @param values: the new values of the filter
-   */
   addFilter: (values: NumericMinMaxValue) => void
-  /**
-   * Function that is triggered when the filter updates either through the fields or the slider
-   * @param event: if the values was changed through slider or fields and what input is affected
-   */
   tracking: (event: TrackingEvent) => void
 }
 
