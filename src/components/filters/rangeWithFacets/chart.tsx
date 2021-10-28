@@ -2,7 +2,7 @@ import React from "react"
 import classNames from "classnames"
 
 interface Props {
-  facets: Record<string, number>
+  facets?: Record<string, number>
   range: [number, number]
 }
 

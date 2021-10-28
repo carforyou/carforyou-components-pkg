@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react"
+import useDeepCompareEffect from "use-deep-compare-effect"
+import React, { useRef, useState } from "react"
 
 import SliderWithChart from "./sliderWithChart"
 import RangeInputWithUnit from "./rangeInputWithUnit"
@@ -55,10 +56,11 @@ const RangeFilterWithFacets: React.FC<Props> = ({
   const minValueRef = useRef(null)
   const maxValueRef = useRef(null)
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
+    console.log("effect runs")
     setValuesWhileSliding(value)
     syncInputWithSlider(value)
-  }, [value.min, value.max])
+  }, [value])
 
   const syncInputWithSlider = (newValue: NumericMinMaxValue) => {
     if (minValueRef.current && maxValueRef.current) {

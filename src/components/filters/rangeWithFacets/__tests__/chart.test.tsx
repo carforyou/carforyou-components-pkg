@@ -12,6 +12,11 @@ const mockFacets = {
 }
 
 describe("<Chart/>", () => {
+  it("renders nothing when facets is not defined (backend failure)", () => {
+    const screen = render(<Chart facets={undefined} range={[2, 4]} />)
+    expect(screen.container.firstChild).toBeNull()
+  })
+
   it("renders a bar for each facet", () => {
     const screen = render(<Chart facets={mockFacets} range={[2, 4]} />)
     expect(screen.getAllByTestId("facet")).toHaveLength(5)

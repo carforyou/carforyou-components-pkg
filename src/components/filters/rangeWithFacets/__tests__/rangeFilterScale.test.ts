@@ -76,4 +76,12 @@ describe("RangeFilterScale", () => {
       max: null,
     })
   })
+
+  it("uses the previous selection when the max index is not defined", () => {
+    const myRange = new RangeFilterScale(mockRange)
+    expect(myRange.toMinMax(2, null, { min: 2000, max: 22500 })).toEqual({
+      min: 2000,
+      max: 22500,
+    })
+  })
 })
