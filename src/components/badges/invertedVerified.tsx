@@ -2,7 +2,7 @@ import React, { FC } from "react"
 
 import { BadgeProps } from "./types"
 import BaseBadge from "./base"
-import VerifiedIcon from "../../assets/dist/verified"
+import VerifiedBoldIcon from "../../assets/dist/icons/verifiedBold"
 
 export const InvertedVerifiedBadge: FC<BadgeProps> = ({
   language,
@@ -18,7 +18,7 @@ export const InvertedVerifiedBadge: FC<BadgeProps> = ({
 
   return (
     <BaseBadge
-      icon={<VerifiedIcon width="24" height="24" />}
+      icon={<VerifiedBoldIcon width="24" height="24" />}
       tooltipContent={tooltipContent}
       size="small"
       withText={size === "large"}
