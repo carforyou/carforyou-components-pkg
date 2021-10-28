@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 import SliderWithChart from "./sliderWithChart"
 import RangeInputWithUnit from "./rangeInputWithUnit"
@@ -54,6 +54,11 @@ const RangeFilterWithFacets: React.FC<Props> = ({
   const [isSliding, setIsSliding] = useState(false)
   const minValueRef = useRef(null)
   const maxValueRef = useRef(null)
+
+  useEffect(() => {
+    setValuesWhileSliding(value)
+    syncInputWithSlider(value)
+  }, [value.min, value.max])
 
   const syncInputWithSlider = (newValue: NumericMinMaxValue) => {
     if (minValueRef.current && maxValueRef.current) {
