@@ -57,7 +57,6 @@ const RangeFilterWithFacets: React.FC<Props> = ({
   const maxValueRef = useRef(null)
 
   useDeepCompareEffect(() => {
-    console.log("effect runs")
     setValuesWhileSliding(value)
     syncInputWithSlider(value)
   }, [value])
