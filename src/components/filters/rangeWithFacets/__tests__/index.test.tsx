@@ -64,14 +64,24 @@ describe("<RangeFilterWithFacets/>", () => {
       })
     })
 
-    it("triggers the tracking function when a field is edited", () => {
+    it("triggers the tracking function when the FROM field is edited", () => {
+      const screen = renderScreen()
+      userEvent.type(screen.getByTestId("priceFrom"), "5000")
+      return waitFor(() => {
+        expect(mockTracking).toHaveBeenCalledWith({
+          touchedElement: "priceFrom",
+          value: "5000",
+        })
+      })
+    })
+
+    it("triggers the tracking function when the TO field is edited", () => {
       const screen = renderScreen()
       userEvent.type(screen.getByTestId("priceTo"), "10000")
       return waitFor(() => {
         expect(mockTracking).toHaveBeenCalledWith({
-          touchedElement: "field",
-          field: "priceTo",
-          value: { min: null, max: "10000" },
+          touchedElement: "priceTo",
+          value: "10000",
         })
       })
     })

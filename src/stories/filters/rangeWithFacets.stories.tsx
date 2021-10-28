@@ -113,8 +113,8 @@ Default.args = {
   scale: exampleScale,
   facets: exampleFacets,
   inputName: {
-    min: "From",
-    max: "To",
+    min: "priceFrom",
+    max: "priceTo",
   },
   value: {
     min: 5000,
@@ -129,8 +129,8 @@ WithoutFacets.args = {
   storyName: "Default",
   scale: exampleScale,
   inputName: {
-    min: "From",
-    max: "To",
+    min: "priceFrom",
+    max: "priceTo",
   },
   value: {
     min: 5000,

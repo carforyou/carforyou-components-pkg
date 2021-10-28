@@ -1,18 +1,18 @@
 import { getTrackBackground, Range } from "react-range"
-import React, { useMemo } from "react"
+import React, { useMemo, useState } from "react"
 
 import RangeFilterScale from "./rangeFilterScale"
 
 import Chart from "./chart"
 
-import { NumericMinMaxValue } from "./index"
+import { ChangeCallback, NumericMinMaxValue } from "./index"
 
 interface Props {
   scale: string[]
   facets: Record<string, number>
   selection: NumericMinMaxValue
   onChange: (values: NumericMinMaxValue) => void
-  onSliderRelease: (values: NumericMinMaxValue) => void
+  onSliderRelease: (event: ChangeCallback) => void
 }
 
 const SliderWithChart: React.FC<Props> = ({
@@ -23,6 +23,11 @@ const SliderWithChart: React.FC<Props> = ({
   onSliderRelease,
 }) => {
   const range = useMemo(() => new RangeFilterScale(scale), [scale])
+  const [touchedThumb, setTouchedThumb] = useState(null)
+
+  const updateTouchedThumb = (index: number) => {
+    setTouchedThumb(index === 0 ? "min" : "max")
+  }
 
   return (
     <Range
@@ -33,11 +38,18 @@ const SliderWithChart: React.FC<Props> = ({
         onChange(range.toMinMax(newMinIndex, newMaxIndex, selection))
       }}
       onFinalChange={([newMinIndex, newMaxIndex]) => {
-        onSliderRelease(range.toMinMax(newMinIndex, newMaxIndex, selection))
+        onSliderRelease({
+          touched: touchedThumb,
+          value: range.toMinMax(newMinIndex, newMaxIndex, selection),
+        })
       }}
-      renderThumb={({ props }) => (
+      renderThumb={({ props, index }) => (
         <div
           {...props}
+          onMouseDown={() => {
+            updateTouchedThumb(index)
+          }}
+          onTouchStart={() => updateTouchedThumb(index)}
           className="h-checkbox w-checkbox border border-grey-2 rounded-half bg-white shadow"
         />
       )}

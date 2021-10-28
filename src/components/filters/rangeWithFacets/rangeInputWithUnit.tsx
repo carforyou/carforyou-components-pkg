@@ -2,12 +2,7 @@ import React, { FC, MutableRefObject } from "react"
 
 import Input from "../../input/index"
 
-import { NumericMinMaxValue } from "./index"
-
-type ChangeCallback = {
-  touchedField: string
-  newValue: NumericMinMaxValue
-}
+import { ChangeCallback } from "./index"
 
 interface Props {
   inputRefs: {
@@ -33,14 +28,14 @@ const RangeInputWithUnit: FC<Props> = ({
   value,
   unit,
 }) => {
-  const onChange = ({ target }) => {
-    const { name: touchedField, value: changedValue } = target
+  const onChange = ({ target }, editedField: "min" | "max") => {
+    const { value: changedValue } = target
     handleChange({
-      touchedField: touchedField,
-      newValue:
-        touchedField === name.min
-          ? { min: changedValue, max: value.max }
-          : { min: value.min, max: changedValue },
+      touched: editedField,
+      value: {
+        ...value,
+        [editedField]: changedValue,
+      },
     })
   }
 
@@ -59,7 +54,7 @@ const RangeInputWithUnit: FC<Props> = ({
           mode="numeric"
           position="left"
           hasClearButton={false}
-          onChange={onChange}
+          onChange={(e) => onChange(e, "min")}
           textAlignment="right"
           debounce={800}
         />
@@ -74,7 +69,7 @@ const RangeInputWithUnit: FC<Props> = ({
           mode="numeric"
           hasClearButton={false}
           position="right"
-          onChange={onChange}
+          onChange={(e) => onChange(e, "max")}
           textAlignment="right"
           debounce={800}
         />

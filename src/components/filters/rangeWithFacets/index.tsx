@@ -8,10 +8,14 @@ export type NumericMinMaxValue = {
   max: number
 }
 
-type TrackingEvent = {
-  touchedElement: "field" | "slider"
-  field?: string
+export type ChangeCallback = {
+  touched: "min" | "max"
   value: NumericMinMaxValue
+}
+
+type TrackingEvent = {
+  touchedElement: string
+  value: number
 }
 
 interface Props {
@@ -84,11 +88,14 @@ const RangeFilterWithFacets: React.FC<Props> = ({
     setValuesWhileSliding(newValue)
   }
 
-  const onSliderRelease = (newValue: NumericMinMaxValue) => {
+  const onSliderRelease = (event: ChangeCallback) => {
     setIsSliding(false)
-    syncInputWithSlider(newValue)
-    addFilter(newValue)
-    tracking({ touchedElement: "slider", value: newValue })
+    syncInputWithSlider(event.value)
+    addFilter(event.value)
+    tracking({
+      touchedElement: `${inputName[event.touched]}Slider`,
+      value: event.value[event.touched],
+    })
   }
 
   const isFilterApplied = () => {
@@ -106,13 +113,12 @@ const RangeFilterWithFacets: React.FC<Props> = ({
     }
   }
 
-  const syncSliderWithInput = (event) => {
-    setValuesWhileSliding(event.newValue)
-    addFilter(event.newValue)
+  const syncSliderWithInput = (event: ChangeCallback) => {
+    setValuesWhileSliding(event.value)
+    addFilter(event.value)
     tracking({
-      touchedElement: "field",
-      field: event.touchedField,
-      value: event.newValue,
+      touchedElement: inputName[event.touched],
+      value: event.value[event.touched],
     })
   }
 
