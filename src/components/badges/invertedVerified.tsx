@@ -20,7 +20,7 @@ export const InvertedVerifiedBadge: FC<BadgeProps> = ({
     <BaseBadge
       icon={<VerifiedIcon width="24" height="24" />}
       tooltipContent={tooltipContent}
-      size="large"
+      size="small"
       withText={size === "large"}
       text={title[language]}
       background="grey"
