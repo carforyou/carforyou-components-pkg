@@ -1,14 +1,14 @@
 import { getTrackBackground, Range } from "react-range"
 import React, { useMemo, useState } from "react"
 
-import RangeFilterScale from "./rangeFilterScale"
+import RangeFilterScale, { RangeElement } from "./rangeFilterScale"
 
 import Chart from "./chart"
 
 import { ChangeCallback, NumericMinMaxValue } from "./index"
 
 interface Props {
-  scale: string[]
+  scale: RangeElement[]
   facets: Record<string, number>
   selection: NumericMinMaxValue
   onChange: (values: NumericMinMaxValue) => void

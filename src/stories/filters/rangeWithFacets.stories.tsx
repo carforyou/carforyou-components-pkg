@@ -3,60 +3,21 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 
 import StoryContainer from "../storyContainer"
-import { RangeFilterWithFacets } from "../../index"
+import { RangeFilterScale, RangeFilterWithFacets } from "../../index"
 
-const exampleScale = [
-  "*-1000",
-  "1000-2000",
-  "2000-3000",
-  "3000-4000",
-  "4000-5000",
-  "5000-6000",
-  "6000-7000",
-  "7000-8000",
-  "8000-9000",
-  "9000-10000",
-  "10000-12500",
-  "12500-15000",
-  "15000-17500",
-  "17500-20000",
-  "20000-22500",
-  "22500-25000",
-  "25000-27500",
-  "27500-30000",
-  "30000-35000",
-  "35000-40000",
-  "40000-45000",
-  "45000-50000",
-  "50000-60000",
-  "60000-70000",
-  "70000-80000",
-  "80000-90000",
-  "90000-100000",
-  "100000-125000",
-  "125000-150000",
-  "150000-175000",
-  "175000-200000",
-  "200000-225000",
-  "225000-250000",
-  "250000-275000",
-  "275000-300000",
-  "300000-350000",
-  "350000-400000",
-  "400000-450000",
-  "450000-500000",
-  "500000-600000",
-  "600000-700000",
-  "700000-800000",
-  "800000-900000",
-  "900000-1000000",
-  "1000000-*",
-]
+const exampleScale = RangeFilterScale.toRange({
+  3000: 1000,
+  8000: 2500,
+  10000: 2000,
+  30000: 10000,
+})
 
 const createDummyFacets = () => {
   const facets = {}
   exampleScale.forEach((scale) => {
-    facets[scale] = Math.floor(Math.random() * (1000 - 100 + 1) + 100)
+    facets[`${scale.from || "*"}-${scale.to || "*"}`] = Math.floor(
+      Math.random() * (1000 - 100 + 1) + 100
+    )
   })
   return facets
 }

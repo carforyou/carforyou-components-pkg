@@ -3,21 +3,25 @@ import userEvent from "@testing-library/user-event"
 import { render, waitFor } from "@testing-library/react"
 
 import RangeFilterWithFacets from "../index"
+import { RangeFilterScale } from "../../../../index"
 
-const mockScale = [
-  "*-1000",
-  "1000-2000",
-  "20000-22500",
-  "22500-25000",
-  "1000000-*",
-]
+const mockScale = RangeFilterScale.toRange({
+  3000: 1000,
+  8000: 2500,
+  10000: 2000,
+  30000: 10000,
+})
 
 const mockFacets = {
   "*-1000": 500,
   "1000-2000": 200,
-  "2000-22500": 130,
-  "22500-25000": 50,
-  "1000000-*": 300,
+  "2000-3000": 130,
+  "3000-5500": 50,
+  "5500-8000": 50,
+  "8000-10000": 200,
+  "10000-20000": 140,
+  "20000-30000": 440,
+  "30000-*": 300,
 }
 
 const mockAddFilter = jest.fn()
@@ -95,7 +99,7 @@ describe("<RangeFilterWithFacets/>", () => {
 
       const [minMarker, maxMarker] = sliders
       expect(minMarker).toHaveAttribute("aria-valuenow", "1")
-      expect(maxMarker).toHaveAttribute("aria-valuenow", "3")
+      expect(maxMarker).toHaveAttribute("aria-valuenow", "7")
     })
   })
 })

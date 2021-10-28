@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 
 import SliderWithChart from "./sliderWithChart"
 import RangeInputWithUnit from "./rangeInputWithUnit"
+import { RangeElement } from "./rangeFilterScale"
 
 export type NumericMinMaxValue = {
   min: number
@@ -20,12 +21,11 @@ type TrackingEvent = {
 
 interface Props {
   /**
-   * e.g. ["*-100", "100-200", "200-400", "400-1000", "1000-*"]
+   * Scale for the distribution of the facets and the slider. Pass null for open end/open start
    */
-  scale: string[]
+  scale: RangeElement[]
   /**
-   * The facets for each element of the scale
-   * Keys must match the scale array
+   * The facets for each element of the scale. The keys are generated automatically based on the scale
    * e.g. { "*-100": 100, "100-200": 200, "200-500": 5000, "500-*": 80  }
    */
   facets: Record<string, number>

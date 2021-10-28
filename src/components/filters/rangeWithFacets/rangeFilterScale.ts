@@ -1,38 +1,50 @@
 import { NumericMinMaxValue } from "./index"
 
-type SingleRangeElement = {
+export type RangeElement = {
   key: string
   from: number | null
   to: number | null
 }
 
-type FacetsRange = SingleRangeElement[]
-
 class RangeFilterScale {
   private readonly scale: number[]
-  readonly facetsRequest
 
-  constructor(range: string[]) {
-    this.scale = this.transformRangesToScale(range)
-    this.facetsRequest = this.rangeToFacetsRequest(range)
+  constructor(range: RangeElement[]) {
+    this.scale = RangeFilterScale.transformRangesToScale(range)
   }
 
-  private transformRangesToScale(ranges: string[]): number[] {
-    return ranges.map((range, index) => {
-      if (index === 0 && range.startsWith("*")) return 0
-
-      return Number(range.split("-")[0])
-    })
-  }
-
-  private rangeToFacetsRequest = (ranges: string[]): FacetsRange => {
-    return ranges.map((range) => {
-      const [from, to] = range.split("-")
-      return {
-        key: range,
-        from: from === "*" ? null : Number(from),
-        to: to === "*" ? null : Number(to),
+  /**
+   * Creates a scale array for the filter definition
+   * @param filter object where the key defines the threshold and the value the interval up until this threshold
+   */
+  public static toRange(filter: Record<number, number>): RangeElement[] {
+    let currentValue = Object.values(filter)[0]
+    const scale: RangeElement[] = [
+      { from: null, to: currentValue, key: `*-${currentValue}` },
+    ]
+    Object.keys(filter).forEach((maxValue) => {
+      while (currentValue < Number(maxValue)) {
+        const nextValue = currentValue + filter[maxValue]
+        scale.push({
+          from: currentValue,
+          to: nextValue,
+          key: `${currentValue}-${nextValue}`,
+        })
+        currentValue = nextValue
       }
+    })
+    scale.push({
+      from: currentValue,
+      to: null,
+      key: `${currentValue}-*`,
+    })
+    return scale
+  }
+
+  private static transformRangesToScale(ranges: RangeElement[]): number[] {
+    return ranges.map((range, index) => {
+      if (index === 0 && range.from === null) return 0
+      return range.from
     })
   }
 
