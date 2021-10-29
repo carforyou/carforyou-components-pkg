@@ -35,7 +35,6 @@ import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import VerifiedBadge from "./components/badges/verified"
-import MbgBadge from "./components/badges/mbg"
 import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
 import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
@@ -85,7 +84,6 @@ export {
   BuyNowBadge,
   ElectricBadge,
   GdbdBadge,
-  MbgBadge,
   VerifiedBadge,
   BuyerProtectionBadge,
   GdbdScore,
