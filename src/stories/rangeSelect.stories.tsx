@@ -4,7 +4,9 @@ import { action } from "@storybook/addon-actions"
 
 import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
-import RangeSelect, { RangeSelectProps } from "../components/rangeSelect"
+import RangeSelect, {
+  RangeSelectProps,
+} from "../components/dropdown/rangeSelect"
 
 const onChange = () => action("onChange")
 

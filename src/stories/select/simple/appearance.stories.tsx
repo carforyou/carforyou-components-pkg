@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions"
 
 import { StoryProps } from "../../storyProps"
 import StoryContainer from "../../storyContainer"
-import Select, { SimpleSelectProps } from "../../../components/select"
+import Select, { SimpleSelectProps } from "../../../components/dropdown/select"
 
 const handleChange = () => action("handleChange")
 

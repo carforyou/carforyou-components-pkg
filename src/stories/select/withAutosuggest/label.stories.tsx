@@ -3,7 +3,9 @@ import { action } from "@storybook/addon-actions"
 
 import { StoryProps } from "../../storyProps"
 import StoryContainer from "../../storyContainer"
-import Select, { AutosuggestSelectProps } from "../../../components/select"
+import Select, {
+  AutosuggestSelectProps,
+} from "../../../components/dropdown/select"
 
 const handleChange = () => action("handleChange")
 
