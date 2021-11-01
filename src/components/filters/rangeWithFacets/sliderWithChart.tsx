@@ -5,6 +5,8 @@ import RangeFilterScale, { RangeElement } from "./rangeFilterScale"
 
 import Chart from "./chart"
 
+import colors from "../../../tailwind/colors"
+
 import { ChangeCallback, NumericMinMaxValue } from "./index"
 
 interface Props {
@@ -62,7 +64,7 @@ const SliderWithChart: React.FC<Props> = ({
             style={{
               background: getTrackBackground({
                 values: range.toRange(selection),
-                colors: ["#EBEFF1", "#3696B9", "#EBEFF1"],
+                colors: [colors["grey-1"], colors.teal, colors["grey-1"]],
                 min: 0,
                 max: range.getMaxIndex(),
               }),
