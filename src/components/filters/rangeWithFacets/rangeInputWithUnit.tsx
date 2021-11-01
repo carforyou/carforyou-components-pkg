@@ -1,14 +1,10 @@
-import React, { FC, MutableRefObject } from "react"
+import React, { FC } from "react"
 
-import Input from "../../input/index"
+import InputFilter from "../input"
 
 import { ChangeCallback } from "./index"
 
 interface Props {
-  inputRefs: {
-    min: MutableRefObject<HTMLInputElement>
-    max: MutableRefObject<HTMLInputElement>
-  }
   name: {
     min: string
     max: string
@@ -21,13 +17,7 @@ interface Props {
   unit: string
 }
 
-const RangeInputWithUnit: FC<Props> = ({
-  inputRefs,
-  name,
-  handleChange,
-  value,
-  unit,
-}) => {
+const RangeInputWithUnit: FC<Props> = ({ name, handleChange, value, unit }) => {
   const onChange = ({ target }, editedField: "min" | "max") => {
     const { value: changedValue } = target
     handleChange({
@@ -47,31 +37,27 @@ const RangeInputWithUnit: FC<Props> = ({
     <div className="w-12/12 flex">
       <div className="relative">
         {unitElement}
-        <Input
-          ref={inputRefs?.min}
+        <InputFilter
           name={name.min}
-          value={value.min}
+          initialValue={value.min ? String(value.min) : undefined}
           mode="numeric"
           position="left"
           hasClearButton={false}
-          onChange={(e) => onChange(e, "min")}
           textAlignment="right"
-          debounce={800}
+          apply={(e) => onChange(e, "min")}
         />
       </div>
 
       <div className="relative">
         {unitElement}
-        <Input
-          ref={inputRefs?.max}
+        <InputFilter
           name={name.max}
-          value={value.max}
+          initialValue={value.max ? String(value.max) : undefined}
           mode="numeric"
-          hasClearButton={false}
           position="right"
-          onChange={(e) => onChange(e, "max")}
+          hasClearButton={false}
           textAlignment="right"
-          debounce={800}
+          apply={(e) => onChange(e, "max")}
         />
       </div>
     </div>
