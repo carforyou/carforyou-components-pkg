@@ -240,7 +240,6 @@ export default {
 
     height: {
       4: "4px",
-      rangeFilterChart: "118px",
       auto: "auto",
       full: "100%",
       screen: "100vh",

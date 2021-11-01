@@ -1,6 +1,8 @@
 import React from "react"
 import classNames from "classnames"
 
+import styles from "./chart.module.css"
+
 interface Props {
   facets?: Record<string, number>
   range: [number, number]
@@ -11,7 +13,7 @@ const Chart: React.FC<Props> = ({ facets, range }) => {
 
   const maxValue = Math.max(...Object.values(facets))
   return (
-    <div className="w-12/12 h-rangeFilterChart flex justify-between">
+    <div className={classNames("w-12/12 flex justify-between", styles.chart)}>
       {Object.keys(facets).map((facet, index) => (
         <div
           key={facet}
