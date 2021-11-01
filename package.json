@@ -48,7 +48,7 @@
     "@babel/core": "7.15.8",
     "@carforyou/assets": "2.0.0",
     "@carforyou/eslint-config": "3.1.10",
-    "@carforyou/pika-plugin-build-components": "1.1.4",
+    "@carforyou/pika-plugin-build-components": "1.1.5",
     "@pika/pack": "0.5.0",
     "@pika/plugin-copy-assets": "0.9.2",
     "@pika/plugin-standard-pkg": "0.9.2",
