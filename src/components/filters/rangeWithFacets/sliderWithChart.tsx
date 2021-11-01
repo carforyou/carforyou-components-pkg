@@ -54,14 +54,10 @@ const SliderWithChart: React.FC<Props> = ({
         />
       )}
       renderTrack={({ props, children }) => (
-        <div
-          onMouseDown={props.onMouseDown}
-          onTouchStart={props.onTouchStart}
-          className="w-12/12 flex flex-col"
-        >
+        <div className="w-12/12 flex flex-col">
           <Chart facets={facets} range={range.toRange(selection)} />
           <div
-            ref={props.ref}
+            {...props}
             className="w-12/12 h-4 self-center mt-px"
             style={{
               background: getTrackBackground({
