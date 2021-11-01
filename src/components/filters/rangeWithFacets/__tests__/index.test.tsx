@@ -82,12 +82,15 @@ describe("<RangeFilterWithFacets/>", () => {
     it("triggers the tracking function when the TO field is edited", () => {
       const screen = renderScreen()
       userEvent.type(screen.getByTestId("priceTo"), "10000")
-      return waitFor(() => {
-        expect(mockTracking).toHaveBeenCalledWith({
-          touchedElement: "priceTo",
-          value: "10000",
-        })
-      })
+      return waitFor(
+        () => {
+          expect(mockTracking).toHaveBeenCalledWith({
+            touchedElement: "priceTo",
+            value: "10000",
+          })
+        },
+        { timeout: 1500 }
+      )
     })
   })
 

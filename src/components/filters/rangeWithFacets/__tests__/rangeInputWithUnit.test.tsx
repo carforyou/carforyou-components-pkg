@@ -39,7 +39,6 @@ describe("<RangeInputWithUnit/>", () => {
           value: { min: "500", max: 1000 },
         })
       },
-      // default timeout is 1000 which is not enough for the 1000 debounce we have
       { timeout: 1500 }
     )
   })
@@ -55,7 +54,6 @@ describe("<RangeInputWithUnit/>", () => {
           value: { min: 400, max: "300" },
         })
       },
-      // default timeout is 1000 which is not enough for the 1000 debounce we have
       { timeout: 1500 }
     )
   })
