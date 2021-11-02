@@ -8,7 +8,6 @@ import Textarea from "./components/textarea"
 import Tabs from "./components/tabs"
 import Spinner from "./components/spinner"
 import Select from "./components/select"
-import SegmentedControl from "./components/segmentedControl/index"
 import RangeSelect from "./components/rangeSelect"
 import RangeInput from "./components/rangeInput"
 import RadioButton from "./components/radioButton"
@@ -51,7 +50,6 @@ export {
   Pagination,
   Dropdown,
   DropdownWithAutosuggest,
-  SegmentedControl,
   Spinner,
   Intercom,
   AlertMessage,
