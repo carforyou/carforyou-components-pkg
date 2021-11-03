@@ -1,22 +1,24 @@
 import React from "react"
 import classNames from "classnames"
 
+import { RangeElement } from "./rangeFilterScale"
 import styles from "./chart.module.css"
 
 interface Props {
   facets?: Record<string, number>
+  scale: RangeElement[]
   range: [number, number]
 }
 
-const Chart: React.FC<Props> = ({ facets, range }) => {
+const Chart: React.FC<Props> = ({ facets, scale, range }) => {
   if (!facets) return null
 
   const maxValue = Math.max(...Object.values(facets))
   return (
     <div className={classNames("w-12/12 flex justify-between", styles.chart)}>
-      {Object.keys(facets).map((facet, index) => (
+      {scale.map((scaleElement, index) => (
         <div
-          key={facet}
+          key={scaleElement.key}
           data-testid="facet"
           className={classNames(
             "h-full inline-block flex-grow mx-px",
@@ -26,7 +28,9 @@ const Chart: React.FC<Props> = ({ facets, range }) => {
             transitionProperty: "transform",
             transitionDuration: "1s",
             transformOrigin: "bottom",
-            transform: `scaleY(${facets[facet] / maxValue})`,
+            transform: `scaleY(${
+              maxValue > 0 ? facets[scaleElement.key] / maxValue : 0
+            })`,
           }}
         />
       ))}
