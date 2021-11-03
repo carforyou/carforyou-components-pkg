@@ -12,17 +12,17 @@ const exampleScale = RangeFilterScale.toRange({
   30000: 10000,
 })
 
-const createDummyFacets = () => {
-  const facets = {}
-  exampleScale.forEach((scale) => {
-    facets[`${scale.from || "*"}-${scale.to || "*"}`] = Math.floor(
-      Math.random() * (1000 - 100 + 1) + 100
-    )
-  })
-  return facets
+const exampleFacets = {
+  "*-1000": 481,
+  "5500-8000": 167,
+  "1000-2000": 854,
+  "10000-20000": 318,
+  "2000-3000": 650,
+  "3000-5500": 786,
+  "30000-*": 837,
+  "8000-10000": 922,
+  "20000-30000": 647,
 }
-
-const exampleFacets = createDummyFacets()
 
 const Wrapper = (props) => {
   const [value, setValue] = useState(props.value)
