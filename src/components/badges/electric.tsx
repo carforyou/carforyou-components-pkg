@@ -6,7 +6,7 @@ import ElectricIcon from "../../assets/dist/electric"
 
 export const ElectricBadge: FC<BadgeProps> = ({
   language,
-  size = "large",
+  withText = true,
   tooltipContent,
 }) => {
   const title = {
@@ -21,10 +21,9 @@ export const ElectricBadge: FC<BadgeProps> = ({
       <BaseBadge
         icon={<ElectricIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
-        size="large"
-        withText={size === "large"}
+        size="small"
         background="green"
-        text={title[language]}
+        text={withText && title[language]}
       />
     </div>
   )

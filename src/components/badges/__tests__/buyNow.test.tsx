@@ -12,7 +12,7 @@ describe("<BuyNowBadge>", () => {
 
   it("renders the badge without text", () => {
     const { queryAllByText } = render(
-      <BuyNowBadge language="en" size="small" />
+      <BuyNowBadge language="en" withText={false} />
     )
     expect(queryAllByText("Buy online")).toHaveLength(0)
   })

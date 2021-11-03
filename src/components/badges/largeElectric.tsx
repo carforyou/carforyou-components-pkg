@@ -4,9 +4,9 @@ import { BadgeProps } from "./types"
 import BaseBadge from "./base"
 import ElectricIcon from "../../assets/dist/electric"
 
-export const SmallElectricBadge: FC<BadgeProps> = ({
+export const LargeElectricBadge: FC<BadgeProps> = ({
   language,
-  size = "large",
+  withText = true,
   tooltipContent,
 }) => {
   const title = {
@@ -21,14 +21,13 @@ export const SmallElectricBadge: FC<BadgeProps> = ({
       <BaseBadge
         icon={<ElectricIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
-        size="small"
-        withText={size === "large"}
+        size="large"
         background="green"
-        text={title[language]}
+        text={withText && title[language]}
       />
     </div>
   )
 }
 
-export default SmallElectricBadge
+export default LargeElectricBadge
 export { BadgeProps as ElectricBadgeProps }

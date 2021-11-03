@@ -6,7 +6,7 @@ import UmbrellaIcon from "../../assets/dist/umbrella"
 
 export const BuyerProtectionBadge: FC<BadgeProps> = ({
   language,
-  size = "large",
+  withText = true,
   tooltipContent,
 }) => {
   const title = {
@@ -26,9 +26,8 @@ export const BuyerProtectionBadge: FC<BadgeProps> = ({
         }
         tooltipContent={tooltipContent}
         size="small"
-        withText={size === "large"}
         background="white"
-        text={title[language]}
+        text={withText && title[language]}
       />
     </div>
   )

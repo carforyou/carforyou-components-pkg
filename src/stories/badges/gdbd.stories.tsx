@@ -38,9 +38,9 @@ English.args = {
   language: "en",
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: "small",
+export const WithoutText = Template.bind({})
+WithoutText.args = {
+  withText: false,
 }
 
 export const German = Template.bind({})

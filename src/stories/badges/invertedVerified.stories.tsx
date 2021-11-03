@@ -4,13 +4,13 @@ import { DummyTooltip } from "./dummyTooltip"
 import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 
-import SmallElectricBadge, {
-  ElectricBadgeProps,
-} from "../../components/badges/smallElectric"
+import InvertedVerifiedBadge, {
+  VerifiedBadgeProps,
+} from "../../components/badges/invertedVerified"
 
 export default {
-  title: "Badges/SmallElectricBadge",
-  component: SmallElectricBadge,
+  title: "Badges/InvertedVerifiedBadge",
+  component: InvertedVerifiedBadge,
   args: {
     language: "en",
     size: "large",
@@ -24,13 +24,13 @@ export default {
   },
 }
 
-type Props = StoryProps<unknown> & ElectricBadgeProps
+type Props = StoryProps<unknown> & VerifiedBadgeProps
 
 const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
-      component={<SmallElectricBadge {...args} />}
+      component={<InvertedVerifiedBadge {...args} />}
     />
   )
 }
@@ -55,9 +55,9 @@ Italian.args = {
   language: "it",
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: "small",
+export const WithoutText = Template.bind({})
+WithoutText.args = {
+  withText: false,
 }
 
 export const WithTooltip = Template.bind({})

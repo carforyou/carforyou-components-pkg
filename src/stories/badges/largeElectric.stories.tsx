@@ -4,11 +4,13 @@ import { DummyTooltip } from "./dummyTooltip"
 import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 
-import MbgBadge, { MbgBadgeProps } from "../../components/badges/mbg"
+import LargeElectricBadge, {
+  ElectricBadgeProps,
+} from "../../components/badges/largeElectric"
 
 export default {
-  title: "Badges/MbgBadge",
-  component: MbgBadge,
+  title: "Badges/LargeElectricBadge",
+  component: LargeElectricBadge,
   args: {
     language: "en",
     size: "large",
@@ -22,11 +24,14 @@ export default {
   },
 }
 
-type Props = StoryProps<unknown> & MbgBadgeProps
+type Props = StoryProps<unknown> & ElectricBadgeProps
 
 const Template: FC<Props> = (args) => {
   return (
-    <StoryContainer title={args.storyName} component={<MbgBadge {...args} />} />
+    <StoryContainer
+      title={args.storyName}
+      component={<LargeElectricBadge {...args} />}
+    />
   )
 }
 
@@ -50,9 +55,9 @@ Italian.args = {
   language: "it",
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: "small",
+export const WithoutText = Template.bind({})
+WithoutText.args = {
+  withText: false,
 }
 
 export const WithTooltip = Template.bind({})

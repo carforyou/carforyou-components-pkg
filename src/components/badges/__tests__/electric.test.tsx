@@ -12,7 +12,7 @@ describe("<ElectricBadge>", () => {
 
   it("renders the badge without text", () => {
     const { queryAllByText } = render(
-      <ElectricBadge language="en" size="small" />
+      <ElectricBadge language="en" withText={false} />
     )
     expect(queryAllByText("Electric")).toHaveLength(0)
   })

@@ -1,5 +1,4 @@
 import useModal from "./hooks/useModal"
-import VerifiedRibbon from "./components/verifiedRibbon"
 import Tooltip, {
   TooltipAlignment,
   TooltipPosition,
@@ -8,7 +7,6 @@ import Textarea from "./components/textarea"
 import Tabs from "./components/tabs"
 import Spinner from "./components/spinner"
 import Select from "./components/select"
-import SegmentedControl from "./components/segmentedControl/index"
 import RangeSelect from "./components/rangeSelect"
 import RangeInput from "./components/rangeInput"
 import RadioButton from "./components/radioButton"
@@ -22,6 +20,8 @@ import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
 import Image, { ImageProps } from "./components/image"
+import RangeFilterScale from "./components/filters/rangeWithFacets/rangeFilterScale"
+import RangeFilterWithFacets from "./components/filters/rangeWithFacets/index"
 import InputFilter from "./components/filters/input"
 import CheckboxFilter from "./components/filters/checkbox"
 import WithValidationError from "./components/fieldHelpers/withValidationError"
@@ -35,8 +35,8 @@ import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import VerifiedBadge from "./components/badges/verified"
-import SmallElectricBadge from "./components/badges/smallElectric"
-import MbgBadge from "./components/badges/mbg"
+import LargeElectricBadge from "./components/badges/largeElectric"
+import InvertedVerifiedBadge from "./components/badges/invertedVerified"
 import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
 import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
@@ -51,7 +51,6 @@ export {
   Pagination,
   Dropdown,
   DropdownWithAutosuggest,
-  SegmentedControl,
   Spinner,
   Intercom,
   AlertMessage,
@@ -81,14 +80,15 @@ export {
   RangeSelect,
   RangeInput,
   CustomErrorPage,
-  VerifiedRibbon,
   Tabs,
   BuyNowBadge,
   ElectricBadge,
-  SmallElectricBadge,
+  LargeElectricBadge,
   GdbdBadge,
-  MbgBadge,
   VerifiedBadge,
+  InvertedVerifiedBadge,
   BuyerProtectionBadge,
   GdbdScore,
+  RangeFilterWithFacets,
+  RangeFilterScale,
 }

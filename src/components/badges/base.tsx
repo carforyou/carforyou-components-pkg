@@ -2,15 +2,14 @@ import React, { FC, ReactNode } from "react"
 
 import classNames from "classnames"
 
-import { BadgeBackground, BadgeSize } from "./types"
+import { BadgeBackground } from "./types"
 import styles from "./badges.module.css"
 
 import Tooltip, { TooltipPosition } from "../tooltip/index"
 
 interface Props {
-  size: BadgeSize
+  size: "small" | "large"
   text: string
-  withText: boolean
   icon: ReactNode
   background: BadgeBackground
   tooltipContent?: ReactNode
@@ -20,7 +19,6 @@ const BaseBadge: FC<Props> = ({
   icon,
   text,
   size,
-  withText,
   background,
   tooltipContent,
 }) => {
@@ -33,6 +31,7 @@ const BaseBadge: FC<Props> = ({
         },
         {
           "bg-green-bright": background === "green",
+          "bg-grey-dark text-white": background === "grey",
           "bg-white border border-grey-1": background === "white",
         },
         {
@@ -42,7 +41,7 @@ const BaseBadge: FC<Props> = ({
       )}
     >
       {icon}
-      {withText && <span className="ml-5">{text}</span>}
+      {text && <span className="mx-5">{text}</span>}
     </div>
   )
 

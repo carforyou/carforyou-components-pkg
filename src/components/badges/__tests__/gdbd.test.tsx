@@ -176,7 +176,7 @@ describe("<GdbdBadge>", () => {
   describe("variations", () => {
     it("renders the badge without text", () => {
       const { queryAllByText } = render(
-        <GdbdBadge language="en" size="small" />
+        <GdbdBadge language="en" withText={false} />
       )
       expect(queryAllByText("No price check")).toHaveLength(0)
     })
