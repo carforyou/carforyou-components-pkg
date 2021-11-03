@@ -12,17 +12,29 @@ const exampleScale = RangeFilterScale.toRange({
   30000: 10000,
 })
 
-const createDummyFacets = () => {
-  const facets = {}
-  exampleScale.forEach((scale) => {
-    facets[`${scale.from || "*"}-${scale.to || "*"}`] = Math.floor(
-      Math.random() * (1000 - 100 + 1) + 100
-    )
-  })
-  return facets
+const exampleFacets = {
+  "*-1000": 481,
+  "5500-8000": 167,
+  "1000-2000": 854,
+  "10000-20000": 318,
+  "2000-3000": 650,
+  "3000-5500": 786,
+  "30000-*": 837,
+  "8000-10000": 922,
+  "20000-30000": 647,
 }
 
-const exampleFacets = createDummyFacets()
+const exampleFacetsWithEmptyResults = {
+  "*-1000": 0,
+  "5500-8000": 0,
+  "1000-2000": 0,
+  "10000-20000": 0,
+  "2000-3000": 0,
+  "3000-5500": 0,
+  "30000-*": 0,
+  "8000-10000": 0,
+  "20000-30000": 0,
+}
 
 const Wrapper = (props) => {
   const [value, setValue] = useState(props.value)
@@ -85,9 +97,26 @@ Default.args = {
   subtext: "(1450 Autos)",
 }
 
+export const WithEmptyFacets = Template.bind({})
+WithEmptyFacets.args = {
+  storyName: "WithEmptyFacets",
+  scale: exampleScale,
+  facets: exampleFacetsWithEmptyResults,
+  inputName: {
+    min: "priceFrom",
+    max: "priceTo",
+  },
+  value: {
+    min: 5000,
+    max: 25000,
+  },
+  unit: "CHF",
+  subtext: "(1450 Autos)",
+}
+
 export const WithoutFacets = Template.bind({})
 WithoutFacets.args = {
-  storyName: "Default",
+  storyName: "WithoutFacets",
   scale: exampleScale,
   inputName: {
     min: "priceFrom",

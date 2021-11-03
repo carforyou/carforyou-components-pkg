@@ -28,6 +28,26 @@ describe("RangeFilterScale", () => {
     ])
   })
 
+  it("creates a correct scale when the object is not ordered", () => {
+    const range = RangeFilterScale.toRange({
+      30000: 10000,
+      3000: 1000,
+      10000: 2000,
+      8000: 2500,
+    })
+    expect(range).toEqual([
+      { from: null, key: "*-1000", to: 1000 },
+      { from: 1000, key: "1000-2000", to: 2000 },
+      { from: 2000, key: "2000-3000", to: 3000 },
+      { from: 3000, key: "3000-5500", to: 5500 },
+      { from: 5500, key: "5500-8000", to: 8000 },
+      { from: 8000, key: "8000-10000", to: 10000 },
+      { from: 10000, key: "10000-20000", to: 20000 },
+      { from: 20000, key: "20000-30000", to: 30000 },
+      { from: 30000, key: "30000-*", to: null },
+    ])
+  })
+
   it("returns the correct values for the min value", () => {
     const myRange = new RangeFilterScale(mockRange)
     expect(myRange.toRange({ min: 0, max: null })).toEqual([0, 9])
