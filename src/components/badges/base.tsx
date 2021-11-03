@@ -33,6 +33,7 @@ const BaseBadge: FC<Props> = ({
         },
         {
           "bg-green-bright": background === "green",
+          "bg-grey-dark text-white": background === "grey",
           "bg-white border border-grey-1": background === "white",
         },
         {
@@ -42,7 +43,7 @@ const BaseBadge: FC<Props> = ({
       )}
     >
       {icon}
-      {withText && <span className="ml-5">{text}</span>}
+      {withText && <span className="mx-5">{text}</span>}
     </div>
   )
 
