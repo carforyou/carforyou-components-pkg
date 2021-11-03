@@ -86,4 +86,26 @@ describe("<Chart/>", () => {
       transform: "scaleY(0.6)",
     })
   })
+
+  it("if all facets are 0, scale should be 0", () => {
+    const screen = render(
+      <Chart
+        facets={{
+          "*-1000": 0,
+          "22500-25000": 0,
+          "1000-2000": 0,
+          "1000000-*": 0,
+          "2000-22500": 0,
+        }}
+        scale={mockScale}
+        range={[1, 3]}
+      />
+    )
+
+    screen.getAllByTestId("facet").forEach((facet) =>
+      expect(facet).toHaveStyle({
+        transform: "scaleY(0)",
+      })
+    )
+  })
 })

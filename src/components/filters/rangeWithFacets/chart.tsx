@@ -28,7 +28,9 @@ const Chart: React.FC<Props> = ({ facets, scale, range }) => {
             transitionProperty: "transform",
             transitionDuration: "1s",
             transformOrigin: "bottom",
-            transform: `scaleY(${facets[scaleElement.key] / maxValue})`,
+            transform: `scaleY(${
+              maxValue ? facets[scaleElement.key] / maxValue : 0
+            })`,
           }}
         />
       ))}
