@@ -7,7 +7,6 @@ import Textarea from "./components/textarea"
 import Tabs from "./components/tabs"
 import Spinner from "./components/spinner"
 import Select from "./components/select"
-import SegmentedControl from "./components/segmentedControl/index"
 import RangeSelect from "./components/rangeSelect"
 import RangeInput from "./components/rangeInput"
 import RadioButton from "./components/radioButton"
@@ -34,7 +33,6 @@ import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import VerifiedBadge from "./components/badges/verified"
-import MbgBadge from "./components/badges/mbg"
 import InvertedVerifiedBadge from "./components/badges/invertedVerified"
 import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
 import ElectricBadge from "./components/badges/electric"
@@ -50,7 +48,6 @@ export {
   Pagination,
   Dropdown,
   DropdownWithAutosuggest,
-  SegmentedControl,
   Spinner,
   Intercom,
   AlertMessage,
@@ -84,7 +81,6 @@ export {
   BuyNowBadge,
   ElectricBadge,
   GdbdBadge,
-  MbgBadge,
   VerifiedBadge,
   InvertedVerifiedBadge,
   BuyerProtectionBadge,
