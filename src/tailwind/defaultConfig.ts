@@ -1,4 +1,5 @@
 import TransformPlugin from "./plugins/transform"
+import colors from "./colors"
 /*
 Tailwind - The Utility-First CSS Framework
 A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
@@ -9,9 +10,6 @@ length of this file. It's really just a big JavaScript object and
 we've done our very best to explain each section.
 View the full documentation at https://tailwindcss.com.
 */
-const colors = {
-  greenDark: "#149246",
-}
 
 export default {
   theme: {
@@ -32,40 +30,7 @@ export default {
       xl: "1280px",
     },
 
-    colors: {
-      black: "#000000",
-      white: "#FFFFFF",
-      transparent: "transparent",
-      salmon: "#F73B47",
-      "salmon-dark": "#ED202D",
-      "salmon-light": "#FDE8EA",
-      teal: "#3696B9",
-      "teal-opaque": "#5EABC7",
-      "teal-light": "#D7EAF1",
-      "teal-bright": "#AFD5E3",
-      "teal-dark": "#227D9E",
-      "teal-darker": "#1A6072",
-      "grey-dark": "#232A36",
-      "grey-dark-opaque": "#A7AAAF",
-      "grey-4": "#6F7681",
-      "grey-3": "#A1A7AF",
-      "grey-2": "#D7DBDF",
-      "grey-1": "#EBEFF1",
-      "grey-bright": "#F9F9FB",
-      "green-light": "#74CC74",
-      "green-bright": "#0DC143",
-      "green-opaque": "#E3F4E3",
-      facebook: "#4267B2",
-      twitter: "#1EA0F2",
-      "high-deal": "#E34A15",
-      "fair-deal": "#EAA403",
-      "good-deal": "#81B040",
-      "great-deal": colors.greenDark,
-      "green-dark": colors.greenDark,
-      "not-defined": "#A0A7AB",
-      yellow: "#FCB001",
-      "yellow-light": "#FEEFCC",
-    },
+    colors,
 
     /*
    |-----------------------------------------------------------------------------
@@ -239,6 +204,7 @@ export default {
     */
 
     height: {
+      4: "4px",
       auto: "auto",
       full: "100%",
       screen: "100vh",
@@ -340,6 +306,7 @@ export default {
       "5": "5px",
       "10": "10px",
       "15": "15px",
+      "16": "16px",
       "20": "20px",
       "22": "22px",
       "25": "25px",
@@ -479,6 +446,7 @@ export default {
       5: "5px",
       10: "10px",
       20: "20px",
+      25: "25px",
       30: "30px",
       40: "40px",
     },

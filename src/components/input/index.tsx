@@ -48,6 +48,7 @@ interface InputProps {
   position?: "left" | "right"
   debounce?: number
   autoComplete?: string
+  textAlignment?: "left" | "right"
 }
 
 interface PopupLabelProps extends InputProps {
@@ -87,6 +88,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       position,
       debounce,
       autoComplete,
+      textAlignment = "left",
       ...rest
     },
     ref
@@ -149,6 +151,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
             position === "left",
           "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
             position === "right",
+          "text-right": textAlignment === "right",
         })}
         mode={mode}
         hasError={hasError}

@@ -9,13 +9,15 @@ interface Props {
   name: string
   initialValue?: string
   mode: "text" | "numeric" | "decimal" | "tel" | "email"
-  placeholder: string
+  placeholder?: string
   step?: number
   min?: number
   max?: number
   position?: "left" | "right"
   apply: (event) => void
   onApply?: (value: string) => void
+  hasClearButton?: boolean
+  textAlignment?: "left" | "right"
 }
 
 const InputFilter: FC<Props> = ({
@@ -29,6 +31,8 @@ const InputFilter: FC<Props> = ({
   position,
   apply,
   onApply,
+  hasClearButton = true,
+  textAlignment = "left",
 }) => {
   const [refocus, setRefocus] = useState(false)
   const inputRef = useRef()
@@ -84,8 +88,9 @@ const InputFilter: FC<Props> = ({
       onChange={onChange}
       position={position}
       autoFocus={refocus}
-      hasClearButton
+      hasClearButton={hasClearButton}
       debounce={1000}
+      textAlignment={textAlignment}
     />
   )
 }
