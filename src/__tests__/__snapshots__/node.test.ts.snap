@@ -204,6 +204,7 @@ Object {
       "full": "100%",
       "input": "52px",
       "radioIndicator": "12px",
+      "rangeFilterChart": "118px",
       "screen": "100vh",
       "scrollbar": "70px",
     },
