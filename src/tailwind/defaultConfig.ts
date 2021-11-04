@@ -213,6 +213,7 @@ export default {
       checkbox: "24px",
       radioIndicator: "12px",
       input: "52px",
+      rangeFilterChart: "118px",
       "20": "20px",
       "40": "40px",
     },
