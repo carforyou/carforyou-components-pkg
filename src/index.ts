@@ -35,6 +35,7 @@ import Checkbox from "./components/checkbox"
 import FixedCard from "./components/card/fixed"
 import Button from "./components/button"
 import VerifiedBadge from "./components/badges/verified"
+import LargeElectricBadge from "./components/badges/largeElectric"
 import InvertedVerifiedBadge from "./components/badges/invertedVerified"
 import GdbdBadge, { Score as GdbdScore } from "./components/badges/gdbd"
 import ElectricBadge from "./components/badges/electric"
@@ -82,6 +83,7 @@ export {
   Tabs,
   BuyNowBadge,
   ElectricBadge,
+  LargeElectricBadge,
   GdbdBadge,
   VerifiedBadge,
   InvertedVerifiedBadge,

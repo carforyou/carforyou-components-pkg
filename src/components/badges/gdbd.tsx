@@ -20,7 +20,7 @@ export const GdbdBadge: FC<GdbdBadgeProps> = ({
   language,
   score,
   tooltipContent,
-  size = "large",
+  withText = true,
 }) => {
   const scoreOrDefault = score || "not-defined"
   const title = {
@@ -60,9 +60,8 @@ export const GdbdBadge: FC<GdbdBadgeProps> = ({
       <BaseBadge
         icon={<PriceCheckIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
-        text={text}
+        text={withText && text}
         size="small"
-        withText={size === "large"}
         background="white"
       />
     </div>

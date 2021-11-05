@@ -12,7 +12,7 @@ describe("<InvertedVerifiedBadge>", () => {
 
   it("renders the badge without text", () => {
     const { queryAllByText } = render(
-      <InvertedVerifiedBadge language="en" size="small" />
+      <InvertedVerifiedBadge language="en" withText={false} />
     )
     expect(queryAllByText("Verified")).toHaveLength(0)
   })

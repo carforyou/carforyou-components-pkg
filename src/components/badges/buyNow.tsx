@@ -6,7 +6,7 @@ import CreditCardIcon from "../../assets/dist/creditCard"
 
 export const BuyNowBadge: FC<BadgeProps> = ({
   language,
-  size = "large",
+  withText = true,
   tooltipContent,
 }) => {
   const title = {
@@ -22,9 +22,8 @@ export const BuyNowBadge: FC<BadgeProps> = ({
         icon={<CreditCardIcon width="24" height="24" />}
         tooltipContent={tooltipContent}
         size="small"
-        withText={size === "large"}
         background="white"
-        text={title[language]}
+        text={withText && title[language]}
       />
     </div>
   )

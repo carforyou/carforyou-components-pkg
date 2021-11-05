@@ -4,13 +4,13 @@ import { DummyTooltip } from "./dummyTooltip"
 import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 
-import InvertedVerifiedBadge, {
-  VerifiedBadgeProps,
-} from "../../components/badges/invertedVerified"
+import LargeElectricBadge, {
+  ElectricBadgeProps,
+} from "../../components/badges/largeElectric"
 
 export default {
-  title: "Badges/InvertedVerifiedBadge",
-  component: InvertedVerifiedBadge,
+  title: "Badges/LargeElectricBadge",
+  component: LargeElectricBadge,
   args: {
     language: "en",
     size: "large",
@@ -24,13 +24,13 @@ export default {
   },
 }
 
-type Props = StoryProps<unknown> & VerifiedBadgeProps
+type Props = StoryProps<unknown> & ElectricBadgeProps
 
 const Template: FC<Props> = (args) => {
   return (
     <StoryContainer
       title={args.storyName}
-      component={<InvertedVerifiedBadge {...args} />}
+      component={<LargeElectricBadge {...args} />}
     />
   )
 }
