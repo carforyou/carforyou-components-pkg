@@ -20,6 +20,12 @@ import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
 import Image, { ImageProps } from "./components/image"
+import FlashMessages from "./components/flashMessage/index"
+import {
+  FlashMessagesContext,
+  FlashMessagesProvider,
+  FlashMessageType,
+} from "./components/flashMessage/context"
 import RangeFilterScale from "./components/filters/rangeWithFacets/rangeFilterScale"
 import RangeFilterWithFacets from "./components/filters/rangeWithFacets/index"
 import InputFilter from "./components/filters/input"
@@ -42,12 +48,6 @@ import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
 import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
-import {
-  FlashMessageType,
-  FlashMessagesContext,
-  FlashMessagesProvider,
-} from "./components/flashMessage/context"
-import { FlashMessages } from "./components/flashMessage/index"
 
 export {
   Image,
