@@ -42,6 +42,12 @@ import ElectricBadge from "./components/badges/electric"
 import BuyNowBadge from "./components/badges/buyNow"
 import BuyerProtectionBadge from "./components/badges/buyerProtection"
 import AlertMessage from "./components/alertMessage"
+import {
+  FlashMessageType,
+  FlashMessagesContext,
+  FlashMessagesProvider,
+} from "./components/flashMessage/context"
+import { FlashMessages } from "./components/flashMessage/index"
 
 export {
   Image,
@@ -91,4 +97,8 @@ export {
   GdbdScore,
   RangeFilterWithFacets,
   RangeFilterScale,
+  FlashMessageType,
+  FlashMessagesContext,
+  FlashMessagesProvider,
+  FlashMessages,
 }

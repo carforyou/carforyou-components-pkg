@@ -67,17 +67,11 @@ const Template: FC<Props> = (args) => {
             </div>
             <br />
             <div className="md:w-2/12 md:mr-20">
-              <AddButton
-                type="warning"
-                autoCloseDelay={args.autautoCloseDelayoClose}
-              />
+              <AddButton type="warning" autoCloseDelay={args.autoCloseDelay} />
             </div>
             <br />
             <div className="md:w-2/12 md:mr-20">
-              <AddButton
-                type="error"
-                autoCloseDelay={args.autoCloautoCloseDelayse}
-              />
+              <AddButton type="error" autoCloseDelay={args.autoCloseDelay} />
             </div>
           </div>
           <FlashMessages />
