@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from "react"
 import classnames from "classnames"
 
+export type AlertMessageType = "error" | "warning" | "information" | "success"
 interface Props {
   /**
    * Any element to be displayed
@@ -17,7 +18,7 @@ interface Props {
   /**
    * Type of alert we want to display
    */
-  type: "error" | "warning" | "information" | "success"
+  type: AlertMessageType
   /**
    * Any element is centered
    */
