@@ -1,28 +1,38 @@
 import { getTrackBackground, Range } from "react-range"
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
+import Input from "./input/index"
 import colors from "../tailwind/colors"
 
 const Slider = () => {
-  const [rangeValues, setRangeValues] = useState([50])
-  const [touchedThumb, setTouchedThumb] = useState(null)
+  const inputRef = useRef()
+  const [rangeValues, setRangeValues] = useState([0])
+  const [rangeValue, setRangeValue] = useState("")
 
-  const updateTouchedThumb = (index: number) => {
-    setTouchedThumb(index === 0 ? "min" : "max")
-  }
+  useEffect(() => {
+    ;(inputRef.current as HTMLInputElement).value = rangeValue
+  }, [rangeValue])
+
+  const unitElement = (
+    <p className="absolute z-1 mt-16 ml-10 text-grey-3">CHF</p>
+  )
+
   return (
     <>
       <Range
         values={rangeValues}
-        step={1}
+        step={50}
         min={0}
         max={1000}
-        onChange={(values) => setRangeValues(values)}
+        onChange={(values) => {
+          setRangeValues(values)
+          setRangeValue(parseInt(values[0].toFixed(1)))
+        }}
         renderTrack={({ props, children }) => (
           <div className="w-12/12 flex flex-col">
             <div
               {...props}
-              className="w-12/12 h-4 self-center mt-px rounded-10"
+              className="w-12/12 h-4 self-center rounded-10"
               style={{
                 background: getTrackBackground({
                   values: rangeValues,
@@ -36,18 +46,27 @@ const Slider = () => {
             </div>
           </div>
         )}
-        renderThumb={({ props, index }) => (
+        renderThumb={({ props }) => (
           <div
             {...props}
-            onMouseDown={() => {
-              updateTouchedThumb(index)
-            }}
-            onTouchStart={() => updateTouchedThumb(index)}
             className="h-checkbox w-checkbox border border-grey-2 rounded-half bg-white shadow"
           />
         )}
       />
-      <output style={{ marginTop: "30px" }}>{rangeValues[0].toFixed(1)}</output>
+      <div className="mt-20 relative">
+        {unitElement}
+        <Input
+          ref={inputRef}
+          name="test"
+          value={rangeValue}
+          mode="numeric"
+          onChange={(e) => {
+            setRangeValues([e.target.value])
+            setRangeValue(e.target.value)
+          }}
+          textAlignment="center-right"
+        />
+      </div>
     </>
   )
 }

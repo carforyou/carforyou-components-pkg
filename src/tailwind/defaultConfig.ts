@@ -424,6 +424,7 @@ export default {
       "25": "25px",
       "30": "30px",
       "40": "40px",
+      "45": "45px",
       floatingLabelInputFocused: "12px",
     },
 
