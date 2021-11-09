@@ -45,12 +45,6 @@ const Provider: FC<Props> = ({ children }) => {
     setMessages(messagesRef.current)
   }
 
-  // useEffect(() => {
-  //   router.events.on("routeChangeComplete", clearAllMessages)
-
-  //   return () => router.events.off("routeChangeComplete", clearAllMessages)
-  // }, [router.events])
-
   return (
     <Context.Provider
       value={{
