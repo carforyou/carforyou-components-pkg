@@ -16,7 +16,7 @@ exports[`<InputFilter> renders correctly with autofocus after focusing 1`] = `
         >
           <input
             autofocus=""
-            class="w-12/12 input_withClearButton"
+            class="w-12/12 px-10 py-13 input_withClearButton"
             data-testid="test"
             data-valid="true"
             id="test"
@@ -49,7 +49,7 @@ exports[`<InputFilter> renders correctly with no values 1`] = `
           class="relative flex w-12/12 clearButton-container"
         >
           <input
-            class="w-12/12 input_withClearButton"
+            class="w-12/12 px-10 py-13 input_withClearButton"
             data-testid="test"
             data-valid="true"
             id="test"
