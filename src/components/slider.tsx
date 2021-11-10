@@ -1,17 +1,24 @@
 import { getTrackBackground, Range } from "react-range"
-import React, { useEffect, useRef, useState } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 
 import Input from "./input/index"
 import colors from "../tailwind/colors"
 
-const Slider = () => {
+interface Props {
+  step: number
+  min: number
+  max: number
+  name: string
+}
+
+const Slider: FC<Props> = ({ step, min, max, name }) => {
   const inputRef = useRef()
   const [rangeValues, setRangeValues] = useState([0])
-  const [rangeValue, setRangeValue] = useState("")
+  const [inputValue, setInputValue] = useState(null)
 
   useEffect(() => {
-    ;(inputRef.current as HTMLInputElement).value = rangeValue
-  }, [rangeValue])
+    ;(inputRef.current as HTMLInputElement).value = inputValue
+  }, [inputValue])
 
   const unitElement = (
     <p className="absolute z-1 mt-16 ml-10 text-grey-3">CHF</p>
@@ -21,12 +28,12 @@ const Slider = () => {
     <>
       <Range
         values={rangeValues}
-        step={50}
-        min={0}
-        max={1000}
+        step={step}
+        min={min}
+        max={max}
         onChange={(values) => {
           setRangeValues(values)
-          setRangeValue(parseInt(values[0].toFixed(1)))
+          setInputValue(values[0])
         }}
         renderTrack={({ props, children }) => (
           <div className="w-12/12 flex flex-col">
@@ -57,12 +64,12 @@ const Slider = () => {
         {unitElement}
         <Input
           ref={inputRef}
-          name="test"
-          value={rangeValue}
+          name={name}
+          value={inputValue}
           mode="numeric"
           onChange={(e) => {
             setRangeValues([e.target.value])
-            setRangeValue(e.target.value)
+            setInputValue(e.target.value)
           }}
           textAlignment="center-right"
         />
@@ -72,3 +79,4 @@ const Slider = () => {
 }
 
 export default Slider
+export { Props as SliderProps }
