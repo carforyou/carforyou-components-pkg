@@ -39,8 +39,3 @@ export const Required = Template.bind({})
 Required.args = {
   required: true,
 }
-
-export const WithoutUnit = Template.bind({})
-WithoutUnit.args = {
-  isPrice: false,
-}

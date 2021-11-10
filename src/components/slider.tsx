@@ -13,7 +13,6 @@ interface Props {
   defaultValue: number
   inputLabel: string
   required?: boolean
-  isPrice?: boolean
 }
 
 const Slider: FC<Props> = ({
@@ -24,21 +23,14 @@ const Slider: FC<Props> = ({
   defaultValue,
   inputLabel,
   required = false,
-  isPrice = true,
 }) => {
   const [rangeValues, setRangeValues] = useState([defaultValue])
   const [inputValue, setInputValue] = useState(defaultValue)
 
-  const unitElement = (
-    <p className="absolute z-1 mt-16 ml-10 text-grey-3">
-      {isPrice ? "CHF" : null}
-    </p>
-  )
-
   return (
     <>
       <Label fieldName={inputLabel} required={required} />
-      <div className="flex md:flex-col flex-col-reverse md:pt-15">
+      <div className="flex flex-col-reverse md:flex-col md:pt-15 md:space-y-20">
         <Range
           values={rangeValues}
           step={step}
@@ -73,23 +65,20 @@ const Slider: FC<Props> = ({
             />
           )}
         />
-        <div className="relative md:mt-20">
-          {unitElement}
-          <InputFilter
-            name={name}
-            initialValue={String(inputValue)}
-            mode="numeric"
-            apply={(e) => {
-              e.target.value > max
-                ? setRangeValues([max])
-                : setRangeValues([e.target.value])
-              e.target.value === "" && setRangeValues([min])
-              setInputValue(e.target.value)
-            }}
-            textAlignment={isPrice ? "center-right" : "left"}
-            hasClearButton={false}
-          />
-        </div>
+        <InputFilter
+          name={name}
+          initialValue={String(inputValue)}
+          mode="numeric"
+          apply={(e) => {
+            e.target.value > max
+              ? setRangeValues([max])
+              : setRangeValues([e.target.value])
+            e.target.value === "" && setRangeValues([min])
+            setInputValue(e.target.value)
+          }}
+          textAlignment="left"
+          hasClearButton={false}
+        />
       </div>
     </>
   )

@@ -17,7 +17,7 @@ interface Props {
   apply: (event) => void
   onApply?: (value: string) => void
   hasClearButton?: boolean
-  textAlignment?: "left" | "right" | "center-right"
+  textAlignment?: "left" | "right"
 }
 
 const InputFilter: FC<Props> = ({

@@ -48,7 +48,7 @@ interface InputProps {
   position?: "left" | "right"
   debounce?: number
   autoComplete?: string
-  textAlignment?: "left" | "right" | "center-right"
+  textAlignment?: "left" | "right"
 }
 
 interface PopupLabelProps extends InputProps {
@@ -141,22 +141,18 @@ const Input = forwardRef<HTMLInputElement, Props>(
         name={name}
         value={value || ""}
         placeholder={placeholder || " "} // safari needs a non empty placeholder to make the :placeholder-shown pseudo selector work
-        className={classNames(
-          "w-12/12",
-          textAlignment === "center-right" ? "pl-45 pr-10 pb-3" : "px-10 py-13",
-          {
-            // eslint-disable-next-line @typescript-eslint/naming-convention
-            input_withClearButton: hasClearButton,
-            // eslint-disable-next-line @typescript-eslint/naming-convention
-            "select_withSearchIcon bg-right bg-transparent bg-no-repeat": hasSearchIcon,
-            "floatingLabel-input": labelProps.floating,
-            "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
-              position === "left",
-            "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
-              position === "right",
-            "text-right": textAlignment === "right",
-          }
-        )}
+        className={classNames("w-12/12", {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          input_withClearButton: hasClearButton,
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          "select_withSearchIcon bg-right bg-transparent bg-no-repeat": hasSearchIcon,
+          "floatingLabel-input": labelProps.floating,
+          "input_left hover:z-1 hover:transition hover:duration-200 focus:z-1":
+            position === "left",
+          "input_right -ml-1 hover:z-1 hover:transition hover:duration-200 focus:z-1":
+            position === "right",
+          "text-right": textAlignment === "right",
+        })}
         mode={mode}
         hasError={hasError}
         disabled={disabled}
