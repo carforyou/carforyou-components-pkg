@@ -16,6 +16,7 @@ const Provider: FC<Props> = ({ children }) => {
     content,
     autoCloseDelay = 0,
     onClose,
+    renderIcon,
   }: AddMessageProps): number => {
     const id = nextId
 
@@ -24,6 +25,7 @@ const Provider: FC<Props> = ({ children }) => {
       content: content,
       type,
       onClose,
+      renderIcon,
     }
 
     messagesRef.current = [...messagesRef.current, message]

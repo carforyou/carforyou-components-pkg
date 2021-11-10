@@ -9,6 +9,7 @@ import {
 } from "../components/flashMessage/context"
 import FlashMessages from "../components/flashMessage"
 import Button from "../components/button"
+import UmbrellaIcon from "../assets/dist/umbrella"
 
 export default {
   title: "FlashMessage",
@@ -40,11 +41,33 @@ const capitalize = (string) => {
 const dummyText =
   "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. "
 
-const AddButton = ({ type, autoCloseDelay }) => {
+const AddButton = ({
+  type,
+  autoCloseDelay,
+  options = { short: false, icon: false },
+}) => {
+  const { short, icon } = options
   const { addMessage } = useContext(FlashMessagesContext)
+  const renderIcon = icon
+    ? () => (
+        <div className="ml-20 mr-10">
+          <UmbrellaIcon width="50" height="50" />
+        </div>
+      )
+    : null
 
-  const add = () => addMessage({ type, content: dummyText, autoCloseDelay })
-  return <Button onClick={add}>{capitalize(type)} Message</Button>
+  const add = () =>
+    addMessage({
+      type,
+      content: short ? "Yo!" : dummyText,
+      autoCloseDelay,
+      renderIcon,
+    })
+  return (
+    <Button onClick={add}>
+      {short ? "Short" : capitalize(type)} Message {icon ? "with Icon" : null}
+    </Button>
+  )
 }
 
 const Template: FC<Props> = (args) => {
@@ -63,6 +86,21 @@ const Template: FC<Props> = (args) => {
               <AddButton
                 type="information"
                 autoCloseDelay={args.autoCloseDelay}
+              />
+            </div>
+            <div className="md:w-2/12 md:mr-20">
+              <AddButton
+                type="information"
+                autoCloseDelay={args.autoCloseDelay}
+                options={{ short: true, icon: false }}
+              />
+            </div>
+            <br />
+            <div className="md:w-2/12 md:mr-20">
+              <AddButton
+                type="information"
+                autoCloseDelay={args.autoCloseDelay}
+                options={{ short: false, icon: true }}
               />
             </div>
             <br />

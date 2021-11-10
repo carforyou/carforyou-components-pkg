@@ -16,6 +16,7 @@ export interface AddMessageProps {
   content: ReactNode
   autoCloseDelay?: number
   onClose?: () => void
+  renderIcon?: () => ReactNode
 }
 
 export interface FlashMessagesContext {
