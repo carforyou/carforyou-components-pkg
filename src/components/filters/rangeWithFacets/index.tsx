@@ -98,7 +98,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
 
   return (
     <div className="flex flex-col items-center">
-      <div className="space-y-25">
+      <div className="flex flex-col-reverse md:flex-col md:space-y-25">
         <SliderWithChart
           onChange={onSliderChange}
           onSliderRelease={onSliderRelease}
@@ -113,7 +113,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
           value={appliedValue()}
         />
       </div>
-      <p className="text-grey-3">{subtext}</p>
+      <p className="text-grey-3 mt-25 md:mt-0">{subtext}</p>
     </div>
   )
 }
