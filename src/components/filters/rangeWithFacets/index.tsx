@@ -113,7 +113,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
           value={appliedValue()}
         />
       </div>
-      <p className="text-grey-3 mt-25 md:mt-0">{subtext}</p>
+      <p className="hidden md:block text-grey-3">{subtext}</p>
     </div>
   )
 }
