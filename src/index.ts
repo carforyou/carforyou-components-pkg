@@ -25,7 +25,7 @@ import {
   FlashMessagesContext,
   FlashMessagesProvider,
   FlashMessageType,
-} from "./components/flashMessage/context"
+} from "./components/flashMessage/context/index"
 import RangeFilterScale from "./components/filters/rangeWithFacets/rangeFilterScale"
 import RangeFilterWithFacets from "./components/filters/rangeWithFacets/index"
 import InputFilter from "./components/filters/input"
