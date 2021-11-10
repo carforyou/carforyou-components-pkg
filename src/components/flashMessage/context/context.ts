@@ -7,6 +7,7 @@ export type FlashMessage = {
   content: ReactNode
   type: FlashMessageType
   onClose?: () => void
+  renderIcon?: () => ReactNode
 }
 
 export type FlashMessages = Array<FlashMessage>
