@@ -83,6 +83,7 @@ const Slider: FC<Props> = ({
               e.target.value > max
                 ? setRangeValues([max])
                 : setRangeValues([e.target.value])
+              e.target.value === "" && setRangeValues([min])
               setInputValue(e.target.value)
             }}
             textAlignment={isPrice ? "center-right" : "left"}
