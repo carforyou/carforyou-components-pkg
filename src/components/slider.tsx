@@ -13,6 +13,7 @@ interface Props {
   defaultValue: number
   inputLabel: string
   required?: boolean
+  handleChange?: (value: number) => void
 }
 
 const Slider: FC<Props> = ({
@@ -23,6 +24,7 @@ const Slider: FC<Props> = ({
   defaultValue,
   inputLabel,
   required = false,
+  handleChange,
 }) => {
   const [rangeValues, setRangeValues] = useState([defaultValue])
   const [inputValue, setInputValue] = useState(defaultValue)
@@ -37,6 +39,7 @@ const Slider: FC<Props> = ({
           min={min}
           max={max}
           onChange={(values) => {
+            handleChange(values[0])
             setRangeValues(values)
             setInputValue(values[0])
           }}
@@ -75,8 +78,8 @@ const Slider: FC<Props> = ({
               : setRangeValues([e.target.value])
             e.target.value === "" && setRangeValues([min])
             setInputValue(e.target.value)
+            handleChange(e.target.value)
           }}
-          textAlignment="left"
           hasClearButton={false}
         />
       </div>
