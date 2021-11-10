@@ -13,6 +13,8 @@ export default {
     min: 0,
     max: 1000,
     name: "slider",
+    defaultValue: 0,
+    inputLabel: "Slider example",
   },
   argTypes: {
     storyName: {
@@ -32,3 +34,13 @@ const Template: FC<Props> = (args) => {
 }
 
 export const Default = Template.bind({})
+
+export const Required = Template.bind({})
+Required.args = {
+  required: true,
+}
+
+export const WithoutUnit = Template.bind({})
+WithoutUnit.args = {
+  isPrice: false,
+}
