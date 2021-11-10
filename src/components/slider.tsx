@@ -52,7 +52,7 @@ const Slider: FC<Props> = ({
             <div className="w-12/12 flex flex-col">
               <div
                 {...props}
-                className="w-12/12 h-4 self-center rounded-10"
+                className="overflow-hidden w-12/12 h-4 self-center rounded-10"
                 style={{
                   background: getTrackBackground({
                     values: rangeValues,
@@ -80,10 +80,13 @@ const Slider: FC<Props> = ({
             initialValue={String(inputValue)}
             mode="numeric"
             apply={(e) => {
-              setRangeValues([e.target.value])
+              e.target.value > max
+                ? setRangeValues([max])
+                : setRangeValues([e.target.value])
               setInputValue(e.target.value)
             }}
             textAlignment={isPrice ? "center-right" : "left"}
+            hasClearButton={false}
           />
         </div>
       </div>
