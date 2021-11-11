@@ -18,6 +18,7 @@ interface Props {
   onApply?: (value: string) => void
   hasClearButton?: boolean
   textAlignment?: "left" | "right"
+  error?: string
 }
 
 const InputFilter: FC<Props> = ({
@@ -33,6 +34,7 @@ const InputFilter: FC<Props> = ({
   onApply,
   hasClearButton = true,
   textAlignment = "left",
+  error,
 }) => {
   const [refocus, setRefocus] = useState(false)
   const inputRef = useRef()
@@ -74,6 +76,7 @@ const InputFilter: FC<Props> = ({
 
   return (
     <Input
+      error={error}
       ref={inputRef}
       mode={mode}
       name={name}

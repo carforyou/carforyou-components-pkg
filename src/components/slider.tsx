@@ -14,6 +14,7 @@ interface Props {
   inputLabel: string
   required?: boolean
   handleChange: (value: number) => void
+  error?: string
 }
 
 const Slider: FC<Props> = ({
@@ -25,9 +26,9 @@ const Slider: FC<Props> = ({
   inputLabel,
   required = false,
   handleChange,
+  error,
 }) => {
   const [rangeValues, setRangeValues] = useState([defaultValue])
-  const [inputValue, setInputValue] = useState(defaultValue)
 
   return (
     <>
@@ -43,7 +44,6 @@ const Slider: FC<Props> = ({
           }}
           onChange={(values) => {
             setRangeValues(values)
-            setInputValue(values[0])
           }}
           renderTrack={({ props, children }) => (
             <div className="w-12/12 flex flex-col">
@@ -71,15 +71,15 @@ const Slider: FC<Props> = ({
           )}
         />
         <InputFilter
+          error={error}
           name={name}
-          initialValue={String(inputValue)}
+          initialValue={String(rangeValues[0])}
           mode="numeric"
           apply={(e) => {
             e.target.value > max
               ? setRangeValues([max])
               : setRangeValues([e.target.value])
             e.target.value === "" && setRangeValues([min])
-            setInputValue(e.target.value)
             handleChange(e.target.value)
           }}
           hasClearButton={false}

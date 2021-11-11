@@ -44,3 +44,8 @@ export const Required = Template.bind({})
 Required.args = {
   required: true,
 }
+
+export const Error = Template.bind({})
+Error.args = {
+  error: "Error message",
+}
