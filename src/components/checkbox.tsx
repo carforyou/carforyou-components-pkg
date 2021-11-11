@@ -68,8 +68,7 @@ function Checkbox({
   return (
     <WithValidationError error={error}>
       {(hasError) => (
-        <label
-          htmlFor={name}
+        <div
           className={classNames(
             "block w-12/12",
             disabled ? "cursor-not-allowed text-grey-4" : "cursor-pointer",
@@ -92,7 +91,7 @@ function Checkbox({
           ) : (
             renderInput(hasError)
           )}
-        </label>
+        </div>
       )}
     </WithValidationError>
   )
