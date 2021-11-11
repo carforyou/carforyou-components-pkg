@@ -14,9 +14,8 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_1"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -50,7 +49,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -64,9 +63,8 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_2"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -100,7 +98,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -114,9 +112,8 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-not-allowed text-grey-4 focus-within:text-teal"
-            for="filter_testFilter_3"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -151,7 +148,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -174,9 +171,8 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_1"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -204,7 +200,7 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -218,9 +214,8 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_2"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -248,7 +243,7 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -262,9 +257,8 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_3"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -291,7 +285,7 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -322,9 +316,8 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_1"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -351,7 +344,7 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -365,9 +358,8 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_2"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -394,7 +386,7 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
@@ -408,9 +400,8 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
         <div
           class="validation-inputContainer mb-20"
         >
-          <label
+          <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
-            for="filter_testFilter_3"
           >
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
@@ -437,7 +428,7 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                 </span>
               </span>
             </div>
-          </label>
+          </div>
         </div>
         <div />
       </div>
