@@ -13,7 +13,7 @@ interface Props {
   defaultValue: number
   inputLabel: string
   required?: boolean
-  handleChange?: (value: number) => void
+  handleChange: (value: number) => void
   error?: string
 }
 

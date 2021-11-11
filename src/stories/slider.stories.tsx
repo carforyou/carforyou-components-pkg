@@ -1,8 +1,12 @@
 import React, { FC } from "react"
 
+import { action } from "@storybook/addon-actions"
+
 import { StoryProps } from "./storyProps"
 import StoryContainer from "./storyContainer"
 import Slider, { SliderProps } from "../components/slider"
+
+const onChange = () => action("onChange")
 
 export default {
   title: "Slider",
@@ -15,6 +19,7 @@ export default {
     name: "slider",
     defaultValue: 0,
     inputLabel: "Slider example",
+    handleChange: onChange(),
   },
   argTypes: {
     storyName: {
