@@ -14,7 +14,6 @@ interface Props {
   inputLabel: string
   required?: boolean
   handleChange: (value: number) => void
-  error?: string
 }
 
 const Slider: FC<Props> = ({
