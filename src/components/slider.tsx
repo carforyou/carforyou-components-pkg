@@ -14,6 +14,7 @@ interface Props {
   inputLabel: string
   required?: boolean
   handleChange?: (value: number) => void
+  error?: string
 }
 
 const Slider: FC<Props> = ({
@@ -32,14 +33,16 @@ const Slider: FC<Props> = ({
   return (
     <>
       <Label fieldName={inputLabel} required={required} />
-      <div className="flex flex-col-reverse md:flex-col md:pt-15 md:space-y-20">
+      <div className="flex flex-col-reverse pb-15 md:pb-0 md:flex-col md:pt-15 md:space-y-20">
         <Range
           values={rangeValues}
           step={step}
           min={min}
           max={max}
-          onChange={(values) => {
+          onFinalChange={(values) => {
             handleChange(values[0])
+          }}
+          onChange={(values) => {
             setRangeValues(values)
             setInputValue(values[0])
           }}
