@@ -46,7 +46,7 @@ const Slider: FC<Props> = ({
             setRangeValues(values)
           }}
           renderTrack={({ props, children }) => (
-            <div className="w-12/12 flex flex-col">
+            <div className="w-12/12 flex flex-col px-10">
               <div
                 {...props}
                 className="overflow-hidden w-12/12 h-4 self-center rounded-10"
@@ -70,6 +70,7 @@ const Slider: FC<Props> = ({
             />
           )}
         />
+
         <InputFilter
           error={error}
           name={name}
@@ -80,6 +81,7 @@ const Slider: FC<Props> = ({
               ? setRangeValues([max])
               : setRangeValues([e.target.value])
             e.target.value === "" && setRangeValues([min])
+            e.target.value < min && setRangeValues([min])
             handleChange(e.target.value)
           }}
           hasClearButton={false}

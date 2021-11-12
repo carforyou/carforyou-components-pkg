@@ -17,7 +17,7 @@ export default {
     min: 0,
     max: 1000,
     name: "slider",
-    defaultValue: 0,
+    defaultValue: 20,
     inputLabel: "Slider example",
     handleChange: onChange(),
   },
