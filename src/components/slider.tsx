@@ -30,12 +30,21 @@ const Slider: FC<Props> = ({
 }) => {
   const [rangeValues, setRangeValues] = useState([defaultValue])
 
+  const validateRangeValues = () => {
+    if (rangeValues[0] > max) {
+      return [max]
+    } else if (rangeValues[0] < min) {
+      return [min]
+    }
+    return rangeValues
+  }
+
   return (
     <>
       <Label fieldName={inputLabel} required={required} />
       <div className="flex flex-col-reverse pb-15 md:pb-0 md:flex-col md:pt-15 md:space-y-20">
         <Range
-          values={rangeValues}
+          values={validateRangeValues()}
           step={step}
           min={min}
           max={max}
@@ -77,13 +86,9 @@ const Slider: FC<Props> = ({
           initialValue={String(rangeValues[0])}
           mode="numeric"
           apply={({ target: { value } }) => {
-            if (value > max) {
-              value = max
-            } else if (value < min || value === "") {
-              value = min
-            }
+            value = value === "" ? min : Number(value)
             setRangeValues([value])
-            handleChange(Number(value))
+            handleChange(value)
           }}
           hasClearButton={false}
         />
