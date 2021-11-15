@@ -40,7 +40,7 @@ const Slider: FC<Props> = ({
           min={min}
           max={max}
           onFinalChange={(values) => {
-            handleChange(values[0])
+            handleChange(Number(values[0]))
           }}
           onChange={(values) => {
             setRangeValues(values)
@@ -76,15 +76,14 @@ const Slider: FC<Props> = ({
           name={name}
           initialValue={String(rangeValues[0])}
           mode="numeric"
-          apply={(e) => {
-            let newValue = e.target.value
-            if (newValue > max) {
-              newValue = max
-            } else if (newValue < min || newValue === "") {
-              newValue = min
+          apply={({ target: { value } }) => {
+            if (value > max) {
+              value = max
+            } else if (value < min || value === "") {
+              value = min
             }
-            setRangeValues([newValue])
-            handleChange(newValue)
+            setRangeValues([value])
+            handleChange(Number(value))
           }}
           hasClearButton={false}
         />
