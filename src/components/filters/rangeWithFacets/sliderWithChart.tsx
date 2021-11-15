@@ -56,7 +56,7 @@ const SliderWithChart: React.FC<Props> = ({
         />
       )}
       renderTrack={({ props, children }) => (
-        <div className="w-12/12 flex flex-col">
+        <div className="w-12/12 flex flex-col px-20 md:px-0">
           <Chart
             facets={facets}
             scale={scale}

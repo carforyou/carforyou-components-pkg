@@ -21,6 +21,12 @@ import MenuElement, { MenuElementProps } from "./components/menu/element"
 import Intercom from "./components/intercom/index"
 import Input from "./components/input/index"
 import Image, { ImageProps } from "./components/image"
+import FlashMessages from "./components/flashMessage/index"
+import {
+  FlashMessagesContext,
+  FlashMessagesProvider,
+  FlashMessageType,
+} from "./components/flashMessage/context/index"
 import RangeFilterScale from "./components/filters/rangeWithFacets/rangeFilterScale"
 import RangeFilterWithFacets from "./components/filters/rangeWithFacets/index"
 import InputFilter from "./components/filters/input"
@@ -93,4 +99,8 @@ export {
   GdbdScore,
   RangeFilterWithFacets,
   RangeFilterScale,
+  FlashMessageType,
+  FlashMessagesContext,
+  FlashMessagesProvider,
+  FlashMessages,
 }
