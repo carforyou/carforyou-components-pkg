@@ -82,6 +82,7 @@ const Slider: FC<Props> = ({
               : setRangeValues([e.target.value])
             e.target.value === "" && setRangeValues([min])
             e.target.value < min && setRangeValues([min])
+            rangeValues[0] === max && setRangeValues([defaultValue])
             handleChange(e.target.value)
           }}
           hasClearButton={false}
