@@ -46,7 +46,7 @@ const Slider: FC<Props> = ({
             setRangeValues(values)
           }}
           renderTrack={({ props, children }) => (
-            <div className="w-12/12 flex flex-col px-10">
+            <div className="w-12/12 flex flex-col">
               <div
                 {...props}
                 className="overflow-hidden w-12/12 h-4 self-center rounded-10"
@@ -77,13 +77,14 @@ const Slider: FC<Props> = ({
           initialValue={String(rangeValues[0])}
           mode="numeric"
           apply={(e) => {
-            e.target.value > max
-              ? setRangeValues([max])
-              : setRangeValues([e.target.value])
-            e.target.value === "" && setRangeValues([min])
-            e.target.value < min && setRangeValues([min])
-            rangeValues[0] === max && setRangeValues([defaultValue])
-            handleChange(e.target.value)
+            let newValue = e.target.value
+            if (newValue > max) {
+              newValue = max
+            } else if (newValue < min || newValue === "") {
+              newValue = min
+            }
+            setRangeValues([newValue])
+            handleChange(newValue)
           }}
           hasClearButton={false}
         />
