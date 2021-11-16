@@ -57,7 +57,7 @@ const Modal: FC<ModalProps> = ({
   }, [])
 
   const renderCloseIcon = () => (
-    <div
+    <button
       className={classNames(
         "z-modalClose cursor-pointer",
         title ? "self-start" : "absolute right-modalClose top-modalClose"
@@ -66,7 +66,7 @@ const Modal: FC<ModalProps> = ({
       data-testid="modal-close"
     >
       <CloseMIcon width="48" height="48" />
-    </div>
+    </button>
   )
 
   return (
