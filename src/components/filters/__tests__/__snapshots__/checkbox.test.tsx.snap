@@ -33,7 +33,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_1"
               >
                 <span
@@ -83,7 +83,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_2"
               >
                 <span
@@ -134,7 +134,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-not-allowed text-grey-4"
                 for="filter_testFilter_3"
               >
                 <span
@@ -194,7 +194,7 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_1"
               >
                 <span
@@ -238,7 +238,7 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_2"
               >
                 <span
@@ -281,7 +281,7 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_3"
               >
                 <span
@@ -341,7 +341,7 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_1"
               >
                 <span
@@ -384,7 +384,7 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_2"
               >
                 <span
@@ -427,7 +427,7 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                 />
               </span>
               <label
-                class="w-12/12 cursor-pointer "
+                class="w-12/12 cursor-pointer"
                 for="filter_testFilter_3"
               >
                 <span
