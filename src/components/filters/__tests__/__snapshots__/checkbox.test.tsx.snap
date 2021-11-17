@@ -17,9 +17,6 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_1"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -35,8 +32,9 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_1"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
@@ -50,7 +48,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                     )
                   </span>
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -69,9 +67,6 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_2"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -87,8 +82,9 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_2"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
@@ -102,7 +98,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                     )
                   </span>
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -121,9 +117,6 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
           <div
             class="block w-12/12 cursor-not-allowed text-grey-4 focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_3"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -140,8 +133,9 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_3"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
@@ -155,7 +149,7 @@ exports[`<CheckboxFilter/> renders correctly with facet 1`] = `
                     )
                   </span>
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -183,9 +177,6 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_1"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -202,15 +193,16 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_1"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
                 >
                   One
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -229,9 +221,6 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_2"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -248,15 +237,16 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_2"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
                 >
                   Two
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -275,9 +265,6 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_3"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -293,15 +280,16 @@ exports[`<CheckboxFilter/> renders correctly with initial selection 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_3"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
                 >
                   Three
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -337,9 +325,6 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_1"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -355,15 +340,16 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_1"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
                 >
                   One
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -382,9 +368,6 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_2"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -400,15 +383,16 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_2"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
                 >
                   Two
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -427,9 +411,6 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
           <div
             class="block w-12/12 cursor-pointer focus-within:text-teal"
           >
-            <label
-              for="filter_testFilter_3"
-            />
             <div
               class="flex leading-sm font-normal items-center justify-between flex-row-reverse"
             >
@@ -445,15 +426,16 @@ exports[`<CheckboxFilter/> renders correctly with simple options 1`] = `
                   value=""
                 />
               </span>
-              <span
-                class="w-12/12"
+              <label
+                class="w-12/12 cursor-pointer "
+                for="filter_testFilter_3"
               >
                 <span
                   class="text-base leading-xs flex items-center justify-between"
                 >
                   Three
                 </span>
-              </span>
+              </label>
             </div>
           </div>
         </div>

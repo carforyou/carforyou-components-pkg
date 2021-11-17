@@ -6,6 +6,8 @@ interface Props {
   position?: "right" | "left"
   alignItems?: "center" | "start"
   error?: boolean
+  name: string
+  disabled?: boolean
 }
 
 const WithHorizontalLabel: FC<Props> = ({
@@ -14,6 +16,8 @@ const WithHorizontalLabel: FC<Props> = ({
   error = false,
   alignItems = "center",
   children,
+  name,
+  disabled,
 }) => (
   <div
     className={classNames("flex leading-sm font-normal", {
@@ -32,7 +36,15 @@ const WithHorizontalLabel: FC<Props> = ({
     >
       {children}
     </span>
-    <span className="w-12/12">{renderContent && renderContent()}</span>
+    <label
+      htmlFor={name}
+      className={classNames("w-12/12", {
+        "cursor-not-allowed text-grey-4": disabled,
+        "cursor-pointer": !disabled,
+      })}
+    >
+      {renderContent && renderContent()}
+    </label>
   </div>
 )
 

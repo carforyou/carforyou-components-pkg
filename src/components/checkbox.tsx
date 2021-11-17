@@ -85,7 +85,12 @@ function Checkbox({
           )}
         >
           {renderLabel ? (
-            <WithHorizontalLabel alignItems={alignItems} {...labelProps}>
+            <WithHorizontalLabel
+              name={name}
+              alignItems={alignItems}
+              disabled={disabled}
+              {...labelProps}
+            >
               {renderInput(hasError)}
             </WithHorizontalLabel>
           ) : (
