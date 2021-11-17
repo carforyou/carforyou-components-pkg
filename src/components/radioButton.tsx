@@ -43,15 +43,16 @@ function RadioButton({
   )
 
   return (
-    <WithValidationError error={error}>
-      {(hasError) => (
-        <div
-          className={classNames(
-            "block w-12/12",
-            disabled ? "cursor-not-allowed text-grey-4" : "cursor-pointer"
-          )}
-        >
-          {renderLabel ? (
+    <label
+      className={classNames(
+        "block w-12/12",
+        disabled ? "cursor-not-allowed text-grey-4" : "cursor-pointer"
+      )}
+      htmlFor={name}
+    >
+      <WithValidationError error={error}>
+        {(hasError) =>
+          renderLabel ? (
             <WithHorizontalLabel
               name={name}
               disabled={disabled}
@@ -62,10 +63,10 @@ function RadioButton({
             </WithHorizontalLabel>
           ) : (
             renderInput(hasError)
-          )}
-        </div>
-      )}
-    </WithValidationError>
+          )
+        }
+      </WithValidationError>
+    </label>
   )
 }
 
