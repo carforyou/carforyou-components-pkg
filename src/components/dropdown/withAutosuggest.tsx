@@ -127,6 +127,14 @@ function DropdownWithAutosuggest<T>({
   const [inputValue, setInputValue] = useState("")
   const [isFetching, setIsFetching] = useState(false)
   const [fetchedOptions, setFetchedOptions] = useState(options)
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => {
+      mounted.current = false
+    }
+  }, [])
 
   useEffect(() => {
     setFetchedOptions(options)
@@ -229,7 +237,7 @@ function DropdownWithAutosuggest<T>({
             target.value = value
           }
           setInputValue(value)
-          if (fetchSuggestions) {
+          if (fetchSuggestions && mounted.current) {
             setIsFetching(true)
             setFetchedOptions(await fetchSuggestions(value))
             setIsFetching(false)
