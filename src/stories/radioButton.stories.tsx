@@ -13,6 +13,7 @@ export default {
   title: "Radio Button",
   component: RadioButton,
   args: {
+    name: "radioButton",
     storyName: "",
     value: initialValue,
     checked: false,

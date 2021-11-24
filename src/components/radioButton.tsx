@@ -43,12 +43,11 @@ function RadioButton({
   )
 
   return (
-    <label
+    <div
       className={classNames(
-        "block w-12/12",
+        "w-12/12",
         disabled ? "cursor-not-allowed text-grey-4" : "cursor-pointer"
       )}
-      htmlFor={name}
     >
       <WithValidationError error={error}>
         {(hasError) =>
@@ -66,7 +65,7 @@ function RadioButton({
           )
         }
       </WithValidationError>
-    </label>
+    </div>
   )
 }
 
