@@ -6,6 +6,7 @@ import Tooltip, {
 import Textarea from "./components/textarea"
 import Tabs from "./components/tabs"
 import Spinner from "./components/spinner"
+import Slider from "./components/slider"
 import Select from "./components/select"
 import RangeSelect from "./components/rangeSelect"
 import RangeInput from "./components/rangeInput"
@@ -58,6 +59,7 @@ export {
   Dropdown,
   DropdownWithAutosuggest,
   Spinner,
+  Slider,
   Intercom,
   AlertMessage,
   Input,
