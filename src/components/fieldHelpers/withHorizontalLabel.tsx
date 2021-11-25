@@ -2,11 +2,11 @@ import React, { FC } from "react"
 import classNames from "classnames"
 
 interface Props {
-  renderContent?: () => JSX.Element
+  renderContent: () => JSX.Element
   position?: "right" | "left"
   alignItems?: "center" | "start"
   error?: boolean
-  name: string
+  htmlFor: string
   disabled?: boolean
 }
 
@@ -16,7 +16,7 @@ const WithHorizontalLabel: FC<Props> = ({
   error = false,
   alignItems = "center",
   children,
-  name,
+  htmlFor,
   disabled,
 }) => (
   <div
@@ -37,13 +37,13 @@ const WithHorizontalLabel: FC<Props> = ({
       {children}
     </span>
     <label
-      htmlFor={name}
+      htmlFor={htmlFor}
       className={classNames("w-12/12", {
         "cursor-not-allowed text-grey-4": disabled,
         "cursor-pointer": !disabled,
       })}
     >
-      {renderContent && renderContent()}
+      {renderContent()}
     </label>
   </div>
 )

@@ -53,7 +53,7 @@ function RadioButton({
         {(hasError) =>
           renderLabel ? (
             <WithHorizontalLabel
-              name={name}
+              htmlFor={name}
               disabled={disabled}
               renderContent={renderLabel}
               position={labelPosition}

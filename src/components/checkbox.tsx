@@ -39,12 +39,10 @@ function Checkbox({
   const labelProps =
     renderLabel && "labelPosition" in rest
       ? {
-          renderContent: renderLabel,
           position: rest.labelPosition,
         }
       : renderLabel && "buttonStyle" in rest
       ? {
-          renderContent: renderLabel,
           position: "right" as "right" | "left",
         }
       : {}
@@ -86,9 +84,10 @@ function Checkbox({
         >
           {renderLabel ? (
             <WithHorizontalLabel
-              name={name}
+              htmlFor={name}
               alignItems={alignItems}
               disabled={disabled}
+              renderContent={renderLabel}
               {...labelProps}
             >
               {renderInput(hasError)}
