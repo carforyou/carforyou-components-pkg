@@ -39,12 +39,10 @@ function Checkbox({
   const labelProps =
     renderLabel && "labelPosition" in rest
       ? {
-          renderContent: renderLabel,
           position: rest.labelPosition,
         }
       : renderLabel && "buttonStyle" in rest
       ? {
-          renderContent: renderLabel,
           position: "right" as "right" | "left",
         }
       : {}
@@ -68,8 +66,7 @@ function Checkbox({
   return (
     <WithValidationError error={error}>
       {(hasError) => (
-        <label
-          htmlFor={name}
+        <div
           className={classNames(
             "block w-12/12",
             disabled ? "cursor-not-allowed text-grey-4" : "cursor-pointer",
@@ -86,13 +83,19 @@ function Checkbox({
           )}
         >
           {renderLabel ? (
-            <WithHorizontalLabel alignItems={alignItems} {...labelProps}>
+            <WithHorizontalLabel
+              htmlFor={name}
+              alignItems={alignItems}
+              disabled={disabled}
+              renderContent={renderLabel}
+              {...labelProps}
+            >
               {renderInput(hasError)}
             </WithHorizontalLabel>
           ) : (
             renderInput(hasError)
           )}
-        </label>
+        </div>
       )}
     </WithValidationError>
   )

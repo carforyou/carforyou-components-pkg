@@ -2,10 +2,12 @@ import React, { FC } from "react"
 import classNames from "classnames"
 
 interface Props {
-  renderContent?: () => JSX.Element
+  renderContent: () => JSX.Element
   position?: "right" | "left"
   alignItems?: "center" | "start"
   error?: boolean
+  htmlFor: string
+  disabled?: boolean
 }
 
 const WithHorizontalLabel: FC<Props> = ({
@@ -14,6 +16,8 @@ const WithHorizontalLabel: FC<Props> = ({
   error = false,
   alignItems = "center",
   children,
+  htmlFor,
+  disabled,
 }) => (
   <div
     className={classNames("flex leading-sm font-normal", {
@@ -32,7 +36,15 @@ const WithHorizontalLabel: FC<Props> = ({
     >
       {children}
     </span>
-    <span className="w-12/12">{renderContent && renderContent()}</span>
+    <label
+      htmlFor={htmlFor}
+      className={classNames("w-12/12", {
+        "cursor-not-allowed text-grey-4": disabled,
+        "cursor-pointer": !disabled,
+      })}
+    >
+      {renderContent()}
+    </label>
   </div>
 )
 

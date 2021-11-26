@@ -3,9 +3,8 @@
 }
 
 .inputRadio-input {
-  @apply absolute opacity-0 cursor-pointer;
-  height: 0;
-  width: 0;
+  @apply absolute opacity-0 cursor-pointer h-checkbox w-checkbox;
+  z-index: 2;
 }
 
 .inputRadio-checkmark {
