@@ -46,7 +46,7 @@
     "fsevents": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.15.8",
+    "@babel/core": "7.16.0",
     "@carforyou/assets": "2.0.3",
     "@carforyou/eslint-config": "3.1.19",
     "@carforyou/pika-plugin-build-components": "1.2.2",
@@ -68,7 +68,7 @@
     "@types/react": "16.14.21",
     "@types/react-paginate": "7.1.1",
     "autoprefixer": "10.3.1",
-    "babel-loader": "8.2.2",
+    "babel-loader": "8.2.3",
     "bundlesize": "0.18.1",
     "eslint": "7.32.0",
     "eslint-plugin-react-hooks": "4.2.0",
