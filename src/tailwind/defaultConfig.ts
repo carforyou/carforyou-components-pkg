@@ -518,6 +518,7 @@ export default {
       modal: 98,
       card: 10,
       intercom: 10,
+      flashMessage: 99,
     },
 
     /*
