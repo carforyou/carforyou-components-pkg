@@ -74,7 +74,7 @@ const Modal: FC<ModalProps> = ({
       <Overlay handleClick={handleClose} />
       <div
         className={classNames(
-          "min-h-full max-h-full scrolling-touch fixed inline-block",
+          "min-h-full max-h-full scrolling-touch fixed inline-block overflow-x-hidden",
           overflowClass,
           size === "fullscreen"
             ? "inset-0"
