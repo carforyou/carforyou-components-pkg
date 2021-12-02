@@ -44,6 +44,7 @@ const SliderWithChart: React.FC<Props> = ({
           touched: touchedThumb,
           value: range.toMinMax(newMinIndex, newMaxIndex, selection),
         })
+        setTouchedThumb(null)
       }}
       renderThumb={({ props, index }) => (
         <div
@@ -73,6 +74,7 @@ const SliderWithChart: React.FC<Props> = ({
                 max: range.getMaxIndex(),
               }),
             }}
+            data-testid="slider-track"
           >
             {children}
           </div>
