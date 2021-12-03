@@ -512,7 +512,6 @@ export default {
       1: 1,
       auto: "auto",
       negative: -1,
-      clearButton: 10,
       modalClose: 10,
       dropdownMenu: 20,
       modal: 98,
