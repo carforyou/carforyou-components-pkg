@@ -23,7 +23,7 @@ const WithClearButton: FC<Props> = ({
           tabIndex={-1}
           data-testid="clearButton"
           className={classNames(
-            "absolute top-0 right-0 bottom-0 cursor-pointer z-clearButton outline-none w-clearButton focus:outline-none",
+            "absolute top-0 right-0 bottom-0 cursor-pointer outline-none w-clearButton focus:outline-none",
             { "opacity-20": disabled }
           )}
           onClick={!disabled ? onClear : null}
