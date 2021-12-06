@@ -85,7 +85,6 @@ const SliderWithChart: React.FC<Props> = ({
                 max: range.getMaxIndex(),
               }),
             }}
-            data-testid="slider-track"
           >
             {children}
           </div>
