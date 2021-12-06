@@ -29,6 +29,10 @@ const inputName = {
   min: "priceFrom",
   max: "priceTo",
 }
+const inputPlaceholder = {
+  min: "priceFromPlaceholder",
+  max: "priceToPlaceholder",
+}
 const mockTracking = jest.fn()
 
 describe("<RangeFilterWithFacets/>", () => {
@@ -38,6 +42,7 @@ describe("<RangeFilterWithFacets/>", () => {
         addFilter={mockAddFilter}
         facets={mockFacets}
         inputName={inputName}
+        inputPlaceholder={inputPlaceholder}
         scale={mockScale}
         tracking={mockTracking}
         value={value}
@@ -91,6 +96,12 @@ describe("<RangeFilterWithFacets/>", () => {
         },
         { timeout: 1500 }
       )
+    })
+
+    it("shows a placeholder", () => {
+      const screen = renderScreen()
+      expect(screen.getByPlaceholderText(inputPlaceholder.min))
+      expect(screen.getByPlaceholderText(inputPlaceholder.max))
     })
   })
 
