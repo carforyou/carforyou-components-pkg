@@ -50,7 +50,7 @@ const RangeInputWithUnit: FC<Props> = ({
           {unitElement}
           <InputFilter
             name={name[el]}
-            initialValue={value[el] ? String(value[el]) : undefined}
+            initialValue={value[el] ? String(value[el]) : ""}
             mode="numeric"
             position={el === "min" ? "left" : "right"}
             hasClearButton={false}
