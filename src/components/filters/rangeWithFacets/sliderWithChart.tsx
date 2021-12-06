@@ -1,5 +1,5 @@
 import { getTrackBackground, Range } from "react-range"
-import React, { useMemo, useState } from "react"
+import React, { useMemo } from "react"
 
 import RangeFilterScale, { RangeElement } from "./rangeFilterScale"
 
@@ -13,6 +13,7 @@ interface Props {
   scale: RangeElement[]
   facets: Record<string, number>
   selection: NumericMinMaxValue
+  initialSelection: NumericMinMaxValue
   onChange: (values: NumericMinMaxValue) => void
   onSliderRelease: (event: ChangeCallback) => void
 }
@@ -21,14 +22,23 @@ const SliderWithChart: React.FC<Props> = ({
   scale,
   facets,
   selection,
+  initialSelection,
   onChange,
   onSliderRelease,
 }) => {
   const range = useMemo(() => new RangeFilterScale(scale), [scale])
-  const [touchedThumb, setTouchedThumb] = useState(null)
 
-  const updateTouchedThumb = (index: number) => {
-    setTouchedThumb(index === 0 ? "min" : "max")
+  const getChangedThumb = (initial, current): "max" | "min" | null => {
+    const [initialMinIndex, initialMaxIndex] = initial
+    const [currentMinIndex, currentMaxIndex] = current
+    if (
+      initialMinIndex === currentMinIndex &&
+      initialMaxIndex === currentMaxIndex
+    ) {
+      return null
+    } else {
+      return initialMinIndex !== currentMinIndex ? "min" : "max"
+    }
   }
 
   return (
@@ -40,18 +50,20 @@ const SliderWithChart: React.FC<Props> = ({
         onChange(range.toMinMax(newMinIndex, newMaxIndex, selection))
       }}
       onFinalChange={([newMinIndex, newMaxIndex]) => {
-        onSliderRelease({
-          touched: touchedThumb,
-          value: range.toMinMax(newMinIndex, newMaxIndex, selection),
-        })
+        const changedThumb = getChangedThumb(range.toRange(initialSelection), [
+          newMinIndex,
+          newMaxIndex,
+        ])
+        if (changedThumb) {
+          onSliderRelease({
+            touched: changedThumb,
+            value: range.toMinMax(newMinIndex, newMaxIndex, selection),
+          })
+        }
       }}
-      renderThumb={({ props, index }) => (
+      renderThumb={({ props }) => (
         <div
           {...props}
-          onMouseDown={() => {
-            updateTouchedThumb(index)
-          }}
-          onTouchStart={() => updateTouchedThumb(index)}
           className="h-checkbox w-checkbox border border-grey-2 rounded-half bg-white shadow"
         />
       )}

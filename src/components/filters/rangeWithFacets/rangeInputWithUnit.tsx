@@ -39,7 +39,7 @@ const RangeInputWithUnit: FC<Props> = ({ name, handleChange, value, unit }) => {
         {unitElement}
         <InputFilter
           name={name.min}
-          initialValue={value.min ? String(value.min) : undefined}
+          initialValue={value.min ? String(value.min) : ""}
           mode="numeric"
           position="left"
           hasClearButton={false}
@@ -52,7 +52,7 @@ const RangeInputWithUnit: FC<Props> = ({ name, handleChange, value, unit }) => {
         {unitElement}
         <InputFilter
           name={name.max}
-          initialValue={value.max ? String(value.max) : undefined}
+          initialValue={value.max ? String(value.max) : ""}
           mode="numeric"
           position="right"
           hasClearButton={false}

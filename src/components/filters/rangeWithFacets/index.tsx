@@ -103,6 +103,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
           onChange={onSliderChange}
           onSliderRelease={onSliderRelease}
           selection={appliedValue()}
+          initialSelection={value}
           scale={scale}
           facets={facets}
         />
