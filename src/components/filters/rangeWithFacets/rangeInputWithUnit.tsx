@@ -40,7 +40,7 @@ const RangeInputWithUnit: FC<Props> = ({
   }
 
   const unitElement = unit ? (
-    <p className="absolute z-1 mt-16 ml-10 text-grey-3">{unit}</p>
+    <p className="absolute z-1 mt-16 pt-px ml-10 text-grey-3">{unit}</p>
   ) : null
 
   return (
