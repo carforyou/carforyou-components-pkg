@@ -47,7 +47,6 @@ const Wrapper = (props) => {
         setValue(changedFilterValue)
       }}
       tracking={(trackingEvent) => {
-        console.log(trackingEvent)
         action("tracking called with " + JSON.stringify(trackingEvent))
       }}
       value={value}

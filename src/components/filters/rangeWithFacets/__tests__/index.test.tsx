@@ -105,48 +105,31 @@ describe("<RangeFilterWithFacets/>", () => {
       expect(maxMarker).toHaveAttribute("aria-valuenow", "7")
     })
 
-    it("triggers the tracking function when the FROM thumb is dragged", () => {
+    it("triggers the tracking function when the FROM thumb moves", () => {
       const screen = renderScreen({ min: 1000, max: 22500 })
       const fromSlider = screen.getAllByRole("slider")[0]
-      userEvent.click(fromSlider)
+      userEvent.type(fromSlider, "{arrowup}")
       return waitFor(
         () => {
           expect(mockTracking).toHaveBeenCalledWith({
             touchedElement: "priceFromSlider",
-            value: 1000,
+            value: 2000,
           })
         },
         { timeout: 1500 }
       )
     })
 
-    it("triggers the tracking function when the TO thumb is dragged", () => {
+    it("does not trigger tracking or addFilter if the value did not change", () => {
       const screen = renderScreen({ min: 1000, max: 20000 })
+      const fromSlider = screen.getAllByRole("slider")[0]
       const toSlider = screen.getAllByRole("slider")[1]
+      userEvent.click(fromSlider)
       userEvent.click(toSlider)
-      return waitFor(
-        () => {
-          expect(mockTracking).toHaveBeenCalledWith({
-            touchedElement: "priceToSlider",
-            value: 20000,
-          })
-        },
-        { timeout: 1500 }
-      )
-    })
-
-    it("triggers the tracking function when the track is touched", () => {
-      const screen = renderScreen({ min: 1000, max: 20000 })
-      userEvent.click(screen.getByTestId("slider-track"))
-      return waitFor(
-        () => {
-          expect(mockTracking).toHaveBeenCalledWith({
-            touchedElement: "undefinedSlider",
-            value: undefined,
-          })
-        },
-        { timeout: 1500 }
-      )
+      return waitFor(() => {
+        expect(mockTracking).not.toHaveBeenCalled()
+        expect(mockAddFilter).not.toHaveBeenCalled()
+      })
     })
   })
 })

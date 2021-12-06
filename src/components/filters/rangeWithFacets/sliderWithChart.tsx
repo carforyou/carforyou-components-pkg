@@ -1,5 +1,5 @@
 import { getTrackBackground, Range } from "react-range"
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useMemo } from "react"
 
 import RangeFilterScale, { RangeElement } from "./rangeFilterScale"
 
@@ -8,12 +8,12 @@ import Chart from "./chart"
 import colors from "../../../tailwind/colors"
 
 import { ChangeCallback, NumericMinMaxValue } from "./index"
-import useRefWithEffect from "../../../hooks/useRefWithEffect"
 
 interface Props {
   scale: RangeElement[]
   facets: Record<string, number>
   selection: NumericMinMaxValue
+  initialSelection: NumericMinMaxValue
   onChange: (values: NumericMinMaxValue) => void
   onSliderRelease: (event: ChangeCallback) => void
 }
@@ -22,29 +22,27 @@ const SliderWithChart: React.FC<Props> = ({
   scale,
   facets,
   selection,
+  initialSelection,
   onChange,
   onSliderRelease,
 }) => {
   const range = useMemo(() => new RangeFilterScale(scale), [scale])
-  const [touchedThumb, setTouchedThumb] = useState(null)
-  const [internalRangeState, rangeRef] = useRefWithEffect<Range>()
 
-  useEffect(() => {
+  const getChangedThumb = (initial, current): "max" | "min" | null => {
+    const [initialMinIndex, initialMaxIndex] = initial
+    const [currentMinIndex, currentMaxIndex] = current
     if (
-      internalRangeState &&
-      internalRangeState.state.draggedThumbIndex !== -1
+      initialMinIndex === currentMinIndex &&
+      initialMaxIndex === currentMaxIndex
     ) {
-      updateTouchedThumb(internalRangeState.state.draggedThumbIndex)
+      return null
+    } else {
+      return initialMinIndex !== currentMinIndex ? "min" : "max"
     }
-  }, [internalRangeState?.state?.draggedThumbIndex])
-
-  const updateTouchedThumb = (index: number) => {
-    setTouchedThumb(index === 0 ? "min" : "max")
   }
 
   return (
     <Range
-      ref={rangeRef}
       step={1}
       min={0}
       max={range.getMaxIndex()}
@@ -52,11 +50,16 @@ const SliderWithChart: React.FC<Props> = ({
         onChange(range.toMinMax(newMinIndex, newMaxIndex, selection))
       }}
       onFinalChange={([newMinIndex, newMaxIndex]) => {
-        onSliderRelease({
-          touched: touchedThumb,
-          value: range.toMinMax(newMinIndex, newMaxIndex, selection),
-        })
-        setTouchedThumb(null)
+        const changedThumb = getChangedThumb(range.toRange(initialSelection), [
+          newMinIndex,
+          newMaxIndex,
+        ])
+        if (changedThumb) {
+          onSliderRelease({
+            touched: changedThumb,
+            value: range.toMinMax(newMinIndex, newMaxIndex, selection),
+          })
+        }
       }}
       renderThumb={({ props }) => (
         <div
