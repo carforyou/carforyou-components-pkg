@@ -34,12 +34,12 @@ interface Props {
     min: string
     max: string
   }
-  inputPlaceholder: {
+  inputPlaceholder?: {
     min: string
     max: string
   }
   value: NumericMinMaxValue
-  unit: string
+  unit?: string
   subtext: string
   addFilter: (values: NumericMinMaxValue) => void
   tracking: (event: TrackingEvent) => void

@@ -15,7 +15,7 @@ interface Props {
     max: number
   }
   unit?: string
-  placeholder: {
+  placeholder?: {
     min: string
     max: string
   }
@@ -56,7 +56,7 @@ const RangeInputWithUnit: FC<Props> = ({
             hasClearButton={false}
             textAlignment="right"
             apply={(e) => onChange(e, el)}
-            placeholder={placeholder[el]}
+            placeholder={placeholder && placeholder[el]}
           />
         </div>
       ))}

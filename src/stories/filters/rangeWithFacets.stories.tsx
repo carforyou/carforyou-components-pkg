@@ -151,10 +151,7 @@ WithoutUnit.args = {
     min: "priceFrom",
     max: "priceTo",
   },
-  inputPlaceholder: {
-    min: "0",
-    max: "30000+",
-  },
+
   value: {
     min: null,
     max: null,
