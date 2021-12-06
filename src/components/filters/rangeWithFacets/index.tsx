@@ -34,6 +34,10 @@ interface Props {
     min: string
     max: string
   }
+  inputPlaceholder: {
+    min: string
+    max: string
+  }
   value: NumericMinMaxValue
   unit: string
   subtext: string
@@ -45,6 +49,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
   scale,
   facets,
   inputName,
+  inputPlaceholder,
   value,
   unit,
   subtext,
@@ -111,6 +116,7 @@ const RangeFilterWithFacets: React.FC<Props> = ({
           handleChange={syncSliderWithInput}
           unit={unit}
           value={appliedValue()}
+          placeholder={inputPlaceholder}
         />
       </div>
       <p className="hidden md:block text-grey-3">{subtext}</p>
