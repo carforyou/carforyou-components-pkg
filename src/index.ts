@@ -1,4 +1,5 @@
 import useModal from "./hooks/useModal"
+import useRefWithEffect from "./hooks/useRefWithEffect"
 import Tooltip, {
   TooltipAlignment,
   TooltipPosition,
@@ -70,6 +71,7 @@ export {
   WithLabel,
   WithValidationError,
   useModal,
+  useRefWithEffect,
   Tooltip,
   TooltipPosition,
   TooltipAlignment,

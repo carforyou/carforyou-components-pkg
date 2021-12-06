@@ -1,5 +1,5 @@
 import { getTrackBackground, Range } from "react-range"
-import React, { useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 
 import RangeFilterScale, { RangeElement } from "./rangeFilterScale"
 
@@ -8,6 +8,7 @@ import Chart from "./chart"
 import colors from "../../../tailwind/colors"
 
 import { ChangeCallback, NumericMinMaxValue } from "./index"
+import useRefWithEffect from "../../../hooks/useRefWithEffect"
 
 interface Props {
   scale: RangeElement[]
@@ -26,6 +27,16 @@ const SliderWithChart: React.FC<Props> = ({
 }) => {
   const range = useMemo(() => new RangeFilterScale(scale), [scale])
   const [touchedThumb, setTouchedThumb] = useState(null)
+  const [internalRangeState, rangeRef] = useRefWithEffect<Range>()
+
+  useEffect(() => {
+    if (
+      internalRangeState &&
+      internalRangeState.state.draggedThumbIndex !== -1
+    ) {
+      updateTouchedThumb(internalRangeState.state.draggedThumbIndex)
+    }
+  }, [internalRangeState?.state?.draggedThumbIndex])
 
   const updateTouchedThumb = (index: number) => {
     setTouchedThumb(index === 0 ? "min" : "max")
@@ -33,6 +44,7 @@ const SliderWithChart: React.FC<Props> = ({
 
   return (
     <Range
+      ref={rangeRef}
       step={1}
       min={0}
       max={range.getMaxIndex()}
@@ -46,13 +58,9 @@ const SliderWithChart: React.FC<Props> = ({
         })
         setTouchedThumb(null)
       }}
-      renderThumb={({ props, index }) => (
+      renderThumb={({ props }) => (
         <div
           {...props}
-          onMouseDown={() => {
-            updateTouchedThumb(index)
-          }}
-          onTouchStart={() => updateTouchedThumb(index)}
           className="h-checkbox w-checkbox border border-grey-2 rounded-half bg-white shadow"
         />
       )}
