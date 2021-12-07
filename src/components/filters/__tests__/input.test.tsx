@@ -1,5 +1,5 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import InputFilter from "../input"
 
@@ -19,7 +19,7 @@ describe("<InputFilter>", () => {
     })
 
     it("with autofocus after focusing", () => {
-      const { container, getByPlaceholderText } = render(
+      const { container } = render(
         <InputFilter
           mode="numeric"
           name="test"
@@ -28,7 +28,7 @@ describe("<InputFilter>", () => {
         />
       )
 
-      fireEvent.focus(getByPlaceholderText("test"))
+      fireEvent.focus(screen.getByPlaceholderText("test"))
 
       expect(container).toMatchSnapshot()
     })

@@ -1,5 +1,5 @@
 import React from "react"
-import { act, cleanup, render } from "@testing-library/react"
+import { act, cleanup, render, screen } from "@testing-library/react"
 
 import FlashMessages from "../index"
 import { FlashMessagesContext, FlashMessageType } from "../context/index"
@@ -32,8 +32,8 @@ describe("<FlashMessages />", () => {
   }
 
   it("renders all messages", () => {
-    const { getByText } = renderMessages()
+    renderMessages()
 
-    types.forEach((type) => getByText(`Test ${type}`))
+    types.forEach((type) => screen.getByText(`Test ${type}`))
   })
 })

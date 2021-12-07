@@ -1,6 +1,6 @@
 import React from "react"
 import userEvent from "@testing-library/user-event"
-import { render, waitFor } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 
 import RangeFilterWithFacets from "../index"
 import { RangeFilterScale } from "../../../../index"
@@ -58,7 +58,7 @@ describe("<RangeFilterWithFacets/>", () => {
 
   describe("with input field", () => {
     it("allows to change the min value through the input field", () => {
-      const screen = renderScreen()
+      renderScreen()
       userEvent.type(screen.getByTestId("priceFrom"), "5000")
       return waitFor(() => {
         expect(mockAddFilter).toHaveBeenCalledWith({ min: "5000", max: null })
@@ -66,7 +66,7 @@ describe("<RangeFilterWithFacets/>", () => {
     })
 
     it("allows to change the max value through the input field", () => {
-      const screen = renderScreen()
+      renderScreen()
       userEvent.type(screen.getByTestId("priceTo"), "10000")
       return waitFor(() => {
         expect(mockAddFilter).toHaveBeenCalledWith({ min: null, max: "10000" })
@@ -74,7 +74,7 @@ describe("<RangeFilterWithFacets/>", () => {
     })
 
     it("triggers the tracking function when the FROM field is edited", () => {
-      const screen = renderScreen()
+      renderScreen()
       userEvent.type(screen.getByTestId("priceFrom"), "5000")
       return waitFor(() => {
         expect(mockTracking).toHaveBeenCalledWith({
@@ -85,7 +85,7 @@ describe("<RangeFilterWithFacets/>", () => {
     })
 
     it("triggers the tracking function when the TO field is edited", () => {
-      const screen = renderScreen()
+      renderScreen()
       userEvent.type(screen.getByTestId("priceTo"), "10000")
       return waitFor(
         () => {
@@ -99,7 +99,7 @@ describe("<RangeFilterWithFacets/>", () => {
     })
 
     it("shows a placeholder", () => {
-      const screen = renderScreen()
+      renderScreen()
       expect(screen.getByPlaceholderText(inputPlaceholder.min))
       expect(screen.getByPlaceholderText(inputPlaceholder.max))
     })
@@ -107,7 +107,7 @@ describe("<RangeFilterWithFacets/>", () => {
 
   describe("with slider", () => {
     it("renders a marker for the min and the max value", () => {
-      const screen = renderScreen({ min: 1000, max: 22500 })
+      renderScreen({ min: 1000, max: 22500 })
       const sliders = screen.getAllByRole("slider")
       expect(sliders).toHaveLength(2)
 
@@ -117,7 +117,7 @@ describe("<RangeFilterWithFacets/>", () => {
     })
 
     it("triggers the tracking function when the FROM thumb moves", () => {
-      const screen = renderScreen({ min: 1000, max: 22500 })
+      renderScreen({ min: 1000, max: 22500 })
       const fromSlider = screen.getAllByRole("slider")[0]
       userEvent.type(fromSlider, "{arrowup}")
       return waitFor(
@@ -132,7 +132,7 @@ describe("<RangeFilterWithFacets/>", () => {
     })
 
     it("does not trigger tracking or addFilter if the value did not change", () => {
-      const screen = renderScreen({ min: 1000, max: 20000 })
+      renderScreen({ min: 1000, max: 20000 })
       const fromSlider = screen.getAllByRole("slider")[0]
       const toSlider = screen.getAllByRole("slider")[1]
       userEvent.click(fromSlider)

@@ -45,7 +45,7 @@ const isCustomValue = (value): boolean => {
   return false
 }
 
-const hightlightItem = <T extends unknown>({
+const hightlightItem = <T,>({
   name,
   preMatch,
   match,

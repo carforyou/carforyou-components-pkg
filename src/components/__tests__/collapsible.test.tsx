@@ -1,5 +1,5 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import Collapsible from "../collapsible"
 
@@ -21,59 +21,59 @@ const renderWrapper = ({ forceCollapse = true, onChange = null } = {}) =>
 describe("<Collapsible>", () => {
   describe("default", () => {
     it("is closed", () => {
-      const { getByText, queryAllByText } = renderWrapper()
+      renderWrapper()
 
-      expect(getByText(closedText))
-      expect(queryAllByText(openedText)).toEqual([])
-      expect(queryAllByText(content)).toEqual([])
+      expect(screen.getByText(closedText))
+      expect(screen.queryAllByText(openedText)).toEqual([])
+      expect(screen.queryAllByText(content)).toEqual([])
     })
 
     it("can be opened", () => {
-      const { getByText, queryAllByText } = renderWrapper()
+      renderWrapper()
 
-      fireEvent.click(getByText(closedText))
+      fireEvent.click(screen.getByText(closedText))
 
-      expect(queryAllByText(closedText)).toEqual([])
-      expect(getByText(openedText))
-      expect(getByText(content))
+      expect(screen.queryAllByText(closedText)).toEqual([])
+      expect(screen.getByText(openedText))
+      expect(screen.getByText(content))
     })
   })
 
   describe("rendered open", () => {
     it("is open", () => {
-      const { getByText, queryAllByText } = renderWrapper({
+      renderWrapper({
         forceCollapse: false,
       })
 
-      expect(queryAllByText(closedText)).toEqual([])
-      expect(getByText(openedText))
-      expect(getByText(content))
+      expect(screen.queryAllByText(closedText)).toEqual([])
+      expect(screen.getByText(openedText))
+      expect(screen.getByText(content))
     })
 
     it("can be closed", () => {
-      const { getByText, queryAllByText } = renderWrapper({
+      renderWrapper({
         forceCollapse: false,
       })
 
-      fireEvent.click(getByText(openedText))
+      fireEvent.click(screen.getByText(openedText))
 
-      expect(getByText(closedText))
-      expect(queryAllByText(openedText)).toEqual([])
-      expect(queryAllByText(content)).toEqual([])
+      expect(screen.getByText(closedText))
+      expect(screen.queryAllByText(openedText)).toEqual([])
+      expect(screen.queryAllByText(content)).toEqual([])
     })
   })
 
   describe("on change function", () => {
     it("should call the onChange function if defined", () => {
       const customOnChangeFunction = jest.fn()
-      const { getByText } = renderWrapper({
+      renderWrapper({
         onChange: customOnChangeFunction,
       })
 
-      fireEvent.click(getByText(closedText))
+      fireEvent.click(screen.getByText(closedText))
       expect(customOnChangeFunction).toHaveBeenCalledWith(false)
 
-      fireEvent.click(getByText(openedText))
+      fireEvent.click(screen.getByText(openedText))
       expect(customOnChangeFunction).toHaveBeenCalledWith(true)
     })
   })

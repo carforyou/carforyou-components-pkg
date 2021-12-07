@@ -1,5 +1,5 @@
 import React from "react"
-import { act, fireEvent, render, waitFor } from "@testing-library/react"
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
 
 import Tabs from "../tabs"
 
@@ -29,20 +29,20 @@ const renderWrapper = () =>
 
 describe("<Tabs />", () => {
   it("opens first tab by default", () => {
-    const { getByText } = renderWrapper()
+    renderWrapper()
 
-    expect(getByText("Tab 1 Content"))
+    expect(screen.getByText("Tab 1 Content"))
   })
 
   it("allows switching tabs", () => {
-    const { getByText } = renderWrapper()
+    renderWrapper()
 
     act(() => {
-      fireEvent.click(getByText("Tab 2"))
+      fireEvent.click(screen.getByText("Tab 2"))
     })
 
     return waitFor(() => {
-      getByText("Tab 2 Content")
+      screen.getByText("Tab 2 Content")
     })
   })
 })

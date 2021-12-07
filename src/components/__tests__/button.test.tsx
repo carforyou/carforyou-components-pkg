@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { cleanup, fireEvent, render, screen } from "@testing-library/react"
 
 import Button from "../button"
 import CtaCall from "../../../.storybook/icons/ctaCall"
@@ -8,15 +8,15 @@ describe("<Button>", () => {
   beforeEach(cleanup)
 
   it("renders button label", () => {
-    const { getByText } = render(<Button>Label</Button>)
-    getByText("Label")
+    render(<Button>Label</Button>)
+    screen.getByText("Label")
   })
 
   it("triggers onClick", () => {
     const onClick = jest.fn()
-    const { getByText } = render(<Button onClick={onClick}>Label</Button>)
+    render(<Button onClick={onClick}>Label</Button>)
 
-    fireEvent.click(getByText("Label"))
+    fireEvent.click(screen.getByText("Label"))
     expect(onClick).toHaveBeenCalled()
   })
 
@@ -89,31 +89,31 @@ describe("<Button>", () => {
   })
 
   it("has correct padding without the custom renderer", () => {
-    const { getByText } = render(<Button>Label</Button>)
-    const button = getByText("Label")
+    render(<Button>Label</Button>)
+    const button = screen.getByText("Label")
 
     expect(button.classList).toContain("px-10")
   })
 
   it("sets correct padding within the link", () => {
-    const { getByText } = render(
+    render(
       <Button>
         <a>Label</a>
       </Button>
     )
 
-    const link = getByText("Label")
+    const link = screen.getByText("Label")
     expect(link.classList).toContain("px-10")
   })
 
   it("renders a div with link as a child", () => {
-    const { getByText } = render(
+    render(
       <Button>
         <a>Label</a>
       </Button>
     )
 
-    const option = getByText("Label")
+    const option = screen.getByText("Label")
     expect(option.parentElement.parentElement).toMatchSnapshot()
   })
 
@@ -125,18 +125,18 @@ describe("<Button>", () => {
   })
 
   it("renders an icon inside a button with link as a child", () => {
-    const { getByText } = render(
+    render(
       <Button icon={() => <CtaCall />}>
         <a>Label</a>
       </Button>
     )
 
-    const option = getByText("Label")
+    const option = screen.getByText("Label")
     expect(option.parentElement).toMatchSnapshot()
   })
 
   it("only renders the icon once with multiple children", async () => {
-    const { findAllByTestId } = render(
+    render(
       <Button
         icon={() => (
           <span data-testid="icon">
@@ -151,6 +151,6 @@ describe("<Button>", () => {
       </Button>
     )
 
-    expect((await findAllByTestId("icon")).length).toEqual(1)
+    expect((await screen.findAllByTestId("icon")).length).toEqual(1)
   })
 })

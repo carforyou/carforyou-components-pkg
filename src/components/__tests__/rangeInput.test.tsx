@@ -1,5 +1,5 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 
 import RangeInput from "../rangeInput"
 
@@ -47,7 +47,7 @@ describe("RangeInput", () => {
   })
 
   it("renders label if defined", () => {
-    const { getByText } = renderWrapper({ label: "Label" })
-    expect(getByText("Label"))
+    renderWrapper({ label: "Label" })
+    expect(screen.getByText("Label"))
   })
 })

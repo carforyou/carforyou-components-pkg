@@ -1,5 +1,11 @@
 import React, { useContext, useState } from "react"
-import { cleanup, fireEvent, render, within } from "@testing-library/react"
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  within,
+} from "@testing-library/react"
 
 import FlashMessagesProvider from "../provider"
 import FlashMessagesContext from "../context"
@@ -40,46 +46,46 @@ describe("<FlashMessagesProvider />", () => {
 
   describe("#addMessage", () => {
     it("renders the message", async () => {
-      const { getByText } = renderProvider()
+      renderProvider()
 
-      fireEvent.click(getByText("Add Message"))
-      getByText("Message 1")
+      fireEvent.click(screen.getByText("Add Message"))
+      screen.getByText("Message 1")
     })
   })
 
   describe("#clearMessage", () => {
     it("removes specific message", async () => {
-      const { getByText, queryByText } = renderProvider()
+      renderProvider()
 
-      const addButtom = getByText("Add Message")
+      const addButtom = screen.getByText("Add Message")
       fireEvent.click(addButtom)
       fireEvent.click(addButtom)
 
-      const msgToRemove = getByText("Message 1")
-      getByText("Message 2")
+      const msgToRemove = screen.getByText("Message 1")
+      screen.getByText("Message 2")
       fireEvent.click(
         within(msgToRemove.parentElement).getByTestId("flash-close")
       )
 
-      expect(queryByText("Message 1")).toEqual(null)
-      getByText("Message 2")
+      expect(screen.queryByText("Message 1")).toEqual(null)
+      screen.getByText("Message 2")
     })
   })
 
   describe("#clearAllMessages", () => {
     it("removes all the messages", async () => {
-      const { getByText, queryByText } = renderProvider()
+      renderProvider()
 
-      const addButtom = getByText("Add Message")
+      const addButtom = screen.getByText("Add Message")
       fireEvent.click(addButtom)
       fireEvent.click(addButtom)
 
-      getByText("Message 1")
-      getByText("Message 2")
+      screen.getByText("Message 1")
+      screen.getByText("Message 2")
 
-      fireEvent.click(getByText("Clear Messages"))
-      expect(queryByText("Message 1")).toEqual(null)
-      expect(queryByText("Message 2")).toEqual(null)
+      fireEvent.click(screen.getByText("Clear Messages"))
+      expect(screen.queryByText("Message 1")).toEqual(null)
+      expect(screen.queryByText("Message 2")).toEqual(null)
     })
   })
 })

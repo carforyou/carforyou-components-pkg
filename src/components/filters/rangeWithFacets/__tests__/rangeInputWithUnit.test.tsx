@@ -1,6 +1,6 @@
 import React from "react"
 import userEvent from "@testing-library/user-event"
-import { render, waitFor } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 
 import RangeInputWithUnit from "../rangeInputWithUnit"
 
@@ -29,7 +29,7 @@ describe("<RangeInputWithUnit/>", () => {
   })
 
   it("triggers onChange with the touched MIN field", () => {
-    const screen = renderField()
+    renderField()
     userEvent.clear(screen.getByTestId("priceFrom"))
     userEvent.type(screen.getByTestId("priceFrom"), "500")
     return waitFor(
@@ -44,7 +44,7 @@ describe("<RangeInputWithUnit/>", () => {
   })
 
   it("triggers onChange with the touched MAX field", () => {
-    const screen = renderField()
+    renderField()
     userEvent.clear(screen.getByTestId("priceTo"))
     userEvent.type(screen.getByTestId("priceTo"), "300")
     return waitFor(
@@ -59,7 +59,7 @@ describe("<RangeInputWithUnit/>", () => {
   })
 
   it("shows the unit", () => {
-    const screen = renderField()
+    renderField()
     expect(screen.getAllByText("CHF")).toHaveLength(2)
   })
 })

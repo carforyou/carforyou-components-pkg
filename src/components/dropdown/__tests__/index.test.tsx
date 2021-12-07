@@ -1,5 +1,11 @@
 import React from "react"
-import { cleanup, fireEvent, render, within } from "@testing-library/react"
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  within,
+} from "@testing-library/react"
 
 import Dropdown from "../index"
 
@@ -36,12 +42,11 @@ describe("<Dropdown>", () => {
     )
   }
 
-  const openDropdown = (wrapper) => {
-    const { getByText, getByTestId } = wrapper
-    const titleNode = getByText(title)
+  const openDropdown = () => {
+    const titleNode = screen.getByText(title)
 
     fireEvent.click(titleNode)
-    getByTestId("dropdown-options")
+    screen.getByTestId("dropdown-options")
   }
 
   beforeEach(() => {
@@ -52,40 +57,38 @@ describe("<Dropdown>", () => {
   describe("correct markup", () => {
     describe("when closed", () => {
       it("renders title", () => {
-        const { getByText } = mountWrapper()
-        expect(getByText(title)).toMatchSnapshot()
+        mountWrapper()
+        expect(screen.getByText(title)).toMatchSnapshot()
       })
 
       it("renders selected option", () => {
-        const { getByText } = mountWrapper()
-        expect(getByText("One")).toMatchSnapshot()
+        mountWrapper()
+        expect(screen.getByText("One")).toMatchSnapshot()
       })
     })
 
     describe("when opened", () => {
       it("renders title", () => {
-        const wrapper = mountWrapper()
-        openDropdown(wrapper)
+        mountWrapper()
+        openDropdown()
 
-        const { getByText } = wrapper
-        expect(getByText(title)).toMatchSnapshot()
+        expect(screen.getByText(title)).toMatchSnapshot()
       })
 
       it("renders selected option", () => {
-        const wrapper = mountWrapper()
-        openDropdown(wrapper)
+        mountWrapper()
+        openDropdown()
 
-        const { getByTestId } = wrapper
-        const toggle = getByTestId("dropdown-toggle")
+        const toggle = screen.getByTestId("dropdown-toggle")
         expect(within(toggle).getByText("One")).toMatchSnapshot()
       })
 
       it("renders all options", () => {
-        const wrapper = mountWrapper()
-        openDropdown(wrapper)
+        mountWrapper()
+        openDropdown()
 
-        const { getByTestId } = mountWrapper()
-        const list = getByTestId("dropdown-options")
+        mountWrapper()
+        const list = screen.getByTestId("dropdown-options")
         options.forEach(({ name }) => {
           expect(within(list).getByText(name)).toMatchSnapshot()
         })
@@ -94,29 +97,27 @@ describe("<Dropdown>", () => {
   })
 
   it("passes selection to callback", () => {
-    const wrapper = mountWrapper()
-    openDropdown(wrapper)
+    mountWrapper()
+    openDropdown()
 
-    const { getByText } = wrapper
-    const optionNode = getByText("Two")
+    const optionNode = screen.getByText("Two")
     fireEvent.click(optionNode)
 
     expect(mockedOnSelect).toBeCalledWith(2)
   })
 
   it("closes after selecting option", async () => {
-    const wrapper = mountWrapper()
-    openDropdown(wrapper)
+    mountWrapper()
+    openDropdown()
 
-    const { getByText, queryAllByTestId } = wrapper
-    const optionNode = getByText("Two")
+    const optionNode = screen.getByText("Two")
     fireEvent.click(optionNode)
 
-    expect(queryAllByTestId("dropdown-options")).toEqual([])
+    expect(screen.queryAllByTestId("dropdown-options")).toEqual([])
   })
 
   it("accepts custom render for options", () => {
-    const wrapper = mountWrapper({
+    mountWrapper({
       renderOption: ({ name, value }) => (
         <div>
           {name} ({value})
@@ -124,11 +125,10 @@ describe("<Dropdown>", () => {
       ),
     })
 
-    openDropdown(wrapper)
-    const { getByText } = wrapper
+    openDropdown()
 
     options.forEach(({ value, name }) =>
-      expect(getByText(`${name} (${value})`))
+      expect(screen.getByText(`${name} (${value})`))
     )
   })
 })
