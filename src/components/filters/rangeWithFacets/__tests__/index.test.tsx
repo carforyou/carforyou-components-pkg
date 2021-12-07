@@ -131,16 +131,16 @@ describe("<RangeFilterWithFacets/>", () => {
       )
     })
 
-    it("does not trigger tracking or addFilter if the value did not change", () => {
+    it("does not trigger tracking or addFilter if the value did not change", async () => {
       renderScreen({ min: 1000, max: 20000 })
       const fromSlider = screen.getAllByRole("slider")[0]
       const toSlider = screen.getAllByRole("slider")[1]
       userEvent.click(fromSlider)
       userEvent.click(toSlider)
-      return waitFor(() => {
+      await waitFor(() => {
         expect(mockTracking).not.toHaveBeenCalled()
-        expect(mockAddFilter).not.toHaveBeenCalled()
       })
+      expect(mockAddFilter).not.toHaveBeenCalled()
     })
   })
 })
