@@ -64,6 +64,7 @@ describe("<FlashMessagesProvider />", () => {
       const msgToRemove = screen.getByText("Message 1")
       screen.getByText("Message 2")
       fireEvent.click(
+        // eslint-disable-next-line testing-library/no-node-access
         within(msgToRemove.parentElement).getByTestId("flash-close")
       )
 

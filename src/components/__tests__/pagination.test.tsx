@@ -34,7 +34,7 @@ describe("<Pagination>", () => {
     expect(handlePageClick).toHaveBeenCalledWith({ selected: 1 })
   })
 
-  it("applies active style to active page", async () => {
+  it("applies marks active page as active", async () => {
     render(
       <Pagination
         previousLabel="previous"
@@ -47,11 +47,11 @@ describe("<Pagination>", () => {
         pageLinkBuilder={() => linkBuilder(1, { lng: "de" })}
       />
     )
-    fireEvent.click(screen.getByText("2"))
-    expect(screen.getByText("2").parentElement.classList.contains("active"))
+    fireEvent.click(screen.getByRole("button", { name: "Page 2" }))
+    expect(screen.getByRole("button", { name: "Page 2 is your current page" }))
   })
 
-  it("applies inactive style to inactive page", async () => {
+  it("does not mark inactive page as active", async () => {
     render(
       <Pagination
         previousLabel="previous"
@@ -66,7 +66,7 @@ describe("<Pagination>", () => {
     )
     fireEvent.click(screen.getByText("2"))
     expect(
-      screen.getByText("1").parentElement.classList.contains("active")
-    ).toBe(false)
+      screen.queryByRole("button", { name: "Page 3 is your current page" })
+    ).not.toBeInTheDocument()
   })
 })

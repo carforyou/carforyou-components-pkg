@@ -51,9 +51,11 @@ exports[`useModal with a portal renders the modal within the portal 1`] = `
 
 exports[`useModal without portal closes the modal when pressing ESC 1`] = `
 <div>
-  <button>
-    Open modal
-  </button>
+  <div>
+    <button>
+      Open modal
+    </button>
+  </div>
 </div>
 `;
 
@@ -65,9 +67,11 @@ exports[`useModal without portal opens modal when clicking the button 1`] = `
 
 exports[`useModal without portal renders correct markup 1`] = `
 <div>
-  <button>
-    Open modal
-  </button>
+  <div>
+    <button>
+      Open modal
+    </button>
+  </div>
 </div>
 `;
 

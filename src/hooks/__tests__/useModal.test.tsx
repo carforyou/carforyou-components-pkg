@@ -42,7 +42,7 @@ describe("useModal", () => {
     it("renders correct markup", () => {
       const { container } = renderWrapper()
 
-      expect(container.firstChild).toMatchSnapshot()
+      expect(container).toMatchSnapshot()
     })
 
     it("opens modal when clicking the button", () => {
@@ -68,7 +68,7 @@ describe("useModal", () => {
       screen.getByText(modalText)
       fireEvent.keyDown(container, { keyCode: 27 })
 
-      expect(container.firstChild).toMatchSnapshot()
+      expect(container).toMatchSnapshot()
       expect(container).not.toContain(modalText)
     })
 

@@ -51,23 +51,20 @@ const renderWrapper = ({
 
 describe("RangeSelect", () => {
   it("renders two inputs element with expected name", () => {
-    const { container } = renderWrapper()
-    const fromInput = container.querySelector(
-      'input[name="nameFrom"]'
-    ) as HTMLInputElement
-    const toInput = container.querySelector(
-      'input[name="nameTo"]'
-    ) as HTMLInputElement
+    renderWrapper()
+    const fromInput = screen.getByPlaceholderText("min")
+    const toInput = screen.getByPlaceholderText("max")
+
+    expect(fromInput.getAttribute("name")).toEqual("nameFrom")
+    expect(toInput.getAttribute("name")).toEqual("nameTo")
 
     expect(fromInput).toBeTruthy()
     expect(toInput).toBeTruthy()
   })
 
   it("renders options on click", () => {
-    const { container } = renderWrapper()
-    const input = container.querySelector(
-      'input[name="nameTo"]'
-    ) as HTMLInputElement
+    renderWrapper()
+    const input = screen.getByPlaceholderText("max")
     fireEvent.click(input)
     expect(screen.getByText("1"))
   })

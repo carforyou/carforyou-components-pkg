@@ -107,14 +107,13 @@ describe("<Button>", () => {
   })
 
   it("renders a div with link as a child", () => {
-    render(
+    const utils = render(
       <Button>
         <a>Label</a>
       </Button>
     )
 
-    const option = screen.getByText("Label")
-    expect(option.parentElement.parentElement).toMatchSnapshot()
+    expect(utils.container).toMatchSnapshot()
   })
 
   it("renders icon, size, paddings and text", () => {
@@ -125,14 +124,13 @@ describe("<Button>", () => {
   })
 
   it("renders an icon inside a button with link as a child", () => {
-    render(
+    const utils = render(
       <Button icon={() => <CtaCall />}>
         <a>Label</a>
       </Button>
     )
 
-    const option = screen.getByText("Label")
-    expect(option.parentElement).toMatchSnapshot()
+    expect(utils.container).toMatchSnapshot()
   })
 
   it("only renders the icon once with multiple children", async () => {
