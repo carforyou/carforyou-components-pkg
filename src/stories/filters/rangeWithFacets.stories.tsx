@@ -89,9 +89,13 @@ Default.args = {
     min: "priceFrom",
     max: "priceTo",
   },
+  inputPlaceholder: {
+    min: "0",
+    max: "30000+",
+  },
   value: {
-    min: 5000,
-    max: 25000,
+    min: null,
+    max: null,
   },
   unit: "CHF",
   subtext: "(1450 Autos)",
@@ -106,9 +110,13 @@ WithEmptyFacets.args = {
     min: "priceFrom",
     max: "priceTo",
   },
+  inputPlaceholder: {
+    min: "0",
+    max: "30000+",
+  },
   value: {
-    min: 5000,
-    max: 25000,
+    min: null,
+    max: null,
   },
   unit: "CHF",
   subtext: "(1450 Autos)",
@@ -122,10 +130,31 @@ WithoutFacets.args = {
     min: "priceFrom",
     max: "priceTo",
   },
+  inputPlaceholder: {
+    min: "0",
+    max: "30000+",
+  },
   value: {
-    min: 5000,
-    max: 25000,
+    min: null,
+    max: null,
   },
   unit: "CHF",
+  subtext: "(1450 Autos)",
+}
+
+export const WithoutUnit = Template.bind({})
+WithoutUnit.args = {
+  storyName: "WithoutUnit",
+  scale: exampleScale,
+  facets: exampleFacets,
+  inputName: {
+    min: "priceFrom",
+    max: "priceTo",
+  },
+
+  value: {
+    min: null,
+    max: null,
+  },
   subtext: "(1450 Autos)",
 }

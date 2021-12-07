@@ -14,10 +14,20 @@ interface Props {
     min: number
     max: number
   }
-  unit: string
+  unit?: string
+  placeholder?: {
+    min: string
+    max: string
+  }
 }
 
-const RangeInputWithUnit: FC<Props> = ({ name, handleChange, value, unit }) => {
+const RangeInputWithUnit: FC<Props> = ({
+  name,
+  handleChange,
+  value,
+  unit,
+  placeholder,
+}) => {
   const onChange = ({ target }, editedField: "min" | "max") => {
     const { value: changedValue } = target
     handleChange({
@@ -29,37 +39,27 @@ const RangeInputWithUnit: FC<Props> = ({ name, handleChange, value, unit }) => {
     })
   }
 
-  const unitElement = (
-    <p className="absolute z-1 mt-16 ml-10 text-grey-3">{unit}</p>
-  )
+  const unitElement = unit ? (
+    <p className="absolute z-1 mt-16 pt-px ml-10 text-grey-3">{unit}</p>
+  ) : null
 
   return (
     <div className="w-12/12 flex">
-      <div className="relative">
-        {unitElement}
-        <InputFilter
-          name={name.min}
-          initialValue={value.min ? String(value.min) : ""}
-          mode="numeric"
-          position="left"
-          hasClearButton={false}
-          textAlignment="right"
-          apply={(e) => onChange(e, "min")}
-        />
-      </div>
-
-      <div className="relative">
-        {unitElement}
-        <InputFilter
-          name={name.max}
-          initialValue={value.max ? String(value.max) : ""}
-          mode="numeric"
-          position="right"
-          hasClearButton={false}
-          textAlignment="right"
-          apply={(e) => onChange(e, "max")}
-        />
-      </div>
+      {Object.keys(value).map((el: "min" | "max") => (
+        <div className="relative" key={el}>
+          {unitElement}
+          <InputFilter
+            name={name[el]}
+            initialValue={value[el] ? String(value[el]) : ""}
+            mode="numeric"
+            position={el === "min" ? "left" : "right"}
+            hasClearButton={false}
+            textAlignment="right"
+            apply={(e) => onChange(e, el)}
+            placeholder={placeholder && placeholder[el]}
+          />
+        </div>
+      ))}
     </div>
   )
 }
