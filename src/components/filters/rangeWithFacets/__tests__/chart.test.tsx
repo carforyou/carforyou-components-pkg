@@ -44,7 +44,7 @@ describe("<Chart/>", () => {
     const view = render(
       <Chart facets={undefined} scale={mockScale} range={[2, 4]} />
     )
-    expect(view.container.firstChild).toBeNull()
+    expect(view.container).toBeEmptyDOMElement()
   })
 
   it("renders a bar for each facet", () => {
