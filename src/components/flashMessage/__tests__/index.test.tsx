@@ -1,5 +1,5 @@
 import React from "react"
-import { act, cleanup, render, screen } from "@testing-library/react"
+import { cleanup, render, screen } from "@testing-library/react"
 
 import FlashMessages from "../index"
 import { FlashMessagesContext, FlashMessageType } from "../context/index"
@@ -10,25 +10,19 @@ describe("<FlashMessages />", () => {
   afterEach(cleanup)
 
   const renderMessages = () => {
-    let rendered
-
-    act(() => {
-      rendered = render(
-        <FlashMessagesContext.Provider
-          value={{
-            messages: types.map((type, i) => ({
-              id: i,
-              type,
-              content: `Test ${type}`,
-            })),
-          }}
-        >
-          <FlashMessages />
-        </FlashMessagesContext.Provider>
-      )
-    })
-
-    return rendered
+    return render(
+      <FlashMessagesContext.Provider
+        value={{
+          messages: types.map((type, i) => ({
+            id: i,
+            type,
+            content: `Test ${type}`,
+          })),
+        }}
+      >
+        <FlashMessages />
+      </FlashMessagesContext.Provider>
+    )
   }
 
   it("renders all messages", () => {

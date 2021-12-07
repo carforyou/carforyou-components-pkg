@@ -48,9 +48,7 @@ describe("<Intercom />", () => {
       renderWrapper()
 
       const button = screen.getByText("Support")
-      act(() => {
-        fireEvent.click(button)
-      })
+      fireEvent.click(button)
 
       expect(bootIntercom).toHaveBeenCalled()
     })
@@ -59,9 +57,7 @@ describe("<Intercom />", () => {
       renderWrapper()
 
       const button = screen.getByText("Support")
-      act(() => {
-        fireEvent.click(button)
-      })
+      fireEvent.click(button)
 
       expect(screen.getByTestId("intercom-close"))
     })
@@ -70,10 +66,8 @@ describe("<Intercom />", () => {
       renderWrapper()
 
       const button = screen.getByText("Support")
-      act(() => {
-        fireEvent.click(button)
-        window.Intercom("hide")
-      })
+      fireEvent.click(button)
+      act(() => window.Intercom("hide"))
 
       expect(screen.getByText("Support"))
     })

@@ -36,10 +36,7 @@ describe("<Tabs />", () => {
 
   it("allows switching tabs", () => {
     renderWrapper()
-
-    act(() => {
-      fireEvent.click(screen.getByText("Tab 2"))
-    })
+    fireEvent.click(screen.getByText("Tab 2"))
 
     return waitFor(() => {
       screen.getByText("Tab 2 Content")
