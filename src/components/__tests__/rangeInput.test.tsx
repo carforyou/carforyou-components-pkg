@@ -1,5 +1,5 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 
 import RangeInput from "../rangeInput"
 
@@ -34,20 +34,16 @@ const renderWrapper = ({
 
 describe("RangeInput", () => {
   it("renders two inputs element with expected name", () => {
-    const { container } = renderWrapper()
-    const fromInput = container.querySelector(
-      'input[name="nameFrom"]'
-    ) as HTMLInputElement
-    const toInput = container.querySelector(
-      'input[name="nameTo"]'
-    ) as HTMLInputElement
+    renderWrapper()
+    const fromInput = screen.getByPlaceholderText("min")
+    const toInput = screen.getByPlaceholderText("max")
 
-    expect(fromInput).toBeTruthy()
-    expect(toInput).toBeTruthy()
+    expect(fromInput.getAttribute("name")).toEqual("nameFrom")
+    expect(toInput.getAttribute("name")).toEqual("nameTo")
   })
 
   it("renders label if defined", () => {
-    const { getByText } = renderWrapper({ label: "Label" })
-    expect(getByText("Label"))
+    renderWrapper({ label: "Label" })
+    expect(screen.getByText("Label"))
   })
 })

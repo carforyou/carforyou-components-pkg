@@ -1,43 +1,41 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import InvertedVerifiedBadge from "../invertedVerified"
 import { DummyTooltip } from "../../../stories/badges/dummyTooltip"
 
 describe("<InvertedVerifiedBadge>", () => {
   it("renders the badge in english", () => {
-    const { getByText } = render(<InvertedVerifiedBadge language="en" />)
-    expect(getByText("Verified"))
+    render(<InvertedVerifiedBadge language="en" />)
+    expect(screen.getByText("Verified"))
   })
 
   it("renders the badge without text", () => {
-    const { queryAllByText } = render(
-      <InvertedVerifiedBadge language="en" withText={false} />
-    )
-    expect(queryAllByText("Verified")).toHaveLength(0)
+    render(<InvertedVerifiedBadge language="en" withText={false} />)
+    expect(screen.queryAllByText("Verified")).toHaveLength(0)
   })
 
   it("renders the badge in german", () => {
-    const { getByText } = render(<InvertedVerifiedBadge language="de" />)
-    expect(getByText("Verifiziert"))
+    render(<InvertedVerifiedBadge language="de" />)
+    expect(screen.getByText("Verifiziert"))
   })
 
   it("renders the badge in french", () => {
-    const { getByText } = render(<InvertedVerifiedBadge language="fr" />)
-    expect(getByText("Vérifié"))
+    render(<InvertedVerifiedBadge language="fr" />)
+    expect(screen.getByText("Vérifié"))
   })
 
   it("renders the badge in italian", () => {
-    const { getByText } = render(<InvertedVerifiedBadge language="it" />)
-    expect(getByText("Verificato"))
+    render(<InvertedVerifiedBadge language="it" />)
+    expect(screen.getByText("Verificato"))
   })
 
   it("renders a tooltip on hover", async () => {
-    const { findByText, getByText } = render(
+    render(
       <InvertedVerifiedBadge language="en" tooltipContent={<DummyTooltip />} />
     )
 
-    fireEvent.mouseEnter(getByText("Verified"))
-    expect(await findByText("Dummy tooltip"))
+    fireEvent.mouseEnter(screen.getByText("Verified"))
+    expect(await screen.findByText("Dummy tooltip"))
   })
 })

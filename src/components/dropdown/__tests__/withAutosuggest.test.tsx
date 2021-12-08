@@ -1,5 +1,11 @@
 import React from "react"
-import { cleanup, fireEvent, render, within } from "@testing-library/react"
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  within,
+} from "@testing-library/react"
 
 import DropdownWithAutosuggest from "../withAutosuggest"
 
@@ -37,12 +43,11 @@ describe("<DropdownWithAutosuggest>", () => {
     )
   }
 
-  const openAutosuggest = (wrapper) => {
-    const { getByPlaceholderText, getByTestId } = wrapper
-    const input = getByPlaceholderText(placeholder)
+  const openAutosuggest = () => {
+    const input = screen.getByPlaceholderText(placeholder)
 
     fireEvent.focus(input)
-    getByTestId("dropdown-options")
+    screen.getByTestId("dropdown-options")
   }
 
   afterEach(() => {
@@ -52,8 +57,8 @@ describe("<DropdownWithAutosuggest>", () => {
 
   describe("when closed", () => {
     it("renders the input", () => {
-      const { getByPlaceholderText } = mountWrapper()
-      const input = getByPlaceholderText(placeholder)
+      mountWrapper()
+      const input = screen.getByPlaceholderText(placeholder)
 
       expect(input).toMatchSnapshot()
     })
@@ -61,59 +66,54 @@ describe("<DropdownWithAutosuggest>", () => {
 
   describe("when opened", () => {
     it("renders all suggestions", () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByTestId } = wrapper
-      const list = getByTestId("dropdown-options")
+      const list = screen.getByTestId("dropdown-options")
       options.forEach(({ name }) => {
         expect(within(list).getByText(name)).toMatchSnapshot()
       })
     })
 
     it("marks the partial match when typing", async () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByPlaceholderText, getByTestId } = wrapper
-      const input = getByPlaceholderText(placeholder)
+      const input = screen.getByPlaceholderText(placeholder)
       fireEvent.change(input, { target: { value: "On" } })
 
-      const optionsList = getByTestId("dropdown-options")
+      const optionsList = screen.getByTestId("dropdown-options")
       const node = within(optionsList).getByTestId("One")
       expect(node).toMatchSnapshot()
     })
 
     it("highlights elements on exact match when typing", async () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByPlaceholderText, getByTestId } = wrapper
-      const input = getByPlaceholderText(placeholder)
+      const input = screen.getByPlaceholderText(placeholder)
       fireEvent.change(input, { target: { value: "One" } })
 
-      const optionsList = getByTestId("dropdown-options")
+      const optionsList = screen.getByTestId("dropdown-options")
       const node = within(optionsList).getByTestId("One")
       expect(node).toMatchSnapshot()
     })
 
     it("escapes special regexp characters when entered in the input", () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByPlaceholderText } = wrapper
-      const input = getByPlaceholderText(placeholder)
+      const input = screen.getByPlaceholderText(placeholder)
       expect(() => {
         fireEvent.change(input, { target: { value: "-/^$*+?.()|[]{}\\" } })
       }).not.toThrow()
     })
 
     it("select highlited option on blur", async () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByPlaceholderText } = wrapper
-      const input = getByPlaceholderText(placeholder)
+      const input = screen.getByPlaceholderText(placeholder)
       fireEvent.change(input, { target: { value: "Two" } })
       fireEvent.blur(input)
 
@@ -121,22 +121,20 @@ describe("<DropdownWithAutosuggest>", () => {
     })
 
     it("forwards selected value to callback", async () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByText } = wrapper
-      const optionNode = getByText("Two")
+      const optionNode = screen.getByText("Two")
       fireEvent.click(optionNode)
 
       expect(mockedOnSelect).toBeCalledWith(2)
     })
 
     it("clears previous selection on empty input", async () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByPlaceholderText } = wrapper
-      const input = getByPlaceholderText(placeholder)
+      const input = screen.getByPlaceholderText(placeholder)
 
       fireEvent.change(input, { target: { value: "Two" } })
       fireEvent.blur(input)
@@ -147,11 +145,10 @@ describe("<DropdownWithAutosuggest>", () => {
     })
 
     it("selects on enter", async () => {
-      const wrapper = mountWrapper()
-      openAutosuggest(wrapper)
+      mountWrapper()
+      openAutosuggest()
 
-      const { getByPlaceholderText } = wrapper
-      const input = getByPlaceholderText(placeholder)
+      const input = screen.getByPlaceholderText(placeholder)
 
       fireEvent.change(input, { target: { value: "Two" } })
       fireEvent.keyDown(input, {
@@ -165,8 +162,8 @@ describe("<DropdownWithAutosuggest>", () => {
 
   describe("with custom values", () => {
     it("allows custom user input", async () => {
-      const { getByPlaceholderText } = mountWrapper({ allowCustomValues: true })
-      const input = getByPlaceholderText(placeholder)
+      mountWrapper({ allowCustomValues: true })
+      const input = screen.getByPlaceholderText(placeholder)
       fireEvent.change(input, { target: { value: "Custom" } })
       fireEvent.blur(input)
 
@@ -174,8 +171,8 @@ describe("<DropdownWithAutosuggest>", () => {
     })
 
     it("allows option from dropdown", async () => {
-      const { getByPlaceholderText } = mountWrapper({ allowCustomValues: true })
-      const input = getByPlaceholderText(placeholder)
+      mountWrapper({ allowCustomValues: true })
+      const input = screen.getByPlaceholderText(placeholder)
       fireEvent.change(input, { target: { value: "Two" } })
       fireEvent.blur(input)
 

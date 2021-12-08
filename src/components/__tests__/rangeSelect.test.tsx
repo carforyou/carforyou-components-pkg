@@ -1,5 +1,5 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import RangeSelect from "../rangeSelect"
 
@@ -51,37 +51,34 @@ const renderWrapper = ({
 
 describe("RangeSelect", () => {
   it("renders two inputs element with expected name", () => {
-    const { container } = renderWrapper()
-    const fromInput = container.querySelector(
-      'input[name="nameFrom"]'
-    ) as HTMLInputElement
-    const toInput = container.querySelector(
-      'input[name="nameTo"]'
-    ) as HTMLInputElement
+    renderWrapper()
+    const fromInput = screen.getByPlaceholderText("min")
+    const toInput = screen.getByPlaceholderText("max")
+
+    expect(fromInput.getAttribute("name")).toEqual("nameFrom")
+    expect(toInput.getAttribute("name")).toEqual("nameTo")
 
     expect(fromInput).toBeTruthy()
     expect(toInput).toBeTruthy()
   })
 
   it("renders options on click", () => {
-    const { container, getByText } = renderWrapper()
-    const input = container.querySelector(
-      'input[name="nameTo"]'
-    ) as HTMLInputElement
+    renderWrapper()
+    const input = screen.getByPlaceholderText("max")
     fireEvent.click(input)
-    expect(getByText("1"))
+    expect(screen.getByText("1"))
   })
 
   it("fires the onSelect event with the correct name and value", () => {
     const mockedOnSelect = jest.fn()
-    const { getByPlaceholderText, getByText } = renderWrapper({
+    renderWrapper({
       handleSelect: mockedOnSelect,
     })
 
-    const input = getByPlaceholderText("min")
+    const input = screen.getByPlaceholderText("min")
 
     fireEvent.click(input)
-    const option = getByText("1")
+    const option = screen.getByText("1")
     fireEvent.click(option)
 
     expect(mockedOnSelect).toHaveBeenCalledWith({ name: "nameFrom", value: 1 })

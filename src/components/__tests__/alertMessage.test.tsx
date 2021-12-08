@@ -1,15 +1,13 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 
 import AlertMessage from "../alertMessage"
 import MailSent from "../../../.storybook/icons/mailSent"
 
 describe("<AlertMessage>", () => {
   it("renders alert label", () => {
-    const { getByText } = render(
-      <AlertMessage type="error">Label</AlertMessage>
-    )
-    getByText("Label")
+    render(<AlertMessage type="error">Label</AlertMessage>)
+    screen.getByText("Label")
   })
 
   describe("AlertMessage variations", () => {

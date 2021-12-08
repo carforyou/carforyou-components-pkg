@@ -1,5 +1,5 @@
 import React from "react"
-import { act, fireEvent, render } from "@testing-library/react"
+import { act, fireEvent, render, screen } from "@testing-library/react"
 
 jest.mock("../helper", () => ({
   bootIntercom: jest.fn((settings, { onOpen, onClose }) => {
@@ -39,43 +39,37 @@ describe("<Intercom />", () => {
 
   describe("launcher state", () => {
     it("renders label and icon by default", () => {
-      const { getByText } = renderWrapper()
+      renderWrapper()
 
-      expect(getByText("Support"))
+      expect(screen.getByText("Support"))
     })
 
     it("boots intercom on demand", () => {
-      const { getByText } = renderWrapper()
+      renderWrapper()
 
-      const button = getByText("Support")
-      act(() => {
-        fireEvent.click(button)
-      })
+      const button = screen.getByText("Support")
+      fireEvent.click(button)
 
       expect(bootIntercom).toHaveBeenCalled()
     })
 
     it("shows close icon when chat is opened", () => {
-      const { getByText, getByTestId } = renderWrapper()
+      renderWrapper()
 
-      const button = getByText("Support")
-      act(() => {
-        fireEvent.click(button)
-      })
+      const button = screen.getByText("Support")
+      fireEvent.click(button)
 
-      expect(getByTestId("intercom-close"))
+      expect(screen.getByTestId("intercom-close"))
     })
 
     it("shows the label when the chat closes", () => {
-      const { getByText } = renderWrapper()
+      renderWrapper()
 
-      const button = getByText("Support")
-      act(() => {
-        fireEvent.click(button)
-        window.Intercom("hide")
-      })
+      const button = screen.getByText("Support")
+      fireEvent.click(button)
+      act(() => window.Intercom("hide"))
 
-      expect(getByText("Support"))
+      expect(screen.getByText("Support"))
     })
   })
 })

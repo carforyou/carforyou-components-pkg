@@ -1,5 +1,5 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import CheckboxFilter from "../checkbox"
 import ClockOutlinedTealIcon from "../../../assets/dist/icons/clockOutlinedTeal"
@@ -52,7 +52,7 @@ describe("<CheckboxFilter/>", () => {
     })
 
     it("with icons", () => {
-      const { getByTestId } = renderWrapper({
+      renderWrapper({
         options: [
           {
             label: "One",
@@ -83,7 +83,7 @@ describe("<CheckboxFilter/>", () => {
         ],
       })
 
-      expect(getByTestId("icon-1"))
+      expect(screen.getByTestId("icon-1"))
     })
 
     it("with initial selection", () => {
@@ -103,44 +103,54 @@ describe("<CheckboxFilter/>", () => {
 
   it("applies filter on click", () => {
     const applyFilterMock = jest.fn()
-    const { getByText } = renderWrapper({ applyFilters: applyFilterMock })
+    renderWrapper({ applyFilters: applyFilterMock })
 
-    fireEvent.click(getByText("One"))
+    fireEvent.click(screen.getByText("One"))
 
     expect(applyFilterMock).toHaveBeenCalledWith({ testFilter: [1] })
   })
 
   it("disables non-selected option with facet = zero", () => {
-    const { getByLabelText } = renderWrapper({
+    renderWrapper({
       facet: { "1": 30, "2": 1000, "3": 0 },
     })
 
-    expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
+    expect(screen.getByLabelText("Three", { exact: false })).toHaveProperty(
+      "disabled"
+    )
   })
 
   it("disables non-selected option when facet is provided and null", () => {
-    const { getByLabelText } = renderWrapper({
+    renderWrapper({
       facet: { "1": 30, "2": 1000 },
     })
 
-    expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
+    expect(screen.getByLabelText("Three", { exact: false })).toHaveProperty(
+      "disabled"
+    )
   })
 
   it("disables non-selected options when facet is provided and empty", () => {
-    const { getByLabelText } = renderWrapper({
+    renderWrapper({
       facet: {},
     })
 
-    expect(getByLabelText("One", { exact: false })).toHaveProperty("disabled")
-    expect(getByLabelText("Two", { exact: false })).toHaveProperty("disabled")
-    expect(getByLabelText("Three", { exact: false })).toHaveProperty("disabled")
+    expect(screen.getByLabelText("One", { exact: false })).toHaveProperty(
+      "disabled"
+    )
+    expect(screen.getByLabelText("Two", { exact: false })).toHaveProperty(
+      "disabled"
+    )
+    expect(screen.getByLabelText("Three", { exact: false })).toHaveProperty(
+      "disabled"
+    )
   })
 
   it("calls onSelect when the value is selected", () => {
     const onSelectFilterMock = jest.fn()
-    const { getByText } = renderWrapper({ onSelect: onSelectFilterMock })
+    renderWrapper({ onSelect: onSelectFilterMock })
 
-    fireEvent.click(getByText("Three"))
+    fireEvent.click(screen.getByText("Three"))
 
     expect(onSelectFilterMock).toHaveBeenCalledWith(3)
   })

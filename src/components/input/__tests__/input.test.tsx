@@ -1,6 +1,6 @@
 import React from "react"
 
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import Input from "../index"
 
@@ -8,7 +8,7 @@ describe("<Input>", () => {
   describe("without debounce", () => {
     it("executes the callback function", () => {
       const onChangeMock = jest.fn()
-      const { getByPlaceholderText } = render(
+      render(
         <Input
           name="testInput"
           placeholder="testInput"
@@ -18,7 +18,7 @@ describe("<Input>", () => {
           hasClearButton
         />
       )
-      const input = getByPlaceholderText("testInput")
+      const input = screen.getByPlaceholderText("testInput")
       fireEvent.change(input, { target: { value: "Test" } })
 
       expect(onChangeMock).toBeCalled()
@@ -26,7 +26,7 @@ describe("<Input>", () => {
 
     it("clears the input", () => {
       const onChangeMock = jest.fn()
-      const { getByTestId } = render(
+      render(
         <Input
           name="testInput"
           placeholder="testInput"
@@ -36,7 +36,7 @@ describe("<Input>", () => {
           hasClearButton
         />
       )
-      const clearButton = getByTestId("clearButton")
+      const clearButton = screen.getByTestId("clearButton")
       fireEvent.click(clearButton)
 
       expect(onChangeMock).toBeCalled()
@@ -55,7 +55,7 @@ describe("<Input>", () => {
 
     it("executes the callback function with a delay", () => {
       const onChangeMock = jest.fn()
-      const { getByPlaceholderText } = render(
+      render(
         <Input
           name="testInput"
           placeholder="testInput"
@@ -66,7 +66,7 @@ describe("<Input>", () => {
           debounce={200}
         />
       )
-      const input = getByPlaceholderText("testInput")
+      const input = screen.getByPlaceholderText("testInput")
       fireEvent.change(input, { target: { value: "Test" } })
       jest.runAllTimers()
 
@@ -75,7 +75,7 @@ describe("<Input>", () => {
 
     it("clears the input immediately", () => {
       const onChangeMock = jest.fn()
-      const { getByTestId } = render(
+      render(
         <Input
           name="testInput"
           placeholder="testInput"
@@ -85,7 +85,7 @@ describe("<Input>", () => {
           hasClearButton
         />
       )
-      const clearButton = getByTestId("clearButton")
+      const clearButton = screen.getByTestId("clearButton")
       fireEvent.click(clearButton)
 
       expect(onChangeMock).toBeCalled()
@@ -94,7 +94,7 @@ describe("<Input>", () => {
     it("hooks refs passed as functions", async () => {
       const onChangeMock = jest.fn()
       let inputRef = null
-      const { findByPlaceholderText } = render(
+      render(
         <Input
           name="testInput"
           placeholder="testInput"
@@ -107,14 +107,14 @@ describe("<Input>", () => {
           }}
         />
       )
-      await findByPlaceholderText("testInput")
+      await screen.findByPlaceholderText("testInput")
       expect(inputRef.value).toBe("initial value")
     })
 
     it("hooks refs passed as objects", async () => {
       const onChangeMock = jest.fn()
       const inputRef = React.createRef<HTMLInputElement>()
-      const { findByPlaceholderText } = render(
+      render(
         <Input
           name="testInput"
           placeholder="testInput"
@@ -125,7 +125,7 @@ describe("<Input>", () => {
           ref={inputRef}
         />
       )
-      await findByPlaceholderText("testInput")
+      await screen.findByPlaceholderText("testInput")
       expect(inputRef.current.value).toBe("initial value")
     })
   })

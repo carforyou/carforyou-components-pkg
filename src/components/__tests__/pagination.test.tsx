@@ -1,5 +1,5 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import Pagination from "../pagination"
 
@@ -17,7 +17,7 @@ describe("<Pagination>", () => {
   }
 
   it("has the correct href for the active page", () => {
-    const { getByText } = render(
+    render(
       <Pagination
         previousLabel="previous"
         nextLabel="next"
@@ -29,13 +29,13 @@ describe("<Pagination>", () => {
         pageLinkBuilder={() => linkBuilder(1, { lng: "de" })}
       />
     )
-    fireEvent.click(getByText("2"))
+    fireEvent.click(screen.getByText("2"))
 
     expect(handlePageClick).toHaveBeenCalledWith({ selected: 1 })
   })
 
-  it("applies active style to active page", async () => {
-    const { getByText } = render(
+  it("applies marks active page as active", async () => {
+    render(
       <Pagination
         previousLabel="previous"
         nextLabel="next"
@@ -47,12 +47,12 @@ describe("<Pagination>", () => {
         pageLinkBuilder={() => linkBuilder(1, { lng: "de" })}
       />
     )
-    fireEvent.click(getByText("2"))
-    expect(getByText("2").parentElement.classList.contains("active"))
+    fireEvent.click(screen.getByRole("button", { name: "Page 2" }))
+    expect(screen.getByRole("button", { name: "Page 2 is your current page" }))
   })
 
-  it("applies inactive style to inactive page", async () => {
-    const { getByText } = render(
+  it("does not mark inactive page as active", async () => {
+    render(
       <Pagination
         previousLabel="previous"
         nextLabel="next"
@@ -64,9 +64,9 @@ describe("<Pagination>", () => {
         pageLinkBuilder={() => linkBuilder(1, { lng: "de" })}
       />
     )
-    fireEvent.click(getByText("2"))
-    expect(getByText("1").parentElement.classList.contains("active")).toBe(
-      false
-    )
+    fireEvent.click(screen.getByText("2"))
+    expect(
+      screen.queryByRole("button", { name: "Page 3 is your current page" })
+    ).not.toBeInTheDocument()
   })
 })

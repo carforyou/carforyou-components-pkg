@@ -1,5 +1,5 @@
 import React, { createRef, FC, RefObject } from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import useModal from "../useModal"
 
@@ -42,42 +42,42 @@ describe("useModal", () => {
     it("renders correct markup", () => {
       const { container } = renderWrapper()
 
-      expect(container.firstChild).toMatchSnapshot()
+      expect(container).toMatchSnapshot()
     })
 
     it("opens modal when clicking the button", () => {
-      const { getByText } = renderWrapper()
+      renderWrapper()
 
-      fireEvent.click(getByText(buttonText))
+      fireEvent.click(screen.getByText(buttonText))
 
-      expect(getByText(modalText)).toMatchSnapshot()
+      expect(screen.getByText(modalText)).toMatchSnapshot()
     })
 
     it("renders the modal within the container", () => {
-      const { getByText, container } = renderWrapper()
+      const { container } = renderWrapper()
 
-      fireEvent.click(getByText(buttonText))
+      fireEvent.click(screen.getByText(buttonText))
 
       expect(container).toMatchSnapshot()
     })
 
     it("closes the modal when pressing ESC", async () => {
-      const { getByText, container } = renderWrapper()
+      const { container } = renderWrapper()
 
-      fireEvent.click(getByText(buttonText))
-      getByText(modalText)
+      fireEvent.click(screen.getByText(buttonText))
+      screen.getByText(modalText)
       fireEvent.keyDown(container, { keyCode: 27 })
 
-      expect(container.firstChild).toMatchSnapshot()
+      expect(container).toMatchSnapshot()
       expect(container).not.toContain(modalText)
     })
 
     it("calls the onClose function when pressing ESC", async () => {
       const onCloseMock = jest.fn()
-      const { getByText, container } = renderWrapper(onCloseMock)
+      const { container } = renderWrapper(onCloseMock)
 
-      fireEvent.click(getByText(buttonText))
-      getByText(modalText)
+      fireEvent.click(screen.getByText(buttonText))
+      screen.getByText(modalText)
       fireEvent.keyDown(container, {
         keyCode: 27,
       })
@@ -87,21 +87,21 @@ describe("useModal", () => {
 
     it("calls the onClose function the close button is clicked", async () => {
       const onCloseMock = jest.fn()
-      const { getByText, getByTestId } = renderWrapper(onCloseMock)
+      renderWrapper(onCloseMock)
 
-      fireEvent.click(getByText(buttonText))
-      getByText(modalText)
-      fireEvent.click(getByTestId("modal-close"))
+      fireEvent.click(screen.getByText(buttonText))
+      screen.getByText(modalText)
+      fireEvent.click(screen.getByTestId("modal-close"))
 
       expect(onCloseMock).toBeCalledTimes(1)
     })
 
     it("calls the onClose function when the overlay is clicked", async () => {
       const onCloseMock = jest.fn()
-      const { getByText, getByTestId } = renderWrapper(onCloseMock)
-      fireEvent.click(getByText(buttonText))
-      getByText(modalText)
-      fireEvent.click(getByTestId("modal-overlay"))
+      renderWrapper(onCloseMock)
+      fireEvent.click(screen.getByText(buttonText))
+      screen.getByText(modalText)
+      fireEvent.click(screen.getByTestId("modal-overlay"))
 
       expect(onCloseMock).toBeCalledTimes(1)
     })
@@ -111,11 +111,11 @@ describe("useModal", () => {
     const renderWrapper = () => render(<ComponentWithPortal />)
 
     it("renders the modal within the portal", () => {
-      const { getByTestId, getByText } = renderWrapper()
+      renderWrapper()
 
-      fireEvent.click(getByText(buttonText))
+      fireEvent.click(screen.getByText(buttonText))
 
-      expect(getByTestId("modal-wrapper")).toMatchSnapshot()
+      expect(screen.getByTestId("modal-wrapper")).toMatchSnapshot()
     })
   })
 })
