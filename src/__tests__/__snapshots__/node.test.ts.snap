@@ -422,7 +422,6 @@ Object {
       "1": 1,
       "auto": "auto",
       "card": 10,
-      "clearButton": 10,
       "dropdownMenu": 20,
       "flashMessage": 99,
       "intercom": 10,
