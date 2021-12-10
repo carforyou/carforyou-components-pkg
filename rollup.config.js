@@ -4,6 +4,7 @@ import dts from "rollup-plugin-dts"
 import typescript from "@rollup/plugin-typescript"
 import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
+import copy from 'rollup-plugin-copy'
 
 import packageJson from "./package.json"
 
@@ -34,6 +35,11 @@ export default [
         tsconfig: "./tsconfig.json",
         exclude: ["**/__tests__/**/*", "**/__mocks__/**/*", "src/stories/**/*"],
       }),
+      copy({
+        targets: [
+          { src: 'assets', dest: 'pkg' },
+        ]
+      })
     ],
   },
   {
