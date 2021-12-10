@@ -1,7 +1,8 @@
 import postcss from "rollup-plugin-postcss"
-import peerDepsExternal from "rollup-plugin-peer-deps-external"
+import external from "rollup-plugin-peer-deps-external"
 import dts from "rollup-plugin-dts"
 import typescript from "@rollup/plugin-typescript"
+import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 
 import packageJson from "./package.json"
@@ -21,20 +22,18 @@ export default [
         sourcemap: true,
       },
     ],
-    // external(),
-    //     resolve(),
-    //     commonjs(),
-    //     typescript({ tsconfig: './tsconfig.json' }),
-    //     postcss(),
-    //     terser()
     plugins: [
-      peerDepsExternal(),
+      external(), // todo: react
+      resolve(),
       postcss({
         extract: false,
         modules: true,
       }),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        exclude: ["**/__tests__/**/*", "**/__mocks__/**/*", "src/stories/**/*"],
+      }),
     ],
   },
   {

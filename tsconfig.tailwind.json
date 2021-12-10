@@ -1,7 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./.tailwind/"
+    "module": "commonjs",
+    "target": "es5",
+    "outDir": "./.tailwind/",
+    "declaration": false,
+    "declarationDir": null
   },
   "include": ["src/tailwind/**/*.ts"],
   "exclude": ["node_modules"]
