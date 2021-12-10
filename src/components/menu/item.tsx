@@ -3,7 +3,7 @@ import classNames from "classnames"
 
 import NotificationIcon from "../../assets/dist/icons/notification"
 
-interface Props {
+export interface Props {
   /**
    * title to be displayed
    */
