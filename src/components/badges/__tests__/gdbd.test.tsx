@@ -1,8 +1,8 @@
 import React from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
 
-import GdbdBadge from "../gdbd"
 import { DummyTooltip } from "./dummyTooltip"
+import GdbdBadge from "../gdbd"
 
 describe("<GdbdBadge>", () => {
   describe("english", () => {
