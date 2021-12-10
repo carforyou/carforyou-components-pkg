@@ -2,7 +2,7 @@ import React from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
 
 import ElectricBadge from "../electric"
-import { DummyTooltip } from "../../../stories/badges/dummyTooltip"
+import { DummyTooltip } from "./dummyTooltip"
 
 describe("<ElectricBadge>", () => {
   it("renders the badge in english", () => {
