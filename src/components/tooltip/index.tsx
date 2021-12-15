@@ -1,5 +1,5 @@
-import TooltipTrigger from "@carforyou/react-tooltip-lite"
 import React, { FC, ReactNode } from "react"
+import TooltipTrigger from "react-tooltip-lite"
 
 export enum TooltipPosition {
   up = "up",
