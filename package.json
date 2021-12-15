@@ -30,6 +30,7 @@
     "tailwindcss": "^2.2.4"
   },
   "dependencies": {
+    "@carforyou/react-tooltip-lite": "1.12.3",
     "classnames": "^2.2.6",
     "deepmerge": "^4.2.2",
     "downshift": "^6.0.0",
@@ -38,7 +39,6 @@
     "react-calendar": "^3.3.1",
     "react-paginate": "^7.1.5",
     "react-range": "^1.8.11",
-    "@carforyou/react-tooltip-lite": "1.12.3",
     "tailwindcss-gradients": "^2.0.0",
     "use-deep-compare-effect": "^1.4.0"
   },
@@ -60,8 +60,8 @@
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/react": "6.4.9",
     "@storybook/storybook-deployer": "2.8.10",
-    "@testing-library/react": "12.1.2",
     "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
     "@types/jest": "27.0.3",
     "@types/node": "14.18.0",
