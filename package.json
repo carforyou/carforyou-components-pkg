@@ -25,8 +25,8 @@
   "license": "MIT",
   "homepage": "https://github.com/carforyou/carforyou-components-pkg#readme",
   "peerDependencies": {
-    "react": ">=16.12.0",
-    "react-dom": ">=16.12.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
     "tailwindcss": "^2.2.4"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
     "react-calendar": "^3.3.1",
     "react-paginate": "^7.1.5",
     "react-range": "^1.8.11",
-    "react-tooltip-lite": "npm:@carforyou/react-tooltip-lite@1.12.1",
+    "@carforyou/react-tooltip-lite": "1.12.3",
     "tailwindcss-gradients": "^2.0.0",
     "use-deep-compare-effect": "^1.4.0"
   },
