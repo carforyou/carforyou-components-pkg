@@ -14,7 +14,6 @@
     "build:storybook": "npm run build:tailwind && build-storybook",
     "bundlesize": "bundlesize",
     "deploy": "storybook-to-ghpages",
-    "link": "./bin/link.sh",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

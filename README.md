@@ -99,10 +99,19 @@ npm run build
 You can link your local npm package to integrate it with any local project:
 
 ```
-npm run link -- <relative_path_to_project>
+cd carforyou-components-pkg
+npm run build
+
+cd carforyou-listings-web
+npm link ../carforyou-components-pkg/pkg
 ```
 
-This ensures that projects react is linked back to build package and prevents errors due to duplicate react instances.
+If this throws an [`Invalid hook call`](https://github.com/vercel/next.js/issues/9022) error when integrating with a next.js project, add the following to the webpack config:
+
+```
+config.resolve.alias["react"] = path.resolve(__dirname, "node_modules", "react")
+config.resolve.alias["react-dom"] = path.resolve(__dirname, "node_modules", "react-dom")
+```
 
 ## Guidelines
 
