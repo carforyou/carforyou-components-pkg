@@ -8,7 +8,7 @@ describe("tailwind", () => {
       expect(defaultConfig).toMatchSnapshot()
     })
     it("returns colors", () => {
-      expect(defaultConfig.theme.colors.salmon).toEqual("#F73B47")
+      expect(defaultConfig.theme.colors.salmon).toEqual("#f5f200")
     })
   })
 
@@ -33,7 +33,7 @@ describe("tailwind", () => {
         colorCount + 1
       )
       expect(mergedConfig.theme.colors.tuna).toEqual("#4E5154")
-      expect(mergedConfig.theme.colors.salmon).toEqual("#F73B47")
+      expect(mergedConfig.theme.colors.salmon).toEqual("#f5f200")
     })
 
     it("can extend objects for properties that extends colors", () => {
@@ -49,7 +49,7 @@ describe("tailwind", () => {
       )
 
       expect(mergedConfig.theme.borderColor.tuna).toEqual("#4E5154")
-      expect(mergedConfig.theme.borderColor.salmon).toEqual("#F73B47")
+      expect(mergedConfig.theme.borderColor.salmon).toEqual("#f5f200")
     })
 
     it("can extend arrays", () => {
