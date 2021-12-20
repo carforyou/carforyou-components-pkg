@@ -166,7 +166,7 @@ exports[`<Button> renders an icon inside a button with link as a child 1`] = `
     class="flex flex-col"
   >
     <div
-      class="flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none"
+      class="flex w-12/12 justify-center items-center text-center text-black leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none"
     >
       <a
         class="w-12/12 hover:opacity-100 flex flex-col"
