@@ -85,7 +85,7 @@ export const Button: FC<Props> = ({
             ? { type: submit ? "submit" : "button" }
             : {}),
           className: classnames(
-            "flex w-12/12 justify-center items-center text-center text-white leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none",
+            "flex w-12/12 justify-center items-center text-center text-black leading-xs transition duration-200 cursor-pointer font-bold text-base focus:outline-none",
             {
               [buttonClasses]: !isWrapped,
             }
