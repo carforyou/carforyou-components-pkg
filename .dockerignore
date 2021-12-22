@@ -1,0 +1,7 @@
+pkg
+node_modules
+.storybook/tailwind
+/.tailwind/
+src/assets/dist
+.circleci
+Dockerfile

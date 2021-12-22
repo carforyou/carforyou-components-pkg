@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "CAR FOR YOU React components",
   "scripts": {
+    "start": "http-server ./storybook-static -p 8008",
     "version": "npm run build",
     "dev": "npm run build:tailwind && npm run build:assets && start-storybook -s ./public -p 6006",
     "test": "jest",
@@ -66,6 +67,7 @@
     "autoprefixer": "10.4.0",
     "bundlesize": "0.18.1",
     "eslint": "8.5.0",
+    "http-server": "14.0.0",
     "jest": "27.3.1",
     "postcss": "8.3.11",
     "postcss-easy-import": "3.0.0",
