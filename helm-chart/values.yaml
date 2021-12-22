@@ -1,0 +1,27 @@
+replicaCount: 1
+
+name: carforyou-components-pkg
+
+deployment:
+  strategy: Recreate
+  port: 8008
+
+image:
+  repository: 309103291696.dkr.ecr.eu-central-1.amazonaws.com/frontend/carforyou-components-pkg
+  tag: latest
+
+service:
+  port: 80
+
+ingress:
+  basic_auth: true
+  basic_auth_external_secret: false
+  basic_auth_users: Y2FyZm9yeW91OiRhcHIxJFFSQ3M5Q0N1JC5QY04uR2lwcU5ibWpGTHBha2lJUS8K # carforyou user
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 500M
+  requests:
+    cpu: 250m
+    memory: 200M

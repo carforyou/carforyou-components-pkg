@@ -1,0 +1,37 @@
+{{- $name := .Values.name -}}
+{{- $service_port := .Values.service.port -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: {{ .Values.namespace }}
+  name: {{ $name }}
+  annotations:
+    {{- if .Values.ingress.basic_auth }}
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: carforyou-components-pkg-basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required - carforyou"
+
+    # WARN: an invalid nginx directive may crash the ingress of the whole kubernetes cluster, please make triple sure your changes are valid
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      # whitelist office IPs (everything else uses basic-auth)
+      satisfy any;
+      allow 77.109.147.226; # bluecat_team (Altstetten)
+      allow 77.109.147.227; # bluecat_guest (Altstetten)
+      allow 178.83.153.152; # CarForYou (Stadelhofen)
+      allow 77.46.152.66; # Interventure-GUEST (Belgrade)
+      allow 77.46.152.66; # IV office 1 (open space)
+      allow 79.101.22.150; # IV office 2 (other building)
+      deny all;
+    {{- end }}
+
+spec:
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . | quote }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ $name }}
+              servicePort: {{ $service_port }}
+  {{- end }}
