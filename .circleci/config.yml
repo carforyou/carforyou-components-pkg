@@ -7,6 +7,15 @@ docker: &DOCKER_NODE
   docker:
     - image: cimg/node:16.13.1
 
+bob_the_builder: &BOB_THE_BUILDER
+  docker:
+    - image: 309103291696.dkr.ecr.eu-central-1.amazonaws.com/platform/bob-the-builder:master
+
+  environment:
+    AWS_DEFAULT_REGION: eu-central-1
+    DOCKER_REPOSITORY: 309103291696.dkr.ecr.eu-central-1.amazonaws.com
+    DOCKER_NAMESPACE: frontend
+
 jobs:
   install:
     <<: *DOCKER_NODE
@@ -100,6 +109,33 @@ jobs:
       - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
       - slack/notify-on-failure:
           only_for_branches: master
+  
+  docker_build:
+    <<: *BOB_THE_BUILDER
+    resource_class: small
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+          version: 20.10.7
+      - run: /build/build.sh
+      - run: /push/push.sh
+      - slack/notify-on-failure:
+          only_for_branches: master
+
+  deploy_branch:
+    <<: *BOB_THE_BUILDER
+    resource_class: small
+    steps:
+      - checkout
+      - run: STAGE_NAME=branch /deploy/deploy.sh
+      - run: STAGE_NAME=branch /deploy/branch_deployment_url.sh > deployment-url
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - deployment-url
+      - slack/notify-on-failure:
+          only_for_branches: master
 
 workflows:
   version: 2
@@ -150,3 +186,9 @@ workflows:
           filters:
             branches:
               ignore: master
+
+      - docker_build
+
+      - deploy_branch:
+          requires:
+            - docker_build
