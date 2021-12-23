@@ -17,7 +17,6 @@ metadata:
       satisfy any;
       allow 77.109.147.226; # bluecat_team (Altstetten)
       allow 77.109.147.227; # bluecat_guest (Altstetten)
-      allow 178.83.153.152; # CarForYou (Stadelhofen)
       allow 77.46.152.66; # Interventure-GUEST (Belgrade)
       allow 77.46.152.66; # IV office 1 (open space)
       allow 79.101.22.150; # IV office 2 (other building)
