@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import Asterisk from "../../components/asterisk"
+import Asterisk from "../../../src/components/asterisk"
 
 interface Props {
   name: string

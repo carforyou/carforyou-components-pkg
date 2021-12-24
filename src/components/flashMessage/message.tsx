@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from "react"
 
 import { FlashMessageType } from "./context"
 import AlertMessage from "../alertMessage"
-import CloseIcon from "../../assets/dist/icons/closeS"
+import CloseIcon from "../../../src/assets/dist/icons/closeS"
 
 interface Props {
   content: ReactNode

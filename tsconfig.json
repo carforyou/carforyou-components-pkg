@@ -8,6 +8,6 @@
     "baseUrl": "src",
     "esModuleInterop": true
   },
-  "include": ["typings.d.ts", "src/**/*"],
+  "include": ["typings.d.ts", "src/**/*", ".storybook/stories"],
   "exclude": ["node_modules"]
 }

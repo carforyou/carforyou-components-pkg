@@ -2,9 +2,9 @@ import React, { FC } from "react"
 
 import classNames from "classnames"
 
-import useModal from "../../hooks/useModal"
-import Asterisk from "../../components/asterisk"
-import InfoIcon from "../../assets/dist/icons/info"
+import useModal from "../../../src/hooks/useModal"
+import Asterisk from "../../../src/components/asterisk"
+import InfoIcon from "../../../src/assets/dist/icons/info"
 
 interface Props {
   name: string

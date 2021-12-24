@@ -10,7 +10,7 @@ import HintText from "./fieldHelpers/hintText"
 import Dropdown, { DropdownProps } from "./dropdown/index"
 import DropdownWithAutosuggest, {
   DropdownWithAutosuggestProps,
-} from "../components/dropdown/withAutosuggest"
+} from "../../src/components/dropdown/withAutosuggest"
 
 interface BaseProps<T> {
   name: string

@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import ClockOutlinedTealIcon from "../assets/dist/icons/clockOutlinedTeal"
+import ClockOutlinedTealIcon from "../../src/assets/dist/icons/clockOutlinedTeal"
 
 interface Props {
   /**

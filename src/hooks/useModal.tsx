@@ -8,7 +8,7 @@ import Modal, {
   ModalOverflow,
   ModalSize,
   ModalStyle,
-} from "../components/modal/index"
+} from "../../src/components/modal/index"
 
 export interface UseModalOptions {
   size?: ModalSize

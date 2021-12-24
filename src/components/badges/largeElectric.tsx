@@ -2,7 +2,7 @@ import React, { FC } from "react"
 
 import { BadgeProps } from "./types"
 import BaseBadge from "./base"
-import ElectricIcon from "../../assets/dist/electric"
+import ElectricIcon from "../../../src/assets/dist/electric"
 
 export const LargeElectricBadge: FC<BadgeProps> = ({
   language,

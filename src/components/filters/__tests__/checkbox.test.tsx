@@ -2,7 +2,7 @@ import React from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
 
 import CheckboxFilter from "../checkbox"
-import ClockOutlinedTealIcon from "../../../assets/dist/icons/clockOutlinedTeal"
+import ClockOutlinedTealIcon from "../../../../src/assets/dist/icons/clockOutlinedTeal"
 
 const renderWrapper = ({
   name = "testFilter",

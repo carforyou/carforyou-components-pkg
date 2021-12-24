@@ -1,7 +1,7 @@
 import ReactPaginate from "react-paginate"
 import React, { StatelessComponent } from "react"
 
-import ArrowDownMIcon from "../assets/dist/icons/arrowDownMCrop"
+import ArrowDownMIcon from "../../src/assets/dist/icons/arrowDownMCrop"
 
 interface Props {
   pageCount: number

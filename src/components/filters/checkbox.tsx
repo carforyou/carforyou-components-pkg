@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from "react"
 
 import { formatNumber } from "../../lib/formattingHelper"
 
-import Checkbox from "../../components/checkbox"
+import Checkbox from "../../../src/components/checkbox"
 
 interface Item {
   value: string | number
