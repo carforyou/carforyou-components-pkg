@@ -1,5 +1,3 @@
-const greenDark = "#149246"
-
 export default {
   black: "#000000",
   white: "#FFFFFF",
@@ -28,8 +26,8 @@ export default {
   "high-deal": "#E34A15",
   "fair-deal": "#EAA403",
   "good-deal": "#81B040",
-  "great-deal": greenDark,
-  "green-dark": greenDark,
+  "great-deal": "#149246",
+  "green-dark": "#149246",
   "not-defined": "#A0A7AB",
   yellow: "#FCB001",
   "yellow-light": "#FEEFCC",

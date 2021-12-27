@@ -1,4 +1,3 @@
-import TransformPlugin from "./plugins/transform"
 import colors from "./colors"
 /*
 Tailwind - The Utility-First CSS Framework
@@ -427,13 +426,6 @@ export default {
       floatingLabelInputFocused: "12px",
     },
 
-    customRotate: {
-      "90": "90deg",
-      "180": "180deg",
-      "270": "270deg",
-      "360": "360deg",
-    },
-
     /*
     |-----------------------------------------------------------------------------
     | Spacing                    https://tailwindcss.com/docs/customizing-spacing
@@ -603,6 +595,4 @@ export default {
     borderOpacity: false,
     placeholderOpacity: false,
   },
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [TransformPlugin],
 }
