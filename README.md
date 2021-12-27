@@ -18,8 +18,8 @@ module.exports = tailwind.withDefaultConfig({ colors: { "tuna": "#4E5154" } })
 In your `next.config.js`, add the components paths to the purgecss paths, so the component libraries classnames don't get stripped:
 
 ```
-const components = require("@carforyou/components").default
-purgeCssPaths.concat(components.getComponentPaths())
+const glob = require("glob")
+glob.sync("node_modules/@carforyou/components/pkg/**/*.js")
 ```
 
 You can also access the base config directly if you need to:
@@ -103,7 +103,7 @@ cd carforyou-components-pkg
 npm run build
 
 cd carforyou-listings-web
-npm link ../carforyou-components-pkg/pkg
+npm link ../carforyou-components-pkg
 ```
 
 If this throws an [`Invalid hook call`](https://github.com/vercel/next.js/issues/9022) error when integrating with a next.js project, add the following to the webpack config:
