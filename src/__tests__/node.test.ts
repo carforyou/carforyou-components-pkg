@@ -51,12 +51,5 @@ describe("tailwind", () => {
       expect(mergedConfig.theme.borderColor.tuna).toEqual("#4E5154")
       expect(mergedConfig.theme.borderColor.salmon).toEqual("#F73B47")
     })
-
-    it("can extend arrays", () => {
-      const pluginCount = Object.keys(defaultConfig.plugins).length
-      const mergedConfig = withDefaultConfig({ plugins: [jest.fn()] })
-
-      expect(Object.keys(mergedConfig.plugins)).toHaveLength(pluginCount + 1)
-    })
   })
 })

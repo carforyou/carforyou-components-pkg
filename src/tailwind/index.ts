@@ -33,6 +33,7 @@ export interface TailwindTheme {
   zIndex?: { [key: string]: string | number }
   svgFill?: { [key: string]: string }
   svgStroke?: { [key: string]: string }
+  variants?: { [key: string]: string[] }
 }
 
 export interface TailwindConfig {
