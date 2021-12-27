@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint --ext ts,js,tsx,jsx,json .",
     "format": "npm run lint -- --fix",
-    "build": "npm run build:tailwind && npm run build:assets && npm run build:pkg",
+    "build": "npm run build:assets && npm run build:pkg",
     "build:pkg": "rimraf pkg && rollup -c && tsc --declaration --declarationDir pkg/types --emitDeclarationOnly",
     "build:tailwind": "rimraf .tailwind && tsc --project tsconfig.tailwind.json",
     "build:assets": "npx cfy-assets build",

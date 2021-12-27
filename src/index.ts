@@ -1,3 +1,4 @@
+import { defaultConfig, withDefaultConfig } from "./tailwind"
 import useModal from "./hooks/useModal"
 import Tooltip, {
   TooltipAlignment,
@@ -104,3 +105,5 @@ export {
   FlashMessagesProvider,
   FlashMessages,
 }
+
+export const tailwind = { withDefaultConfig, defaultConfig }

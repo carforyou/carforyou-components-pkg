@@ -1,6 +1,6 @@
-import components from "../node"
+import { tailwind } from "../index"
 
-const { withDefaultConfig, defaultConfig } = components.tailwind
+const { withDefaultConfig, defaultConfig } = tailwind
 
 describe("tailwind", () => {
   describe("defaultConfig", () => {
