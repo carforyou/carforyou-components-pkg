@@ -519,28 +519,6 @@ export default {
       intercom: 10,
       flashMessage: 99,
     },
-
-    /*
-    |-----------------------------------------------------------------------------
-    | Gradients                  https://github.com/benface/tailwindcss-gradients
-    |-----------------------------------------------------------------------------
-    |
-    | Class name: .bg-gradient-{direction}-{color}
-    |
-    */
-    linearGradients: (theme) => ({
-      directions: {
-        "to-top": "to top",
-        "to-right": "to right",
-        "to-bottom": "to bottom",
-        "to-left": "to left",
-      },
-      colors: {
-        fade: ["rgba(255,255,255,0) 90%", "rgba(255,255,255,1) 100%"],
-        grey: [theme("colors")["grey-bright"], `${theme("colors").white} 20%`],
-        black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"],
-      },
-    }),
   },
 
   variants: {
@@ -626,5 +604,5 @@ export default {
     placeholderOpacity: false,
   },
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [TransformPlugin, require("tailwindcss-gradients")()],
+  plugins: [TransformPlugin],
 }
