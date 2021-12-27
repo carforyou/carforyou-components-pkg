@@ -1,6 +1,8 @@
+const tailwindConfig = require("./.tailwind/defaultConfig").default
+
 module.exports = {
-  plugins: {
-    "postcss-easy-import": {},
-    "tailwindcss": {}
-  },
+  plugins: [
+    require('postcss-import'),
+    require('tailwindcss')(tailwindConfig),
+  ]
 }

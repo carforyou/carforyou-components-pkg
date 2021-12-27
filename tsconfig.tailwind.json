@@ -1,27 +1,10 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
+    "outDir": "./.tailwind/",
+        "module": "commonjs",
     "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
-    "jsx": "react",
-    "rootDirs": ["src"],
-    "baseUrl": "src",
-    "esModuleInterop": true
   },
   "include": ["src/tailwind/**/*.ts"],
   "exclude": ["node_modules"]
 }
-
-// {
-//   "compilerOptions": {
-//     "module": "commonjs",
-//     "target": "es5",
-//     "lib": ["es5", "es6", "es7", "es2017", "dom"],
-//     "jsx": "react",
-//     "rootDirs": ["src"],
-//     "baseUrl": "src",
-//     "esModuleInterop": true
-//   },
-//   "include": ["typings.d.ts", "src/**/*"],
-//   "exclude": ["node_modules"]
-// }
