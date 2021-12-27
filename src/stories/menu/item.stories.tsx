@@ -4,14 +4,12 @@ import { action } from "@storybook/addon-actions"
 import { StoryProps } from "../storyProps"
 import StoryContainer from "../storyContainer"
 import MenuItem, { MenuItemProps } from "../../components/menu/item"
-import ProfileIcon from "../../assets/dist/icons/profile"
 
 export default {
   title: "Menu/Item",
   component: MenuItem,
   args: {
     title: "Menu item",
-    IconComponent: ProfileIcon,
     onClick: action("on click menu item"),
     url: "https://example.com",
     active: false,
@@ -25,7 +23,7 @@ export default {
   },
 }
 
-interface Props extends StoryProps<unknown>, MenuItemProps {
+export interface Props extends StoryProps<unknown>, MenuItemProps {
   text: string
 }
 
