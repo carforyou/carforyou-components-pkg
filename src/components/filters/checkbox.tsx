@@ -10,7 +10,7 @@ interface Item {
   renderIcon?: () => ReactNode
 }
 
-interface Props {
+export interface Props {
   name: string
   options: Item[]
   apply: (filtersToApply) => void

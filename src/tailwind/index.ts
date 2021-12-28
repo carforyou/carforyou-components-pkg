@@ -1,8 +1,8 @@
-import merge_ from "deepmerge"
+import merge from "deepmerge"
 
-import defaultConfig from "./defaultConfig"
-
-const mergeDeep = merge_
+// eslint-disable-next-line import/no-internal-modules
+import * as _theme from "./theme/index"
+const defaultTheme = _theme.default
 
 export interface TailwindTheme {
   screens?: { [key: string]: string }
@@ -33,41 +33,31 @@ export interface TailwindTheme {
   zIndex?: { [key: string]: string | number }
   svgFill?: { [key: string]: string }
   svgStroke?: { [key: string]: string }
-  variants?: { [key: string]: string[] }
 }
 
-export interface TailwindConfig {
-  theme?: TailwindTheme
-  options?: { [key: string]: string | number | boolean }
-  modules?: { [key: string]: string[] }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  plugins?: any[]
-}
-
-const resolveConfig = (config) => {
+const resolveConfig = (): TailwindTheme => {
   const theme = {}
 
   const getKey = (key) => {
-    return defaultConfig.theme[key]
+    return defaultTheme[key]
   }
 
-  for (const conf in config.theme) {
-    if (Object.prototype.hasOwnProperty.call(config.theme, conf)) {
+  for (const conf in defaultTheme) {
+    if (Object.prototype.hasOwnProperty.call(defaultTheme, conf)) {
       theme[conf] =
-        typeof config.theme[conf] === "function"
-          ? config.theme[conf](getKey)
-          : config.theme[conf]
+        typeof defaultTheme[conf] === "function"
+          ? defaultTheme[conf](getKey)
+          : defaultTheme[conf]
     }
   }
 
-  return { ...config, theme }
+  return theme
 }
 
-const resolvedConfig: TailwindConfig = resolveConfig(defaultConfig)
+const resolvedTheme: TailwindTheme = resolveConfig()
 
-const withDefaultConfig = (customConfig: TailwindConfig) => {
-  const customTheme = resolveConfig(customConfig)
-  return mergeDeep(resolvedConfig, customTheme || {})
+const withDefaultTheme = (customTheme: TailwindTheme) => {
+  return merge(resolvedTheme, customTheme || {})
 }
 
-export { withDefaultConfig, resolvedConfig as defaultConfig }
+export { withDefaultTheme, resolvedTheme as defaultTheme }

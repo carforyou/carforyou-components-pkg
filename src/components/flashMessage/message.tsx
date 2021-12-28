@@ -4,7 +4,7 @@ import { FlashMessageType } from "./context"
 import AlertMessage from "../alertMessage"
 import CloseIcon from "../../assets/dist/icons/closeS"
 
-interface Props {
+export interface Props {
   content: ReactNode
   type: FlashMessageType
   remove: () => void

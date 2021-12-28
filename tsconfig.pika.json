@@ -4,8 +4,9 @@
     "module": "esnext",
     "jsx": "react",
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowJs": true
   },
-  "include": ["typings.d.ts", "src/index.ts", "src/node.ts"],
+  "include": ["typings.d.ts", "src/index.ts", "src/node.ts", "src/**/*.js"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }

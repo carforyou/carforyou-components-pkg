@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 @import "./global.css";
 @import "./customScrollbar.css";
 @import "./pagination.css";
@@ -5,3 +6,4 @@
 @import "./spinner.css";
 @import "./tooltip.css";
 @import "./card.css";
+/* purgecss end ignore */

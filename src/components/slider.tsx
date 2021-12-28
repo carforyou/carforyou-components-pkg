@@ -3,7 +3,9 @@ import React, { FC, useState } from "react"
 
 import InputFilter from "./filters/input"
 import Label from "./fieldHelpers/label"
-import colors from "../tailwind/colors"
+// eslint-disable-next-line import/no-internal-modules
+import * as _colors from "../tailwind/theme/colors"
+const colors = _colors.default
 
 interface Props {
   step: number

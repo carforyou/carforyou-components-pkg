@@ -11,8 +11,8 @@ npm install @carforyou/components
 In your `tailwind.config.js`, merge your custom configs with the base configuration:
 
 ```
-const { tailwind } = require("@carforyou/components").default
-module.exports = tailwind.withDefaultConfig({ colors: { "tuna": "#4E5154" } })
+const { tailwind } = require("@carforyou/components")
+module.exports = { theme: tailwind.withDefaultTheme({ colors: { "tuna": "#4E5154" } }) }
 ```
 
 In your `next.config.js`, add the components paths to the purgecss paths, so the component libraries classnames don't get stripped:
@@ -22,13 +22,11 @@ const components = require("@carforyou/components").default
 purgeCssPaths.concat(components.getComponentPaths())
 ```
 
-You can also access the base config directly if you need to:
-
-Note: Be careful with loading the tailwind configuration, as tailwind uses [lodash](https://bundlephobia.com/result?p=lodash), which might significantly increase your bundle size.
+You can also access the base config directly if you need to (consider doing this only server-side for the sake of the bundle size):
 
 ```
 import { tailwind } from "@carforyou/components"
-tailwind.defaultConfig.colors.salmon
+tailwind.defaultTheme.colors.salmon
 ```
 
 Then, you can start using the shared React components:
@@ -43,12 +41,14 @@ In order for the components being styled correctly, *your project will need to b
 @import '@carforyou/components/assets/index.css';
 ```
 
+The CSS files provided are considered raw. It's up to the application to do optimizations such as purging and autoprefixing.
+
 ## Setup tailwind in a next.js project
 
 The following describes the very minimal setup required in a vanilla next.js project with **tailwindcss@0.6.1**
 
 ```
-npm install tailwindcss@0.6.1 postcss-easy-import @zeit/next-css --save-dev
+npm install tailwindcss postcss-easy-import --save-dev
 ```
 
 `tailwind.css`:
@@ -64,13 +64,6 @@ Import this CSS file in `_app`:
 import "../tailwind.css";
 ```
 
-`next.config.js`:
-
-```
-const withCSS = require("@zeit/next-css");
-module.exports = withCSS();
-```
-
 `postcss.config.js`
 
 ```
@@ -79,8 +72,6 @@ module.exports = {
   plugins: [require("postcss-easy-import"), require("tailwindcss")(tailwindConfig), require("autoprefixer")]
 };
 ```
-
-Set up a `tailwind.config.js` as described above.
 
 ## Development
 

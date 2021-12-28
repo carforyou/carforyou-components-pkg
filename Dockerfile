@@ -7,7 +7,6 @@ ADD package.json package-lock.json /app/
 RUN npm ci
 ADD . /app
 
-RUN npm run build:tailwind
 RUN npm run build:assets
 RUN npm run build:storybook
 

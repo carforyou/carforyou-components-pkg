@@ -1,4 +1,4 @@
-const tailwindConfig = require("./.tailwind/defaultConfig").default
+const tailwindConfig = require("./tailwind.config.cjs")
 
 module.exports = {
   plugins: [

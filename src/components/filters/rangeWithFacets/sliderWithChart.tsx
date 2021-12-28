@@ -5,7 +5,9 @@ import RangeFilterScale, { RangeElement } from "./rangeFilterScale"
 
 import Chart from "./chart"
 
-import colors from "../../../tailwind/colors"
+// eslint-disable-next-line import/no-internal-modules
+import * as _colors from "../../../tailwind/theme/colors"
+const colors = _colors.default
 
 import { ChangeCallback, NumericMinMaxValue } from "./index"
 

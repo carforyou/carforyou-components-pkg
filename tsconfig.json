@@ -6,7 +6,8 @@
     "jsx": "react",
     "rootDirs": ["src"],
     "baseUrl": "src",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowJs": true
   },
   "include": ["typings.d.ts", "src/**/*"],
   "exclude": ["node_modules"]
