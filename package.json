@@ -89,7 +89,8 @@
       "export": "./pkg/esm/index.js",
       "default": "./pkg/esm/index.js"
     },
-    "./node": "./pkg/cjs/node.js"
+    "./node": "./pkg/cjs/node.js",
+    "./index.css": "./pkg/assets/index.css"
   },
   "types": "pkg/types/index.d.ts",
   "typesVersions": {
