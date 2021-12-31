@@ -28,7 +28,7 @@ export default [
         tsconfig: "./tsconfig.json",
         exclude: ["**/__*__/**/*"],
       }),
-    ]
+    ],
   },
   {
     input: "src/index.ts",

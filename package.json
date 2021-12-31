@@ -94,7 +94,9 @@
   "types": "pkg/types/index.d.ts",
   "typesVersions": {
     "*": {
-      "./node": [ "pkg/types/node.d.ts" ]
+      "./node": [
+        "pkg/types/node.d.ts"
+      ]
     }
   },
   "files": [
