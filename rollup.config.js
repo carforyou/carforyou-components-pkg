@@ -13,6 +13,24 @@ const external = [
 
 export default [
   {
+    input: "src/node.ts",
+    output: [
+      {
+        dir: dirname(packageJson.main),
+        format: "cjs",
+        sourcemap: true,
+      },
+    ],
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        exclude: ["**/__*__/**/*"],
+      }),
+    ]
+  },
+  {
     input: "src/index.ts",
     output: [
       {

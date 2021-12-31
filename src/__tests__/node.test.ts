@@ -1,4 +1,4 @@
-import { tailwind } from "../index"
+import { tailwind } from "../node"
 
 const { withDefaultConfig, defaultConfig } = tailwind
 

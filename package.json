@@ -9,8 +9,9 @@
     "test": "jest",
     "lint": "eslint --ext ts,js,tsx,jsx,json .",
     "format": "npm run lint -- --fix",
-    "build": "npm run build:assets && npm run build:pkg",
-    "build:pkg": "rimraf pkg && rollup -c && tsc --declaration --declarationDir pkg/types --emitDeclarationOnly",
+    "build": "npm run build:tailwind && npm run build:assets && npm run build:pkg",
+    "build:pkg": "rimraf pkg && rollup -c && npm run build:types",
+    "build:types": "tsc --declaration --declarationDir pkg/types --emitDeclarationOnly",
     "build:tailwind": "rimraf .tailwind && tsc --project tsconfig.tailwind.json",
     "build:assets": "npx cfy-assets build",
     "build:storybook": "npm run build:tailwind && build-storybook",
@@ -82,9 +83,20 @@
     "ts-jest": "27.0.7",
     "typescript": "4.3.5"
   },
-  "main": "pkg/cjs/index.js",
-  "module": "pkg/esm/index.js",
-  "types": "pkg/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./pkg/cjs/index.js",
+      "export": "./pkg/esm/index.js",
+      "default": "./pkg/esm/index.js"
+    },
+    "./node": "./pkg/cjs/node.js"
+  },
+  "types": "pkg/types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "./node": [ "pkg/types/node.d.ts" ]
+    }
+  },
   "files": [
     "pkg/**/*"
   ]
