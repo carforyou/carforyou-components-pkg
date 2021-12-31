@@ -42,7 +42,7 @@ jobs:
           at: ~/
       - run: npm ls
       - run: npm run build
-      - run: npm run build:storybook
+      # - run: npm run build:storybook
       - run: npm run bundlesize
       - persist_to_workspace:
           root: ~/
@@ -109,7 +109,7 @@ jobs:
       - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
       - slack/notify-on-failure:
           only_for_branches: master
-  
+
   docker_build:
     <<: *BOB_THE_BUILDER
     resource_class: small
