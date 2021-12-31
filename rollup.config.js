@@ -16,7 +16,7 @@ export default [
     input: "src/node.ts",
     output: [
       {
-        dir: dirname(packageJson.main),
+        file: packageJson.exports["./node"],
         format: "cjs",
         sourcemap: true,
       },
@@ -34,12 +34,12 @@ export default [
     input: "src/index.ts",
     output: [
       {
-        file: packageJson.main,
+        file: packageJson.exports["."].require,
         format: "cjs",
         sourcemap: true,
       },
       {
-        dir: dirname(packageJson.module),
+        dir: dirname(dirname(packageJson.exports["."].export)),
         format: "esm",
         sourcemap: true,
         preserveModules: true,
