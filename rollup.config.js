@@ -39,7 +39,7 @@ export default [
         sourcemap: true,
       },
       {
-        dir: dirname(dirname(packageJson.exports["."].export)),
+        dir: dirname(packageJson.exports["."].export),
         format: "esm",
         sourcemap: true,
         preserveModules: true,
