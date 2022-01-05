@@ -42,7 +42,7 @@ jobs:
           at: ~/
       - run: npm ls
       - run: npm run build
-      # - run: npm run build:storybook
+      - run: npm run build:storybook
       - run: npm run bundlesize
       - persist_to_workspace:
           root: ~/

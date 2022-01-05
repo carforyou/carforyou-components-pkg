@@ -1,29 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const glob = require("glob")
-
-const purgeCssPaths = glob
-.sync("./src/components/**/*", {
-  ignore: "**/__*__/**",
-  nodir: true,
-})
-
-const tailwindExtractor = (content) => {
-  return content.match(/[A-Za-z0-9-_:/]+(?<!:)/g) || []
-}
+const tailwindConfig = require("../.tailwind/defaultConfig").default
 
 module.exports = {
-  plugins: {
-    'postcss-import': {},
-    tailwindcss: {},
-    // "@fullhuman/postcss-purgecss": {
-    //   content: purgeCssPaths,
-    //   extractors: [
-    //     {
-    //       extensions: ["jsx", "tsx", "js", "ts"],
-    //       extractor: tailwindExtractor,
-    //     },
-    //   ],
-    // },
-    // autoprefixer: {},
-  },
+  plugins: [require("postcss-import"), require("tailwindcss")(tailwindConfig), require("autoprefixer")],
 }
