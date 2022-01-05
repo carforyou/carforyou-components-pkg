@@ -1,4 +1,4 @@
-import { withDefaultConfig, defaultConfig } from "../index"
+import { defaultConfig, withDefaultConfig } from "../index"
 
 describe("tailwind", () => {
   describe("defaultConfig", () => {
