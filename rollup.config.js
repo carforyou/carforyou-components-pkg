@@ -1,6 +1,6 @@
 import postcss from "rollup-plugin-postcss"
 import copy from "rollup-plugin-copy"
-import { dirname , basename} from "path"
+import { dirname } from "path"
 import typescript from "@rollup/plugin-typescript"
 import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
@@ -16,13 +16,13 @@ export default [
     input: "src/index.ts",
     output: [
       {
-        dir: "pkg/cjs",
+        dir: dirname(packageJson.main),
         format: "cjs",
         sourcemap: true,
         exports: "named",
       },
       {
-        dir: "pkg/esm",
+        dir: dirname(packageJson.exports),
         format: "esm",
         sourcemap: true,
         preserveModules: true,
@@ -42,9 +42,7 @@ export default [
         modules: true,
       }),
       copy({
-        targets: [
-          { src: "src/assets/dist/**/*", dest: "pkg" },
-        ],
+        targets: [{ src: "src/assets/dist/**/*", dest: "pkg" }],
         flatten: false,
       }),
     ],
