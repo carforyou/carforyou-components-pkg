@@ -1,4 +1,5 @@
 import postcss from "rollup-plugin-postcss"
+import dts from "rollup-plugin-dts"
 import copy from "rollup-plugin-copy"
 import { dirname } from "path"
 import typescript from "@rollup/plugin-typescript"
@@ -45,6 +46,7 @@ export default [
         targets: [{ src: "src/assets/dist/**/*", dest: "pkg" }],
         flatten: false,
       }),
+      dts(),
     ],
     external,
   },
