@@ -1,6 +1,6 @@
 import postcss from "rollup-plugin-postcss"
 import copy from "rollup-plugin-copy"
-import { dirname } from "path"
+import { dirname , basename} from "path"
 import typescript from "@rollup/plugin-typescript"
 import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
@@ -13,37 +13,21 @@ const external = [
 
 export default [
   {
-    input: "src/node.ts",
-    output: [
-      {
-        file: packageJson.exports["./node"],
-        format: "cjs",
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      resolve(),
-      commonjs(),
-      typescript({
-        tsconfig: "./tsconfig.json",
-        exclude: ["**/__*__/**/*"],
-      }),
-    ],
-  },
-  {
     input: "src/index.ts",
     output: [
       {
-        file: packageJson.exports["."].require,
+        dir: "pkg/cjs",
         format: "cjs",
         sourcemap: true,
+        exports: "named",
       },
       {
-        dir: dirname(packageJson.exports["."].export),
+        dir: "pkg/esm",
         format: "esm",
         sourcemap: true,
         preserveModules: true,
         preserveModulesRoot: "src",
+        exports: "named",
       },
     ],
     plugins: [
@@ -59,7 +43,6 @@ export default [
       }),
       copy({
         targets: [
-          { src: "assets", dest: "pkg" },
           { src: "src/assets/dist/**/*", dest: "pkg" },
         ],
         flatten: false,
