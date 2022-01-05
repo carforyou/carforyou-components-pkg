@@ -22,7 +22,7 @@ export default [
         exports: "named",
       },
       {
-        dir: dirname(packageJson.exports),
+        dir: dirname(packageJson.module),
         format: "esm",
         sourcemap: true,
         preserveModules: true,
