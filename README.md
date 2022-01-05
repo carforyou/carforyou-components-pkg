@@ -45,10 +45,10 @@ In order for the components being styled correctly, *your project will need to b
 
 ## Setup tailwind in a next.js project
 
-The following describes the very minimal setup required in a vanilla next.js project with **tailwindcss@0.6.1**
+The following describes the very minimal setup required in a vanilla next.js project
 
 ```
-npm install tailwindcss@0.6.1 postcss-easy-import @zeit/next-css --save-dev
+npm install tailwindcss postcss-import --save-dev
 ```
 
 `tailwind.css`:
