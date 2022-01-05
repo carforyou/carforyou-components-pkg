@@ -14,7 +14,6 @@
     "build:assets": "npx cfy-assets build",
     "build:storybook": "npm run build:tailwind && build-storybook",
     "bundlesize": "bundlesize",
-    "deploy": "storybook-to-ghpages",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
