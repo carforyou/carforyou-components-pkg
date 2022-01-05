@@ -1,19 +1,11 @@
 require("../assets/index.css")
 require("./stories.css")
 
+const tailwindConfig = require("../.tailwind/defaultConfig").default
+
 import { addParameters } from '@storybook/react';
 
-const screens = {
-  xxs: '375px',
-  xs: '480px',
-  sm: '576px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-  xxl: '1920px'
-}
-
-const customViewports = Object.entries(screens).reduce((acc, [key, value]) => {
+const customViewports = Object.entries(tailwindConfig.theme.screens).reduce((acc, [key, value]) => {
   acc[key] = {
     name: key,
     styles: {
