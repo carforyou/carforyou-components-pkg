@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react"
+import React, { FC, useRef, useState } from "react"
 
 import Input from "../input/index"
 
@@ -38,10 +38,6 @@ const InputFilter: FC<Props> = ({
 }) => {
   const [refocus, setRefocus] = useState(false)
   const inputRef = useRef()
-
-  useEffect(() => {
-    ;(inputRef.current as HTMLInputElement).value = initialValue
-  }, [initialValue])
 
   const onFocus = (event) => {
     event.persist()
