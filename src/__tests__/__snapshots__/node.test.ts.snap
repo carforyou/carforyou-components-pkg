@@ -58,7 +58,6 @@ Object {
       "top": "top",
     },
     "backgroundSize": Object {
-      "auto": "auto",
       "contain": "contain",
       "cover": "cover",
     },
@@ -118,7 +117,6 @@ Object {
     },
     "boxShadow": Object {
       "DEFAULT": "0 2px 4px 0 rgba(0,0,0,0.10)",
-      "focus": "0px 0px 1px 2px rgba(54, 150, 185, 0.6)",
       "hard": "0 4px 18px 0 rgba(35,42,54,0.4)",
       "harder": "0 0 18px 0 rgba(35,42,54,0.8)",
       "none": "none",
@@ -162,7 +160,6 @@ Object {
     "customRotate": Object {
       "180": "180deg",
       "270": "270deg",
-      "360": "360deg",
       "90": "90deg",
     },
     "divideColor": [Function],
@@ -178,10 +175,8 @@ Object {
       ],
     },
     "fontSize": Object {
-      "0": "0px",
       "2xl": "32px",
       "3xl": "48px",
-      "4xl": "72px",
       "base": "16px",
       "lg": "21px",
       "md": "18px",
@@ -200,7 +195,6 @@ Object {
       "40": "40px",
       "auto": "auto",
       "checkbox": "24px",
-      "clearButton": "32px",
       "full": "100%",
       "input": "52px",
       "radioIndicator": "12px",
@@ -209,7 +203,6 @@ Object {
       "scrollbar": "70px",
     },
     "inset": Object {
-      "-10": "-10px",
       "-floatingLabel": "-13px",
       "0": 0,
       "10": "10px",
@@ -222,7 +215,6 @@ Object {
       "modalClose": "10px",
       "radioIndicator": "5px",
       "requiredIndicator": "5px",
-      "tooltip": "110%",
       "validationError": "5px",
     },
     "letterSpacing": Object {
@@ -232,11 +224,9 @@ Object {
     },
     "lineHeight": Object {
       "label": "24px",
-      "lg": 2.5,
       "md": 2,
       "none": 1,
       "sm": 1.5,
-      "xl": 3,
       "xs": 1.25,
       "xxs": 0.9,
     },
@@ -297,7 +287,6 @@ Object {
       "full": "100%",
     },
     "minHeight": Object {
-      "0": "0",
       "36": "36px",
       "40": "40px",
       "52": "52px",
@@ -305,12 +294,7 @@ Object {
       "full": "100%",
       "screen": "100vh",
     },
-    "minWidth": Object {
-      "0": "0",
-      "auto": "auto",
-      "full": "100%",
-      "screen": "100vw",
-    },
+    "minWidth": Object {},
     "opacity": Object {
       "0": "0",
       "10": ".1",
@@ -328,7 +312,6 @@ Object {
       "14": "14px",
       "15": "15px",
       "16": "16px",
-      "2": "2px",
       "20": "20px",
       "25": "25px",
       "3": "3px",
@@ -336,7 +319,6 @@ Object {
       "40": "40px",
       "5": "5px",
       "8": "8px",
-      "auto": "auto",
       "floatingLabelInputFocused": "12px",
       "px": "1px",
     },
@@ -395,7 +377,6 @@ Object {
       "200": "200ms",
     },
     "width": Object {
-      "0": "0",
       "1/12": "8.33333333%",
       "10/12": "83.33333%",
       "11/12": "91.66666667%",
@@ -420,7 +401,6 @@ Object {
     },
     "zIndex": Object {
       "1": 1,
-      "auto": "auto",
       "card": 10,
       "dropdownMenu": 20,
       "flashMessage": 99,
