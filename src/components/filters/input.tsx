@@ -40,8 +40,7 @@ const InputFilter: FC<Props> = ({
   const inputRef = useRef()
 
   useEffect(() => {
-    ;(inputRef.current as HTMLInputElement).value =
-      initialValue === undefined ? "" : initialValue
+    ;(inputRef.current as HTMLInputElement).value = initialValue ?? ""
   }, [initialValue])
 
   const onFocus = (event) => {
