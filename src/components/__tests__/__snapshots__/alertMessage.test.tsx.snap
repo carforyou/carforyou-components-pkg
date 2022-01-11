@@ -3,7 +3,7 @@
 exports[`<AlertMessage> AlertMessage variations renders error alert message centered 1`] = `
 <div>
   <div
-    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded justify-center border-salmon bg-salmon-light text-salmon"
+    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded-4 justify-center border-salmon bg-salmon-light text-salmon"
   >
     Label
   </div>
@@ -35,7 +35,7 @@ exports[`<AlertMessage> AlertMessage variations renders error alert message cent
 exports[`<AlertMessage> AlertMessage variations renders error alert message correctly 1`] = `
 <div>
   <div
-    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded border-salmon bg-salmon-light text-salmon"
+    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded-4 border-salmon bg-salmon-light text-salmon"
   >
     Label
   </div>
@@ -55,7 +55,7 @@ exports[`<AlertMessage> AlertMessage variations renders error alert message with
 exports[`<AlertMessage> AlertMessage variations renders information alert message 1`] = `
 <div>
   <div
-    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded border-teal bg-teal-light text-grey-dark"
+    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded-4 border-teal bg-teal-light text-grey-dark"
   >
     Label
   </div>
@@ -65,7 +65,7 @@ exports[`<AlertMessage> AlertMessage variations renders information alert messag
 exports[`<AlertMessage> AlertMessage variations renders success alert message 1`] = `
 <div>
   <div
-    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded border-green-light bg-green-opaque text-grey-dark"
+    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded-4 border-green-light bg-green-opaque text-grey-dark"
   >
     Label
   </div>
@@ -75,7 +75,7 @@ exports[`<AlertMessage> AlertMessage variations renders success alert message 1`
 exports[`<AlertMessage> AlertMessage variations renders warning alert message 1`] = `
 <div>
   <div
-    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded border-yellow bg-yellow-light text-grey-dark"
+    class="flex items-center w-12/12 leading-sm text-base px-10 border rounded-4 border-yellow bg-yellow-light text-grey-dark"
   >
     Label
   </div>

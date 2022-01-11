@@ -9,7 +9,7 @@ interface Props {
 export const Pill: FC<Props> = ({ children, secondary }) => (
   <div
     className={classnames(
-      "inline-block text-white rounded-pill text-xs pt-0 pb-1 px-5",
+      "inline-block text-white rounded-8 text-xs pt-0 pb-1 px-5",
       secondary ? "bg-black" : "bg-salmon"
     )}
   >

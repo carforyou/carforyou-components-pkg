@@ -9,7 +9,7 @@ const WithValidationError: FC<Props> = ({ error, children }) => {
   return (
     <div className="relative pb-px">
       {error && (
-        <div className="text-xs text-salmon absolute bottom-validationError validation-errorMessage whitespace-nowrap">
+        <div className="text-xs text-salmon absolute bottom-5 validation-errorMessage whitespace-nowrap">
           {error}
         </div>
       )}

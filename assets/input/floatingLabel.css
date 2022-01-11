@@ -1,5 +1,5 @@
 input.floatingLabel-input:focus {
-  @apply pb-floatingLabelInputFocused;
+  @apply pb-12;
 }
 
 .floatingLabel-label {
