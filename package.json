@@ -18,7 +18,6 @@
     "deploy": "storybook-to-ghpages",
     "typecheck": "tsc --noEmit"
   },
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/carforyou/carforyou-components-pkg.git"
@@ -83,6 +82,7 @@
     "ts-jest": "27.0.7",
     "typescript": "4.3.5"
   },
+  "sideEffects": false,
   "main": "./pkg/cjs/index.js",
   "module": "./pkg/esm/index.js",
   "files": [
