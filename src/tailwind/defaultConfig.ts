@@ -139,7 +139,6 @@ export default {
       small: "0 2px 6px 0 rgba(35,42,54,0.1)",
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
-      harder: "0 0 18px 0 rgba(35,42,54,0.8)",
     },
 
     divideColor: (theme) => theme("borderColor"),
