@@ -1,5 +1,4 @@
 import postcss from "rollup-plugin-postcss"
-import dts from "rollup-plugin-dts"
 import copy from "rollup-plugin-copy"
 import { dirname } from "path"
 import typescript from "@rollup/plugin-typescript"
@@ -17,10 +16,9 @@ export default [
     input: "src/index.ts",
     output: [
       {
-        dir: dirname(packageJson.main),
+        file: packageJson.main,
         format: "cjs",
         sourcemap: true,
-        exports: "named",
       },
       {
         dir: dirname(packageJson.module),
@@ -28,7 +26,6 @@ export default [
         sourcemap: true,
         preserveModules: true,
         preserveModulesRoot: "src",
-        exports: "named",
       },
     ],
     plugins: [
@@ -45,8 +42,7 @@ export default [
       copy({
         targets: [{ src: "src/assets/dist/**/*", dest: "pkg" }],
         flatten: false,
-      }),
-      dts(),
+      })
     ],
     external,
   },

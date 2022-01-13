@@ -1,0 +1,4 @@
+pkg
+storybook-static
+/.tailwind
+src/assets/dist
