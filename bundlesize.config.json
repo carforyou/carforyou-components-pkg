@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "pkg/cjs/index.js",
-      "maxSize": "25 kB"
+      "maxSize": "30 kB"
     }
   ]
 }
