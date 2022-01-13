@@ -42,7 +42,7 @@ export default [
       copy({
         targets: [{ src: "src/assets/dist/**/*", dest: "pkg" }],
         flatten: false,
-      })
+      }),
     ],
     external,
   },
