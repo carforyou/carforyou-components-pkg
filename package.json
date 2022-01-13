@@ -85,6 +85,7 @@
   "main": "./pkg/cjs/index.js",
   "module": "./pkg/esm/index.js",
   "files": [
-    "pkg/**/*"
+    "pkg/**/*",
+    "assets/**/*"
   ]
 }
