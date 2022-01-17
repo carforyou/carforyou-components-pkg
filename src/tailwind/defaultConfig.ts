@@ -97,7 +97,6 @@ export default {
     */
     borderRadius: {
       none: "0",
-      DEFAULT: "4px",
       full: "9999px",
       half: "50%",
       "2": "2px",
@@ -106,7 +105,6 @@ export default {
       "8": "8px",
       "10": "10px",
       "20": "20px",
-      pill: "8px",
     },
 
     /*
@@ -141,7 +139,6 @@ export default {
       small: "0 2px 6px 0 rgba(35,42,54,0.1)",
       soft: "0 4px 18px 0 rgba(35,42,54,0.1)",
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
-      harder: "0 0 18px 0 rgba(35,42,54,0.8)",
     },
 
     divideColor: (theme) => theme("borderColor"),
@@ -224,17 +221,16 @@ export default {
     */
     inset: {
       "0": 0,
+      "5": "5px",
       "8": "8px",
       "10": "10px",
       "40": "40px",
       auto: "auto",
       half: "50%",
       requiredIndicator: "5px",
-      validationError: "5px",
       modalClose: "10px",
       floatingLabel: "13px",
       "-floatingLabel": "-13px",
-      radioIndicator: "5px",
       full: "100%",
     },
 
@@ -403,7 +399,6 @@ export default {
       "25": "25px",
       "30": "30px",
       "40": "40px",
-      floatingLabelInputFocused: "12px",
     },
 
     /*
