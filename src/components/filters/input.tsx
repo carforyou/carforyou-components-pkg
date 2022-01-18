@@ -5,7 +5,7 @@ import Input from "../input/index"
 import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
 import getClosestElement from "../../lib/getClosestElement"
 
-interface Props {
+export interface Props {
   name: string
   initialValue?: string
   mode: "text" | "numeric" | "decimal" | "tel" | "email"

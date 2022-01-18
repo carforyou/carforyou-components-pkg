@@ -8,7 +8,7 @@ module.exports = {
   moduleNameMapper: {
     "assets/(.*).(jpe?g|png|gif|ico|svg)$":
       "<rootDir>/src/__mocks__/fileMock.js",
-    "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js",
+    "\\.css$": "<rootDir>/src/__mocks__/styleMock.js",
   },
   setupFiles: ["<rootDir>/src/__tests__/setup/setupGlobalMocks.ts"],
   setupFilesAfterEnv: ["<rootDir>/src/__tests__/setup/jestDomExpect.ts"],

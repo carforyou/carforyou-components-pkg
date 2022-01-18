@@ -1,4 +1,5 @@
 @tailwind base;
+@import "../assets/index.css";
 @tailwind utilities;
 
 @layer utilities {

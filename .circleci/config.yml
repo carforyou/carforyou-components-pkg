@@ -100,7 +100,7 @@ jobs:
       - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
       - slack/notify-on-failure:
           only_for_branches: master
-  
+
   docker_build:
     <<: *BOB_THE_BUILDER
     resource_class: small

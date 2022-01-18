@@ -1,3 +1,6 @@
-const config = require("../postcss.config")
+/* eslint-disable @typescript-eslint/no-var-requires */
+const tailwindConfig = require("../.tailwind/defaultConfig").default
 
-module.exports = config
+module.exports = {
+  plugins: [require("postcss-import"), require("tailwindcss")(tailwindConfig), require("autoprefixer")],
+}

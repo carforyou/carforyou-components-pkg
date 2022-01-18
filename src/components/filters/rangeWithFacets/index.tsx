@@ -20,7 +20,7 @@ type TrackingEvent = {
   value: number
 }
 
-interface Props {
+export interface Props {
   /**
    * Scale for the distribution of the facets and the slider. Pass null for open end/open start
    */

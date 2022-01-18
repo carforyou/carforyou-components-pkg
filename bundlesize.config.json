@@ -1,8 +1,8 @@
 {
   "files": [
     {
-      "path": "pkg/dist-web/index.js",
-      "maxSize": "25 kB"
+      "path": "pkg/cjs/index.js",
+      "maxSize": "30 kB"
     }
   ]
 }

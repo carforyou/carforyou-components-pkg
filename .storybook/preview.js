@@ -1,4 +1,3 @@
-require("../assets/index.css")
 require("./stories.css")
 
 const tailwindConfig = require("../.tailwind/defaultConfig").default
