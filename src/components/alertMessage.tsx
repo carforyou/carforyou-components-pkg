@@ -36,7 +36,7 @@ export const AlertMessage: FC<Props> = ({
     <div
       className={classnames(
         "flex items-center w-12/12 leading-sm text-base px-10",
-        fullWidth ? "border-t border-b" : "border rounded",
+        fullWidth ? "border-t border-b" : "border rounded-4",
         alignCenter ? "justify-center" : null,
         {
           "border-yellow bg-yellow-light text-grey-dark": type === "warning",

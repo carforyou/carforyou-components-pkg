@@ -53,7 +53,7 @@ export const Button: FC<Props> = ({
   }
 
   const classes = classnames(
-    "rounded border",
+    "rounded-4 border",
     buttonStyles[style],
     disabled && disabledStyles[style],
     {
