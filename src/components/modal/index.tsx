@@ -60,7 +60,7 @@ const Modal: FC<ModalProps> = ({
     <button
       className={classNames(
         "z-modalClose cursor-pointer",
-        title ? "self-start" : "absolute right-modalClose top-modalClose"
+        title ? "self-start" : "absolute right-10 top-10"
       )}
       onClick={handleClose}
       data-testid="modal-close"

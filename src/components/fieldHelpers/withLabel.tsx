@@ -38,7 +38,7 @@ const WithLabel: FC<Props> = ({
           {required && <Asterisk />}
           {!!renderPopup && (
             <a
-              className="ml-labelPopupIcon mb-labelPopupIcon cursor-pointer opacity-60 hover:opacity-100 transition duration-200"
+              className="ml-3 mb-3 cursor-pointer opacity-60 hover:opacity-100 transition duration-200"
               onClick={(e) => {
                 e.preventDefault()
                 openModal()
