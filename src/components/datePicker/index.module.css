@@ -9,7 +9,7 @@
 }
 
 :local .react-calendar {
-    @apply shadow-hard rounded-6 bg-white leading-xs w-12/12;
+    @apply shadow-hard rounded-6 bg-white leading-xs w-12/12 p-10;
 }
 
 @screen xxs {
