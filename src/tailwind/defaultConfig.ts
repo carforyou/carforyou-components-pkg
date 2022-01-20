@@ -400,7 +400,7 @@ export default {
     |
     */
     spacing: {
-      0: "0px",
+      0: "0",
       3: "3px",
       5: "5px",
       10: "10px",
