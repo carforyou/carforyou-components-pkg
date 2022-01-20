@@ -194,7 +194,8 @@ export default {
     | Class name: .h-{size}
     |
     */
-    height: {
+    height: (theme) => ({
+      ...theme("spacing"),
       4: "4px",
       auto: "auto",
       full: "100%",
@@ -203,7 +204,7 @@ export default {
       checkbox: "24px",
       input: "52px",
       rangeFilterChart: "118px",
-    },
+    }),
 
     /*
     |-----------------------------------------------------------------
@@ -216,7 +217,8 @@ export default {
     | Class name: .{top|right|bottom|left|inset}-{size}
     |
     */
-    inset: {
+    inset: (theme) => ({
+      ...theme("spacing"),
       "8": "8px",
       auto: "auto",
       half: "50%",
@@ -224,7 +226,7 @@ export default {
       floatingLabel: "13px",
       "-floatingLabel": "-13px",
       full: "100%",
-    },
+    }),
 
     /*
     |----------------------------------------------------------------------------
@@ -269,7 +271,8 @@ export default {
     | Class name: .-m{side?}-{size}
     |
     */
-    margin: {
+    margin: (theme) => ({
+      ...theme("spacing"),
       "-45": "-45px",
       "-40": "-40px",
       "-20": "-20px",
@@ -284,7 +287,7 @@ export default {
       "90": "90px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
-    },
+    }),
 
     /*
     |----------------------------------------------------------------------------
@@ -365,13 +368,14 @@ export default {
     | Class name: .p{side?}-{size}
     |
     */
-    padding: {
+    padding: (theme) => ({
+      ...theme("spacing"),
       px: "1px",
       "3": "3px",
       "8": "8px",
       "13": "13px",
       "14": "14px",
-    },
+    }),
 
     /*
     |--------------------------------------------------------------
