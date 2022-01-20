@@ -431,7 +431,8 @@ export default {
     | Class name: .w-{size}
     |
     */
-    width: {
+    width: (theme) => ({
+      ...theme("spacing"),
       auto: "auto",
       "1/12": "8.33333333%",
       "2/12": "16.66667%",
@@ -452,7 +453,7 @@ export default {
       modalSmall: "370px",
       modalLarge: "770px",
       checkbox: "24px",
-    },
+    }),
 
     /*
     |-----------------------------------------------------------------------------------------------
