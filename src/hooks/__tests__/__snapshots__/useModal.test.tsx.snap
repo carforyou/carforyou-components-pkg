@@ -19,7 +19,7 @@ exports[`useModal with a portal renders the modal within the portal 1`] = `
         class="z-modal w-12/12 my-0 p-15 md:p-40 md:w-modal"
       >
         <button
-          class="z-modalClose cursor-pointer absolute right-modalClose top-modalClose"
+          class="z-modalClose cursor-pointer absolute right-10 top-10"
           data-testid="modal-close"
         >
           <svg
@@ -96,7 +96,7 @@ exports[`useModal without portal renders the modal within the container 1`] = `
           class="z-modal w-12/12 my-0 p-15 md:p-40 md:w-modal"
         >
           <button
-            class="z-modalClose cursor-pointer absolute right-modalClose top-modalClose"
+            class="z-modalClose cursor-pointer absolute right-10 top-10"
             data-testid="modal-close"
           >
             <svg

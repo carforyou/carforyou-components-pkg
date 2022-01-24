@@ -49,7 +49,7 @@
 }
 
 .inputRadio .inputRadio-checkmark:after {
-  @apply top-5 left-5 w-radioIndicator h-radioIndicator rounded-half bg-white;
+  @apply top-5 left-5 w-12 h-12 rounded-half bg-white;
 }
 
 .inputRadio-input:disabled:checked ~ .inputRadio-checkmark:after,

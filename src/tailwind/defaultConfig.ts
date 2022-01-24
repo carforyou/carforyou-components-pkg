@@ -194,19 +194,17 @@ export default {
     | Class name: .h-{size}
     |
     */
-    height: {
+    height: (theme) => ({
+      ...theme("spacing"),
       4: "4px",
       auto: "auto",
       full: "100%",
       screen: "100vh",
       scrollbar: "70px",
       checkbox: "24px",
-      radioIndicator: "12px",
       input: "52px",
       rangeFilterChart: "118px",
-      "20": "20px",
-      "40": "40px",
-    },
+    }),
 
     /*
     |-----------------------------------------------------------------
@@ -219,20 +217,16 @@ export default {
     | Class name: .{top|right|bottom|left|inset}-{size}
     |
     */
-    inset: {
-      "0": 0,
-      "5": "5px",
+    inset: (theme) => ({
+      ...theme("spacing"),
       "8": "8px",
-      "10": "10px",
-      "40": "40px",
       auto: "auto",
       half: "50%",
       requiredIndicator: "5px",
-      modalClose: "10px",
       floatingLabel: "13px",
       "-floatingLabel": "-13px",
       full: "100%",
-    },
+    }),
 
     /*
     |----------------------------------------------------------------------------
@@ -277,7 +271,8 @@ export default {
     | Class name: .-m{side?}-{size}
     |
     */
-    margin: {
+    margin: (theme) => ({
+      ...theme("spacing"),
       "-45": "-45px",
       "-40": "-40px",
       "-20": "-20px",
@@ -286,23 +281,13 @@ export default {
       "-1": "-1px",
       auto: "auto",
       px: "1px",
-      "0": "0",
-      "5": "5px",
-      "10": "10px",
-      "15": "15px",
-      "16": "16px",
-      "20": "20px",
       "22": "22px",
-      "25": "25px",
-      "30": "30px",
-      "40": "40px",
       "60": "60px",
       "80": "80px",
       "90": "90px",
-      labelPopupIcon: "3px",
       "-selectMenu": "-21px",
       "-selectWithHintMenu": "-43px",
-    },
+    }),
 
     /*
     |----------------------------------------------------------------------------
@@ -383,23 +368,14 @@ export default {
     | Class name: .p{side?}-{size}
     |
     */
-    padding: {
+    padding: (theme) => ({
+      ...theme("spacing"),
       px: "1px",
-      "0": "0",
       "3": "3px",
-      "5": "5px",
       "8": "8px",
-      "10": "10px",
-      "12": "12px",
       "13": "13px",
       "14": "14px",
-      "15": "15px",
-      "16": "16px",
-      "20": "20px",
-      "25": "25px",
-      "30": "30px",
-      "40": "40px",
-    },
+    }),
 
     /*
     |--------------------------------------------------------------
@@ -424,9 +400,13 @@ export default {
     |
     */
     spacing: {
-      0: "0px",
+      0: "0",
+      3: "3px",
       5: "5px",
       10: "10px",
+      12: "12px",
+      15: "15px",
+      16: "16px",
       20: "20px",
       25: "25px",
       30: "30px",
@@ -451,7 +431,8 @@ export default {
     | Class name: .w-{size}
     |
     */
-    width: {
+    width: (theme) => ({
+      ...theme("spacing"),
       auto: "auto",
       "1/12": "8.33333333%",
       "2/12": "16.66667%",
@@ -472,8 +453,7 @@ export default {
       modalSmall: "370px",
       modalLarge: "770px",
       checkbox: "24px",
-      radioIndicator: "12px",
-    },
+    }),
 
     /*
     |-----------------------------------------------------------------------------------------------
