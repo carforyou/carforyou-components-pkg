@@ -11,6 +11,7 @@ import Slider from "./components/slider"
 import Select from "./components/select"
 import RangeSelect from "./components/rangeSelect"
 import RangeInput from "./components/rangeInput"
+import RadioButtonGroupWithTitle from "./components/radioButtonGroupWithTitle"
 import RadioButton from "./components/radioButton"
 import PreviewCard from "./components/previewCard/index"
 import Pill from "./components/pill"
@@ -68,6 +69,7 @@ export {
   Select,
   Checkbox,
   RadioButton,
+  RadioButtonGroupWithTitle,
   WithLabel,
   WithValidationError,
   useModal,
