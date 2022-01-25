@@ -13,19 +13,36 @@ export default {
   args: {
     storyName: "",
     title: "Radio Group",
-    radioInputs: [{name: "radioButtonGroupWithTitle", value: "A",
-  checked: false,
-  onChange: (e) => {
-    onChange()(e)
-  }, renderLabel:() => "option 1"}, {name: "radioButtonGroupWithTitle", value: "B",
-  checked: false,
-  onChange: (e) => {
-    onChange()(e)
-  }, renderLabel:() => "option 2"}, {name: "radioButtonGroupWithTitle", value: "C",
-  checked: false,
-  onChange: (e) => {
-    onChange()(e)
-  }, renderLabel:() => "option 3"}]
+    radioInputs: 
+    [
+        {
+            name: "radioButtonGroupWithTitle", 
+            value: "A",
+            checked: false,
+            onChange: (e) => {
+                onChange()(e)
+            }, 
+            renderLabel:() => "option 1"
+        }, 
+        {
+            name: "radioButtonGroupWithTitle", 
+            value: "B",
+            checked: false,
+            onChange: (e) => {
+                onChange()(e)
+            }, 
+            renderLabel:() => "option 2"
+        }, 
+        {   
+            name: "radioButtonGroupWithTitle", 
+            value: "C",
+            checked: false,
+            onChange: (e) => {
+                onChange()(e)
+            }, 
+            renderLabel:() => "option 3"
+        }
+    ]
   },
   argTypes: {
     storyName: {
