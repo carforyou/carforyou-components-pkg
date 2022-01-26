@@ -1,6 +1,7 @@
-import React, { ReactElement } from "react"
+import React, { FC, ReactElement } from "react"
 
 import RadioButton, { RadioButtonProps } from "./radioButton"
+import WithValidationError from "./fieldHelpers/withValidationError"
 import Label from "./fieldHelpers/label"
 
 interface Props {
@@ -8,15 +9,17 @@ interface Props {
   required?: boolean
   disabled?: boolean
   radioInputs: RadioButtonProps[]
+  error?: string
 }
 
-function RadioButtonGroup({
+const RadioButtonGroup: FC<Props> = ({
   title,
   required = false,
   disabled = false,
   radioInputs,
-}: Props): ReactElement {
-  return (
+  error,
+}): ReactElement => {
+  const renderInputs = (hasError) => (
     <div className="w-12/12">
       <Label fieldName={title} required={required} />
       <div className="flex justify-between">
@@ -24,15 +27,18 @@ function RadioButtonGroup({
           <RadioButton
             key={index}
             name={radioInput.name}
-            onChange={radioInput.onChange}
-            value={radioInput.value}
-            checked={radioInput.checked}
-            renderLabel={radioInput.renderLabel}
             disabled={disabled}
+            error={hasError}
+            {...radioInput}
           />
         ))}
       </div>
     </div>
+  )
+  return (
+    <WithValidationError error={error}>
+      {(hasError) => renderInputs(hasError)}
+    </WithValidationError>
   )
 }
 

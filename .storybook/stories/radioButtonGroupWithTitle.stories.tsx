@@ -83,3 +83,9 @@ Required.args = {
   storyName: "Required",
   required: true,
 }
+
+export const WithErrorMessage = Template.bind({})
+WithErrorMessage.args = {
+  storyName: "With error message",
+  error: "Error message",
+}
