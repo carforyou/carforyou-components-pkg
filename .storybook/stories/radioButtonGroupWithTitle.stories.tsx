@@ -22,7 +22,9 @@ export default {
             onChange: (e) => {
                 onChange()(e)
             }, 
-            renderLabel:() => "option 1"
+            renderLabel:() => "option 1",
+            disabled: true,
+            error: "test"
         }, 
         {
             name: "radioButtonGroupWithTitle", 
