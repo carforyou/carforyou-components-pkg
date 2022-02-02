@@ -69,7 +69,7 @@ const PreviewCard: FC<Props> = ({
           <ArrowIcon
             width={32}
             height={32}
-            className="text-teal transform customRotate-270"
+            className="text-teal transform rotate-270"
           />
         </a>
         <hr className="text-grey-1 my-20" />

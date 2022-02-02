@@ -7,10 +7,6 @@ Object {
     "borderOpacity": false,
     "placeholderOpacity": false,
   },
-  "plugins": Array [
-    [Function],
-    [Function],
-  ],
   "theme": Object {
     "backgroundColor": Object {
       "black": "#000000",
@@ -154,11 +150,6 @@ Object {
       "yellow": "#FCB001",
       "yellow-light": "#FEEFCC",
     },
-    "customRotate": Object {
-      "180": "180deg",
-      "270": "270deg",
-      "90": "90deg",
-    },
     "divideColor": [Function],
     "divideWidth": Object {
       "0": "0",
@@ -240,27 +231,6 @@ Object {
       "xs": 1.25,
       "xxs": 0.9,
     },
-    "linearGradients": Object {
-      "colors": Object {
-        "black": Array [
-          "rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)",
-        ],
-        "fade": Array [
-          "rgba(255,255,255,0) 90%",
-          "rgba(255,255,255,1) 100%",
-        ],
-        "grey": Array [
-          "#F9F9FB",
-          "#FFFFFF 20%",
-        ],
-      },
-      "directions": Object {
-        "to-bottom": "to bottom",
-        "to-left": "to left",
-        "to-right": "to right",
-        "to-top": "to top",
-      },
-    },
     "margin": Object {
       "-1": "-1px",
       "-10": "-10px",
@@ -331,6 +301,11 @@ Object {
       "5": "5px",
       "8": "8px",
       "px": "1px",
+    },
+    "rotate": Object {
+      "180": "180deg",
+      "270": "270deg",
+      "90": "90deg",
     },
     "screens": Object {
       "lg": "1024px",
@@ -608,6 +583,9 @@ Object {
       "responsive",
     ],
     "resize": Array [
+      "responsive",
+    ],
+    "rotate": Array [
       "responsive",
     ],
     "scale": Array [
