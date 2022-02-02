@@ -27,7 +27,6 @@ export interface TailwindTheme {
   maxHeight?: { [key: string]: string }
   opacity?: { [key: string]: string }
   padding?: { [key: string]: string }
-  customRotate?: { [key: string]: string }
   textColors?: { [key: string]: string }
   width?: { [key: string]: string }
   zIndex?: { [key: string]: string | number }
