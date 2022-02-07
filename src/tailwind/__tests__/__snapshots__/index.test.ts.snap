@@ -9,7 +9,6 @@ Object {
   },
   "plugins": Array [
     [Function],
-    [Function],
   ],
   "theme": Object {
     "backgroundColor": Object {
@@ -153,11 +152,6 @@ Object {
       "white": "#FFFFFF",
       "yellow": "#FCB001",
       "yellow-light": "#FEEFCC",
-    },
-    "customRotate": Object {
-      "180": "180deg",
-      "270": "270deg",
-      "90": "90deg",
     },
     "divideColor": [Function],
     "divideWidth": Object {
@@ -331,6 +325,11 @@ Object {
       "5": "5px",
       "8": "8px",
       "px": "1px",
+    },
+    "rotate": Object {
+      "180": "180deg",
+      "270": "270deg",
+      "90": "90deg",
     },
     "screens": Object {
       "lg": "1024px",
@@ -608,6 +607,9 @@ Object {
       "responsive",
     ],
     "resize": Array [
+      "responsive",
+    ],
+    "rotate": Array [
       "responsive",
     ],
     "scale": Array [

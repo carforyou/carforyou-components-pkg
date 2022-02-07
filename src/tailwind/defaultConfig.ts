@@ -1,4 +1,3 @@
-import TransformPlugin from "./plugins/transform"
 import colors from "./colors"
 /*
 Tailwind - The Utility-First CSS Framework
@@ -385,7 +384,7 @@ export default {
     | Class name: .rotate-{angle}
     |
     */
-    customRotate: {
+    rotate: {
       "90": "90deg",
       "180": "180deg",
       "270": "270deg",
@@ -563,6 +562,7 @@ export default {
     pointerEvents: ["responsive"],
     position: ["responsive"],
     resize: ["responsive"],
+    rotate: ["responsive"],
     space: ["responsive"],
     stroke: ["responsive"],
     tableLayout: ["responsive"],
@@ -591,6 +591,7 @@ export default {
     borderOpacity: false,
     placeholderOpacity: false,
   },
+
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [TransformPlugin, require("tailwindcss-gradients")()],
+  plugins: [require("tailwindcss-gradients")()],
 }

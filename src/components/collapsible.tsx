@@ -99,7 +99,7 @@ const Collapsible: FC<Props> = ({
           <ArrowDownMIcon
             width={32}
             height={32}
-            className={isCollapsed ? null : "rotate-180 transform"}
+            className={isCollapsed ? null : "transform rotate-180"}
           />
         </div>
       </div>
