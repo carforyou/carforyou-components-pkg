@@ -512,7 +512,6 @@ export default {
     backgroundPosition: ["responsive"],
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
-    backgroundImage: ["responsive"],
     borderCollapse: ["responsive"],
     borderColor: ["responsive", "hover", "focus", "focus-within"],
     borderRadius: ["responsive"],

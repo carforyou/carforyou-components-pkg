@@ -432,9 +432,6 @@ Object {
       "focus",
       "active",
     ],
-    "backgroundImage": Array [
-      "responsive",
-    ],
     "backgroundPosition": Array [
       "responsive",
     ],
