@@ -17,6 +17,7 @@ export interface TailwindTheme {
   fontFamily?: { [key: string]: string }
   fontSize?: { [key: string]: string }
   fontWeight?: { [key: string]: string }
+  gradientColorStops?: { [key: string]: string }
   height?: { [key: string]: string }
   letterSpacing?: { [key: string]: string }
   lineHeight?: { [key: string]: string }
@@ -38,8 +39,6 @@ export interface TailwindConfig {
   theme?: TailwindTheme
   options?: { [key: string]: string | number | boolean }
   modules?: { [key: string]: string[] }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  plugins?: any[]
 }
 
 const resolveConfig = (config) => {

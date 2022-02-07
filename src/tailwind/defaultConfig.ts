@@ -187,6 +187,21 @@ export default {
     },
 
     /*
+    |------------------------------------------------------------------------------------------
+    | Gradients:
+    | Linear                     https://tailwindcss.com/docs/background-image#linear-gradients
+    | Starting color             https://tailwindcss.com/docs/gradient-color-stops
+    |------------------------------------------------------------------------------------------
+    |
+    | Class name:
+    | .bg-gradient-{direction} from-{startingColor} via-{middleColor} to-{endingColor}
+    |
+    */
+    gradientColorStops: (theme) => ({
+      ...theme("colors"),
+    }),
+
+    /*
     |----------------------------------------------------------------------------
     | Height                                  https://tailwindcss.com/docs/height
     |----------------------------------------------------------------------------
@@ -484,28 +499,6 @@ export default {
       intercom: 10,
       flashMessage: 99,
     },
-
-    /*
-    |----------------------------------------------------------------------------
-    | Gradients                  https://github.com/benface/tailwindcss-gradients
-    |----------------------------------------------------------------------------
-    |
-    | Class name: .bg-gradient-{direction}-{color}
-    |
-    */
-    linearGradients: (theme) => ({
-      directions: {
-        "to-top": "to top",
-        "to-right": "to right",
-        "to-bottom": "to bottom",
-        "to-left": "to left",
-      },
-      colors: {
-        fade: ["rgba(255,255,255,0) 90%", "rgba(255,255,255,1) 100%"],
-        grey: [theme("colors")["grey-bright"], `${theme("colors").white} 20%`],
-        black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"],
-      },
-    }),
   },
 
   variants: {
@@ -518,6 +511,7 @@ export default {
     backgroundPosition: ["responsive"],
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
+    backgroundImage: ["responsive"],
     borderCollapse: ["responsive"],
     borderColor: ["responsive", "hover", "focus", "focus-within"],
     borderRadius: ["responsive"],
@@ -579,6 +573,7 @@ export default {
     textOverflow: ["responsive"],
     zIndex: ["responsive", "hover", "focus"],
     gap: ["responsive"],
+    gradientColorStops: ["responsive"],
     scale: ["responsive", "hover", "focus"],
     translate: ["responsive", "hover", "focus"],
     skew: ["responsive", "hover", "focus"],
@@ -591,7 +586,4 @@ export default {
     borderOpacity: false,
     placeholderOpacity: false,
   },
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [require("tailwindcss-gradients")()],
 }

@@ -23,8 +23,6 @@ export default {
   "green-light": "#74CC74",
   "green-bright": "#0DC143",
   "green-opaque": "#E3F4E3",
-  facebook: "#4267B2",
-  twitter: "#1EA0F2",
   "high-deal": "#E34A15",
   "fair-deal": "#EAA403",
   "good-deal": "#81B040",
