@@ -198,8 +198,7 @@ export default {
     |
     */
     gradientColorStops: (theme) => ({
-      grey: [theme("colors")["grey-bright"], `${theme("colors").white} 20%`],
-      black: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"],
+      ...theme("colors"),
     }),
 
     /*
