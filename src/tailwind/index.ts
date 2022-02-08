@@ -17,6 +17,7 @@ export interface TailwindTheme {
   fontFamily?: { [key: string]: string }
   fontSize?: { [key: string]: string }
   fontWeight?: { [key: string]: string }
+  gradientColorStops?: { [key: string]: string }
   height?: { [key: string]: string }
   letterSpacing?: { [key: string]: string }
   lineHeight?: { [key: string]: string }
