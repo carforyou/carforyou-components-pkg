@@ -199,7 +199,7 @@ export default {
     */
     gradientColorStops: (theme) => ({
       ...theme("colors"),
-      stoneGray: ["rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)"],
+      stoneGray: "rgba(0, 0, 0, 0.5)",
     }),
 
     /*
