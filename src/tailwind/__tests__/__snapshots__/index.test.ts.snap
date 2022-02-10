@@ -192,6 +192,9 @@ Object {
       "salmon": "#F73B47",
       "salmon-dark": "#ED202D",
       "salmon-light": "#FDE8EA",
+      "stoneGray": Array [
+        "rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)",
+      ],
       "teal": "#3696B9",
       "teal-bright": "#AFD5E3",
       "teal-dark": "#227D9E",
