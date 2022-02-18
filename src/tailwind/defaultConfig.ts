@@ -140,6 +140,16 @@ export default {
       hard: "0 4px 18px 0 rgba(35,42,54,0.4)",
     },
 
+    /*
+    |----------------------------------------------------------------------------
+    | Divide                            https://tailwindcss.com/docs/divide-width
+    |----------------------------------------------------------------------------
+    |
+    | Class name:
+    | .divide-{side}-{width}
+    | .divide-{color}
+    |
+    */
     divideColor: (theme) => theme("borderColor"),
     divideWidth: (theme) => theme("borderWidth"),
 
