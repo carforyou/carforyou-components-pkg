@@ -83,6 +83,7 @@
   "sideEffects": false,
   "main": "./pkg/cjs/index.js",
   "module": "./pkg/esm/index.js",
+  "types": "./pkg/types/src/index.d.ts",
   "files": [
     "pkg/**/*",
     "assets/**/*"
