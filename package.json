@@ -81,9 +81,9 @@
     "typescript": "4.3.5"
   },
   "sideEffects": false,
-  "main": "pkg/cjs/index.js",
-  "module": "pkg/esm/index.js",
-  "types": "pkg/types/index.d.ts",
+  "main": "./pkg/cjs/index.js",
+  "module": "./pkg/esm/index.js",
+  "types": "./pkg/types/src/index.d.ts",
   "files": [
     "pkg/**/*",
     "assets/**/*"
