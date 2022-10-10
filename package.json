@@ -45,7 +45,7 @@
     "fsevents": "^2.0.0"
   },
   "devDependencies": {
-    "@carforyou/assets": "2.1.9",
+    "@carforyou/assets": "2.1.10",
     "@rollup/plugin-commonjs": "21.1.0",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@rollup/plugin-typescript": "8.3.4",
