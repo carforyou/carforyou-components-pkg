@@ -61,7 +61,7 @@
     "@types/node": "16.18.3",
     "@types/react": "16.14.34",
     "@types/react-paginate": "7.1.1",
-    "autoprefixer": "10.4.12",
+    "autoprefixer": "10.4.13",
     "bundlesize": "0.18.1",
     "eslint": "8.26.0",
     "http-server": "14.1.1",
