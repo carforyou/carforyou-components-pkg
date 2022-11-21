@@ -63,7 +63,7 @@
     "@types/react-paginate": "7.1.1",
     "autoprefixer": "10.4.13",
     "bundlesize": "0.18.1",
-    "eslint": "8.26.0",
+    "eslint": "8.28.0",
     "http-server": "14.1.1",
     "jest": "27.5.1",
     "postcss": "8.4.19",
