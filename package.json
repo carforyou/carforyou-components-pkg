@@ -78,7 +78,7 @@
     "semantic-release": "19.0.5",
     "tailwindcss": "2.2.19",
     "ts-jest": "27.1.5",
-    "typescript": "4.7.4"
+    "typescript": "4.9.3"
   },
   "sideEffects": false,
   "main": "./pkg/cjs/index.js",
