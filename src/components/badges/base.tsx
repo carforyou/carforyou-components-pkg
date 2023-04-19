@@ -2,10 +2,9 @@ import React, { FC, ReactNode } from "react"
 
 import classNames from "classnames"
 
+import Tooltip, { TooltipPosition } from "../tooltip/index"
 import { BadgeBackground } from "./types"
 import styles from "./badges.module.css"
-
-import Tooltip, { TooltipPosition } from "../tooltip/index"
 
 interface Props {
   size: "small" | "large"

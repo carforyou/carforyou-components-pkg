@@ -12,10 +12,10 @@ import React, {
 import { GetInputPropsOptions } from "downshift"
 import classNames from "classnames"
 
-import Menu from "./menu"
-import BaseDownshift from "./base"
 import { scrollIntoViewIfMobile } from "../../lib/scrollHelper"
 import { getClosestElement } from "../../lib/elementsHelper"
+import Menu from "./menu"
+import BaseDownshift from "./base"
 
 export interface InputProps {
   getInputProps: <O extends GetInputPropsOptions>(

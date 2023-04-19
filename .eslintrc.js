@@ -14,6 +14,7 @@ module.exports = {
     {
       files: ["*"],
       rules: {
+        "@typescript-eslint/naming-convention": "off",
         "react-hooks/exhaustive-deps": [
           "error",
           {

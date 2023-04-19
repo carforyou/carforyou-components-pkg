@@ -117,7 +117,7 @@ describe("<DropdownWithAutosuggest>", () => {
       fireEvent.change(input, { target: { value: "Two" } })
       fireEvent.blur(input)
 
-      expect(mockedOnSelect).toBeCalledWith(2)
+      expect(mockedOnSelect).toHaveBeenCalledWith(2)
     })
 
     it("forwards selected value to callback", async () => {
@@ -127,7 +127,7 @@ describe("<DropdownWithAutosuggest>", () => {
       const optionNode = screen.getByText("Two")
       fireEvent.click(optionNode)
 
-      expect(mockedOnSelect).toBeCalledWith(2)
+      expect(mockedOnSelect).toHaveBeenCalledWith(2)
     })
 
     it("clears previous selection on empty input", async () => {
@@ -141,7 +141,7 @@ describe("<DropdownWithAutosuggest>", () => {
       fireEvent.change(input, { target: { value: "" } })
       fireEvent.blur(input)
 
-      expect(mockedOnSelect).toBeCalledWith(null)
+      expect(mockedOnSelect).toHaveBeenCalledWith(null)
     })
 
     it("selects on enter", async () => {
@@ -156,7 +156,7 @@ describe("<DropdownWithAutosuggest>", () => {
         target: { blur: () => fireEvent.blur(input) },
       })
 
-      expect(mockedOnSelect).toBeCalledWith(2)
+      expect(mockedOnSelect).toHaveBeenCalledWith(2)
     })
   })
 
@@ -167,7 +167,7 @@ describe("<DropdownWithAutosuggest>", () => {
       fireEvent.change(input, { target: { value: "Custom" } })
       fireEvent.blur(input)
 
-      expect(mockedOnSelect).toBeCalledWith({ customValue: "Custom" })
+      expect(mockedOnSelect).toHaveBeenCalledWith({ customValue: "Custom" })
     })
 
     it("allows option from dropdown", async () => {
@@ -176,7 +176,7 @@ describe("<DropdownWithAutosuggest>", () => {
       fireEvent.change(input, { target: { value: "Two" } })
       fireEvent.blur(input)
 
-      expect(mockedOnSelect).toBeCalledWith(2)
+      expect(mockedOnSelect).toHaveBeenCalledWith(2)
     })
   })
 })

@@ -38,12 +38,12 @@ describe("debounceHelper", () => {
     debounced({})
     debounced(event)
 
-    expect(callback).not.toBeCalled()
+    expect(callback).not.toHaveBeenCalled()
 
     jest.runOnlyPendingTimers()
 
-    expect(callback).toBeCalledTimes(1)
-    expect(callback).toBeCalledWith(event)
+    expect(callback).toHaveBeenCalledTimes(1)
+    expect(callback).toHaveBeenCalledWith(event)
   })
 
   it("resets the timer on every invocation", () => {
@@ -53,17 +53,17 @@ describe("debounceHelper", () => {
 
     debounced({})
 
-    expect(callback).not.toBeCalled()
+    expect(callback).not.toHaveBeenCalled()
 
     jest.advanceTimersByTime(20)
-    expect(callback).not.toBeCalled()
+    expect(callback).not.toHaveBeenCalled()
 
     debounced(event)
     jest.advanceTimersByTime(30)
-    expect(callback).not.toBeCalled()
+    expect(callback).not.toHaveBeenCalled()
 
     jest.runOnlyPendingTimers()
-    expect(callback).toBeCalledTimes(1)
-    expect(callback).toBeCalledWith(event)
+    expect(callback).toHaveBeenCalledTimes(1)
+    expect(callback).toHaveBeenCalledWith(event)
   })
 })

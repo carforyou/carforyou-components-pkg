@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 
+import CreditCardIcon from "../../assets/dist/creditCard"
 import { BadgeProps } from "./types"
 import BaseBadge from "./base"
-import CreditCardIcon from "../../assets/dist/creditCard"
 
 export const BuyNowBadge: FC<BadgeProps> = ({
   language,

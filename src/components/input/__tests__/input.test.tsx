@@ -21,7 +21,7 @@ describe("<Input>", () => {
       const input = screen.getByPlaceholderText("testInput")
       fireEvent.change(input, { target: { value: "Test" } })
 
-      expect(onChangeMock).toBeCalled()
+      expect(onChangeMock).toHaveBeenCalled()
     })
 
     it("clears the input", () => {
@@ -39,7 +39,7 @@ describe("<Input>", () => {
       const clearButton = screen.getByTestId("clearButton")
       fireEvent.click(clearButton)
 
-      expect(onChangeMock).toBeCalled()
+      expect(onChangeMock).toHaveBeenCalled()
     })
   })
 
@@ -70,7 +70,7 @@ describe("<Input>", () => {
       fireEvent.change(input, { target: { value: "Test" } })
       jest.runAllTimers()
 
-      expect(onChangeMock).toBeCalled()
+      expect(onChangeMock).toHaveBeenCalled()
     })
 
     it("clears the input immediately", () => {
@@ -88,7 +88,7 @@ describe("<Input>", () => {
       const clearButton = screen.getByTestId("clearButton")
       fireEvent.click(clearButton)
 
-      expect(onChangeMock).toBeCalled()
+      expect(onChangeMock).toHaveBeenCalled()
     })
 
     it("hooks refs passed as functions", async () => {

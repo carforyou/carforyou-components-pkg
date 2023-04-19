@@ -11,12 +11,12 @@ import React, {
 import lodashDebounce from "lodash.debounce"
 import classNames from "classnames"
 
-import InputField from "./inputField"
 import WithValidationError from "../fieldHelpers/withValidationError"
 import WithLabel from "../fieldHelpers/withLabel"
 import WithFloatingLabel from "../fieldHelpers/withFloatingLabel"
 import WithClearButton from "../fieldHelpers/withClearButton"
 import HintText from "../fieldHelpers/hintText"
+import InputField from "./inputField"
 interface InputProps {
   name: string
   value: string | number
