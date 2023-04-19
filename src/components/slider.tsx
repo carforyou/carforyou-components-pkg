@@ -1,9 +1,9 @@
 import { getTrackBackground, Range } from "react-range"
 import React, { FC, useState } from "react"
 
+import colors from "../tailwind/colors"
 import InputFilter from "./filters/input"
 import Label from "./fieldHelpers/label"
-import colors from "../tailwind/colors"
 
 interface Props {
   step: number

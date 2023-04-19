@@ -82,7 +82,7 @@ describe("useModal", () => {
         keyCode: 27,
       })
 
-      expect(onCloseMock).toBeCalledTimes(1)
+      expect(onCloseMock).toHaveBeenCalledTimes(1)
     })
 
     it("calls the onClose function the close button is clicked", async () => {
@@ -93,7 +93,7 @@ describe("useModal", () => {
       screen.getByText(modalText)
       fireEvent.click(screen.getByTestId("modal-close"))
 
-      expect(onCloseMock).toBeCalledTimes(1)
+      expect(onCloseMock).toHaveBeenCalledTimes(1)
     })
 
     it("calls the onClose function when the overlay is clicked", async () => {
@@ -103,7 +103,7 @@ describe("useModal", () => {
       screen.getByText(modalText)
       fireEvent.click(screen.getByTestId("modal-overlay"))
 
-      expect(onCloseMock).toBeCalledTimes(1)
+      expect(onCloseMock).toHaveBeenCalledTimes(1)
     })
   })
 

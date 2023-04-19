@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 
-import styles from "./customErrorPage.module.css"
 import Button from "../button"
+import styles from "./customErrorPage.module.css"
 
 interface Props {
   /**

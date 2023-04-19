@@ -1,11 +1,10 @@
 import { getTrackBackground, Range } from "react-range"
 import React, { useMemo } from "react"
 
+import colors from "../../../tailwind/colors"
 import RangeFilterScale, { RangeElement } from "./rangeFilterScale"
 
 import Chart from "./chart"
-
-import colors from "../../../tailwind/colors"
 
 import { ChangeCallback, NumericMinMaxValue } from "./index"
 

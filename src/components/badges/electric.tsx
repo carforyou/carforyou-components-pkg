@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 
+import ElectricIcon from "../../assets/dist/electric"
 import { BadgeProps } from "./types"
 import BaseBadge from "./base"
-import ElectricIcon from "../../assets/dist/electric"
 
 export const ElectricBadge: FC<BadgeProps> = ({
   language,

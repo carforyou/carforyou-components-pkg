@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 
+import UmbrellaIcon from "../../assets/dist/umbrella"
 import { BadgeProps } from "./types"
 import BaseBadge from "./base"
-import UmbrellaIcon from "../../assets/dist/umbrella"
 
 export const BuyerProtectionBadge: FC<BadgeProps> = ({
   language,

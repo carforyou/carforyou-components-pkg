@@ -2,11 +2,11 @@ import useDeepCompareEffect from "use-deep-compare-effect"
 import React, { FC, useMemo, useState } from "react"
 import classNames from "classnames"
 
-import styles from "./index.module.css"
-import { bootIntercom } from "./helper"
 import Spinner from "../spinner"
 import CloseIcon from "../../assets/dist/icons/close"
 import ChatIcon from "../../assets/dist/icons/chat"
+import styles from "./index.module.css"
+import { bootIntercom } from "./helper"
 
 interface Props {
   /**

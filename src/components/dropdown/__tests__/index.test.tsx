@@ -103,7 +103,7 @@ describe("<Dropdown>", () => {
     const optionNode = screen.getByText("Two")
     fireEvent.click(optionNode)
 
-    expect(mockedOnSelect).toBeCalledWith(2)
+    expect(mockedOnSelect).toHaveBeenCalledWith(2)
   })
 
   it("closes after selecting option", async () => {
