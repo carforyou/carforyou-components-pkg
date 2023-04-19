@@ -1,4 +1,4 @@
-FROM node:16.19.0-alpine@sha256:58e4dfcf063f67d71e608c3cace5a0bcf39e9dbab3047b41e20c15c7132d1d46
+FROM node:16.20.0-alpine@sha256:b4a72f83f52bbe3970bb74a15e44ec4cf6e873ad4787473dfc8a26f5b4e29dd2
 
 RUN apk add --update --no-cache alpine-sdk python3
 

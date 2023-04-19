@@ -47,8 +47,8 @@ describe("<Pagination>", () => {
         pageLinkBuilder={() => linkBuilder(1, { lng: "de" })}
       />
     )
-    fireEvent.click(screen.getByRole("button", { name: "Page 2" }))
-    expect(screen.getByRole("button", { name: "Page 2 is your current page" }))
+    fireEvent.click(screen.getByRole("link", { name: "Page 2" }))
+    expect(screen.getByRole("link", { name: "Page 2 is your current page" }))
   })
 
   it("does not mark inactive page as active", async () => {
@@ -66,7 +66,7 @@ describe("<Pagination>", () => {
     )
     fireEvent.click(screen.getByText("2"))
     expect(
-      screen.queryByRole("button", { name: "Page 3 is your current page" })
+      screen.queryByRole("link", { name: "Page 3 is your current page" })
     ).not.toBeInTheDocument()
   })
 })
