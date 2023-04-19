@@ -47,7 +47,7 @@
   "devDependencies": {
     "@carforyou/assets": "2.1.12",
     "@rollup/plugin-commonjs": "24.0.1",
-    "@rollup/plugin-node-resolve": "15.0.1",
+    "@rollup/plugin-node-resolve": "15.0.2",
     "@rollup/plugin-typescript": "8.5.0",
     "@carforyou/eslint-config": "4.0.35",
     "@storybook/addon-essentials": "6.5.16",
