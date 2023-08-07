@@ -85,7 +85,7 @@
     "storybook": "7.0.27",
     "tailwindcss": "2.2.19",
     "ts-jest": "29.1.1",
-    "typescript": "5.0.4"
+    "typescript": "5.1.6"
   },
   "sideEffects": false,
   "main": "./pkg/cjs/index.js",
