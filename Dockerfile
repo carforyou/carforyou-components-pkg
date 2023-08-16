@@ -1,4 +1,4 @@
-FROM node:16.20.2@sha256:aeb19a58be00038b1d519538ee24ee5c8e4ddc6f42703e70e8b02dff79269da2
+FROM node:gallium-alpine@sha256:72e89a86be58c922ed7b1475e5e6f151537676470695dd106521738b060e139d
 
 RUN apk add --update --no-cache alpine-sdk python3
 
