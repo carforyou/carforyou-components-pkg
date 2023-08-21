@@ -50,7 +50,7 @@
     "@babel/preset-react": "7.22.5",
     "@babel/preset-typescript": "7.22.5",
     "@carforyou/assets": "2.1.25",
-    "@carforyou/eslint-config": "4.0.66",
+    "@carforyou/eslint-config": "4.0.68",
     "@rollup/plugin-commonjs": "25.0.4",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@rollup/plugin-typescript": "11.1.2",
