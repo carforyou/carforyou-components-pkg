@@ -22,7 +22,7 @@ interface Props<T> {
   ) => ReactChild
 }
 
-const BaseDropdown: FC<Props<unknown>> = <T extends unknown>({
+const BaseDropdown = <T extends unknown>({
   options,
   selected,
   onSelect,
