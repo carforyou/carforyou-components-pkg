@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactElement } from "react"
+import React, { FC, ReactChild, ReactElement } from "react"
 
 import Downshift, { ControllerStateAndHelpers } from "downshift"
 
@@ -22,7 +22,7 @@ interface Props<T> {
   ) => ReactChild
 }
 
-function BaseDropdown<T>({
+const BaseDropdown: FC<Props<unknown>> = <T extends unknown>({
   options,
   selected,
   onSelect,
@@ -30,7 +30,7 @@ function BaseDropdown<T>({
   menu,
   filterOptions,
   equal,
-}: Props<T>): ReactElement {
+}: Props<T>) => {
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
     return (equal || defaultEqual)(a, b)
