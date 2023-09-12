@@ -1,4 +1,4 @@
-import React, { FC, ReactChild, ReactElement } from "react"
+import React, { ReactChild, ReactElement } from "react"
 
 import Downshift, { ControllerStateAndHelpers } from "downshift"
 
@@ -22,6 +22,7 @@ interface Props<T> {
   ) => ReactChild
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint
 const BaseDropdown = <T extends unknown>({
   options,
   selected,
@@ -30,7 +31,7 @@ const BaseDropdown = <T extends unknown>({
   menu,
   filterOptions,
   equal,
-}: Props<T>) => {
+}: Props<T>): ReactElement => {
   const equalWrapper = (a, b) => {
     const defaultEqual = (x, y) => x === y
     return (equal || defaultEqual)(a, b)
