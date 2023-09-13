@@ -1,11 +1,5 @@
 import React, { useContext, useState } from "react"
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  within,
-} from "@testing-library/react"
+import { fireEvent, render, screen, within } from "@testing-library/react"
 
 import FlashMessagesProvider from "../provider"
 import FlashMessagesContext from "../context"
@@ -34,8 +28,6 @@ const DummyComponent = () => {
 }
 
 describe("<FlashMessagesProvider />", () => {
-  afterEach(cleanup)
-
   const renderProvider = () =>
     render(
       <FlashMessagesProvider>

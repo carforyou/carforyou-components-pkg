@@ -1,11 +1,5 @@
 import React from "react"
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  within,
-} from "@testing-library/react"
+import { fireEvent, render, screen, within } from "@testing-library/react"
 
 import DropdownWithAutosuggest from "../withAutosuggest"
 
@@ -50,10 +44,7 @@ describe("<DropdownWithAutosuggest>", () => {
     screen.getByTestId("dropdown-options")
   }
 
-  afterEach(() => {
-    mockedOnSelect.mockClear()
-    cleanup()
-  })
+  afterEach(mockedOnSelect.mockClear)
 
   describe("when closed", () => {
     it("renders the input", () => {

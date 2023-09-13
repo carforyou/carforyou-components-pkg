@@ -1,11 +1,5 @@
 import React from "react"
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  within,
-} from "@testing-library/react"
+import { fireEvent, render, screen, within } from "@testing-library/react"
 
 import Dropdown from "../index"
 
@@ -49,10 +43,7 @@ describe("<Dropdown>", () => {
     screen.getByTestId("dropdown-options")
   }
 
-  beforeEach(() => {
-    cleanup()
-    mockedOnSelect.mockClear()
-  })
+  beforeEach(mockedOnSelect.mockClear)
 
   describe("correct markup", () => {
     describe("when closed", () => {

@@ -28,10 +28,10 @@ describe("<RangeInputWithUnit/>", () => {
     mockOnChange.mockClear()
   })
 
-  it("triggers onChange with the touched MIN field", () => {
+  it("triggers onChange with the touched MIN field", async () => {
     renderField()
-    userEvent.clear(screen.getByTestId("priceFrom"))
-    userEvent.type(screen.getByTestId("priceFrom"), "500")
+    await userEvent.clear(screen.getByTestId("priceFrom"))
+    await userEvent.type(screen.getByTestId("priceFrom"), "500")
     return waitFor(
       () => {
         expect(mockOnChange).toHaveBeenCalledWith({
@@ -43,10 +43,10 @@ describe("<RangeInputWithUnit/>", () => {
     )
   })
 
-  it("triggers onChange with the touched MAX field", () => {
+  it("triggers onChange with the touched MAX field", async () => {
     renderField()
-    userEvent.clear(screen.getByTestId("priceTo"))
-    userEvent.type(screen.getByTestId("priceTo"), "300")
+    await userEvent.clear(screen.getByTestId("priceTo"))
+    await userEvent.type(screen.getByTestId("priceTo"), "300")
     return waitFor(
       () => {
         expect(mockOnChange).toHaveBeenCalledWith({

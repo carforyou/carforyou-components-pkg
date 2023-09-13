@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 
 import FlashMessages from "../index"
 import { FlashMessagesContext, FlashMessageType } from "../context/index"
@@ -7,8 +7,6 @@ import { FlashMessagesContext, FlashMessageType } from "../context/index"
 const types: FlashMessageType[] = ["error", "warning", "information", "success"]
 
 describe("<FlashMessages />", () => {
-  afterEach(cleanup)
-
   const renderMessages = () => {
     return render(
       <FlashMessagesContext.Provider
