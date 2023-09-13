@@ -1,12 +1,10 @@
 import React from "react"
-import { cleanup, fireEvent, render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 import Button from "../button"
 import CtaCall from "../../../.storybook/icons/ctaCall"
 
 describe("<Button>", () => {
-  beforeEach(cleanup)
-
   it("renders button label", () => {
     render(<Button>Label</Button>)
     screen.getByText("Label")

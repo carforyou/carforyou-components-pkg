@@ -57,25 +57,25 @@ describe("<RangeFilterWithFacets/>", () => {
   })
 
   describe("with input field", () => {
-    it("allows to change the min value through the input field", () => {
+    it("allows to change the min value through the input field", async () => {
       renderScreen()
-      userEvent.type(screen.getByTestId("priceFrom"), "5000")
+      await userEvent.type(screen.getByTestId("priceFrom"), "5000")
       return waitFor(() => {
         expect(mockAddFilter).toHaveBeenCalledWith({ min: "5000", max: null })
       })
     })
 
-    it("allows to change the max value through the input field", () => {
+    it("allows to change the max value through the input field", async () => {
       renderScreen()
-      userEvent.type(screen.getByTestId("priceTo"), "10000")
+      await userEvent.type(screen.getByTestId("priceTo"), "10000")
       return waitFor(() => {
         expect(mockAddFilter).toHaveBeenCalledWith({ min: null, max: "10000" })
       })
     })
 
-    it("triggers the tracking function when the FROM field is edited", () => {
+    it("triggers the tracking function when the FROM field is edited", async () => {
       renderScreen()
-      userEvent.type(screen.getByTestId("priceFrom"), "5000")
+      await userEvent.type(screen.getByTestId("priceFrom"), "5000")
       return waitFor(() => {
         expect(mockTracking).toHaveBeenCalledWith({
           touchedElement: "priceFrom",
@@ -84,9 +84,9 @@ describe("<RangeFilterWithFacets/>", () => {
       })
     })
 
-    it("triggers the tracking function when the TO field is edited", () => {
+    it("triggers the tracking function when the TO field is edited", async () => {
       renderScreen()
-      userEvent.type(screen.getByTestId("priceTo"), "10000")
+      await userEvent.type(screen.getByTestId("priceTo"), "10000")
       return waitFor(
         () => {
           expect(mockTracking).toHaveBeenCalledWith({
@@ -116,10 +116,10 @@ describe("<RangeFilterWithFacets/>", () => {
       expect(maxMarker).toHaveAttribute("aria-valuenow", "7")
     })
 
-    it("triggers the tracking function when the FROM thumb moves", () => {
+    it("triggers the tracking function when the FROM thumb moves", async () => {
       renderScreen({ min: 1000, max: 22500 })
       const fromSlider = screen.getAllByRole("slider")[0]
-      userEvent.type(fromSlider, "{arrowup}")
+      await userEvent.type(fromSlider, "{arrowup}")
       return waitFor(
         () => {
           expect(mockTracking).toHaveBeenCalledWith({
@@ -135,8 +135,8 @@ describe("<RangeFilterWithFacets/>", () => {
       renderScreen({ min: 1000, max: 20000 })
       const fromSlider = screen.getAllByRole("slider")[0]
       const toSlider = screen.getAllByRole("slider")[1]
-      userEvent.click(fromSlider)
-      userEvent.click(toSlider)
+      await userEvent.click(fromSlider)
+      await userEvent.click(toSlider)
       await waitFor(() => {
         expect(mockTracking).not.toHaveBeenCalled()
       })
