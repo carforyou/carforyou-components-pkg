@@ -46,9 +46,9 @@
     "fsevents": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "7.23.2",
-    "@babel/preset-react": "7.22.15",
-    "@babel/preset-typescript": "7.23.2",
+    "@babel/preset-env": "7.23.3",
+    "@babel/preset-react": "7.23.3",
+    "@babel/preset-typescript": "7.23.3",
     "@carforyou/assets": "2.1.37",
     "@carforyou/eslint-config": "4.0.79",
     "@rollup/plugin-commonjs": "25.0.7",
