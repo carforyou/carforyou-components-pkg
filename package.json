@@ -62,7 +62,7 @@
     "@testing-library/react": "12.1.5",
     "@testing-library/user-event": "13.5.0",
     "@types/jest": "29.5.11",
-    "@types/node": "16.18.69",
+    "@types/node": "16.18.70",
     "@types/react": "16.14.55",
     "@types/react-paginate": "7.1.4",
     "autoprefixer": "10.4.16",
